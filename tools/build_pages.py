@@ -28,6 +28,15 @@ PAGES = {
         "active": "blog.html",
         "body_class": "is-boxed page-article",
     },
+    "practice-area.html": {
+        "partial": "practice-area.main.html",
+        "title": "Personal Injury Lawyers | Hartwell &amp; Crane",
+        "description": "Hartwell & Crane represents injured Texans in truck, car and motorcycle crashes, wrongful death, premises liability and product cases. No fee unless we win.",
+        "active": "index.html#practice",
+        "body_class": "is-boxed page-practice",
+        # Highlight this practice area in the sidebar list
+        "current_practice": "Personal Injury",
+    },
 }
 
 # In-page anchors on the homepage that must point back to index.html from other pages
@@ -61,6 +70,12 @@ def main() -> None:
                           f'<a class="nav__link is-active" href="{cfg["active"]}" aria-current="page">')
 
         body = include((ROOT / "partials" / cfg["partial"]).read_text())
+        if cfg.get("current_practice"):
+            name = cfg["current_practice"]
+            body = body.replace(
+                f'<a class="practice-list__link" href="practice-area.html"><span class="practice-list__name">{name}</span>',
+                f'<a class="practice-list__link is-current" href="practice-area.html" aria-current="page"><span class="practice-list__name">{name}</span>',
+            )
         (ROOT / out).write_text(h + top + "\n\n" + body + "\n  " + bottom)
         print(f"built {out}")
 

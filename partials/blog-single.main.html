@@ -149,103 +149,13 @@
         <!-- Sidebar (Bricks: Block; each card is a .widget component). Stacks under the article below 1180px -->
         <aside class="article-aside" aria-label="Sidebar">
 
-          <section class="widget" aria-labelledby="w-recent-title">
-            <h2 class="widget__title" id="w-recent-title">Recent posts</h2>
-            <!-- Bricks: query loop, posts, 4, exclude current -->
-            <ul class="recent-posts" role="list">
-              <li class="recent-post">
-                <a class="recent-post__thumb post-card__media--injury" href="blog-single.html" tabindex="-1" aria-hidden="true"><svg class="icon"><use href="#i-injury"/></svg></a>
-                <div class="recent-post__body">
-                  <a class="recent-post__title" href="blog-single.html">Dog bites and premises liability in Texas</a>
-                  <time class="recent-post__date" datetime="2026-06-24">Jun 24, 2026</time>
-                </div>
-              </li>
-              <li class="recent-post">
-                <a class="recent-post__thumb post-card__media--employment" href="blog-single.html" tabindex="-1" aria-hidden="true"><svg class="icon"><use href="#i-briefcase"/></svg></a>
-                <div class="recent-post__body">
-                  <a class="recent-post__title" href="blog-single.html">Is your Texas non-compete enforceable?</a>
-                  <time class="recent-post__date" datetime="2026-09-30">Sep 30, 2026</time>
-                </div>
-              </li>
-              <li class="recent-post">
-                <a class="recent-post__thumb post-card__media--estate" href="blog-single.html" tabindex="-1" aria-hidden="true"><svg class="icon"><use href="#i-document"/></svg></a>
-                <div class="recent-post__body">
-                  <a class="recent-post__title" href="blog-single.html">Probate without a will: how intestate succession works</a>
-                  <time class="recent-post__date" datetime="2026-09-02">Sep 2, 2026</time>
-                </div>
-              </li>
-              <li class="recent-post">
-                <a class="recent-post__thumb post-card__media--family" href="blog-single.html" tabindex="-1" aria-hidden="true"><svg class="icon"><use href="#i-family"/></svg></a>
-                <div class="recent-post__body">
-                  <a class="recent-post__title" href="blog-single.html">Dividing a family business in a Texas divorce</a>
-                  <time class="recent-post__date" datetime="2026-08-19">Aug 19, 2026</time>
-                </div>
-              </li>
-            </ul>
-          </section>
+<!-- @include widget-recent -->
 
-          <section class="widget" aria-labelledby="w-cats-title">
-            <h2 class="widget__title" id="w-cats-title">Categories</h2>
-            <!-- Bricks: query loop on terms (category), show count -->
-            <ul class="cat-list" role="list">
-              <li><a class="cat-list__link" href="blog.html"><span>Personal Injury</span><span class="cat-list__count">2</span></a></li>
-              <li><a class="cat-list__link" href="blog.html"><span>Employment</span><span class="cat-list__count">2</span></a></li>
-              <li><a class="cat-list__link" href="blog.html"><span>Family Law</span><span class="cat-list__count">2</span></a></li>
-              <li><a class="cat-list__link" href="blog.html"><span>Criminal Defense</span><span class="cat-list__count">2</span></a></li>
-              <li><a class="cat-list__link" href="blog.html"><span>Business Litigation</span><span class="cat-list__count">1</span></a></li>
-              <li><a class="cat-list__link" href="blog.html"><span>Estate &amp; Probate</span><span class="cat-list__count">1</span></a></li>
-            </ul>
-          </section>
+<!-- @include widget-categories -->
 
-          <section class="widget widget--tint" aria-labelledby="w-practice-title">
-            <h2 class="widget__title" id="w-practice-title">Practice areas</h2>
-            <!-- Bricks: query loop, CPT Practice Area -->
-            <ul class="practice-list" role="list">
-              <li><a class="practice-list__link" href="index.html#practice"><span class="practice-list__icon"><svg class="icon"><use href="#i-injury"/></svg></span><span class="practice-list__name">Personal Injury</span><svg class="icon practice-list__arrow"><use href="#i-chevron"/></svg></a></li>
-              <li><a class="practice-list__link" href="index.html#practice"><span class="practice-list__icon"><svg class="icon"><use href="#i-briefcase"/></svg></span><span class="practice-list__name">Employment Law</span><svg class="icon practice-list__arrow"><use href="#i-chevron"/></svg></a></li>
-              <li><a class="practice-list__link" href="index.html#practice"><span class="practice-list__icon"><svg class="icon"><use href="#i-family"/></svg></span><span class="practice-list__name">Family Law</span><svg class="icon practice-list__arrow"><use href="#i-chevron"/></svg></a></li>
-              <li><a class="practice-list__link" href="index.html#practice"><span class="practice-list__icon"><svg class="icon"><use href="#i-shield"/></svg></span><span class="practice-list__name">Criminal Defense</span><svg class="icon practice-list__arrow"><use href="#i-chevron"/></svg></a></li>
-              <li><a class="practice-list__link" href="index.html#practice"><span class="practice-list__icon"><svg class="icon"><use href="#i-building"/></svg></span><span class="practice-list__name">Business Litigation</span><svg class="icon practice-list__arrow"><use href="#i-chevron"/></svg></a></li>
-              <li><a class="practice-list__link" href="index.html#practice"><span class="practice-list__icon"><svg class="icon"><use href="#i-document"/></svg></span><span class="practice-list__name">Estate &amp; Probate</span><svg class="icon practice-list__arrow"><use href="#i-chevron"/></svg></a></li>
-            </ul>
-          </section>
+<!-- @include widget-practice -->
 
-          <section class="widget widget--form" aria-labelledby="w-form-title">
-            <p class="widget__eyebrow">Free case review</p>
-            <h2 class="widget__title" id="w-form-title">Talk to a partner today</h2>
-            <p class="widget__text">Tell us what happened. We respond within one business day.</p>
-            <!-- Bricks: Form element, class .form .form--dark -->
-            <form class="form form--dark js-form" novalidate>
-              <div class="form__field">
-                <label class="form__label" for="w-name">Full name</label>
-                <input class="form__input" id="w-name" name="name" type="text" autocomplete="name" required>
-              </div>
-              <div class="form__field">
-                <label class="form__label" for="w-phone">Phone</label>
-                <input class="form__input" id="w-phone" name="phone" type="tel" autocomplete="tel" required>
-              </div>
-              <div class="form__field">
-                <label class="form__label" for="w-area">Type of matter</label>
-                <select class="form__input" id="w-area" name="area" required>
-                  <option value="">Select a practice area</option>
-                  <option>Personal injury</option>
-                  <option>Employment</option>
-                  <option>Family law</option>
-                  <option>Criminal defense</option>
-                  <option>Business litigation</option>
-                  <option>Estate planning &amp; probate</option>
-                </select>
-              </div>
-              <div class="form__field">
-                <label class="form__label" for="w-msg">Briefly, what happened?</label>
-                <textarea class="form__input" id="w-msg" name="message" rows="2"></textarea>
-              </div>
-              <button class="btn btn--accent btn--block" type="submit">Request My Review</button>
-              <p class="form__note">Free and confidential. Sending this form does not create an attorney–client relationship.</p>
-              <p class="form__status" role="status" hidden></p>
-            </form>
-            <a class="widget__phone" href="tel:+12145550190"><svg class="icon"><use href="#i-phone"/></svg>Or call (214) 555-0190</a>
-          </section>
+<!-- @include widget-form -->
 
         </aside>
       </div>

@@ -370,13 +370,13 @@ Block .article-aside  (flex column, gap --space-l, align-self stretch)
 ├ Section .widget  "Recent posts"
 │ ├ Heading h2 .widget__title
 │ └ ul .recent-posts ← Query loop: posts, 4, exclude current (post__not_in {post_id})
-│   └ li .recent-post → Image .recent-post__thumb {featured_image} (72×72) + .recent-post__title {post_title} + .recent-post__date {post_date}
+│   └ li .recent-post → .recent-post__title {post_title} + .recent-post__date {post_date}   (text only, no image)
 ├ Section .widget  "Categories"
 │ └ ul .cat-list ← Query loop: Terms, taxonomy category, hide empty
 │   └ li → a .cat-list__link {term_name} + span .cat-list__count {term_count}
 ├ Section .widget .widget--tint  "Practice areas"
 │ └ ul .practice-list ← Query loop: CPT Practice Area
-│   └ li → a .practice-list__link → .practice-list__icon (ACF icon) + .practice-list__name {post_title} + chevron
+│   └ li → a .practice-list__link → .practice-list__name {post_title} + chevron   (text only; add .is-current on the current practice area)
 └ Section .widget .widget--form  "Free case review"
   ├ .widget__eyebrow, h2 .widget__title, .widget__text
   ├ Form element .form .form--dark   (name, phone, practice area, message)
@@ -404,3 +404,55 @@ Block .article-aside  (flex column, gap --space-l, align-self stretch)
 **Fields to add:** ACF on Post → `reviewed_by` (relationship to Attorney), `reading_time` (number, or calculate it). ACF on User → `role_title`, `bio`.
 
 **SEO:** `Article` schema with `author` and `reviewedBy`; `BreadcrumbList` from the breadcrumbs.
+
+---
+
+## 9. Practice area single template
+
+File: `practice-area.html`, built from `partials/practice-area.main.html`. Bricks: **Templates → Single**, condition *Post type = Practice Area*. The sample content is Personal Injury.
+
+The sidebar has three cards: **Recent posts, Practice areas and the form**. There is no Categories card on this template. The sidebar cards are shared partials (`partials/widget-*.html`), so blog posts and practice pages always use identical cards. In Bricks, save each one as a component and drop the components you need into each template.
+
+```
+Section .page-hero .page-hero--practice
+└ Container .page-hero__inner
+  ├ Breadcrumbs .breadcrumb   (Home / Practice Areas / {post_title})
+  └ Block .page-hero__grid
+    ├ Block .page-hero__content → eyebrow "Practice Area", h1 {post_title}, lede {acf_hero_lede}, .page-hero__actions (2 buttons)
+    └ dl .hero-stats → 3 × .hero-stats__item  (ACF repeater: label, value)
+Container .article-layout
+├ Block .article-layout__main
+│ ├ Post Content .prose                         (overview)
+│ ├ Section .practice-block "Cases we handle"   → ul .case-types > li .case-type (ACF repeater: title, text)
+│ ├ Section .practice-block "What you can recover" → .damages (2 × .damages__col) + .callout
+│ ├ Section .practice-block "How your case moves"  → ol .timeline > li .timeline__item (ACF repeater: step label, title, text)
+│ ├ Section .practice-block "Recent results"    → ul .mini-results ← Query loop: Case Result where practice = current, 4
+│ ├ Section .practice-block "Your legal team"   → ul .team-mini ← Query loop: Attorney where practice = current
+│ ├ Section .practice-block FAQ                 → Accordion (Nestable) .faq-item, ACF repeater; FAQPage schema
+│ └ Text .practice-disclaimer
+└ Block .article-aside
+  ├ Component: Recent posts   (query: posts in the category linked to this practice area, 4)
+  ├ Component: Practice areas (current item gets .is-current)
+  └ Component: Form box       (id="case-review" so the hero button scrolls to it)
+Section .related → Query loop: posts in the linked category, 3
+CTA band component
+```
+
+**Fields on the Practice Area CPT (ACF):**
+
+| Field | Type |
+|---|---|
+| `hero_lede` | Textarea |
+| `hero_stats` | Repeater: label, value |
+| `case_types` | Repeater: title, text |
+| `economic_damages`, `non_economic_damages` | Textarea, one item per line |
+| `law_note` | Textarea, for the callout |
+| `timeline` | Repeater: step, title, text |
+| `faqs` | Repeater: question, answer |
+| `blog_category` | Taxonomy, used to link related posts |
+
+Add a relationship field `practice_areas` on both the Attorney and Case Result post types.
+
+**Current item in the sidebar list:** in Bricks, add a condition on the link: *{post_id} equals {query_post_id}* → add class `is-current`. In the prototype, `tools/build_pages.py` sets it with `current_practice`.
+
+**Links:** homepage practice cards and footer practice links now point to the practice template. To add another practice area, add one entry to `PAGES` in `tools/build_pages.py`, or in WordPress, add a Practice Area post.

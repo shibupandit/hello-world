@@ -1,0 +1,36 @@
+          <section class="widget widget--form" id="case-review" aria-labelledby="w-form-title">
+            <p class="widget__eyebrow">Free case review</p>
+            <h2 class="widget__title" id="w-form-title">Talk to a partner today</h2>
+            <p class="widget__text">Tell us what happened. We respond within one business day.</p>
+            <!-- Bricks: Form element, class .form .form--dark -->
+            <form class="form form--dark js-form" novalidate>
+              <div class="form__field">
+                <label class="form__label" for="w-name">Full name</label>
+                <input class="form__input" id="w-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="w-phone">Phone</label>
+                <input class="form__input" id="w-phone" name="phone" type="tel" autocomplete="tel" required>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="w-area">Type of matter</label>
+                <select class="form__input" id="w-area" name="area" required>
+                  <option value="">Select a practice area</option>
+                  <option>Personal injury</option>
+                  <option>Employment</option>
+                  <option>Family law</option>
+                  <option>Criminal defense</option>
+                  <option>Business litigation</option>
+                  <option>Estate planning &amp; probate</option>
+                </select>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="w-msg">Briefly, what happened?</label>
+                <textarea class="form__input" id="w-msg" name="message" rows="2"></textarea>
+              </div>
+              <button class="btn btn--accent btn--block" type="submit">Request My Review</button>
+              <p class="form__note">Free and confidential. Sending this form does not create an attorney–client relationship.</p>
+              <p class="form__status" role="status" hidden></p>
+            </form>
+            <a class="widget__phone" href="tel:+12145550190"><svg class="icon"><use href="#i-phone"/></svg>Or call (214) 555-0190</a>
+          </section>
