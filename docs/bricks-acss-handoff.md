@@ -222,7 +222,9 @@ Use Bricks **Accordion (Nestable)** with *Independent toggle* off (one open at a
 Query loop on Posts, 3 items, `.post-card` with featured image in `.post-card__media` (aspect 16/10). Category and date via dynamic data `{post_terms_category}`, `{post_date}`.
 
 ### Our Offices (query loop)
-CPT **Office** with fields `region_label` (e.g. "Headquarters"), `street`, `city_line`, `phone`, `email`, `hours`, `counties_served`, `coordinates`, `map_url`, and optional `map_image`. Reuse the same CPT in the footer so both lists stay in sync.
+Card layout: a green header band with region label, city name in uppercase and a pin icon, finished with a brass bottom border. Below it is a white, centred body with the address, "Maps and Directions", the phone number, and a "Learn more" link to the office page.
+
+CPT **Office** with fields `region_label` (e.g. "Headquarters"), `street`, `suite`, `city_line`, `phone`, `map_url`, and optionally `email`, `hours`. Reuse the same CPT in the footer so both lists stay in sync. Each Office post can have its own single page (template: Single → Office), which "Learn more" links to.
 
 ```
 Section .offices
@@ -230,16 +232,18 @@ Section .offices
   ├ Block .section__head .section__head--split
   └ ul .offices__grid   (grid--4, grid--l-2, grid--s-1)
     └ li .office-card  ← Query loop: Office, order by menu_order
-      ├ Block .office-card__map   (static map image if set; otherwise the CSS survey-grid placeholder with .office-card__pin + .office-card__coords {acf_coordinates})
-      └ Block .office-card__body
-        ├ Text .office-card__tag {acf_region_label}
-        ├ Heading h3 .office-card__city {post_title}
-        ├ Text .office-card__address {acf_street}<br>{acf_city_line}
-        ├ Icon list .office-card__details  (phone / email / hours, linked)
-        ├ Text .office-card__serves  "Serving {acf_counties_served}"
-        └ Text-link .office-card__link "Get directions" → {acf_map_url} (new tab)
+      ├ Block .office-card__head   (bg primary, border-bottom 3px accent, text centred)
+      │ ├ Text .office-card__tag {acf_region_label}
+      │ ├ Heading h3 .office-card__city {post_title}
+      │ └ Icon .office-card__pin (map pin, accent-light)
+      └ Block .office-card__body   (flex column, centred)
+        ├ Text .office-card__address {acf_street}<br>{acf_suite}<br>{acf_city_line}
+        ├ ul .office-card__links
+        │ ├ Text-link .office-card__link "Maps and Directions" → {acf_map_url} (new tab)
+        │ └ Text-link .office-card__link--phone {acf_phone} → tel:
+        └ Text-link .office-card__more "Learn more" → {post_url}
 ```
-Don't embed a Google Map iframe on every card; four iframes make the page slow. Use a static image, or one Map element on a dedicated Contact page.
+Avoid embedding a Google Map iframe on every card. Put one Map element on each Office single page instead.
 
 ### Contact / CTA
 Section `.contact` → grid with contact details (Icon + Text) and a Bricks **Form** element with class `.contact__form .form`. In the Form element:

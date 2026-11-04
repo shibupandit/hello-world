@@ -1089,87 +1089,94 @@ textarea.form__input { resize: vertical; min-height: 9rem; }
   border: 1px solid var(--pc-line);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: box-shadow 0.3s var(--pc-ease), border-color 0.3s var(--pc-ease);
+  box-shadow: var(--pc-shadow-m);
+  text-align: center;
+  transition: box-shadow 0.3s var(--pc-ease), transform 0.3s var(--pc-ease);
 }
-.office-card:hover { box-shadow: var(--pc-shadow-m); border-color: transparent; }
-.office-card__map {
+.office-card:hover { box-shadow: var(--pc-shadow-l); transform: translateY(-3px); }
+
+/* Header band: city + pin (reference: coloured band, centred) */
+.office-card__head {
   position: relative;
-  aspect-ratio: 16 / 9;
-  max-width: 100%;
-  /* Survey-grid placeholder. In Bricks: static map image or the Map element */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: var(--space-l) var(--space-m) var(--space-m);
   background:
-    linear-gradient(var(--pc-line) 1px, transparent 1px) 0 0 / 2.4rem 2.4rem,
-    linear-gradient(90deg, var(--pc-line) 1px, transparent 1px) 0 0 / 2.4rem 2.4rem,
-    linear-gradient(160deg, transparent 0 46%, color-mix(in srgb, var(--accent) 22%, transparent) 46% 49%, transparent 49%),
-    linear-gradient(20deg, transparent 0 60%, color-mix(in srgb, var(--primary) 14%, transparent) 60% 62%, transparent 62%),
-    var(--primary-ultra-light);
+    radial-gradient(120% 100% at 50% 0%, color-mix(in srgb, var(--white) 8%, transparent), transparent 60%),
+    var(--primary);
+  color: var(--white);
+  border-bottom: 3px solid var(--accent);
+}
+.office-card__tag {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+.office-card__city {
+  font-family: var(--pc-font-display);
+  font-weight: 400;
+  font-size: var(--h3);
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
 }
 .office-card__pin {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  display: grid;
-  place-items: center;
-  width: 4.4rem;
-  height: 4.4rem;
-  border-radius: var(--radius-circle);
-  background: var(--primary);
-  color: var(--white);
-  box-shadow: 0 0 0 8px color-mix(in srgb, var(--primary) 14%, transparent);
-  transform: translate(-50%, -50%);
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-top: var(--space-xs);
+  color: var(--accent-light);
 }
-.office-card__coords {
-  position: absolute;
-  left: var(--space-s);
-  bottom: var(--space-xs);
-  font-size: 1.15rem;
-  letter-spacing: 0.08em;
-  color: var(--base-medium);
-  font-variant-numeric: tabular-nums;
-}
+
+/* Body: address, links, learn more */
 .office-card__body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  align-items: center;
+  gap: var(--space-m);
   flex: 1;
-  padding: var(--space-m);
+  padding: var(--space-l) var(--space-m);
 }
-.office-card__tag {
-  font-size: var(--text-xs);
+.office-card__address {
+  font-style: normal;
+  font-size: var(--text-l);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--base);
+}
+.office-card__links { display: flex; flex-direction: column; gap: var(--space-xs); flex: 1; }
+.office-card__link {
+  font-size: var(--text-m);
+  font-weight: 500;
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: color 0.2s;
+}
+.office-card__link:hover { color: var(--primary); }
+.office-card__link--phone { font-variant-numeric: tabular-nums; }
+.office-card__more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--pc-line);
+  font-size: var(--text-s);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-dark);
-}
-.office-card__city { font-family: var(--pc-font-display); font-weight: 400; font-size: var(--h3); line-height: 1.1; color: var(--primary-dark); }
-.office-card__address { font-style: normal; font-size: var(--text-s); color: var(--base); }
-.office-card__details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-top: var(--space-xs);
-  padding-top: var(--space-s);
-  border-top: 1px solid var(--pc-line);
-  font-size: var(--text-s);
-}
-.office-card__details li { display: flex; align-items: center; gap: 1rem; min-width: 0; }
-.office-card__details .icon { color: var(--accent-dark); }
-.office-card__details a { text-decoration: none; overflow-wrap: anywhere; }
-.office-card__details a:hover { color: var(--primary); text-decoration: underline; }
-.office-card__serves { flex: 1; font-size: 1.35rem; color: var(--base-medium); }
-.office-card__serves span { font-weight: 600; color: var(--base); }
-.office-card__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-top: var(--space-xs);
-  font-size: var(--text-s);
-  font-weight: 600;
   color: var(--primary);
   text-decoration: none;
 }
-.office-card__link .icon { transition: transform 0.25s var(--pc-ease); }
-.office-card__link:hover .icon { transform: translateX(4px); }
+.office-card__more .icon { transition: transform 0.25s var(--pc-ease); }
+.office-card__more:hover .icon { transform: translateX(4px); }
 
 /* ==========================================================================
    Footer offices — boxes on desktop, accordions at 640px and below
