@@ -527,3 +527,23 @@ Built natively in Bricks on 2026-11-04 with the HTML/CSS → Bricks converter. T
 **Featured article:** the sandbox snippet `wp-content/novamira-sandbox/hc-blog-featured-post.php` makes the featured card show the **sticky** post. It also keeps that post out of the grid and sets 9 posts per page. To feature a different article, tick *Stick to the top of the blog* on it. Turn the snippet off under Novamira → Sandbox.
 
 **How they were built:** `build/bricks/tpl-*.html` were converted with marker classes. `loop-*` became a query loop, `dyn-*` a dynamic tag, `cond-*` an element condition, and `slot-*` a native element (Post Content, Search, Pagination, Fluent Forms shortcode). Dummy content seed: `build/content/seed.json`.
+
+### Where the CSS lives now (no global stylesheet)
+
+The theme style's **Custom CSS is empty**. All styling is native to Bricks and ACSS:
+
+| What | Where |
+|---|---|
+| Body font, size, line-height, colour | Theme style → Typography → Body |
+| Container alignment and max-width | Theme style → Container (`align-items: stretch`, max-width 100%) |
+| Paragraph, heading and list margins, focus outlines, anchor offset under the sticky header | ACSS resets (ACSS → Typography / Accessibility). Smooth scrolling is **on** in ACSS. |
+| Component styles | Each BEM class (`hero`, `post-card`, `office-card`, …): typed controls first, the rest in that class's **Custom CSS** using `%root%`. |
+| Gutters on the header, topbar and footer; zero section padding on thin bands; row direction on flex-row containers | Typed class controls (`_padding`, `_direction`, `_alignItems`) |
+| List bullets off for `role="list"` | The list's own class (23 classes), or the parent class for `footer__col` and `breadcrumb` |
+| SVG icon size | Global class `icon`, attached to every SVG element |
+| Sticky header (`#brx-header`) | Custom CSS on the `topbar` class (used by the Header template, so it loads on every page) |
+| Fluent Forms styling | Custom CSS on the `form` class (on every form shortcode element). The dark sidebar variant is on `widget--form`. |
+| Article body extras (pull quote, table wrapper, checklist, lead) | Custom CSS on the `prose` class (on the Post Content element) |
+| Featured card visible only on the blog home | Custom CSS on `post-featured` |
+
+**Font families** in class typography must be **bare names** (`Libre Caslon Display`) with the fallback in *Font fallback*. A quoted stack gets double-quoted by Bricks and falls back to Times.
