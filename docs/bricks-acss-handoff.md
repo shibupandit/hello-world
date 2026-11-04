@@ -671,3 +671,29 @@ The attorney grid on the homepage (`6ouoru`) and About (`8ce895`) is now one que
   - a "View profile →" link
 
 The photo frame links to the profile too. The static cards were removed. To change who appears, edit the Attorneys category or the Team order.
+
+## 14. Testimonials page (`/testimonials/`, page ID 694)
+
+**Data:** the **Testimonial** post type, with ACF group "Testimonials" (`group_68c12b7182f2d`):
+- `testimonials_body_text`: the quote
+- `testimonials_rating`, `testimonials_initials`, `testimonials_practice`, `testimonials_location`
+- `testimonials_attorney` + `testimonials_attorney_url`
+- `testimonials_featured` (true/false)
+- for the featured story only: `testimonials_result_amount`, `testimonials_result_type`, `testimonials_court`
+
+The client name is the post title. Order is set with Page Attributes → Order. There are 10 testimonials; the 4 old dummy posts are in the trash.
+
+**Page (built from `build/bricks/tpl-testimonials.html`):**
+- **Hero** with a static rating card (4.9, Google / Avvo / Martindale). Edit these numbers on the page.
+- **Featured story:** query loop, 1 post, `meta_query testimonials_featured = 1`. It shows the quote, client, the result card, and a link to the lead attorney's profile. To change it, switch "Featured story" on another testimonial and off the current one.
+- **Wall:** query loop, all posts with `testimonials_featured != 1`, as masonry cards (`reviews__wall`: CSS columns 3 → 2 → 1). Card content:
+  - practice tag
+  - quote: the `testimonial__quote` class adds the curly quotes
+  - initials avatar, name
+  - "{city} · Represented by {attorney}"
+
+  The stars are static (5).
+- **"Share your experience"** band: the Google and Avvo buttons link to `#` until the review URLs are known.
+- **CTA band.**
+
+**Menu:** Resources → Testimonials now goes to `/testimonials/`. The homepage testimonial slider is still static markup (not connected to the post type).
