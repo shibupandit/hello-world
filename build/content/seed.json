@@ -1,0 +1,701 @@
+{
+ "categories": [
+  "Personal Injury",
+  "Employment",
+  "Family Law",
+  "Criminal Defense",
+  "Business Litigation",
+  "Estate & Probate"
+ ],
+ "team": [
+  {
+   "slug": "eleanor-hartwell",
+   "name": "Eleanor Hartwell",
+   "position": "Founding Partner",
+   "designation": "Board Certified, Civil Trial Law",
+   "bio": "Eleanor has tried more than 120 cases to verdict, including some of the largest trucking verdicts in Dallas County. She leads the firm's personal injury practice and teaches trial advocacy to new lawyers."
+  },
+  {
+   "slug": "marcus-crane",
+   "name": "Marcus Crane",
+   "position": "Founding Partner",
+   "designation": "Criminal Defense",
+   "bio": "A former state prosecutor, Marcus defends clients facing state and federal charges and white-collar investigations."
+  },
+  {
+   "slug": "priya-okafor",
+   "name": "Priya Okafor",
+   "position": "Partner",
+   "designation": "Employment",
+   "bio": "Priya represents employees in wrongful termination, discrimination and retaliation cases across North Texas."
+  },
+  {
+   "slug": "daniel-reyes",
+   "name": "Daniel Reyes",
+   "position": "Partner",
+   "designation": "Family Law",
+   "bio": "Daniel handles high-asset divorce, custody and support cases with a focus on keeping children at the centre of every decision."
+  },
+  {
+   "slug": "samuel-ortiz",
+   "name": "Samuel Ortiz",
+   "position": "Senior Associate",
+   "designation": "Trucking and wrongful death",
+   "bio": "Samuel works with Eleanor on commercial vehicle and wrongful death cases, from investigation through trial."
+  }
+ ],
+ "posts": [
+  {
+   "category": "Personal Injury",
+   "title": "What to do in the first 72 hours after a truck accident",
+   "excerpt": "Trucking companies send response teams to a crash scene within hours. Here is what to secure first, and the federal deadlines that work against you.",
+   "date": "2026-10-14 09:00:00",
+   "reading_time": 8,
+   "written_by": "eleanor-hartwell",
+   "reviewed_by": "marcus-crane",
+   "sticky": true,
+   "content": "<p class=\"prose__lead\">A crash with an 80,000-pound truck is not like a crash with another car. The trucking company and its insurer usually have investigators at the scene before the wreckage is cleared. What you do in the first three days decides which evidence still exists when your case is built.</p>\n\n<h2 id=\"medical-care\">1. Get medical care and document it</h2>\n<p>Go to an emergency room or urgent care the same day, even if you feel fine. Adrenaline hides injuries, and symptoms of concussion or spinal injury often appear 24 to 72 hours later.</p>\n<p>Insurers look for gaps. If you wait a week to see a doctor, they will argue the crash did not cause your injuries. Keep every discharge sheet, prescription and bill in one folder.</p>\n\n<h2 id=\"evidence\">2. Secure the evidence before it disappears</h2>\n<p>Commercial trucks carry far more data than a passenger car. Most of it belongs to the carrier, and much of it is kept only for a short time.</p>\n<ul>\n  <li><strong>Electronic logging device (ELD) data</strong> shows how long the driver had been on duty.</li>\n  <li><strong>Engine control module (\"black box\") data</strong> records speed, braking and throttle in the seconds before impact.</li>\n  <li><strong>Dash-cam and driver-facing camera footage</strong> is often overwritten on a loop.</li>\n  <li><strong>Dispatch messages and delivery schedules</strong> can show pressure to drive past legal limits.</li>\n  <li><strong>Maintenance and inspection records</strong> for brakes, tires and lights.</li>\n</ul>\n<p>A lawyer can send a <em>preservation letter</em> (also called a spoliation letter) that puts the carrier on notice. Once it is received, destroying that evidence can lead to sanctions in court.</p>\n\n<aside class=\"callout\" aria-label=\"Key point\">\n  <p class=\"callout__title\">Key point</p>\n  <p>Carriers only have to keep hours-of-service records for six months. Without a preservation letter, the most important evidence in your case can be discarded legally before you file.</p>\n</aside>\n\n<h2 id=\"hours-of-service\">3. Understand the hours-of-service rules</h2>\n<p>Federal rules limit how long a truck driver can work. A property-carrying driver may drive up to 11 hours after 10 consecutive hours off duty, and may not drive beyond the 14th hour after coming on duty. Log violations are some of the strongest evidence of negligence in a trucking case.</p>\n\n<blockquote class=\"pull-quote\">\n  <p>The driver's logbook often tells the story of the crash before any witness does.</p>\n  <cite>Eleanor Hartwell</cite>\n</blockquote>\n\n<h2 id=\"deadlines\">4. Know the deadlines that apply</h2>\n<p>Some deadlines run in hours. Others run in months or years. Missing any of them can weaken or end a claim.</p>\n<div class=\"table-wrap\">\n  <table>\n    <caption>Deadlines in a Texas commercial truck crash</caption>\n    <thead>\n      <tr><th scope=\"col\">What</th><th scope=\"col\">Deadline</th><th scope=\"col\">Source</th></tr>\n    </thead>\n    <tbody>\n      <tr><td>Post-crash alcohol test of the driver (qualifying crashes)</td><td>8 hours</td><td>49 C.F.R. § 382.303</td></tr>\n      <tr><td>Post-crash controlled-substance test</td><td>32 hours</td><td>49 C.F.R. § 382.303</td></tr>\n      <tr><td>Carrier keeps records of duty status</td><td>6 months</td><td>49 C.F.R. § 395.8(k)</td></tr>\n      <tr><td>Notice of claim to a Texas government entity</td><td>6 months, sometimes less</td><td>Tex. Civ. Prac. &amp; Rem. Code § 101.101</td></tr>\n      <tr><td>Filing suit for personal injury or wrongful death</td><td>2 years</td><td>Tex. Civ. Prac. &amp; Rem. Code § 16.003</td></tr>\n    </tbody>\n  </table>\n</div>\n\n<h2 id=\"insurers\">5. Be careful with the insurance company</h2>\n<p>The carrier's adjuster may call within a day or two, sound sympathetic and ask for a recorded statement. You do not have to give one. Anything you say can be used to argue you were partly at fault.</p>\n<p>Texas uses a modified comparative fault rule. If you are found more than 50 percent responsible, you recover nothing. If you are found 20 percent responsible, your recovery is reduced by 20 percent. That is why insurers work hard to shift even a small share of blame.</p>\n<ol>\n  <li>Take the adjuster's name and number, and say your lawyer will be in touch.</li>\n  <li>Do not sign medical authorizations or releases.</li>\n  <li>Do not post about the crash or your injuries on social media.</li>\n  <li>Report the crash to your own insurer, sticking to the basic facts.</li>\n</ol>\n\n<h2 id=\"what-to-gather\">6. What to gather now</h2>\n<ul class=\"prose__checklist\">\n  <li>The Texas Peace Officer's Crash Report (form CR-3), available from TxDOT</li>\n  <li>Photos of the vehicles, the scene, road conditions and your injuries</li>\n  <li>The truck's USDOT number and the company name on the cab door</li>\n  <li>Names and phone numbers of witnesses</li>\n  <li>A short written account of what happened, made while it is fresh</li>\n</ul>\n\n<div class=\"prose__disclaimer\">\n  <p><strong>This article is general information, not legal advice.</strong> Every case depends on its facts. Reading it does not create an attorney–client relationship. Last reviewed October 2026.</p>\n</div>"
+  },
+  {
+   "category": "Employment",
+   "title": "Is your Texas non-compete enforceable?",
+   "excerpt": "Courts look at time, geography and scope. Many agreements fail at least one of those tests.",
+   "date": "2026-09-30 09:00:00",
+   "reading_time": 6,
+   "written_by": "priya-okafor",
+   "reviewed_by": "eleanor-hartwell",
+   "sticky": false,
+   "content": "<p class=\"prose__lead\">Courts look at time, geography and scope. Many agreements fail at least one of those tests.</p>\n<p>This is placeholder article content for the design. Replace it with the full article.</p>\n<h2 id=\"overview\">Overview</h2>\n<p>Every case turns on its facts. A short consultation will tell you how the law applies to yours.</p>"
+  },
+  {
+   "category": "Estate & Probate",
+   "title": "Probate without a will: how intestate succession works",
+   "excerpt": "Who inherits, who serves as administrator, and how long the process usually takes.",
+   "date": "2026-09-02 09:00:00",
+   "reading_time": 7,
+   "written_by": "eleanor-hartwell",
+   "reviewed_by": "daniel-reyes",
+   "sticky": false,
+   "content": "<p class=\"prose__lead\">Who inherits, who serves as administrator, and how long the process usually takes.</p>\n<p>This is placeholder article content for the design. Replace it with the full article.</p>\n<h2 id=\"overview\">Overview</h2>\n<p>Every case turns on its facts. A short consultation will tell you how the law applies to yours.</p>"
+  },
+  {
+   "category": "Family Law",
+   "title": "Dividing a family business in a Texas divorce",
+   "excerpt": "Community property rules, valuation dates and how to keep the company running while the case is open.",
+   "date": "2026-08-19 09:00:00",
+   "reading_time": 9,
+   "written_by": "daniel-reyes",
+   "reviewed_by": "priya-okafor",
+   "sticky": false,
+   "content": "<p class=\"prose__lead\">Community property rules, valuation dates and how to keep the company running while the case is open.</p>\n<p>This is placeholder article content for the design. Replace it with the full article.</p>\n<h2 id=\"overview\">Overview</h2>\n<p>Every case turns on its facts. A short consultation will tell you how the law applies to yours.</p>"
+  },
+  {
+   "category": "Criminal Defense",
+   "title": "Talking to police after an arrest: your rights in plain English",
+   "excerpt": "What to say, what not to say, and how to ask for a lawyer so that it counts.",
+   "date": "2026-08-05 09:00:00",
+   "reading_time": 5,
+   "written_by": "marcus-crane",
+   "reviewed_by": "eleanor-hartwell",
+   "sticky": false,
+   "content": "<p class=\"prose__lead\">What to say, what not to say, and how to ask for a lawyer so that it counts.</p>\n<p>This is placeholder article content for the design. Replace it with the full article.</p>\n<h2 id=\"overview\">Overview</h2>\n<p>Every case turns on its facts. A short consultation will tell you how the law applies to yours.</p>"
+  },
+  {
+   "category": "Employment",
+   "title": "Retaliation after a workplace complaint: what counts",
+   "excerpt": "Demotions, schedule cuts and sudden bad reviews can all be retaliation. Here is how courts decide.",
+   "date": "2026-07-22 09:00:00",
+   "reading_time": 6,
+   "written_by": "priya-okafor",
+   "reviewed_by": "marcus-crane",
+   "sticky": false,
+   "content": "<p class=\"prose__lead\">Demotions, schedule cuts and sudden bad reviews can all be retaliation. Here is how courts decide.</p>\n<p>This is placeholder article content for the design. Replace it with the full article.</p>\n<h2 id=\"overview\">Overview</h2>\n<p>Every case turns on its facts. A short consultation will tell you how the law applies to yours.</p>"
+  },
+  {
+   "category": "Business Litigation",
+   "title": "Breach of contract: when to sue and when to settle",
+   "excerpt": "A practical way to weigh the cost of litigation against what you can realistically recover.",
+   "date": "2026-07-08 09:00:00",
+   "reading_time": 7,
+   "written_by": "eleanor-hartwell",
+   "reviewed_by": "priya-okafor",
+   "sticky": false,
+   "content": "<p class=\"prose__lead\">A practical way to weigh the cost of litigation against what you can realistically recover.</p>\n<p>This is placeholder article content for the design. Replace it with the full article.</p>\n<h2 id=\"overview\">Overview</h2>\n<p>Every case turns on its facts. A short consultation will tell you how the law applies to yours.</p>"
+  },
+  {
+   "category": "Personal Injury",
+   "title": "Dog bites and premises liability in Texas",
+   "excerpt": "Texas has no strict-liability dog bite statute. Owner knowledge and negligence decide most cases.",
+   "date": "2026-06-24 09:00:00",
+   "reading_time": 5,
+   "written_by": "eleanor-hartwell",
+   "reviewed_by": "samuel-ortiz",
+   "sticky": false,
+   "content": "<p class=\"prose__lead\">Texas has no strict-liability dog bite statute. Owner knowledge and negligence decide most cases.</p>\n<p>This is placeholder article content for the design. Replace it with the full article.</p>\n<h2 id=\"overview\">Overview</h2>\n<p>Every case turns on its facts. A short consultation will tell you how the law applies to yours.</p>"
+  },
+  {
+   "category": "Family Law",
+   "title": "Modifying child support after a job loss",
+   "excerpt": "When a court will lower support, what proof it expects, and why you should file quickly.",
+   "date": "2026-06-10 09:00:00",
+   "reading_time": 4,
+   "written_by": "daniel-reyes",
+   "reviewed_by": "priya-okafor",
+   "sticky": false,
+   "content": "<p class=\"prose__lead\">When a court will lower support, what proof it expects, and why you should file quickly.</p>\n<p>This is placeholder article content for the design. Replace it with the full article.</p>\n<h2 id=\"overview\">Overview</h2>\n<p>Every case turns on its facts. A short consultation will tell you how the law applies to yours.</p>"
+  },
+  {
+   "category": "Criminal Defense",
+   "title": "Expunction or nondisclosure: clearing a Texas record",
+   "excerpt": "Two different remedies with different eligibility rules. Which one fits your case.",
+   "date": "2026-05-27 09:00:00",
+   "reading_time": 6,
+   "written_by": "marcus-crane",
+   "reviewed_by": "eleanor-hartwell",
+   "sticky": false,
+   "content": "<p class=\"prose__lead\">Two different remedies with different eligibility rules. Which one fits your case.</p>\n<p>This is placeholder article content for the design. Replace it with the full article.</p>\n<h2 id=\"overview\">Overview</h2>\n<p>Every case turns on its facts. A short consultation will tell you how the law applies to yours.</p>"
+  }
+ ],
+ "practice_areas": [
+  {
+   "slug": "personal-injury",
+   "title": "Personal Injury",
+   "order": 1,
+   "excerpt": "Truck and auto collisions, catastrophic injury, wrongful death and premises liability.",
+   "content": "<p class=\"prose__lead\">An injury can take away your income, your mobility and your plans in a single moment. Insurance companies know this, and they move fast to limit what they pay. Our job is to move faster.</p>\n<p>Hartwell &amp; Crane has represented injured Texans for more than three decades. A partner leads every case. We investigate before evidence disappears, hire the experts the case needs, and prepare every file as if it will be tried in front of a jury. That preparation is what produces fair settlements.</p>\n<p>Personal injury cases are handled on contingency. You pay no attorney fee unless we recover money for you.</p>",
+   "fields": {
+    "hero_lede": "Serious injuries from truck and car crashes, unsafe property and defective products. We take on the insurers and build every case to win at trial.",
+    "hero_stats": [
+     {
+      "value": "$318M",
+      "label": "Recovered for injury clients"
+     },
+     {
+      "value": "61",
+      "label": "Injury verdicts over $1M"
+     },
+     {
+      "value": "$0",
+      "label": "Fee unless we win"
+     }
+    ],
+    "case_types": [
+     {
+      "title": "Truck accidents",
+      "text": "18-wheelers, delivery vans and commercial fleets, including hours-of-service violations."
+     },
+     {
+      "title": "Car accidents",
+      "text": "Rear-end, intersection and highway collisions, including uninsured drivers."
+     },
+     {
+      "title": "Motorcycle accidents",
+      "text": "Riders face bias from insurers. We counter it with reconstruction experts."
+     },
+     {
+      "title": "Wrongful death",
+      "text": "Claims for spouses, children and parents who lost a family member."
+     },
+     {
+      "title": "Premises liability",
+      "text": "Falls, inadequate security and dangerous conditions on someone else's property."
+     },
+     {
+      "title": "Brain and spinal injuries",
+      "text": "Catastrophic injuries that need lifetime care plans and economic experts."
+     },
+     {
+      "title": "Product liability",
+      "text": "Defective vehicles, tires, machinery and consumer products."
+     },
+     {
+      "title": "Dog bites",
+      "text": "Claims against owners who knew, or should have known, a dog was dangerous."
+     }
+    ],
+    "timeline": [
+     {
+      "step": "Week 1",
+      "title": "Free consultation and preservation letters",
+      "text": "A partner reviews your case. If we take it, we send preservation letters to every party that holds evidence."
+     },
+     {
+      "step": "Months 1–3",
+      "title": "Investigation and medical treatment",
+      "text": "We gather records, interview witnesses and retain experts while you focus on recovery."
+     },
+     {
+      "step": "Months 3–6",
+      "title": "Demand and negotiation",
+      "text": "Once your treatment is far enough along to value the claim, we present a documented demand to the insurer."
+     },
+     {
+      "step": "Months 6–18",
+      "title": "Lawsuit, discovery and trial",
+      "text": "If the offer is not fair, we file suit. Most cases settle during discovery. The rest we try."
+     }
+    ],
+    "faqs": [
+     {
+      "question": "How much is my case worth?",
+      "answer": "It depends on the severity of the injury, the medical costs now and in the future, lost income, and the insurance available. We can give you a realistic range once we have your medical records."
+     },
+     {
+      "question": "How long do I have to file?",
+      "answer": "In Texas, most injury and wrongful death suits must be filed within two years. Claims against a government entity require written notice much sooner, often within six months."
+     },
+     {
+      "question": "What if I was partly at fault?",
+      "answer": "You can still recover as long as you are not more than 50 percent responsible. Your recovery is reduced by your share of fault."
+     },
+     {
+      "question": "Will my case go to trial?",
+      "answer": "Most cases settle. Insurers settle fairly when they know the lawyer on the other side is ready to try the case, which is why we prepare every case for trial."
+     }
+    ],
+    "damages_economic": [
+     {
+      "item": "Past and future medical expenses"
+     },
+     {
+      "item": "Lost wages and loss of earning capacity"
+     },
+     {
+      "item": "Home modifications and long-term care"
+     },
+     {
+      "item": "Property damage"
+     }
+    ],
+    "damages_non_economic": [
+     {
+      "item": "Physical pain and mental anguish"
+     },
+     {
+      "item": "Physical impairment"
+     },
+     {
+      "item": "Disfigurement"
+     },
+     {
+      "item": "Loss of companionship (wrongful death)"
+     }
+    ],
+    "law_note": "Exemplary (punitive) damages require clear and convincing evidence of fraud, malice or gross negligence. They are capped at the greater of $200,000 or twice the economic damages plus non-economic damages up to $750,000 (Tex. Civ. Prac. & Rem. Code § 41.008).",
+    "results": [
+     {
+      "amount": "$18.4M",
+      "type": "Jury verdict · Trucking collision",
+      "docket": "Dallas County · 2025"
+     },
+     {
+      "amount": "$4.7M",
+      "type": "Settlement · Brain injury, premises",
+      "docket": "Tarrant County · 2025"
+     },
+     {
+      "amount": "$2.1M",
+      "type": "Settlement · Motorcycle collision",
+      "docket": "Travis County · 2024"
+     },
+     {
+      "amount": "$1.35M",
+      "type": "Jury verdict · Wrongful death",
+      "docket": "Harris County · 2024"
+     }
+    ]
+   },
+   "legal_team": [
+    "eleanor-hartwell",
+    "samuel-ortiz"
+   ]
+  },
+  {
+   "slug": "employment-law",
+   "title": "Employment Law",
+   "order": 2,
+   "excerpt": "Wrongful termination, discrimination, retaliation, unpaid wages and non-compete disputes.",
+   "content": "<p>Wrongful termination, discrimination, retaliation, unpaid wages and non-compete disputes.</p>",
+   "fields": {
+    "hero_lede": "Fired, demoted or paid less than you are owed? We represent employees against employers of every size.",
+    "hero_stats": [
+     {
+      "value": "$96M",
+      "label": "Recovered for employees"
+     },
+     {
+      "value": "400+",
+      "label": "Employment cases resolved"
+     },
+     {
+      "value": "$0",
+      "label": "Fee unless we win"
+     }
+    ],
+    "case_types": [
+     {
+      "title": "Wrongful termination",
+      "text": "Firings that break the law or your contract."
+     },
+     {
+      "title": "Discrimination",
+      "text": "Race, sex, age, disability, religion and pregnancy."
+     },
+     {
+      "title": "Retaliation",
+      "text": "Punishment for reporting or opposing unlawful conduct."
+     },
+     {
+      "title": "Unpaid wages",
+      "text": "Overtime, misclassification and final pay."
+     }
+    ],
+    "timeline": [
+     {
+      "step": "Week 1",
+      "title": "Free consultation",
+      "text": "A partner reviews your situation and tells you plainly where you stand."
+     },
+     {
+      "step": "Months 1–3",
+      "title": "Investigation",
+      "text": "We gather records, interview witnesses and bring in the experts the case needs."
+     },
+     {
+      "step": "Months 3–6",
+      "title": "Negotiation",
+      "text": "We present a documented position to the other side and negotiate from strength."
+     },
+     {
+      "step": "Months 6–18",
+      "title": "Lawsuit and trial",
+      "text": "If the offer is not fair, we file suit and prepare the case for a jury."
+     }
+    ],
+    "faqs": [
+     {
+      "question": "Do I need to file with the EEOC first?",
+      "answer": "For most discrimination claims, yes. Deadlines can be as short as 180 days, so call early."
+     },
+     {
+      "question": "Can my employer enforce my non-compete?",
+      "answer": "Only if it is reasonable in time, geography and scope. Many are not."
+     }
+    ]
+   },
+   "legal_team": [
+    "priya-okafor"
+   ]
+  },
+  {
+   "slug": "family-law",
+   "title": "Family Law",
+   "order": 3,
+   "excerpt": "High-asset divorce, custody and conservatorship, support modification and protective orders.",
+   "content": "<p>High-asset divorce, custody and conservatorship, support modification and protective orders.</p>",
+   "fields": {
+    "hero_lede": "Clear advice and steady advocacy through divorce, custody and support cases, with your children at the centre of every decision.",
+    "hero_stats": [
+     {
+      "value": "1,100+",
+      "label": "Family cases resolved"
+     },
+     {
+      "value": "32",
+      "label": "Years in Texas courts"
+     },
+     {
+      "value": "98%",
+      "label": "Would refer us"
+     }
+    ],
+    "case_types": [
+     {
+      "title": "Divorce",
+      "text": "Contested and uncontested, including high-asset estates."
+     },
+     {
+      "title": "Custody",
+      "text": "Conservatorship, possession and relocation."
+     },
+     {
+      "title": "Support",
+      "text": "Child and spousal support, and modifications."
+     },
+     {
+      "title": "Protective orders",
+      "text": "Fast action when safety is at stake."
+     }
+    ],
+    "timeline": [
+     {
+      "step": "Week 1",
+      "title": "Free consultation",
+      "text": "A partner reviews your situation and tells you plainly where you stand."
+     },
+     {
+      "step": "Months 1–3",
+      "title": "Investigation",
+      "text": "We gather records, interview witnesses and bring in the experts the case needs."
+     },
+     {
+      "step": "Months 3–6",
+      "title": "Negotiation",
+      "text": "We present a documented position to the other side and negotiate from strength."
+     },
+     {
+      "step": "Months 6–18",
+      "title": "Lawsuit and trial",
+      "text": "If the offer is not fair, we file suit and prepare the case for a jury."
+     }
+    ],
+    "faqs": [
+     {
+      "question": "How is property divided in Texas?",
+      "answer": "Texas is a community property state. Property acquired during the marriage is generally divided in a way the court finds just and right."
+     },
+     {
+      "question": "Can custody orders be changed?",
+      "answer": "Yes, when circumstances have materially and substantially changed."
+     }
+    ]
+   },
+   "legal_team": [
+    "daniel-reyes"
+   ]
+  },
+  {
+   "slug": "criminal-defense",
+   "title": "Criminal Defense",
+   "order": 4,
+   "excerpt": "State and federal charges, DWI, white-collar investigations and expunctions.",
+   "content": "<p>State and federal charges, DWI, white-collar investigations and expunctions.</p>",
+   "fields": {
+    "hero_lede": "Former prosecutors defending clients against state and federal charges, from investigation through trial.",
+    "hero_stats": [
+     {
+      "value": "310",
+      "label": "Jury trials to verdict"
+     },
+     {
+      "value": "24/7",
+      "label": "Arrest line"
+     },
+     {
+      "value": "2",
+      "label": "Former prosecutors"
+     }
+    ],
+    "case_types": [
+     {
+      "title": "DWI",
+      "text": "First offenses through felony DWI."
+     },
+     {
+      "title": "Drug charges",
+      "text": "Possession, distribution and conspiracy."
+     },
+     {
+      "title": "White-collar",
+      "text": "Fraud, investigations and grand jury matters."
+     },
+     {
+      "title": "Record clearing",
+      "text": "Expunction and nondisclosure."
+     }
+    ],
+    "timeline": [
+     {
+      "step": "Week 1",
+      "title": "Free consultation",
+      "text": "A partner reviews your situation and tells you plainly where you stand."
+     },
+     {
+      "step": "Months 1–3",
+      "title": "Investigation",
+      "text": "We gather records, interview witnesses and bring in the experts the case needs."
+     },
+     {
+      "step": "Months 3–6",
+      "title": "Negotiation",
+      "text": "We present a documented position to the other side and negotiate from strength."
+     },
+     {
+      "step": "Months 6–18",
+      "title": "Lawsuit and trial",
+      "text": "If the offer is not fair, we file suit and prepare the case for a jury."
+     }
+    ],
+    "faqs": [
+     {
+      "question": "Should I talk to the police?",
+      "answer": "Be polite, give your name, and ask for a lawyer. Do not explain or argue."
+     },
+     {
+      "question": "Can my record be cleared?",
+      "answer": "Some arrests and dismissed cases qualify for expunction or nondisclosure."
+     }
+    ]
+   },
+   "legal_team": [
+    "marcus-crane"
+   ]
+  },
+  {
+   "slug": "business-litigation",
+   "title": "Business Litigation",
+   "order": 5,
+   "excerpt": "Contract disputes, partnership break-ups, trade secrets and commercial fraud.",
+   "content": "<p>Contract disputes, partnership break-ups, trade secrets and commercial fraud.</p>",
+   "fields": {
+    "hero_lede": "Trial lawyers for owners and companies in disputes that put the business at risk.",
+    "hero_stats": [
+     {
+      "value": "$3.9M",
+      "label": "Recent arbitration award"
+     },
+     {
+      "value": "200+",
+      "label": "Business disputes resolved"
+     },
+     {
+      "value": "32",
+      "label": "Years in practice"
+     }
+    ],
+    "case_types": [
+     {
+      "title": "Contract disputes",
+      "text": "Breach, non-payment and warranty claims."
+     },
+     {
+      "title": "Partnership disputes",
+      "text": "Buy-outs, deadlock and fiduciary duty."
+     },
+     {
+      "title": "Trade secrets",
+      "text": "Departing employees and stolen data."
+     },
+     {
+      "title": "Commercial fraud",
+      "text": "Misrepresentation and fraudulent transfers."
+     }
+    ],
+    "timeline": [
+     {
+      "step": "Week 1",
+      "title": "Free consultation",
+      "text": "A partner reviews your situation and tells you plainly where you stand."
+     },
+     {
+      "step": "Months 1–3",
+      "title": "Investigation",
+      "text": "We gather records, interview witnesses and bring in the experts the case needs."
+     },
+     {
+      "step": "Months 3–6",
+      "title": "Negotiation",
+      "text": "We present a documented position to the other side and negotiate from strength."
+     },
+     {
+      "step": "Months 6–18",
+      "title": "Lawsuit and trial",
+      "text": "If the offer is not fair, we file suit and prepare the case for a jury."
+     }
+    ],
+    "faqs": [
+     {
+      "question": "Should I sue or settle?",
+      "answer": "We weigh the realistic recovery against cost and time, and tell you plainly."
+     },
+     {
+      "question": "Is arbitration better than court?",
+      "answer": "Sometimes. It depends on your contract and the kind of dispute."
+     }
+    ]
+   },
+   "legal_team": [
+    "eleanor-hartwell",
+    "priya-okafor"
+   ]
+  },
+  {
+   "slug": "estate-probate",
+   "title": "Estate & Probate",
+   "order": 6,
+   "excerpt": "Wills and trusts, probate administration, guardianship and contested estates.",
+   "content": "<p>Wills and trusts, probate administration, guardianship and contested estates.</p>",
+   "fields": {
+    "hero_lede": "Planning that protects your family, and steady guidance through probate when someone has died.",
+    "hero_stats": [
+     {
+      "value": "700+",
+      "label": "Estates administered"
+     },
+     {
+      "value": "32",
+      "label": "Years in practice"
+     },
+     {
+      "value": "4",
+      "label": "Texas offices"
+     }
+    ],
+    "case_types": [
+     {
+      "title": "Wills and trusts",
+      "text": "Plans that say what you mean and hold up in court."
+     },
+     {
+      "title": "Probate",
+      "text": "Administration with and without a will."
+     },
+     {
+      "title": "Guardianship",
+      "text": "For minors and adults who cannot manage their affairs."
+     },
+     {
+      "title": "Will contests",
+      "text": "Disputes over capacity, influence and validity."
+     }
+    ],
+    "timeline": [
+     {
+      "step": "Week 1",
+      "title": "Free consultation",
+      "text": "A partner reviews your situation and tells you plainly where you stand."
+     },
+     {
+      "step": "Months 1–3",
+      "title": "Investigation",
+      "text": "We gather records, interview witnesses and bring in the experts the case needs."
+     },
+     {
+      "step": "Months 3–6",
+      "title": "Negotiation",
+      "text": "We present a documented position to the other side and negotiate from strength."
+     },
+     {
+      "step": "Months 6–18",
+      "title": "Lawsuit and trial",
+      "text": "If the offer is not fair, we file suit and prepare the case for a jury."
+     }
+    ],
+    "faqs": [
+     {
+      "question": "Is probate required in Texas?",
+      "answer": "Usually, though Texas offers simpler procedures for many estates."
+     },
+     {
+      "question": "How long does probate take?",
+      "answer": "Most uncontested estates close within six to twelve months."
+     }
+    ]
+   },
+   "legal_team": [
+    "daniel-reyes",
+    "eleanor-hartwell"
+   ]
+  }
+ ]
+}
