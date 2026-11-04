@@ -1,0 +1,212 @@
+    <!-- ===================== CONTACT HERO ===================== -->
+    <section class="page-hero page-hero--contact">
+      <div class="page-hero__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol role="list">
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Contact Us</li>
+          </ol>
+        </nav>
+        <div class="page-hero__grid">
+          <div class="page-hero__content">
+            <p class="eyebrow eyebrow--light">Contact Us</p>
+            <h1 class="page-hero__title">Talk to a partner, not a call center.</h1>
+            <p class="page-hero__lede">Tell us what happened. A Hartwell &amp; Crane attorney reviews every request and will tell you plainly where you stand. The first consultation is free and confidential.</p>
+          </div>
+          <ul class="contact-promise" role="list">
+            <li><svg class="icon"><use href="#i-check"/></svg>Free, confidential consultation</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Reply within one business day</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>No fee unless we win your injury case</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Se habla español</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WAYS TO REACH US (overlaps the hero) ===================== -->
+    <section class="contact-methods" aria-label="Ways to reach us">
+      <ul class="contact-methods__grid container" role="list">
+        <li class="contact-method">
+          <span class="contact-method__icon"><svg class="icon"><use href="#i-phone"/></svg></span>
+          <div class="contact-method__body">
+            <h2 class="contact-method__title">Call us, 24/7</h2>
+            <p class="contact-method__text">Injured or arrested right now? A real person answers day and night.</p>
+            <a class="contact-method__link" href="tel:+12145550190">(214) 555-0190</a>
+          </div>
+        </li>
+        <li class="contact-method">
+          <span class="contact-method__icon"><svg class="icon"><use href="#i-mail"/></svg></span>
+          <div class="contact-method__body">
+            <h2 class="contact-method__title">Email our intake team</h2>
+            <p class="contact-method__text">Send a short summary and the best time to reach you.</p>
+            <a class="contact-method__link" href="mailto:intake@hartwellcrane.law">intake@hartwellcrane.law</a>
+          </div>
+        </li>
+        <li class="contact-method">
+          <span class="contact-method__icon"><svg class="icon"><use href="#i-pin"/></svg></span>
+          <div class="contact-method__body">
+            <h2 class="contact-method__title">Visit an office</h2>
+            <p class="contact-method__text">Dallas, Houston, Austin and Fort Worth, or meet by video.</p>
+            <a class="contact-method__link" href="#offices">Find an office <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===================== FORM + SIDEBAR ===================== -->
+    <section class="contact-main section" id="case-review" aria-labelledby="cr-title">
+      <div class="contact-main__inner container">
+
+        <!-- Bricks: Fluent Forms #4 (full form) inside .contact-card -->
+        <div class="contact-card">
+          <div class="contact-card__head">
+            <p class="eyebrow">Free Case Review</p>
+            <h2 class="contact-card__title" id="cr-title">Tell us about your situation</h2>
+            <p class="contact-card__intro">It takes about two minutes. Fields marked * are required.</p>
+          </div>
+          <form class="form js-form" novalidate>
+            <div class="form__row form__row--2">
+              <div class="form__field">
+                <label class="form__label" for="k-first">First name *</label>
+                <input class="form__input" id="k-first" name="first" type="text" autocomplete="given-name" required>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="k-last">Last name *</label>
+                <input class="form__input" id="k-last" name="last" type="text" autocomplete="family-name" required>
+              </div>
+            </div>
+            <div class="form__row form__row--2">
+              <div class="form__field">
+                <label class="form__label" for="k-email">Email *</label>
+                <input class="form__input" id="k-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="k-phone">Phone</label>
+                <input class="form__input" id="k-phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+            </div>
+            <fieldset class="form__field form__fieldset">
+              <legend class="form__label">Best way to reach you</legend>
+              <div class="choice-chips">
+                <label class="choice-chip"><input type="radio" name="method" value="phone" checked><span>Phone call</span></label>
+                <label class="choice-chip"><input type="radio" name="method" value="text"><span>Text message</span></label>
+                <label class="choice-chip"><input type="radio" name="method" value="email"><span>Email</span></label>
+              </div>
+            </fieldset>
+            <div class="form__row form__row--2">
+              <div class="form__field">
+                <label class="form__label" for="k-area">Practice area *</label>
+                <select class="form__input" id="k-area" name="area" required>
+                  <option value="">Select a practice area</option>
+                  <option>Personal injury</option>
+                  <option>Employment</option>
+                  <option>Family law</option>
+                  <option>Criminal defense</option>
+                  <option>Business litigation</option>
+                  <option>Estate planning &amp; probate</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="k-office">Nearest office</label>
+                <select class="form__input" id="k-office" name="office">
+                  <option value="">No preference</option>
+                  <option>Dallas</option>
+                  <option>Houston</option>
+                  <option>Austin</option>
+                  <option>Fort Worth</option>
+                  <option>Video call</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="k-msg">What happened? *</label>
+              <textarea class="form__input" id="k-msg" name="message" rows="5" placeholder="A few sentences is enough: what happened, when, and where." required></textarea>
+            </div>
+            <label class="form__check">
+              <input type="checkbox" name="consent" required>
+              <span>I understand that contacting the firm does not create an attorney-client relationship.</span>
+            </label>
+            <div class="contact-card__submit">
+              <button class="btn--accent btn--m" type="submit">Request My Free Review <svg class="icon"><use href="#i-arrow"/></svg></button>
+              <p class="form__note">Please do not send confidential details until we have confirmed there is no conflict of interest.</p>
+            </div>
+            <p class="form__status" role="status" hidden></p>
+          </form>
+        </div>
+
+        <aside class="contact-aside" aria-label="What to expect">
+          <div class="widget widget--tint">
+            <h2 class="widget__title">What happens next</h2>
+            <ol class="next-steps" role="list">
+              <li class="next-step">
+                <span class="next-step__num">1</span>
+                <div><h3 class="next-step__title">We review your request</h3><p class="next-step__text">An attorney reads it the same day and checks for conflicts.</p></div>
+              </li>
+              <li class="next-step">
+                <span class="next-step__num">2</span>
+                <div><h3 class="next-step__title">A partner calls you</h3><p class="next-step__text">Within one business day, at the time and number you chose.</p></div>
+              </li>
+              <li class="next-step">
+                <span class="next-step__num">3</span>
+                <div><h3 class="next-step__title">You get a clear plan</h3><p class="next-step__text">Your options, likely timeline and costs. No pressure to sign.</p></div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="widget">
+            <h2 class="widget__title">Office hours</h2>
+            <dl class="hours">
+              <div class="hours__row"><dt>Monday – Friday</dt><dd>8:00 – 18:00</dd></div>
+              <div class="hours__row"><dt>Saturday</dt><dd>By appointment</dd></div>
+              <div class="hours__row"><dt>Sunday</dt><dd>By appointment</dd></div>
+              <div class="hours__row hours__row--accent"><dt>Phone line</dt><dd>24/7</dd></div>
+            </dl>
+          </div>
+
+          <div class="widget widget--form contact-urgent">
+            <p class="widget__eyebrow">Urgent?</p>
+            <h2 class="widget__title">Arrested or seriously injured?</h2>
+            <p class="widget__text">Don't wait for a reply. Call now and you will reach an attorney, day or night.</p>
+            <a class="widget__phone" href="tel:+12145550190"><svg class="icon"><use href="#i-phone"/></svg>(214) 555-0190</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== OFFICES (same section as the homepage) ===================== -->
+    <!-- @from-index offices -->
+
+    <!-- ===================== CONTACT FAQ ===================== -->
+    <section class="faq section section--tint" aria-labelledby="faq-title">
+      <div class="faq__inner container">
+        <div class="faq__intro">
+          <p class="eyebrow">Before You Reach Out</p>
+          <h2 class="section__title" id="faq-title">Questions about getting in touch</h2>
+          <p class="section__intro">If your question isn't here, call us. A short conversation is always free.</p>
+          <a class="btn--primary btn--s" href="tel:+12145550190"><svg class="icon"><use href="#i-phone"/></svg>(214) 555-0190</a>
+        </div>
+        <div class="faq__list">
+          <details class="faq-item" open>
+            <summary class="faq-item__q">Is my first consultation really free?<svg class="icon"><use href="#i-plus"/></svg></summary>
+            <div class="faq-item__a"><p>Yes. Your first consultation is free and confidential, whether by phone, video or in one of our offices.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">How quickly will someone respond?<svg class="icon"><use href="#i-plus"/></svg></summary>
+            <div class="faq-item__a"><p>Within one business day for online requests. Calls to our 24/7 line are answered by a person at any hour.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">What should I have ready?<svg class="icon"><use href="#i-plus"/></svg></summary>
+            <div class="faq-item__a"><p>Dates, names of the people or companies involved, and any documents you already have: police reports, letters, contracts or photos. Don't worry if you have none of these yet.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Can we meet outside office hours?<svg class="icon"><use href="#i-plus"/></svg></summary>
+            <div class="faq-item__a"><p>Yes. Evening, weekend, hospital and home visits are available by appointment for clients who can't come to us.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-item__q">Do you handle cases outside these four cities?<svg class="icon"><use href="#i-plus"/></svg></summary>
+            <div class="faq-item__a"><p>Yes. We represent clients across Texas, including Plano and Arlington, and meet by video when travel is difficult.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>

@@ -37,6 +37,15 @@ PAGES = {
         # Highlight this practice area in the sidebar list
         "current_practice": "Personal Injury",
     },
+    "contact.html": {
+        "partial": "contact.main.html",
+        "title": "Contact Us | Hartwell &amp; Crane",
+        "description": "Contact Hartwell & Crane for a free, confidential case review. Call 24/7, email our intake team or visit our Dallas, Houston, Austin and Fort Worth offices.",
+        "active": "contact.html",
+        "body_class": "page-contact",
+        # Contact links in the header/footer point at this page instead of the homepage section
+        "contact_page": True,
+    },
 }
 
 # In-page anchors on the homepage that must point back to index.html from other pages
@@ -47,6 +56,14 @@ def include(html: str) -> str:
     def repl(m):
         return (ROOT / "partials" / f"{m.group(1)}.html").read_text().rstrip("\n") + "\n"
     return re.sub(r"<!-- @include ([\w-]+) -->\n?", repl, html)
+
+
+def from_index(html: str, src: str) -> str:
+    """Copy a homepage section (matched by its id) into a page: <!-- @from-index offices -->"""
+    def repl(m):
+        sec = re.search(r'    <section class="[^"]*" id="%s".*?</section>\n' % m.group(1), src, re.S)
+        return sec.group(0) if sec else ""
+    return re.sub(r"    <!-- @from-index ([\w-]+) -->\n?", repl, html)
 
 
 def main() -> None:
@@ -65,11 +82,14 @@ def main() -> None:
             top = top.replace(f'href="#{a}"', f'href="index.html#{a}"')
             bottom = bottom.replace(f'href="#{a}"', f'href="index.html#{a}"')
         top = top.replace('<body class="is-boxed">', f'<body class="{cfg["body_class"]}">')
+        if cfg.get("contact_page"):
+            top = top.replace('href="index.html#contact"', 'href="contact.html"')
+            bottom = bottom.replace('href="index.html#contact"', 'href="contact.html"')
         top = top.replace('class="nav__link is-active"', 'class="nav__link"')
         top = top.replace(f'<a class="nav__link" href="{cfg["active"]}">',
                           f'<a class="nav__link is-active" href="{cfg["active"]}" aria-current="page">')
 
-        body = include((ROOT / "partials" / cfg["partial"]).read_text())
+        body = from_index(include((ROOT / "partials" / cfg["partial"]).read_text()), src)
         if cfg.get("current_practice"):
             name = cfg["current_practice"]
             body = body.replace(
