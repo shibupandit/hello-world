@@ -104,7 +104,7 @@ Hairlines use ACSS variables directly: `--base-trans-10` on light backgrounds an
 ## 3. Bricks global settings
 
 1. **Bricks → Settings → General**: enable *Disable default Bricks styles* is optional; ACSS v3 handles base styles.
-2. **Theme Styles**: set *Site layout* to **Boxed**, max-width `1440px`, box shadow `var(--pc-shadow-l)`, outer background `var(--pc-page-bg)`. This replaces `body.is-boxed .site` in the CSS. To switch to full-width later, change only this setting.
+2. **Theme Styles**: *Site layout* stays at the default (**wide / full-width**). Coloured bands run edge to edge and content is centred at `--content-width` (1240px). The original design was boxed. To bring that back, set Site layout to Boxed (1440px) and add the `body.is-boxed` rules from `style.css`.
 3. **Theme Styles → Typography**: point heading font to `var(--pc-font-display)` and body to `var(--pc-font-body)` if ACSS is not already setting them.
 4. **Theme Styles → Links**: color `inherit`, no underline in nav. Keep underlines in body copy for accessibility.
 5. **Breakpoints:** keep Bricks at its defaults. They match ACSS (992 / 768 / 480). Set the Nav Menu's mobile-menu breakpoint to a custom 1366px one (Bricks → Settings → Breakpoints → add "Laptop" at 1366).

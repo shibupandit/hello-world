@@ -1,6 +1,6 @@
 # Hartwell & Crane — attorney website prototype
 
-A boxed, single-page law-firm homepage (topbar, header, hero with consultation form, recognition strip, about, practice areas, process, stats, attorneys, case results, testimonials, FAQ, insights, contact, footer), built as static HTML/CSS/JS ready to move into **WordPress + Bricks Builder + Automatic.css v3**.
+A full-width law-firm homepage (topbar, header, hero with consultation form, recognition strip, about, practice areas, process, stats, attorneys, case results, testimonials, FAQ, insights, contact, footer), built as static HTML/CSS/JS ready to move into **WordPress + Bricks Builder + Automatic.css v3**.
 
 - Open `index.html`, `blog.html` (blog archive), `blog-single.html` (single post) or `practice-area.html` (practice area) in a browser.
 - `blog.html`, `blog-single.html` and `practice-area.html` are generated: edit `partials/*.main.html`, then run `python3 tools/build_pages.py`. The header and footer come from `index.html`.
