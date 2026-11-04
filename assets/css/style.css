@@ -2124,3 +2124,9 @@ a.pagination__link:hover { border-color: var(--primary); color: var(--primary); 
   .author-box { flex-direction: column; }
   .pull-quote { padding-left: var(--space-m); }
 }
+
+/* Post card: reading time in the meta row, "Read article" button in the footer */
+.post-card__meta .post-card__read-time { color: var(--base-semi-dark); font-weight: 400; }
+.post-card__read-time::before { content: "\00B7"; margin-right: 1.2rem; color: var(--base-light); }
+.post-card__footer { justify-content: flex-start; }
+.post-card__cta { position: relative; z-index: 1; align-self: flex-start; }
