@@ -252,7 +252,9 @@ Form fields inherit `.form__input` styling if you add this to custom CSS:
 ```
 
 ### Footer template (Templates → Footer)
-Section `.footer .bg--primary-ultra-dark` → Container `.footer__inner` (grid 1.4fr repeat(3,1fr)) → brand, two Nav Menus (vertical), "Talk to Us" column (24/7 phone, intake email, CTA button). **Footer offices row** (sits above the link columns):
+Section `.footer .bg--primary-ultra-dark` → Container `.footer__inner` (grid 1.4fr repeat(3,1fr)) → brand, two Nav Menus (vertical), "Talk to Us" column (24/7 phone, intake email, CTA button).
+
+**Footer offices row** (sits above the link columns):
 ```
 Container .footer__offices
 ├ Heading h2 .footer__title "Our Offices"
