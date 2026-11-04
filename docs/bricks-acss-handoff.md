@@ -221,6 +221,26 @@ Use Bricks **Accordion (Nestable)** with *Independent toggle* off (one open at a
 ### Insights
 Query loop on Posts, 3 items, `.post-card` with featured image in `.post-card__media` (aspect 16/10). Category and date via dynamic data `{post_terms_category}`, `{post_date}`.
 
+### Our Offices (query loop)
+CPT **Office** with fields `region_label` (e.g. "Headquarters"), `street`, `city_line`, `phone`, `email`, `hours`, `counties_served`, `coordinates`, `map_url`, and optional `map_image`. Reuse the same CPT in the footer so both lists stay in sync.
+
+```
+Section .offices
+└ Container
+  ├ Block .section__head .section__head--split
+  └ ul .offices__grid   (grid--4, grid--l-2, grid--s-1)
+    └ li .office-card  ← Query loop: Office, order by menu_order
+      ├ Block .office-card__map   (static map image if set; otherwise the CSS survey-grid placeholder with .office-card__pin + .office-card__coords {acf_coordinates})
+      └ Block .office-card__body
+        ├ Text .office-card__tag {acf_region_label}
+        ├ Heading h3 .office-card__city {post_title}
+        ├ Text .office-card__address {acf_street}<br>{acf_city_line}
+        ├ Icon list .office-card__details  (phone / email / hours, linked)
+        ├ Text .office-card__serves  "Serving {acf_counties_served}"
+        └ Text-link .office-card__link "Get directions" → {acf_map_url} (new tab)
+```
+Don't embed a Google Map iframe on every card; four iframes make the page slow. Use a static image, or one Map element on a dedicated Contact page.
+
 ### Contact / CTA
 Section `.contact` → grid with contact details (Icon + Text) and a Bricks **Form** element with class `.contact__form .form`. In the Form element:
 - Actions: Email + (optional) webhook to the firm's intake CRM (Clio Grow, Lawmatics …)
@@ -232,7 +252,25 @@ Form fields inherit `.form__input` styling if you add this to custom CSS:
 ```
 
 ### Footer template (Templates → Footer)
-Section `.footer .bg--primary-ultra-dark` → Container `.footer__inner` (grid 1.4fr repeat(3,1fr)) → brand, two Nav Menus (vertical), office address. Second Container `.footer__legal` with copyright `{current_date:Y}`, the attorney-advertising disclaimer, and legal links.
+Section `.footer .bg--primary-ultra-dark` → Container `.footer__inner` (grid 1.4fr repeat(3,1fr)) → brand, two Nav Menus (vertical), "Talk to Us" column (24/7 phone, intake email, CTA button). **Footer offices row** (sits above the link columns):
+```
+Container .footer__offices
+├ Heading h2 .footer__title "Our Offices"
+└ Accordion (Nestable) .footer__offices-grid   ← items from a Query loop on CPT Office
+  └ Item .footer-office
+    ├ Title .footer-office__head → {post_title} + .footer-office__tag {acf_region_label} + icon .footer-office__chevron
+    └ Content .footer-office__body → address, phone, email, "Get directions"
+```
+Behaviour: on desktop all four are open boxes in a 4-column grid (2 columns at 1180) and can't be collapsed. At 640px and below they become closed accordions with a +/× toggle.
+- In the prototype this is native `<details>` and `main.js` part 7 opens or closes them on breakpoint change.
+- In Bricks Accordion (Nestable), turn on *Independent toggle*. Add the CSS from the "Footer offices" block in `style.css`, mapping `.footer-office[open]` to Bricks' `.brx-open` class. Add this small snippet so items start open on desktop:
+```js
+document.querySelectorAll('.footer-office').forEach(function (el) {
+  if (!matchMedia('(max-width: 640px)').matches) el.classList.add('brx-open');
+});
+```
+
+Second Container `.footer__legal` with copyright `{current_date:Y}`, the attorney-advertising disclaimer, and legal links.
 
 ---
 
@@ -247,6 +285,7 @@ Section `.footer .bg--primary-ultra-dark` → Container `.footer__inner` (grid 1
 | Testimonial slider | Slider (Nestable) |
 | Form validation | Bricks Form element |
 | Footer year | Dynamic tag `{current_date:Y}` |
+| Footer offices desktop/mobile switch | Accordion (Nestable) + snippet in section 5 (footer) |
 
 If you keep any of it, load it via Bricks → Settings → Custom code → Body (footer) scripts.
 

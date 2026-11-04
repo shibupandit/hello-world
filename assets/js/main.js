@@ -121,4 +121,19 @@
   // 6. Footer year
   var year = document.querySelector(".js-year");
   if (year) year.textContent = String(new Date().getFullYear());
+  // 7. Footer offices: open boxes on desktop, closed accordions at <= 640px
+  var officeItems = document.querySelectorAll(".footer-office");
+  if (officeItems.length && window.matchMedia) {
+    var mq = window.matchMedia("(max-width: 640px)");
+    var syncOffices = function () {
+      officeItems.forEach(function (d) { d.open = !mq.matches; });
+    };
+    syncOffices();
+    if (mq.addEventListener) mq.addEventListener("change", syncOffices);
+    else if (mq.addListener) mq.addListener(syncOffices);
+    // Desktop: keep boxes open even if a summary is activated by keyboard
+    officeItems.forEach(function (d) {
+      d.addEventListener("toggle", function () { if (!mq.matches && !d.open) d.open = true; });
+    });
+  }
 })();
