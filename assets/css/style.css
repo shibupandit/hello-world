@@ -19,7 +19,7 @@ html {
 }
 
 /* Paper texture: a transparent, tileable SVG layered over each surface's own colour */
-:root { --pc-paper: url("../img/paper-texture.svg"); }
+:root { --pc-paper: url("../img/paper-texture.webp"); } /* 320px tile, 37 KB; source: paper-texture.svg */
 
 body {
   margin: 0;
