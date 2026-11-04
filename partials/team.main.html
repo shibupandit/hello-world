@@ -1,0 +1,230 @@
+    <!-- ===================== TEAM HERO ===================== -->
+    <section class="page-hero page-hero--team">
+      <div class="page-hero__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol role="list">
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Our Team</li>
+          </ol>
+        </nav>
+        <div class="page-hero__grid">
+          <div class="page-hero__content">
+            <p class="eyebrow eyebrow--light">Our Team</p>
+            <h1 class="page-hero__title">The people behind every case.</h1>
+            <p class="page-hero__lede">Attorneys, paralegals and staff across four Texas offices. When you hire Hartwell &amp; Crane, this is the team working on your case.</p>
+          </div>
+          <dl class="hero-stats">
+            <div class="hero-stats__item"><dt>Trial attorneys</dt><dd>4</dd></div>
+            <div class="hero-stats__item"><dt>Paralegals</dt><dd>4</dd></div>
+            <div class="hero-stats__item"><dt>Support staff</dt><dd>4</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FILTER (Bricks: links to Team Category archives) ===================== -->
+    <div class="team-filter">
+      <nav class="team-filter__inner container" aria-label="Filter the team by role">
+        <ul class="blog-filter__list" role="list">
+          <li><button class="chip is-active" type="button" data-team-filter="all" aria-pressed="true">Everyone <span class="chip__count">12</span></button></li>
+          <li><button class="chip" type="button" data-team-filter="attorneys" aria-pressed="false">Attorneys <span class="chip__count">4</span></button></li>
+          <li><button class="chip" type="button" data-team-filter="paralegals" aria-pressed="false">Paralegals <span class="chip__count">4</span></button></li>
+          <li><button class="chip" type="button" data-team-filter="staff" aria-pressed="false">Staff <span class="chip__count">4</span></button></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- ===================== TEAM GROUPS (Bricks: one query loop per Team Category) ===================== -->
+    <div class="team-groups container">
+      <section class="team-group" id="attorneys" data-team-group="attorneys" aria-labelledby="tg-attorneys">
+        <div class="team-group__head">
+          <div>
+            <p class="eyebrow">Our Attorneys</p>
+            <h2 class="team-group__title" id="tg-attorneys">Trial lawyers who lead every case.</h2>
+          </div>
+          <p class="team-group__intro">A named partner or senior attorney leads every matter, from the first call to the verdict.</p>
+        </div>
+        <ul class="attorneys__grid team-grid" role="list">
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Eleanor Hartwell, Founding Partner">
+                <div class="attorney-card__photo" data-initials="EH" role="img" aria-label="Portrait of Eleanor Hartwell"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Eleanor Hartwell</a></h3>
+                <p class="attorney-card__role">Founding Partner</p>
+                <p class="attorney-card__meta">Board Certified, Civil Trial Law</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Marcus Crane, Founding Partner">
+                <div class="attorney-card__photo" data-initials="MC" role="img" aria-label="Portrait of Marcus Crane"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Marcus Crane</a></h3>
+                <p class="attorney-card__role">Founding Partner</p>
+                <p class="attorney-card__meta">Criminal Defense · Former Prosecutor</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Priya Okafor, Partner">
+                <div class="attorney-card__photo" data-initials="PO" role="img" aria-label="Portrait of Priya Okafor"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Priya Okafor</a></h3>
+                <p class="attorney-card__role">Partner</p>
+                <p class="attorney-card__meta">Employment Law</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Daniel Reyes, Partner">
+                <div class="attorney-card__photo" data-initials="DR" role="img" aria-label="Portrait of Daniel Reyes"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Daniel Reyes</a></h3>
+                <p class="attorney-card__role">Partner</p>
+                <p class="attorney-card__meta">Family Law</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+        </ul>
+      </section>
+      <section class="team-group" id="paralegals" data-team-group="paralegals" aria-labelledby="tg-paralegals">
+        <div class="team-group__head">
+          <div>
+            <p class="eyebrow">Our Paralegals</p>
+            <h2 class="team-group__title" id="tg-paralegals">The case builders.</h2>
+          </div>
+          <p class="team-group__intro">Our paralegals gather records, track deadlines and keep you updated between attorney calls.</p>
+        </div>
+        <ul class="attorneys__grid team-grid" role="list">
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Rosa Delgado, Senior Litigation Paralegal">
+                <div class="attorney-card__photo" data-initials="RD" role="img" aria-label="Portrait of Rosa Delgado"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Rosa Delgado</a></h3>
+                <p class="attorney-card__role">Senior Litigation Paralegal</p>
+                <p class="attorney-card__meta">Personal Injury · 18 years</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="James Whitaker, Trial Paralegal">
+                <div class="attorney-card__photo" data-initials="JW" role="img" aria-label="Portrait of James Whitaker"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">James Whitaker</a></h3>
+                <p class="attorney-card__role">Trial Paralegal</p>
+                <p class="attorney-card__meta">Civil Litigation · 11 years</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Aisha Bennett, Family Law Paralegal">
+                <div class="attorney-card__photo" data-initials="AB" role="img" aria-label="Portrait of Aisha Bennett"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Aisha Bennett</a></h3>
+                <p class="attorney-card__role">Family Law Paralegal</p>
+                <p class="attorney-card__meta">Family Law · 9 years</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Samuel Ortiz, Criminal Defense Paralegal">
+                <div class="attorney-card__photo" data-initials="SO" role="img" aria-label="Portrait of Samuel Ortiz"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Samuel Ortiz</a></h3>
+                <p class="attorney-card__role">Criminal Defense Paralegal</p>
+                <p class="attorney-card__meta">Criminal Defense · 7 years</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+        </ul>
+      </section>
+      <section class="team-group" id="staff" data-team-group="staff" aria-labelledby="tg-staff">
+        <div class="team-group__head">
+          <div>
+            <p class="eyebrow">Our Staff</p>
+            <h2 class="team-group__title" id="tg-staff">The people who answer your call.</h2>
+          </div>
+          <p class="team-group__intro">From your first phone call to your final invoice, our support team keeps everything running.</p>
+        </div>
+        <ul class="attorneys__grid team-grid" role="list">
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Linda Park, Office Manager">
+                <div class="attorney-card__photo" data-initials="LP" role="img" aria-label="Portrait of Linda Park"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Linda Park</a></h3>
+                <p class="attorney-card__role">Office Manager</p>
+                <p class="attorney-card__meta">Dallas Headquarters</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Carlos Mendez, Intake Coordinator">
+                <div class="attorney-card__photo" data-initials="CM" role="img" aria-label="Portrait of Carlos Mendez"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Carlos Mendez</a></h3>
+                <p class="attorney-card__role">Intake Coordinator</p>
+                <p class="attorney-card__meta">Bilingual · English & Spanish</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Grace O&#39;Neill, Client Relations Manager">
+                <div class="attorney-card__photo" data-initials="GO" role="img" aria-label="Portrait of Grace O&#39;Neill"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Grace O&#39;Neill</a></h3>
+                <p class="attorney-card__role">Client Relations Manager</p>
+                <p class="attorney-card__meta">All offices</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="attorney-card team-card">
+              <a class="team-card__link" href="team-single.html" aria-label="Ben Foster, Legal Assistant">
+                <div class="attorney-card__photo" data-initials="BF" role="img" aria-label="Portrait of Ben Foster"></div>
+              </a>
+              <div class="attorney-card__body">
+                <h3 class="attorney-card__name"><a href="team-single.html">Ben Foster</a></h3>
+                <p class="attorney-card__role">Legal Assistant</p>
+                <p class="attorney-card__meta">Houston Office</p>
+                <a class="team-card__more" href="team-single.html">View profile <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- ===================== CAREERS ===================== -->
+    <section class="team-careers section section--tint" aria-labelledby="careers-title">
+      <div class="team-careers__inner container">
+        <div>
+          <p class="eyebrow">Careers</p>
+          <h2 class="section__title" id="careers-title">Want to work with us?</h2>
+          <p class="section__intro">We hire attorneys, paralegals and staff who care about doing the work properly. Send your résumé and a short note about why you'd like to join.</p>
+        </div>
+        <a class="btn--primary btn--m" href="mailto:careers@hartwellcrane.law">Email careers@hartwellcrane.law <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ===================== CTA BAND ===================== -->
+    <section class="cta-band" id="contact-band">
+      <div class="cta-band__inner container">
+        <div class="cta-band__content">
+          <h2 class="cta-band__title">Talk to one of our attorneys.</h2>
+          <p class="cta-band__text">Your first consultation is free and confidential. We will tell you plainly where you stand.</p>
+        </div>
+        <div class="cta-band__actions">
+          <a class="btn--accent btn--m" href="contact.html">Free Case Review</a>
+          <a class="cta-band__phone" href="tel:+12145550190"><svg class="icon"><use href="#i-phone"/></svg>(214) 555-0190</a>
+        </div>
+      </div>
+    </section>

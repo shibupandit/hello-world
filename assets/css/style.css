@@ -2405,3 +2405,156 @@ a.pagination__link:hover { border-color: var(--primary); color: var(--primary); 
   .values__grid { grid-template-columns: minmax(0, 1fr); }
   .community__item { padding: var(--space-m); }
 }
+
+/* ==========================================================================
+   TEAM ARCHIVE (Bricks: Archive template → Team post type + Team Category)
+   ========================================================================== */
+.team-filter {
+  position: sticky;
+  top: var(--pc-header-h, 8.8rem);
+  z-index: 5;
+  border-bottom: 1px solid var(--base-trans-10);
+  background: color-mix(in srgb, var(--white) 92%, transparent);
+  backdrop-filter: blur(8px);
+}
+.team-filter__inner { padding-block: var(--space-s); }
+.team-groups { display: flex; flex-direction: column; gap: var(--section-space-s); padding-block: var(--section-space-s) var(--section-space-m); }
+.team-group[hidden] { display: none; }
+.team-group__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-s) var(--space-xl);
+  margin-bottom: var(--space-l);
+  padding-bottom: var(--space-m);
+  border-bottom: 1px solid var(--base-trans-10);
+}
+.team-group__title { margin-top: 0.6rem; font-family: var(--pc-font-display); font-weight: 400; font-size: var(--h2); line-height: 1.1; color: var(--primary-dark); }
+.team-group__intro { max-width: 46rem; color: var(--base-semi-dark); }
+.team-card__link { display: block; border-radius: var(--radius); }
+.team-card__link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.attorney-card__name a { color: inherit; text-decoration: none; }
+.attorney-card__name a:hover { color: var(--accent-dark); }
+.team-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  font-size: var(--text-s);
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+.team-card__more .icon { width: 1.5rem; height: 1.5rem; transition: transform 0.2s var(--pc-ease); }
+.team-card:hover .team-card__more .icon { transform: translateX(3px); }
+.team-card__more:hover { color: var(--accent-dark); }
+.team-careers__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-l); }
+.team-careers__inner > div { display: flex; flex-direction: column; gap: var(--space-s); max-width: 64rem; }
+.team-careers .section__title { margin-top: 0; }
+
+/* ==========================================================================
+   TEAM SINGLE (Bricks: Single template → Team post type)
+   ========================================================================== */
+.profile-hero { display: grid; grid-template-columns: 34rem minmax(0, 1fr); gap: var(--space-xl); align-items: center; }
+.profile-hero__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  border: 1px solid var(--white-trans-20);
+  border-radius: var(--radius);
+  background: radial-gradient(60% 45% at 50% 38%, color-mix(in srgb, var(--white) 22%, transparent), transparent 70%),
+    linear-gradient(170deg, var(--primary-light) 0%, var(--primary) 100%);
+  box-shadow: 0 2rem 4rem rgb(0 0 0 / 0.25);
+  overflow: hidden;
+}
+.profile-hero__photo::before {
+  content: attr(data-initials);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--pc-font-display);
+  font-size: 10rem;
+  color: color-mix(in srgb, var(--white) 75%, transparent);
+}
+.profile-hero__photo::after { content: ""; position: absolute; inset: auto 0 0 0; height: 4px; background: var(--accent); }
+.profile-hero__content { display: flex; flex-direction: column; gap: var(--space-s); min-width: 0; }
+.profile-hero__role { font-size: var(--text-l); color: var(--accent-light); }
+.profile-hero__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--white-trans-20);
+  border-radius: var(--radius-circle);
+  font-size: var(--text-s);
+  font-weight: 500;
+}
+.profile-hero__badge .icon { width: 1.8rem; height: 1.8rem; color: var(--accent-light); }
+.profile-hero__contact { display: flex; flex-wrap: wrap; gap: 1rem var(--space-l); margin-top: var(--space-xs); padding-top: var(--space-s); border-top: 1px solid var(--white-trans-20); font-size: var(--text-s); }
+.profile-hero__contact li { display: inline-flex; align-items: center; gap: 0.8rem; color: var(--primary-light); }
+.profile-hero__contact .icon { width: 1.6rem; height: 1.6rem; color: var(--accent-light); }
+.profile-hero__contact a { color: var(--white); text-decoration: none; font-weight: 600; overflow-wrap: anywhere; }
+.profile-hero__contact a:hover { color: var(--accent-light); }
+
+.profile-main { display: flex; flex-direction: column; gap: var(--space-xl); }
+.profile-block { display: flex; flex-direction: column; gap: var(--space-m); }
+.profile-block .practice-block__title { margin-bottom: 0; }
+.profile-quote {
+  margin: var(--space-s) 0 0;
+  padding: var(--space-m) var(--space-l);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--accent-ultra-light);
+}
+.profile-quote blockquote { margin: 0; font-family: var(--pc-font-display); font-size: var(--text-xl); line-height: 1.4; color: var(--primary-dark); }
+.profile-tags { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.profile-tags a {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid var(--accent-light);
+  border-radius: var(--radius-circle);
+  background: var(--white);
+  font-size: var(--text-s);
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.profile-tags a:hover { background: var(--primary); border-color: var(--primary); color: var(--white); }
+.profile-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m); }
+.profile-facts__col { padding: var(--space-m); border: 1px solid var(--base-trans-10); border-radius: var(--radius); min-width: 0; }
+.profile-facts__title { margin-bottom: var(--space-s); font-family: var(--text-font-family); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); }
+.profile-list { display: flex; flex-direction: column; gap: var(--space-s); }
+.profile-list li { display: flex; flex-direction: column; gap: 0.2rem; }
+.profile-list strong { color: var(--primary-dark); }
+.profile-list span { font-size: var(--text-s); color: var(--base-semi-dark); }
+.profile-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-s); }
+.profile-result { display: flex; flex-direction: column; gap: 0.6rem; padding: var(--space-m); border-radius: var(--radius); background: var(--primary); color: var(--white); min-width: 0; }
+.profile-result__amount { font-family: var(--pc-font-display); font-size: var(--h3); line-height: 1; color: var(--accent-light); font-variant-numeric: tabular-nums; }
+.profile-result__type { font-size: var(--text-s); color: var(--primary-light); }
+.profile-note { font-size: 1.25rem; color: var(--base-semi-dark); }
+
+@media (max-width: 992px) {
+  .profile-hero { grid-template-columns: 24rem minmax(0, 1fr); gap: var(--space-l); }
+  .profile-results { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 768px) {
+  .profile-hero { grid-template-columns: minmax(0, 1fr); }
+  .profile-hero__photo { max-width: 26rem; }
+  .profile-facts { grid-template-columns: minmax(0, 1fr); }
+}
+/* Team grids: two compact columns on phones so 12 people don't become a very long page */
+@media (max-width: 480px) {
+  .attorneys__grid.team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m) var(--space-s); }
+  .team-grid .attorney-card__photo::before { font-size: 4.4rem; }
+  .team-grid .attorney-card__name { font-size: var(--text-l); }
+  .team-grid .attorney-card__role { font-size: 1.35rem; }
+  .team-grid .attorney-card__meta { font-size: 1.25rem; }
+}
+/* Team filter: one swipeable row on small screens */
+.team-filter .blog-filter__list { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-block: 0.2rem; }
+.team-filter .blog-filter__list::-webkit-scrollbar { display: none; }
+.team-filter .chip { white-space: nowrap; }

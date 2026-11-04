@@ -45,6 +45,22 @@ PAGES = {
         "body_class": "page-about",
         "contact_page": True,
     },
+    "team.html": {
+        "partial": "team.main.html",
+        "title": "Our Team | Hartwell &amp; Crane",
+        "description": "Meet the Hartwell & Crane team: trial attorneys, paralegals and staff across our Dallas, Houston, Austin and Fort Worth offices.",
+        "active": "team.html",
+        "body_class": "page-team",
+        "contact_page": True,
+    },
+    "team-single.html": {
+        "partial": "team-single.main.html",
+        "title": "Eleanor Hartwell, Founding Partner | Hartwell &amp; Crane",
+        "description": "Eleanor Hartwell is a founding partner of Hartwell & Crane and Board Certified in Civil Trial Law by the Texas Board of Legal Specialization.",
+        "active": "team.html",
+        "body_class": "page-profile",
+        "contact_page": True,
+    },
     "contact.html": {
         "partial": "contact.main.html",
         "title": "Contact Us | Hartwell &amp; Crane",
