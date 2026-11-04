@@ -40,8 +40,8 @@
   if ("IntersectionObserver" in window && links.length) {
     var byId = {};
     links.forEach(function (l) {
-      var href = l.getAttribute("href") || "";
-      if (href.charAt(0) === "#" && href.length > 1) byId[href.slice(1)] = l;
+      var m = (l.getAttribute("href") || "").match(/^\/?#(.+)$/);
+      if (m) byId[m[1]] = l;
     });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
