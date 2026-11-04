@@ -482,3 +482,28 @@ Add a relationship field `practice_areas` on both the Attorney and Case Result p
 **Current item in the sidebar list:** in Bricks, add a condition on the link: *{post_id} equals {query_post_id}* → add class `is-current`. In the prototype, `tools/build_pages.py` sets it with `current_practice`.
 
 **Links:** homepage practice cards and footer practice links now point to the practice template. To add another practice area, add one entry to `PAGES` in `tools/build_pages.py`, or in WordPress, add a Practice Area post.
+
+---
+
+## 10. Build status on whitecrowtemplate.kinsta.cloud
+
+Built natively in Bricks on 2026-11-04 with the HTML/CSS → Bricks converter. The input is `build/bricks/`.
+
+| Item | Where | Notes |
+|---|---|---|
+| Header | Bricks template **Header** (#346), condition: entire site | Topbar and main bar. Sticky: the topbar scrolls away and the bar stays. The menu collapses at 1366px using the project's own nav (links point to `/#section`). |
+| Footer | Bricks template **Footer** (#347), condition: entire site | Offices row (accordions at 480px and below), link columns, legal bar |
+| Homepage | Page **Home** (#348), set as the front page | 13 sections, about 450 native elements |
+| Classes | 162 Bricks global classes (BEM names, uncategorised) | Alongside the 2,248 ACSS classes |
+| Variables | `pc-shadow-s/m/l`, `pc-ease`, `pc-page-bg` | Category "Hartwell & Crane" |
+| Global CSS | Theme style **Global → Custom CSS** | Base rules, rules that use an element selector or target classes inside SVG icons, sticky header, Fluent Forms styling |
+| JavaScript | Bricks → Settings → Custom code → Body (footer) scripts | Copy of `assets/js/main.js`. **Keep it free of backslashes**: WordPress strips them when the setting is saved. |
+| Forms | Fluent Forms **#3** "Free Case Review (short)" (hero), **#4** "Free Case Review (full)" (contact) | Embedded with Shortcode elements. Confirmation: "Thank you. A member of our intake team…" |
+| Layout | Full-width (theme style Site layout = default) | Switched from boxed at the client's request |
+
+**Content is still static.** Practice areas, attorneys, case results, testimonials, insights and offices are typed in. Turning them into query loops on the CPTs comes with the content step.
+
+**Known follow-ups:**
+- Set the Fluent Forms email notifications to the intake inbox.
+- Make the header phone number and email dynamic (ACF Business Details options page).
+- Replace the placeholder initials and gradients with real photos (HappyFiles → Images › …).
