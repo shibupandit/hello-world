@@ -589,3 +589,12 @@ Nav (Nestable) .main-nav   mobileMenu: custom, breakpoint 1279px
 - **Adding menu items:** add a Text-link (class `nav__link`) or a Dropdown inside the items block. New practice areas appear in the mega menu automatically.
 - **Perfmatters:** "Remove Unused CSS" now excludes `themes/bricks/assets/css/`. Without that, Perfmatters strips the dropdown, mega menu and mobile overlay styles, because they only apply after a hover or tap.
 - The old menu classes (`nav`, `nav__list`, `nav-toggle`, `nav__mobile-cta`) were deleted.
+
+## 11. Contact Us page (`/contact/`, page ID 610)
+
+Built from `build/bricks/tpl-contact.html` + `build/bricks/templates/contact.css` (generated from `partials/contact.main.html`) with the Bricks HTML→Bricks converter. New global classes have native settings plus small custom CSS: `page-hero--contact`, `contact-promise`, `contact-methods*`, `contact-method*`, `contact-main*`, `contact-card*`, `contact-aside`, `next-step*`, `hours*`.
+
+- **Sections:** hero with promise box → three contact-method cards (pulled up over the hero with `margin-top: -6rem`) → form card + sidebar (What happens next, Office hours, Urgent call box) → Our Offices (copied from the homepage section, same Our Offices query loop) → FAQ.
+- **Form:** Fluent Forms **#5 "Contact Page: Free Case Review"** (a copy of #4, so the homepage form is unchanged). Extra fields: `contact_method` radio (styled as pill buttons by the `hc-chips` container class), `nearest_office` select, and a required acknowledgement checkbox (`hc-consent`). The `contact-card` class styles them, plus the gold submit button.
+- **Root sections and padding:** Bricks/ACSS adds default section padding, so the hero and the contact-method strip set `_padding` top/bottom 0 on their classes.
+- **Links:** the header "Contact" item goes to `/contact/`; the header, mega menu and footer "Free Case Review" buttons go to `/contact/#case-review`.
