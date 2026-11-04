@@ -61,6 +61,14 @@ PAGES = {
         "body_class": "page-profile",
         "contact_page": True,
     },
+    "testimonials.html": {
+        "partial": "testimonials.main.html",
+        "title": "Client Testimonials | Hartwell &amp; Crane",
+        "description": "Read what clients say about Hartwell & Crane: reviews from personal injury, employment, family, criminal defense, business and estate clients across Texas.",
+        "active": "none",
+        "body_class": "page-reviews",
+        "contact_page": True,
+    },
     "contact.html": {
         "partial": "contact.main.html",
         "title": "Contact Us | Hartwell &amp; Crane",
