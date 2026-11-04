@@ -1,0 +1,97 @@
+/* ==========================================================================
+   ACSS v3 SHIM
+   --------------------------------------------------------------------------
+   This file stands in for Automatic.css v3 during the static prototype.
+   Every variable below uses the ACSS v3 naming, so style.css can be moved
+   into Bricks unchanged.
+
+   In WordPress: DELETE this file. Put the same values into
+   ACSS Dashboard → Colors / Typography / Spacing (see docs/bricks-acss-handoff.md)
+   and ACSS generates these variables for you.
+
+   Only the variables prefixed --pc- are project custom tokens. In WordPress,
+   add them under ACSS → Custom CSS (or Bricks → Settings → Custom code).
+   ========================================================================== */
+
+:root {
+  /* ---------- Colors (ACSS: Colors) ---------- */
+  /* Primary: chancery green */
+  --primary: #123a31;
+  --primary-hover: #0d2c25;
+  --primary-dark: #0b241e;
+  --primary-ultra-dark: #061512;
+  --primary-light: #c9dbd4;
+  --primary-ultra-light: #eef4f1;
+
+  /* Accent: aged brass */
+  --accent: #b08a4f;
+  --accent-hover: #977341;
+  --accent-dark: #6f5430;
+  --accent-light: #e6d6bb;
+  --accent-ultra-light: #f7f1e6;
+
+  /* Base: green-biased ink and neutrals */
+  --base: #1a2421;
+  --base-dark: #0f1715;
+  --base-medium: #55615d;
+  --base-light: #d8dedb;
+  --base-ultra-light: #f4f6f4;
+
+  --white: #ffffff;
+  --black: #0a0f0d;
+
+  /* ---------- Typography (ACSS: Typography) ---------- */
+  --root-font-size: 62.5%;
+  --text-xs: 1.3rem;
+  --text-s: 1.5rem;
+  --text-m: clamp(1.6rem, 1.55rem + 0.2vw, 1.8rem);
+  --text-l: clamp(1.8rem, 1.7rem + 0.45vw, 2.1rem);
+  --text-xl: clamp(2rem, 1.8rem + 0.8vw, 2.6rem);
+  --text-xxl: clamp(2.4rem, 2rem + 1.4vw, 3.2rem);
+
+  --h1: clamp(4rem, 2.8rem + 4.2vw, 7.2rem);
+  --h2: clamp(3.2rem, 2.4rem + 2.6vw, 5.2rem);
+  --h3: clamp(2.4rem, 2rem + 1.2vw, 3.2rem);
+  --h4: clamp(2rem, 1.8rem + 0.6vw, 2.4rem);
+  --h5: 1.8rem;
+  --h6: 1.6rem;
+
+  /* ---------- Spacing (ACSS: Spacing) ---------- */
+  --space-xs: clamp(0.8rem, 0.7rem + 0.2vw, 1rem);
+  --space-s: clamp(1.2rem, 1.05rem + 0.4vw, 1.6rem);
+  --space-m: clamp(1.8rem, 1.5rem + 0.8vw, 2.4rem);
+  --space-l: clamp(2.6rem, 2.1rem + 1.4vw, 3.6rem);
+  --space-xl: clamp(3.6rem, 2.8rem + 2.2vw, 5.4rem);
+  --space-xxl: clamp(4.8rem, 3.6rem + 3.4vw, 8rem);
+
+  --section-space-s: clamp(4.8rem, 3.8rem + 2.8vw, 7.2rem);
+  --section-space-m: clamp(6.4rem, 4.8rem + 4.4vw, 11.2rem);
+  --section-space-l: clamp(8rem, 5.6rem + 6.6vw, 14.4rem);
+
+  --gutter: clamp(1.6rem, 0.8rem + 3vw, 4.8rem);
+  --content-width: 124rem;
+  --content-gap: var(--space-m);
+  --container-gap: var(--space-xl);
+  --grid-gap: var(--space-l);
+
+  /* ---------- Radius ---------- */
+  --radius-xs: 0.2rem;
+  --radius-s: 0.4rem;
+  --radius: 0.6rem;
+  --radius-m: 0.6rem;
+  --radius-l: 1.2rem;
+  --radius-circle: 50%;
+
+  /* ---------- Project custom tokens (not part of ACSS) ---------- */
+  --pc-font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --pc-font-serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --pc-font-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --pc-boxed-width: 144rem;
+  --pc-page-bg: #dfe4e1;
+  --pc-line: color-mix(in srgb, var(--base) 12%, transparent);
+  --pc-line-inverse: color-mix(in srgb, var(--white) 16%, transparent);
+  --pc-shadow-s: 0 1px 2px rgb(10 15 13 / 0.06), 0 2px 8px rgb(10 15 13 / 0.05);
+  --pc-shadow-m: 0 2px 4px rgb(10 15 13 / 0.05), 0 12px 32px rgb(10 15 13 / 0.08);
+  --pc-shadow-l: 0 30px 80px rgb(6 21 18 / 0.18);
+  --pc-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
