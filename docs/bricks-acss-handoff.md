@@ -21,7 +21,7 @@ Class names follow BEM (`block__element--modifier`), the same convention ACSS an
 
 ## 2. ACSS settings (applied and verified on the site)
 
-These settings are **already applied** on whitecrowtemplate.kinsta.cloud (ACSS 3.3.8). They were checked against the CSS that ACSS generated on 2026-11-04. `assets/css/acss-shim.css` is a copy of that output for the prototype. The previous ACSS settings are backed up in the WordPress option `wcd_acss_settings_backup_20261104`.
+These settings are **already applied** on whitecrowtemplate.kinsta.cloud (ACSS 3.3.8). They were checked against the CSS that ACSS generated on 2026-11-04. `assets/css/acss-shim.css` is a copy of that output for the prototype.
 
 ### Colours (ACSS → Colors)
 
