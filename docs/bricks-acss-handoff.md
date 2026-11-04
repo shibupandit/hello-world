@@ -577,7 +577,12 @@ Nav (Nestable) .main-nav   mobileMenu: custom, breakpoint 1279px
 └ Toggle (open)
 ```
 
-**Areas We Serve data:** post type **City** (`city`, public at `/areas-we-serve/<slug>/`) with the ACF group "City Details" → repeater `city_services` (`name`, `link`). Each city holds 10 services, and each one links to a practice-area page. To add or reorder cities, edit City posts (Page Attributes → Order). The grid shows 6 columns on desktop. In the mobile overlay it shows city names only, in 2 columns; the service lists are hidden so the panel stays short.
+**Areas We Serve data:** "Areas We Serve" itself has no page or URL (the toggle is a `<span>`).
+
+- **Cities** post type (`cities`, admin `edit.php?post_type=cities`): one post per city, URL `/<city>/` (e.g. `/dallas/`). The ACF group "City Details" → repeater `city_services` (`name`, `link`) feeds the 10 service links under each city in the mega menu.
+- **One ACF post type per city** (`city-dallas`, `city-fort-worth`, `city-houston`, `city-austin`, `city-plano`, `city-arlington`), each with rewrite slug = the city slug, so pages live at `/dallas/truck-accidents/`. Each is set to *Admin Menu Parent* `edit.php?post_type=cities`, so they appear as sub-items under Cities rather than as top-level menus. Each holds 10 blank pages.
+- **Short city URLs** come from `wp-content/novamira-sandbox/hc-city-urls.php`: it rewrites the Cities permalink to `/<slug>/`, adds a top rewrite rule from the option `hc_city_slugs`, and refreshes that list (and the rewrite rules) whenever a city is saved or deleted.
+- **Adding a city:** add a Cities post, then add an ACF post type `city-<slug>` (rewrite slug `<slug>`, Admin Menu Parent `edit.php?post_type=cities`), create its pages, and fill the city's `city_services` repeater with their URLs. Avoid page slugs that match a city slug.
 
 - **Breakpoint:** the custom breakpoint must stay **at or below the base Bricks breakpoint (1279px)**. A larger value makes Bricks generate the mobile menu as `min-width` (inverted). Between 1280 and 1366px the header "Free Case Review" button hides, so the full menu fits.
 - **Mobile overlay:** dropdown toggles without a link render as a `<span>`. The `main-nav` custom CSS gives them the same size and padding as the links. Write selectors as `.main-nav …` in CSS saved outside the builder; `%root%` is only expanded when the class is saved in the Bricks editor.
