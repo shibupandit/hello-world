@@ -648,3 +648,13 @@ Built from `build/bricks/tpl-about.html` + `build/bricks/templates/about.css` (g
 - `<section>`/`<aside>` blocks become Bricks sections. Zero their padding (including the side gutter) on the class.
 - A root-level layout container needs a section wrapper to get the mobile gutter.
 - Inline `<a>`/`<span>` markers inside headings or text are not converted. Set the dynamic text or link on the parent element instead.
+
+### Team portraits (Image element + `team-photo` class)
+
+Every team portrait is a native Bricks **Image** element with the global class **`team-photo`**: Display block, Width 100%, Aspect ratio 4 / 5, Object fit cover. These are set as native class settings. The class's custom CSS only adds the hover zoom inside `.attorney-card`.
+
+- **Where:** the Team Archive cards (3 loops), the Team Single hero and "Meet more of the team" cards, and the homepage and About attorney cards.
+- **Image source:** in loops and on the single template the image is `{featured_image}` (size Large). On the homepage and About, the four cards still use static attachments, because those sections are not query loops yet.
+- **Placeholders:** each team member's featured image is a generated 800×1000 monogram portrait (`assets/img/team/<slug>.jpg`), in the HappyFiles folder **Team**. Replace it by setting a new featured image on the Team post. Any photo is cropped to 4:5 by `object-fit: cover`.
+- **CSS cleanup:** the old CSS initials overlay (`.attorney-card__photo::before` / `.profile-hero__photo::before`) was removed. The frame classes keep the radius, gradient fallback and the gold hover bar.
+- **Lazy-loading:** Perfmatters lazy-loads these images (`data-src`).
