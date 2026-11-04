@@ -138,4 +138,5 @@
 }
 
 .team-groups-section { padding: 0; }
-.profile-honors li { padding-left: 1.6rem; border-left: 2px solid var(--accent); }
+.profile-honors__text { display: flex; flex-wrap: wrap; column-gap: 0.6rem; }
+.profile-honors__text strong { color: var(--primary-dark); }
