@@ -598,3 +598,12 @@ Built from `build/bricks/tpl-contact.html` + `build/bricks/templates/contact.css
 - **Form:** Fluent Forms **#5 "Contact Page: Free Case Review"** (a copy of #4, so the homepage form is unchanged). Extra fields: `contact_method` radio (styled as pill buttons by the `hc-chips` container class), `nearest_office` select, and a required acknowledgement checkbox (`hc-consent`). The `contact-card` class styles them, plus the gold submit button.
 - **Root sections and padding:** Bricks/ACSS adds default section padding, so the hero and the contact-method strip set `_padding` top/bottom 0 on their classes.
 - **Links:** the header "Contact" item goes to `/contact/`; the header, mega menu and footer "Free Case Review" buttons go to `/contact/#case-review`.
+
+## 12. About Us page (`/about/`, page ID 616)
+
+Built from `build/bricks/tpl-about.html` + `build/bricks/templates/about.css` (generated from `partials/about.main.html`), the same way as the Contact page. New global classes: `story*`, `values__grid`, `value-card*`, `milestones__list`, `milestone*`, `community*`.
+
+- **Sections:** hero with stats → Recognition strip, copied from the homepage → Our Story (sticky intro and quote, story text, checklist, signature) → What We Stand For (4 value cards) → Milestones timeline (horizontal on desktop, vertical below 992px) → Stats band and Our Attorneys, both copied from the homepage (same Team query loop) → Beyond the Courtroom → CTA band.
+- **Links:** The Firm → About Us in the header and footer now goes to `/about/`.
+- **Converter notes:** `dt`/`dd` children become divs, so I set them back to custom tags `dt`/`dd` on the hero stats here and on the Contact page's office hours. List classes (`values__grid`, `community__list`, `milestones__list`, `next-steps`) need `padding-left: 0` and `list-style: none`. Hero sections need `_padding` top/bottom 0 to override the default section padding.
+- **Mobile grid fix:** below 767px Bricks sets `flex-wrap: wrap` on column containers, and Chrome then sizes the attorneys grid (4:5 photos) too short, so the cards spilled into the next section. The `attorneys__grid` class now includes `.brxe-container:has(> .attorneys__grid) { flex-wrap: nowrap; }`. This also fixes the homepage.
