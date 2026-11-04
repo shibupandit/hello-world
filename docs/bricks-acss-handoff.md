@@ -654,7 +654,20 @@ Built from `build/bricks/tpl-about.html` + `build/bricks/templates/about.css` (g
 Every team portrait is a native Bricks **Image** element with the global class **`team-photo`**: Display block, Width 100%, Aspect ratio 4 / 5, Object fit cover. These are set as native class settings. The class's custom CSS only adds the hover zoom inside `.attorney-card`.
 
 - **Where:** the Team Archive cards (3 loops), the Team Single hero and "Meet more of the team" cards, and the homepage and About attorney cards.
-- **Image source:** in loops and on the single template the image is `{featured_image}` (size Large). On the homepage and About, the four cards still use static attachments, because those sections are not query loops yet.
+- **Image source:** everywhere the image is `{featured_image}` (size Large).
 - **Placeholders:** each team member's featured image is a generated 800×1000 monogram portrait (`assets/img/team/<slug>.jpg`), in the HappyFiles folder **Team**. Replace it by setting a new featured image on the Team post. Any photo is cropped to 4:5 by `object-fit: cover`.
 - **CSS cleanup:** the old CSS initials overlay (`.attorney-card__photo::before` / `.profile-hero__photo::before`) was removed. The frame classes keep the radius, gradient fallback and the gold hover bar.
 - **Lazy-loading:** Perfmatters lazy-loads these images (`data-src`).
+
+### Homepage and About "Our Attorneys" (query loop)
+
+The attorney grid on the homepage (`6ouoru`) and About (`8ce895`) is now one query-loop card:
+- **Query:** Team, `tax_query: ["team-category::33"]` (Attorneys), 4 per page, ordered by menu order.
+- **Card content:**
+  - Image `{featured_image}` with `team-photo`
+  - name `{post_title}` linked to `{post_url}`
+  - role `{acf_team_position}`
+  - credential `{acf_team_job_designation}`
+  - a "View profile →" link
+
+The photo frame links to the profile too. The static cards were removed. To change who appears, edit the Attorneys category or the Team order.
