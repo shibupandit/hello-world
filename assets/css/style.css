@@ -28,7 +28,6 @@ body {
   line-height: 1.65;
   color: var(--base);
   background-color: var(--white);
-  background-image: var(--pc-paper);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -2635,5 +2634,15 @@ a.pagination__link:hover { border-color: var(--primary); color: var(--primary); 
   .review-share__actions > * { flex: 1 1 100%; justify-content: center; }
 }
 
-/* Paper texture on the light surfaces that paint their own background (cards stay plain white) */
-.header, .section--tint, .stats, .cta-band { background-image: var(--pc-paper); }
+/* ==========================================================================
+   Paper texture: site-wide default (WordPress: Theme Styles > Global > CSS)
+   - Change it: edit --pc-paper. Turn it off everywhere: set --pc-paper to none.
+   - Add it to another light surface: give the element the class .has-paper.
+   Surface colours stay on each element; cards stay plain.
+   ========================================================================== */
+html, .header, .section--tint, .stats, .cta-band, .article-hero, .has-paper {
+  background-image: var(--pc-paper, none);
+  background-repeat: repeat;
+  background-position: top left;
+  background-size: auto;
+}

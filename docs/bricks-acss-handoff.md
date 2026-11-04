@@ -724,17 +724,27 @@ Bricks hides the pagination automatically when there is only one page (e.g. smal
 
 **Featured testimonial:** Bricks applies the page number to every post loop on the page, so `hc-testimonials-featured.php` (Novamira sandbox) pins the featured loop to page 1. That way it also shows on `/testimonials/page/2/`.
 
-## 16. Paper texture (site-wide background)
+## 16. Paper texture (site-wide default)
 
-**File:** `assets/img/paper-texture.webp`.
+**File:** `paper-texture.webp`.
 - **Format:** a 320×320 seamless tile, 37 KB. It is a single warm-brown colour with ~3% average transparency, so it never changes the colour underneath.
-- **Media library:** attachment 700, in the HappyFiles folder "Site". Option `hc_paper_texture_id` stores the ID.
-- **Source:** `assets/img/paper-texture.svg`, an feTurbulence recipe. Re-export a tile from it if the texture needs adjusting.
+- **Media library:** attachment 700, in the HappyFiles folder "Site".
+- **Source:** `assets/img/paper-texture.svg` (an feTurbulence recipe). Re-export a tile from it to adjust the texture.
 - **Why WebP, not SVG:** the browser has to generate the SVG's noise on every page load, which measured ~9 ms on a normal screen and ~31 ms on retina, several times more on phones. Browsers also render it slightly differently. The WebP decodes in ~2 ms, looks identical everywhere, and is cached by the CDN.
 
-**Where it is applied (native settings only):**
-- **Page:** Bricks Theme Style → General → **Site background** (`html, body`): colour `var(--white)` + image, repeat, **size auto**.
-- **Classes:** `header`, `section--tint`, `stats` and `cta-band` each have a native **Background** with their colour (`--white`, `--primary-ultra-light`, `--accent-ultra-light`) + the same image, repeat, **size auto**. Their old custom-CSS `background:` lines were removed.
-- **Not applied:** cards stay plain white, so they stand out on the paper. Dark sections (hero, results, page heroes, footer) keep their solid colour and gradient.
-- **Other surfaces:** to add the texture to a new light surface, give its class a Background with the colour + attachment 700, repeat, size auto.
-- **Always set Size to auto.** Bricks defaults a background image to `background-size: cover`, which stretches the 320 px tile across the whole section and blurs it.
+**One switch, one rule.** Everything lives in **Bricks > Theme Styles > Global > CSS**:
+1. **Site variables block:** `:root { --pc-paper: url(".../paper-texture.webp"); … }`.
+   - The Bricks **Variables Manager is disabled** on this site, because ACSS manages its own variables.
+   - So variables saved in Bricks > Variables are *not* output. All project `--pc-*` variables are defined here instead: `--pc-shadow-s/m/l`, `--pc-ease`, `--pc-page-bg`, `--pc-paper`.
+   - The `--pc-shadow-*` and `--pc-ease` variables had been missing on the live site until this block was added, which restored the card shadows and the transition easing.
+2. **Paper texture rule:** applies `background-image: var(--pc-paper, none)` with repeat, top left and size auto. It targets `html, .header, .section--tint, .stats, .cta-band, .article-hero, .has-paper` and the open mobile menu (`#brxe-mnav01.brx-open .brx-nav-nested-items`).
+
+**Colours stay native.** Theme Style > General > Site background, and the Background setting on `header`, `section--tint`, `stats`, `cta-band` and `article-hero`, hold only the colour. There is no image in those settings.
+
+**How to…**
+- **Change the texture:** edit `--pc-paper` in the variables block, or replace the media file paper-texture.webp (keep the same file name).
+- **Turn it off everywhere:** set `--pc-paper: none;`.
+- **Add it to another light surface:** add the global class **`has-paper`** to the element. The element keeps its own background colour.
+- **Remove it from one surface type:** delete that selector from the rule.
+
+**Not textured on purpose:** cards, sidebar boxes and quote boxes stay plain white or tinted, so they stand out on the paper. Dark sections (hero, results, page heroes, footer) keep their solid colour or gradient.
