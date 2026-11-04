@@ -547,3 +547,30 @@ The theme style's **Custom CSS is empty**. All styling is native to Bricks and A
 | Featured card visible only on the blog home | Custom CSS on `post-featured` |
 
 **Font families** in class typography must be **bare names** (`Libre Caslon Display`) with the fallback in *Font fallback*. A quoted stack gets double-quoted by Bricks and falls back to Times.
+
+### Header navigation: Bricks Nav (Nestable) with mega menu
+
+The hand-built menu was replaced with a native **Nav (Nestable)** element (`#brxe-mnav01`, class `main-nav`) in the Header template:
+
+```
+Nav (Nestable) .main-nav   mobileMenu: custom, breakpoint 1279px
+├ Block ul.brx-nav-nested-items
+│ ├ Text-link .nav__link  Home · The Firm (/#about)
+│ ├ Dropdown "Practice Areas" → /#practice   megaMenu ✓ (width = #brx-header .header__inner)
+│ │ └ Div ul.brx-dropdown-content .mega-menu
+│ │   └ li
+│ │     ├ .mega-menu__grid ← query loop: Practice Areas (menu order) → .mega-menu__item (title + excerpt)
+│ │     └ .mega-menu__aside  "Free case review" panel: Start my review, phone
+│ ├ Text-link .nav__link  Attorneys · Case Results
+│ ├ Dropdown "Insights" → /insights/
+│ │ └ Div ul.brx-dropdown-content .nav-dropdown ← term loop: categories, plus "All articles"
+│ ├ Text-link .nav__link  Contact
+│ ├ li .main-nav__cta  "Free Case Review" (mobile overlay only)
+│ └ Toggle (close, brx-toggle-div)
+└ Toggle (open)
+```
+
+- **Breakpoint:** the custom breakpoint must stay **at or below the base Bricks breakpoint (1279px)**. A larger value makes Bricks generate the mobile menu as `min-width` (inverted). Between 1280 and 1366px the header "Free Case Review" button hides, so the full menu fits.
+- **Adding menu items:** add a Text-link (class `nav__link`) or a Dropdown inside the items block. New practice areas appear in the mega menu automatically.
+- **Perfmatters:** "Remove Unused CSS" now excludes `themes/bricks/assets/css/`. Without that, Perfmatters strips the dropdown, mega menu and mobile overlay styles, because they only apply after a hover or tap.
+- The old menu classes (`nav`, `nav__list`, `nav-toggle`, `nav__mobile-cta`) were deleted.
