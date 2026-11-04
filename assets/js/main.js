@@ -179,6 +179,11 @@
   var toc = document.querySelector(".js-toc");
   if (prose && toc) {
     var heads = Array.prototype.slice.call(prose.querySelectorAll("h2[id]"));
+    // WordPress: the "In this article" box sits outside the post content; move it under the lead paragraph
+    var tocBox = toc.closest(".toc");
+    var lead = prose.querySelector(".prose__lead") || prose.querySelector("p");
+    if (tocBox && !prose.contains(tocBox) && lead) lead.parentNode.insertBefore(tocBox, lead.nextSibling);
+    if (tocBox && heads.length < 2) tocBox.hidden = true;
     heads.forEach(function (h) {
       var li = document.createElement("li");
       var a = document.createElement("a");
@@ -228,4 +233,16 @@
       }
     });
   }
+  // 10. Highlight the current category chip / practice area link (WordPress archive + sidebar)
+  var here = location.pathname.replace(/[/]+$/, "");
+  document.querySelectorAll(".blog-filter a.chip, .practice-list__link").forEach(function (a) {
+    var path = a.pathname.replace(/[/]+$/, "");
+    if (path && path === here) {
+      a.classList.add(a.classList.contains("chip") ? "is-active" : "is-current");
+      a.setAttribute("aria-current", "page");
+      if (a.classList.contains("chip")) {
+        document.querySelectorAll(".blog-filter a.chip.is-active").forEach(function (o) { if (o !== a) o.classList.remove("is-active"); });
+      }
+    }
+  });
 })();

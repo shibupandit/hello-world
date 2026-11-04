@@ -1,0 +1,13 @@
+/* Additions for the WordPress templates (loop wrappers) */
+.post-featured__byline { display: flex; align-items: center; gap: var(--space-s); }
+.post-featured__reading { font-size: 1.3rem; color: var(--base-semi-dark); }
+.post-card__byline { display: inline-flex; align-items: center; gap: 1rem; min-width: 0; }
+.chip__name { display: inline; }
+.search-form .brxe-search { width: 100%; }
+.page-hero .bricks-search-form { display: flex; background: var(--white); border-radius: var(--radius-s); box-shadow: var(--pc-shadow-l); overflow: hidden; }
+.page-hero .bricks-search-form input[type="search"] { flex: 1; min-width: 0; padding: 1.6rem 1.8rem; border: 0; background: transparent; color: var(--base); font: inherit; font-size: var(--text-m); }
+.page-hero .bricks-search-form button { width: 6rem; border: 0; background: var(--accent); color: var(--white); cursor: pointer; }
+.article-hero__cat a, .article-hero__cat { color: var(--white); text-decoration: none; }
+.author-box__byline { display: flex; gap: var(--space-l); align-items: flex-start; }
+.article-meta__byline { display: flex; align-items: center; gap: var(--space-s); }
+.practice-block[hidden] { display: none; }
