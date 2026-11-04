@@ -697,3 +697,29 @@ The client name is the post title. Order is set with Page Attributes → Order. 
 - **CTA band.**
 
 **Menu:** Resources → Testimonials now goes to `/testimonials/`. The homepage testimonial slider is still static markup (not connected to the post type).
+
+## 15. Pagination (Blog archive + Testimonials)
+
+Both use the native Bricks **Pagination** element with the global class **`pagination`**:
+- **Blog Archive** (template 461): element `dnt2ei`, `queryId` = the main posts loop `ozzbps`.
+- **Testimonials** (page 694): element `tmpag1`, placed after the wall, `queryId` = the wall loop.
+
+**Styling (native class settings in the Pagination style panel):**
+- justify center, gap 0.8rem
+- item height and width 4.6rem
+- white background, 1px `--base-trans-20` border, `--radius-s` corners
+- text `--text-s` / 600 / `--base`
+- active item: `--primary` background and border, white text
+- margin-top `--space-xl`
+
+The class's custom CSS holds only what the panel lacks: the hover state (primary border and text), a colour transition, and the icon size.
+
+The prev/next icons (Ionicons `ion-ios-arrow-back` / `-forward`), end size and mid size are content settings. They are set on each element, because Bricks ignores content settings on a class.
+
+**Posts per page:**
+- **Blog:** 6, set on the loop `ozzbps`. With "is archive main query", Bricks applies the loop's posts_per_page to the main query, so set it there and not in a `pre_get_posts` filter. The sandbox filter in `hc-blog-featured-post.php` was changed to 6 to match.
+- **Testimonials wall:** 6.
+
+Bricks hides the pagination automatically when there is only one page (e.g. small categories).
+
+**Featured testimonial:** Bricks applies the page number to every post loop on the page, so `hc-testimonials-featured.php` (Novamira sandbox) pins the featured loop to page 1. That way it also shows on `/testimonials/page/2/`.
