@@ -832,6 +832,7 @@ textarea.form__input { resize: vertical; min-height: 9rem; }
   display: flex;
   flex-direction: column;
   background: var(--white);
+  border: 1px solid var(--accent-light);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--pc-shadow-s);
