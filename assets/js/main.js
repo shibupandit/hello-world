@@ -40,8 +40,10 @@
   if ("IntersectionObserver" in window && links.length) {
     var byId = {};
     links.forEach(function (l) {
-      var m = (l.getAttribute("href") || "").match(/^\/?#(.+)$/);
-      if (m) byId[m[1]] = l;
+      // "#about" or "/#about" (no backslashes: WordPress strips them from saved scripts)
+      var href = l.getAttribute("href") || "";
+      var k = href.indexOf("#");
+      if (k > -1 && href.length > k + 1 && (k === 0 || href.slice(0, k) === "/")) byId[href.slice(k + 1)] = l;
     });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -182,7 +184,7 @@
       var a = document.createElement("a");
       a.className = "toc__link";
       a.href = "#" + h.id;
-      a.textContent = h.textContent.replace(/^\d+\.\s*/, "");
+      a.textContent = h.textContent.replace(/^[0-9]+[.][ ]*/, "");
       li.appendChild(a);
       toc.appendChild(li);
     });
