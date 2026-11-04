@@ -37,6 +37,14 @@ PAGES = {
         # Highlight this practice area in the sidebar list
         "current_practice": "Personal Injury",
     },
+    "about.html": {
+        "partial": "about.main.html",
+        "title": "About Us | Hartwell &amp; Crane",
+        "description": "Hartwell & Crane is a Texas trial firm founded in 1994 by two former prosecutors. 14 attorneys, four offices, and a partner on every case.",
+        "active": "index.html#about",
+        "body_class": "page-about",
+        "contact_page": True,
+    },
     "contact.html": {
         "partial": "contact.main.html",
         "title": "Contact Us | Hartwell &amp; Crane",
@@ -61,7 +69,9 @@ def include(html: str) -> str:
 def from_index(html: str, src: str) -> str:
     """Copy a homepage section (matched by its id) into a page: <!-- @from-index offices -->"""
     def repl(m):
-        sec = re.search(r'    <section class="[^"]*" id="%s".*?</section>\n' % m.group(1), src, re.S)
+        name = m.group(1)
+        sec = re.search(r'    <section class="[^"]*" id="%s".*?</section>\n' % name, src, re.S) or \
+            re.search(r'    <section class="%s[ "].*?</section>\n' % name, src, re.S)
         return sec.group(0) if sec else ""
     return re.sub(r"    <!-- @from-index ([\w-]+) -->\n?", repl, html)
 
@@ -90,6 +100,7 @@ def main() -> None:
                           f'<a class="nav__link is-active" href="{cfg["active"]}" aria-current="page">')
 
         body = from_index(include((ROOT / "partials" / cfg["partial"]).read_text()), src)
+        body = body.replace('href="#contact"', 'href="contact.html"')
         if cfg.get("current_practice"):
             name = cfg["current_practice"]
             body = body.replace(
