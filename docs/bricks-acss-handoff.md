@@ -555,22 +555,32 @@ The hand-built menu was replaced with a native **Nav (Nestable)** element (`#brx
 ```
 Nav (Nestable) .main-nav   mobileMenu: custom, breakpoint 1279px
 ├ Block ul.brx-nav-nested-items
-│ ├ Text-link .nav__link  Home · The Firm (/#about)
+│ ├ Text-link .nav__link  Home
+│ ├ Dropdown "The Firm" (no link)
+│ │ └ ul.brx-dropdown-content .nav-dropdown  About Us (/#about) · Attorneys (/#attorneys)
 │ ├ Dropdown "Practice Areas" → /#practice   megaMenu ✓ (width = #brx-header .header__inner)
 │ │ └ Div ul.brx-dropdown-content .mega-menu
 │ │   └ li
 │ │     ├ .mega-menu__grid ← query loop: Practice Areas (menu order) → .mega-menu__item (title + excerpt)
 │ │     └ .mega-menu__aside  "Free case review" panel: Start my review, phone
-│ ├ Text-link .nav__link  Attorneys · Case Results
-│ ├ Dropdown "Insights" → /insights/
-│ │ └ Div ul.brx-dropdown-content .nav-dropdown ← term loop: categories, plus "All articles"
+│ ├ Dropdown "Areas We Serve" (no link)   megaMenu ✓
+│ │ └ ul.brx-dropdown-content .areas-menu
+│ │   └ li > .areas-menu__grid
+│ │     └ .areas-menu__city ← query loop: City posts (menu order, max 6)
+│ │       ├ Text-link .areas-menu__city-name  {post_title} → {post_url}
+│ │       └ ul.areas-menu__services > li ← ACF repeater loop city_services → {name} → {link}
+│ ├ Dropdown "Resources" (no link)
+│ │ └ ul.brx-dropdown-content .nav-dropdown  Insights · Case Results (/#results) · Press & News (/category/press-news/) · Testimonials (/#testimonials)
 │ ├ Text-link .nav__link  Contact
 │ ├ li .main-nav__cta  "Free Case Review" (mobile overlay only)
 │ └ Toggle (close, brx-toggle-div)
 └ Toggle (open)
 ```
 
+**Areas We Serve data:** post type **City** (`city`, public at `/areas-we-serve/<slug>/`) with the ACF group "City Details" → repeater `city_services` (`name`, `link`). Each city holds 10 services, and each one links to a practice-area page. To add or reorder cities, edit City posts (Page Attributes → Order). The grid shows 6 columns on desktop. In the mobile overlay it shows city names only, in 2 columns; the service lists are hidden so the panel stays short.
+
 - **Breakpoint:** the custom breakpoint must stay **at or below the base Bricks breakpoint (1279px)**. A larger value makes Bricks generate the mobile menu as `min-width` (inverted). Between 1280 and 1366px the header "Free Case Review" button hides, so the full menu fits.
+- **Mobile overlay:** dropdown toggles without a link render as a `<span>`. The `main-nav` custom CSS gives them the same size and padding as the links. Write selectors as `.main-nav …` in CSS saved outside the builder; `%root%` is only expanded when the class is saved in the Bricks editor.
 - **Adding menu items:** add a Text-link (class `nav__link`) or a Dropdown inside the items block. New practice areas appear in the mega menu automatically.
 - **Perfmatters:** "Remove Unused CSS" now excludes `themes/bricks/assets/css/`. Without that, Perfmatters strips the dropdown, mega menu and mobile overlay styles, because they only apply after a hover or tap.
 - The old menu classes (`nav`, `nav__list`, `nav-toggle`, `nav__mobile-cta`) were deleted.
