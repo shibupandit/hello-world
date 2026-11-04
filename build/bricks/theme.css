@@ -1,0 +1,11 @@
+/* Hartwell & Crane — global base (theme style custom CSS) */
+html { scroll-behavior: smooth; scroll-padding-top: 10rem; }
+body { font-family: "Public Sans", Arial, sans-serif; font-size: var(--text-m); line-height: 1.65; color: var(--base); -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; }
+p { margin: 0; }
+[role="list"] { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--radius-xs); }
+.icon { width: 1.2em; height: 1.2em; flex: none; vertical-align: -0.2em; }
+.icon--flip { transform: scaleX(-1); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
