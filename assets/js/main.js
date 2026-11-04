@@ -221,7 +221,8 @@
   }
   var copyBtn = document.querySelector(".js-copy-link");
   if (copyBtn) {
-    copyBtn.addEventListener("click", function () {
+    copyBtn.addEventListener("click", function (e) {
+      if (e) e.preventDefault();
       var done = function (msg) {
         copyBtn.textContent = msg;
         setTimeout(function () { copyBtn.textContent = "Copy link"; }, 2000);
