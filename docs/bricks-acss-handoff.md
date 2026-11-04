@@ -607,3 +607,44 @@ Built from `build/bricks/tpl-about.html` + `build/bricks/templates/about.css` (g
 - **Links:** The Firm → About Us in the header and footer now goes to `/about/`.
 - **Converter notes:** `dt`/`dd` children become divs, so I set them back to custom tags `dt`/`dd` on the hero stats here and on the Contact page's office hours. List classes (`values__grid`, `community__list`, `milestones__list`, `next-steps`) need `padding-left: 0` and `list-style: none`. Hero sections need `_padding` top/bottom 0 to override the default section padding.
 - **Mobile grid fix:** below 767px Bricks sets `flex-wrap: wrap` on column containers, and Chrome then sizes the attorneys grid (4:5 photos) too short, so the cards spilled into the next section. The `attorneys__grid` class now includes `.brxe-container:has(> .attorneys__grid) { flex-wrap: nowrap; }`. This also fixes the homepage.
+
+## 13. Team (archive `/team/` and profiles `/team/<name>/`)
+
+**Data**
+- **Team post type** (`team`): has an archive at `/team/`, and single profiles at `/team/<slug>/`. Order is set with Page Attributes → Order (menu_order).
+- **Team Category** taxonomy (`team-category`): Attorneys (33), Paralegals (34) and Staff (35). There are 4 posts in each.
+- **ACF group "Team"** (`group_68b5352c3fd58`):
+  - `team_position`: role line
+  - `team_job_designation`: card meta line and the attorney badge
+  - `team_initials`: placeholder portrait
+  - `team_label`: Attorney / Paralegal / Staff, shown above the name
+  - `team_email`, `team_phone`, `team_office`, `team_since`, `team_languages`, `team_quote`
+  - repeaters `team_education` / `team_admissions` / `team_honors` (`title`, `detail`) and `team_results` (`amount`, `type`)
+  - relationship `team_practice_areas` → Practice Areas
+  - The biography is the post content; the excerpt is its first paragraph.
+
+**Templates**
+- **Team Archive** (ID 654, condition: post type archive → Team):
+  - hero
+  - three groups, each a query loop on Team with a simple term filter (`tax_query: ["team-category::33"]`, ordered by menu order)
+  - careers band
+  - CTA band
+
+  The Bricks simple tax query is a flat list of `taxonomy::term_id` strings. A WP-style array is ignored silently.
+- **Team Single** (ID 653, condition: post type → Team):
+  - profile hero: initials portrait via `data-initials="{acf_team_initials}"`, label, name, role, contact row
+  - credential badge: shown only when `team_label` is Attorney
+  - Post Content biography and quote
+  - practice areas (relationship loop)
+  - education / admissions / honors / results (repeater loops)
+  - At a glance box and the free case review form (Fluent Forms #3)
+  - "Meet more of the team" (4 others)
+
+  Each section has a condition, so paralegal and staff profiles only show what they have.
+
+**Links:** the header (The Firm → Our Team), the footer, and the homepage and About "Meet the whole team" buttons all go to `/team/`. There is no separate Attorneys page.
+
+**Converter notes:**
+- `<section>`/`<aside>` blocks become Bricks sections. Zero their padding (including the side gutter) on the class.
+- A root-level layout container needs a section wrapper to get the mobile gutter.
+- Inline `<a>`/`<span>` markers inside headings or text are not converted. Set the dynamic text or link on the parent element instead.
