@@ -306,3 +306,80 @@ If you keep any of it, load it via Bricks → Settings → Custom code → Body 
 - [ ] Contrast check on accent text (use `accent-dark` for small text on white)
 - [ ] Keyboard test: skip link, nav, accordion, slider buttons, form errors
 - [ ] Forms deliver to the intake inbox; spam protection on
+
+---
+
+## 8. Blog templates
+
+Two Bricks templates: `blog.html` → **Archive** and `blog-single.html` → **Single Post**. Both reuse the header and footer templates.
+
+In the prototype, `tools/build_pages.py` wraps `partials/blog.main.html` and `partials/blog-single.main.html` with the header and footer from `index.html`. **Edit the partials, then run `python3 tools/build_pages.py`.** Don't edit `blog.html` or `blog-single.html` directly; the script overwrites them.
+
+### Shared components
+| Component | Class | Bricks |
+|---|---|---|
+| Post card | `.post-card` (+ `__media--{category}`, `__footer`) | Block in a query loop. Media = Image `{featured_image}`; drop the gradient and icon once real images exist |
+| Avatar | `.avatar`, `--s`, `--l`, `--xl` | Image `{author_avatar}`, round. Initials are placeholders |
+| Breadcrumb | `.breadcrumb`, `--dark` on light backgrounds | Bricks **Breadcrumbs** element, or Rank Math / Yoast breadcrumbs |
+| CTA band | `.cta-band` | Save as a component; used on both blog templates |
+
+### Archive template (Templates → Archive, condition: Blog / post archive, categories, tags, search)
+```
+Section .page-hero
+└ Container .page-hero__inner
+  ├ Breadcrumbs .breadcrumb
+  └ Block .page-hero__grid
+    ├ Block .page-hero__content → eyebrow, h1 {archive_title}, lede {archive_description}
+    └ Search element (or Filter – Search) .search-form
+Section .blog
+└ Container
+  ├ Filter – Checkbox/Radio as buttons  .blog-filter / .chip   (Bricks 1.9+ query filters, source: Categories, show counts)
+  ├ Block .post-featured  ← Query loop: posts, 1 item, "Sticky posts" or ACF "featured" = true
+  ├ ul .blog__grid  ← Query loop: posts, 9 per page, exclude featured (grid--3 grid--l-2 grid--s-1)
+  │ └ li .post-card
+  ├ Text .blog__empty  (Query loop "No results" text)
+  └ Pagination element .pagination   (style links like .pagination__link)
+CTA band component
+```
+In the prototype, the chips and search filter the grid in the browser (`main.js` part 8). In WordPress, Bricks query filters do this with AJAX, so drop that part.
+
+### Single post template (Templates → Single, condition: Post type = Post)
+```
+article .article
+├ Section .article-hero (bg primary-ultra-light)
+│ └ Container .article-hero__inner
+│   ├ Breadcrumbs .breadcrumb .breadcrumb--dark
+│   ├ Text-link .article-hero__cat {post_terms_category}
+│   ├ Heading h1 .article-hero__title {post_title}
+│   ├ Text .article-hero__dek {post_excerpt}
+│   └ Block .article-meta → avatar {author_avatar}, {author_name}, ACF author role, dl: {post_date}, ACF "reviewed_by", reading time
+├ Container .article-cover → Image {featured_image} .article-cover__image + caption {featured_image_caption}
+└ Container .article-layout  (grid: 1fr / 320px; stacks at 1180)
+  ├ Block .article-layout__main
+  │ ├ Post Content element .prose      ← all article styling lives on .prose
+  │ └ Block .article-footer → tags {post_terms_post_tag}, share links, author box
+  └ Block .article-aside (sticky top 12rem)
+    ├ Table of Contents element .toc   (Bricks native; target .prose h2)
+    └ Block .aside-cta  (component; make the title a property per category)
+Section .related → Query loop: posts, same category, exclude current, 3
+CTA band component
+```
+
+**Content blocks editors can use inside posts.** Add these as Gutenberg block styles or reusable patterns so they get the class:
+- `.prose__lead`: opening paragraph
+- `.callout` with `.callout__title`: a "Key point" box
+- `.pull-quote`: Quote block with the Pull Quote style
+- `.table-wrap`: wrap every table so it scrolls on phones
+- `.prose__checklist`: list with checkbox markers
+- `.prose__disclaimer`: legal disclaimer at the end of each article. Better: put it in the template under Post Content so editors can't forget it.
+
+**Script replacements** (`main.js` part 9):
+| Prototype | Bricks |
+|---|---|
+| Table of contents from `h2[id]` | Table of Contents element |
+| Reading progress bar | Progress bar via a small script, or keep part 9 |
+| Copy link | Keep part 9, or use a share plugin |
+
+**Fields to add:** ACF on Post → `reviewed_by` (relationship to Attorney), `reading_time` (number, or calculate it). ACF on User → `role_title`, `bio`.
+
+**SEO:** `Article` schema with `author` and `reviewedBy`; `BreadcrumbList` from the breadcrumbs.

@@ -40,8 +40,8 @@
   if ("IntersectionObserver" in window && links.length) {
     var byId = {};
     links.forEach(function (l) {
-      var id = l.getAttribute("href").slice(1);
-      if (id) byId[id] = l;
+      var href = l.getAttribute("href") || "";
+      if (href.charAt(0) === "#" && href.length > 1) byId[href.slice(1)] = l;
     });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -134,6 +134,96 @@
     // Desktop: keep boxes open even if a summary is activated by keyboard
     officeItems.forEach(function (d) {
       d.addEventListener("toggle", function () { if (!mq.matches && !d.open) d.open = true; });
+    });
+  }
+  // 8. Blog archive: category chips + search (Bricks: Query Filters)
+  var grid = document.querySelector(".js-blog-grid");
+  if (grid) {
+    var chips = document.querySelectorAll(".chip[data-filter]");
+    var featured = document.querySelector(".post-featured");
+    var empty = document.querySelector(".js-blog-empty");
+    var searchForm = document.querySelector(".js-blog-search");
+    var searchInput = searchForm && searchForm.querySelector("input");
+    var state = { cat: "all", q: "" };
+    var apply = function () {
+      var shown = 0;
+      var items = Array.prototype.slice.call(grid.children);
+      if (featured) items.push(featured);
+      items.forEach(function (el) {
+        var okCat = state.cat === "all" || el.getAttribute("data-category") === state.cat;
+        var okQ = !state.q || el.textContent.toLowerCase().indexOf(state.q) !== -1;
+        el.hidden = !(okCat && okQ);
+        if (!el.hidden) shown++;
+      });
+      if (empty) empty.hidden = shown > 0;
+    };
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        chips.forEach(function (c) { c.classList.remove("is-active"); c.setAttribute("aria-pressed", "false"); });
+        chip.classList.add("is-active");
+        chip.setAttribute("aria-pressed", "true");
+        state.cat = chip.getAttribute("data-filter");
+        apply();
+      });
+    });
+    if (searchForm && searchInput) {
+      searchForm.addEventListener("submit", function (e) { e.preventDefault(); apply(); });
+      searchInput.addEventListener("input", function () { state.q = searchInput.value.trim().toLowerCase(); apply(); });
+    }
+  }
+
+  // 9. Single post: table of contents, scroll spy, reading progress, copy link
+  var prose = document.querySelector(".js-prose");
+  var toc = document.querySelector(".js-toc");
+  if (prose && toc) {
+    var heads = Array.prototype.slice.call(prose.querySelectorAll("h2[id]"));
+    heads.forEach(function (h) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.className = "toc__link";
+      a.href = "#" + h.id;
+      a.textContent = h.textContent.replace(/^\d+\.\s*/, "");
+      li.appendChild(a);
+      toc.appendChild(li);
+    });
+    var tocLinks = toc.querySelectorAll(".toc__link");
+    var spy = function () {
+      var current = 0;
+      heads.forEach(function (h, i) { if (h.getBoundingClientRect().top < 160) current = i; });
+      tocLinks.forEach(function (l, i) { l.classList.toggle("is-active", i === current); });
+    };
+    spy();
+    window.addEventListener("scroll", spy, { passive: true });
+  }
+  if (prose && header) {
+    var bar = document.createElement("div");
+    bar.className = "read-progress";
+    bar.setAttribute("aria-hidden", "true");
+    bar.innerHTML = '<span class="read-progress__bar"></span>';
+    header.appendChild(bar);
+    var fill = bar.firstChild;
+    var progress = function () {
+      var r = prose.getBoundingClientRect();
+      var total = r.height - window.innerHeight * 0.5;
+      var p = total > 0 ? Math.min(1, Math.max(0, (-r.top + window.innerHeight * 0.25) / total)) : 0;
+      fill.style.transform = "scaleX(" + p.toFixed(3) + ")";
+    };
+    progress();
+    window.addEventListener("scroll", progress, { passive: true });
+    window.addEventListener("resize", progress);
+  }
+  var copyBtn = document.querySelector(".js-copy-link");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var done = function (msg) {
+        copyBtn.textContent = msg;
+        setTimeout(function () { copyBtn.textContent = "Copy link"; }, 2000);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(location.href).then(function () { done("Link copied"); }, function () { done("Press Ctrl+C to copy"); });
+      } else {
+        done("Press Ctrl+C to copy");
+      }
     });
   }
 })();

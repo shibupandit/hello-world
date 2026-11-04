@@ -1,0 +1,197 @@
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero">
+      <div class="page-hero__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol role="list">
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Insights</li>
+          </ol>
+        </nav>
+        <div class="page-hero__grid">
+          <div class="page-hero__content">
+            <p class="eyebrow eyebrow--light">Insights</p>
+            <h1 class="page-hero__title">Legal guidance, written plainly.</h1>
+            <p class="page-hero__lede">Articles from our attorneys on Texas law, what to expect from a case, and the deadlines that decide outcomes.</p>
+          </div>
+          <form class="search-form js-blog-search" role="search">
+            <label class="search-form__label" for="blog-search">Search articles</label>
+            <div class="search-form__field">
+              <input class="search-form__input" id="blog-search" name="s" type="search" placeholder="e.g. non-compete, probate, DWI" autocomplete="off">
+              <button class="search-form__btn" type="submit" aria-label="Search"><svg class="icon"><use href="#i-search"/></svg></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ARCHIVE ===================== -->
+    <section class="blog section">
+      <div class="container">
+
+        <nav class="blog-filter" aria-label="Filter articles by practice area">
+          <ul class="blog-filter__list" role="list">
+            <li><button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All <span class="chip__count">10</span></button></li>
+            <li><button class="chip" type="button" data-filter="injury" aria-pressed="false">Personal Injury <span class="chip__count">2</span></button></li>
+            <li><button class="chip" type="button" data-filter="employment" aria-pressed="false">Employment <span class="chip__count">2</span></button></li>
+            <li><button class="chip" type="button" data-filter="family" aria-pressed="false">Family Law <span class="chip__count">2</span></button></li>
+            <li><button class="chip" type="button" data-filter="criminal" aria-pressed="false">Criminal Defense <span class="chip__count">2</span></button></li>
+            <li><button class="chip" type="button" data-filter="business" aria-pressed="false">Business Litigation <span class="chip__count">1</span></button></li>
+            <li><button class="chip" type="button" data-filter="estate" aria-pressed="false">Estate &amp; Probate <span class="chip__count">1</span></button></li>
+          </ul>
+        </nav>
+
+        <!-- Featured (Bricks: query loop, 1 post, sticky/featured) -->
+        <article class="post-featured" data-category="injury">
+          <div class="post-featured__media" aria-hidden="true">
+            <svg class="icon"><use href="#i-injury"/></svg>
+            <span class="post-featured__badge">Featured</span>
+          </div>
+          <div class="post-featured__body">
+            <p class="post-card__meta"><span>Personal Injury</span><time datetime="2026-10-14">Oct 14, 2026</time></p>
+            <h2 class="post-featured__title"><a href="blog-single.html">What to do in the first 72 hours after a truck accident</a></h2>
+            <p class="post-featured__excerpt">Trucking companies send response teams to a crash scene within hours. Driver logs, dash-cam footage and black-box data can be overwritten in days. Here is what to secure first, and the federal deadlines that work against you.</p>
+            <div class="post-featured__footer">
+              <span class="avatar" aria-hidden="true">EH</span>
+              <span class="post-featured__author"><strong>Eleanor Hartwell</strong><span>Founding Partner · 8 min read</span></span>
+              <a class="btn btn--primary post-featured__cta" href="blog-single.html">Read article <svg class="icon"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Grid (Bricks: query loop, posts, offset 1, 9 per page) -->
+        <ul class="blog__grid js-blog-grid" role="list">
+          <li class="post-card" data-category="employment">
+            <div class="post-card__media post-card__media--employment" aria-hidden="true"><svg class="icon"><use href="#i-briefcase"/></svg></div>
+            <div class="post-card__body">
+              <p class="post-card__meta"><span>Employment</span><time datetime="2026-09-30">Sep 30, 2026</time></p>
+              <h2 class="post-card__title"><a href="blog-single.html">Is your Texas non-compete enforceable?</a></h2>
+              <p class="post-card__excerpt">Courts look at time, geography and scope. Many agreements fail at least one of those tests.</p>
+              <div class="post-card__footer">
+                <span class="avatar avatar--s" aria-hidden="true">PO</span>
+                <span class="post-card__author">Priya Okafor</span>
+                <span class="post-card__read">6 min read</span>
+              </div>
+            </div>
+          </li>
+          <li class="post-card" data-category="estate">
+            <div class="post-card__media post-card__media--estate" aria-hidden="true"><svg class="icon"><use href="#i-document"/></svg></div>
+            <div class="post-card__body">
+              <p class="post-card__meta"><span>Estate &amp; Probate</span><time datetime="2026-09-02">Sep 2, 2026</time></p>
+              <h2 class="post-card__title"><a href="blog-single.html">Probate without a will: how intestate succession works</a></h2>
+              <p class="post-card__excerpt">Who inherits, who serves as administrator, and how long the process usually takes.</p>
+              <div class="post-card__footer">
+                <span class="avatar avatar--s" aria-hidden="true">EH</span>
+                <span class="post-card__author">Eleanor Hartwell</span>
+                <span class="post-card__read">7 min read</span>
+              </div>
+            </div>
+          </li>
+          <li class="post-card" data-category="family">
+            <div class="post-card__media post-card__media--family" aria-hidden="true"><svg class="icon"><use href="#i-family"/></svg></div>
+            <div class="post-card__body">
+              <p class="post-card__meta"><span>Family Law</span><time datetime="2026-08-19">Aug 19, 2026</time></p>
+              <h2 class="post-card__title"><a href="blog-single.html">Dividing a family business in a Texas divorce</a></h2>
+              <p class="post-card__excerpt">Community property rules, valuation dates and how to keep the company running while the case is open.</p>
+              <div class="post-card__footer">
+                <span class="avatar avatar--s" aria-hidden="true">DR</span>
+                <span class="post-card__author">Daniel Reyes</span>
+                <span class="post-card__read">9 min read</span>
+              </div>
+            </div>
+          </li>
+          <li class="post-card" data-category="criminal">
+            <div class="post-card__media post-card__media--criminal" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg></div>
+            <div class="post-card__body">
+              <p class="post-card__meta"><span>Criminal Defense</span><time datetime="2026-08-05">Aug 5, 2026</time></p>
+              <h2 class="post-card__title"><a href="blog-single.html">Talking to police after an arrest: your rights in plain English</a></h2>
+              <p class="post-card__excerpt">What to say, what not to say, and how to ask for a lawyer so that it counts.</p>
+              <div class="post-card__footer">
+                <span class="avatar avatar--s" aria-hidden="true">MC</span>
+                <span class="post-card__author">Marcus Crane</span>
+                <span class="post-card__read">5 min read</span>
+              </div>
+            </div>
+          </li>
+          <li class="post-card" data-category="employment">
+            <div class="post-card__media post-card__media--employment" aria-hidden="true"><svg class="icon"><use href="#i-briefcase"/></svg></div>
+            <div class="post-card__body">
+              <p class="post-card__meta"><span>Employment</span><time datetime="2026-07-22">Jul 22, 2026</time></p>
+              <h2 class="post-card__title"><a href="blog-single.html">Retaliation after a workplace complaint: what counts</a></h2>
+              <p class="post-card__excerpt">Demotions, schedule cuts and sudden bad reviews can all be retaliation. Here is how courts decide.</p>
+              <div class="post-card__footer">
+                <span class="avatar avatar--s" aria-hidden="true">PO</span>
+                <span class="post-card__author">Priya Okafor</span>
+                <span class="post-card__read">6 min read</span>
+              </div>
+            </div>
+          </li>
+          <li class="post-card" data-category="business">
+            <div class="post-card__media post-card__media--business" aria-hidden="true"><svg class="icon"><use href="#i-building"/></svg></div>
+            <div class="post-card__body">
+              <p class="post-card__meta"><span>Business Litigation</span><time datetime="2026-07-08">Jul 8, 2026</time></p>
+              <h2 class="post-card__title"><a href="blog-single.html">Breach of contract: when to sue and when to settle</a></h2>
+              <p class="post-card__excerpt">A practical way to weigh the cost of litigation against what you can realistically recover.</p>
+              <div class="post-card__footer">
+                <span class="avatar avatar--s" aria-hidden="true">EH</span>
+                <span class="post-card__author">Eleanor Hartwell</span>
+                <span class="post-card__read">7 min read</span>
+              </div>
+            </div>
+          </li>
+          <li class="post-card" data-category="injury">
+            <div class="post-card__media post-card__media--injury" aria-hidden="true"><svg class="icon"><use href="#i-injury"/></svg></div>
+            <div class="post-card__body">
+              <p class="post-card__meta"><span>Personal Injury</span><time datetime="2026-06-24">Jun 24, 2026</time></p>
+              <h2 class="post-card__title"><a href="blog-single.html">Dog bites and premises liability in Texas</a></h2>
+              <p class="post-card__excerpt">Texas has no strict-liability dog bite statute. Owner knowledge and negligence decide most cases.</p>
+              <div class="post-card__footer">
+                <span class="avatar avatar--s" aria-hidden="true">EH</span>
+                <span class="post-card__author">Eleanor Hartwell</span>
+                <span class="post-card__read">5 min read</span>
+              </div>
+            </div>
+          </li>
+          <li class="post-card" data-category="family">
+            <div class="post-card__media post-card__media--family" aria-hidden="true"><svg class="icon"><use href="#i-family"/></svg></div>
+            <div class="post-card__body">
+              <p class="post-card__meta"><span>Family Law</span><time datetime="2026-06-10">Jun 10, 2026</time></p>
+              <h2 class="post-card__title"><a href="blog-single.html">Modifying child support after a job loss</a></h2>
+              <p class="post-card__excerpt">When a court will lower support, what proof it expects, and why you should file quickly.</p>
+              <div class="post-card__footer">
+                <span class="avatar avatar--s" aria-hidden="true">DR</span>
+                <span class="post-card__author">Daniel Reyes</span>
+                <span class="post-card__read">4 min read</span>
+              </div>
+            </div>
+          </li>
+          <li class="post-card" data-category="criminal">
+            <div class="post-card__media post-card__media--criminal" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg></div>
+            <div class="post-card__body">
+              <p class="post-card__meta"><span>Criminal Defense</span><time datetime="2026-05-27">May 27, 2026</time></p>
+              <h2 class="post-card__title"><a href="blog-single.html">Expunction or nondisclosure: clearing a Texas record</a></h2>
+              <p class="post-card__excerpt">Two different remedies with different eligibility rules. Which one fits your case.</p>
+              <div class="post-card__footer">
+                <span class="avatar avatar--s" aria-hidden="true">MC</span>
+                <span class="post-card__author">Marcus Crane</span>
+                <span class="post-card__read">6 min read</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p class="blog__empty js-blog-empty" role="status" hidden>No articles match that search. Try another word, or <a href="#contact-band">ask us directly</a>.</p>
+
+        <nav class="pagination" aria-label="Pagination">
+          <ul class="pagination__list" role="list">
+            <li><span class="pagination__link is-disabled" aria-disabled="true"><svg class="icon icon--flip"><use href="#i-chevron"/></svg><span class="pagination__text">Previous</span></span></li>
+            <li><a class="pagination__link is-current" href="blog.html" aria-current="page">1</a></li>
+            <li><a class="pagination__link" href="blog.html">2</a></li>
+            <li><a class="pagination__link" href="blog.html">3</a></li>
+            <li><span class="pagination__dots">…</span></li>
+            <li><a class="pagination__link" href="blog.html">6</a></li>
+            <li><a class="pagination__link" href="blog.html"><span class="pagination__text">Next</span><svg class="icon"><use href="#i-chevron"/></svg></a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+<!-- @include cta-band -->
