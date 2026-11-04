@@ -733,7 +733,8 @@ Bricks hides the pagination automatically when there is only one page (e.g. smal
 - **Why WebP, not SVG:** the browser has to generate the SVG's noise on every page load, which measured ~9 ms on a normal screen and ~31 ms on retina, several times more on phones. Browsers also render it slightly differently. The WebP decodes in ~2 ms, looks identical everywhere, and is cached by the CDN.
 
 **Where it is applied (native settings only):**
-- **Page:** Bricks Theme Style → General → **Site background** (`html, body`): colour `var(--white)` + image, repeat.
-- **Classes:** `header`, `section--tint`, `stats` and `cta-band` each have a native **Background** with their colour (`--white`, `--primary-ultra-light`, `--accent-ultra-light`) + the same image, repeat. Their old custom-CSS `background:` lines were removed.
+- **Page:** Bricks Theme Style → General → **Site background** (`html, body`): colour `var(--white)` + image, repeat, **size auto**.
+- **Classes:** `header`, `section--tint`, `stats` and `cta-band` each have a native **Background** with their colour (`--white`, `--primary-ultra-light`, `--accent-ultra-light`) + the same image, repeat, **size auto**. Their old custom-CSS `background:` lines were removed.
 - **Not applied:** cards stay plain white, so they stand out on the paper. Dark sections (hero, results, page heroes, footer) keep their solid colour and gradient.
-- **Other surfaces:** to add the texture to a new light surface, give its class a Background with the colour + attachment 700, repeat.
+- **Other surfaces:** to add the texture to a new light surface, give its class a Background with the colour + attachment 700, repeat, size auto.
+- **Always set Size to auto.** Bricks defaults a background image to `background-size: cover`, which stretches the 320 px tile across the whole section and blurs it.
