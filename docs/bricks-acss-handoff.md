@@ -357,13 +357,34 @@ article .article
 └ Container .article-layout  (grid: 1fr / 320px; stacks at 1180)
   ├ Block .article-layout__main
   │ ├ Post Content element .prose      ← all article styling lives on .prose
+│ │   ("In this article" box: Table of Contents element .toc placed after the first paragraph, or in the template above Post Content)
   │ └ Block .article-footer → tags {post_terms_post_tag}, share links, author box
-  └ Block .article-aside (sticky top 12rem)
-    ├ Table of Contents element .toc   (Bricks native; target .prose h2)
-    └ Block .aside-cta  (component; make the title a property per category)
-Section .related → Query loop: posts, same category, exclude current, 3
-CTA band component
+  └ Block .article-aside   (sidebar; see below)
 ```
+
+### Single post sidebar
+Four cards, each saved as a Bricks component with the class `.widget`. They sit right of the article on desktop (sidebar 360px wide). Between 901 and 1180px they form a 2-column grid under the article, with the form spanning both columns. At 900px and below they stack in one column.
+
+```
+Block .article-aside  (flex column, gap --space-l, align-self stretch)
+├ Section .widget  "Recent posts"
+│ ├ Heading h2 .widget__title
+│ └ ul .recent-posts ← Query loop: posts, 4, exclude current (post__not_in {post_id})
+│   └ li .recent-post → Image .recent-post__thumb {featured_image} (72×72) + .recent-post__title {post_title} + .recent-post__date {post_date}
+├ Section .widget  "Categories"
+│ └ ul .cat-list ← Query loop: Terms, taxonomy category, hide empty
+│   └ li → a .cat-list__link {term_name} + span .cat-list__count {term_count}
+├ Section .widget .widget--tint  "Practice areas"
+│ └ ul .practice-list ← Query loop: CPT Practice Area
+│   └ li → a .practice-list__link → .practice-list__icon (ACF icon) + .practice-list__name {post_title} + chevron
+└ Section .widget .widget--form  "Free case review"
+  ├ .widget__eyebrow, h2 .widget__title, .widget__text
+  ├ Form element .form .form--dark   (name, phone, practice area, message)
+  └ a .widget__phone
+```
+- **Pinned form:** the form card stays pinned while scrolling only when the screen is at least 1181px wide and 900px tall, so the whole card always fits. In Bricks, add the sticky rule as custom CSS inside that media query. Don't use the element's sticky setting, because it can't check screen height.
+- **Field styles:** `.form--dark` restyles the fields for the green background. Map `.form__input` to Bricks' `.form-group input, select, textarea`.
+- **Reuse:** the same `.widget` cards work on the blog archive too, if you add a sidebar there later.
 
 **Content blocks editors can use inside posts.** Add these as Gutenberg block styles or reusable patterns so they get the class:
 - `.prose__lead`: opening paragraph
@@ -376,7 +397,7 @@ CTA band component
 **Script replacements** (`main.js` part 9):
 | Prototype | Bricks |
 |---|---|
-| Table of contents from `h2[id]` | Table of Contents element |
+| "In this article" box from `h2[id]` | Table of Contents element |
 | Reading progress bar | Progress bar via a small script, or keep part 9 |
 | Copy link | Keep part 9, or use a share plugin |
 
