@@ -1,0 +1,137 @@
+/* ==========================================================================
+   CONTACT PAGE (Bricks: Page "Contact Us")
+   ========================================================================== */
+.page-hero--contact .page-hero__inner { padding-bottom: calc(var(--section-space-s) + 6rem); }
+.page-hero--contact .page-hero__grid { align-items: center; }
+.contact-promise {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: var(--space-m) var(--space-l);
+  border: 1px solid var(--white-trans-20);
+  border-radius: var(--radius);
+  background: var(--white-trans-10);
+  backdrop-filter: blur(4px);
+}
+.contact-promise li { display: flex; align-items: center; gap: 1.2rem; font-size: var(--text-m); font-weight: 500; }
+.contact-promise .icon {
+  flex: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-circle);
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* Ways to reach us: three cards lifted over the hero */
+.contact-methods { position: relative; z-index: 1; margin-top: -6rem; }
+.contact-methods__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-m); }
+.contact-method {
+  display: flex;
+  gap: var(--space-s);
+  padding: var(--space-l) var(--space-m);
+  border: 1px solid var(--base-trans-10);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--pc-shadow-m);
+  min-width: 0;
+}
+.contact-method__icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: var(--radius-circle);
+  background: var(--accent-ultra-light);
+  color: var(--accent-dark);
+}
+.contact-method__icon .icon { width: 2.2rem; height: 2.2rem; }
+.contact-method__body { display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; }
+.contact-method__title { font-family: "Libre Caslon Display"; font-weight: 400; font-size: var(--h4); line-height: 1.2; color: var(--primary-dark); }
+.contact-method__text { font-size: var(--text-s); color: var(--base-semi-dark); }
+.contact-method__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.contact-method__link:hover { color: var(--accent-dark); }
+.contact-method__link .icon { width: 1.6rem; height: 1.6rem; transition: transform 0.2s; }
+.contact-method__link:hover .icon { transform: translateX(3px); }
+
+/* Form + sidebar */
+.contact-main { padding-block: var(--section-space-s); }
+.contact-main__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 38rem;
+  gap: var(--space-xl);
+  align-items: start;
+}
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  padding: var(--space-xl) var(--space-l);
+  border: 1px solid var(--accent-light);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--pc-shadow-s);
+  min-width: 0;
+}
+.contact-card__head { display: flex; flex-direction: column; gap: var(--space-xs); }
+.contact-card__title { font-family: "Libre Caslon Display"; font-weight: 400; font-size: var(--h3); line-height: 1.15; color: var(--primary-dark); }
+.contact-card__intro { color: var(--base-semi-dark); }
+.contact-card__submit { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-s) var(--space-m); }
+.contact-card__submit .form__note { flex: 1 1 24rem; }
+
+
+.contact-aside { display: flex; flex-direction: column; gap: var(--space-l); min-width: 0; }
+.next-steps { display: flex; flex-direction: column; gap: var(--space-m); }
+.next-step { display: flex; gap: 1.4rem; align-items: flex-start; }
+.next-step__num {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: var(--radius-circle);
+  background: var(--primary);
+  color: var(--white);
+  font-family: "Libre Caslon Display";
+  font-size: var(--text-m);
+}
+.next-step__title { font-family: "Public Sans"; font-size: var(--text-m); font-weight: 600; line-height: 1.3; color: var(--primary-dark); }
+.next-step__text { margin-top: 0.3rem; font-size: var(--text-s); color: var(--base-semi-dark); }
+.hours { display: flex; flex-direction: column; }
+.hours__row { display: flex; justify-content: space-between; gap: 1.6rem; padding-block: 1.1rem; border-bottom: 1px dashed var(--base-trans-20); font-size: var(--text-s); }
+.hours__row:first-child { padding-top: 0; }
+.hours__row:last-child { border-bottom: 0; padding-bottom: 0; }
+.hours dt { color: var(--base-semi-dark); }
+.hours dd { margin: 0; font-weight: 600; color: var(--primary-dark); text-align: right; }
+.hours__row--accent dd { color: var(--accent-dark); }
+
+@media (max-width: 992px) {
+  .contact-methods__grid { grid-template-columns: minmax(0, 1fr); }
+  .contact-main__inner { grid-template-columns: minmax(0, 1fr); }
+  .contact-aside { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-aside .widget:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  .contact-aside { display: flex; }
+  .contact-card { padding: var(--space-l) var(--space-m); }
+}
+@media (max-width: 480px) {
+  .contact-promise { padding: var(--space-m); }
+  .contact-method { flex-direction: column; }
+  .contact-card__submit .btn--accent { width: 100%; justify-content: center; }
+}
