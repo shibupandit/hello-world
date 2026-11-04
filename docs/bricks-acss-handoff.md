@@ -723,3 +723,17 @@ The prev/next icons (Ionicons `ion-ios-arrow-back` / `-forward`), end size and m
 Bricks hides the pagination automatically when there is only one page (e.g. small categories).
 
 **Featured testimonial:** Bricks applies the page number to every post loop on the page, so `hc-testimonials-featured.php` (Novamira sandbox) pins the featured loop to page 1. That way it also shows on `/testimonials/page/2/`.
+
+## 16. Paper texture (site-wide background)
+
+**File:** `assets/img/paper-texture.webp`.
+- **Format:** a 320×320 seamless tile, 37 KB. It is a single warm-brown colour with ~3% average transparency, so it never changes the colour underneath.
+- **Media library:** attachment 700, in the HappyFiles folder "Site". Option `hc_paper_texture_id` stores the ID.
+- **Source:** `assets/img/paper-texture.svg`, an feTurbulence recipe. Re-export a tile from it if the texture needs adjusting.
+- **Why WebP, not SVG:** the browser has to generate the SVG's noise on every page load, which measured ~9 ms on a normal screen and ~31 ms on retina, several times more on phones. Browsers also render it slightly differently. The WebP decodes in ~2 ms, looks identical everywhere, and is cached by the CDN.
+
+**Where it is applied (native settings only):**
+- **Page:** Bricks Theme Style → General → **Site background** (`html, body`): colour `var(--white)` + image, repeat.
+- **Classes:** `header`, `section--tint`, `stats` and `cta-band` each have a native **Background** with their colour (`--white`, `--primary-ultra-light`, `--accent-ultra-light`) + the same image, repeat. Their old custom-CSS `background:` lines were removed.
+- **Not applied:** cards stay plain white, so they stand out on the paper. Dark sections (hero, results, page heroes, footer) keep their solid colour and gradient.
+- **Other surfaces:** to add the texture to a new light surface, give its class a Background with the colour + attachment 700, repeat.
