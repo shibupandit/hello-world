@@ -507,3 +507,23 @@ Built natively in Bricks on 2026-11-04 with the HTML/CSS → Bricks converter. T
 - Set the Fluent Forms email notifications to the intake inbox.
 - Make the header phone number and email dynamic (ACF Business Details options page).
 - Replace the placeholder initials and gradients with real photos (HappyFiles → Images › …).
+
+### Templates added (blog and practice areas)
+
+| Template | Bricks ID | Conditions | Dynamic parts |
+|---|---|---|---|
+| **Blog Archive** | #461 | Any archive · Posts archive · Insights page (#460, the posts page) · Search | Category chips (term loop), featured article (sticky post), main-query grid of 9 cards, native Search and Pagination elements |
+| **Blog Single** | #462 | Post type = Post | Title, excerpt, category, date, reading time, *Written by* / *Legally reviewed by* (loops over the linked Team posts), Post Content (`.prose`), tags, share links, author box, sidebar (recent posts, categories, practice areas, Fluent form #3), 3 related articles |
+| **Practice Area Single** | #463 | Post type = Practice Area | Hero intro and figures, overview (Post Content), case types, damages, Texas-law note, timeline, results, legal team, FAQs: all ACF. Sidebar and related articles. |
+
+**Content model:**
+- **Practice Areas** post type (`practice-area`, URL `/practice-areas/<slug>/`) with the "Practice Area Details" field group:
+  - `hero_lede`, `hero_stats`, `case_types`, `damages_economic`, `damages_non_economic`, `law_note`, `timeline`, `results`, `faqs` (repeaters where they repeat)
+  - `legal_team`, a relationship to Team
+- **Posts:** the "Article Details" field group with `written_by`, `reviewed_by` (both Team) and `reading_time`.
+- **Team:** a new `team_initials` field, used in the round avatars until photos exist.
+- **Empty sections hide themselves.** On a practice area with no results, damages, timeline or FAQs, Bricks conditions hide that block (repeater count `!= 0`, law note `!= ""`).
+
+**Featured article:** the sandbox snippet `wp-content/novamira-sandbox/hc-blog-featured-post.php` makes the featured card show the **sticky** post. It also keeps that post out of the grid and sets 9 posts per page. To feature a different article, tick *Stick to the top of the blog* on it. Turn the snippet off under Novamira → Sandbox.
+
+**How they were built:** `build/bricks/tpl-*.html` were converted with marker classes. `loop-*` became a query loop, `dyn-*` a dynamic tag, `cond-*` an element condition, and `slot-*` a native element (Post Content, Search, Pagination, Fluent Forms shortcode). Dummy content seed: `build/content/seed.json`.
