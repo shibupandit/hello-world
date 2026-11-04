@@ -18,13 +18,17 @@ html {
   color-scheme: light;
 }
 
+/* Paper texture: a transparent, tileable SVG layered over each surface's own colour */
+:root { --pc-paper: url("../img/paper-texture.svg"); }
+
 body {
   margin: 0;
   font-family: var(--pc-font-body);
   font-size: var(--text-m);
   line-height: 1.65;
   color: var(--base);
-  background: var(--white);
+  background-color: var(--white);
+  background-image: var(--pc-paper);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -2630,3 +2634,6 @@ a.pagination__link:hover { border-color: var(--primary); color: var(--primary); 
 @media (max-width: 480px) {
   .review-share__actions > * { flex: 1 1 100%; justify-content: center; }
 }
+
+/* Paper texture on the light surfaces that paint their own background (cards stay plain white) */
+.header, .section--tint, .stats, .cta-band { background-image: var(--pc-paper); }
