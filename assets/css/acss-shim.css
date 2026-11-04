@@ -1,97 +1,199 @@
 /* ==========================================================================
-   ACSS v3 SHIM
+   ACSS 3.3.8 SHIM — mirrors the live Automatic.css output
    --------------------------------------------------------------------------
-   This file stands in for Automatic.css v3 during the static prototype.
-   Every variable below uses the ACSS v3 naming, so style.css can be moved
-   into Bricks unchanged.
+   Values are copied from the ACSS files generated on
+   whitecrowtemplate.kinsta.cloud (automatic-variables.css,
+   automatic.css, automatic-bricks.css), synced 2026-11-04.
 
-   In WordPress: DELETE this file. Put the same values into
-   ACSS Dashboard → Colors / Typography / Spacing (see docs/bricks-acss-handoff.md)
-   and ACSS generates these variables for you.
+   In WordPress this file is NOT used: ACSS generates all of it.
+   Keep it in sync if ACSS settings change (see docs/bricks-acss-handoff.md §2).
 
-   Only the variables prefixed --pc- are project custom tokens. In WordPress,
-   add them under ACSS → Custom CSS (or Bricks → Settings → Custom code).
+   ACSS settings that produce these values:
+     Colors   primary #123a31 · accent #b08a4f · base #1a2421 · danger #b3261e
+              (accent + danger switched on; per-shade H/S/L set to the design)
+     Root     62.5%      Content width (vp-max) 1240px    vp-min 360px
+     Text     base 16→18px · text-s 15 · text-xs 13 · text-l 18→21 · xl 20→26 · xxl 24→32
+     Headings h1 40→72 · h2 32→52 · h3 24→32 · h4 20→24 · h5 16→18 · h6 14→16
+     Space    base-space 18→24, scale 1.5 · section adjust 4.5 (desktop) / 3.5 (mobile)
+     Gutter   16→48px
+     Buttons  weight 600 · radius var(--radius-s) · 2px border
+     Breakpoints  xl 1366 · l 992 · m 768 · s 480
    ========================================================================== */
 
 :root {
-  /* ---------- Colors (ACSS: Colors) ---------- */
-  /* Primary: chancery green */
+  --root-font-size: 62.5%;
+
+  /* ---------- Colors ---------- */
   --primary: #123a31;
   --primary-hover: #0d2c25;
+  --primary-ultra-light: #eef4f1;
+  --primary-light: #c9dbd4;
   --primary-dark: #0b241e;
   --primary-ultra-dark: #061512;
-  --primary-light: #c9dbd4;
-  --primary-ultra-light: #eef4f1;
+  --primary-trans-10: rgba(18, 58, 49, 0.1);
+  --primary-trans-20: rgba(18, 58, 49, 0.2);
 
-  /* Accent: aged brass */
   --accent: #b08a4f;
   --accent-hover: #977341;
-  --accent-dark: #6f5430;
-  --accent-light: #e6d6bb;
   --accent-ultra-light: #f7f1e6;
+  --accent-light: #e6d6bb;
+  --accent-dark: #6f5430;
 
-  /* Base: green-biased ink and neutrals */
   --base: #1a2421;
-  --base-dark: #0f1715;
-  --base-medium: #55615d;
-  --base-light: #d8dedb;
   --base-ultra-light: #f4f6f4;
+  --base-light: #d8dedb;
+  --base-semi-dark: #55615d;
+  --base-trans-10: rgba(26, 36, 33, 0.1);
+  --base-trans-20: rgba(26, 36, 33, 0.2);
 
-  --white: #ffffff;
-  --black: #0a0f0d;
+  --danger: #b3261e;
+  --danger-ultra-light: #fbebed;
+  --danger-light: #f2b5bb;
+  --danger-dark: #8c1824;
 
-  /* ---------- Typography (ACSS: Typography) ---------- */
-  --root-font-size: 62.5%;
-  --text-xs: 1.3rem;
-  --text-s: 1.5rem;
-  --text-m: clamp(1.6rem, 1.55rem + 0.2vw, 1.8rem);
-  --text-l: clamp(1.8rem, 1.7rem + 0.45vw, 2.1rem);
-  --text-xl: clamp(2rem, 1.8rem + 0.8vw, 2.6rem);
-  --text-xxl: clamp(2.4rem, 2rem + 1.4vw, 3.2rem);
+  --white: #fff;
+  --black: #000;
+  --neutral-light: #d9d9d9;
+  --white-trans-10: rgba(255, 255, 255, 0.1);
+  --white-trans-20: rgba(255, 255, 255, 0.2);
 
-  --h1: clamp(4rem, 2.8rem + 4.2vw, 7.2rem);
-  --h2: clamp(3.2rem, 2.4rem + 2.6vw, 5.2rem);
-  --h3: clamp(2.4rem, 2rem + 1.2vw, 3.2rem);
-  --h4: clamp(2rem, 1.8rem + 0.6vw, 2.4rem);
-  --h5: 1.8rem;
-  --h6: 1.6rem;
+  /* ---------- Typography ---------- */
+  --text-xs: clamp(1.3rem, calc(0vw + 1.3rem), 1.3rem);
+  --text-s: clamp(1.5rem, calc(0vw + 1.5rem), 1.5rem);
+  --text-m: clamp(1.6rem, calc(0.2272727273vw + 1.5181818182rem), 1.8rem);
+  --text-l: clamp(1.8rem, calc(0.3409090909vw + 1.6772727273rem), 2.1rem);
+  --text-xl: clamp(2rem, calc(0.6818181818vw + 1.7545454545rem), 2.6rem);
+  --text-xxl: clamp(2.4rem, calc(0.9090909091vw + 2.0727272727rem), 3.2rem);
 
-  /* ---------- Spacing (ACSS: Spacing) ---------- */
-  --space-xs: clamp(0.8rem, 0.7rem + 0.2vw, 1rem);
-  --space-s: clamp(1.2rem, 1.05rem + 0.4vw, 1.6rem);
-  --space-m: clamp(1.8rem, 1.5rem + 0.8vw, 2.4rem);
-  --space-l: clamp(2.6rem, 2.1rem + 1.4vw, 3.6rem);
-  --space-xl: clamp(3.6rem, 2.8rem + 2.2vw, 5.4rem);
-  --space-xxl: clamp(4.8rem, 3.6rem + 3.4vw, 8rem);
+  --h1: clamp(4rem, calc(3.6363636364vw + 2.6909090909rem), 7.2rem);
+  --h2: clamp(3.2rem, calc(2.2727272727vw + 2.3818181818rem), 5.2rem);
+  --h3: clamp(2.4rem, calc(0.9090909091vw + 2.0727272727rem), 3.2rem);
+  --h4: clamp(2rem, calc(0.4545454545vw + 1.8363636364rem), 2.4rem);
+  --h5: clamp(1.6rem, calc(0.2272727273vw + 1.5181818182rem), 1.8rem);
+  --h6: clamp(1.4rem, calc(0.2272727273vw + 1.3181818182rem), 1.6rem);
 
-  --section-space-s: clamp(4.8rem, 3.8rem + 2.8vw, 7.2rem);
-  --section-space-m: clamp(6.4rem, 4.8rem + 4.4vw, 11.2rem);
-  --section-space-l: clamp(8rem, 5.6rem + 6.6vw, 14.4rem);
+  --heading-font-family: "Libre Caslon Display";
+  --text-font-family: "Public Sans";
 
-  --gutter: clamp(1.6rem, 0.8rem + 3vw, 4.8rem);
+  /* ---------- Spacing ---------- */
+  --space-xs: clamp(1.0130064399rem, calc(0.0609775304vw + 0.991054529rem), 1.0666666667rem);
+  --space-s: clamp(1.3503375844rem, calc(0.2837072905vw + 1.2482029598rem), 1.6rem);
+  --space-m: clamp(1.8rem, calc(0.6818181818vw + 1.5545454545rem), 2.4rem);
+  --space-l: clamp(2.3994rem, calc(1.3643181818vw + 1.9082454545rem), 3.6rem);
+  --space-xl: clamp(3.1984002rem, calc(2.5018179545vw + 2.2977457364rem), 5.4rem);
+  --space-xxl: clamp(4.2634674666rem, calc(4.3596960607vw + 2.6939768848rem), 8.1rem);
+
+  --section-space-s: clamp(4.7261815454rem, calc(2.8111573348vw + 3.7141649049rem), 7.2rem);
+  --section-space-m: clamp(6.3rem, calc(5.1136363636vw + 4.4590909091rem), 10.8rem);
+  --section-space-l: clamp(8.3979rem, calc(8.8660227273vw + 5.2061318182rem), 16.2rem);
+
+  --gutter: clamp(1.6rem, calc(3.6363636364vw + 0.2909090909rem), 4.8rem);
   --content-width: 124rem;
+  --grid-gap: var(--space-m);
   --content-gap: var(--space-m);
   --container-gap: var(--space-xl);
-  --grid-gap: var(--space-l);
 
   /* ---------- Radius ---------- */
-  --radius-xs: 0.2rem;
-  --radius-s: 0.4rem;
-  --radius: 0.6rem;
-  --radius-m: 0.6rem;
-  --radius-l: 1.2rem;
-  --radius-circle: 50%;
+  --radius-xs: 2.2222222222px;
+  --radius-s: 3.3333333333px;
+  --radius: 5px;
+  --radius-m: 5px;
+  --radius-l: 7.5px;
+  --radius-xl: 11.25px;
+  --radius-circle: 50vw;
 
-  /* ---------- Project custom tokens (not part of ACSS) ---------- */
-  --pc-font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  /* ---------- Buttons ---------- */
+  --btn-padding-block: 0.9em;
+  --btn-padding-inline: 1.5em;
+  --btn-min-width: fit-content;
+  --btn-line-height: 1;
+  --btn-font-weight: 600;
+  --btn-border-width: 2px;
+  --btn-border-style: solid;
+  --btn-radius: var(--radius-s);
+  --transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out, translate 0.3s ease-in-out;
+
+  /* ---------- Project tokens (not ACSS) ----------
+     Add these in ACSS → Custom CSS on the site. */
+  --pc-font-display: var(--heading-font-family), "Libre Caslon Text", Georgia, "Times New Roman", serif;
   --pc-font-serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
-  --pc-font-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --pc-font-body: var(--text-font-family), "Helvetica Neue", Arial, sans-serif;
   --pc-boxed-width: 144rem;
   --pc-page-bg: #dfe4e1;
-  --pc-line: color-mix(in srgb, var(--base) 12%, transparent);
-  --pc-line-inverse: color-mix(in srgb, var(--white) 16%, transparent);
   --pc-shadow-s: 0 1px 2px rgb(10 15 13 / 0.06), 0 2px 8px rgb(10 15 13 / 0.05);
   --pc-shadow-m: 0 2px 4px rgb(10 15 13 / 0.05), 0 12px 32px rgb(10 15 13 / 0.08);
   --pc-shadow-l: 0 30px 80px rgb(6 21 18 / 0.18);
   --pc-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ---------- Buttons (copy of ACSS automatic-bricks.css) ---------- */
+[class*="btn--"]:where(:not(.btn--none)) {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--btn-background);
+  color: var(--btn-text-color);
+  padding-block: var(--btn-padding-block);
+  padding-inline: var(--btn-padding-inline);
+  min-inline-size: var(--btn-min-width);
+  line-height: var(--btn-line-height);
+  font-family: inherit;
+  font-size: var(--btn-font-size, var(--text-m));
+  font-weight: var(--btn-font-weight);
+  text-decoration: none;
+  border-width: var(--btn-border-width);
+  border-style: var(--btn-border-style);
+  border-radius: var(--btn-radius);
+  border-color: var(--btn-border-color);
+  transition: var(--transition);
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+[class*="btn--"]:where(:not(.btn--none)):hover {
+  background: var(--btn-background-hover);
+  color: var(--btn-text-color-hover);
+  border-color: var(--btn-border-color-hover);
+}
+[class*="btn--"]:focus-visible { outline: 2px solid var(--focus-color, var(--primary)); outline-offset: 2px; }
+
+.btn--primary {
+  --btn-background: var(--primary); --btn-background-hover: var(--primary-hover);
+  --btn-text-color: var(--primary-ultra-light); --btn-text-color-hover: var(--primary-ultra-light);
+  --btn-border-color: var(--primary); --btn-border-color-hover: var(--primary-hover);
+  --focus-color: var(--primary-light);
+}
+.btn--primary.btn--outline {
+  --btn-background: transparent; --btn-background-hover: var(--primary-hover);
+  --btn-text-color: var(--primary); --btn-text-color-hover: var(--primary-ultra-light);
+  --btn-border-color: var(--primary); --btn-border-color-hover: var(--primary-hover);
+}
+.btn--accent {
+  --btn-background: var(--accent); --btn-background-hover: var(--accent-hover);
+  --btn-text-color: var(--accent-ultra-light); --btn-text-color-hover: var(--accent-ultra-light);
+  --btn-border-color: var(--accent); --btn-border-color-hover: var(--accent-hover);
+  --focus-color: var(--accent-light);
+}
+.btn--white {
+  --btn-background: var(--white); --btn-background-hover: var(--neutral-light);
+  --btn-text-color: var(--black); --btn-text-color-hover: var(--black);
+  --btn-border-color: var(--white); --btn-border-color-hover: var(--neutral-light);
+}
+.btn--white.btn--outline {
+  --btn-background: transparent; --btn-background-hover: var(--white);
+  --btn-text-color: var(--white); --btn-text-color-hover: var(--black);
+  --btn-border-color: var(--white); --btn-border-color-hover: var(--white);
+}
+.btn--s { font-size: var(--text-s); }
+.btn--m { font-size: var(--text-m); }
+.btn--l { font-size: var(--text-l); }
+
+/* ---------- Utilities used by the markup ---------- */
+.width--full { width: 100%; }
+.hidden-accessible {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

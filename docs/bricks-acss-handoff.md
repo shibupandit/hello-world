@@ -19,58 +19,85 @@ Class names follow BEM (`block__element--modifier`), the same convention ACSS an
 
 ---
 
-## 2. ACSS dashboard settings
+## 2. ACSS settings (applied and verified on the site)
 
-### Colors (ACSS → Colors)
+These settings are **already applied** on whitecrowtemplate.kinsta.cloud (ACSS 3.3.8). They were checked against the CSS that ACSS generated on 2026-11-04. `assets/css/acss-shim.css` is a copy of that output for the prototype. The previous ACSS settings are backed up in the WordPress option `wcd_acss_settings_backup_20261104`.
 
-| ACSS color | Hex | Use |
-|---|---|---|
-| Primary | `#123a31` (chancery green) | Hero, dark bands, primary buttons, headings |
-| Accent | `#b08a4f` (aged brass) | Main CTAs, icons, the hero ampersand |
-| Base | `#1a2421` (green-tinted ink) | Body text |
-| White / Black | `#ffffff` / `#0a0f0d` | |
+### Colours (ACSS → Colors)
 
-Let ACSS generate the shades. The prototype values used for each are listed in `acss-shim.css`. If the generated shade is far off, override it: `primary-ultra-light #eef4f1` (tinted sections), `primary-light #c9dbd4` (text on dark), `primary-ultra-dark #061512` (topbar, footer), `accent-light #e6d6bb`, `accent-dark #6f5430` (eyebrows, links on white).
+| Colour | Hex | Switched on | Shades set (H/S/L per shade, matching the design) |
+|---|---|---|---|
+| Primary | `#123a31` | yes | ultra-light `#eef4f1` · light `#c9dbd4` · dark `#0b241e` · ultra-dark `#061512` · hover `#0d2c25` |
+| Accent | `#b08a4f` | **yes (was off)** | ultra-light `#f7f1e6` · light `#e6d6bb` · dark `#6f5430` · hover `#977341` |
+| Base | `#1a2421` | yes | ultra-light `#f4f6f4` · light `#d8dedb` · semi-dark `#55615d` (secondary text) |
+| Danger | `#b3261e` | **yes (was off)** | ultra-light, light and dark are used for form errors |
+| Neutral | `#000` | yes | white and black |
+| Secondary, Tertiary | — | off | secondary buttons switched off too |
 
-Contrast to keep in mind: `accent` on white is only about 3:1, so use it for large text, icons and buttons with white text in bold. For small text on white use `accent-dark`.
+**ACSS shade names:** `ultra-light`, `light`, `semi-light`, `semi-dark`, `dark`, `ultra-dark`, `hover`, plus `-trans-10 … -trans-90`. There is **no `-medium` shade** for primary or base. Secondary text uses `--base-semi-dark`.
+
+**Why the shades were set by hand:** ACSS builds each shade at a fixed lightness. Its default "dark" is 25%, which is lighter than this primary green (15%), so the default `--primary-dark` would have been lighter than the brand colour.
+
+**Contrast:** `--accent` on white is about 3:1. Use it for large text, icons and button backgrounds. Small text on white uses `--accent-dark`.
 
 ### Typography (ACSS → Typography)
+- **Root font size:** 62.5% (was 100%). Fonts: heading **Libre Caslon Display**, text **Public Sans**, both self-hosted as Bricks custom fonts. Google Fonts stays disabled.
+- **Body text:** 16 → 18px.
+- **Text sizes:** `text-s` 15px · `text-xs` 13px · `text-l` 18 → 21 · `text-xl` 20 → 26 · `text-xxl` 24 → 32.
+- **Headings:** h1 40 → 72 · h2 32 → 52 · h3 24 → 32 · h4 20 → 24 · h5 16 → 18 · h6 14 → 16.
 
-- Root font size: **62.5%** (ACSS default; 1rem = 10px)
-- Heading font: **Libre Caslon Display**, weight 400. Use Libre Caslon Text for italic quotes and testimonials.
-- Text font: **Public Sans**, weights 400/500/600/700
-- Load both from Google Fonts (Bricks → Settings → Custom fonts, or self-host for GDPR)
-- Body text: min 16px, max 18px. H1: 40 → 72px. H2: 32 → 52px. H3: 24 → 32px. H4: 20 → 24px.
-- Headings line-height ~1.05–1.1, letter-spacing −0.01em. Text line-height 1.65.
+### Spacing and layout
+- **Content width** (`vp-max`): 1240px (was 1366). `vp-min` 360px.
+- **Space:** base-space 18 → 24, scale 1.5. **Section spacing:** adjust 4.5 desktop / 3.5 mobile (were 3 / 2), so `--section-space-m` runs 63 → 108px.
+- **Gutter** (`section-padding-x`): 16 → 48px.
+- **Radius:** ACSS defaults (`--radius` 5px, `--radius-s` 3.3px).
 
-### Spacing, layout, radius
+### Buttons (ACSS → Buttons)
+- **Style:** font-weight 600, radius `var(--radius-s)`, 2px border. Primary, accent and white buttons are on, all with outline variants.
+- **Classes used in the markup:** `btn--primary`, `btn--accent`, `btn--white`, combined with `btn--outline`; sizes `btn--s` (normal, 15px) and `btn--m` (large, 16–18px); `width--full` for full-width buttons.
+- **Base `.btn` class:** ACSS has none. Don't add one.
+- **"Use Bricks UI for Buttons":** keep it **off**. It changes how the Bricks Button element's own style controls work.
 
-- Content width: **1240px** (`--content-width`)
-- Gutter: 16px → 48px
-- Section padding: use ACSS default section spacing; the prototype uses `--section-space-m` on most sections and `--section-space-l` on the hero
-- Radius: 6px base (`--radius`), 4px small (`--radius-s`). Keep corners tight; this is a law firm, not an app.
+### Breakpoints (ACSS = Bricks)
+**xl 1366 · l 992 · m 768 · s 480.** The CSS uses only these, plus two content-specific extras:
+- **1520px:** hides the phone label in the header.
+- **1500px:** adds a margin around the boxed layout.
+
+The nav collapses at **xl (1366)**, because seven links, the phone and the CTA need about 1200px.
+
+### ACSS must recompile in "Bricks mode"
+ACSS turns on its Bricks output only during **wp-admin** requests. If ACSS settings are saved any other way (REST, WP-CLI, an MCP or PHP script), the files compile without the Bricks layer:
+- `automatic-bricks.css` is about 140 bytes instead of about 50 KB
+- the `btn--*` classes are missing
+- ACSS classes aren't imported into Bricks
+
+**After any scripted change:**
+- Either click **Save** once in the ACSS dashboard,
+- or run this in PHP before saving:
+  ```php
+  add_filter('automaticcss_framework_variables', fn($v) => $v + ['option-bricks' => 'on']);
+  ```
+  then call `(new \Automatic_CSS\Framework\Platforms\Bricks($settings))->update_globals()`.
+
+That `update_globals()` call is also what adds ACSS's utility classes (currently 2,248) and its palettes to Bricks.
 
 ### Project custom tokens
-
-Add these under ACSS → Custom CSS (or Bricks → Settings → Custom code → CSS). They are prefixed `--pc-` so they never collide with ACSS:
+Add these under ACSS → Custom CSS. They are the only variables not generated by ACSS:
 
 ```css
 :root {
-  --pc-font-display: "Libre Caslon Display", Georgia, serif;
+  --pc-font-display: var(--heading-font-family), "Libre Caslon Text", Georgia, serif;
   --pc-font-serif: "Libre Caslon Text", Georgia, serif;
-  --pc-font-body: "Public Sans", Arial, sans-serif;
+  --pc-font-body: var(--text-font-family), Arial, sans-serif;
   --pc-boxed-width: 144rem;
   --pc-page-bg: #dfe4e1;
-  --pc-line: color-mix(in srgb, var(--base) 12%, transparent);
-  --pc-line-inverse: color-mix(in srgb, var(--white) 16%, transparent);
   --pc-shadow-s: 0 1px 2px rgb(10 15 13 / .06), 0 2px 8px rgb(10 15 13 / .05);
   --pc-shadow-m: 0 2px 4px rgb(10 15 13 / .05), 0 12px 32px rgb(10 15 13 / .08);
   --pc-shadow-l: 0 30px 80px rgb(6 21 18 / .18);
   --pc-ease: cubic-bezier(.2, .7, .2, 1);
 }
 ```
-
-> Check variable names against your installed ACSS 3.x version. All the color, `--space-*`, `--section-space-*`, `--text-*`, `--h1…h6`, `--radius*` and `--content-width` names follow the v3 docs. If one is renamed in your version, search-and-replace it in `style.css`.
+Hairlines use ACSS variables directly: `--base-trans-10` on light backgrounds and `--white-trans-20` on dark ones.
 
 ---
 
@@ -80,7 +107,7 @@ Add these under ACSS → Custom CSS (or Bricks → Settings → Custom code → 
 2. **Theme Styles**: set *Site layout* to **Boxed**, max-width `1440px`, box shadow `var(--pc-shadow-l)`, outer background `var(--pc-page-bg)`. This replaces `body.is-boxed .site` in the CSS. To switch to full-width later, change only this setting.
 3. **Theme Styles → Typography**: point heading font to `var(--pc-font-display)` and body to `var(--pc-font-body)` if ACSS is not already setting them.
 4. **Theme Styles → Links**: color `inherit`, no underline in nav. Keep underlines in body copy for accessibility.
-5. **Breakpoints** (Bricks → Settings → Breakpoints) to match the CSS: desktop, 1180 (nav collapses), 900, 640.
+5. **Breakpoints:** keep Bricks at its defaults. They match ACSS (992 / 768 / 480). Set the Nav Menu's mobile-menu breakpoint to a custom 1366px one (Bricks → Settings → Breakpoints → add "Laptop" at 1366).
 
 ---
 
@@ -100,8 +127,7 @@ Most teams use A for the build and move high-traffic components (buttons, cards)
 |---|---|
 | `.container` | Bricks **Container** element (ACSS sets width and gutter) |
 | `.section` + padding | Bricks **Section** element (ACSS adds section padding) |
-| `.btn--primary`, `.btn--accent`, `.btn--outline` | ACSS button classes `btn--primary`, `btn--accent`, `btn--primary btn--outline` on a Bricks **Button** |
-| `.btn--lg` | ACSS `btn--l` |
+| Buttons | Already ACSS classes in the markup: `btn--primary` / `btn--accent` / `btn--white` (+ `btn--outline`), sizes `btn--s` / `btn--m`, `width--full` |
 | 3/4-column grids | ACSS `grid--3`, `grid--4` with `grid--l-2`, `grid--s-1` for breakpoints, `gap--l` |
 | `.section--tint` | ACSS `bg--primary-ultra-light` |
 | `.section--dark` | ACSS `bg--primary` (text turns white automatically with ACSS dark-bg settings) |
@@ -117,31 +143,31 @@ Element names are Bricks elements. Classes are in `code`. Build each block once,
 ### Header template (Templates → Header)
 
 ```
-Section  .topbar  (hide on mobile: display none at 640)
+Section  .topbar  (hidden at s / 480)
 └ Container .topbar__inner  (flex row, space-between, wrap)
   ├ Icon list / Text: address, hours
   └ Text-link: email, "Se habla español"
 Section  .header  (Sticky: Bricks header "Sticky on scroll", add class .is-scrolled via Bricks interaction or main.js)
 └ Container .header__inner  (flex row, align center, space-between)
   ├ Logo element (or Div .brand with .brand__mark + .brand__text)
-  ├ Nav Menu element  .nav   (Bricks native: mobile menu toggle at 1180px)
+  ├ Nav Menu element  .nav   (Bricks native: mobile menu toggle at 1366px)
   └ Div .header__actions
     ├ Icon + text link .header__phone
     └ Button .btn--primary "Free Case Review"
 ```
 
-The Bricks Nav Menu (or Nav Nestable) element provides the mobile menu, so `main.js` sections 1–2 are not needed. Style its mobile panel to match `.nav` at the 1180 breakpoint.
+The Bricks Nav Menu (or Nav Nestable) element provides the mobile menu, so `main.js` sections 1–2 are not needed. Style its mobile panel to match `.nav` at the 1366 breakpoint.
 
 ### Hero (component: `Hero – Consultation`)
 
 ```
 Section .hero   (bg: gradient from CSS; ::before ampersand stays in custom CSS)
-└ Container .hero__inner   (grid 1.25fr / 1fr; stack at 1180)
+└ Container .hero__inner   (grid 1.25fr / 1fr; stack at 992)
   ├ Block .hero__content
   │ ├ Text  .eyebrow .eyebrow--light
   │ ├ Heading h1 .hero__title   (wrap "goes to trial" in <em>)
   │ ├ Text  .hero__lede
-  │ ├ Block .hero__actions → 2 Buttons (btn--accent btn--l, outline light)
+  │ ├ Block .hero__actions → 2 Buttons (btn--accent btn--m, btn--white btn--outline btn--m)
   │ └ Block .hero__proof → 3 × (Heading-like number + label)
   └ Block .hero__card
     ├ Heading h2 .hero__card-title + Text
@@ -213,7 +239,7 @@ Section .results .bg--primary
 Keep the disclaimer sentence next to the list. Most state bars require it.
 
 ### Testimonials
-Use Bricks **Slider (Nestable)** with 3 per page / 2 at 1180 / 1 at 640, gap `var(--grid-gap)`, custom arrows placed in `.slider-controls`. Each slide = `.testimonial` card. Or keep the CSS scroll-snap track and `main.js` section 4; both work.
+Use Bricks **Slider (Nestable)** with 3 per page / 2 at 992 / 1 at 480, gap `var(--grid-gap)`, custom arrows placed in `.slider-controls`. Each slide = `.testimonial` card. Or keep the CSS scroll-snap track and `main.js` section 4; both work.
 
 ### FAQ
 Use Bricks **Accordion (Nestable)** with *Independent toggle* off (one open at a time), title class `.faq-item__q`, content `.faq-item__a`. Add the **FAQPage schema** via your SEO plugin.
@@ -267,12 +293,12 @@ Container .footer__offices
     ├ Title .footer-office__head → {post_title} + .footer-office__tag {acf_region_label} + icon .footer-office__chevron
     └ Content .footer-office__body → address, phone, email, "Get directions"
 ```
-Behaviour: on desktop all four are open boxes in a 4-column grid (2 columns at 1180) and can't be collapsed. At 640px and below they become closed accordions with a +/× toggle.
+Behaviour: on desktop all four are open boxes in a 4-column grid (2 columns at 992) and can't be collapsed. At 480px and below they become closed accordions with a +/× toggle.
 - In the prototype this is native `<details>` and `main.js` part 7 opens or closes them on breakpoint change.
 - In Bricks Accordion (Nestable), turn on *Independent toggle*. Add the CSS from the "Footer offices" block in `style.css`, mapping `.footer-office[open]` to Bricks' `.brx-open` class. Add this small snippet so items start open on desktop:
 ```js
 document.querySelectorAll('.footer-office').forEach(function (el) {
-  if (!matchMedia('(max-width: 640px)').matches) el.classList.add('brx-open');
+  if (!matchMedia('(max-width: 480px)').matches) el.classList.add('brx-open');
 });
 ```
 
@@ -354,7 +380,7 @@ article .article
 │   ├ Text .article-hero__dek {post_excerpt}
 │   └ Block .article-meta → avatar {author_avatar}, {author_name}, ACF author role, dl: {post_date}, ACF "reviewed_by", reading time
 ├ Container .article-cover → Image {featured_image} .article-cover__image + caption {featured_image_caption}
-└ Container .article-layout  (grid: 1fr / 320px; stacks at 1180)
+└ Container .article-layout  (grid: 1fr / 360px; stacks at 992)
   ├ Block .article-layout__main
   │ ├ Post Content element .prose      ← all article styling lives on .prose
 │ │   ("In this article" box: Table of Contents element .toc placed after the first paragraph, or in the template above Post Content)
@@ -363,7 +389,7 @@ article .article
 ```
 
 ### Single post sidebar
-Four cards, each saved as a Bricks component with the class `.widget`. They sit right of the article on desktop (sidebar 360px wide). Between 901 and 1180px they form a 2-column grid under the article, with the form spanning both columns. At 900px and below they stack in one column.
+Four cards, each saved as a Bricks component with the class `.widget`. They sit right of the article on desktop (sidebar 360px wide). Between 769 and 992px they form a 2-column grid under the article, with the form spanning both columns. At 768px and below they stack in one column.
 
 ```
 Block .article-aside  (flex column, gap --space-l, align-self stretch)
@@ -382,7 +408,7 @@ Block .article-aside  (flex column, gap --space-l, align-self stretch)
   ├ Form element .form .form--dark   (name, phone, practice area, message)
   └ a .widget__phone
 ```
-- **Pinned form:** the form card stays pinned while scrolling only when the screen is at least 1181px wide and 900px tall, so the whole card always fits. In Bricks, add the sticky rule as custom CSS inside that media query. Don't use the element's sticky setting, because it can't check screen height.
+- **Pinned form:** the form card stays pinned while scrolling only when the screen is at least 993px wide and 900px tall, so the whole card always fits. In Bricks, add the sticky rule as custom CSS inside that media query. Don't use the element's sticky setting, because it can't check screen height.
 - **Field styles:** `.form--dark` restyles the fields for the green background. Map `.form__input` to Bricks' `.form-group input, select, textarea`.
 - **Reuse:** the same `.widget` cards work on the blog archive too, if you add a sidebar there later.
 
