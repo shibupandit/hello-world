@@ -2409,17 +2409,7 @@ a.pagination__link:hover { border-color: var(--primary); color: var(--primary); 
 /* ==========================================================================
    TEAM ARCHIVE (Bricks: Archive template → Team post type + Team Category)
    ========================================================================== */
-.team-filter {
-  position: sticky;
-  top: var(--pc-header-h, 8.8rem);
-  z-index: 5;
-  border-bottom: 1px solid var(--base-trans-10);
-  background: color-mix(in srgb, var(--white) 92%, transparent);
-  backdrop-filter: blur(8px);
-}
-.team-filter__inner { padding-block: var(--space-s); }
 .team-groups { display: flex; flex-direction: column; gap: var(--section-space-s); padding-block: var(--section-space-s) var(--section-space-m); }
-.team-group[hidden] { display: none; }
 .team-group__head {
   display: flex;
   flex-wrap: wrap;
@@ -2554,7 +2544,3 @@ a.pagination__link:hover { border-color: var(--primary); color: var(--primary); 
   .team-grid .attorney-card__role { font-size: 1.35rem; }
   .team-grid .attorney-card__meta { font-size: 1.25rem; }
 }
-/* Team filter: one swipeable row on small screens */
-.team-filter .blog-filter__list { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-block: 0.2rem; }
-.team-filter .blog-filter__list::-webkit-scrollbar { display: none; }
-.team-filter .chip { white-space: nowrap; }

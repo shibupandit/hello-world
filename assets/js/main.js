@@ -246,21 +246,4 @@
       }
     }
   });
-  // 11. Team page: show one group (Attorneys / Paralegals / Staff) or everyone
-  //     In WordPress the chips link to the Team Category archives instead.
-  var teamChips = document.querySelectorAll("[data-team-filter]");
-  if (teamChips.length) {
-    var teamGroups = document.querySelectorAll("[data-team-group]");
-    teamChips.forEach(function (chip) {
-      chip.addEventListener("click", function () {
-        var f = chip.getAttribute("data-team-filter");
-        teamChips.forEach(function (c) {
-          var on = c === chip;
-          c.classList.toggle("is-active", on);
-          c.setAttribute("aria-pressed", on ? "true" : "false");
-        });
-        teamGroups.forEach(function (g) { g.hidden = f !== "all" && g.getAttribute("data-team-group") !== f; });
-      });
-    });
-  }
 })();
