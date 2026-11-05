@@ -1232,34 +1232,29 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
 - **Cover image → body gap:** was 126px (the cover section's 54px flex gap + `article-layout`'s 72px top padding). `article-section--cover` now has `.article-section--cover > .article-layout { padding-top: 0 }`, leaving `--section-space-xs` (54px desktop, 33px mobile). Other singles keep the layout's top padding.
 - **Count circles centred:** `cat-list__count` (Blog Single sidebar categories) and `chip__count` (Blog archive filter chips), the only count badges on the site. Their numbers sat about 5px left of centre (grid aligned vertically only). Both now use native align + justify items center, text-align center, line-height 1.
 
-## 36. Motion — subtle, CSS-only, performance-safe
+## 36. Motion — Bricks interactions on global classes, everything 0.3s ease-in-out
 
-**Goal:** calm, professional motion across the whole site, with no JS animation libraries and no layout-thrashing properties.
+**Entrance (Bricks native Interactions, set once on the global class, so it runs everywhere the class is used)**
+- Classes: contact-method, office-card, practice-card, value-card, post-card, news-card, result-card, attorney-card, testimonial--card, community__item, team-card.
+- Interaction: trigger `enterView` → action `startAnimation`, `fadeInUp`, duration `0.3s`, run once.
+- Element-level interactions were removed from Contact (610); don't add per-element ones, edit the class instead.
 
-**Removed**
-- Bricks `_interactions` (fadeInUp ×7) on Contact (610). These were JS-driven and hid content until the scripts ran (Perfmatters delays JS).
-
-**Hover states softened (global classes)**
-- Lift `translateY(-3/-4px)` → `-2px`; arrow nudge `translateX(3/4px)` → `2px`; image zoom `scale(1.04)` → `1.02`; social icons `-2px` → `-1px`.
-- FAQ open: 0.5s → 0.35s, offset `-0.8rem` → `-0.4rem`.
-- Classes: practice-card, faq-item, faq-item__q, post-card, office-card(+__more), practice-list__link, post-card__cta, areas-menu__services, contact-method__link, value-card, team-card, team-photo, testimonial--card, news-card, result-card, firm-menu__card, social-links. Theme Style button svg nudge is now 2px.
-- Only `transform`/`opacity`/colour are animated, so changes are compositor-only with no layout shift.
-
-**Scroll reveal (Theme Style CSS)**
+**Theme Style CSS**
 ```css
-@keyframes hc-reveal { from { opacity:0; transform:translateY(1rem) } to { opacity:1; transform:none } }
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    :is(.contact-method,.office-card,.practice-card,.value-card,.post-card,.news-card,
-        .result-card,.attorney-card,.testimonial--card,.community__item) {
-      animation: hc-reveal linear both; animation-timeline: view(); animation-range: entry 5% entry 55%;
-    }
-  }
-}
+@keyframes hc-reveal { from { opacity:0; transform:translate3d(0,1rem,0) } to { opacity:1; transform:none } }
+.brx-animated { animation-timing-function: ease-in-out; }
+.brx-animated.brx-animate-fadeInUp { animation-name: hc-reveal; }   /* Bricks default moves 100% of height; ours is 1rem */
+:is(<card classes>).brx-animated:nth-child(3n+2) { animation-delay: .06s; }
+:is(<card classes>).brx-animated:nth-child(3n+3) { animation-delay: .12s; }
 ```
-- Scroll-driven: runs on the compositor and needs zero JavaScript. It isn't affected by Perfmatters Delay JS.
-- Browsers without `animation-timeline` support (e.g. Safari < 26, Firefox) simply show the content with no animation.
-- A global `prefers-reduced-motion: reduce` block neutralises all animations and transitions.
-- `hc-reveal` is on the Perfmatters RUCSS safelist so the keyframes survive Remove Unused CSS.
+- A global `prefers-reduced-motion: reduce` block neutralises animations and transitions.
+- Perfmatters RUCSS safelist: `.brx-animated`, `.brx-animate-`, `data-interaction-hidden-on-load`, `hc-reveal` (Bricks adds these via JS, so RUCSS can't see them). `bricks` is already excluded from Delay JS, so interactions run immediately.
 
-**Adding reveal to a new card type:** add its class to the `:is(...)` list in Theme Style. Don't use Bricks Interactions for entrance effects.
+**Hover / state transitions**
+- Every global-class transition (`_cssTransition` and `transition:` in custom CSS) is normalised to `<property> 0.3s ease-in-out`, keeping the original property list (no `all`).
+- Softened movement: lift -2px, arrow nudge 2px, image zoom 1.02, social icons -1px, FAQ offset -0.4rem.
+- Only transform/opacity/colour/shadow animate, so there's no layout shift.
+
+**Verified:** cards start hidden, fade up over 0.3s ease-in-out on scroll, end at opacity 1, and keep their hover lift afterwards (the animation class is removed on end). No JS errors.
+
+**Adding to a new card type:** add the same interaction to its global class and its name to the stagger `:is(...)` list.
