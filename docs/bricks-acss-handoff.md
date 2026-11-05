@@ -1061,3 +1061,9 @@ Every button on the site is now the Bricks **Button** element styled only with A
 - **CSS for runtime states:** `.is-scrolled` and `.is-current` (inline site JS), `.brx-open` (Bricks nav), `.dots` (pagination with many pages), Fluent Forms error/success messages.
 - **Plugin and framework data:** ACSS imported classes; `hc_city_*` options (used by `hc-city-*.php`); Bricks internals (`bricks_global_classes_locked/_changes`, colour palette); WPvivid settings; Novamira data.
 - **Media:** not deleted. A quick reference scan isn't reliable enough for media (featured images and ACF fields).
+
+## 26. Testimonial author block (Home slider)
+
+- `testimonial__author` now has a native row gap of `0.2rem`. The name and case type were 18–24px apart from an inherited default.
+  - On the Testimonials page the same class is a row (avatar + text), so that layout is unchanged.
+- `testimonial__name` now carries its colour natively (`var(--primary-dark)`). On Home it rendered light grey because the colour only lived in a `.testimonial__who .testimonial__name` rule that Home doesn't match. That descendant rule was removed.
