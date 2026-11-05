@@ -927,3 +927,40 @@ These use the native Bricks **Social Icons** element with Font Awesome 6 Brands 
 
 ### Homepage contact details: label and text gap
 The text blocks in the homepage "Talk to a Partner" list (`u05e34`, `1x6ay4`, `6plpy5`: label + phone, email or address) now use the class **`contact__text`**, with native flex column and row gap **0.3rem**. Before, they had no class and took the default flex gap of about 24px.
+
+## 20. Team templates: gutter fix and BEM class audit
+
+### Gutter
+- **Team Archive (654):** the card section `naezv4` (class `team-groups-section`) had `padding: 0` in custom CSS. That removed the ACSS section side gutter, so the cards ran edge to edge on tablet and phone.
+  - The class now sets only native padding top/bottom `0`. The vertical rhythm still comes from `team-groups` (`padding-block`).
+  - Measured content edges: 100 / 36 / 17 px at 1440 / 900 / 390 widths, the same as every other section.
+- **Team Single (653):** every root is a section with the gutter. The body section `tmswrp` had inline padding and no class. It now uses **`profile-body`** (native padding top/bottom 0).
+
+### BEM global classes
+Loose `_cssClasses` were converted to global classes, and every unclassed element in both templates got a block__element class. Existing descendant CSS (`.breadcrumb li`, `.profile-list strong`, `.hours dt`, ...) still applies; the new classes are hooks for future styling.
+
+| Block | Elements / modifiers added |
+|---|---|
+| `page-hero` | `page-hero--team`, `page-hero--profile` (were loose) |
+| `breadcrumb` | `__list`, `__item`, `__link`, `__current` |
+| `hero-stats` | `__label`, `__value` |
+| `team-group` (was loose) | `team-group__heading` |
+| `attorney-card` | `attorney-card__body` (was loose; also on the Home and About cards) |
+| `team-card` | `__more-text`, `__more-icon` |
+| `team-careers` | `__content` |
+| `cta-band` | `__phone-icon`, `__phone-text` |
+| `profile-hero` | `__name` (was loose), `__contact-item`, `__contact-icon`, `__contact-link`, `__contact-text` |
+| `profile-body` | new section block (Team Single body) |
+| `profile-quote` | `__text` |
+| `profile-tags` | `__item`, `__link` |
+| `profile-list` | `__item`, `__title`, `__detail` |
+| `profile-honors` (was loose) | `__title`, `__detail` (detail: `--text-s`, `--base-semi-dark`); `profile-honors__text` is now a flex column, so the title and detail stack on every width |
+| `checklist` | `__item`, `__icon` |
+| `hours` | `__label`, `__value` |
+| `widget` | `__phone-icon`, `__phone-text` |
+| `team-more` | `team-more` (section), `team-more__inner` (container) for "Meet more of the team" |
+| `section__head` | `section__heading-group` (eyebrow + title wrapper) |
+
+Elements inside ACSS buttons (`btn--*` text + icon) were left without classes. They are styled by the ACSS button.
+
+**Site-wide:** any loose class that already existed as a global class was moved to the global class. That includes `btn--*` on the header, homepage and practice templates, and `form__note`. Loose classes that are left on other pages are section-level names (`about`, `faq`, `page-hero--city`, ...) and `js-*` hooks. The `js-*` hooks stay loose on purpose.
