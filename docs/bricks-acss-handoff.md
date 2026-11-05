@@ -1167,3 +1167,8 @@ Note: unsplash.com search pages are bot-protected from this environment. Photos 
 - **Gold "fingernail" top strips removed:** the 3px accent top border on `hero__card`, `widget--form`, `review-feature__case`, the dropdown panels (`firm-menu`, `mega-menu`, `areas-menu`, `nav-dropdown`, now rounded on all corners), and the CSS overrides on `contact-method` and `result-card`. Those two keep their neutral hairline border.
 - Kept: the CTA band's hairline divider, timeline/milestone markers, list bullets.
 - Smaller labels inside boxes (`widget__eyebrow` "Free case review", `firm-menu__eyebrow`, `mega-menu__eyebrow`) are separate classes and were left in place.
+
+## 31. Header menu de-duplication
+
+- "The Firm" (dropdown `mdfirm`) no longer links to `/about/`. The label just opens the dropdown, which already has About Us as its first link.
+- Resources dropdown: Case Results and Testimonials were removed (they are in The Firm). Resources now holds Insights and Press & News.
