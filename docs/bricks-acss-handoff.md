@@ -1478,3 +1478,14 @@ section.widget.office-widget  (condition: {acf_designated_office} != "")
   - `widget`: border colour `--accent-light`
   - `widget--tint`: border colour `--accent-light` (was transparent)
   - `widget--form`: new border `--border-size` solid `--accent-light`, radius `--radius`
+
+## 49. Areas We Serve sidebar — "Recent in {city}" (same city only, max 5)
+
+- **Template 761 sidebar order:** Your local office → **Recent in {hc_city_name}** → Other areas we serve → Talk to a partner today (form, last).
+- **Widget:** a copy of the Blog Single "Recent posts" widget (same classes: `widget`, `widget__title`, `recent-posts`, `recent-post`, `recent-post__body`, `recent-post__title`, `recent-post__date`). Element IDs `ctrcw1`…, loop element `ctrcl1`. Blog Single is unchanged.
+- **Query (PHP):** `wp-content/novamira-sandbox/hc-city-template.php` (copy in `build/wordpress/novamira-sandbox/`) filters `bricks/posts/query_vars` for the loop IDs in the option `hc_city_tpl_loops`. The new key `recent => ctrcl1` sets:
+  - `post_type = city-{current city slug}`, so /dallas/ and /dallas/* use `city-dallas`
+  - `posts_per_page = 5`, `orderby = date DESC`
+  - `post__not_in = current page`
+- **Verified:** /dallas/wrongful-death/, /plano/ and /houston/truck-accidents/ each list 5 pages of their own city only.
+- The PHP cache needed `opcache_invalidate()` after editing the sandbox file. Do the same after future edits.
