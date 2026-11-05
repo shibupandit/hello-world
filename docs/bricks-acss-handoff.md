@@ -782,3 +782,12 @@ Bricks hides the pagination automatically when there is only one page (e.g. smal
 - **Sandbox `hc-news-archive.php`:** removes the featured item from the main archive query, and pins the featured loop to page 1, so it stays on `/news/page/2/`.
 - **`article-hero` class:** now has left/right padding `var(--gutter)`. It is used as a root section on news singles, and it fixes the mobile gutter there.
 - **Press-release formatting in the editor:** add the class `news-dateline` to a `<strong>` at the start of the release, and `news-end` to a final `###` paragraph. Styled via the `news-boilerplate` class CSS.
+
+### Mobile menu: only the close button while open (fix)
+
+On phones, after scrolling, the browser's collapsing address bar could offset the full-screen menu. The header's logo, phone button and hamburger then showed above the overlay, next to the close X. The `main-nav` class custom CSS now has a "Mobile menu open" block (≤1279px):
+- hides the open toggle (`.main-nav.brx-open > .brxe-toggle`)
+- hides the rest of the header row (`.header:has(.main-nav.brx-open) .header__inner > :not(.main-nav)`)
+- pins the overlay to `top: 0; height: 100dvh`
+
+Everything returns when the menu closes.
