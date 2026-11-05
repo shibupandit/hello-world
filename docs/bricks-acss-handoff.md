@@ -826,3 +826,16 @@ Everything returns when the menu closes.
   - More results (3)
 - **Sandbox `hc-case-results.php`:** the main archive query excludes the featured result. The featured loop is pinned to page 1 and is empty on practice-area filter pages, where the featured result appears in the grid instead.
 - **Menus:** Case Results in the header and footer now link to `/case-results/`.
+
+### Areas We Serve: city accordions on mobile
+
+Each city in the Areas We Serve mega menu is now a native `<details>` element:
+- **Elements:** the loop element `marcty` uses a custom tag `details`. The new `marsum` has a custom tag `summary` and the class `areas-menu__summary`; it contains the city link and a Bricks **Icon** element `marchv` (Ionicons `ion-ios-arrow-down`, class `areas-menu__chevron`).
+- **Desktop (>1279px):** the site script (§12 in `main.js` / Bricks body-footer script) keeps every city `open`, and blocks toggling on the summary. The chevron is hidden, so the mega menu is unchanged.
+- **Mobile (≤1279px):**
+  - every city starts closed
+  - tapping the chevron or the empty part of the row opens that city's 10 service links (indented, with a gold guide line)
+  - opening one city closes the others
+  - tapping the city name still opens the city page
+- **CSS** lives in the classes `areas-menu__grid`, `areas-menu__city`, `areas-menu__city-name`, `areas-menu__services`, `areas-menu__summary` and `areas-menu__chevron`. The mobile services indent uses `.main-nav .areas-menu__services`, because `.main-nav ul { padding: 0 }` otherwise wins.
+- **Why not an SVG element for the chevron:** a Bricks SVG element with inline code does not output on the frontend, so the native Icon element is used instead.
