@@ -1351,3 +1351,22 @@ I scanned every published page/template for flex/grid containers with 2+ childre
 - on-light: Blog Single, News Single, Legal Page
 
 **Use:** every breadcrumb nav gets `breadcrumb` + one of the two modifiers.
+
+## 44. Areas We Serve dropdown — city links without JavaScript
+
+**Problem:** each city in the Areas We Serve mega menu is a `<details>` (query loop over `cities`). The removed body-footer script used to set `open` on all of them on desktop. Without it, the desktop dropdown showed only the city names; the service links stayed collapsed.
+
+**Fix (CSS only, `areas-menu__city`):**
+```css
+@media (min-width: 1280px) {
+  .areas-menu__city::details-content { content-visibility: visible; display: contents; }
+  .areas-menu__city > .areas-menu__summary { pointer-events: none; }   /* no toggling on desktop */
+  .areas-menu__city > .areas-menu__summary a { pointer-events: auto; } /* city name stays a link */
+}
+```
+- **Mobile (≤1279px):** the native `<details>` accordion is unchanged (tap a city to open it; chevron rotates via `details[open]`).
+- **Perfmatters RUCSS safelist:** `details-content`, `.areas-menu`.
+- **Verified:** desktop shows all 6 cities × 10 service links; closed cities on mobile hide their links (`checkVisibility() === false`).
+- **Browser support:** `::details-content` works in current Chrome, Edge, Safari 18.4+ and Firefox 143+. Older browsers show only the city names, which still link to the city pages.
+
+**Footer offices** also use `<details>`, but each has a static `open` attribute, so they're visible on desktop without the script. On mobile they now start expanded (the script used to collapse them); they still toggle.
