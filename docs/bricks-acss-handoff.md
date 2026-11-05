@@ -849,3 +849,11 @@ Each city in the Areas We Serve mega menu is now a native `<details>` element:
 - **`callout`:** align stretch and text-align left (the "Texas law" label was centred).
 - **`faq__list`:** align stretch. **`faq-item`:** width 100%. FAQ rows now span the column.
 - **`damages__title`:** Public Sans (it had fallen back to the serif heading font).
+
+### Blog Single: fixes (template 462)
+
+- **Hero meta facts:** the labels and values of Published / Legally reviewed by / Reading time were plain divs, so the `.article-meta__facts dt/dd` styles did not apply. They now use custom tags `dt`/`dd`.
+- **Key point box:** written in the post content as `<aside class="callout">`, but the `callout` class CSS only reaches Bricks elements. The `prose` class now styles `.prose .callout` and `.prose .callout__title`.
+- **Tags row:** `{post_terms_post_tag}` outputs ", " between links. The `tags` class sets `font-size: 0` on the wrapper (the links keep their own size), and the element tag changed from `p` to `div`.
+- **Author box:** the `author-box` class now uses direction row (photo left, text right), stacking at ≤480px.
+- **Mobile cover:** Bricks' `flex-wrap: wrap` on containers below 767px squeezed `.article-cover` to 120px, so the image overlapped the first paragraph. The `article-cover` class sets flex-wrap nowrap, natively plus a `.article-cover.article-cover` rule to beat Bricks' default.
