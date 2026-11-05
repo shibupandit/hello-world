@@ -1489,3 +1489,17 @@ section.widget.office-widget  (condition: {acf_designated_office} != "")
   - `post__not_in = current page`
 - **Verified:** /dallas/wrongful-death/, /plano/ and /houston/truck-accidents/ each list 5 pages of their own city only.
 - The PHP cache needed `opcache_invalidate()` after editing the sandbox file. Do the same after future edits.
+
+## 50. Mobile/tablet menu tap flash, breadcrumb alignment, no "Areas We Serve" crumb
+
+- **Tap flash (≤1279px menu):** tapping a city row or a dropdown toggle painted the browser's default tap highlight over the whole wrapper (grey on iOS, blue on Android). In class `main-nav`:
+  - `-webkit-tap-highlight-color: transparent` on `.main-nav` and all descendants
+  - `user-select: none` on `summary` and `.brx-submenu-toggle`
+  - `:focus:not(:focus-visible) { outline: none }`
+  - Behaviour verified with touch emulation at 1024/820/390: the dropdown stays open and cities toggle one at a time.
+- **Breadcrumb alignment:**
+  - The §43 base-class reset only targeted a *direct* child (`.breadcrumb > ol`).
+  - On city pages the list is rendered inside a text element (`{hc_breadcrumb}`), so it kept the browser's 40px `padding-left` and margins. The crumbs were indented from the H1.
+  - The reset is now `.breadcrumb ul, .breadcrumb ol { list-style: none; padding: 0; margin: 0 }`.
+  - Verified crumb-left = H1-left at 1440/1280/1024/820/600/390.
+- **"Areas We Serve" removed from the trail** (it isn't a page): `hc_city_tag('hc_breadcrumb')` in `hc-city-template.php` now outputs Home / {City} [/ {Service}].

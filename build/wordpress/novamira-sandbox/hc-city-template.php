@@ -65,7 +65,7 @@ function hc_city_tag( $name ) {
 				. '<p>Whether you were injured, treated unfairly at work, are facing a family law matter or have been charged with a crime, a partner will review your case personally. We meet in person, by phone or by video, whichever is easier for you.</p>'
 				. '<p>Explore the practice areas below, or request a free case review and we will respond within one business day.</p>';
 		case 'hc_breadcrumb':
-			$items = '<li><a href="' . esc_url( home_url( '/' ) ) . '">Home</a></li><li>Areas We Serve</li>';
+			$items = '<li><a href="' . esc_url( home_url( '/' ) ) . '">Home</a></li>';
 			if ( $is_svc ) {
 				$items .= '<li><a href="' . esc_url( get_permalink( $city ) ) . '">' . esc_html( $c ) . '</a></li><li aria-current="page">' . esc_html( $service ) . '</li>';
 			} else {
