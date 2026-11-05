@@ -1133,3 +1133,29 @@ Note: unsplash.com search pages are bot-protected from this environment. Photos 
     - business litigation 801, wills/probate 797
   - **6 city pages:** courthouse 805.
 - Change any page's photo via its Featured image in the editor.
+
+## 29. Page speed (Perfmatters setup, 2026-11-05)
+
+**Before → after (homepage)**
+
+| | Before | After |
+|---|---|---|
+| Render-blocking CSS | ~540KB external: ACSS 293KB, Bricks frontend 149KB, ACSS-Bricks 50KB, icon fonts 47KB | **0**: page paints from the inline used CSS (126KB raw, Brotli on the wire); full stylesheets load on first interaction |
+| JS before interaction | Bricks, jQuery 85KB, Fluent Forms ~70KB, Splide | Bricks, Splide, ACSS colour switcher, lazyload. **jQuery + Fluent Forms delayed** until first interaction |
+| First high-priority image | hidden "The Firm" mega-menu portrait | menu portrait lazy; the real leading image gets `fetchpriority=high` (e.g. the member photo on Team pages) |
+| Font preload | none | Public Sans + Libre Caslon Display (latin woff2) |
+| Next-page speed | none | Speculation rules: prefetch on hover (moderate) |
+| Response time | Kinsta cache HIT about 110–125ms; cold about 1s | unchanged (server/cache are fine) |
+
+**Perfmatters settings (Perfmatters → Assets / Preload)**
+- **Remove Unused CSS:** on, for all stylesheets (the exclusion list is now empty); Stylesheet behaviour = Delay.
+  - Safelisted selectors (runtime states): `.brx-open`, `.brx-submenu-open`, `.brx-has-megamenu`, `.is-scrolled`, `.is-current`, `.is-active`, `.splide`, `.ff-`, `.fluentform`, `.error`, `.text-danger`, `.open`, `[open]`, `.brx-animated`, `.brx-popup`.
+- **Delay JavaScript:** behaviour **All**, with exclusions `bricks`, `splide`, `color-scheme`, `Color_Scheme`, `hc-main`, `perfmatters`.
+- **Preload:** the 2 font files above. **Speculative loading:** prefetch, moderate.
+- **Already on and kept:** minify JS/CSS, lazy load (excluding `recognition__logo`), local Google fonts, emoji/embeds/dashicons/global-styles removal.
+
+**Cascade fixes for used-CSS order** (the delayed stylesheets are no longer there to settle ties)
+- `widget--form`: dark sidebar form labels own `margin-bottom: 0.5em; line-height: 1`. The dropdown owns `height: var(--f-input-height, 5rem)` (ACSS variable).
+- Verified: computed styles of 8 page types × 3 widths match the pre-change baseline. The only difference is the member photo now loading first with high priority.
+
+**If something looks unstyled before the first click/scroll:** add its class (or a keyword from it) to Perfmatters → Remove Unused CSS → Excluded Selectors, then Clear Used CSS. For a script that must run immediately, add a keyword from its file name to Delay JS → Exclusions.
