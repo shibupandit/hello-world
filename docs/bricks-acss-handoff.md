@@ -1118,3 +1118,18 @@ Four off-topic blog photos (laptop meeting, café office, beagle, family) were s
 The other six already read as legal in context (truck on highway, signing documents ×2, legal paperwork, police car, gavel).
 
 Note: unsplash.com search pages are bot-protected from this environment. Photos are chosen by CDN ID (`images.unsplash.com/photo-…`) and checked visually on contact sheets. To pick specific photos yourself, open them on unsplash.com and set them as the post's Featured image.
+
+## 28. Areas We Serve template: featured image above the body
+
+- **Template 761:** a native Image element (`ctimg1`) is the first child of the body wrapper `article-layout__main`, before the intro, services, why-us and results blocks.
+  - Image source `{featured_image}` (large), alt `{post_title}`.
+  - It renders only when the post has a featured image (condition: Featured image = set).
+- **New class `article-layout__image`:** 100% width, 16:9 (4:3 at ≤478px), cover, `--radius`. It's reusable in any single template that uses `article-layout`.
+- **Featured images set on all 66 posts:**
+  - **60 city-service posts.** Each service uses the same law-themed photo in every city:
+    - truck 795, car 799, motorcycle 804
+    - wrongful death 815, premises 814, wrongful termination 813
+    - divorce/custody 798, criminal defense 805
+    - business litigation 801, wills/probate 797
+  - **6 city pages:** courthouse 805.
+- Change any page's photo via its Featured image in the editor.
