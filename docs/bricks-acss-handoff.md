@@ -884,3 +884,6 @@ Each city in the Areas We Serve mega menu is now a native `<details>` element:
 **Query loops:** the services and other-cities loops are set to `cities` in the builder. The sandbox filter re-points them at runtime: services → `city-<slug>` for the current city, excluding the current page; cities → all cities except the current one. Their element IDs are stored in the option `hc_city_tpl_loops`.
 
 **`breadcrumb` class:** now includes `.breadcrumb ol { margin: 0; padding: 0; }`.
+
+### Practice Area Single hero (update)
+The hero lede (`{acf_hero_lede}`) and the hero stats box (`acf_hero_stats` loop) were removed from template 463 on request. The hero now shows the breadcrumb, eyebrow, title and buttons. The ACF fields still hold their data, so they can be re-added later.
