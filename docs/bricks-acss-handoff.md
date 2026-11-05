@@ -1326,3 +1326,28 @@ I scanned every published page/template for flex/grid containers with 2+ childre
 - In `about__frame` the second child is absolutely positioned.
 
 **Rule going forward:** every new flex/grid wrapper class should set its own gap, even `0`.
+
+## 43. Breadcrumb — base + background modifiers, fixed hover
+
+**Problem:** `.breadcrumb a` only set a colour for the normal state. On hover, the global link hover colour won and the link turned dark green (unreadable) on dark heroes.
+
+**Classes now:**
+- **`breadcrumb`** (structure only):
+  - `ol` flex/wrap, `li` inline-flex, `/` separator
+  - links have no decoration; underline on `:hover` / `:focus-visible` (offset 0.25em, 1px)
+  - `color` transition 0.3s ease-in-out
+  - no colours
+- **`breadcrumb--on-dark`** (new; dark heroes):
+  - li `--primary-light`, separator `--accent`
+  - link `--white` → hover `--accent-light`
+  - current `--accent-light`
+- **`breadcrumb--on-light`** (renamed from `breadcrumb--dark`, same ID `dfhfcp`; light heroes):
+  - li `--base-semi-dark`, separator `--accent-dark`
+  - link `--primary` → hover `--accent-dark`
+  - current `--accent-dark`
+
+**Assigned:**
+- on-dark: Blog Archive, Practice Single, Team Single/Archive, News Archive, Case Results Archive/Single, Areas We Serve Single, Contact, About, Testimonials
+- on-light: Blog Single, News Single, Legal Page
+
+**Use:** every breadcrumb nav gets `breadcrumb` + one of the two modifiers.
