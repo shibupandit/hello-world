@@ -904,3 +904,12 @@ The hero lede (`{acf_hero_lede}`) and the hero stats box (`acf_hero_stats` loop)
 
 ### Mobile menu: dropdown panel padding
 `main-nav` class custom CSS (≤1279px): `.main-nav .brx-dropdown-content { padding: var(--space-xs) var(--space-m) var(--space-s); margin-bottom: var(--space-s); background: var(--white); border: 1px solid var(--base-trans-10); border-radius: var(--radius); }`. The selector is generic, so it covers The Firm, Practice Areas, Areas We Serve, Resources and any future dropdown. Desktop is unaffected.
+
+### Footer: Areas We Serve column (footer template 347)
+- **Placement:** a new `footer__col` nav (`ftarea`), after Practice Areas, with the heading "Areas We Serve".
+- **Links:** an `li` query loop over the **Cities** post type (menu order, all) with a Text Link `{post_title}` → `{post_url}`. City pages only, no service pages; new cities appear automatically.
+- **`footer__inner` grid:**
+  - desktop: `minmax(0, 1.3fr) repeat(4, minmax(0, 1fr))`, gap `--space-l`
+  - ≤1100px: 3 columns, with the brand block spanning the full row
+  - ≤767px: 2 columns
+  - ≤480px: 1 column
