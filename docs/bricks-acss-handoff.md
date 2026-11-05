@@ -1298,9 +1298,11 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
 - **Built from existing classes only** (copied from News Single / Blog Single):
   - **Hero:** `article-hero` + `article-hero__inner` + **`article-hero__inner--compact`** (new modifier: padding-bottom `--space-xl`, `--space-l` on mobile; no cover-image overlap). Contains the breadcrumb (Home / {post_title}) and h1 `{post_title}`.
   - **Meta row:** `news-meta` showing "Last updated `{post_modified:F j, Y}`" and "Applies to Hartwell & Crane, PLLC".
-  - **Body:** `article-section` › `article-layout` › `article-layout__main` with the TOC ("On this page", Post TOC) and Post Content (`prose`). Page text stays in the WordPress editor, and its h2 headings feed the TOC.
+  - **Body:** `article-section` › `article-layout` › `article-layout__main` › Post Content (`prose`). There's no TOC (removed on request). Page text stays in the WordPress editor.
   - **Aside widgets:**
     - `widget widget--tint` "Legal information": `practice-list` query loop over pages 847–849 (orderby `post__in`).
-    - `widget` "Questions about this page?": text uses the new **`widget__text--muted`** (`--base-semi-dark`), plus a `media-contact__list` with the intake email and main phone.
+    - `widget widget--tint` "Questions about this page?" (same tint as the card above): text uses the new **`widget__text--muted`** (`--base-dark`, readable on the tint), plus a `media-contact__list` with the intake email and main phone.
 - **Current page highlight:** `practice-list__link[aria-current="page"]` gets the same style as `.is-current` (primary background, white text). This also highlights the current practice area on Practice Single. `aria-current` is added to the Perfmatters RUCSS safelist.
 - The hard-coded "Last updated" paragraph was removed from the Privacy Policy content, since the template shows the modified date.
+
+**Note (builder saves):** a Bricks builder save at the same time as a scripted change dropped two just-created classes, which were recreated with the same IDs (`ahcmpt`, `wtmutd`). If classes disappear after a builder save, re-check this section.
