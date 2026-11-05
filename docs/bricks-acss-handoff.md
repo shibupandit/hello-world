@@ -1229,3 +1229,5 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
   - `article-meta` has a bottom hairline and `--space-m` padding top and bottom, matching the divider under the title.
   - The new modifier `article-hero__inner--cover` (Blog Single hero only) sets the inner bottom padding to `--space-s`. Result: about 32px from the line to the image on desktop, about 45px on mobile.
   - The News Single hero keeps the base `article-hero__inner` padding (it has no cover image).
+- **Cover image → body gap:** was 126px (the cover section's 54px flex gap + `article-layout`'s 72px top padding). `article-section--cover` now has `.article-section--cover > .article-layout { padding-top: 0 }`, leaving `--section-space-xs` (54px desktop, 33px mobile). Other singles keep the layout's top padding.
+- **Count circles centred:** `cat-list__count` (Blog Single sidebar categories) and `chip__count` (Blog archive filter chips), the only count badges on the site. Their numbers sat about 5px left of centre (grid aligned vertically only). Both now use native align + justify items center, text-align center, line-height 1.
