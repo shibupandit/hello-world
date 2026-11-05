@@ -1193,7 +1193,7 @@ Note: unsplash.com search pages are bot-protected from this environment. Photos 
 - Deleted: the Blog archive featured `post-featured__reading` element and the Blog Single hero "Reading time" fact.
 - Deleted classes: `post-featured__reading`, `post-card__read-time`. The ACF field itself is untouched.
 
-**Table of contents ("On this page")** on Blog Single (existing), Practice Area, News, Case Result and Areas We Serve singles. Not on Team Single.
+**Table of contents ("On this page")** on Blog Single (existing), Practice Area, News and Areas We Serve singles. Not on Team Single or Case Result Single (removed from Case Result on request).
 - **Element** (same in each template, first in `article-layout__main`): `nav.toc` > `p.toc__title` + `ol.toc__list.js-toc` > `li.toc__placeholder`. The placeholder shows in the builder and is removed at runtime.
 - **Script** (Bricks → Settings → Custom code → Body footer, section 9), for every `.js-toc`:
   - collects the `h2`s in its `article-layout__main`, skipping the TOC itself, author box, article footer and widgets/asides
