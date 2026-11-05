@@ -1370,3 +1370,42 @@ I scanned every published page/template for flex/grid containers with 2+ childre
 - **Browser support:** `::details-content` works in current Chrome, Edge, Safari 18.4+ and Firefox 143+. Older browsers show only the city names, which still link to the city pages.
 
 **Footer offices** also use `<details>`, but each has a static `open` attribute, so they're visible on desktop without the script. On mobile they now start expanded (the script used to collapse them); they still toggle.
+
+## 45. Areas We Serve dropdown — city tabs (desktop) / accordion (mobile), no JavaScript
+
+This is the approved "Option A" design. It replaces the six columns × ten links layout and §44's always-open CSS. A backup of the previous header elements and `areas-menu*` classes is in `build/bricks/backups/areas-menu-before-tabs.json`.
+
+**Data:** the ACF group "City Details" (528) gained two fields:
+- `city_has_office` (true/false): on for Dallas, Fort Worth, Houston, Austin
+- `city_office_line` (text): e.g. "Office · 410 Commerce Street, Suite 1200", "Served from our Dallas office"
+
+**Structure** (Header 346, inside `ul.areas-menu > li.areas-menu__panel > .areas-menu__grid`):
+```
+details.areas-menu__city   (query loop: cities, 6, menu_order; attribute name="areas-city")
+  summary.areas-menu__summary
+    span.areas-menu__city-name  {post_title}
+    span.areas-menu__tag        "Office"   (condition {acf_city_has_office} == 1)
+    icon.areas-menu__chevron    (mobile only)
+  div.areas-menu__pane
+    div.areas-menu__pane-head   span.areas-menu__pane-title {post_title} + a.areas-menu__page-link "View {post_title} page"
+    p.areas-menu__office        {acf_city_office_line} (if not empty)
+    ul.areas-menu__services     (ACF repeater city_services; a: name + link)
+div.areas-menu__cta            "Not sure which office?" text, phone, Request a Review (btn--accent btn--s width--full)
+```
+
+**How it works:**
+- Every city is a native `<details>` sharing `name="areas-city"`, so the browser keeps only one open (exclusive accordion).
+- **Desktop (≥1280px):**
+  - `.areas-menu__grid` is a grid of `26rem | 1fr | 30rem`, with a tinted rail via a background gradient.
+  - Each `details` is `display: contents`: its `summary` goes in column 1 (the tab rail) and its `::details-content` in column 2 (`grid-row: 1 / span 6`).
+  - Clicking a city opens it and closes the others.
+  - When none is open, the first city's content shows (`:not(:has([open]))`).
+  - The active tab: white background, gold left border, arrow; its Office tag is hidden.
+  - Column 3 is the CTA card.
+- **≤1279px:**
+  - Single column; tap a city to expand it (chevron rotates).
+  - The office line comes first, then services in two columns with dashed rules, then "View {city} page →".
+  - The CTA card is hidden.
+- **Dropdown padding:** the `.main-nav ul.areas-menu` padding (in class `main-nav`) is now `0` at ≥1280px, so the rail is flush.
+- **Verified** at 1440 / 1280 / 1024 / 390: correct default tab, switching, exclusivity, no horizontal overflow.
+- **Browser support:** needs `::details-content` and `:has()` (current Chrome, Edge, Safari 18.4+, Firefox 143+).
