@@ -913,3 +913,14 @@ The hero lede (`{acf_hero_lede}`) and the hero stats box (`acf_hero_stats` loop)
   - ≤1100px: 3 columns, with the brand block spanning the full row
   - ≤767px: 2 columns
   - ≤480px: 1 column
+
+### Social icons (footer and Contact page)
+
+These use the native Bricks **Social Icons** element with Font Awesome 6 Brands icons: `fab fa-facebook-f`, `fab fa-x-twitter`, `fab fa-linkedin-in`, `fab fa-youtube`. Each link opens in a new tab, with `aria-label` "Hartwell & Crane on {network}".
+
+- **Footer** (template 347): element `ftsoc1`, under the firm description in the first column. Classes `social-links social-links--light` (white icons, gold on hover).
+- **Contact page** (610): a "Follow us" widget `ctfol1` after Office hours in the sidebar, with element `ctfols`. Classes `social-links social-links--dark` (green icons).
+- **Class `social-links`:**
+  - native settings: row, left-aligned, icon size 2rem, margin-top `--space-s`
+  - custom CSS: gap `--space-l`, no item stretching, a 4.4rem (48px) tap target per icon, and a small lift on hover
+- **Links are `#` placeholders.** Set the real profile URLs in each Social Icons element (Content → Icons → Link) in both places.
