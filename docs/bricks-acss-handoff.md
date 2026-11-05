@@ -1208,3 +1208,15 @@ Note: unsplash.com search pages are bot-protected from this environment. Photos 
 - Featured images set: personal injury 795, employment 813, family 798, criminal defense 799, business litigation 801, estate & probate 797.
 
 Note: the static prototype's `assets/js/main.js` is not the live script. The live one is in Bricks custom code.
+
+## 34. Testimonials section as a reusable Bricks template
+
+- **Template:** Bricks template **Testimonials Slider** (ID 833, type Section), the former Home testimonials section (`section.section.section--tint.testimonials`, id `#testimonials`; heading, prev/next `slider-btn` + `js-slide-prev/next`, `testimonials__track.js-slider`).
+  - The 4 hand-typed cards became **one query-loop card** (`figure.testimonial`): post type `testimonial`, 6 latest.
+  - Fields: quote `{acf_testimonials_body_text}`, name `{post_title}`, case `{acf_testimonials_practice} client`, 5 stars.
+- **Placed with a Template element** (edit once, every page updates):
+  - Home: replaces the old section in place.
+  - Blog, Practice Area and Areas We Serve singles: directly **before the CTA band**.
+  - Team, News and Case Result singles: these have no CTA band, so it is the **last section**.
+- `section--tint` rule: `.section--tint + .section--tint, .section--tint + .brxe-template > .section--tint:first-child` get a hairline top border, so two tinted sections in a row (e.g. Related posts → Testimonials) stay visually separate. The Template element wraps its output in `div.brxe-template`.
+- The slider script handles one `.js-slider` per page (true on every page using it).
