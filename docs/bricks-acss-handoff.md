@@ -1291,3 +1291,16 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
 - **`result`:** `grid-template-columns: subgrid` + `grid-column: 1 / -1`, so every row shares the same three columns. Alignment is `start` (was `baseline`), so amount, title and docket are top-aligned.
 - **`result__type`:** the elements are now Bricks **Heading** elements with tag **h2**. The class is styled like an h3: Libre Caslon Display, `var(--h3)`, weight 400, `--heading-line-height`, white.
 - **`result__docket`:** right-aligned on desktop; left-aligned and first in the stack at mobile_landscape.
+
+## 41. Legal Page template (Privacy Policy, Disclaimer, Accessibility)
+
+- **Template 877 "Legal Page"** (content type). Condition: `ids` = 847 Privacy Policy, 848 Disclaimer, 849 Accessibility. To use it on another page, add that page's ID to the condition.
+- **Built from existing classes only** (copied from News Single / Blog Single):
+  - **Hero:** `article-hero` + `article-hero__inner` + **`article-hero__inner--compact`** (new modifier: padding-bottom `--space-xl`, `--space-l` on mobile; no cover-image overlap). Contains the breadcrumb (Home / {post_title}) and h1 `{post_title}`.
+  - **Meta row:** `news-meta` showing "Last updated `{post_modified:F j, Y}`" and "Applies to Hartwell & Crane, PLLC".
+  - **Body:** `article-section` › `article-layout` › `article-layout__main` with the TOC ("On this page", Post TOC) and Post Content (`prose`). Page text stays in the WordPress editor, and its h2 headings feed the TOC.
+  - **Aside widgets:**
+    - `widget widget--tint` "Legal information": `practice-list` query loop over pages 847–849 (orderby `post__in`).
+    - `widget` "Questions about this page?": text uses the new **`widget__text--muted`** (`--base-semi-dark`), plus a `media-contact__list` with the intake email and main phone.
+- **Current page highlight:** `practice-list__link[aria-current="page"]` gets the same style as `.is-current` (primary background, white text). This also highlights the current practice area on Practice Single. `aria-current` is added to the Perfmatters RUCSS safelist.
+- The hard-coded "Last updated" paragraph was removed from the Privacy Policy content, since the template shows the modified date.
