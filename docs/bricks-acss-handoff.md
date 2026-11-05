@@ -1067,3 +1067,27 @@ Every button on the site is now the Bricks **Button** element styled only with A
 - `testimonial__author` now has a native row gap of `0.2rem`. The name and case type were 18–24px apart from an inherited default.
   - On the Testimonials page the same class is a row (avatar + text), so that layout is unchanged.
 - `testimonial__name` now carries its colour natively (`var(--primary-dark)`). On Home it rendered light grey because the colour only lived in a `.testimonial__who .testimonial__name` rule that Home doesn't match. That descendant rule was removed.
+
+## 27. Real photography (Unsplash, WebP)
+
+All placeholder imagery was replaced with Unsplash photos (Unsplash License: free for commercial use, no attribution required). Each attachment's description records the source URL. Files were downloaded as WebP (q 70; anything over 150KB re-saved at q 62). WordPress generates the smaller sizes the cards use.
+
+| Slot | Attachment IDs | Size | Unsplash photo IDs |
+|---|---|---|---|
+| Team portraits (featured image; used on Team archive/single, attorney cards, Firm menu, news/result sidebars) | 783–794 | 800×1000, face-cropped, 31–130KB | Eleanor Hartwell `1508214751196-bcfd4ca60f91`, Marcus Crane `1560250097-0b93528c311a`, Ben Foster `1500648767791-00dcc994a43e`, Grace O'Neill `1438761681033-6461ffad8d80`, Carlos Mendez `1559548331-f9cb98001426`, Linda Park `1614644147724-2d4785d69962`, Aisha Bennett `1573497161161-c3e73707e25c`, James Whitaker `1519085360753-af0119f7cbe7`, Rosa Delgado `1567532939604-b6b5b0db2604`, Samuel Ortiz `1629425733761-caae3b5f2e50`, Daniel Reyes `1557862921-37829c790f19`, Priya Okafor `1611432579699-484f7990b127` |
+| Blog featured images (all 10 posts) | 795–804 | 1600×1000, 51–135KB | truck `1519003722824-194d4455a60c`, non-compete `1517245386807-bb43f82c33c4`, probate `1450101499163-c8848c66ca85`, family business `1554224155-6726b3ff858f`, police `1453873531674-2151bcd01707`, retaliation `1568992687947-868a62a9f521`, contract `1521791055366-0d553872125f`, dog bite `1543466835-00a7907e9de1`, child support `1609220136736-443140cffec6`, expunction `1575505586569-646b2ca898fc` |
+| Home "About" frame | 805 | 800×1000, 70KB | courthouse `1436450412740-6b988f486c6b` |
+
+The old generated portrait JPGs (662–673) were deleted.
+
+**Template changes (native Image elements, BEM classes)**
+- Post cards (Home Insights, Blog archive, related posts on Blog Single and Practice Single):
+  - `post-card__media` now holds an Image with class `post-card__image` (100% × 100%, cover).
+  - Loops use `{featured_image}` (medium_large). The 3 static Home cards use their post's image.
+  - The icon and gradient placeholders were removed, along with the classes `post-card__media--injury/--employment/--estate`. Card hover now zooms the photo (`post-card` selector `&:hover .post-card__image`, scale 1.04).
+- Blog archive featured post: `post-featured__media` > `post-featured__image` (absolute, cover, `{featured_image}`, large). The "Featured" badge sits above it (`z-index 1`).
+- Blog Single cover: `article-cover__image` (21:9, overflow hidden, shadow) > `article-cover__photo` (`{featured_image}`, full).
+- Home About frame:
+  - `about__frame` > `about__photo` (absolute, cover).
+  - The quote area `about__figure` carries a dark gradient so the white quote stays readable. The inset gold border (`about__frame::after`) is kept.
+- **To change any of these photos:** set the post's or team member's Featured image (or replace attachment 805 for the About frame).
