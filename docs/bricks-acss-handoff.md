@@ -924,3 +924,6 @@ These use the native Bricks **Social Icons** element with Font Awesome 6 Brands 
   - native settings: row, left-aligned, icon size 2rem, margin-top `--space-s`
   - custom CSS: gap `--space-l`, no item stretching, a 4.4rem (48px) tap target per icon, and a small lift on hover
 - **Links are `#` placeholders.** Set the real profile URLs in each Social Icons element (Content → Icons → Link) in both places.
+
+### Homepage contact details: label and text gap
+The text blocks in the homepage "Talk to a Partner" list (`u05e34`, `1x6ay4`, `6plpy5`: label + phone, email or address) now use the class **`contact__text`**, with native flex column and row gap **0.3rem**. Before, they had no class and took the default flex gap of about 24px.
