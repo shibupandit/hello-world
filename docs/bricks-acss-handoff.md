@@ -1036,3 +1036,11 @@ Every button on the site is now the Bricks **Button** element styled only with A
 - **Perfmatters:**
   - `recognition__logo` was added to the Lazy Load exclusions, so cloned slides always have their image.
   - `splide.min.js` was removed from the Delay JavaScript list (it was listed from before any slider existed). Otherwise Splide waited for the first user interaction and the strip stayed hidden.
+
+## 24. Stats band dividers (Home + About)
+
+- Before, each `.stat` drew `border-left` via `+ .stat`, plus `nth-child` border fixes at ≤768px. The grid had a 24px gap, so lines broke at the gaps on mobile and sat off-centre on desktop.
+- Now, with one rule set for every width:
+  - `stats__grid` has gap `0` and overflow `hidden`.
+  - `stat` has a native Box Shadow `calc(var(--border-size) * -1) calc(var(--border-size) * -1) 0 0 var(--accent-light)`. That draws a hairline on each card's top and left edge. The grid clips the ones on its outer edge, so only the inner dividers show, at any column count (4 on desktop, 2 at ≤767px).
+- The old `+ .stat` selector and the nth-child media rules were removed.
