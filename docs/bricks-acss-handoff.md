@@ -1172,3 +1172,16 @@ Note: unsplash.com search pages are bot-protected from this environment. Photos 
 
 - "The Firm" (dropdown `mdfirm`) no longer links to `/about/`. The label just opens the dropdown, which already has About Us as its first link.
 - Resources dropdown: Case Results and Testimonials were removed (they are in The Firm). Resources now holds Insights and Press & News.
+
+## 32. Resources mega menu, sidebar form titles, team photos instead of initials
+
+**Resources mega menu** (header dropdown `mdres1`, Mega menu on, selector `#brx-header .header__inner`; content `ul.mega-menu` > `li.resources-menu`)
+- Two query columns (`resources-menu__col`), each with a head (`__heading` + `__all` link) and a list (`__list`) of `__item` links:
+  - **Insights:** latest 3 posts. Featured image `__thumb` (8rem, 16:10), `__title` `{post_title}`, `__meta` `{post_terms_category:plain} · {post_date}`.
+  - **Press & News:** latest 3 `news`. `__title`, `__meta` `{acf_news_type} · {post_date}`.
+- Mobile (≤1279px): one column inside the nav accordion. The old `nav-dropdown` classes were deleted.
+- **Fix:** `.main-nav ul.mega-menu { padding: var(--space-l) }` at ≥1280px. The header's `ul { padding: 0 }` reset was zeroing both mega menus (Practice Areas too) since the BEM refactor.
+
+**Sidebar form titles:** `widget--form` selector `.widget__title` now uses `font-size: var(--h2)`, line-height 1.1. This covers every form widget: "Talk to a partner today" (Blog, Practice, Team, Case Result and City singles), "Arrested or seriously injured?" (Contact), "Media contact" (News single). All are `h2` tags.
+
+**Team photos instead of initials:** the four `{acf_team_initials}` avatars (Practice "Your legal team", Blog Single byline and author box, Blog archive featured byline) are now Image elements showing `{featured_image}` (medium, alt `{post_title}`) with the same `avatar` / `avatar--l` / `avatar--xl` classes. `avatar` adds `object-fit: cover; object-position: center 20%`. Testimonial avatars stay as client initials (no client photos).
