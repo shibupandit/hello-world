@@ -1159,3 +1159,11 @@ Note: unsplash.com search pages are bot-protected from this environment. Photos 
 - Verified: computed styles of 8 page types × 3 widths match the pre-change baseline. The only difference is the member photo now loading first with high priority.
 
 **If something looks unstyled before the first click/scroll:** add its class (or a keyword from it) to Perfmatters → Remove Unused CSS → Excluded Selectors, then Clear Used CSS. For a script that must run immediately, add a keyword from its file name to Delay JS → Exclusions.
+
+## 30. Eyebrows and gold top strips removed (2026-11-05)
+
+- **Eyebrow headers removed site-wide:** 44 small uppercase labels with a leading rule above headings, on Home, About, Contact, Testimonials and all archive/single templates (including the dynamic ones such as `{acf_team_label}` and "Areas We Serve · {hc_city_name}"). The `eyebrow` / `eyebrow--light` classes were deleted.
+  - Note: Home's first save failed silently, which left its 11 labels as unstyled text. It was re-saved with a direct meta write and verified (0 elements left with those class IDs; label texts absent from rendered HTML).
+- **Gold "fingernail" top strips removed:** the 3px accent top border on `hero__card`, `widget--form`, `review-feature__case`, the dropdown panels (`firm-menu`, `mega-menu`, `areas-menu`, `nav-dropdown`, now rounded on all corners), and the CSS overrides on `contact-method` and `result-card`. Those two keep their neutral hairline border.
+- Kept: the CTA band's hairline divider, timeline/milestone markers, list bullets.
+- Smaller labels inside boxes (`widget__eyebrow` "Free case review", `firm-menu__eyebrow`, `mega-menu__eyebrow`) are separate classes and were left in place.
