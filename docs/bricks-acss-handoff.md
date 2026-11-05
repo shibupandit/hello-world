@@ -1284,3 +1284,10 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
   - `translateY(-2px)`; background white 3% → 6%.
   - In custom CSS (≥481px): border tints to `--accent-light` at 50%, and the "Get directions" arrow nudges 2px.
 - **≤480px** (mobile accordion): lift and background change are neutralised with `mobile_portrait:hover` overrides.
+
+## 40. Home results list — shared columns, top-aligned, h2 titles
+
+- **`results__list`:** now the grid, with `max-content minmax(0,1fr) max-content` and column gap `--space-xl` (`minmax(0,1fr)` at mobile_landscape).
+- **`result`:** `grid-template-columns: subgrid` + `grid-column: 1 / -1`, so every row shares the same three columns. Alignment is `start` (was `baseline`), so amount, title and docket are top-aligned.
+- **`result__type`:** the elements are now Bricks **Heading** elements with tag **h2**. The class is styled like an h3: Libre Caslon Display, `var(--h3)`, weight 400, `--heading-line-height`, white.
+- **`result__docket`:** right-aligned on desktop; left-aligned and first in the stack at mobile_landscape.
