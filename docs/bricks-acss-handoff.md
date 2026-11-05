@@ -1106,3 +1106,15 @@ The old generated portrait JPGs (662–673) were deleted.
   - featured image: blog cards, featured post, article cover, team photos, recognition logos
   - ACF field: wherever a template needs a second image
   - Static images are only used outside loops (the Home "About" frame).
+
+### 27b. Blog images: law-firm themed
+
+Four off-topic blog photos (laptop meeting, café office, beagle, family) were swapped for legal imagery. New attachments 812–815, WebP 61–126KB; the previous files were deleted.
+- Non-compete: law library `1521587760476-6c12a4b040da`
+- Retaliation: judge's gavel `1593115057322-e94b77572f20`
+- Dog bites / premises liability: Lady Justice scales `1589994965851-a8f479c573a9`
+- Child support: Lady Justice with law books `1505664194779-8beaceb93744`
+
+The other six already read as legal in context (truck on highway, signing documents ×2, legal paperwork, police car, gavel).
+
+Note: unsplash.com search pages are bot-protected from this environment. Photos are chosen by CDN ID (`images.unsplash.com/photo-…`) and checked visually on contact sheets. To pick specific photos yourself, open them on unsplash.com and set them as the post's Featured image.
