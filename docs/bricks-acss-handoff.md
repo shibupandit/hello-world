@@ -1185,3 +1185,26 @@ Note: unsplash.com search pages are bot-protected from this environment. Photos 
 **Sidebar form titles:** `widget--form` selector `.widget__title` now uses `font-size: var(--h2)`, line-height 1.1. This covers every form widget: "Talk to a partner today" (Blog, Practice, Team, Case Result and City singles), "Arrested or seriously injured?" (Contact), "Media contact" (News single). All are `h2` tags.
 
 **Team photos instead of initials:** the four `{acf_team_initials}` avatars (Practice "Your legal team", Blog Single byline and author box, Blog archive featured byline) are now Image elements showing `{featured_image}` (medium, alt `{post_title}`) with the same `avatar` / `avatar--l` / `avatar--xl` classes. `avatar` adds `object-fit: cover; object-position: center 20%`. Testimonial avatars stay as client initials (no client photos).
+
+## 33. Reading time removed, table of contents on single templates, Practice featured image
+
+**Reading time removed site-wide.**
+- The `{acf_reading_time} min read` span was removed from every `post-card__meta` (Home Insights, Blog archive grid and featured post, related posts on Blog/Practice singles).
+- Deleted: the Blog archive featured `post-featured__reading` element and the Blog Single hero "Reading time" fact.
+- Deleted classes: `post-featured__reading`, `post-card__read-time`. The ACF field itself is untouched.
+
+**Table of contents ("On this page")** on Blog Single (existing), Practice Area, News, Case Result and Areas We Serve singles. Not on Team Single.
+- **Element** (same in each template, first in `article-layout__main`): `nav.toc` > `p.toc__title` + `ol.toc__list.js-toc` > `li.toc__placeholder`. The placeholder shows in the builder and is removed at runtime.
+- **Script** (Bricks → Settings → Custom code → Body footer, section 9), for every `.js-toc`:
+  - collects the `h2`s in its `article-layout__main`, skipping the TOC itself, author box, article footer and widgets/asides
+  - gives any heading without an `id` a slug id
+  - moves the box into `.prose`: after the intro paragraph, or at the top when the content opens with a heading
+  - hides the box when there are fewer than 2 headings
+  - runs scroll-spy (`is-active`)
+- Theme Style: `.article-layout__main h2 { scroll-margin-top: 12rem }` so anchor jumps clear the sticky header.
+
+**Practice Area template:** featured image Image (`primg1`, `{featured_image}`, large, alt `{post_title}`, shown only when set) is the first child of the body wrapper `article-layout__main`, same as the Areas We Serve template.
+- `article-layout__image` now has `margin-bottom: var(--space-l)` (the wrapper is a block, so its gap setting has no effect).
+- Featured images set: personal injury 795, employment 813, family 798, criminal defense 799, business litigation 801, estate & probate 797.
+
+Note: the static prototype's `assets/js/main.js` is not the live script. The live one is in Bricks custom code.
