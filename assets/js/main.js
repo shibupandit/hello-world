@@ -238,7 +238,7 @@
   var here = location.pathname.replace(/[/]+$/, "");
   document.querySelectorAll(".blog-filter a.chip, .practice-list__link").forEach(function (a) {
     var path = a.pathname.replace(/[/]+$/, "");
-    if (path && path === here) {
+    if (path && path === here && !a.hash && a.getAttribute("href") !== "#") {
       a.classList.add(a.classList.contains("chip") ? "is-active" : "is-current");
       a.setAttribute("aria-current", "page");
       if (a.classList.contains("chip")) {

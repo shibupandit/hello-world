@@ -85,6 +85,22 @@ PAGES = {
         "body_class": "page-article page-news-single",
         "contact_page": True,
     },
+    "case-results.html": {
+        "partial": "case-results.main.html",
+        "title": "Case Results | Hartwell &amp; Crane",
+        "description": "Verdicts, settlements and acquittals won by Hartwell & Crane trial teams across Texas.",
+        "active": "index.html#results",
+        "body_class": "page-results",
+        "contact_page": True,
+    },
+    "case-result-single.html": {
+        "partial": "case-result-single.main.html",
+        "title": "$18.4M jury verdict: trucking collision | Hartwell &amp; Crane",
+        "description": "A Dallas County jury awarded $18.4 million after a commercial carrier's exhausted driver caused a rear-end collision.",
+        "active": "index.html#results",
+        "body_class": "page-result",
+        "contact_page": True,
+    },
     "contact.html": {
         "partial": "contact.main.html",
         "title": "Contact Us | Hartwell &amp; Crane",
