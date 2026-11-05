@@ -791,3 +791,38 @@ On phones, after scrolling, the browser's collapsing address bar could offset th
 - pins the overlay to `top: 0; height: 100dvh`
 
 Everything returns when the menu closes.
+
+## 18. Case Results (`/case-results/`)
+
+**Data**
+- **Post type `case-result`** ("Case Results", archive `/case-results/`, singles `/case-results/<slug>/`, ordered by menu_order).
+- **Taxonomy `result-area`** ("Practice Areas"): Personal Injury, Employment, Family Law, Criminal Defense, Business Litigation, Estate & Probate. Filter pages live at `/case-results/area/<slug>/`.
+- **ACF group "Case Result Details"** (`group_hcresult1`):
+  - `result_amount`: the amount or outcome text, e.g. "Not guilty".
+  - `result_type`: select. Jury Verdict / Settlement / Acquittal / Dismissal / Arbitration Award / Court Order.
+  - `result_featured`.
+  - `result_case_type`, `result_court`, `result_year`.
+  - `result_offer`, `result_trial_length`, `result_office`.
+  - `result_team`: relationship → Team.
+  - `result_practice_url`: page link → Practice Area.
+- **Content:** the summary is the excerpt. The story is the post content (The challenge / Our approach / The outcome / quote). There are 10 results; the $18.4M verdict is featured.
+
+**Templates**
+- **Case Results Archive** (753):
+  - **Conditions:** post type archive → case-result, and archive → terms `result-area::all`. The term condition must be `archiveType: term` + `archiveTerms`, not `main: terms` (that one is for single posts). Otherwise the Blog Archive's "any archive" condition wins.
+  - **Sections:**
+    - hero with stats
+    - featured loop (`result_featured = 1`)
+    - practice-area chips (term loop + "All results")
+    - grid (main archive query, 9 per page)
+    - Bricks Pagination
+    - disclaimer
+    - CTA band
+- **Case Result Single** (754):
+  - dark hero with the big amount and a facts strip (each fact hidden when empty)
+  - Post Content
+  - disclaimer, and links back to all results and to the practice-area page
+  - sidebar: Case at a glance, Trial team (relationship loop, `team-photo` images), form #3
+  - More results (3)
+- **Sandbox `hc-case-results.php`:** the main archive query excludes the featured result. The featured loop is pinned to page 1 and is empty on practice-area filter pages, where the featured result appears in the grid instead.
+- **Menus:** Case Results in the header and footer now link to `/case-results/`.
