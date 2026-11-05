@@ -1091,3 +1091,18 @@ The old generated portrait JPGs (662–673) were deleted.
   - `about__frame` > `about__photo` (absolute, cover).
   - The quote area `about__figure` carries a dark gradient so the white quote stays readable. The inset gold border (`about__frame::after`) is kept.
 - **To change any of these photos:** set the post's or team member's Featured image (or replace attachment 805 for the About frame).
+
+### 27a. Follow-up: law-firm-appropriate portraits, all looped images from the post
+
+- **Six casual headshots replaced with business portraits** (blazers or suits; WebP, 62–98KB). New attachments 806–811; the previous files were deleted.
+  - Eleanor Hartwell `1573497019940-1c28c88b4f3e`
+  - Linda Park `1573497019236-17f8177b81e8`
+  - Priya Okafor `1563132337-f159f484226c`
+  - Daniel Reyes `1600878459138-e1123b37cb30`
+  - Samuel Ortiz `1556474835-b0f3ac40d4d1`
+  - Rosa Delgado `1598257006458-087169a1f08d`
+- **Home "Insights" is now a query loop** (latest 3 posts, sticky ignored) cloned from the Blog archive card, so its image is `{featured_image}`. The hand-built static cards with fixed images were removed.
+- **Rule:** every image inside a query loop comes from the post itself:
+  - featured image: blog cards, featured post, article cover, team photos, recognition logos
+  - ACF field: wherever a template needs a second image
+  - Static images are only used outside loops (the Home "About" frame).
