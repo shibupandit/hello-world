@@ -246,4 +246,29 @@
       }
     }
   });
+  // 12. Areas We Serve menu: each city is a <details> accordion on mobile (<=1279px),
+  //     always open on desktop so the mega menu shows every city's services.
+  var cityMenus = document.querySelectorAll("details.areas-menu__city");
+  if (cityMenus.length && window.matchMedia) {
+    var mqNav = window.matchMedia("(max-width: 1279px)");
+    var syncCities = function () {
+      cityMenus.forEach(function (d) { d.open = !mqNav.matches; });
+    };
+    syncCities();
+    if (mqNav.addEventListener) mqNav.addEventListener("change", syncCities);
+    else if (mqNav.addListener) mqNav.addListener(syncCities);
+    cityMenus.forEach(function (d) {
+      var sum = d.querySelector("summary");
+      if (sum) {
+        sum.addEventListener("click", function (e) {
+          if (e.target.closest("a")) return;
+          if (!mqNav.matches) e.preventDefault();
+        });
+      }
+      d.addEventListener("toggle", function () {
+        if (!mqNav.matches || !d.open) return;
+        cityMenus.forEach(function (o) { if (o !== d) o.open = false; });
+      });
+    });
+  }
 })();
