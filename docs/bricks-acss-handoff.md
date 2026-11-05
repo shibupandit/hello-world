@@ -839,3 +839,13 @@ Each city in the Areas We Serve mega menu is now a native `<details>` element:
   - tapping the city name still opens the city page
 - **CSS** lives in the classes `areas-menu__grid`, `areas-menu__city`, `areas-menu__city-name`, `areas-menu__services`, `areas-menu__summary` and `areas-menu__chevron`. The mobile services indent uses `.main-nav .areas-menu__services`, because `.main-nav ul { padding: 0 }` otherwise wins.
 - **Why not an SVG element for the chevron:** a Bricks SVG element with inline code does not output on the frontend, so the native Icon element is used instead.
+
+### Practice Area Single: alignment fixes (template 463)
+
+- **Layout:** the root `article-layout` container is now wrapped in a section (`pawrp1`, padding top/bottom 0), so tablet and phone get the side gutter.
+- **`practice-block`:** row gap `var(--space-m)`. **`practice-block__title`:** margin-bottom 0. These remove the large gap under section headings.
+- **`practice-block__head`:** direction row, so "All results" sits on the right of "Recent results".
+- **`timeline`:** an old custom-CSS `padding: 0` was overriding the native padding-left, so it was removed. The dots and line now sit beside the text.
+- **`callout`:** align stretch and text-align left (the "Texas law" label was centred).
+- **`faq__list`:** align stretch. **`faq-item`:** width 100%. FAQ rows now span the column.
+- **`damages__title`:** Public Sans (it had fallen back to the serif heading font).
