@@ -1276,3 +1276,11 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
   - `header__phone` is now an outlined button: 2px `--primary` border, `--btn-radius`, padding `--space-xs*.75` / `--space-s`. On hover it fills `--primary` and the text and icon turn white (0.3s ease-in-out).
   - At ≤991px it reverts to the icon only, with no border.
   - The number (`header__phone-text`) now shows down to 992px instead of hiding at ≤1520px.
+
+## 39. Footer office cards — entrance + hover
+
+- **`footer-office`** gets the same global-class interaction as the other cards: `enterView` → `startAnimation` `fadeInUp`, 0.3s, run once. It's also added to the Theme Style stagger `:is(...)` list.
+- **Hover** (native Bricks hover states, transition 0.3s ease-in-out on transform/background/border-color):
+  - `translateY(-2px)`; background white 3% → 6%.
+  - In custom CSS (≥481px): border tints to `--accent-light` at 50%, and the "Get directions" arrow nudges 2px.
+- **≤480px** (mobile accordion): lift and background change are neutralised with `mobile_portrait:hover` overrides.
