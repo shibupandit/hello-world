@@ -857,3 +857,30 @@ Each city in the Areas We Serve mega menu is now a native `<details>` element:
 - **Tags row:** `{post_terms_post_tag}` outputs ", " between links. The `tags` class sets `font-size: 0` on the wrapper (the links keep their own size), and the element tag changed from `p` to `div`.
 - **Author box:** the `author-box` class now uses direction row (photo left, text right), stacking at ≤480px.
 - **Mobile cover:** Bricks' `flex-wrap: wrap` on containers below 767px squeezed `.article-cover` to 120px, so the image overlapped the first paragraph. The `article-cover` class sets flex-wrap nowrap, natively plus a `.article-cover.article-cover` rule to beat Bricks' default.
+
+## 19. Areas We Serve single template (one template for every city page)
+
+**Template "Areas We Serve Single"** (ID 761, stored in option `hc_city_tpl_id`). It is assigned to post types `cities` and every `city-<slug>` post type. The sandbox file `hc-city-template.php` re-syncs these conditions on `admin_init`, so a new city post type is picked up automatically.
+
+**Same template, two kinds of page:**
+- **City page** (`/dallas/`): "Dallas Trial Lawyers". The practice-area list shows the city's 10 service pages.
+- **City service page** (`/dallas/truck-accidents/`): "Truck Accidents Lawyer in Dallas". The list shows the city's other 9 services, and the breadcrumb includes the city.
+
+**Custom dynamic tags** (from `hc-city-template.php`, group "Hartwell & Crane" in the Bricks dynamic data picker):
+- `{hc_city_name}`, `{hc_city_url}`
+- `{hc_heading}`, `{hc_lede}`, `{hc_breadcrumb}`
+- `{hc_services_heading}`, `{hc_why_heading}`
+- `{hc_intro}`: the page's own post content when it has any, otherwise a generated intro for that city/service. Writing content in the editor replaces the generated text.
+
+**Sections:**
+- hero with breadcrumb, eyebrow, heading, lede, buttons and stats
+- intro
+- practice areas in the city (`city-services`: a 2-column practice-list grid)
+- why clients choose us (checklist)
+- recent results (4 case results)
+- sidebar: free case review form (#3) and "Other areas we serve" (other cities)
+- CTA band
+
+**Query loops:** the services and other-cities loops are set to `cities` in the builder. The sandbox filter re-points them at runtime: services → `city-<slug>` for the current city, excluding the current page; cities → all cities except the current one. Their element IDs are stored in the option `hc_city_tpl_loops`.
+
+**`breadcrumb` class:** now includes `.breadcrumb ol { margin: 0; padding: 0; }`.
