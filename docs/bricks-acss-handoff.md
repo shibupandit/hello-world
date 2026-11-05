@@ -873,7 +873,7 @@ Each city in the Areas We Serve mega menu is now a native `<details>` element:
 - `{hc_intro}`: the page's own post content when it has any, otherwise a generated intro for that city/service. Writing content in the editor replaces the generated text.
 
 **Sections:**
-- hero with breadcrumb, eyebrow, heading, lede, buttons and stats
+- hero with breadcrumb, eyebrow, heading and buttons (the lede and stats box were removed on request; `{hc_lede}` is still available)
 - intro
 - practice areas in the city (`city-services`: a 2-column practice-list grid)
 - why clients choose us (checklist)
