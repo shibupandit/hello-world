@@ -1266,3 +1266,13 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
 - The existing round `slider-btn` prev/next buttons are wired in the footer script (section 4) via `bricksData.splideInstances[slider.dataset.scriptId].go('<' | '>')`.
 - `testimonials__track` CSS: `.splide__track` gets `padding-block: var(--space-xs)` with a matching negative margin so card shadows aren't clipped; `.splide__slide { height:auto }` for equal heights. The old scroll-snap CSS was removed from `testimonials__track` and `testimonial`.
 - Splide's default `reducedMotion` stops autoplay for reduced-motion users.
+
+## 38. Small fixes: testimonial alignment, hero overlay, practice icon, header CTA
+
+- **Testimonial quotes:** text is centred on the slider card class `testimonial`. The Testimonials page (694) quote has the modifier `testimonial__quote--left` (text-align left).
+- **Home hero overlay** (`hero` gradient): rgba(11,36,30) **0.96 → 0.90** (was 0.94 → 0.80) for text and form legibility.
+- **`practice-card` hover:** removed the stale `background: var(--accent)` on `.practice-card__icon` that rendered as a full-width gold bar. `practice-card__icon` is now `align-self: flex-start`; on hover the icon just turns white.
+- **Header:** removed the "Request a Review" button (`9f1ckh`) and its unused class `header__cta`. The mobile menu CTA remains.
+  - `header__phone` is now an outlined button: 2px `--primary` border, `--btn-radius`, padding `--space-xs*.75` / `--space-s`. On hover it fills `--primary` and the text and icon turn white (0.3s ease-in-out).
+  - At ≤991px it reverts to the icon only, with no border.
+  - The number (`header__phone-text`) now shows down to 992px instead of hiding at ≤1520px.
