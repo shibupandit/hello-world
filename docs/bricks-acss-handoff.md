@@ -1258,3 +1258,11 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
 **Verified:** cards start hidden, fade up over 0.3s ease-in-out on scroll, end at opacity 1, and keep their hover lift afterwards (the animation class is removed on end). No JS errors.
 
 **Adding to a new card type:** add the same interaction to its global class and its name to the stagger `:is(...)` list.
+
+## 37. Testimonials slider — Bricks Nested Slider, infinite loop
+
+- In template 833, the track `tbf46b` is now a native **Slider (Nested)** with class `testimonials__track`. The query-loop `figure.testimonial` (6 latest testimonials) is the slide.
+- Custom Splide options: `type: loop`, perPage 3 → 2 (≤991) → 1 with 12% right peek (≤767), perMove 1, gap `var(--grid-gap)`, autoplay every 6s with pause on hover/focus, speed 300ms `ease-in-out`, drag on, keyboard when focused, Splide arrows/pagination off.
+- The existing round `slider-btn` prev/next buttons are wired in the footer script (section 4) via `bricksData.splideInstances[slider.dataset.scriptId].go('<' | '>')`.
+- `testimonials__track` CSS: `.splide__track` gets `padding-block: var(--space-xs)` with a matching negative margin so card shadows aren't clipped; `.splide__slide { height:auto }` for equal heights. The old scroll-snap CSS was removed from `testimonials__track` and `testimonial`.
+- Splide's default `reducedMotion` stops autoplay for reduced-motion users.
