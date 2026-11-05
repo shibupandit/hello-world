@@ -1025,10 +1025,13 @@ Every button on the site is now the Bricks **Button** element styled only with A
 
 - **Post type:** **Recognitions** (`recognition`, ACF post type ID 769, admin menu icon: awards). It is not public: no single pages or archive. It supports Title, **Featured image (labelled "Logo")** and **Order**.
   - Six placeholder entries (IDs 771–781), with fictional logos, WebP 2.6–5.8KB each, 480×160 transparent, primary green: Bench & Bar, Peer Merit, Lone Star Legal Review, Verdict Circle, Client Choice, Gulf Coast Litigators Society. Logo sources: `assets/img/recognition/`.
-  - **To use real logos:** edit each Recognition, set its Logo (featured image) and title (used as the alt text), and use Order to sort. Add or delete entries freely. Best results come from a transparent PNG/WebP/SVG about 3:1, single colour.
-- **One shared section:** Bricks template **Recognition Strip** (ID 782, type Section). Home and About insert it with a Template element (replacing the old hand-typed sections `ow42mt` / `07961f`). Edit it once and both pages update.
-  - Structure: `section.recognition` > `container.recognition__inner` > `p.recognition__label` + `ul.recognition__list` > `li.recognition__item` (query loop: post type `recognition`, all, Order ascending) > `img.recognition__logo` (`{featured_image}`, alt `{post_title}`).
-- **Styles (native, ACSS tokens):**
-  - `recognition__list`: flex wrap, gap `--space-m` / `--space-xl`. At ≤767px it becomes a 3-column grid; at ≤478px, 2 columns.
-  - `recognition__logo`: height 4.8rem (4rem on mobile), width auto, contain, opacity 0.75 → 1 on hover.
-  - The old italic text styling and the separator rule were removed.
+  - **To use real logos:** edit each Recognition, set its Logo (featured image) and title (used as the alt text), and use Order to sort. Best results come from a transparent PNG/WebP/SVG about 3:1, single colour.
+- **One shared section:** Bricks template **Recognition Strip** (ID 782, type Section). Home and About insert it with a Template element, so edit it once.
+- **Continuous carousel (native Bricks Slider (Nested), Splide):**
+  - Structure: `section.recognition` > `container.recognition__inner` > `p.recognition__label` + `slider-nested.recognition__carousel` > `div.recognition__item` (query loop: `recognition`, all, Order ascending, so each logo is a slide) > `img.recognition__logo` (`{featured_image}`, alt `{post_title}`).
+  - Options type **Custom**: `type: loop, autoWidth, gap 4.8rem, autoplay, interval: 1, speed: 4000, easing: linear, waitForTransition: true, perMove 1, pauseOnHover/Focus, no arrows/pagination/drag`. At ≤767px: gap 3.2rem, speed 3200. That gives a steady ~48px/s glide with no pauses. **Speed:** raise `speed` to slow it down, lower it to speed up. Splide stops autoplay for visitors who set "reduce motion".
+  - `recognition__carousel`: flex 1 (sits beside the label on desktop, full width under it at ≤991px), transparent background, edge fade via `mask-image` (custom CSS).
+  - `recognition__logo`: height 4.8rem (4rem mobile), width auto, contain, opacity 0.75 → 1 on hover.
+- **Perfmatters:**
+  - `recognition__logo` was added to the Lazy Load exclusions, so cloned slides always have their image.
+  - `splide.min.js` was removed from the Delay JavaScript list (it was listed from before any slider existed). Otherwise Splide waited for the first user interaction and the strip stayed hidden.
