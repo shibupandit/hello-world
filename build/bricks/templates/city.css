@@ -1,0 +1,4 @@
+.city-services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem var(--space-s); }
+@media (max-width: 480px) { .city-services { grid-template-columns: minmax(0, 1fr); } }
+.city-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 480px) { .city-results { grid-template-columns: minmax(0, 1fr); } }
