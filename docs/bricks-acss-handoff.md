@@ -901,3 +901,6 @@ The hero lede (`{acf_hero_lede}`) and the hero stats box (`acf_hero_stats` loop)
   - single column; eyebrow, heading and link descriptions hidden
   - team cards become compact rows (56px portrait + name/role), 2 columns on tablets and 1 column under 600px
   - chips wrap
+
+### Mobile menu: dropdown panel padding
+`main-nav` class custom CSS (≤1279px): `.main-nav .brx-dropdown-content { padding: var(--space-xs) var(--space-m) var(--space-s); margin-bottom: var(--space-s); background: var(--white); border: 1px solid var(--base-trans-10); border-radius: var(--radius); }`. The selector is generic, so it covers The Firm, Practice Areas, Areas We Serve, Resources and any future dropdown. Desktop is unaffected.
