@@ -1225,3 +1225,7 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
 
 - Removed the excerpt (`article-hero__dek`, `{post_excerpt}`) from the Blog Single hero. The class stays because the News Single hero still uses it.
 - `article-meta__fact` (the "Published" and "Legally reviewed by" pairs) has a native row gap of `calc(var(--space-xs) * 0.5)`, about 5px. Each label now sits directly above its value; before, an inherited 24px gap pushed the values down.
+- **Hero → cover image gap.** It was 168px on desktop (inner bottom padding 152px + section paddings − the image's 80px overlap). Now:
+  - `article-meta` has a bottom hairline and `--space-m` padding top and bottom, matching the divider under the title.
+  - The new modifier `article-hero__inner--cover` (Blog Single hero only) sets the inner bottom padding to `--space-s`. Result: about 32px from the line to the image on desktop, about 45px on mobile.
+  - The News Single hero keeps the base `article-hero__inner` padding (it has no cover image).
