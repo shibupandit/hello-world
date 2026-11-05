@@ -1220,3 +1220,8 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
   - Team, News and Case Result singles: these have no CTA band, so it is the **last section**.
 - `section--tint` rule: `.section--tint + .section--tint, .section--tint + .brxe-template > .section--tint:first-child` get a hairline top border, so two tinted sections in a row (e.g. Related posts → Testimonials) stay visually separate. The Template element wraps its output in `div.brxe-template`.
 - The slider script handles one `.js-slider` per page (true on every page using it).
+
+## 35. Blog Single hero tidy-up
+
+- Removed the excerpt (`article-hero__dek`, `{post_excerpt}`) from the Blog Single hero. The class stays because the News Single hero still uses it.
+- `article-meta__fact` (the "Published" and "Legally reviewed by" pairs) has a native row gap of `calc(var(--space-xs) * 0.5)`, about 5px. Each label now sits directly above its value; before, an inherited 24px gap pushed the values down.
