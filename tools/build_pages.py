@@ -69,6 +69,22 @@ PAGES = {
         "body_class": "page-reviews",
         "contact_page": True,
     },
+    "news.html": {
+        "partial": "news.main.html",
+        "title": "Press &amp; News | Hartwell &amp; Crane",
+        "description": "Press releases, verdicts, awards and media coverage from Hartwell & Crane, a Texas trial firm.",
+        "active": "none",
+        "body_class": "page-news",
+        "contact_page": True,
+    },
+    "news-single.html": {
+        "partial": "news-single.main.html",
+        "title": "Hartwell &amp; Crane wins $14.2 million verdict against national trucking carrier | Hartwell &amp; Crane",
+        "description": "A Dallas County jury found the carrier liable after evidence showed the driver's logbook had been altered.",
+        "active": "none",
+        "body_class": "page-article page-news-single",
+        "contact_page": True,
+    },
     "contact.html": {
         "partial": "contact.main.html",
         "title": "Contact Us | Hartwell &amp; Crane",
