@@ -1306,3 +1306,23 @@ Note: the static prototype's `assets/js/main.js` is not the live script. The liv
 - The hard-coded "Last updated" paragraph was removed from the Privacy Policy content, since the template shows the modified date.
 
 **Note (builder saves):** a Bricks builder save at the same time as a scripted change dropped two just-created classes, which were recreated with the same IDs (`ahcmpt`, `wtmutd`). If classes disappear after a builder save, re-check this section.
+
+## 42. Gap audit — ACSS default `--content-gap` on flex/grid divs
+
+ACSS sets `:where(.brxe-div) { gap: var(--content-gap) }` (24px). Any flex/grid div with no gap of its own picks this up. That spread apart text pairs like name/role, and added a strip between a card's media and its padded body.
+
+I scanned every published page/template for flex/grid containers with 2+ children and no gap in their classes:
+
+| Class | Gap set | Why |
+|---|---|---|
+| `about__cite` (Home quote: name + role) | `0.2rem` | Name/role pair. Also white text and `margin-bottom: 0`, overriding Bricks' default `figcaption` grey colour and 1em margin. |
+| `signature` (E. Hartwell + bar number; Home, About) | `calc(var(--space-xs) * 0.5)` | Signature/meta pair |
+| `post-featured__author` (Blog archive featured) | `0.2rem` | Name/role pair |
+| `post-card`, `office-card` | `0` | Media/head and body each have their own padding |
+| `post-featured`, `news-featured`, `result-featured` | `0` | Two-column cards with padded children |
+
+**Left as is (intentional section/container spacing):** `footer`, `footer__offices`, `team-more__inner`, `article-hero`, `article-section--cover`.
+- `main-nav__list` is spaced by the Nav element.
+- In `about__frame` the second child is absolutely positioned.
+
+**Rule going forward:** every new flex/grid wrapper class should set its own gap, even `0`.
