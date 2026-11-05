@@ -1464,3 +1464,17 @@ section.widget.office-widget  (condition: {acf_designated_office} != "")
   - Blog Single, Practice Single, Team Single, Case Result Single, Areas We Serve Single: "Talk to a partner today"
   - News Single: "Media contact"
   - Contact page: "Arrested or seriously injured?"
+
+## 48. Full-width featured image, boxed TOC, gold sidebar card borders
+
+- **`article-layout__main`:** `max-width: none` (was 76rem). The featured image (`article-layout__image`, width 100%), the TOC and the content now fill the main column on all article-layout templates.
+- **`office-widget`:** the 3px gold top border was removed (class now has no settings), so the card uses the standard `widget` border on all sides.
+- **`toc`** (every template with a TOC: Blog, Practice, News, Areas We Serve singles):
+  - padding `--space-m` / `--space-l` (`--space-s` / `--space-m` at mobile_portrait)
+  - background `--primary-ultra-light`
+  - border `--border-size` solid `--accent-light`, radius `--radius`
+  - The old `.prose .toc` overrides (white background, grey border) in class `prose` were reduced to `margin-block` only, so the `toc` class style wins.
+- **Sidebar cards on every template — light gold border `--accent-light`:**
+  - `widget`: border colour `--accent-light`
+  - `widget--tint`: border colour `--accent-light` (was transparent)
+  - `widget--form`: new border `--border-size` solid `--accent-light`, radius `--radius`
