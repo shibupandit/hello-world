@@ -1020,3 +1020,15 @@ Every button on the site is now the Bricks **Button** element styled only with A
   - `[class*="btn--"] svg { width/height: 1.2em }` with a 3px nudge on hover. The old `[class*="btn--"] .icon` rule was removed from the `icon` class.
 - **Verified:** 138 button instances on 8 page types at 1440 / 390 have the same box, colours, padding, font, icon size and icon position as before.
 - **To add a button:** insert a Button element, add the ACSS classes, set the link, and (optional) pick an icon from the Media Library and set its position. No custom CSS is needed.
+
+## 23. Recognition strip ("Recognized by peers and the bench")
+
+- **Post type:** **Recognitions** (`recognition`, ACF post type ID 769, admin menu icon: awards). It is not public: no single pages or archive. It supports Title, **Featured image (labelled "Logo")** and **Order**.
+  - Six placeholder entries (IDs 771–781), with fictional logos, WebP 2.6–5.8KB each, 480×160 transparent, primary green: Bench & Bar, Peer Merit, Lone Star Legal Review, Verdict Circle, Client Choice, Gulf Coast Litigators Society. Logo sources: `assets/img/recognition/`.
+  - **To use real logos:** edit each Recognition, set its Logo (featured image) and title (used as the alt text), and use Order to sort. Add or delete entries freely. Best results come from a transparent PNG/WebP/SVG about 3:1, single colour.
+- **One shared section:** Bricks template **Recognition Strip** (ID 782, type Section). Home and About insert it with a Template element (replacing the old hand-typed sections `ow42mt` / `07961f`). Edit it once and both pages update.
+  - Structure: `section.recognition` > `container.recognition__inner` > `p.recognition__label` + `ul.recognition__list` > `li.recognition__item` (query loop: post type `recognition`, all, Order ascending) > `img.recognition__logo` (`{featured_image}`, alt `{post_title}`).
+- **Styles (native, ACSS tokens):**
+  - `recognition__list`: flex wrap, gap `--space-m` / `--space-xl`. At ≤767px it becomes a 3-column grid; at ≤478px, 2 columns.
+  - `recognition__logo`: height 4.8rem (4rem on mobile), width auto, contain, opacity 0.75 → 1 on hover.
+  - The old italic text styling and the separator rule were removed.
