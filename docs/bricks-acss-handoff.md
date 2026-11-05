@@ -730,6 +730,7 @@ Bricks hides the pagination automatically when there is only one page (e.g. smal
 - **Format:** a 320×320 seamless tile, 37 KB. It is a single warm-brown colour with ~3% average transparency, so it never changes the colour underneath.
 - **Media library:** attachment 700, in the HappyFiles folder "Site".
 - **Source:** `assets/img/paper-texture.svg` (an feTurbulence recipe). Re-export a tile from it to adjust the texture.
+- **v2 (2026-11-05):** the low-frequency mottling layer was removed because it made dark patches. The texture is now an even fine grain plus faint fibres: peak opacity 5% (was 11%) and local density uniform across the tile. It is a 256px tile, lossless WebP with alpha quantised to 5 levels, **12KB** (was 37KB). The URL in `--pc-paper` carries `?v=2` to bust browser caches. Bump the number whenever you replace the file.
 - **Why WebP, not SVG:** the browser has to generate the SVG's noise on every page load, which measured ~9 ms on a normal screen and ~31 ms on retina, several times more on phones. Browsers also render it slightly differently. The WebP decodes in ~2 ms, looks identical everywhere, and is cached by the CDN.
 
 **One switch, one rule.** Everything lives in **Bricks > Theme Styles > Global > CSS**:
