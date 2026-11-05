@@ -987,7 +987,7 @@ Verification: computed styles of every element on 14 page types at 1440 / 900 / 
 - `section__heading-group`: the eyebrow + title wrapper inside every `section__head`.
 - `article-section` (+ `article-section--cover` on Blog Single): the body section that wraps `article-layout` on all single templates (Team, Practice, Blog, News, Case Result, City). It replaces 6 inline paddings and the old `city-body` / `profile-body`.
 - `page-hero`: now carries the section padding (top/bottom 0) for every page hero. **Intentional change:** the Blog archive and Practice Area heroes had an extra 108px of section padding. They now match the other 10 heroes.
-- `btn__text` / `btn__icon`: the text and icon inside every ACSS button that has an icon.
+- Buttons: see §22. All buttons are native Bricks Button elements; `btn__text` / `btn__icon` were removed.
 - Repeated parts share one class: `breadcrumb__list/__item/__link/__current`, `checklist__item/__icon/__text`, `hours__label/__value`, `hero-stats__label/__value`, `cta-band__phone-icon/-text`, `widget__phone-icon/-text`, `faq-item__question/__answer/__icon`, `footer__list/__item/__link`, `office-card__address-line`, `news-card__link-text/-icon`, `result-card__link-text/-icon`, and so on.
 - Section blocks that were loose are now global classes: `about`, `practice`, `process`, `results`, `testimonials`, `insights`, `offices`, `faq`, `story`, `values`, `milestones`, `community`, `reviews`, `review-feature`, `related`, `attorneys`, `stats__inner`, `toc`, `article`, `page-hero--{about,city,news,practice,result,results,reviews}`.
 - New modifiers for the old inline styles: `section--tight-top` (Contact offices), `form__note--compact`, `widget__intro`.
@@ -1009,3 +1009,14 @@ Verification: computed styles of every element on 14 page types at 1440 / 900 / 
 ### Restore point
 - Full pre-refactor backup (classes, theme style, all 16 documents) is stored in the WP option `hc_backup_pre_bem_20261105_095849`.
 - `build/bricks/migrations/global-classes-after-bem-refactor.json` is the final custom class set.
+
+## 22. Native Bricks Button elements (all buttons)
+
+Every button on the site is now the Bricks **Button** element styled only with ACSS classes (`btn--primary | btn--accent | btn--white`, `btn--outline`, `btn--s | btn--m`, `width--full`), plus a component class where one existed (`post-card__cta`, `post-featured__cta`, `header__cta`, `footer__cta`).
+- **Before:** 19 were a Div (tag `a`) holding a Basic Text and an SVG element. 29 were Text Link elements with `btn--*` classes. The 34 child text/SVG elements were removed.
+- **Icons:** set natively in the Button element (Content > Icon > SVG) from three Media Library files: `icon-arrow-right.svg` (ID 765), `icon-phone.svg` (766) and `icon-document.svg` (767), all in `uploads/2026/11/`. They draw with `currentColor`, so they take the button's text colour. Icon position: right for arrows, left for phone numbers.
+- **Theme Style CSS ("Native Bricks buttons" block):**
+  - `.bricks-button:where([class*="btn--"]) { gap: var(--space-m) }` replaces the Bricks default `gap: 10px` (component classes such as `post-card__cta` can still override it).
+  - `[class*="btn--"] svg { width/height: 1.2em }` with a 3px nudge on hover. The old `[class*="btn--"] .icon` rule was removed from the `icon` class.
+- **Verified:** 138 button instances on 8 page types at 1440 / 390 have the same box, colours, padding, font, icon size and icon position as before.
+- **To add a button:** insert a Button element, add the ACSS classes, set the link, and (optional) pick an icon from the Media Library and set its position. No custom CSS is needed.
