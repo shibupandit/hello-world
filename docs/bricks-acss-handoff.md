@@ -887,3 +887,17 @@ Each city in the Areas We Serve mega menu is now a native `<details>` element:
 
 ### Practice Area Single hero (update)
 The hero lede (`{acf_hero_lede}`) and the hero stats box (`acf_hero_stats` loop) were removed from template 463 on request. The hero now shows the breadcrumb, eyebrow, title and buttons. The ACF fields still hold their data, so they can be re-added later.
+
+### The Firm mega menu (header template 346)
+
+`mdfirm` is now a mega menu (`megaMenu`, selector `#brx-header .header__inner`; its toggle links to `/about/`). The content `mdficn` uses the class `firm-menu`:
+- **Left (`firm-menu__intro`):** eyebrow, heading, and 4 links (`firm-menu__link` with title and description): About Us, Our Team, Case Results, Testimonials.
+- **Right (`firm-menu__team`):**
+  - header row: "Meet our attorneys" and "View the whole team →"
+  - **query loop `fmcard`:** Team, `tax_query: ["team-category::33"]`, 4 posts by menu order. Each card is an Image `{featured_image}` with the `team-photo` class (4:5 cover), plus `{post_title}` and `{acf_team_position}`, linking to the profile.
+  - **term loop `fmchip`:** team-category, linking to `/team/#{term_slug}` with "{term_name} ({term_count})".
+- **Desktop:** 30rem links column plus a 4-column team grid. The panel padding uses `.main-nav ul.firm-menu`, because `.main-nav ul { padding: 0 }` otherwise wins.
+- **≤1279px (mobile overlay):**
+  - single column; eyebrow, heading and link descriptions hidden
+  - team cards become compact rows (56px portrait + name/role), 2 columns on tablets and 1 column under 600px
+  - chips wrap
