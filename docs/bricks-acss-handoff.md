@@ -964,3 +964,47 @@ Loose `_cssClasses` were converted to global classes, and every unclassed elemen
 Elements inside ACSS buttons (`btn--*` text + icon) were left without classes. They are styled by the ACSS button.
 
 **Site-wide:** any loose class that already existed as a global class was moved to the global class. That includes `btn--*` on the header, homepage and practice templates, and `form__note`. Loose classes that are left on other pages are section-level names (`about`, `faq`, `page-hero--city`, ...) and `js-*` hooks. The `js-*` hooks stay loose on purpose.
+
+## 21. Site-wide BEM + ACSS refactor (all pages, templates, header, footer)
+
+Scope: Home, About, Contact, Testimonials, Header, Footer and every template (Team, Practice Area, Blog, News, Case Results, Areas We Serve: archives and singles). That is 16 Bricks documents and 2,164 elements.
+
+### Result
+| Check | Before | After |
+|---|---|---|
+| Elements with no class | 553 | **0** |
+| Element-level (inline) style settings | 16 | **0** |
+| Loose (non-global) classes | 60+ | only JS/state hooks: `js-slider`, `js-slide-prev/next`, `js-copy-link`, `js-toc`, `js-prose`, `is-active` |
+| Custom classes carrying custom CSS | 355 | 198 (contextual/pseudo/plugin rules only, see below) |
+| Root CSS declarations moved into the native style panel | n/a | ~1,070 |
+| Descendant rules moved onto the element's own class | n/a | 57 declarations (e.g. `.hero-stats dt` -> `hero-stats__label`) |
+
+Verification: computed styles of every element on 14 page types at 1440 / 900 / 390 were captured before and after each phase and diffed. The only visual changes are listed under "Intentional changes".
+
+### Shared classes (one class = one component everywhere)
+- `section__inner`: the content container inside every `.section` (was unclassed in 15 sections).
+- `section__heading-group`: the eyebrow + title wrapper inside every `section__head`.
+- `article-section` (+ `article-section--cover` on Blog Single): the body section that wraps `article-layout` on all single templates (Team, Practice, Blog, News, Case Result, City). It replaces 6 inline paddings and the old `city-body` / `profile-body`.
+- `page-hero`: now carries the section padding (top/bottom 0) for every page hero. **Intentional change:** the Blog archive and Practice Area heroes had an extra 108px of section padding. They now match the other 10 heroes.
+- `btn__text` / `btn__icon`: the text and icon inside every ACSS button that has an icon.
+- Repeated parts share one class: `breadcrumb__list/__item/__link/__current`, `checklist__item/__icon/__text`, `hours__label/__value`, `hero-stats__label/__value`, `cta-band__phone-icon/-text`, `widget__phone-icon/-text`, `faq-item__question/__answer/__icon`, `footer__list/__item/__link`, `office-card__address-line`, `news-card__link-text/-icon`, `result-card__link-text/-icon`, and so on.
+- Section blocks that were loose are now global classes: `about`, `practice`, `process`, `results`, `testimonials`, `insights`, `offices`, `faq`, `story`, `values`, `milestones`, `community`, `reviews`, `review-feature`, `related`, `attorneys`, `stats__inner`, `toc`, `article`, `page-hero--{about,city,news,practice,result,results,reviews}`.
+- New modifiers for the old inline styles: `section--tight-top` (Contact offices), `form__note--compact`, `widget__intro`.
+
+### ACSS variables
+- Spacing in padding / margin / gap uses `--space-*` (and `calc(var(--space-xs) * 0.5 | 0.75)` for small gaps) when the token stays within ~2.5px of the original at 390, 900 and 1440. That gives 1–2px drift on some small gaps.
+- Font sizes use `--text-*` / `--h*` when within 1px. Sizes below `--text-s` are exact ratios of the fixed ACSS tokens, e.g. `calc(var(--text-xs) * 0.885)`, so they follow ACSS if you change the text scale. Sizes with no matching token keep their rem value (e.g. the brand name 2.3rem).
+- Radius uses `--radius-*` (pill = `--radius-circle`). Border widths use `var(--border-size)` (accent bars = `calc(var(--border-size) * 3)`). Colours are ACSS tokens. Transparent colours are `color-mix(in srgb, var(--token) N%, transparent)`.
+- Fonts in remaining CSS use `var(--heading-font-family)` / `var(--text-font-family)`.
+- Theme Style: `--pc-shadow-*` now mix ACSS `--base-ultra-dark` / `--primary-ultra-dark`. `--pc-page-bg` = `color-mix(in srgb, var(--base-light) 75%, var(--base-ultra-light))`.
+
+### What stays as custom CSS (and why)
+- Contextual rules for third-party or generated markup: Fluent Forms internals, post-content (`.prose …`), Bricks nav internals (`.brx-submenu-toggle`, `.brx-nav-nested-items`), WordPress pagination.
+- Pseudo-elements and states (`::before`, `::after`, `:hover` on children, `[open]`, `:has()`), gradients, `box-shadow` vars, `list-style`, `font-variant-numeric`, `backdrop-filter`, scroll-snap.
+- Media queries at non-Bricks widths (1366 / 1280 / 1100 / 1520). The rule for the same property at a Bricks breakpoint is kept next to them in CSS so the cascade stays correct.
+- Classes on special Bricks elements (Social Icons, Pagination, Nav Nested, Dropdown, Toggle, Icon, Search, Image). On these elements native `padding` / `margin` target inner parts (e.g. `li a`), so their root styles stay in CSS.
+- Geometry with no ACSS token: icon width/height, decorative "&" sizes, focus `outline-offset`, small position offsets.
+
+### Restore point
+- Full pre-refactor backup (classes, theme style, all 16 documents) is stored in the WP option `hc_backup_pre_bem_20261105_095849`.
+- `build/bricks/migrations/global-classes-after-bem-refactor.json` is the final custom class set.
