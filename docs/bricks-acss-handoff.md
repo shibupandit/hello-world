@@ -1006,9 +1006,8 @@ Verification: computed styles of every element on 14 page types at 1440 / 900 / 
 - Classes on special Bricks elements (Social Icons, Pagination, Nav Nested, Dropdown, Toggle, Icon, Search, Image). On these elements native `padding` / `margin` target inner parts (e.g. `li a`), so their root styles stay in CSS.
 - Geometry with no ACSS token: icon width/height, decorative "&" sizes, focus `outline-offset`, small position offsets.
 
-### Restore point
-- Full pre-refactor backup (classes, theme style, all 16 documents) is stored in the WP option `hc_backup_pre_bem_20261105_095849`.
-- `build/bricks/migrations/global-classes-after-bem-refactor.json` is the final custom class set.
+### Reference copy
+- `build/bricks/migrations/global-classes-after-bem-refactor.json` is the custom class set right after the refactor. The temporary database backup was deleted in the §25 cleanup at the owner's request.
 
 ## 22. Native Bricks Button elements (all buttons)
 
@@ -1044,3 +1043,21 @@ Every button on the site is now the Bricks **Button** element styled only with A
   - `stats__grid` has gap `0` and overflow `hidden`.
   - `stat` has a native Box Shadow `calc(var(--border-size) * -1) calc(var(--border-size) * -1) 0 0 var(--accent-light)`. That draws a hairline on each card's top and left edge. The grid clips the ones on its outer edge, so only the inner dividers show, at any column count (4 on desktop, 2 at ≤767px).
 - The old `+ .stat` selector and the nth-child media rules were removed.
+
+## 25. Database cleanup (2026-11-05)
+
+**Removed**
+- **Backups and temporary options:** `hc_backup_pre_bem_20261105_095849` (1.3MB pre-refactor backup), plus helper options that nothing reads any more (`hc_btn_icons`, `hc_paper_texture_id`, `hc_featured_loop_ids`, `hc_tmp_*`). The temporary snapshot helper file in `novamira-sandbox/` was already removed.
+- **Revisions:** all 134 post revisions. 114 of them held old Bricks layouts, about 4.5MB of postmeta. Postmeta is now about 0.7MB in total.
+- **Trash and auto-drafts:** 5 trashed posts (4 testimonials: Bastin, Joy, Antho, Ronald; 1 team member: Lorem Ipsum) and 3 empty auto-drafts.
+- **Transients:** expired transients. Orphaned postmeta: none found.
+- **Unused global classes (5):** `post-card__byline`, `post-card__author`, `post-card__read`, `avatar--s`, `pagination__dots`.
+  - How "unused" was decided: not rendered on any of the 172 public URLs (every post, page, CPT single, archive + page 2, term archive, search and 404), not assigned to any element in any Bricks layout, and not referenced in JS, PHP, Fluent Forms or post content.
+  - All other 685 custom classes are in use.
+- **Dead CSS rules (2):** `.post-content.prose > * + *` (the Post Content element never outputs `post-content`) and `.nav-dropdown .nav-dropdown__all` (no such element).
+
+**Kept on purpose**
+- **`has-paper`:** documented opt-in hook for the paper texture.
+- **CSS for runtime states:** `.is-scrolled` and `.is-current` (inline site JS), `.brx-open` (Bricks nav), `.dots` (pagination with many pages), Fluent Forms error/success messages.
+- **Plugin and framework data:** ACSS imported classes; `hc_city_*` options (used by `hc-city-*.php`); Bricks internals (`bricks_global_classes_locked/_changes`, colour palette); WPvivid settings; Novamira data.
+- **Media:** not deleted. A quick reference scan isn't reliable enough for media (featured images and ACF fields).
