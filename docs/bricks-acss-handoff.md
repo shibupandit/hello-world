@@ -748,3 +748,37 @@ Bricks hides the pagination automatically when there is only one page (e.g. smal
 - **Remove it from one surface type:** delete that selector from the rule.
 
 **Not textured on purpose:** cards, sidebar boxes and quote boxes stay plain white or tinted, so they stand out on the paper. Dark sections (hero, results, page heroes, footer) keep their solid colour or gradient.
+
+## 17. Press & News (`/news/`)
+
+**Data**
+- **Post type `news`** ("Press & News", ACF, archive at `/news/`, singles at `/news/<slug>/`). The old empty blog category "Press & News" was deleted. Resources → Press & News now links to `/news/`.
+- **ACF group "News Details"** (`group_hcnews01`):
+  - `news_type`: select. Press Release / In the Media / Award / Firm News / Community.
+  - `news_featured`: true/false.
+  - `news_publication` + `news_url`: for In the Media items, the card button becomes "Read on {publication}" and opens the outside article.
+  - `news_location`, `news_release`.
+  - `news_figure` + `news_figure_caption`: the big number on the featured card.
+  - `news_people`: relationship → Team.
+- **Content:** the summary is the post excerpt; the body is the post content. There are 9 items, and the $14.2M verdict release is featured.
+
+**Templates**
+- **News Archive** (721, condition: post type archive → news):
+  - hero with a media contact card
+  - "As seen in" strip
+  - featured loop (`news_featured = 1`, 1 post)
+  - grid: the main archive query, 6 per page
+  - Bricks Pagination (class `pagination`)
+  - media CTA band
+- **News Single** (722, condition: post type → news):
+  - light article hero with type tag, title, excerpt and a Published / Location / Release / Publication row (each hidden when empty)
+  - Post Content
+  - "Read the full story on {publication}" button (only when `news_url` is set)
+  - "About Hartwell & Crane" boilerplate
+  - share buttons
+  - sidebar: media contact, Attorneys in this story (relationship loop with `team-photo` images), Latest news
+  - More from the firm (3 cards)
+- **Tag colours:** come from `data-type="{acf_news_type}"` on the `.news-tag` element (custom CSS on the `news-tag` class).
+- **Sandbox `hc-news-archive.php`:** removes the featured item from the main archive query, and pins the featured loop to page 1, so it stays on `/news/page/2/`.
+- **`article-hero` class:** now has left/right padding `var(--gutter)`. It is used as a root section on news singles, and it fixes the mobile gutter there.
+- **Press-release formatting in the editor:** add the class `news-dateline` to a `<strong>` at the start of the release, and `news-end` to a final `###` paragraph. Styled via the `news-boilerplate` class CSS.
