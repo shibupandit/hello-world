@@ -1452,3 +1452,15 @@ section.widget.office-widget  (condition: {acf_designated_office} != "")
 - Pages with no designated office don't render the card.
 
 **Next candidate:** the footer, Home and Contact office cards are still hand-typed; they could become `our-office` query loops too.
+
+## 47. Sidebar form widget: last in the Areas We Serve sidebar, sticky only when last, h3 title
+
+- **Areas We Serve template (761):** the sidebar order is now Your local office → Other areas we serve → Talk to a partner today (form).
+- **Overlap cause:** `widget--form` is `position: sticky; top: 11rem` on desktop (≥993px wide and ≥900px tall). As the first sidebar widget, the widgets below it scrolled underneath it.
+  - The sticky rule is now `.widget--form.widget--form:last-child` only, so a form widget that isn't last stays in normal flow.
+  - This also protects News Single, whose "Media contact" `widget--form` is first.
+  - Duplicate sticky and grid-column rules in the class CSS were removed.
+- **Form widget titles are `h3`** with h3 styling (`.widget--form .widget__title`: `font-size: var(--h3)`, line-height 1.15, white). Changed on all 7 form widgets:
+  - Blog Single, Practice Single, Team Single, Case Result Single, Areas We Serve Single: "Talk to a partner today"
+  - News Single: "Media contact"
+  - Contact page: "Arrested or seriously injured?"
