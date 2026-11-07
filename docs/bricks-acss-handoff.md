@@ -1506,11 +1506,18 @@ section.widget.office-widget  (condition: {acf_designated_office} != "")
 
 ## 51. Testimonials slider arrows — no overlap with the heading
 
-The slider (template 833, `tbf46b`) uses Splide's native arrows, positioned `top: -7.2rem` (prev `right: 6rem`, next `right: 0`). The heading reserved no room for them, so at ≤768px the arrows covered the heading text (measured at 1920–360).
+The slider (template 833, `tbf46b`) uses Splide's native arrows, positioned `top: -7.2rem` (prev `right: 6rem`, next `right: 0`). The heading reserved no room for them, so at ≤768px the arrows covered the heading text.
 
-- **≥768px:** the arrows stay top-right. Class `testimonials__track` adds
-  `.section__head:has(+ .testimonials__track) .section__heading-group { padding-right: 12rem }`, so the heading wraps before the arrows.
-- **≤767px (Bricks `mobile_landscape` arrow settings):** the arrows move below the card, centred.
-  - Settings: `top: auto; bottom: -10rem`; prev `left: calc(50% - 5.4rem)`, next `left: calc(50% + 0.6rem)`.
-  - `testimonials__track` gets `margin-bottom: 10rem` at mobile_landscape to make room; the arrows sit ~28px under the card.
-- **Verified** at 1920/1440/1280/1024/820/768/600/390/360: no arrow/heading overlap, no horizontal overflow.
+There is no Bricks breakpoint at 820px, so everything lives in the custom CSS of class **`testimonials__track`**:
+- **≥821px:** the arrows stay top-right, and
+  `.section__head:has(+ .testimonials__track) .section__heading-group { padding-right: 12rem }` makes the heading wrap before the arrows.
+- **≤820px:**
+  - the heading head is centred (`justify-content: center; text-align: center`, heading group `margin-inline: auto`)
+  - the slider gets `margin-bottom: 10rem`
+  - the arrows move below the card, centred: `#testimonials .testimonials__track > .splide__arrows > .splide__arrow { top: auto; bottom: -10rem; right: auto }`, prev `left: calc(50% - 5.4rem)`, next `left: calc(50% + 0.6rem)`. The `#testimonials` ID prefix is needed to beat the element's own `#brxe-tbf46b` arrow rules.
+- The earlier `mobile_landscape` arrow settings on the element were removed.
+- **Verified** at 1440/1024/821/820/768/600/390:
+  - no overlap
+  - at ≤820, the heading centre = arrow-pair centre = viewport centre
+  - arrows ~28px below the card
+  - no horizontal overflow
