@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.CookieManager;
+import android.webkit.DownloadListener;
 import android.webkit.URLUtil;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -119,8 +120,13 @@ public class MainActivity extends Activity {
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         webView.setWebViewClient(new AppWebViewClient());
         webView.setWebChromeClient(new AppChromeClient());
-        webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) ->
-                startDownload(url, userAgent, contentDisposition, mimeType));
+        webView.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition,
+                                        String mimeType, long contentLength) {
+                startDownload(url, userAgent, contentDisposition, mimeType);
+            }
+        });
     }
 
     // ---------------------------------------------------------------- navigation
@@ -393,22 +399,29 @@ public class MainActivity extends Activity {
 
         Button retry = new Button(this);
         retry.setText("Retry");
-        retry.setOnClickListener(v -> {
-            if (isOnline()) {
-                errorView.setVisibility(View.GONE);
-                webView.setVisibility(View.VISIBLE);
-                String current = webView.getUrl();
-                if (current == null || current.startsWith("about:") || current.startsWith("data:")) {
-                    webView.loadUrl(HOME_URL);
-                } else {
-                    webView.reload();
-                }
-            } else {
-                Toast.makeText(this, "Still offline", Toast.LENGTH_SHORT).show();
+        retry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRetry();
             }
         });
         layout.addView(retry);
         return layout;
+    }
+
+    private void onRetry() {
+        if (isOnline()) {
+            errorView.setVisibility(View.GONE);
+            webView.setVisibility(View.VISIBLE);
+            String current = webView.getUrl();
+            if (current == null || current.startsWith("about:") || current.startsWith("data:")) {
+                webView.loadUrl(HOME_URL);
+            } else {
+                webView.reload();
+            }
+        } else {
+            Toast.makeText(this, "Still offline", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void showError() {
