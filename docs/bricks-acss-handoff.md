@@ -1503,3 +1503,14 @@ section.widget.office-widget  (condition: {acf_designated_office} != "")
   - The reset is now `.breadcrumb ul, .breadcrumb ol { list-style: none; padding: 0; margin: 0 }`.
   - Verified crumb-left = H1-left at 1440/1280/1024/820/600/390.
 - **"Areas We Serve" removed from the trail** (it isn't a page): `hc_city_tag('hc_breadcrumb')` in `hc-city-template.php` now outputs Home / {City} [/ {Service}].
+
+## 51. Testimonials slider arrows — no overlap with the heading
+
+The slider (template 833, `tbf46b`) uses Splide's native arrows, positioned `top: -7.2rem` (prev `right: 6rem`, next `right: 0`). The heading reserved no room for them, so at ≤768px the arrows covered the heading text (measured at 1920–360).
+
+- **≥768px:** the arrows stay top-right. Class `testimonials__track` adds
+  `.section__head:has(+ .testimonials__track) .section__heading-group { padding-right: 12rem }`, so the heading wraps before the arrows.
+- **≤767px (Bricks `mobile_landscape` arrow settings):** the arrows move below the card, centred.
+  - Settings: `top: auto; bottom: -10rem`; prev `left: calc(50% - 5.4rem)`, next `left: calc(50% + 0.6rem)`.
+  - `testimonials__track` gets `margin-bottom: 10rem` at mobile_landscape to make room; the arrows sit ~28px under the card.
+- **Verified** at 1920/1440/1280/1024/820/768/600/390/360: no arrow/heading overlap, no horizontal overflow.
