@@ -1,0 +1,1265 @@
+<title>PNW Trenchless Homepage</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Trenchless sewer and water line repair in Spokane, Spokane Valley, Deer Park, Clayton and Stevens County. Owner-operated by Mike Jeisma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* ==========================================================================
+   PNW TRENCHLESS — HOMEPAGE DESIGN
+   Layout concept: a working contractor's page. Charcoal "rig" bands alternate
+   with light "yard" bands; the sewer-camera feed (dark frame, footage
+   readout) is the signature motif used for photos, projects and proof.
+
+   TOKENS — named after Automatic.css (ACSS) variables so they map 1:1 into
+   ACSS settings in Bricks. In WordPress, delete this block: ACSS supplies
+   every variable below. Only the "Custom" group needs adding to ACSS
+   (Custom CSS > :root) because ACSS has no equivalent.
+   ========================================================================== */
+:root {
+  /* Color — ACSS > Colors */
+  --primary: #2C6B3F;            /* trailer green · main CTA */
+  --primary-dark: #1F4C2D;
+  --primary-light: #D7E8DB;
+  --primary-ultra-light: #EDF4EE;
+  --secondary: #2A4E9B;          /* trailer blue · water line, steps */
+  --secondary-dark: #1E3A78;
+  --secondary-light: #DCE4F4;
+  --accent: #E8A41C;             /* camera-overlay amber · stars, readouts */
+  --accent-dark: #9A5F00;
+  --base: #22272C;               /* rig charcoal · text + dark bands */
+  --base-dark: #181B1F;
+  --base-ultra-dark: #111316;
+  --base-medium: #3A4148;
+  --neutral: #5B615C;            /* muted text, green-biased grey */
+  --neutral-medium: #A9ADA4;
+  --neutral-light: #D5D8D0;      /* borders */
+  --neutral-ultra-light: #F3F4EF;/* page "yard" background */
+  --white: #FFFFFF;
+  --text-dark: #1B1F1C;
+  --text-dark-muted: #4A514B;
+  --text-light: #F2F4EF;
+  --text-light-muted: #BCC5BD;
+
+  /* Typography — ACSS > Typography (fluid clamps) */
+  --heading-font-family: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --text-font-family: "Public Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --h1: clamp(2.25rem, 1.6rem + 2.8vw, 3.75rem);
+  --h2: clamp(1.75rem, 1.4rem + 1.5vw, 2.625rem);
+  --h3: clamp(1.25rem, 1.15rem + .45vw, 1.5rem);
+  --h4: 1.125rem;
+  --text-xs: .75rem;
+  --text-s: .875rem;
+  --text-m: 1rem;
+  --text-l: clamp(1.0625rem, 1rem + .3vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + .6vw, 1.625rem);
+
+  /* Spacing — ACSS > Spacing */
+  --space-xs: clamp(.5rem, .45rem + .2vw, .625rem);
+  --space-s: clamp(.75rem, .7rem + .25vw, 1rem);
+  --space-m: clamp(1rem, .9rem + .5vw, 1.5rem);
+  --space-l: clamp(1.5rem, 1.25rem + 1vw, 2.25rem);
+  --space-xl: clamp(2rem, 1.6rem + 1.8vw, 3.25rem);
+  --space-xxl: clamp(2.75rem, 2rem + 3vw, 5rem);
+  --section-space-m: clamp(3.5rem, 2.6rem + 4vw, 6.5rem);
+  --content-width: 76rem;
+  --gutter: clamp(16px, 4vw, 2rem);
+  --grid-gap: var(--space-m);
+
+  /* Radius / shadow / borders — ACSS > Radius, Shadows */
+  --radius-s: 4px;
+  --radius: 8px;
+  --radius-l: 14px;
+  --radius-circle: 999px;
+  --border: 1px solid var(--neutral-light);
+  --box-shadow-m: 0 1px 2px rgb(17 19 22 / .06), 0 8px 24px -12px rgb(17 19 22 / .18);
+  --box-shadow-l: 0 2px 4px rgb(17 19 22 / .08), 0 24px 48px -20px rgb(17 19 22 / .35);
+
+  /* Custom — add to ACSS Custom CSS (no ACSS equivalent) */
+  --mono-font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --feed-bg: radial-gradient(circle at 50% 50%, #0B0D0F 0 9%, #1A1F1B 10% 22%, #2A302A 23% 34%, #3D433A 35% 46%, #262B27 47% 64%, #15181A 65%);
+  --header-h: 76px;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body {
+  margin: 0;
+  background: var(--neutral-ultra-light);
+  color: var(--text-dark);
+  font-family: var(--text-font-family);
+  font-size: var(--text-m);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--white); }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4 {
+  font-family: var(--heading-font-family);
+  font-stretch: 112%;
+  line-height: 1.08;
+  letter-spacing: -.012em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: var(--h1); font-weight: 850; }
+h2 { font-size: var(--h2); font-weight: 800; }
+h3 { font-size: var(--h3); font-weight: 750; }
+p { margin: 0; text-wrap: pretty; }
+a { color: var(--secondary); text-underline-offset: .2em; }
+a:hover { color: var(--secondary-dark); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+strong { font-weight: 700; }
+
+/* ---------- ACSS-style layout primitives (Bricks Section > Container) ---------- */
+.section {
+  padding-block: var(--section-space-m);
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+.container { width: 100%; max-width: var(--content-width); margin-inline: auto; display: flex; flex-direction: column; gap: var(--space-xl); }
+.bg--white { background: var(--white); }
+.bg--base { background: var(--base); color: var(--text-light); }
+.bg--base-dark { background: var(--base-dark); color: var(--text-light-muted); }
+.bg--yard { background: var(--neutral-ultra-light); }
+.border-block { border-block: var(--border); }
+
+.section-head { display: flex; flex-direction: column; gap: var(--space-s); max-width: 46rem; }
+.section-head--split { max-width: none; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-m); }
+.section-head--split > div:first-child { display: flex; flex-direction: column; gap: var(--space-s); max-width: 46rem; }
+.section-head__lede { font-size: var(--text-l); color: var(--text-dark-muted); max-width: 62ch; }
+.bg--base .section-head__lede { color: var(--text-light-muted); }
+
+.eyebrow {
+  font-family: var(--mono-font-family);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  display: inline-flex; align-items: center; gap: .6em;
+}
+.eyebrow::before { content: ""; width: 1.5em; height: 2px; background: currentColor; }
+.bg--base .eyebrow { color: var(--accent); }
+
+.tbc { /* content Mike still needs to confirm */
+  background: rgb(232 164 28 / .16);
+  border-bottom: 1.5px dashed var(--accent-dark);
+  padding: 0 .2em;
+  border-radius: 2px;
+  white-space: normal;
+}
+.bg--base .tbc, .warranty .tbc { background: rgb(232 164 28 / .22); border-bottom-color: var(--accent); }
+
+/* ---------- Buttons (ACSS .btn--primary etc.) ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55em;
+  min-height: 3rem;
+  padding: .85em 1.4em;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  font-family: var(--text-font-family);
+  font-weight: 700; font-size: var(--text-m); line-height: 1.2;
+  text-decoration: none; cursor: pointer;
+  transition: background-color .18s, color .18s, border-color .18s, transform .18s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn--primary { background: var(--primary); color: var(--white); }
+.btn--primary:hover { background: var(--primary-dark); color: var(--white); }
+.btn--outline { border-color: var(--base); color: var(--base); background: transparent; }
+.btn--outline:hover { background: var(--base); color: var(--white); }
+.btn--light { background: var(--white); color: var(--base); }
+.btn--light:hover { background: var(--primary-ultra-light); color: var(--base); }
+.btn--block { width: 100%; }
+.link-arrow { font-weight: 700; color: var(--secondary); text-decoration: none; display: inline-flex; gap: .4em; align-items: center; }
+.link-arrow::after { content: "→"; transition: transform .18s; }
+.link-arrow:hover::after { transform: translateX(4px); }
+
+/* ---------- Camera-feed frame (signature motif) ---------- */
+.feed {
+  position: relative; overflow: hidden;
+  background: var(--feed-bg), var(--base-ultra-dark);
+  border-radius: var(--radius);
+  color: var(--white);
+  font-family: var(--mono-font-family);
+  font-size: var(--text-xs);
+  letter-spacing: .06em;
+  max-width: 100%;
+}
+.feed::after { /* scanlines */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgb(255 255 255 / .035) 0 1px, transparent 1px 3px);
+}
+.feed__hud { position: absolute; inset: auto .75em .65em .75em; display: flex; justify-content: space-between; gap: .5em; z-index: 1; text-transform: uppercase; }
+.feed__hud--top { inset: .65em .75em auto .75em; }
+.feed__ft { color: var(--accent); font-weight: 700; }
+.feed__rec { display: inline-flex; align-items: center; gap: .45em; }
+.feed__rec::before { content: ""; width: .6em; height: .6em; border-radius: 50%; background: #E5484D; }
+.feed__label { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 2.5em 1em; color: rgb(255 255 255 / .72); font-size: var(--text-xs); z-index: 1; }
+
+/* ==========================================================================
+   UTILITY BAR + HEADER
+   ========================================================================== */
+.topbar {
+  background: var(--base-dark); color: var(--text-light-muted);
+  font-size: var(--text-s);
+  padding-block: .55rem;
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+.topbar__inner { max-width: var(--content-width); margin-inline: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1.5rem; }
+.topbar__creds { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+.topbar__creds span { display: inline-flex; gap: .4em; align-items: center; }
+.topbar__creds svg { width: 14px; height: 14px; color: var(--primary-light); }
+
+.header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: rgb(255 255 255 / .96);
+  backdrop-filter: saturate(1.4) blur(8px);
+  border-bottom: var(--border);
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+.header__inner { max-width: var(--content-width); margin-inline: auto; min-height: var(--header-h); display: flex; align-items: center; gap: var(--space-l); }
+.logo { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--base); flex: none; }
+.logo__mark { width: 44px; height: 34px; }
+.logo__word { display: flex; flex-direction: column; line-height: 1; }
+.logo__pnw { font-family: var(--heading-font-family); font-stretch: 125%; font-weight: 900; font-size: 1.55rem; letter-spacing: -.02em; color: var(--base); }
+.logo__pnw b { color: var(--secondary); font-weight: 900; }
+.logo__sub { font-family: var(--heading-font-family); font-stretch: 125%; font-weight: 700; font-size: .62rem; letter-spacing: .32em; color: var(--neutral); margin-top: 3px; }
+.nav { display: flex; gap: .25rem clamp(.9rem, 1.6vw, 1.5rem); margin-inline: auto; }
+.nav a { white-space: nowrap; }
+.nav a { color: var(--text-dark); text-decoration: none; font-weight: 600; font-size: .95rem; padding-block: .5rem; border-bottom: 2px solid transparent; }
+.nav a:hover { border-bottom-color: var(--primary); color: var(--text-dark); }
+.header__cta { display: flex; align-items: center; gap: var(--space-s); flex: none; }
+.header__phone { display: flex; flex-direction: column; line-height: 1.15; text-decoration: none; color: var(--text-dark); }
+.header__phone small { font-size: var(--text-xs); color: var(--neutral); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.header__phone span { font-family: var(--heading-font-family); font-stretch: 110%; font-weight: 800; font-size: 1.1rem; }
+.header__phone:hover { color: var(--primary); }
+.nav-toggle { display: none; margin-left: auto; width: 46px; height: 46px; border: var(--border); background: var(--white); border-radius: var(--radius); cursor: pointer; align-items: center; justify-content: center; color: var(--base); }
+.nav-toggle svg { width: 22px; height: 22px; }
+
+@media (max-width: 1200px) {
+  .nav, .header__phone { display: none; }
+  .header__cta { margin-left: auto; }
+  .nav-toggle { display: inline-flex; margin-left: 0; }
+  .header.is-open .nav {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; left: 0; right: 0; top: 100%;
+    background: var(--white); border-bottom: var(--border); box-shadow: var(--box-shadow-m);
+    padding: .5rem max(var(--gutter), env(safe-area-inset-right, 0px)) 1rem max(var(--gutter), env(safe-area-inset-left, 0px));
+  }
+  .header.is-open .nav a { padding-block: .85rem; border-bottom: var(--border); }
+}
+@media (max-width: 560px) {
+  .header__cta .btn { display: none; }
+  .logo__mark { width: 38px; }
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero { padding-top: var(--space-xxl); padding-bottom: 0; }
+.hero__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: var(--space-xxl); align-items: center; }
+.hero__content { display: flex; flex-direction: column; gap: var(--space-m); min-width: 0; }
+.hero__tagline { font-family: var(--heading-font-family); font-stretch: 125%; font-weight: 850; font-size: var(--text-s); letter-spacing: .1em; display: flex; flex-wrap: wrap; gap: .1em .7em; }
+.hero__tagline span:nth-child(1) { color: var(--primary); }
+.hero__tagline span:nth-child(2) { color: var(--base); }
+.hero__tagline span:nth-child(3) { color: var(--secondary); }
+.hero__lede { font-size: var(--text-l); color: var(--text-dark-muted); max-width: 58ch; }
+.checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .55rem; }
+.checklist li { display: grid; grid-template-columns: 1.4rem 1fr; gap: .6rem; align-items: start; font-weight: 500; }
+.checklist li::before {
+  content: ""; width: 1.4rem; height: 1.4rem; margin-top: .1rem; border-radius: 50%;
+  background: var(--primary-ultra-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232C6B3F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 70% no-repeat;
+  border: 1px solid var(--primary-light);
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-s); padding-top: var(--space-xs); }
+.hero__media { position: relative; margin: 0; min-width: 0; }
+.hero__img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; object-position: 38% 50%; border-radius: var(--radius-l); box-shadow: var(--box-shadow-l); }
+.hero__badge {
+  position: absolute; left: calc(-1 * var(--space-l)); bottom: var(--space-l);
+  width: min(17rem, 70%);
+  box-shadow: var(--box-shadow-l);
+  border: 3px solid var(--white);
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 10;
+}
+.hero__badge .feed__label { padding-top: 2.4em; color: var(--white); font-size: var(--text-xs); }
+.hero__note { font-size: var(--text-xs); color: var(--neutral); margin-top: var(--space-s); text-align: right; }
+
+.trustbar { margin-top: var(--space-xxl); border-top: var(--border); }
+.trustbar__list { list-style: none; margin: 0 auto; padding: var(--space-m) 0; max-width: var(--content-width); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-m); }
+.trustbar__item { display: flex; align-items: center; gap: .75rem; font-weight: 600; font-size: var(--text-s); line-height: 1.35; }
+.trustbar__item svg { width: 2.25rem; height: 2.25rem; flex: none; color: var(--primary); }
+.trustbar__item strong { display: block; font-family: var(--heading-font-family); font-stretch: 110%; font-size: 1.05rem; font-weight: 800; }
+.stars { color: var(--accent); letter-spacing: .08em; font-size: 1rem; }
+
+@media (max-width: 920px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__badge { left: var(--space-s); bottom: var(--space-s); }
+  .trustbar__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 460px) { .trustbar__list { grid-template-columns: 1fr; } .hero__actions .btn { width: 100%; } }
+
+/* ==========================================================================
+   SIGNS
+   ========================================================================== */
+.signs__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
+.sign-card {
+  background: var(--white); border: var(--border); border-radius: var(--radius);
+  padding: var(--space-m); display: grid; grid-template-columns: auto 1fr; gap: .25rem var(--space-s); align-items: start;
+}
+.sign-card__icon { grid-row: span 2; width: 3rem; height: 3rem; border-radius: var(--radius); background: var(--primary-ultra-light); color: var(--primary); display: grid; place-items: center; }
+.sign-card__icon svg { width: 1.6rem; height: 1.6rem; }
+.sign-card h3 { font-size: var(--h4); font-stretch: 105%; }
+.sign-card p { color: var(--text-dark-muted); font-size: var(--text-s); }
+.signs__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-s) var(--space-m); padding: var(--space-m); border-radius: var(--radius); background: var(--primary-ultra-light); border: 1px solid var(--primary-light); }
+.signs__cta p { flex: 1 1 22rem; font-weight: 600; }
+@media (max-width: 860px) { .signs__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .signs__grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   WHAT IS TRENCHLESS
+   ========================================================================== */
+.explain__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xxl); align-items: center; }
+.explain__content { display: flex; flex-direction: column; gap: var(--space-m); min-width: 0; }
+.explain__content p { color: var(--text-dark-muted); max-width: 60ch; }
+.video { aspect-ratio: 4 / 3; }
+.video__play { position: absolute; inset: 0; margin: auto; width: 5rem; height: 5rem; border-radius: 50%; background: var(--primary); display: grid; place-items: center; z-index: 2; box-shadow: 0 0 0 10px rgb(44 107 63 / .3); }
+.video__play svg { width: 1.8rem; height: 1.8rem; margin-left: 4px; color: var(--white); }
+.video .feed__label { place-items: end center; padding-bottom: 3.2em; }
+.diagram { grid-column: 1 / -1; min-width: 0; background: var(--neutral-ultra-light); border: var(--border); border-radius: var(--radius-l); padding: var(--space-l); display: flex; flex-direction: column; gap: var(--space-s); }
+.diagram__head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-xs) var(--space-m); align-items: baseline; }
+.diagram__head h3 { font-size: var(--h4); }
+.diagram__legend { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; font-size: var(--text-s); color: var(--text-dark-muted); }
+.diagram__legend span { display: inline-flex; align-items: center; gap: .45em; }
+.diagram__legend i { width: 1.4em; height: .6em; border-radius: 2px; display: inline-block; }
+.diagram__scroll { overflow-x: auto; }
+.diagram__svg { min-width: 640px; width: 100%; height: auto; }
+@media (max-width: 920px) { .explain__grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   SERVICES
+   ========================================================================== */
+.services__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--grid-gap); }
+.service-card { background: var(--white); border: var(--border); border-radius: var(--radius-l); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .2s, transform .2s; }
+.service-card:hover { box-shadow: var(--box-shadow-l); transform: translateY(-3px); }
+.service-card__art { aspect-ratio: 16 / 10; background: var(--base); border-bottom: 5px solid var(--primary); }
+.service-card--burst .service-card__art { border-bottom-color: var(--base-medium); }
+.service-card--water .service-card__art { border-bottom-color: var(--secondary); }
+.service-card--camera .service-card__art { border-bottom-color: var(--accent); }
+.service-card__art svg { width: 100%; height: 100%; }
+.service-card__body { padding: var(--space-m); display: flex; flex-direction: column; gap: var(--space-s); flex: 1; }
+.service-card__body p { color: var(--text-dark-muted); font-size: .95rem; }
+.service-card__best { font-size: var(--text-s); padding: .6rem .75rem; background: var(--neutral-ultra-light); border-radius: var(--radius-s); color: var(--text-dark) !important; }
+.service-card__body .link-arrow { margin-top: auto; }
+@media (max-width: 1080px) { .services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .services__grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   COMPARISON
+   ========================================================================== */
+.compare__table-wrap { overflow-x: auto; border-radius: var(--radius-l); border: 1px solid var(--base-medium); }
+.compare__table { color: var(--text-light); width: 100%; min-width: 640px; border-collapse: collapse; font-size: .975rem; }
+.compare__table th, .compare__table td { padding: 1rem 1.25rem; text-align: left; vertical-align: top; }
+.compare__table thead th { color: var(--text-light); font-family: var(--heading-font-family); font-stretch: 110%; font-size: 1.05rem; font-weight: 800; background: var(--base-dark); }
+.compare__table thead th:nth-child(2) { background: var(--primary); color: var(--white); }
+.compare__table tbody tr { border-top: 1px solid var(--base-medium); }
+.compare__table tbody th { font-weight: 600; color: var(--text-light-muted); width: 24%; }
+.compare__table td:nth-child(2) { background: rgb(44 107 63 / .16); color: var(--white); font-weight: 600; }
+.compare__table td:nth-child(3) { color: var(--text-light-muted); }
+.compare__table td:nth-child(2)::before { content: "✓"; color: #7FC493; font-weight: 800; margin-right: .5em; }
+.compare__note { display: grid; grid-template-columns: auto 1fr; gap: var(--space-s); align-items: start; padding: var(--space-m); border: 1px dashed var(--base-medium); border-radius: var(--radius); color: var(--text-light-muted); max-width: 52rem; }
+.compare__note svg { width: 1.5rem; height: 1.5rem; color: var(--accent); }
+.compare__note strong { color: var(--text-light); }
+
+/* ==========================================================================
+   DECISION GUIDE
+   ========================================================================== */
+.decide__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
+.decide-card { background: var(--white); border: var(--border); border-radius: var(--radius-l); padding: var(--space-l) var(--space-m) var(--space-m); display: flex; flex-direction: column; gap: var(--space-s); }
+.decide-card__if { font-family: var(--mono-font-family); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--neutral); }
+.decide-card h3 { font-size: 1.2rem; }
+.decide-card p { color: var(--text-dark-muted); font-size: .95rem; }
+.decide-card__result { margin-top: auto; display: flex; align-items: center; gap: .6rem; padding-top: var(--space-s); border-top: var(--border); font-weight: 700; }
+.decide-card__result > span:first-child { font-size: var(--text-xs); font-family: var(--mono-font-family); letter-spacing: .08em; text-transform: uppercase; color: var(--neutral); font-weight: 500; }
+.decide-card__pill { display: inline-flex; padding: .3em .75em; border-radius: var(--radius-circle); font-size: var(--text-s); color: var(--white); background: var(--primary); }
+.decide-card--burst .decide-card__pill { background: var(--base); }
+.decide-card--water .decide-card__pill { background: var(--secondary); }
+@media (max-width: 920px) { .decide__grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   PROCESS
+   ========================================================================== */
+.process__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--grid-gap); counter-reset: step; position: relative; }
+.process__list::before { content: ""; position: absolute; top: 1.5rem; left: 1.5rem; right: 10%; height: 2px; background: repeating-linear-gradient(90deg, var(--secondary) 0 8px, transparent 8px 14px); }
+.process-step { position: relative; display: flex; flex-direction: column; gap: var(--space-xs); counter-increment: step; }
+.process-step::before {
+  content: counter(step, decimal-leading-zero);
+  width: 3rem; height: 3rem; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--secondary); color: var(--white);
+  font-family: var(--mono-font-family); font-weight: 700; font-size: .95rem;
+  box-shadow: 0 0 0 6px var(--white);
+  margin-bottom: var(--space-xs);
+}
+.process-step:last-child::before { background: var(--primary); }
+.process-step h3 { font-size: 1.1rem; }
+.process-step p { color: var(--text-dark-muted); font-size: .95rem; }
+@media (max-width: 980px) {
+  .process__list { grid-template-columns: 1fr; gap: var(--space-m); }
+  .process__list::before { top: 1rem; bottom: 1rem; left: 1.5rem; right: auto; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--secondary) 0 8px, transparent 8px 14px); }
+  .process-step { display: grid; grid-template-columns: 3rem 1fr; column-gap: var(--space-m); }
+  .process-step::before { grid-row: span 2; margin: 0; }
+}
+
+/* ==========================================================================
+   MEET MIKE
+   ========================================================================== */
+.mike__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xxl); align-items: center; }
+.mike__media { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-s); }
+.photo-slot { position: relative; border-radius: var(--radius-l); background: linear-gradient(135deg, #DADDD4, #C9CDC2); color: var(--text-dark-muted); display: grid; place-items: center; text-align: center; padding: var(--space-m); font-size: var(--text-s); overflow: hidden; }
+.photo-slot svg { width: 2.5rem; height: 2.5rem; margin: 0 auto .5rem; opacity: .55; }
+.photo-slot--portrait { grid-column: span 2; aspect-ratio: 16 / 11; }
+.photo-slot--small { aspect-ratio: 4 / 3; align-self: start; }
+.mike__media img { width: 100%; height: auto; align-self: start; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-l); }
+.mike__content { display: flex; flex-direction: column; gap: var(--space-m); min-width: 0; }
+.mike__content > p { color: var(--text-dark-muted); max-width: 60ch; }
+.quote { margin: 0; padding: var(--space-m) var(--space-l); background: var(--white); border-radius: var(--radius); border: var(--border); position: relative; font-family: var(--heading-font-family); font-stretch: 100%; font-size: var(--text-xl); font-weight: 600; line-height: 1.3; }
+.quote::before { content: "“"; position: absolute; top: -.35em; left: .35em; font-size: 4rem; color: var(--primary); line-height: 1; }
+.quote cite { display: block; margin-top: .6rem; font-family: var(--text-font-family); font-size: var(--text-s); font-style: normal; font-weight: 600; color: var(--neutral); }
+.creds { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-s); }
+.creds li { display: flex; gap: .6rem; align-items: flex-start; font-size: var(--text-s); font-weight: 600; padding: var(--space-s); background: var(--white); border-radius: var(--radius); border: var(--border); }
+.creds svg { width: 1.25rem; height: 1.25rem; flex: none; color: var(--primary); margin-top: .1rem; }
+@media (max-width: 920px) { .mike__grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .creds { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   PROJECTS
+   ========================================================================== */
+.projects__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
+.project-card { border: var(--border); border-radius: var(--radius-l); overflow: hidden; background: var(--white); display: flex; flex-direction: column; }
+.project-card__feeds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; background: var(--base-ultra-dark); }
+.project-card__feeds .feed { aspect-ratio: 1 / 1; border-radius: 0; }
+.feed--after { background: radial-gradient(circle at 50% 50%, #0B0D0F 0 10%, #2A3B30 11% 26%, #4C6B55 27% 40%, #35503E 41% 58%, #1A251E 59%), var(--base-ultra-dark); }
+.feed--water { background: radial-gradient(circle at 50% 50%, #0B0D0F 0 12%, #1D2C46 13% 30%, #2A4E9B 31% 44%, #1A2A4B 45% 62%, #101622 63%), var(--base-ultra-dark); }
+.project-card__body { padding: var(--space-m); display: flex; flex-direction: column; gap: var(--space-s); }
+.project-card__loc { font-family: var(--heading-font-family); font-stretch: 110%; font-weight: 800; font-size: 1.15rem; }
+.spec { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: .35rem var(--space-s); font-size: var(--text-s); }
+.spec dt { font-family: var(--mono-font-family); font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase; color: var(--neutral); padding-top: .15rem; }
+.spec dd { margin: 0; font-weight: 600; }
+@media (max-width: 1000px) { .projects__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .projects__grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   REVIEWS + WARRANTY / FINANCING
+   ========================================================================== */
+.reviews__summary { display: flex; align-items: center; gap: var(--space-s); padding: .7rem 1rem; background: var(--white); border: var(--border); border-radius: var(--radius); font-weight: 600; font-size: var(--text-s); }
+.reviews__summary .stars { font-size: 1.15rem; }
+.reviews__summary b { font-family: var(--heading-font-family); font-size: 1.5rem; font-stretch: 110%; }
+.reviews__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
+.review-card { margin: 0; background: var(--white); border: var(--border); border-radius: var(--radius-l); padding: var(--space-l) var(--space-m) var(--space-m); display: flex; flex-direction: column; gap: var(--space-s); }
+.review-card blockquote { margin: 0; color: var(--text-dark); font-size: 1.02rem; }
+.review-card figcaption { margin-top: auto; display: flex; align-items: center; gap: .75rem; padding-top: var(--space-s); border-top: var(--border); font-size: var(--text-s); }
+.review-card__avatar { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--secondary-light); color: var(--secondary-dark); display: grid; place-items: center; font-weight: 800; flex: none; }
+.review-card figcaption small { display: block; color: var(--neutral); }
+@media (max-width: 920px) { .reviews__grid { grid-template-columns: 1fr; } }
+
+.assure__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--grid-gap); }
+.assure-card { border-radius: var(--radius-l); padding: var(--space-l); display: grid; grid-template-columns: auto 1fr; gap: var(--space-s) var(--space-m); align-items: start; }
+.assure-card svg { width: 3rem; height: 3rem; grid-row: span 3; }
+.assure-card h3 { font-size: var(--h3); }
+.warranty { background: var(--secondary); color: var(--white); }
+.warranty svg { color: var(--secondary-light); }
+.warranty p { color: var(--secondary-light); }
+.financing { background: var(--white); border: var(--border); }
+.financing svg { color: var(--primary); }
+.financing p { color: var(--text-dark-muted); }
+.assure-card .eyebrow { grid-column: 2; }
+.warranty .eyebrow { color: var(--secondary-light); }
+@media (max-width: 860px) { .assure__grid { grid-template-columns: 1fr; } }
+@media (max-width: 460px) { .assure-card { grid-template-columns: 1fr; } .assure-card svg { grid-row: auto; } .assure-card .eyebrow { grid-column: auto; } }
+
+/* ==========================================================================
+   AREAS
+   ========================================================================== */
+.areas__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--space-xxl); align-items: center; }
+.areas__content { display: flex; flex-direction: column; gap: var(--space-m); min-width: 0; }
+.areas__content p { color: var(--text-dark-muted); max-width: 60ch; }
+.pipe-types { display: flex; flex-wrap: wrap; gap: .5rem; }
+.pipe-types span { font-family: var(--mono-font-family); font-size: var(--text-xs); letter-spacing: .06em; text-transform: uppercase; padding: .35rem .65rem; border-radius: var(--radius-s); background: var(--neutral-ultra-light); border: var(--border); color: var(--text-dark-muted); }
+.areas__links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs); }
+.areas__links a { display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: .8rem 1rem; border: var(--border); border-radius: var(--radius); text-decoration: none; color: var(--text-dark); font-weight: 600; background: var(--white); transition: border-color .18s, background-color .18s; }
+.areas__links a::after { content: "→"; color: var(--primary); }
+.areas__links a:hover { border-color: var(--primary); background: var(--primary-ultra-light); }
+.map { margin: 0; background: var(--neutral-ultra-light); border: var(--border); border-radius: var(--radius-l); overflow: hidden; }
+.map svg { width: 100%; height: auto; }
+.map figcaption { padding: .7rem 1rem; font-size: var(--text-xs); color: var(--neutral); border-top: var(--border); background: var(--white); }
+@media (max-width: 920px) { .areas__grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .areas__links { grid-template-columns: 1fr 1fr; } }
+
+/* ==========================================================================
+   FAQ
+   ========================================================================== */
+.faq__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: var(--space-xxl); align-items: start; }
+.faq__aside { display: flex; flex-direction: column; gap: var(--space-m); position: sticky; top: calc(var(--header-h) + var(--space-l)); }
+.faq__aside p { color: var(--text-dark-muted); }
+.faq__list { border-top: 2px solid var(--base); }
+.faq__item { border-bottom: var(--border); }
+.faq__item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: var(--space-m); padding: 1.15rem 0; font-family: var(--heading-font-family); font-stretch: 105%; font-weight: 700; font-size: 1.1rem; line-height: 1.3; }
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after { content: "+"; flex: none; width: 2rem; height: 2rem; border-radius: 50%; display: grid; place-items: center; background: var(--neutral-ultra-light); border: var(--border); font-family: var(--mono-font-family); font-size: 1.1rem; transition: transform .2s, background-color .2s; }
+.faq__item[open] summary::after { transform: rotate(45deg); background: var(--primary); color: var(--white); border-color: var(--primary); }
+.faq__item summary:hover { color: var(--primary); }
+.faq__answer { padding: 0 3rem 1.25rem 0; color: var(--text-dark-muted); display: flex; flex-direction: column; gap: .6rem; }
+.draft-flag { font-family: var(--mono-font-family); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-dark); }
+@media (max-width: 920px) { .faq__grid { grid-template-columns: 1fr; gap: var(--space-l); } .faq__aside { position: static; } .faq__answer { padding-right: 0; } }
+
+/* ==========================================================================
+   ESTIMATE / FORM
+   ========================================================================== */
+.estimate { position: relative; overflow: hidden; }
+.estimate::before { /* faint pipe-section rings */
+  content: ""; position: absolute; right: -14rem; top: -14rem; width: 40rem; height: 40rem; border-radius: 50%; pointer-events: none;
+  background: repeating-radial-gradient(circle, transparent 0 34px, rgb(255 255 255 / .04) 34px 36px);
+}
+.estimate__grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xxl); align-items: start; }
+.estimate__content { display: flex; flex-direction: column; gap: var(--space-m); min-width: 0; }
+.estimate__content h2 { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); }
+.estimate__content > p { color: var(--text-light-muted); font-size: var(--text-l); max-width: 50ch; }
+.estimate__phone { display: flex; flex-direction: column; gap: .3rem; padding: var(--space-m); border-radius: var(--radius-l); background: var(--base-dark); border: 1px solid var(--base-medium); }
+.estimate__phone small { font-family: var(--mono-font-family); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.estimate__phone a { font-family: var(--heading-font-family); font-stretch: 115%; font-weight: 900; font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem); color: var(--white); text-decoration: none; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.estimate__phone span { color: var(--text-light-muted); font-size: var(--text-s); }
+.estimate__steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .6rem; color: var(--text-light-muted); font-size: .95rem; }
+.estimate__steps li { display: flex; gap: .7rem; align-items: baseline; }
+.estimate__steps b { font-family: var(--mono-font-family); color: var(--accent); font-size: var(--text-xs); }
+
+.form { background: var(--white); color: var(--text-dark); border-radius: var(--radius-l); padding: var(--space-l); display: flex; flex-direction: column; gap: var(--space-s); box-shadow: var(--box-shadow-l); }
+.form__title { font-size: var(--h3); }
+.form__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-s); }
+.form__field { display: flex; flex-direction: column; gap: .35rem; font-size: var(--text-s); font-weight: 600; }
+.form__field input, .form__field select, .form__field textarea {
+  font: inherit; font-weight: 400; font-size: 1rem; color: var(--text-dark);
+  padding: .8rem .9rem; border: 1px solid var(--neutral-medium); border-radius: var(--radius); background: var(--white);
+  min-height: 3rem; width: 100%;
+}
+.form__field textarea { resize: vertical; min-height: 6rem; }
+.form__field input:focus, .form__field select:focus, .form__field textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+.form__upload { display: flex; align-items: center; gap: .75rem; padding: .8rem .9rem; border: 1.5px dashed var(--neutral-medium); border-radius: var(--radius); font-size: var(--text-s); color: var(--text-dark-muted); cursor: pointer; }
+.form__upload svg { width: 1.5rem; height: 1.5rem; color: var(--primary); flex: none; }
+.form__upload input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.form__fine { font-size: var(--text-xs); color: var(--neutral); text-align: center; }
+.form__done { padding: var(--space-s) var(--space-m); border-radius: var(--radius); background: var(--primary-ultra-light); border: 1px solid var(--primary-light); color: var(--primary-dark); font-weight: 600; font-size: var(--text-s); }
+@media (max-width: 920px) { .estimate__grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .form__row { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   FOOTER + MOBILE CALL BAR
+   ========================================================================== */
+.footer { font-size: var(--text-s); padding-block: var(--space-xxl) var(--space-l); }
+.footer__grid { display: grid; grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr)); gap: var(--space-l); }
+.footer__col { display: flex; flex-direction: column; gap: .5rem; }
+.footer__col h4 { font-size: var(--text-xs); font-family: var(--mono-font-family); letter-spacing: .12em; text-transform: uppercase; color: var(--text-light); margin-bottom: .35rem; font-weight: 700; }
+.footer a { color: var(--text-light-muted); text-decoration: none; }
+.footer a:hover { color: var(--white); }
+.footer .logo__pnw { color: var(--white); }
+.footer .logo__pnw b { color: #7FA2E8; }
+.footer .logo__sub { color: var(--text-light-muted); }
+.footer__phone { font-family: var(--heading-font-family); font-stretch: 110%; font-weight: 800; font-size: 1.25rem; color: var(--white) !important; }
+.footer__bottom { margin-top: var(--space-xl); padding-top: var(--space-m); border-top: 1px solid var(--base-medium); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; font-size: var(--text-xs); }
+@media (max-width: 860px) { .footer__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer__grid { grid-template-columns: 1fr; } }
+
+.callbar { display: none; }
+@media (max-width: 700px) {
+  .callbar {
+    display: grid; grid-template-columns: 1fr 1fr; gap: .5rem;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
+    background: var(--white); border-top: var(--border); box-shadow: 0 -8px 24px -12px rgb(17 19 22 / .25);
+    padding: .6rem max(var(--gutter), env(safe-area-inset-right, 0px)) calc(.6rem + env(safe-area-inset-bottom, 0px)) max(var(--gutter), env(safe-area-inset-left, 0px));
+  }
+  .callbar .btn { min-height: 2.9rem; padding-inline: .75rem; font-size: .95rem; }
+  body { padding-bottom: 4.5rem; }
+}
+</style>
+
+<!-- Shared SVG symbols (in Bricks: use as Icon element SVGs or an SVG sprite) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6L12 3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.2l1.6 4.3-2 1.4a11 11 0 0 0 7 7l1.4-2 4.3 1.6V19a1.5 1.5 0 0 1-1.6 1.5C10.7 20 4 13.3 3.5 5.1A1.5 1.5 0 0 1 5 3.5z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10H9.5L5 19.5v-4H4z"/><circle cx="12" cy="10.5" r="2.2"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7l1.5-2.5h4L15.5 7"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11L12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5.5h4V20"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.3v.2"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15.5V4.5M7.5 9L12 4.5 16.5 9"/><path d="M4.5 15v4.5h15V15"/></symbol>
+    <symbol id="i-mountain" viewBox="0 0 48 36"><path d="M2 32l13-18 6 8 7-14 18 24z" fill="currentColor"/><path d="M28 8l3.2 6.5-3.2-1.6-3 2.3z" fill="#fff"/><path d="M7 32l3-6 3 6zM37 32l3-8 3 8zM41 32l2-5 2.5 5z" fill="#2C6B3F"/></symbol>
+  </defs>
+</svg>
+
+<!-- ======================= UTILITY BAR ======================= -->
+<div class="topbar">
+  <div class="topbar__inner">
+    <span>Serving Spokane, Spokane Valley, Deer Park, Clayton &amp; Stevens County</span>
+    <span class="topbar__creds">
+      <span><svg><use href="#i-shield"/></svg>WA Contractor Reg. #PNWTRT*744KQ</span>
+      <span><svg><use href="#i-check"/></svg>Licensed · Bonded · Insured</span>
+    </span>
+  </div>
+</div>
+
+<!-- ======================= HEADER ======================= -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a class="logo" href="#top" aria-label="PNW Trenchless home">
+      <svg class="logo__mark" style="color:var(--base)"><use href="#i-mountain"/></svg>
+      <span class="logo__word"><span class="logo__pnw">PN<b>W</b></span><span class="logo__sub">TRENCHLESS</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#compare">Trenchless vs. Digging</a>
+      <a href="#process">How It Works</a>
+      <a href="#mike">About Mike</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <div class="header__cta">
+      <a class="header__phone" href="tel:5099532036"><small>Call or text Mike</small><span>509-953-2036</span></a>
+      <a class="btn btn--primary" href="#estimate">Free Camera Estimate</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= 01 HERO ======================= -->
+<section class="section hero bg--white">
+  <div class="container">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <p class="hero__tagline"><span>LESS DIGGING.</span><span>LESS DISRUPTION.</span><span>BUILT TO LAST.</span></p>
+        <h1>Trenchless sewer &amp; water line repair in Spokane, without tearing up your yard</h1>
+        <p class="hero__lede">Owner-operated by Mike Jeisma, with 14+ years repairing sewer and water lines across the Inland Northwest. We camera the line, show you exactly what we see, and give you an honest recommendation.</p>
+        <ul class="checklist">
+          <li>Sewer pipe lining (CIPP), pipe bursting &amp; water line replacement</li>
+          <li>Two small access points instead of a trench across your property</li>
+          <li>Camera footage before and after, yours to keep</li>
+        </ul>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#estimate"><svg><use href="#i-camera"/></svg>Get a Free Estimate</a>
+          <a class="btn btn--outline" href="sms:5099532036"><svg><use href="#i-chat"/></svg>Text a Photo of the Problem</a>
+        </div>
+      </div>
+      <figure class="hero__media">
+        <img class="hero__img" src="assets/trailer.jpg" alt="PNW Trenchless equipment trailer for sewer lining, pipe bursting and waterline replacement" width="1600" height="794">
+        <div class="hero__badge feed" aria-hidden="true">
+          <div class="feed__hud feed__hud--top"><span class="feed__rec">REC</span><span>4" CLAY</span></div>
+          <div class="feed__label">Your footage, before &amp; after</div>
+          <div class="feed__hud"><span>CAM 01</span><span class="feed__ft">047.6 FT</span></div>
+        </div>
+        <figcaption class="hero__note">Final photo: Mike and the rig on a live Spokane job, access pit visible, yard intact.</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="trustbar">
+    <ul class="trustbar__list">
+      <li class="trustbar__item"><svg><use href="#i-star"/></svg><span><strong><span class="tbc">X.X</span> on Google</strong><span class="tbc">N</span> reviews</span></li>
+      <li class="trustbar__item"><svg><use href="#i-clock"/></svg><span><strong>14+ years</strong>trenchless experience</span></li>
+      <li class="trustbar__item"><svg><use href="#i-home"/></svg><span><strong>Family-owned</strong>Clayton, WA</span></li>
+      <li class="trustbar__item"><svg><use href="#i-shield"/></svg><span><strong><span class="tbc">X</span>-year warranty</strong>on workmanship</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================= 02 SIGNS ======================= -->
+<section class="section signs bg--yard">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Warning signs</span>
+      <h2>Signs your sewer line is failing</h2>
+      <p class="section-head__lede">Most homeowners call us after the third snake job in a year. If any of these sound familiar, a camera inspection will tell you what's actually happening underground.</p>
+    </div>
+    <div class="signs__grid">
+      <article class="sign-card">
+        <div class="sign-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3.5v5.5M12 15v5.5M3.5 12H9M15 12h5.5"/></svg></div>
+        <h3>Recurring clogs</h3><p>Drains back up again weeks after clearing.</p>
+      </article>
+      <article class="sign-card">
+        <div class="sign-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="8" cy="15" r="3.5"/><circle cx="15.5" cy="9" r="2.5"/><circle cx="17" cy="16.5" r="1.5"/><circle cx="10" cy="6" r="1.2"/></svg></div>
+        <h3>Gurgling drains</h3><p>Toilets bubble when the tub drains.</p>
+      </article>
+      <article class="sign-card">
+        <div class="sign-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M7 20c-2-3 2-5 0-8s2-5 0-8M12 20c-2-3 2-5 0-8s2-5 0-8M17 20c-2-3 2-5 0-8s2-5 0-8"/></svg></div>
+        <h3>Sewer odor</h3><p>Smell in the basement or the yard.</p>
+      </article>
+      <article class="sign-card">
+        <div class="sign-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 20v-5M9 20v-8M12 20v-6M15 20v-9M18 20v-5"/><path d="M12 3.5c1.8 2.2 2.7 3.7 2.7 4.9a2.7 2.7 0 0 1-5.4 0c0-1.2.9-2.7 2.7-4.9z"/></svg></div>
+        <h3>Soggy or green patches</h3><p>Lush strips of lawn over the line's path.</p>
+      </article>
+      <article class="sign-card">
+        <div class="sign-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7"/><path d="M12 10c-2 2-5 2.5-7 6M12 10c2 2 5 2.5 7 6M12 10v5c-1 2-3 3-3 6M12 15c1 2 3 3 3 6"/><path d="M8 4.5c1.2-1 2.5-1.5 4-1.5s2.8.5 4 1.5"/></svg></div>
+        <h3>Tree roots</h3><p>Roots pulled out on your plumber's snake.</p>
+      </article>
+      <article class="sign-card">
+        <div class="sign-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 17a8.5 8.5 0 1 1 15 0"/><path d="M12 13.5L8 9.5"/><circle cx="12" cy="14" r="1.4"/></svg></div>
+        <h3>Low water pressure</h3><p>Usually corroded galvanized water service.</p>
+      </article>
+    </div>
+    <div class="signs__cta">
+      <p>Seeing one or more of these? A camera inspection shows the cause before you spend money on a fix.</p>
+      <a class="btn btn--primary" href="#estimate">Book a Camera Inspection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 03 WHAT IS TRENCHLESS ======================= -->
+<section class="section explain bg--white border-block">
+  <div class="container">
+    <div class="explain__grid">
+      <div class="video feed" role="img" aria-label="Video placeholder: Mike explains trenchless repair on a job site">
+        <div class="feed__hud feed__hud--top"><span class="feed__rec">JOB SITE</span><span>1:24</span></div>
+        <span class="video__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span>
+        <div class="feed__label">60–90s video: Mike walks between the two access pits<br>and explains the repair. Transcript below for SEO.</div>
+        <div class="feed__hud"><span>WATCH</span><span class="feed__ft">CC · TRANSCRIPT</span></div>
+      </div>
+      <div class="explain__content">
+        <span class="eyebrow">The basics</span>
+        <h2>What is trenchless pipe repair?</h2>
+        <p>Instead of digging a trench the full length of your sewer or water line, we open one or two small access points and repair or replace the pipe underground. Your lawn, driveway, trees and landscaping stay where they are.</p>
+        <p>There are two main ways to do it. <strong>Pipe lining</strong> builds a new pipe inside the old one. <strong>Pipe bursting</strong> pulls a brand-new pipe through while breaking the old one apart. Which one you need depends on what the camera shows.</p>
+        <a class="link-arrow" href="#compare">Compare trenchless with digging</a>
+      </div>
+      <div class="diagram">
+        <div class="diagram__head">
+          <h3>Same pipe, two ways to reach it</h3>
+          <div class="diagram__legend">
+            <span><i style="background:var(--accent-dark)"></i>Excavated soil</span>
+            <span><i style="background:var(--primary)"></i>New / lined pipe</span>
+          </div>
+        </div>
+        <div class="diagram__scroll">
+          <svg class="diagram__svg" viewBox="0 0 900 300" role="img" aria-label="Diagram comparing a full trench from house to street with trenchless repair using two small access pits">
+            <!-- shared ground rows -->
+            <g font-family="JetBrains Mono, monospace" font-size="12" fill="#4A514B" letter-spacing="1">
+              <text x="0" y="22">TRADITIONAL DIG</text>
+              <text x="0" y="172">TRENCHLESS</text>
+            </g>
+            <!-- ROW 1 -->
+            <g transform="translate(0,34)">
+              <rect x="0" y="62" width="900" height="64" fill="#E7E2D3"/>
+              <rect x="0" y="56" width="900" height="8" fill="#9BBF83"/>
+              <!-- house -->
+              <path d="M30 56V22l45-22 45 22v34z" fill="#fff" stroke="#22272C" stroke-width="2"/>
+              <rect x="64" y="34" width="18" height="22" fill="#22272C"/>
+              <!-- tree -->
+              <rect x="372" y="30" width="6" height="28" fill="#6B5537"/><circle cx="375" cy="22" r="20" fill="#2C6B3F"/>
+              <!-- street -->
+              <rect x="760" y="50" width="140" height="10" fill="#3A4148"/>
+              <text x="790" y="44" font-family="JetBrains Mono, monospace" font-size="11" fill="#4A514B">STREET</text>
+              <circle cx="830" cy="106" r="14" fill="#C9C3B1" stroke="#22272C" stroke-width="2"/>
+              <!-- trench -->
+              <path d="M110 56h650v52H110z" fill="#B87A1C" opacity=".85"/>
+              <path d="M110 56l8 52M760 56l-8 52" stroke="#7C4F0C" stroke-width="2"/>
+              <line x1="110" y1="96" x2="816" y2="104" stroke="#3A4148" stroke-width="7"/>
+              <text x="380" y="88" font-family="Public Sans, sans-serif" font-size="13" font-weight="700" fill="#fff">Full-length trench · lawn, tree, driveway removed</text>
+            </g>
+            <!-- ROW 2 -->
+            <g transform="translate(0,184)">
+              <rect x="0" y="62" width="900" height="64" fill="#E7E2D3"/>
+              <rect x="0" y="56" width="900" height="8" fill="#9BBF83"/>
+              <path d="M30 56V22l45-22 45 22v34z" fill="#fff" stroke="#22272C" stroke-width="2"/>
+              <rect x="64" y="34" width="18" height="22" fill="#22272C"/>
+              <rect x="372" y="30" width="6" height="28" fill="#6B5537"/><circle cx="375" cy="22" r="20" fill="#2C6B3F"/>
+              <rect x="760" y="50" width="140" height="10" fill="#3A4148"/>
+              <circle cx="830" cy="106" r="14" fill="#C9C3B1" stroke="#22272C" stroke-width="2"/>
+              <!-- pits -->
+              <path d="M128 56h44l-6 54h-32z" fill="#B87A1C" opacity=".85"/>
+              <path d="M700 56h44l-6 54h-32z" fill="#B87A1C" opacity=".85"/>
+              <line x1="110" y1="96" x2="816" y2="104" stroke="#2C6B3F" stroke-width="7"/>
+              <g font-family="Public Sans, sans-serif" font-size="12" font-weight="700" fill="#1F4C2D">
+                <text x="104" y="48">Access pit 1</text>
+                <text x="676" y="48">Access pit 2</text>
+              </g>
+              <text x="300" y="120" font-family="Public Sans, sans-serif" font-size="13" font-weight="700" fill="#1F4C2D">New pipe placed underground · yard stays intact</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 04 SERVICES ======================= -->
+<section class="section services bg--yard" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Services</span>
+      <h2>Trenchless services we provide</h2>
+      <p class="section-head__lede">Every job starts with a camera inspection. The footage decides which of these fits your pipe.</p>
+    </div>
+    <div class="services__grid">
+      <article class="service-card service-card--lining">
+        <div class="service-card__art" aria-hidden="true">
+          <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"><rect width="320" height="200" fill="#22272C"/><rect x="-10" y="70" width="340" height="60" rx="4" fill="#5E6164"/><path d="M60 70l8 16-6 10M190 130l-6-14 7-9M250 70l-4 12" stroke="#22272C" stroke-width="3" fill="none"/><rect x="-10" y="80" width="230" height="40" rx="20" fill="#2C6B3F"/><rect x="-10" y="80" width="230" height="10" fill="#4F9463" opacity=".6"/><circle cx="220" cy="100" r="20" fill="#3E8653"/><text x="16" y="168" font-family="JetBrains Mono, monospace" font-size="12" fill="#E8A41C" letter-spacing="1">RESIN LINER · PIPE IN PIPE</text></svg>
+        </div>
+        <div class="service-card__body">
+          <h3>Sewer Pipe Lining (CIPP)</h3>
+          <p>A resin liner cures inside your old pipe, creating a seamless, jointless pipe within a pipe.</p>
+          <p class="service-card__best"><strong>Best for:</strong> cracks, leaks, root intrusion, pipes that still hold their shape</p>
+          <a class="link-arrow" href="#">Learn about pipe lining</a>
+        </div>
+      </article>
+      <article class="service-card service-card--burst">
+        <div class="service-card__art" aria-hidden="true">
+          <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"><rect width="320" height="200" fill="#22272C"/><g fill="#6F7275"><path d="M210 70h30l-6 18-28 2z"/><path d="M248 66h34l-4 22-26-4z"/><path d="M212 112l28-2 4 20h-34z"/><path d="M252 114l28 4 2 16h-34z"/><path d="M290 70h40v60h-40z"/></g><rect x="-10" y="82" width="190" height="36" rx="3" fill="#0E0F10"/><rect x="-10" y="86" width="190" height="6" fill="#3A3D40"/><path d="M180 80l40 20-40 20z" fill="#C0C4C8"/><text x="16" y="168" font-family="JetBrains Mono, monospace" font-size="12" fill="#E8A41C" letter-spacing="1">BURST HEAD · NEW HDPE</text></svg>
+        </div>
+        <div class="service-card__body">
+          <h3>Pipe Bursting</h3>
+          <p>A bursting head breaks the old pipe outward while new HDPE pipe is pulled in behind it. A full replacement, not a patch.</p>
+          <p class="service-card__best"><strong>Best for:</strong> collapsed, Orangeburg or clay lines, or upsizing</p>
+          <a class="link-arrow" href="#">Learn about pipe bursting</a>
+        </div>
+      </article>
+      <article class="service-card service-card--water">
+        <div class="service-card__art" aria-hidden="true">
+          <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"><rect width="320" height="200" fill="#22272C"/><rect y="56" width="320" height="6" fill="#4F9463"/><rect y="62" width="320" height="138" fill="#2B2F33"/><path d="M40 62v40c0 6 4 10 10 10h270" stroke="#2A4E9B" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M40 62v40c0 6 4 10 10 10h270" stroke="#7FA2E8" stroke-width="3" fill="none" stroke-dasharray="10 14"/><rect x="26" y="30" width="28" height="26" rx="3" fill="#C0C4C8"/><text x="16" y="168" font-family="JetBrains Mono, monospace" font-size="12" fill="#E8A41C" letter-spacing="1">CTS POLY · PRESSURE TESTED</text></svg>
+        </div>
+        <div class="service-card__body">
+          <h3>Water Line Replacement</h3>
+          <p>We pull a new CTS poly water line underground, reconnect it and pressure test it, with minimal digging.</p>
+          <p class="service-card__best"><strong>Best for:</strong> old galvanized lines, leaks, low pressure</p>
+          <a class="link-arrow" href="#">Learn about water lines</a>
+        </div>
+      </article>
+      <article class="service-card service-card--camera">
+        <div class="service-card__art feed" aria-hidden="true" style="border-radius:0">
+          <div class="feed__hud feed__hud--top"><span class="feed__rec">LIVE</span><span>6" CAST IRON</span></div>
+          <div class="feed__hud"><span>DIST</span><span class="feed__ft">062.4 FT</span></div>
+        </div>
+        <div class="service-card__body">
+          <h3>Sewer Camera Inspection</h3>
+          <p>See inside your line before you spend a dollar on repairs. Useful for home buyers too. <span class="tbc">Confirm offered</span></p>
+          <p class="service-card__best"><strong>Best for:</strong> diagnosing problems, pre-purchase inspections</p>
+          <a class="link-arrow" href="#">Learn about inspections</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 05 COMPARISON ======================= -->
+<section class="section compare bg--base" id="compare">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Trenchless vs. traditional</span>
+      <h2>Trenchless vs. dig-and-replace: what's the real difference?</h2>
+      <p class="section-head__lede">The repair price is only part of the cost. With a traditional dig you also pay to restore what came out of the ground.</p>
+    </div>
+    <div class="compare__table-wrap">
+      <table class="compare__table">
+        <thead><tr><th scope="col">Factor</th><th scope="col">Trenchless (PNW Trenchless)</th><th scope="col">Traditional excavation</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Digging</th><td>1–2 small access points</td><td>Trench the full length of the pipe</td></tr>
+          <tr><th scope="row">Lawn, driveway, trees</th><td>Left intact in most cases</td><td>Removed, then rebuilt</td></tr>
+          <tr><th scope="row">Typical timeline</th><td><span class="tbc">X</span> day(s)</td><td><span class="tbc">X</span> days to weeks</td></tr>
+          <tr><th scope="row">Restoration costs</th><td>Minimal</td><td>Landscaping, concrete and paving extra</td></tr>
+          <tr><th scope="row">Finished pipe</th><td>Seamless, root-resistant, <span class="tbc">X</span>-yr design life</td><td>New pipe, with joints</td></tr>
+          <tr><th scope="row">Disruption to your home</th><td>Water off for hours, not days</td><td>Yard torn up for the duration</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="compare__note">
+      <svg><use href="#i-alert"/></svg>
+      <p><strong>Trenchless isn't right for every pipe.</strong> If a section has a belly (sag) or is out of grade, digging that spot may be the better fix, and we'll tell you so.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 06 DECISION GUIDE ======================= -->
+<section class="section decide bg--yard">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Which repair do I need?</span>
+      <h2>Lining or bursting? The camera decides</h2>
+    </div>
+    <div class="decide__grid">
+      <article class="decide-card decide-card--lining">
+        <span class="decide-card__if">If the camera shows</span>
+        <h3>The pipe still holds its shape</h3>
+        <p>Cracks, joint gaps and roots, but the pipe is structurally intact.</p>
+        <div class="decide-card__result"><span>Usually</span><span class="decide-card__pill">Pipe lining</span></div>
+      </article>
+      <article class="decide-card decide-card--burst">
+        <span class="decide-card__if">If the camera shows</span>
+        <h3>It's collapsed or deformed</h3>
+        <p>Orangeburg, crushed clay, or you need a bigger diameter.</p>
+        <div class="decide-card__result"><span>Usually</span><span class="decide-card__pill">Pipe bursting</span></div>
+      </article>
+      <article class="decide-card decide-card--water">
+        <span class="decide-card__if">If the problem is</span>
+        <h3>Your water service</h3>
+        <p>Rusty galvanized pipe, repeated leaks, weak pressure.</p>
+        <div class="decide-card__result"><span>Usually</span><span class="decide-card__pill">Water line pull</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 07 PROCESS ======================= -->
+<section class="section process bg--white border-block" id="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our process</span>
+      <h2>How a trenchless repair works, start to finish</h2>
+    </div>
+    <ol class="process__list">
+      <li class="process-step"><h3>Camera inspection</h3><p>We run a camera through the line and locate the problem.</p></li>
+      <li class="process-step"><h3>You see the footage</h3><p>Mike walks you through what's wrong and your options.</p></li>
+      <li class="process-step"><h3>Written quote</h3><p>Clear scope and price. No pressure.</p></li>
+      <li class="process-step"><h3>Trenchless repair</h3><p>Small access points, repair done, area restored.</p></li>
+      <li class="process-step"><h3>Final camera proof</h3><p>A post-repair video for your records and warranty.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= 08 MEET MIKE ======================= -->
+<section class="section mike bg--yard" id="mike">
+  <div class="container">
+    <div class="mike__grid">
+      <div class="mike__media">
+        <div class="photo-slot photo-slot--portrait"><div><svg><use href="#i-photo"/></svg>Photo: Mike Jeisma in work gear beside the rig</div></div>
+        <div class="photo-slot photo-slot--small"><div><svg><use href="#i-photo"/></svg>Photo: wrapped truck</div></div>
+        <img src="assets/trailer.jpg" alt="PNW Trenchless equipment trailer" width="1600" height="794" loading="lazy" style="object-position: 30% 50%">
+      </div>
+      <div class="mike__content">
+        <span class="eyebrow">Owner-operated</span>
+        <h2>Meet Mike Jeisma, owner &amp; lead technician</h2>
+        <p>Mike has spent 14+ years in sewer and water line work across the Spokane area, the last decade-plus focused on trenchless lining and bursting. In <span class="tbc">2025</span> he started PNW Trenchless to do it his way: show customers the footage, give them a straight answer, and do the work himself.</p>
+        <blockquote class="quote"><span class="tbc">A short quote from Mike, in his own words, on why he works this way.</span><cite>Mike Jeisma, owner</cite></blockquote>
+        <ul class="creds">
+          <li><svg><use href="#i-check"/></svg>14+ years in trenchless sewer &amp; water line repair</li>
+          <li><svg><use href="#i-check"/></svg><span class="tbc">Manufacturer certifications: liner / bursting system</span></li>
+          <li><svg><use href="#i-shield"/></svg>WA Reg. #PNWTRT*744KQ · Licensed, bonded &amp; insured</li>
+          <li><svg><use href="#i-home"/></svg>Lives and works locally, based in Clayton, WA</li>
+        </ul>
+        <a class="link-arrow" href="#">Read Mike's full story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 09 PROJECTS ======================= -->
+<section class="section projects bg--white border-block">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="eyebrow">Recent projects</span>
+        <h2>Real jobs, real camera footage</h2>
+      </div>
+      <a class="link-arrow" href="#">See all projects</a>
+    </div>
+    <div class="projects__grid">
+      <article class="project-card">
+        <div class="project-card__feeds">
+          <div class="feed" role="img" aria-label="Before camera still"><div class="feed__hud feed__hud--top"><span>BEFORE</span></div><div class="feed__label">Before still</div><div class="feed__hud"><span class="feed__ft">038.2 FT</span></div></div>
+          <div class="feed feed--after" role="img" aria-label="After camera still"><div class="feed__hud feed__hud--top"><span>AFTER</span></div><div class="feed__label">After still</div><div class="feed__hud"><span class="feed__ft">038.2 FT</span></div></div>
+        </div>
+        <div class="project-card__body">
+          <span class="project-card__loc"><span class="tbc">Neighborhood</span>, Spokane</span>
+          <dl class="spec">
+            <dt>Problem</dt><dd><span class="tbc">Roots in clay joints</span></dd>
+            <dt>Method</dt><dd><span class="tbc">CIPP lining, 62 ft</span></dd>
+            <dt>Done in</dt><dd><span class="tbc">1 day</span></dd>
+          </dl>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-card__feeds">
+          <div class="feed" role="img" aria-label="Before camera still"><div class="feed__hud feed__hud--top"><span>BEFORE</span></div><div class="feed__label">Before still</div><div class="feed__hud"><span class="feed__ft">021.7 FT</span></div></div>
+          <div class="feed feed--after" role="img" aria-label="After camera still"><div class="feed__hud feed__hud--top"><span>AFTER</span></div><div class="feed__label">After still</div><div class="feed__hud"><span class="feed__ft">021.7 FT</span></div></div>
+        </div>
+        <div class="project-card__body">
+          <span class="project-card__loc"><span class="tbc">City</span>, Spokane Valley</span>
+          <dl class="spec">
+            <dt>Problem</dt><dd><span class="tbc">Collapsed Orangeburg</span></dd>
+            <dt>Method</dt><dd><span class="tbc">Pipe bursting, 4" HDPE</span></dd>
+            <dt>Done in</dt><dd><span class="tbc">X days</span></dd>
+          </dl>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-card__feeds">
+          <div class="feed" role="img" aria-label="Before photo"><div class="feed__hud feed__hud--top"><span>BEFORE</span></div><div class="feed__label">Before photo</div><div class="feed__hud"><span class="feed__ft">GALV</span></div></div>
+          <div class="feed feed--water" role="img" aria-label="After photo"><div class="feed__hud feed__hud--top"><span>AFTER</span></div><div class="feed__label">After photo</div><div class="feed__hud"><span class="feed__ft">CTS POLY</span></div></div>
+        </div>
+        <div class="project-card__body">
+          <span class="project-card__loc"><span class="tbc">City</span>, Deer Park</span>
+          <dl class="spec">
+            <dt>Problem</dt><dd><span class="tbc">Leaking galvanized water line</span></dd>
+            <dt>Method</dt><dd><span class="tbc">Water line pull, CTS poly</span></dd>
+            <dt>Done in</dt><dd><span class="tbc">X day</span></dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 10 REVIEWS + 11 WARRANTY/FINANCING ======================= -->
+<section class="section reviews bg--yard" id="reviews">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="eyebrow">Reviews</span>
+        <h2>What Spokane homeowners say</h2>
+      </div>
+      <div class="reviews__summary"><b class="tbc">X.X</b><span class="stars" aria-label="5 stars">★★★★★</span><span><span class="tbc">N</span> Google reviews</span></div>
+    </div>
+    <div class="reviews__grid">
+      <figure class="review-card"><span class="stars" aria-label="5 stars">★★★★★</span><blockquote><span class="tbc">Real Google review text, ideally mentioning the method and the yard staying intact.</span></blockquote><figcaption><span class="review-card__avatar">A</span><span><strong class="tbc">Name</strong><small><span class="tbc">City</span> · Google</small></span></figcaption></figure>
+      <figure class="review-card"><span class="stars" aria-label="5 stars">★★★★★</span><blockquote><span class="tbc">Real Google review text.</span></blockquote><figcaption><span class="review-card__avatar">B</span><span><strong class="tbc">Name</strong><small><span class="tbc">City</span> · Google</small></span></figcaption></figure>
+      <figure class="review-card"><span class="stars" aria-label="5 stars">★★★★★</span><blockquote><span class="tbc">Real Google review text.</span></blockquote><figcaption><span class="review-card__avatar">C</span><span><strong class="tbc">Name</strong><small><span class="tbc">City</span> · Google</small></span></figcaption></figure>
+    </div>
+    <div class="assure__grid">
+      <div class="assure-card warranty">
+        <svg><use href="#i-shield"/></svg>
+        <span class="eyebrow">Warranty</span>
+        <h3><span class="tbc">X</span>-year warranty on every repair</h3>
+        <p><span class="tbc">What's covered: materials and workmanship, transferable if you sell?</span></p>
+      </div>
+      <div class="assure-card financing">
+        <svg><use href="#i-card"/></svg>
+        <span class="eyebrow">Financing</span>
+        <h3>Sewer emergencies don't wait for payday</h3>
+        <p><span class="tbc">Financing partner, terms and apply link (if offered).</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 12 AREAS ======================= -->
+<section class="section areas bg--white border-block" id="areas">
+  <div class="container">
+    <div class="areas__grid">
+      <div class="areas__content">
+        <span class="eyebrow">Local expertise</span>
+        <h2>Sewer lines in the Inland Northwest</h2>
+        <p>Many older Spokane-area homes still run on clay, cast iron or Orangeburg sewer lines and galvanized water service. Add mature pines and maples, and root intrusion is one of the most common problems we see. <span class="tbc">Mike to add 2–3 sentences from his own experience: neighborhoods, soil, depth.</span></p>
+        <div class="pipe-types" aria-label="Pipe materials common in the area"><span>Clay</span><span>Cast iron</span><span>Orangeburg</span><span>Galvanized</span></div>
+        <div class="areas__links">
+          <a href="#">Spokane</a>
+          <a href="#">Spokane Valley</a>
+          <a href="#">Deer Park</a>
+          <a href="#">Clayton</a>
+          <a href="#">Stevens County</a>
+          <a href="#">All areas</a>
+        </div>
+      </div>
+      <figure class="map">
+        <svg viewBox="0 0 600 500" role="img" aria-label="Service area map from Clayton south to Spokane and Spokane Valley">
+          <rect width="600" height="500" fill="#EEF0E9"/>
+          <!-- terrain texture -->
+          <g fill="none" stroke="#DCE0D5" stroke-width="1.2">
+            <path d="M0 60c80-20 160 30 260 0s200-30 340 10"/><path d="M0 230c90-30 170 20 260-5s210-20 340 15"/><path d="M0 300c120 20 200-30 300-10s180 30 300 0"/>
+          </g>
+          <!-- county line -->
+          <path d="M0 150 L260 150 L300 136 L420 136 L420 0" fill="none" stroke="#8B918A" stroke-width="1.5" stroke-dasharray="6 6"/>
+          <text x="20" y="110" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.5" fill="#5B615C">STEVENS CO.</text>
+          <text x="20" y="178" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.5" fill="#5B615C">SPOKANE CO.</text>
+          <!-- service radius -->
+          <ellipse cx="380" cy="280" rx="230" ry="200" fill="#2C6B3F" fill-opacity=".08" stroke="#2C6B3F" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round"/>
+          <!-- highways -->
+          <path d="M383 409 L360 290 L349 163 L330 0" fill="none" stroke="#C9CCC3" stroke-width="7" stroke-linecap="round"/>
+          <path d="M0 412 L383 409 L507 398 L600 392" fill="none" stroke="#C9CCC3" stroke-width="9" stroke-linecap="round"/>
+          <g font-family="JetBrains Mono, monospace" font-size="10" fill="#6E746D"><rect x="330" y="252" width="34" height="16" rx="3" fill="#fff" stroke="#C9CCC3"/><text x="336" y="264">395</text><rect x="196" y="402" width="30" height="16" rx="3" fill="#2A4E9B"/><text x="203" y="414" fill="#fff">I-90</text></g>
+          <!-- river -->
+          <path d="M120 470 C220 440 300 400 383 420 S520 380 600 360" fill="none" stroke="#7FA2E8" stroke-width="3" opacity=".7"/>
+          <!-- pins -->
+          <g font-family="Public Sans, sans-serif" font-weight="700" font-size="15" fill="#1B1F1C">
+            <g><circle cx="293" cy="128" r="11" fill="#2C6B3F" stroke="#fff" stroke-width="3"/><circle cx="293" cy="128" r="22" fill="none" stroke="#2C6B3F" stroke-width="2" opacity=".4"/><text x="200" y="116">Clayton</text><text x="190" y="98" font-size="10" font-family="JetBrains Mono, monospace" fill="#2C6B3F" letter-spacing="1">HOME BASE</text></g>
+            <g><circle cx="349" cy="163" r="8" fill="#22272C" stroke="#fff" stroke-width="3"/><text x="362" y="168">Deer Park</text></g>
+            <g><circle cx="383" cy="409" r="10" fill="#22272C" stroke="#fff" stroke-width="3"/><text x="338" y="444">Spokane</text></g>
+            <g><circle cx="507" cy="398" r="8" fill="#22272C" stroke="#fff" stroke-width="3"/><text x="440" y="376">Spokane Valley</text></g>
+          </g>
+          <!-- scale + north -->
+          <g font-family="JetBrains Mono, monospace" font-size="10" fill="#5B615C">
+            <path d="M24 470h143" stroke="#22272C" stroke-width="3"/><path d="M24 464v12M95 466v8M167 464v12" stroke="#22272C" stroke-width="2"/>
+            <text x="24" y="458">0</text><text x="150" y="458">10 MI</text>
+            <path d="M566 30l10 26-10-6-10 6z" fill="#22272C"/><text x="562" y="72">N</text>
+          </g>
+        </svg>
+        <figcaption>Approximate service area. In Bricks, swap for a static SVG or a lightweight Leaflet map.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 13 FAQ ======================= -->
+<section class="section faq bg--yard">
+  <div class="container">
+    <div class="faq__grid">
+      <div class="faq__aside">
+        <span class="eyebrow">FAQ</span>
+        <h2>Trenchless repair questions, answered</h2>
+        <p>Don't see your question? Call or text Mike and he'll give you a straight answer.</p>
+        <a class="btn btn--outline" href="tel:5099532036"><svg><use href="#i-phone"/></svg>509-953-2036</a>
+      </div>
+      <div class="faq__list">
+        <details class="faq__item" open>
+          <summary>How much does trenchless sewer repair cost in Spokane?</summary>
+          <div class="faq__answer"><p>It depends on the length of the line, how deep it is, how easy it is to reach, and whether it needs lining or bursting. After a camera inspection you get a written quote with a fixed scope, so there are no surprises.</p><p><span class="tbc">Honest price range from Mike.</span></p><span class="draft-flag">Draft · Mike to confirm</span></div>
+        </details>
+        <details class="faq__item">
+          <summary>Is a lined pipe as strong as a new one?</summary>
+          <div class="faq__answer"><p>A cured-in-place liner forms a seamless, jointless pipe inside the old one. With no joints, roots have nowhere to get in. <span class="tbc">Design life and liner spec.</span></p><span class="draft-flag">Draft · Mike to confirm</span></div>
+        </details>
+        <details class="faq__item">
+          <summary>Will you have to dig at all?</summary>
+          <div class="faq__answer"><p>Usually one or two small access points, not a trench. If the camera shows a sag or a section that's out of grade, digging that one spot may be the better fix, and we'll tell you before we start.</p><span class="draft-flag">Draft · Mike to confirm</span></div>
+        </details>
+        <details class="faq__item">
+          <summary>How long does the job take, and can I use my plumbing?</summary>
+          <div class="faq__answer"><p>Most jobs take <span class="tbc">X</span> day(s). Your water or sewer is off for hours, not days, and we'll tell you exactly when.</p><span class="draft-flag">Draft · Mike to confirm</span></div>
+        </details>
+        <details class="faq__item">
+          <summary>Can you fix a pipe full of tree roots?</summary>
+          <div class="faq__answer"><p>Yes. We clear the roots, then line the pipe so there are no joints for them to grow back through.</p><span class="draft-flag">Draft · Mike to confirm</span></div>
+        </details>
+        <details class="faq__item">
+          <summary>What if my pipe has collapsed?</summary>
+          <div class="faq__answer"><p>Lining needs a pipe that still holds its shape. For a collapsed or crushed line, pipe bursting pulls a brand-new HDPE pipe through the old path.</p><span class="draft-flag">Draft · Mike to confirm</span></div>
+        </details>
+        <details class="faq__item">
+          <summary>Does homeowners insurance cover sewer line repair?</summary>
+          <div class="faq__answer"><p>It depends on your policy and any service-line coverage you carry. We can provide camera footage and a written report for your insurer. <span class="tbc">Mike to add what he typically sees.</span></p><span class="draft-flag">Draft · Mike to confirm</span></div>
+        </details>
+        <details class="faq__item">
+          <summary>Do you handle permits?</summary>
+          <div class="faq__answer"><p><span class="tbc">Yes / which jurisdictions, and how it's billed.</span></p><span class="draft-flag">Draft · Mike to confirm</span></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 14 ESTIMATE ======================= -->
+<section class="section estimate bg--base" id="estimate">
+  <div class="container">
+    <div class="estimate__grid">
+      <div class="estimate__content">
+        <span class="eyebrow">Free camera estimate</span>
+        <h2>Find out what's really going on in your line</h2>
+        <p>Tell us what's happening. Mike will get back to you personally, usually <span class="tbc">same day</span>.</p>
+        <div class="estimate__phone">
+          <small>Call or text</small>
+          <a href="tel:5099532036">509-953-2036</a>
+          <span>Send a photo or video of the problem if you can.</span>
+        </div>
+        <ol class="estimate__steps">
+          <li><b>01</b>You send the details or a photo</li>
+          <li><b>02</b>Mike calls you back and books the camera</li>
+          <li><b>03</b>You see the footage and get a written quote</li>
+        </ol>
+      </div>
+      <form class="form" id="estimateForm" novalidate>
+        <h3 class="form__title">Request your free estimate</h3>
+        <div class="form__row">
+          <label class="form__field" for="f-name">Name<input id="f-name" name="name" type="text" autocomplete="name" required></label>
+          <label class="form__field" for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel" required></label>
+        </div>
+        <label class="form__field" for="f-address">Property address or city<input id="f-address" name="address" type="text" autocomplete="street-address"></label>
+        <label class="form__field" for="f-issue">What's going on?
+          <select id="f-issue" name="issue">
+            <option>Recurring clogs / backups</option>
+            <option>Roots in the line</option>
+            <option>Water line leak / low pressure</option>
+            <option>Home purchase inspection</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label class="form__field" for="f-details">Details (optional)<textarea id="f-details" name="details" rows="3"></textarea></label>
+        <label class="form__upload" for="f-photo"><svg><use href="#i-upload"/></svg><span id="f-photo-label">Add a photo or video (optional)</span><input id="f-photo" name="photo" type="file" accept="image/*,video/*"></label>
+        <button class="btn btn--primary btn--block" type="submit">Request My Free Estimate</button>
+        <p class="form__done" id="formDone" hidden>Design preview: on the live site this sends to GoHighLevel and fires the GA4 / Ads conversion.</p>
+        <p class="form__fine">No obligation. Mike replies personally.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="section footer bg--base-dark">
+  <div class="container" style="gap:0">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="logo" href="#top" aria-label="PNW Trenchless home">
+          <svg class="logo__mark" style="color:#fff"><use href="#i-mountain"/></svg>
+          <span class="logo__word"><span class="logo__pnw">PN<b>W</b></span><span class="logo__sub">TRENCHLESS</span></span>
+        </a>
+        <span>Sewer lining · Pipe bursting · Waterline replacement</span>
+        <span><span class="tbc">Address or service-area business</span>, Clayton, WA</span>
+        <a class="footer__phone" href="tel:5099532036">509-953-2036</a>
+        <a href="mailto:info@pnwtrenchless.com">info@pnwtrenchless.com</a>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <a href="#">Sewer Pipe Lining</a><a href="#">Pipe Bursting</a><a href="#">Water Line Replacement</a><a href="#">Camera Inspection</a>
+      </div>
+      <div class="footer__col">
+        <h4>Service Areas</h4>
+        <a href="#">Spokane</a><a href="#">Spokane Valley</a><a href="#">Deer Park</a><a href="#">Clayton</a><a href="#">Stevens County</a>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#mike">About Mike</a><a href="#">Projects</a><a href="#reviews">Reviews</a><span><span class="tbc">Hours</span></span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 PNW Trenchless · WA Contractor Reg. #PNWTRT*744KQ · Licensed, bonded &amp; insured</span>
+      <span><a href="#">Privacy</a> · <a href="#">Accessibility</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile call bar -->
+<div class="callbar" aria-label="Quick contact">
+  <a class="btn btn--outline" href="sms:5099532036"><svg><use href="#i-chat"/></svg>Call / Text</a>
+  <a class="btn btn--primary" href="#estimate">Free Estimate</a>
+</div>
+
+<script>
+(function () {
+  var header = document.getElementById('header');
+  var toggle = document.getElementById('navToggle');
+  toggle.addEventListener('click', function () {
+    var open = header.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('#nav a').forEach(function (a) {
+    a.addEventListener('click', function () { header.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); });
+  });
+  var photo = document.getElementById('f-photo');
+  photo.addEventListener('change', function () {
+    document.getElementById('f-photo-label').textContent = photo.files.length ? photo.files[0].name : 'Add a photo or video (optional)';
+  });
+  document.getElementById('estimateForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('formDone').hidden = false;
+  });
+})();
+</script>
