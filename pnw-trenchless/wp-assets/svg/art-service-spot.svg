@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet"><rect x="0" y="108" width="600" height="64" rx="6" fill="#4A4F55"/>
+            <rect x="0" y="120" width="600" height="40" fill="#262B31"/>
+            <path d="M120 108l10 20-8 12M470 172l-8-18 10-10M520 108l-6 16" stroke="#0B121B" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M300 108l-12 22 14 10-10 32" stroke="#0B121B" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="236" y="116" width="132" height="48" rx="8" fill="#B07A1E"/>
+            <rect x="236" y="116" width="132" height="48" rx="8" fill="none" stroke="#F0B03A" stroke-width="2"/>
+            <path d="M236 82v-12h132v12" fill="none" stroke="#F0B03A" stroke-width="2"/>
+            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
+              <text x="302" y="56" text-anchor="middle" fill="#F0B03A">ONLY THE DAMAGED SECTION</text>
+              <text x="24" y="214" fill="#A8B3BF">HOST PIPE STAYS</text>
+              <text x="246" y="214" fill="#F0B03A">SPOT LINER</text>
+              <text x="430" y="214" fill="#A8B3BF">HOST PIPE STAYS</text>
+            </g></svg>

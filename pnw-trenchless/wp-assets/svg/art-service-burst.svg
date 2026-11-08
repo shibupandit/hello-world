@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet"><rect x="0" y="112" width="300" height="56" rx="4" fill="#050709"/>
+            <rect x="0" y="118" width="300" height="9" fill="#2B3747"/>
+            <path d="M300 104l84 36-84 36z" fill="#C8CDD2"/>
+            <path d="M300 104l84 36-84 36" fill="none" stroke="#8D96A0" stroke-width="2"/>
+            <g fill="#5E6268"><path d="M398 82l44 6-7 26-40-4z"/><path d="M456 74l46 9-8 28-36-6z"/><path d="M402 170l40-5 7 28-45 4z"/><path d="M462 174l42 6-4 26-40-4z"/><path d="M520 92h60v96h-60z" opacity=".8"/></g>
+            <g stroke="#F0B03A" stroke-width="3" stroke-linecap="round"><path d="M392 104l-12-12M392 176l-12 12"/></g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
+              <text x="20" y="206" fill="#A8B3BF">← NEW HDPE PIPE</text>
+              <text x="296" y="236" fill="#F0B03A">BURSTING HEAD</text>
+              <text x="450" y="58" fill="#A8B3BF">OLD PIPE</text>
+            </g></svg>

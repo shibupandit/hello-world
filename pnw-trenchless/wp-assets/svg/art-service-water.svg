@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet"><rect x="0" y="92" width="600" height="6" fill="#5FAF72"/>
+            <rect x="0" y="98" width="600" height="182" fill="#121B26"/>
+            <path d="M40 92V48l50-30 50 30v44z" fill="#2B3747"/>
+            <rect x="40" y="98" width="100" height="50" fill="#1A2533"/>
+            <path d="M100 148v52c0 10 8 18 18 18H470" stroke="#2B5BB5" stroke-width="18" fill="none" stroke-linecap="round"/>
+            <path d="M100 148v52c0 10 8 18 18 18H470" stroke="#9AB8F2" stroke-width="2.5" fill="none" stroke-dasharray="12 14"/>
+            <rect x="466" y="186" width="48" height="66" rx="7" fill="#2B3747" stroke="#55606C" stroke-width="2"/>
+            <circle cx="540" cy="50" r="28" fill="#0B121B" stroke="#9AB8F2" stroke-width="2.5"/>
+            <path d="M540 50l13-11" stroke="#F0B03A" stroke-width="3" stroke-linecap="round"/>
+            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
+              <text x="372" y="56" fill="#9AB8F2">PSI TEST</text>
+              <text x="190" y="252" fill="#A8B3BF">NEW CTS POLY</text>
+              <text x="464" y="272" fill="#A8B3BF">METER</text>
+            </g></svg>

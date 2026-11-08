@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid meet"><g transform="translate(225 210)">
+              <circle r="168" fill="#3E444B"/>
+              <circle r="150" fill="#262B31"/>
+              <path d="M-118-88l22 26-6 20M104 92l-20-14 4-24M86-112l-14 26" stroke="#0B121B" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <circle r="132" fill="#2F7A4B"/>
+              <circle r="132" fill="none" stroke="#6CC08A" stroke-width="2" opacity=".5"/>
+              <circle r="114" fill="#0B121B"/>
+              <circle r="114" fill="none" stroke="#6CC08A" stroke-width="1.5" stroke-dasharray="3 9" opacity=".7"/>
+              <path d="M-20 0h40M12-8l8 8-8 8" stroke="#F0B03A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="0" y="30" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="2" fill="#F0B03A">FLOW</text>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
+              <circle cx="378" cy="122" r="4" fill="#A8B3BF"/><path d="M378 122 L440 92 H580" stroke="#A8B3BF" stroke-width="1.2" fill="none"/><text x="446" y="84" fill="#A8B3BF">OLD CLAY PIPE</text>
+              <circle cx="352" cy="212" r="4" fill="#6CC08A"/><path d="M352 212 H580" stroke="#6CC08A" stroke-width="1.2"/><text x="446" y="204" fill="#6CC08A">CURED LINER</text>
+              <circle cx="300" cy="300" r="4" fill="#F0B03A"/><path d="M300 300 L360 330 H580" stroke="#F0B03A" stroke-width="1.2" fill="none"/><text x="446" y="322" fill="#F0B03A">NO JOINTS</text>
+            </g></svg>

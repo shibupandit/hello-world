@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330"><defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16263A"/><stop offset="1" stop-color="#0E1621"/></linearGradient>
+            <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A2F25"/><stop offset="1" stop-color="#211B15"/></linearGradient>
+            <pattern id="stones" width="40" height="30" patternUnits="userSpaceOnUse"><circle cx="8" cy="9" r="2" fill="#4A3D30"/><circle cx="28" cy="22" r="1.5" fill="#4A3D30"/><circle cx="33" cy="6" r="1" fill="#55473A"/></pattern>
+          </defs>
+          <rect width="1000" height="140" fill="url(#sky)"/>
+          <rect y="140" width="1000" height="190" fill="url(#soil)"/>
+          <rect y="140" width="1000" height="190" fill="url(#stones)"/>
+          <g><path d="M40 140V78l85-52 85 52v62z" fill="#E8ECEF"/><path d="M28 82l97-60 97 60" fill="none" stroke="#2B3747" stroke-width="10" stroke-linejoin="round"/><rect x="108" y="96" width="32" height="44" fill="#2B3747"/><rect x="160" y="92" width="30" height="24" fill="#9AB8F2" opacity=".7"/><rect x="58" y="92" width="30" height="24" fill="#9AB8F2" opacity=".7"/><rect x="40" y="140" width="170" height="60" fill="#55606C"/></g>
+          <g><rect x="497" y="78" width="10" height="64" fill="#5B4630"/><circle cx="502" cy="64" r="34" fill="#2F7A4B"/><circle cx="480" cy="80" r="20" fill="#2A6C42"/><circle cx="526" cy="78" r="22" fill="#35875A"/><path d="M502 142c-10 20-30 30-50 44M502 142c8 22 28 30 46 40M502 142v40" stroke="#5B4630" stroke-width="3" fill="none" opacity=".7"/></g>
+          <rect x="690" y="134" width="130" height="8" fill="#8D96A0"/>
+          <text x="706" y="126" font-family="JetBrains Mono, monospace" font-size="11" fill="#A8B3BF" letter-spacing="1.5">DRIVEWAY</text>
+          <rect x="860" y="132" width="140" height="10" fill="#3B4552"/>
+          <text x="890" y="124" font-family="JetBrains Mono, monospace" font-size="11" fill="#A8B3BF" letter-spacing="1.5">STREET</text>
+          <circle cx="935" cy="262" r="26" fill="#2B3747" stroke="#55606C" stroke-width="4"/>
+          <text x="896" y="310" font-family="JetBrains Mono, monospace" font-size="10" fill="#A8B3BF" letter-spacing="1.5">CITY MAIN</text>
+          <rect x="210" y="134" width="480" height="8" fill="#5FAF72"/>
+          <rect x="820" y="134" width="40" height="8" fill="#5FAF72"/>
+          <path class="xsec__oldpipe" d="M190 250 L935 262" stroke="#6B6F73" stroke-width="16" stroke-linecap="round" fill="none" stroke-dasharray="60 6"/>
+          <g class="xsec__trench">
+            <path d="M205 134h620l-10 140H215z" fill="#B57A2A"/>
+            <path d="M205 134h620l-10 140H215z" fill="url(#stones)" opacity=".6"/>
+            <path d="M205 134l10 140M825 134l-10 140" stroke="#7A4F12" stroke-width="3"/>
+            <path d="M240 126l20-14 26 10 22-16 30 12 20-10M560 124l24-14 30 12 20-12 26 10M700 122l28-16 30 12" stroke="#B57A2A" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <path d="M190 250 L935 262" stroke="#C8CDD2" stroke-width="16" stroke-linecap="round" fill="none"/>
+            <rect x="410" y="176" width="210" height="34" rx="17" fill="#0E1621" opacity=".85"/>
+            <text x="515" y="198" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="14" font-weight="700" fill="#fff">Full-length trench</text>
+          </g>
+          <g class="xsec__pit"><path d="M232 134h52l-6 128h-40z" fill="#B57A2A"/></g>
+          <g class="xsec__pit"><path d="M856 134h52l-6 110h-40z" fill="#B57A2A"/></g>
+          <path class="xsec__newpipe" d="M190 250 L935 262" stroke="#6CC08A" stroke-width="12" stroke-linecap="round" fill="none"/>
+          <g class="xsec__pitlabel" font-family="Public Sans, sans-serif" font-size="13" font-weight="700" fill="#6CC08A">
+            <text x="226" y="118">Access pit</text><text x="846" y="104">Access pit</text>
+            <rect x="420" y="176" width="200" height="34" rx="17" fill="#2F7A4B"/>
+            <text x="520" y="198" text-anchor="middle" fill="#fff" font-size="14">New pipe, yard intact</text>
+          </g></svg>
