@@ -401,18 +401,16 @@ c("sign__tag", "%root% { font-family: var(--pnw-font-mono); font-size: var(--tex
 # Explainer + cross-section
 # --------------------------------------------------------------------------
 c("explain__text", "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); min-width: 0; }\n%root% > p { color: var(--text-dark-muted); font-size: var(--text-l); }\n%root% strong { color: var(--text-dark); }")
-c("video", "%root% { border-radius: var(--radius-l); aspect-ratio: 16 / 11; box-shadow: var(--box-shadow-l); width: 100%; }")
-c("video__play", """
-%root% { position: absolute; inset: 0; margin: auto; z-index: 4; width: 5.5em; height: 5.5em; border-radius: var(--radius-circle); background: var(--white); color: var(--base); display: grid; place-items: center; transition: transform .3s var(--pnw-ease); font-size: var(--text-m); }
-%root%::before { content: ""; position: absolute; inset: -.75em; border-radius: var(--radius-circle); border: var(--border-size) solid var(--white-trans-40); animation: pnw-pulse 2.4s var(--pnw-ease) infinite; }
-%root%:hover { transform: scale(1.06); }
-%root% svg { width: 1.6em; height: 1.6em; margin-left: .25em; }
-@keyframes pnw-pulse { 0% { transform: scale(.9); opacity: 1; } 100% { transform: scale(1.35); opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { %root%::before { animation: none; } }
+
+c("explain__media", """
+%root% { position: relative; margin: 0; width: 100%; aspect-ratio: 16 / 11; border-radius: var(--radius-l); overflow: hidden; box-shadow: var(--box-shadow-l); background: var(--base); }
+%root% img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; display: block; }
 """)
-c("video__meta", "%root% { color: var(--text-light-muted); font-size: var(--text-xs); text-transform: uppercase; }")
-c("video__title", "%root% { display: block; font-family: var(--heading-font-family); font-size: var(--h4); font-weight: 700; color: var(--white); letter-spacing: -.01em; }")
-c("video__caption", "%root% { display: flex; flex-direction: column; gap: .2em; }")
+c("explain__caption", """
+%root% { position: absolute; left: var(--space-m); right: var(--space-m); bottom: var(--space-m); z-index: 2; display: flex; flex-direction: column; gap: .2em; padding: var(--space-s) var(--space-m); border-radius: var(--radius); background: var(--base-trans-70); -webkit-backdrop-filter: blur(.6em); backdrop-filter: blur(.6em); color: var(--white); border: var(--pnw-border-dark); }
+""")
+c("explain__caption-label", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--primary-light); }")
+c("explain__caption-title", "%root% { font-family: var(--heading-font-family); font-size: var(--h4); font-weight: 700; line-height: 1.25; }")
 c("xsec", """
 %root% { background: var(--base); color: var(--text-light); border-radius: var(--radius-l); overflow: hidden; display: flex; flex-direction: column; min-width: 0; width: 100%; }
 %root% :is(h3) { color: var(--text-light); }

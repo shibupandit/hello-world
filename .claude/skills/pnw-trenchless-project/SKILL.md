@@ -120,7 +120,7 @@ Mobile call bar.
 - **Known differences from the design / open items:**
   - Archivo has no width axis yet, so headings are not stretched wide.
   - Quote form is a styled dummy (no inputs submit). Swap for Fluent Forms later, keep the `form` wrapper class.
-  - Not built (would need a code element, needs explicit user OK): hero footage counter animation, explainer video (placeholder card).
+  - Not built (would need a code element, needs explicit user OK): hero footage counter animation.
   - FAQ schema is off until Mike confirms the draft answers. Service and city links point to `#estimate` / anchors until those pages exist.
   - Repeating content (services, projects, reviews, areas) is static, not CPT + Query Loop yet. ACF Pro is now available for that.
 
@@ -134,6 +134,7 @@ Mobile call bar.
 - Manufacturer certifications
 - Founding year (2025?)
 - Mike's portrait and more job photos; final SVG logo
+- **No video exists for this client** (user, 2026-11-08). Don't design video placeholders; use photos (the client's own first). Stock, if ever needed, must be free-licence, captioned neutrally, marked "replace with PNW job photo", and logged in `pnw-trenchless/IMAGE-CREDITS.md`.
 
 ## Source files (in the git repo)
 

@@ -4071,140 +4071,66 @@
      "name": "block",
      "parent": "s40003",
      "settings": {
-      "_attributes": [
-       {
-        "name": "role",
-        "value": "img"
-       },
-       {
-        "name": "aria-label",
-        "value": "Video placeholder: Mike explains trenchless repair on a job site"
-       }
-      ],
+      "tag": "figure",
       "_cls": [
-       "feed",
-       "video"
+       "explain__media"
       ]
      },
-     "label": "feed"
+     "label": "explain__media"
     },
     {
      "id": "s4000a",
-     "name": "block",
+     "name": "image",
      "parent": "s40009",
      "settings": {
-      "_cls": [
-       "feed__hud",
-       "feed__hud--top"
-      ]
-     },
-     "label": "feed__hud"
+      "image": {
+       "__media": "job-during.jpg",
+       "size": "full"
+      },
+      "altText": "A small access pit dug in a front lawn during a trenchless sewer repair"
+     }
     },
     {
      "id": "s4000b",
-     "name": "text-basic",
-     "parent": "s4000a",
+     "name": "block",
+     "parent": "s40009",
      "settings": {
-      "text": "ON SITE",
-      "tag": "span",
+      "tag": "custom",
+      "customTag": "figcaption",
       "_cls": [
-       "feed__rec"
+       "explain__caption"
       ]
      },
-     "label": "feed__rec"
+     "label": "explain__caption"
     },
     {
      "id": "s4000c",
      "name": "text-basic",
-     "parent": "s4000a",
+     "parent": "s4000b",
      "settings": {
-      "text": "1:24",
-      "tag": "span"
-     }
+      "text": "On the job",
+      "tag": "span",
+      "_cls": [
+       "explain__caption-label"
+      ]
+     },
+     "label": "explain__caption-label"
     },
     {
      "id": "s4000d",
-     "name": "block",
-     "parent": "s40009",
+     "name": "text-basic",
+     "parent": "s4000b",
      "settings": {
-      "_attributes": [
-       {
-        "name": "role",
-        "value": "img"
-       },
-       {
-        "name": "aria-label",
-        "value": "Video placeholder"
-       }
-      ],
-      "tag": "custom",
-      "customTag": "span",
+      "text": "One small access pit instead of a trench across the yard",
+      "tag": "span",
       "_cls": [
-       "video__play"
+       "explain__caption-title"
       ]
      },
-     "label": "video__play"
+     "label": "explain__caption-title"
     },
     {
      "id": "s4000e",
-     "name": "svg",
-     "parent": "s4000d",
-     "settings": {
-      "file": {
-       "__media": "icon-play.svg"
-      }
-     }
-    },
-    {
-     "id": "s4000f",
-     "name": "block",
-     "parent": "s40009",
-     "settings": {
-      "_cls": [
-       "feed__label"
-      ]
-     },
-     "label": "feed__label"
-    },
-    {
-     "id": "s40010",
-     "name": "block",
-     "parent": "s4000f",
-     "settings": {
-      "_cls": [
-       "video__caption"
-      ]
-     },
-     "label": "video__caption"
-    },
-    {
-     "id": "s40011",
-     "name": "text-basic",
-     "parent": "s40010",
-     "settings": {
-      "text": "Video · 60–90s",
-      "tag": "span",
-      "_cls": [
-       "video__meta"
-      ]
-     },
-     "label": "video__meta"
-    },
-    {
-     "id": "s40012",
-     "name": "text-basic",
-     "parent": "s40010",
-     "settings": {
-      "text": "Mike walks between the two access pits",
-      "tag": "span",
-      "_cls": [
-       "video__title"
-      ]
-     },
-     "label": "video__title"
-    },
-    {
-     "id": "s40013",
      "name": "block",
      "parent": "s40002",
      "settings": {
@@ -4222,9 +4148,9 @@
      "label": "xsec"
     },
     {
-     "id": "s40014",
+     "id": "s4000f",
      "name": "block",
-     "parent": "s40013",
+     "parent": "s4000e",
      "settings": {
       "_cls": [
        "xsec__bar"
@@ -4233,9 +4159,9 @@
      "label": "xsec__bar"
     },
     {
-     "id": "s40015",
+     "id": "s40010",
      "name": "heading",
-     "parent": "s40014",
+     "parent": "s4000f",
      "settings": {
       "text": "See the difference in your yard",
       "tag": "h3",
@@ -4246,9 +4172,9 @@
      "label": "xsec__title"
     },
     {
-     "id": "s40016",
+     "id": "s40011",
      "name": "block",
-     "parent": "s40014",
+     "parent": "s4000f",
      "settings": {
       "_attributes": [
        {
@@ -4267,9 +4193,9 @@
      "label": "xsec__toggle"
     },
     {
-     "id": "s40017",
+     "id": "s40012",
      "name": "div",
-     "parent": "s40016",
+     "parent": "s40011",
      "settings": {
       "_cssId": "xsec-dig",
       "_attributes": [
@@ -4320,18 +4246,18 @@
      "label": "xsec__toggle-btn"
     },
     {
-     "id": "s40018",
+     "id": "s40013",
      "name": "text-basic",
-     "parent": "s40017",
+     "parent": "s40012",
      "settings": {
       "text": "Traditional dig",
       "tag": "span"
      }
     },
     {
-     "id": "s40019",
+     "id": "s40014",
      "name": "div",
-     "parent": "s40016",
+     "parent": "s40011",
      "settings": {
       "_cssId": "xsec-trenchless",
       "_attributes": [
@@ -4382,18 +4308,18 @@
      "label": "xsec__toggle-btn"
     },
     {
-     "id": "s4001a",
+     "id": "s40015",
      "name": "text-basic",
-     "parent": "s40019",
+     "parent": "s40014",
      "settings": {
       "text": "Trenchless",
       "tag": "span"
      }
     },
     {
-     "id": "s4001b",
+     "id": "s40016",
      "name": "block",
-     "parent": "s40013",
+     "parent": "s4000e",
      "settings": {
       "_cls": [
        "xsec__art"
@@ -4402,9 +4328,9 @@
      "label": "xsec__art"
     },
     {
-     "id": "s4001c",
+     "id": "s40017",
      "name": "svg",
-     "parent": "s4001b",
+     "parent": "s40016",
      "settings": {
       "file": {
        "__media": "art-cross-section.svg"
@@ -4422,9 +4348,9 @@
      }
     },
     {
-     "id": "s4001d",
+     "id": "s40018",
      "name": "block",
-     "parent": "s40013",
+     "parent": "s4000e",
      "settings": {
       "_cls": [
        "xsec__facts"
@@ -4433,9 +4359,9 @@
      "label": "xsec__facts"
     },
     {
-     "id": "s4001e",
+     "id": "s40019",
      "name": "block",
-     "parent": "s4001d",
+     "parent": "s40018",
      "settings": {
       "_cls": [
        "xsec__fact"
@@ -4444,9 +4370,9 @@
      "label": "xsec__fact"
     },
     {
-     "id": "s4001f",
+     "id": "s4001a",
      "name": "text-basic",
-     "parent": "s4001e",
+     "parent": "s40019",
      "settings": {
       "text": "Digging",
       "tag": "span",
@@ -4457,9 +4383,9 @@
      "label": "xsec__fact-label"
     },
     {
-     "id": "s40020",
+     "id": "s4001b",
      "name": "text-basic",
-     "parent": "s4001e",
+     "parent": "s40019",
      "settings": {
       "text": "<span data-show=\"dig\">Trench the full length</span><span data-show=\"trenchless\">1–2 small access points</span>",
       "tag": "span",
@@ -4470,9 +4396,9 @@
      "label": "xsec__fact-value"
     },
     {
-     "id": "s40021",
+     "id": "s4001c",
      "name": "block",
-     "parent": "s4001d",
+     "parent": "s40018",
      "settings": {
       "_cls": [
        "xsec__fact"
@@ -4481,9 +4407,9 @@
      "label": "xsec__fact"
     },
     {
-     "id": "s40022",
+     "id": "s4001d",
      "name": "text-basic",
-     "parent": "s40021",
+     "parent": "s4001c",
      "settings": {
       "text": "Lawn, driveway, trees",
       "tag": "span",
@@ -4494,9 +4420,9 @@
      "label": "xsec__fact-label"
     },
     {
-     "id": "s40023",
+     "id": "s4001e",
      "name": "text-basic",
-     "parent": "s40021",
+     "parent": "s4001c",
      "settings": {
       "text": "<span data-show=\"dig\">Removed, then rebuilt</span><span data-show=\"trenchless\">Left intact in most cases</span>",
       "tag": "span",
@@ -4507,9 +4433,9 @@
      "label": "xsec__fact-value"
     },
     {
-     "id": "s40024",
+     "id": "s4001f",
      "name": "block",
-     "parent": "s4001d",
+     "parent": "s40018",
      "settings": {
       "_cls": [
        "xsec__fact"
@@ -4518,9 +4444,9 @@
      "label": "xsec__fact"
     },
     {
-     "id": "s40025",
+     "id": "s40020",
      "name": "text-basic",
-     "parent": "s40024",
+     "parent": "s4001f",
      "settings": {
       "text": "Restoration",
       "tag": "span",
@@ -4531,9 +4457,9 @@
      "label": "xsec__fact-label"
     },
     {
-     "id": "s40026",
+     "id": "s40021",
      "name": "text-basic",
-     "parent": "s40024",
+     "parent": "s4001f",
      "settings": {
       "text": "<span data-show=\"dig\">Landscaping, concrete, paving extra</span><span data-show=\"trenchless\">Minimal</span>",
       "tag": "span",
@@ -4544,9 +4470,9 @@
      "label": "xsec__fact-value"
     },
     {
-     "id": "s40027",
+     "id": "s40022",
      "name": "block",
-     "parent": "s4001d",
+     "parent": "s40018",
      "settings": {
       "_cls": [
        "xsec__fact"
@@ -4555,9 +4481,9 @@
      "label": "xsec__fact"
     },
     {
-     "id": "s40028",
+     "id": "s40023",
      "name": "text-basic",
-     "parent": "s40027",
+     "parent": "s40022",
      "settings": {
       "text": "Disruption",
       "tag": "span",
@@ -4568,9 +4494,9 @@
      "label": "xsec__fact-label"
     },
     {
-     "id": "s40029",
+     "id": "s40024",
      "name": "text-basic",
-     "parent": "s40027",
+     "parent": "s40022",
      "settings": {
       "text": "<span data-show=\"dig\">Yard torn up for the duration</span><span data-show=\"trenchless\">Water off for hours, not days</span>",
       "tag": "span",

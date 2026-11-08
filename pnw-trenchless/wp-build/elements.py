@@ -344,11 +344,10 @@ def explain():
              ("Lawn, driveway, trees", "Removed, then rebuilt", "Left intact in most cases"),
              ("Restoration", "Landscaping, concrete, paving extra", "Minimal"),
              ("Disruption", "Yard torn up for the duration", "Water off for hours, not days")]
-    video = block("feed video", [
-        block("feed__hud feed__hud--top", [span("ON SITE", "feed__rec"), span("1:24")]),
-        block("video__play", [svg("icon-play.svg")], tag="span", _attributes=attrs(role="img", aria_label="Video placeholder")),
-        block("feed__label", [block("video__caption", [span("Video · 60–90s", "video__meta"), span("Mike walks between the two access pits", "video__title")])]),
-    ], _attributes=attrs(role="img", aria_label="Video placeholder: Mike explains trenchless repair on a job site"))
+    video = block("explain__media", [
+        img("job-during.jpg", alt="A small access pit dug in a front lawn during a trenchless sewer repair"),
+        block("explain__caption", [span("On the job", "explain__caption-label"), span("One small access pit instead of a trench across the yard", "explain__caption-title")], tag="figcaption"),
+    ], tag="figure")
     xsec = block("xsec", [
         block("xsec__bar", [
             h("h3", "See the difference in your yard", "xsec__title"),

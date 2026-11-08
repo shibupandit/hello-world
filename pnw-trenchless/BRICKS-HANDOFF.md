@@ -73,7 +73,7 @@ Copy each rule set from the `<style>` block in `index.html` into a Bricks global
 | Service ticker `ticker` | Section with 2 rows, each a Div track holding the same group twice (CSS `ticker` animation). Row 1: large service links (icon + name + spec chip such as CIPP / HDPE / CTS POLY / CCTV), every other name outlined. Row 2: moves the opposite way with tagline words and city names | Pauses on hover/focus, edges fade out. In the duplicate group, set `aria-hidden` and `tabindex="-1"` on its links |
 | Stats `stats` | Block of 4 items with large numerals | |
 | Warning signs `signs` | Two columns: sticky intro on the left, list of 6 rows on the right | Rows slide in on hover |
-| Explainer `explain` + `xsec` | Text + video, then the **interactive cross-section** (inline SVG in a Code element) | The Traditional / Trenchless toggle switches the SVG and the 4 fact cells via a `data-mode` attribute (a few lines of JS) |
+| Explainer `explain` + `xsec` | Text + photo card (client job photo; there is no video), then the **interactive cross-section** (inline SVG in a Code element) | The Traditional / Trenchless toggle switches the SVG and the 4 fact cells via a `data-mode` attribute (a few lines of JS) |
 | Services `services` | Light **stone** section (`bg--stone`). `svc-grid` is a 2-column grid of 4 white `svc-card`s, each a dark inset art panel (inline SVG / camera feed) + spec label with colored dot, arrow button, H3 with a green serif accent word, description, "Best for" tag row. Below the grid sits a dark `svc-strip` CTA bar. Build with Div/Block cards, or a Query Loop over a Services CPT | The whole card is clickable (H3 link stretched), and each card sets its own `--card-accent`. 1 column below 860px. No JS. The comparison section that follows switched to `bg--white` so light sections alternate |
 | Who we serve `audience` | White section, 3 `aud-card`s: Homeowners, Commercial properties, Industrial & municipal (icon, text, check list) | Copy based on the live site's "residential, commercial and industrial" positioning |
 | Comparison `compare` | Table (Code element) with the trenchless column raised as a dark card | Scrolls horizontally on mobile |
@@ -100,7 +100,7 @@ Everything wrapped in `.tbc` is highlighted in amber in the design:
 - FAQ answers: drafts are written, and Mike needs to confirm or edit each one
 - Price range wording; permit handling; whether camera inspections are offered as a standalone service
 - Address or service-area setting; hours
-- Photography: Mike and the rig on a live job (hero), Mike's portrait, and a 60–90s explainer video
+- Photography: Mike and the rig on a live job (hero), Mike's portrait. No video: the client has none, so the explainer uses a job photo
 - Final SVG logo
 
 ## 5. Pre-launch checks
