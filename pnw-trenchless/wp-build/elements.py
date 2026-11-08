@@ -13,6 +13,8 @@ SMS = "sms:5099532036"
 MAIL = "mailto:info@pnwtrenchless.com"
 FB = "https://www.facebook.com/profile.php?id=61589495076554"
 PHONE = "509-953-2036"
+NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/#who"), ("How It Works", "/#how"),
+             ("About", "/#mike"), ("Service Areas", "/#areas"), ("Contact", "/#estimate")]
 
 
 def M(f, **extra):
@@ -151,10 +153,21 @@ def header():
     head = block("header", [
         block("header__inner", [
             block("logo", [img("logo.png", alt="PNW Trenchless")], href=link("/", aria="PNW Trenchless home")),
-            N("nav-menu", "nav", menu="10", ariaLabel="Main", mobileMenu="custom", mobileMenuCustomBreakpoint=1200,
-              mobileMenuPosition="right", mobileMenuToggleAriaLabel="Open menu",
-              mobileMenuBackground={"color": {"raw": "var(--base)"}},
-              mobileMenuToggleColor={"raw": "var(--white)"}, mobileMenuToggleColorClose={"raw": "var(--white)"}),
+            N("nav-nested", "nav", [
+                block("nav__items", [
+                    N("toggle", "nav__close", animation="squeeze", ariaLabel="Close menu", _cssId="nav-close",
+                      _hidden={"_cssClasses": "brx-toggle-div"}, label="Toggle (Close: Mobile)"),
+                ] + [a(t, u, "nav__link") for t, u in NAV_LINKS] + [
+                    block("nav__extras", [
+                        block("nav__phone", [
+                            block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),
+                            block("header__phone-text", [span("Call or text", "header__phone-label"), span(PHONE, "header__phone-num")], tag="span"),
+                        ], href=link(TEL, aria=f"Call or text {PHONE}")),
+                        btn("Get a Quote", "/#estimate", "btn--primary nav__quote", icon="icon-arrow.svg"),
+                    ], tag="li"),
+                ], tag="ul", _hidden={"_cssClasses": "brx-nav-nested-items"}, label="Nav items"),
+                N("toggle", "nav__open", animation="squeeze", ariaLabel="Open menu", label="Toggle (Open: Mobile)"),
+            ], ariaLabel="Main", mobileMenu="custom", mobileMenuCustomBreakpoint=1200),
             block("header__cta", [
                 block("header__phone", [
                     block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),

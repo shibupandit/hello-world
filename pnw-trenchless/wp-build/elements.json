@@ -189,26 +189,12 @@
   },
   {
    "id": "h00010",
-   "name": "nav-menu",
+   "name": "nav-nested",
    "parent": "h0000d",
    "settings": {
-    "menu": "10",
     "ariaLabel": "Main",
     "mobileMenu": "custom",
     "mobileMenuCustomBreakpoint": 1200,
-    "mobileMenuPosition": "right",
-    "mobileMenuToggleAriaLabel": "Open menu",
-    "mobileMenuBackground": {
-     "color": {
-      "raw": "var(--base)"
-     }
-    },
-    "mobileMenuToggleColor": {
-     "raw": "var(--white)"
-    },
-    "mobileMenuToggleColorClose": {
-     "raw": "var(--white)"
-    },
     "_cls": [
      "nav"
     ]
@@ -217,6 +203,262 @@
   },
   {
    "id": "h00011",
+   "name": "block",
+   "parent": "h00010",
+   "settings": {
+    "_hidden": {
+     "_cssClasses": "brx-nav-nested-items"
+    },
+    "tag": "ul",
+    "_cls": [
+     "nav__items"
+    ]
+   },
+   "label": "Nav items"
+  },
+  {
+   "id": "h00012",
+   "name": "toggle",
+   "parent": "h00011",
+   "settings": {
+    "animation": "squeeze",
+    "ariaLabel": "Close menu",
+    "_cssId": "nav-close",
+    "_hidden": {
+     "_cssClasses": "brx-toggle-div"
+    },
+    "_cls": [
+     "nav__close"
+    ]
+   },
+   "label": "Toggle (Close: Mobile)"
+  },
+  {
+   "id": "h00013",
+   "name": "text-link",
+   "parent": "h00011",
+   "settings": {
+    "text": "Services",
+    "link": {
+     "type": "external",
+     "url": "/#services"
+    },
+    "_cls": [
+     "nav__link"
+    ]
+   },
+   "label": "nav__link"
+  },
+  {
+   "id": "h00014",
+   "name": "text-link",
+   "parent": "h00011",
+   "settings": {
+    "text": "Who We Serve",
+    "link": {
+     "type": "external",
+     "url": "/#who"
+    },
+    "_cls": [
+     "nav__link"
+    ]
+   },
+   "label": "nav__link"
+  },
+  {
+   "id": "h00015",
+   "name": "text-link",
+   "parent": "h00011",
+   "settings": {
+    "text": "How It Works",
+    "link": {
+     "type": "external",
+     "url": "/#how"
+    },
+    "_cls": [
+     "nav__link"
+    ]
+   },
+   "label": "nav__link"
+  },
+  {
+   "id": "h00016",
+   "name": "text-link",
+   "parent": "h00011",
+   "settings": {
+    "text": "About",
+    "link": {
+     "type": "external",
+     "url": "/#mike"
+    },
+    "_cls": [
+     "nav__link"
+    ]
+   },
+   "label": "nav__link"
+  },
+  {
+   "id": "h00017",
+   "name": "text-link",
+   "parent": "h00011",
+   "settings": {
+    "text": "Service Areas",
+    "link": {
+     "type": "external",
+     "url": "/#areas"
+    },
+    "_cls": [
+     "nav__link"
+    ]
+   },
+   "label": "nav__link"
+  },
+  {
+   "id": "h00018",
+   "name": "text-link",
+   "parent": "h00011",
+   "settings": {
+    "text": "Contact",
+    "link": {
+     "type": "external",
+     "url": "/#estimate"
+    },
+    "_cls": [
+     "nav__link"
+    ]
+   },
+   "label": "nav__link"
+  },
+  {
+   "id": "h00019",
+   "name": "block",
+   "parent": "h00011",
+   "settings": {
+    "tag": "li",
+    "_cls": [
+     "nav__extras"
+    ]
+   },
+   "label": "nav__extras"
+  },
+  {
+   "id": "h0001a",
+   "name": "block",
+   "parent": "h00019",
+   "settings": {
+    "tag": "a",
+    "link": {
+     "type": "external",
+     "url": "tel:5099532036",
+     "ariaLabel": "Call or text 509-953-2036"
+    },
+    "_cls": [
+     "nav__phone"
+    ]
+   },
+   "label": "nav__phone"
+  },
+  {
+   "id": "h0001b",
+   "name": "block",
+   "parent": "h0001a",
+   "settings": {
+    "tag": "custom",
+    "customTag": "span",
+    "_cls": [
+     "header__phone-ico"
+    ]
+   },
+   "label": "header__phone-ico"
+  },
+  {
+   "id": "h0001c",
+   "name": "svg",
+   "parent": "h0001b",
+   "settings": {
+    "file": {
+     "__media": "icon-phone.svg"
+    }
+   }
+  },
+  {
+   "id": "h0001d",
+   "name": "block",
+   "parent": "h0001a",
+   "settings": {
+    "tag": "custom",
+    "customTag": "span",
+    "_cls": [
+     "header__phone-text"
+    ]
+   },
+   "label": "header__phone-text"
+  },
+  {
+   "id": "h0001e",
+   "name": "text-basic",
+   "parent": "h0001d",
+   "settings": {
+    "text": "Call or text",
+    "tag": "span",
+    "_cls": [
+     "header__phone-label"
+    ]
+   },
+   "label": "header__phone-label"
+  },
+  {
+   "id": "h0001f",
+   "name": "text-basic",
+   "parent": "h0001d",
+   "settings": {
+    "text": "509-953-2036",
+    "tag": "span",
+    "_cls": [
+     "header__phone-num"
+    ]
+   },
+   "label": "header__phone-num"
+  },
+  {
+   "id": "h00020",
+   "name": "button",
+   "parent": "h00019",
+   "settings": {
+    "text": "Get a Quote",
+    "link": {
+     "type": "external",
+     "url": "/#estimate"
+    },
+    "icon": {
+     "library": "svg",
+     "svg": {
+      "__media": "icon-arrow.svg"
+     }
+    },
+    "iconPosition": "right",
+    "_cls": [
+     "btn--primary",
+     "nav__quote"
+    ]
+   },
+   "label": "btn--primary"
+  },
+  {
+   "id": "h00021",
+   "name": "toggle",
+   "parent": "h00010",
+   "settings": {
+    "animation": "squeeze",
+    "ariaLabel": "Open menu",
+    "_cls": [
+     "nav__open"
+    ]
+   },
+   "label": "Toggle (Open: Mobile)"
+  },
+  {
+   "id": "h00022",
    "name": "block",
    "parent": "h0000d",
    "settings": {
@@ -227,9 +469,9 @@
    "label": "header__cta"
   },
   {
-   "id": "h00012",
+   "id": "h00023",
    "name": "block",
-   "parent": "h00011",
+   "parent": "h00022",
    "settings": {
     "tag": "a",
     "link": {
@@ -244,9 +486,9 @@
    "label": "header__phone"
   },
   {
-   "id": "h00013",
+   "id": "h00024",
    "name": "block",
-   "parent": "h00012",
+   "parent": "h00023",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -257,9 +499,9 @@
    "label": "header__phone-ico"
   },
   {
-   "id": "h00014",
+   "id": "h00025",
    "name": "svg",
-   "parent": "h00013",
+   "parent": "h00024",
    "settings": {
     "file": {
      "__media": "icon-phone.svg"
@@ -267,9 +509,9 @@
    }
   },
   {
-   "id": "h00015",
+   "id": "h00026",
    "name": "block",
-   "parent": "h00012",
+   "parent": "h00023",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -280,9 +522,9 @@
    "label": "header__phone-text"
   },
   {
-   "id": "h00016",
+   "id": "h00027",
    "name": "text-basic",
-   "parent": "h00015",
+   "parent": "h00026",
    "settings": {
     "text": "Call or text",
     "tag": "span",
@@ -293,9 +535,9 @@
    "label": "header__phone-label"
   },
   {
-   "id": "h00017",
+   "id": "h00028",
    "name": "text-basic",
-   "parent": "h00015",
+   "parent": "h00026",
    "settings": {
     "text": "509-953-2036",
     "tag": "span",
@@ -306,9 +548,9 @@
    "label": "header__phone-num"
   },
   {
-   "id": "h00018",
+   "id": "h00029",
    "name": "button",
-   "parent": "h00011",
+   "parent": "h00022",
    "settings": {
     "text": "Get a Quote",
     "link": {

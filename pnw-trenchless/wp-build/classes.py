@@ -177,16 +177,60 @@ c("logo", """
 c("logo--footer", "%root% img { height: 4.25em; }")
 c("nav", f"""
 %root% {{ margin-inline: auto; }}
-%root% .bricks-nav-menu {{ gap: calc(var(--space-xs) / 2) clamp(var(--space-s), 2vw, var(--space-l)); }}
-%root% .bricks-nav-menu > li > a {{ position: relative; color: var(--text-light-muted); font-weight: 600; font-size: var(--text-s); padding-block: var(--space-xs); white-space: nowrap; transition: color .2s; }}
-%root% .bricks-nav-menu > li > a::after {{ content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: .15em; background: var(--primary-light); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--pnw-ease); }}
-%root% .bricks-nav-menu > li > a:hover {{ color: var(--white); }}
-%root% .bricks-nav-menu > li > a:hover::after {{ transform: scaleX(1); }}
-%root% .bricks-mobile-menu-toggle {{ color: var(--white); width: 2.9em; height: 2.9em; border: var(--pnw-border-dark); border-radius: var(--radius-circle); place-items: center; }}
-%root% .bricks-mobile-menu-toggle span {{ width: 1.2em !important; left: auto; }}
-%root% .bricks-mobile-menu-wrapper {{ background: var(--base); }}
-%root% .bricks-mobile-menu > li > a {{ color: var(--white); font-size: var(--text-l); font-weight: 600; padding: var(--space-s) var(--gutter); border-bottom: var(--pnw-border-dark); display: block; }}
-{NAV} {{ %root% {{ margin-inline: auto 0; order: 3; }} %root% .bricks-mobile-menu-toggle {{ display: grid; }} }}
+{NAV} {{
+  %root% {{ margin-inline: auto 0; order: 3; }}
+  /* backdrop */
+  %root%::before {{ content: ""; position: fixed; inset: 0; z-index: 98; background: var(--base-trans-60); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .4s var(--pnw-ease), visibility 0s linear .4s; }}
+  %root%.brx-open::before {{ opacity: 1; visibility: visible; transition: opacity .4s var(--pnw-ease), visibility 0s; }}
+  %root%.brx-open.brx-closing::before {{ opacity: 0; transition: opacity .2s ease-in; }}
+}}
+""")
+c("nav__items", f"""
+%root% {{ display: flex; flex-direction: row; align-items: center; gap: calc(var(--space-xs) / 2) clamp(var(--space-s), 2vw, var(--space-l)); list-style: none; margin: 0; padding: 0; }}
+{NAV} {{
+  .nav %root% {{
+    display: flex !important; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
+    position: fixed !important; top: 0; right: 0; bottom: 0; left: auto; z-index: 99; width: min(100%, 26em); height: 100dvh; max-height: none;
+    padding: calc(var(--pnw-header-h) + var(--space-s)) var(--gutter) var(--space-l); overflow-y: auto; overscroll-behavior: contain;
+    background: var(--base); border-left: var(--pnw-border-dark); box-shadow: var(--box-shadow-l);
+    visibility: hidden; opacity: 0; transform: translateX(100%);
+    transition: transform .4s var(--pnw-ease), opacity .4s var(--pnw-ease), visibility 0s linear .4s;
+  }}
+  .nav.brx-open %root% {{ visibility: visible; opacity: 1; transform: none; transition: transform .4s var(--pnw-ease), opacity .3s var(--pnw-ease), visibility 0s; }}
+  .nav.brx-open.brx-closing %root% {{ opacity: 0; transform: translateX(30%); transition: transform .2s ease-in, opacity .2s ease-in; }}
+  %root% > li {{ width: 100%; }}
+  .nav.brx-open:not(.brx-closing) %root% > li {{ animation: pnw-nav-in .45s var(--pnw-ease) both; }}
+  {"".join(f".nav.brx-open:not(.brx-closing) %root% > li:nth-child({n}) {{ animation-delay: {0.06 + n * 0.04:.2f}s; }} " for n in range(1, 10))}
+}}
+@keyframes pnw-nav-in {{ from {{ opacity: 0; transform: translateY(.75em); }} to {{ opacity: 1; transform: none; }} }}
+@media (prefers-reduced-motion: reduce) {{ .nav %root%, .nav %root% > li, .nav::before {{ transition: none !important; animation: none !important; }} }}
+""")
+c("nav__link", f"""
+%root% {{ position: relative; display: inline-block; color: var(--text-light-muted); font-weight: 600; font-size: var(--text-s); padding-block: var(--space-xs); white-space: nowrap; text-decoration: none; transition: color .2s; }}
+%root%::after {{ content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: .15em; background: var(--primary-light); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--pnw-ease); }}
+%root%:hover, %root%[aria-current] {{ color: var(--white); }}
+%root%:hover::after, %root%[aria-current]::after {{ transform: scaleX(1); }}
+{NAV} {{
+  %root% {{ display: block; width: 100%; color: var(--text-light); font-family: var(--heading-font-family); font-size: var(--text-xl); font-weight: 800; letter-spacing: -.02em; padding: var(--space-s) 0; border-bottom: var(--pnw-border-dark); }}
+  %root%::after {{ display: none; }}
+  %root%:hover, %root%:focus-visible, %root%[aria-current] {{ color: var(--primary-light); }}
+}}
+""")
+c("nav__extras", f"""
+%root% {{ display: none; }}
+{NAV} {{ %root% {{ display: flex; flex-direction: column; align-items: stretch; gap: var(--space-m); margin-top: auto; padding-top: var(--space-l); }} }}
+""")
+c("nav__phone", "%root% { display: flex; flex-direction: row; align-items: center; gap: .6em; width: auto; color: var(--white); text-decoration: none; }\n%root%:hover .header__phone-num { color: var(--primary-light); }")
+c("nav__quote", "%root% { width: 100%; justify-content: center; }")
+c("nav__open", f"""
+%root% {{ display: none; }}
+{NAV} {{ %root% {{ display: grid; place-items: center; width: 2.9em; height: 2.9em; padding: 0; border: var(--pnw-border-dark); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .62; }} }}
+%root% .brxa-wrap, %root% .brxa-inner {{ color: inherit; }}
+""")
+c("nav__close", f"""
+%root% {{ display: none; }}
+{NAV} {{ %root% {{ display: grid; place-items: center; position: absolute; top: calc((var(--pnw-header-h) - 2.9em) / 2); right: var(--gutter); width: 2.9em; height: 2.9em; padding: 0; border: var(--pnw-border-dark); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .62; }}
+  %root%:hover {{ border-color: var(--primary-light); color: var(--primary-light); }} }}
 """)
 c("header__cta", f"""
 %root% {{ display: flex; flex-direction: row; align-items: center; gap: var(--space-m); flex: none; }}
