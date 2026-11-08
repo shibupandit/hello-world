@@ -188,7 +188,7 @@ def header():
 # --------------------------------------------------------------------------
 def footer():
     def col(title, links):
-        return block("footer__col", [h("h4", title, "footer__heading")] + [a(x, u) for x, u in links])
+        return block("footer__col", [h("h2", title, "footer__heading")] + [a(x, u) for x, u in links])
 
     foot = section("footer section--deep", [
         container([
@@ -207,7 +207,7 @@ def footer():
                 ]),
                 col("Services", [("Sewer Pipe Lining", "/#services"), ("Pipe Bursting", "/#services"), ("Water Line Pulling", "/#services"), ("Point Repairs", "/#services")]),
                 col("Service Areas", [(x, "/#areas") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
-                block("footer__col", [h("h4", "Company", "footer__heading"), a("About", "/#mike"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/#estimate"), span('<span class="tbc">Hours</span>')]),
+                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/#mike"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/#estimate"), span('<span class="tbc">Hours</span>')]),
             ]),
             t("TRENCHLESS", "footer__word", tag="div", _attributes=attrs(aria_hidden="true")),
             block("footer__bottom", [
@@ -272,7 +272,7 @@ def hero():
                 ]),
             ]),
             block("hero__proof", [block("hero__proof-item", [svg(i), span(x)], tag="li") for i, x in proof], tag="ul"),
-        ], _rowGap="0"),
+        ]),
     ], label="Hero")
 
 
@@ -347,7 +347,7 @@ def explain():
     video = block("feed video", [
         block("feed__hud feed__hud--top", [span("ON SITE", "feed__rec"), span("1:24")]),
         block("video__play", [svg("icon-play.svg")], tag="span", _attributes=attrs(role="img", aria_label="Video placeholder")),
-        block("feed__label", [block("video__caption", [span("Video · 60–90s", "video__meta"), span('<span class="tbc">Mike walks between the two access pits</span>', "video__title")])]),
+        block("feed__label", [block("video__caption", [span("Video · 60–90s", "video__meta"), span("Mike walks between the two access pits", "video__title")])]),
     ], _attributes=attrs(role="img", aria_label="Video placeholder: Mike explains trenchless repair on a job site"))
     xsec = block("xsec", [
         block("xsec__bar", [
@@ -409,7 +409,7 @@ def services():
     return section("section section--tint", [
         container([
             head_split("Services", 'Four ways we fix it, <span class="serif">without the trench.</span>',
-                       t("Every job starts with a CCTV camera inspection. We match the method to your pipe, not the other way around.", "section__intro", _widthMax="36ch")),
+                       t("Every job starts with a CCTV camera inspection. We match the method to your pipe, not the other way around.", "section__intro section__intro--narrow")),
             block("svc-grid", [card(*c) for c in cards], tag="ul"),
             block("svc-strip", [
                 block("svc-strip__text", [svg("icon-film.svg"), span("Every job starts with a CCTV inspection, and you keep the before and after footage.")], tag="span"),
@@ -429,7 +429,7 @@ def audience():
     return section("section section--white", [
         container([
             head_split("Who we work for", 'Homes, businesses <span class="serif">and industrial sites.</span>',
-                       t("Trenchless repair and replacement for residential, commercial and industrial properties, from a home's sewer line to lines under parking lots, roadways and working facilities.", "section__intro", _widthMax="38ch")),
+                       t("Trenchless repair and replacement for residential, commercial and industrial properties, from a home's sewer line to lines under parking lots, roadways and working facilities.", "section__intro section__intro--narrow")),
             block("aud-grid", [
                 block("aud-card", [
                     block("aud-card__ico", [svg(ic)], tag="span"),
@@ -685,7 +685,7 @@ def estimate():
     def chips(legend, options):
         return block("chips", [
             span(legend, "chips__legend"),
-            block("chips__list", [div("chip-option" + (" is-selected" if i == 0 else ""), [span(o)], tag="button",
+            block("chips__list", [div("chip-option" + (" chip-option--selected" if i == 0 else ""), [span(o)], tag="button",
                                       _attributes=attrs(type="button", aria_pressed="true" if i == 0 else "false")) for i, o in enumerate(options)]),
         ], _attributes=attrs(role="group", aria_label=legend))
 
@@ -700,7 +700,7 @@ def estimate():
         div("form__sep"),
         block("form__row", [field("Name"), field("Phone")]),
         block("form__row", [field("Email"), field("Property address or city")]),
-        field("Tell us what's going on (optional)"),
+        block("form__field form__field--area", [span("Tell us what's going on (optional)", "form__field-label"), div("form__field-input", tag="span", _attributes=attrs(role="textbox", aria_label="Tell us what's going on (optional)", aria_multiline="true"))]),
         block("upload", [svg("icon-upload.svg"), span("Add a photo or video of the problem (optional)")]),
         btn("Request My Quote", TEL, "btn--primary form__submit", icon="icon-arrow.svg"),
         t('No obligation. We reply personally, usually <span class="tbc">same day</span>.', "form__fine"),
