@@ -21,19 +21,35 @@ Every value in the CSS is an ACSS-named variable, so the build is mostly enterin
 | Section padding | `--section-space-m` = `clamp(4.5rem, 3rem + 6vw, 9rem)` | Every section |
 | Radius | s 6px · default 12px · l 22px · buttons are pill-shaped | |
 
-Paste these into **ACSS > Custom CSS (`:root`)**. ACSS has no equivalent for them:
+Paste these into **ACSS > Custom CSS (`:root`)**. ACSS has no equivalent for them. Every project variable uses the `--pnw-` prefix. This is what is on the staging site (2026-11-08):
 
 ```css
 :root {
-  --serif-font-family: "Instrument Serif", Georgia, serif;   /* italic accent words */
-  --mono-font-family: "JetBrains Mono", ui-monospace, monospace; /* eyebrows, labels, readouts */
-  --header-h: 80px;
-  --ease: cubic-bezier(.2, .7, .2, 1);
+  --pnw-font-serif: "Instrument Serif", Georgia, "Times New Roman", serif; /* italic accent words */
+  --pnw-font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; /* eyebrows, labels, readouts */
+  --pnw-header-h: 80px;
+  --pnw-ease: cubic-bezier(.2, .7, .2, 1);
+  --pnw-border: 1px solid var(--neutral-light);
+  --pnw-border-dark: 1px solid color-mix(in srgb, var(--white) 10%, transparent);
+  --pnw-shadow-primary: 0 10px 30px -12px color-mix(in srgb, var(--primary) 80%, transparent);
 }
+h1 { font-stretch: 118%; }
+h2 { font-stretch: 112%; }
+h3 { font-stretch: 108%; }
+html { scroll-padding-top: calc(var(--pnw-header-h) + 16px); }
 ```
 
+`index.html` still uses the old names. Rename them when copying rules out of it:
+
+| Old name in `index.html` | Use in Bricks |
+|---|---|
+| `--serif-font-family` | `--pnw-font-serif` |
+| `--mono-font-family` | `--pnw-font-mono` |
+| `--header-h` | `--pnw-header-h` |
+| `--ease` | `--pnw-ease` |
+
 Fonts to load in Bricks > Custom Fonts (or self-host them):
-- Archivo (variable, including the width axis)
+- Archivo (variable, **including the width axis** `wdth` 62–125. The file currently on the staging site is weight-axis only, so `font-stretch` has no effect until it is replaced)
 - Instrument Serif (italic)
 - Public Sans
 - JetBrains Mono

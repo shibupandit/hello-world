@@ -1,6 +1,6 @@
 # Build conventions learned from whitecrowtemplate (read-only study)
 
-Source: a read-only review of the whitecrowtemplate.kinsta.cloud build (the "Hartwell & Crane" law-firm template) on 2026-11-08. I didn't change anything on that site. These are the patterns to repeat when the PNW Trenchless design goes into Bricks. Which WordPress site it goes into is still to be decided.
+Source: a read-only review of the whitecrowtemplate.kinsta.cloud build (the "Hartwell & Crane" law-firm template) on 2026-11-08. I didn't change anything on that site. These are the patterns to repeat when the PNW Trenchless design goes into Bricks. The build site is the staging site `shibunew-com.us.stackstaging.com` (Novamira connector `novamira-shibunew-com-us`).
 
 ## Stack on that build
 
@@ -61,7 +61,7 @@ Source: a read-only review of the whitecrowtemplate.kinsta.cloud build (the "Har
    - `head` → `section__head`; `head__lede` → `section__intro`
    - `btn--ghost` → `btn--outline`
 2. Use ACSS button classes instead of the custom `.btn` rules.
-3. Put PNW-only variables (`--mono-font-family`, `--ease`, shadows) in the theme style's custom CSS with a `--pnw-` prefix rather than in Bricks variables.
+3. Put PNW-only variables in custom CSS with a `--pnw-` prefix rather than in Bricks variables. Done: `--pnw-font-serif`, `--pnw-font-mono`, `--pnw-header-h`, `--pnw-ease`, `--pnw-border`, `--pnw-border-dark`, `--pnw-shadow-primary` (currently in ACSS custom CSS).
 4. Self-host Archivo, Public Sans and JetBrains Mono, because Google Fonts are disabled on that build pattern.
 5. Build services, projects, reviews and service areas as CPTs + Query Loops, and the ticker, reviews and quote CTA as Section templates.
 6. File every PNW asset in HappyFiles folders.

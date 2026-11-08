@@ -76,12 +76,29 @@ Mobile call bar.
 
 ## Hard rules
 
-- **Do not push or publish to any WordPress site until the user names which site to use for PNW.**
+- **The only WordPress site for PNW is the one the user named: Novamira connector `novamira-shibunew-com-us` (https://shibunew-com.us.stackstaging.com, staging).** Don't write to any other site.
 - **Never use the whitecrowtemplate WordPress site/connector for PNW work.** It was studied read-only as a style reference only.
 - Never invent reviews, ratings, warranty terms, prices, timelines or project details. Unknown facts stay as visible placeholders (class `tbc`, amber highlight), and FAQ drafts are marked "Draft · confirm with Mike".
 - Do not use these images from the old site: the AI-generated trailer render, the YouTube-style pipe-bursting thumbnail, or the stock "Pipe-lining.jpg" (rights unclear).
 - Commit and push work to the session's designated git branch. Do not open a pull request unless asked.
 - Build target is **WordPress + Bricks Builder + Automatic.css (ACSS)**. Follow the `bricks-acss-build-conventions` skill when building.
+
+## Build site and progress
+
+- **Site:** Novamira connector `novamira-shibunew-com-us`, https://shibunew-com.us.stackstaging.com (staging). Named by the user on 2026-11-08. whitecrowtemplate stays off-limits.
+- **Starting state (previous session):** Bricks 2.4.2 child theme (licence valid), Automatic.css 3.3.6, Novamira + Novamira Pro. No pages, templates, theme styles or Novamira memories. ACF Pro, Fluent Forms, HappyFiles and Perfmatters were not installed.
+- **Verified 2026-11-08 (read-only):** WordPress 7.1.4, PHP 8.4. Active plugins are now **ACF Pro 6.8.11, Automatic.css 3.3.8, HappyFiles Pro 1.9.1**, Novamira 1.12.15 and Novamira Pro 1.13.3. Still no Bricks templates or theme styles, no Novamira memories. The only page is the default draft "Privacy Policy".
+- **Plugins still missing:** **Fluent Forms (+ Pro)** and **Perfmatters**. The quote form can't be built the conventional way until Fluent Forms is installed. Ask the user before working around it.
+- **ACSS configured (2026-11-08):** settings saved through `Automatic_CSS\Model\Database_Settings::get_instance()->save_settings()` so the CSS regenerated. **Previous settings are backed up in the WP option `pnw_acss_settings_backup_20261108`.**
+  - Colours: primary #2F7A4B, secondary #2B5BB5, accent #F0B03A, base #0E1621, neutral #616B66, every shade from the handoff, medium shade on.
+  - Text colours: text-dark #111A16, text-dark-muted #4B5550, text-light #F3F5F2, text-light-muted #A8B3BF.
+  - Type: Archivo headings, Public Sans body. H1 2.75→6rem, H2 2.1→3.75rem, H3 1.35→1.75rem, H4 1.15rem, body 17px / 1.65.
+  - Spacing: space-m 1→1.5rem, section-space-m 4.5→9rem, gutter 1→3rem, content width 80rem. Radius 12px.
+  - Shadows m and l from the design. Buttons pill-shaped, weight 700. Focus ring amber.
+  - Backgrounds: `bg-ultra-dark` = `var(--base)` (ink), `bg-ultra-light` = `var(--neutral-ultra-light)` (stone).
+- **Project variables (`--pnw-` prefix), in ACSS > Custom CSS (`custom-global-css`):** `--pnw-font-serif`, `--pnw-font-mono`, `--pnw-header-h`, `--pnw-ease`, `--pnw-border`, `--pnw-border-dark`, `--pnw-shadow-primary`, plus `font-stretch` on h1 (118%), h2 (112%), h3 (108%), `scroll-padding-top` and font smoothing. They live in ACSS custom CSS rather than the theme style because no theme style exists yet. These replace the handoff's old `--serif-font-family`, `--mono-font-family`, `--header-h`, `--ease`. Use only the `--pnw-` names.
+- **Fonts:** Archivo, Public Sans, Instrument Serif, JetBrains Mono uploaded by the user through the Bricks font manager (`bricks_fonts` posts 19, 26, 33, 38; all published, woff2). **Archivo is a variable font on the weight axis only (`wght` 100–900, checked with fontTools). It has no `wdth` axis, so the `font-stretch` rules on h1/h2/h3 currently do nothing.** The wide headings need the Archivo file with the width axis (`wdth` 62–125) uploaded in its place. Google Fonts are not yet disabled in Bricks settings.
+- **Planned next steps (ask the user before each starts):** global theme style → shared global classes (section, buttons, form, eyebrow, serif, feed motif) → header and footer templates → Home page section by section, compared against `pnw-trenchless/screenshots/`.
 
 ## Still unknown (ask Mike / the user)
 

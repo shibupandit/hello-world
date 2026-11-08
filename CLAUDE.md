@@ -8,7 +8,7 @@ Before any work, read:
 3. `pnw-trenchless/BRICKS-HANDOFF.md` and `pnw-trenchless/BUILD-CONVENTIONS.md`.
 
 Hard rules (short version):
-- Don't publish to any WordPress site until the user names the site for PNW. Never use the whitecrowtemplate site for PNW.
+- The PNW site is the Novamira connector `novamira-shibunew-com-us` (https://shibunew-com.us.stackstaging.com, staging). Don't write to any other site. Never use the whitecrowtemplate site for PNW.
 - Never invent reviews, ratings, warranties, prices or project facts. Keep unknowns as `tbc` placeholders.
 - The approved design is the **light and dark mix** in `pnw-trenchless/index.html`.
 - Commit to the session's working branch. No pull request unless asked.
