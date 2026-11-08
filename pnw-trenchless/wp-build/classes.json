@@ -416,17 +416,17 @@
  },
  {
   "name": "split--center",
-  "css": "%root% { align-items: center; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }",
+  "css": "%root% { align-items: center; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; } }",
   "category": "PNW"
  },
  {
   "name": "split--areas",
-  "css": "%root% { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }",
+  "css": "%root% { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; } }",
   "category": "PNW"
  },
  {
   "name": "split--mike",
-  "css": "%root% { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }",
+  "css": "%root% { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; } }",
   "category": "PNW"
  },
  {

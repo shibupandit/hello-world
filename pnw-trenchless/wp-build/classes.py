@@ -324,9 +324,9 @@ c("split", f"""
 {T} {{ %root% {{ grid-template-columns: 1fr; gap: var(--space-xl); }} }}
 """)
 c("split--faq", f"%root% {{ grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr); }}\n{T} {{ %root% {{ grid-template-columns: 1fr; gap: var(--space-l); }} }}")
-c("split--center", "%root% { align-items: center; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }")
-c("split--areas", "%root% { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }")
-c("split--mike", "%root% { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }")
+c("split--center", f"%root% {{ align-items: center; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }}\n{T} {{ %root% {{ grid-template-columns: 1fr; }} }}")
+c("split--areas", f"%root% {{ grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }}\n{T} {{ %root% {{ grid-template-columns: 1fr; }} }}")
+c("split--mike", f"%root% {{ grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }}\n{T} {{ %root% {{ grid-template-columns: 1fr; }} }}")
 c("sticky-aside", f"""
 %root% {{ position: sticky; top: calc(var(--pnw-header-h) + var(--space-l)); display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); }}
 %root% > p {{ color: var(--text-dark-muted); font-size: var(--text-l); }}
