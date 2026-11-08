@@ -82,6 +82,13 @@ Mobile call bar.
 - Do not use these images from the old site: the AI-generated trailer render, the YouTube-style pipe-bursting thumbnail, or the stock "Pipe-lining.jpg" (rights unclear).
 - Commit and push work to the session's designated git branch. Do not open a pull request unless asked.
 - Build target is **WordPress + Bricks Builder + Automatic.css (ACSS)**. Follow the `bricks-acss-build-conventions` skill when building.
+- **Use Automatic.css framework variables and classes only** for colour, margin, padding, spacing, gaps, grids and buttons:
+  - **Colour:** only ACSS colour variables (`var(--primary)`, `--primary-dark`, `--base`, `--base-medium`, `--neutral-ultra-light`, `--accent`, `--text-dark`, `--text-light-muted`, the `-trans-*` variants…). No hex, rgb or hsl in Bricks.
+  - **Margin, padding, spacing:** only `var(--space-xs…xxl)`, `var(--section-space-*)`, `var(--gutter)` / `--section-padding-x`, `var(--content-gap)` / `--container-gap`. No px or rem values.
+  - **Gaps:** `var(--grid-gap)`, `var(--content-gap)`, `var(--container-gap)`, `var(--space-*)`.
+  - **Grids:** ACSS grid classes and variables first (`grid--2`, `grid--3`, `grid--auto-*`, breakpoint variants like `grid--m-1`, the `--grid-*` variables), custom grid CSS only if those can't do it.
+  - **Buttons:** only the native Bricks Button element with ACSS `btn--` classes (`btn--primary`, `btn--outline`, `btn--white`, `btn--white-outline` / `btn--primary-outline`, sizes `btn--s/m/l`). No custom `.btn` rules.
+  - Custom values only where ACSS has nothing for the job: the `--pnw-` variables in ACSS custom CSS (fonts, ease, header height, borders, primary shadow), pseudo-elements and the camera-feed motif. Even there, build them from ACSS variables (e.g. `color-mix()`).
 
 ## Build site and progress
 
