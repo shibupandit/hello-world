@@ -403,74 +403,51 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
 @media (max-width: 420px) { .xsec__facts { grid-template-columns: 1fr; } .xsec__fact + .xsec__fact { border-left: 0; border-top: var(--border-dark); } }
 
 /* ==========================================================================
-   SERVICES (index list with hover preview)
+   SERVICES (2-column cards on a light band)
    ========================================================================== */
-.svc-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgb(255 255 255 / .22); counter-reset: none; }
-.svc-row { position: relative; isolation: isolate; border-bottom: 1px solid rgb(255 255 255 / .12); }
-.svc-row::before { /* green fill that wipes in on hover */
-  content: ""; position: absolute; inset: 0; z-index: -1; background: var(--primary);
-  transform: scaleY(0); transform-origin: bottom; transition: transform .55s var(--ease);
+.svc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-l); }
+.svc-card {
+  --card-accent: var(--primary);
+  position: relative; display: flex; flex-direction: column; min-width: 0;
+  background: var(--white); border: var(--border); border-radius: calc(var(--radius-l) + 6px);
+  padding: .6rem; box-shadow: var(--box-shadow-m);
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s;
 }
-.svc-row:hover::before, .svc-row:focus-within::before { transform: scaleY(1); }
-.svc-row__link {
-  display: grid; grid-template-columns: 8.5rem minmax(0, 1.25fr) minmax(0, 1fr) 3.5rem; gap: var(--space-l); align-items: center;
-  padding: clamp(1.5rem, 1rem + 1.6vw, 2.75rem) var(--space-m); color: var(--text-light); text-decoration: none;
+.svc-card:hover { transform: translateY(-6px); box-shadow: var(--box-shadow-l); border-color: color-mix(in srgb, var(--card-accent) 35%, var(--neutral-light)); }
+.svc-card--burst { --card-accent: var(--accent-dark); }
+.svc-card--water { --card-accent: var(--secondary); }
+.svc-card--camera { --card-accent: var(--accent-dark); }
+.svc-card__art {
+  position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-l); overflow: hidden;
+  background: radial-gradient(70% 90% at 30% 50%, color-mix(in srgb, var(--card-accent) 22%, transparent), transparent 70%), var(--base);
 }
-.svc-row__link:focus-visible { outline: none; }
-.svc-row__code { display: flex; flex-direction: column; gap: .35rem; font-family: var(--mono-font-family); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); transition: color .4s; }
-.svc-row__code small { font-weight: 500; color: var(--text-light-muted); letter-spacing: .1em; transition: color .4s; }
-.svc-row__name {
-  font-family: var(--heading-font-family); font-stretch: 125%; font-weight: 900; text-transform: uppercase;
-  font-size: clamp(1.9rem, 1.1rem + 3.2vw, 4.25rem); line-height: .92; letter-spacing: -.045em; margin: 0;
-  transition: transform .55s var(--ease);
-}
-.svc-row__name .serif { text-transform: none; font-weight: 400; letter-spacing: -.01em; color: var(--primary-light); transition: color .4s; }
-.svc-row:hover .svc-row__name { transform: translateX(.5rem); }
-.svc-row__info { display: flex; flex-direction: column; gap: .75rem; min-width: 0; }
-.svc-row__info p { color: var(--text-light-muted); font-size: .98rem; transition: color .4s; }
-.svc-row__best { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0; padding: 0; list-style: none; }
-.svc-row__best li { font-size: .8rem; font-weight: 600; padding: .3rem .65rem; border-radius: var(--radius-circle); border: 1px solid rgb(255 255 255 / .16); color: var(--text-light); transition: border-color .4s, background-color .4s; }
-.svc-row__go { justify-self: end; width: 3.5rem; height: 3.5rem; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgb(255 255 255 / .22); transition: background-color .4s, color .4s, border-color .4s; }
-.svc-row__go svg { width: 1.3rem; height: 1.3rem; transform: rotate(-45deg); transition: transform .5s var(--ease); }
-.svc-row:hover .svc-row__code, .svc-row:focus-within .svc-row__code { color: var(--white); }
-.svc-row:hover .svc-row__code small, .svc-row:hover .svc-row__info p, .svc-row:focus-within .svc-row__info p { color: rgb(255 255 255 / .85); }
-.svc-row:hover .svc-row__name .serif { color: var(--white); }
-.svc-row:hover .svc-row__best li { border-color: rgb(255 255 255 / .35); background: rgb(255 255 255 / .1); }
-.svc-row:hover .svc-row__go, .svc-row:focus-within .svc-row__go { background: var(--white); color: var(--primary-dark); border-color: var(--white); }
-.svc-row:hover .svc-row__go svg { transform: rotate(0); }
-.svc-row__thumb { display: none; }
-.svc-row--start .svc-row__code { color: var(--primary-light); }
-
-/* floating preview that follows the cursor (fine pointers only) */
-.svc-preview {
-  position: fixed; left: 0; top: 0; z-index: 40; width: 21rem; aspect-ratio: 4 / 3; pointer-events: none;
-  border-radius: var(--radius-l); overflow: hidden; background: #0B121B; border: 1px solid rgb(255 255 255 / .15);
-  box-shadow: 0 40px 80px -20px rgb(0 0 0 / .7);
-  opacity: 0; transform: translate3d(var(--x, 0), var(--y, 0), 0) translate(-50%, -50%) rotate(-4deg) scale(.6);
-  transition: opacity .35s var(--ease), transform .45s var(--ease);
-}
-.svc-preview.is-on { opacity: 1; transform: translate3d(var(--x, 0), var(--y, 0), 0) translate(-50%, -50%) rotate(-4deg) scale(1); }
-.svc-preview__art { position: absolute; inset: 0; opacity: 0; transition: opacity .3s; }
-.svc-preview__art.is-on { opacity: 1; }
-.svc-preview__art svg, .svc-preview__art .feed { position: absolute; inset: 0; width: 100%; height: 100%; }
-
-.svc-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-m); color: var(--text-light-muted); font-size: .95rem; }
-.svc-foot span { display: inline-flex; align-items: center; gap: .6rem; }
-.svc-foot svg { width: 1.2rem; height: 1.2rem; color: var(--accent); }
-
-@media (hover: none), (max-width: 1000px) {
-  .svc-preview { display: none; }
-  .svc-row__link { grid-template-columns: minmax(0, 1fr) 3rem; grid-template-areas: "thumb thumb" "code go" "name name" "info info"; gap: var(--space-s) var(--space-m); padding-inline: 0; }
-  .svc-row::before { display: none; }
-  .svc-row__thumb { display: block; grid-area: thumb; position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-l); overflow: hidden; background: #0B121B; border: var(--border-dark); margin-bottom: var(--space-xs); }
-  .svc-row__thumb svg, .svc-row__thumb .feed { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .svc-row__code { grid-area: code; flex-direction: row; align-items: center; gap: .75rem; }
-  .svc-row__go { grid-area: go; width: 3rem; height: 3rem; }
-  .svc-row__name { grid-area: name; }
-  .svc-row__info { grid-area: info; }
-  .svc-row:hover .svc-row__name { transform: none; }
-}
-@media (prefers-reduced-motion: reduce) { .svc-preview { display: none; } }
+.svc-card__art svg, .svc-card__art .feed { position: absolute; inset: 0; width: 100%; height: 100%; }
+.svc-card__art svg { transition: transform .8s var(--ease); }
+.svc-card:hover .svc-card__art svg { transform: scale(1.05); }
+.svc-card__badge { position: absolute; left: .9rem; bottom: .9rem; z-index: 4; display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .8rem; border-radius: var(--radius-circle); background: var(--accent); color: var(--base); font-size: .78rem; font-weight: 800; }
+.svc-card__body { padding: var(--space-l) var(--space-l) var(--space-m); display: flex; flex-direction: column; gap: var(--space-s); flex: 1; }
+.svc-card__top { display: flex; justify-content: space-between; align-items: center; gap: var(--space-s); }
+.svc-card__spec { font-family: var(--mono-font-family); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--card-accent); display: inline-flex; align-items: center; gap: .55rem; }
+.svc-card__spec::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--card-accent); }
+.svc-card__go { width: 3rem; height: 3rem; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--neutral-ultra-light); border: var(--border); color: var(--text-dark); transition: background-color .35s, color .35s, border-color .35s; }
+.svc-card__go svg { width: 1.15rem; height: 1.15rem; transform: rotate(-45deg); transition: transform .45s var(--ease); }
+.svc-card:hover .svc-card__go { background: var(--primary); border-color: var(--primary); color: var(--white); }
+.svc-card:hover .svc-card__go svg { transform: rotate(0); }
+.svc-card h3 { font-size: clamp(1.6rem, 1.25rem + 1.3vw, 2.4rem); font-stretch: 115%; font-weight: 850; letter-spacing: -.035em; line-height: 1; }
+.svc-card h3 .serif { color: var(--primary); }
+.svc-card h3 a { color: inherit; text-decoration: none; }
+.svc-card h3 a::after { content: ""; position: absolute; inset: 0; z-index: 5; border-radius: inherit; }
+.svc-card h3 a:focus-visible { outline: none; }
+.svc-card:has(h3 a:focus-visible) { outline: 3px solid var(--accent); outline-offset: 4px; }
+.svc-card__body > p { color: var(--text-dark-muted); max-width: 54ch; }
+.svc-card__foot { margin-top: auto; padding-top: var(--space-s); border-top: var(--border); display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.svc-card__foot b { font-family: var(--mono-font-family); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--neutral); font-weight: 700; margin-right: .3rem; }
+.svc-card__foot span { font-size: .82rem; font-weight: 600; padding: .32rem .7rem; border-radius: var(--radius-circle); background: var(--neutral-ultra-light); border: var(--border); color: var(--text-dark); }
+.svc-strip { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-m); padding: var(--space-m) var(--space-l); border-radius: var(--radius-l); background: var(--base); color: var(--text-light); }
+.svc-strip span { display: inline-flex; align-items: center; gap: .7rem; font-weight: 600; }
+.svc-strip svg { width: 1.3rem; height: 1.3rem; color: var(--accent); flex: none; }
+@media (max-width: 860px) { .svc-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .svc-card__body { padding-inline: var(--space-m); } .svc-strip .btn { width: 100%; } }
 
 /* ==========================================================================
    COMPARISON
@@ -487,7 +464,7 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
 .compare__table tbody tr:last-child .is-us { border-radius: 0 0 var(--radius-l) var(--radius-l); border-bottom: 0; }
 .compare__table td.is-us::before { content: ""; display: inline-block; width: 1.25rem; height: 1.25rem; margin-right: .65rem; vertical-align: -.25rem; border-radius: 50%; background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 65% no-repeat; }
 .compare__table .is-us .tbc { background: rgb(240 176 58 / .25); border-bottom-color: var(--accent); }
-.compare__note { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-m); align-items: start; max-width: 54rem; padding: var(--space-m) var(--space-l); border-radius: var(--radius); background: var(--white); border: var(--border); }
+.compare__note { display: grid; background: var(--neutral-ultra-light) !important; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-m); align-items: start; max-width: 54rem; padding: var(--space-m) var(--space-l); border-radius: var(--radius); background: var(--white); border: var(--border); }
 .compare__note svg { width: 1.6rem; height: 1.6rem; color: var(--accent-dark); }
 .compare__note p { color: var(--text-dark-muted); }
 .compare__note strong { color: var(--text-dark); }
@@ -937,7 +914,7 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
 </section>
 
 <!-- ======================= SERVICES ======================= -->
-<section class="section services bg--ink grain" id="services">
+<section class="section services bg--stone" id="services">
   <div class="container">
     <div class="head head--row">
       <div class="head__main">
@@ -946,10 +923,9 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
       </div>
       <p class="head__lede" style="max-width:34ch">Every job starts with a camera inspection. The footage decides which repair fits your pipe.</p>
     </div>
-    <ul class="svc-list" id="svcList">
-        <li class="svc-row" data-art="lining">
-          <a class="svc-row__link" href="#">
-            <span class="svc-row__thumb" aria-hidden="true"><svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid meet">
+    <div class="svc-grid">
+      <article class="svc-card svc-card--lining">
+        <div class="svc-card__art" aria-hidden="true"><svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid meet">
             <g transform="translate(225 210)">
               <circle r="168" fill="#3E444B"/>
               <circle r="150" fill="#262B31"/>
@@ -966,16 +942,16 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
               <circle cx="352" cy="212" r="4" fill="#6CC08A"/><path d="M352 212 H580" stroke="#6CC08A" stroke-width="1.2"/><text x="446" y="204" fill="#6CC08A">CURED LINER</text>
               <circle cx="300" cy="300" r="4" fill="#F0B03A"/><path d="M300 300 L360 330 H580" stroke="#F0B03A" stroke-width="1.2" fill="none"/><text x="446" y="322" fill="#F0B03A">NO JOINTS</text>
             </g>
-          </svg></span>
-            <span class="svc-row__code">CIPP<small>Pipe in a pipe</small></span>
-            <h3 class="svc-row__name">Sewer pipe <span class="serif">lining</span></h3>
-            <span class="svc-row__info"><p>A resin liner cures inside your old pipe, creating a seamless, jointless pipe within a pipe. No joints for roots to find.</p><ul class="svc-row__best" aria-label="Best for"><li>Cracks</li><li>Leaks</li><li>Root intrusion</li><li>Pipes that hold their shape</li></ul></span>
-            <span class="svc-row__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-          </a>
-        </li>
-        <li class="svc-row" data-art="burst">
-          <a class="svc-row__link" href="#">
-            <span class="svc-row__thumb" aria-hidden="true"><svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
+          </svg></div>
+        <div class="svc-card__body">
+          <div class="svc-card__top"><span class="svc-card__spec">CIPP · pipe in a pipe</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
+          <h3><a href="#">Sewer pipe <span class="serif">lining</span></a></h3>
+          <p>A resin liner cures inside your old pipe, creating a seamless, jointless pipe within a pipe. No trench, and no joints for roots to find.</p>
+          <div class="svc-card__foot"><b>Best for</b><span>Cracks</span><span>Leaks</span><span>Root intrusion</span></div>
+        </div>
+      </article>
+      <article class="svc-card svc-card--burst">
+        <div class="svc-card__art" aria-hidden="true"><svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
             <rect x="0" y="112" width="300" height="56" rx="4" fill="#050709"/>
             <rect x="0" y="118" width="300" height="9" fill="#2B3747"/>
             <path d="M300 104l84 36-84 36z" fill="#C8CDD2"/>
@@ -987,16 +963,16 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
               <text x="296" y="236" fill="#F0B03A">BURSTING HEAD</text>
               <text x="450" y="58" fill="#A8B3BF">OLD PIPE</text>
             </g>
-          </svg></span>
-            <span class="svc-row__code">HDPE<small>Full replacement</small></span>
-            <h3 class="svc-row__name">Pipe <span class="serif">bursting</span></h3>
-            <span class="svc-row__info"><p>A bursting head breaks the old pipe outward while new HDPE pipe is pulled in behind it. A full replacement, not a patch.</p><ul class="svc-row__best" aria-label="Best for"><li>Collapsed lines</li><li>Orangeburg</li><li>Clay</li><li>Upsizing</li></ul></span>
-            <span class="svc-row__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-          </a>
-        </li>
-        <li class="svc-row" data-art="water">
-          <a class="svc-row__link" href="#">
-            <span class="svc-row__thumb" aria-hidden="true"><svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
+          </svg></div>
+        <div class="svc-card__body">
+          <div class="svc-card__top"><span class="svc-card__spec">HDPE · full replacement</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
+          <h3><a href="#">Pipe <span class="serif">bursting</span></a></h3>
+          <p>A bursting head breaks the old pipe outward while new HDPE pipe is pulled in behind it. A full replacement, not a patch.</p>
+          <div class="svc-card__foot"><b>Best for</b><span>Collapsed lines</span><span>Orangeburg</span><span>Clay</span><span>Upsizing</span></div>
+        </div>
+      </article>
+      <article class="svc-card svc-card--water">
+        <div class="svc-card__art" aria-hidden="true"><svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
             <rect x="0" y="92" width="600" height="6" fill="#5FAF72"/>
             <rect x="0" y="98" width="600" height="182" fill="#121B26"/>
             <path d="M40 92V48l50-30 50 30v44z" fill="#2B3747"/>
@@ -1011,77 +987,33 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
               <text x="190" y="252" fill="#A8B3BF">NEW CTS POLY</text>
               <text x="464" y="272" fill="#A8B3BF">METER</text>
             </g>
-          </svg></span>
-            <span class="svc-row__code">CTS poly<small>Pressure tested</small></span>
-            <h3 class="svc-row__name">Water line <span class="serif">replacement</span></h3>
-            <span class="svc-row__info"><p>We pull a new CTS poly water line underground, reconnect it and pressure test it, with minimal digging.</p><ul class="svc-row__best" aria-label="Best for"><li>Old galvanized</li><li>Leaks</li><li>Low pressure</li></ul></span>
-            <span class="svc-row__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-          </a>
-        </li>
-        <li class="svc-row svc-row--start" data-art="camera">
-          <a class="svc-row__link" href="#">
-            <span class="svc-row__thumb" aria-hidden="true"><div class="feed feed--roots"><span class="feed__cross"></span><div class="feed__hud feed__hud--top"><span class="feed__rec">LIVE</span><span>6" CAST IRON</span></div><div class="feed__hud"><span>DIST</span><span class="feed__ft">062.4 FT</span></div></div></span>
-            <span class="svc-row__code">CCTV<small>Every job starts here</small></span>
-            <h3 class="svc-row__name">Camera <span class="serif">inspection</span></h3>
-            <span class="svc-row__info"><p>See inside your line before you spend a dollar on repairs. Useful for home buyers too. <span class="tbc">Confirm offered as standalone</span></p><ul class="svc-row__best" aria-label="Best for"><li>Diagnosing problems</li><li>Pre-purchase inspections</li></ul></span>
-            <span class="svc-row__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-          </a>
-        </li>
-    </ul>
-    <div class="svc-foot">
+          </svg></div>
+        <div class="svc-card__body">
+          <div class="svc-card__top"><span class="svc-card__spec">CTS poly · pressure tested</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
+          <h3><a href="#">Water line <span class="serif">replacement</span></a></h3>
+          <p>We pull a new CTS poly water line underground, reconnect it and pressure test it, with minimal digging.</p>
+          <div class="svc-card__foot"><b>Best for</b><span>Old galvanized</span><span>Leaks</span><span>Low pressure</span></div>
+        </div>
+      </article>
+      <article class="svc-card svc-card--camera">
+        <div class="svc-card__art" aria-hidden="true"><div class="feed feed--roots"><span class="feed__cross"></span><div class="feed__hud feed__hud--top"><span class="feed__rec">LIVE</span><span>6" CAST IRON</span></div><div class="feed__hud"><span></span><span class="feed__ft">062.4 FT</span></div></div><span class="svc-card__badge">Every job starts here</span></div>
+        <div class="svc-card__body">
+          <div class="svc-card__top"><span class="svc-card__spec">CCTV · know before you spend</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
+          <h3><a href="#">Camera <span class="serif">inspection</span></a></h3>
+          <p>See inside your line before you spend a dollar on repairs. Useful for home buyers too. <span class="tbc">Confirm offered as standalone</span></p>
+          <div class="svc-card__foot"><b>Best for</b><span>Diagnosing problems</span><span>Home purchase</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="svc-strip">
       <span><svg><use href="#i-film"/></svg>Every repair comes with before and after camera footage, yours to keep.</span>
-      <a class="link-arrow" href="#estimate">Not sure which one you need? Start with a camera estimate</a>
+      <a class="btn btn--primary" href="#estimate">Book a camera estimate <svg class="arrow"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
-  <div class="svc-preview" id="svcPreview" aria-hidden="true"><div class="svc-preview__art" data-art="lining"><svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid meet">
-            <g transform="translate(225 210)">
-              <circle r="168" fill="#3E444B"/>
-              <circle r="150" fill="#262B31"/>
-              <path d="M-118-88l22 26-6 20M104 92l-20-14 4-24M86-112l-14 26" stroke="#0B121B" stroke-width="5" fill="none" stroke-linecap="round"/>
-              <circle r="132" fill="#2F7A4B"/>
-              <circle r="132" fill="none" stroke="#6CC08A" stroke-width="2" opacity=".5"/>
-              <circle r="114" fill="#0B121B"/>
-              <circle r="114" fill="none" stroke="#6CC08A" stroke-width="1.5" stroke-dasharray="3 9" opacity=".7"/>
-              <path d="M-20 0h40M12-8l8 8-8 8" stroke="#F0B03A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="0" y="30" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="2" fill="#F0B03A">FLOW</text>
-            </g>
-            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
-              <circle cx="378" cy="122" r="4" fill="#A8B3BF"/><path d="M378 122 L440 92 H580" stroke="#A8B3BF" stroke-width="1.2" fill="none"/><text x="446" y="84" fill="#A8B3BF">OLD CLAY PIPE</text>
-              <circle cx="352" cy="212" r="4" fill="#6CC08A"/><path d="M352 212 H580" stroke="#6CC08A" stroke-width="1.2"/><text x="446" y="204" fill="#6CC08A">CURED LINER</text>
-              <circle cx="300" cy="300" r="4" fill="#F0B03A"/><path d="M300 300 L360 330 H580" stroke="#F0B03A" stroke-width="1.2" fill="none"/><text x="446" y="322" fill="#F0B03A">NO JOINTS</text>
-            </g>
-          </svg></div><div class="svc-preview__art" data-art="burst"><svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
-            <rect x="0" y="112" width="300" height="56" rx="4" fill="#050709"/>
-            <rect x="0" y="118" width="300" height="9" fill="#2B3747"/>
-            <path d="M300 104l84 36-84 36z" fill="#C8CDD2"/>
-            <path d="M300 104l84 36-84 36" fill="none" stroke="#8D96A0" stroke-width="2"/>
-            <g fill="#5E6268"><path d="M398 82l44 6-7 26-40-4z"/><path d="M456 74l46 9-8 28-36-6z"/><path d="M402 170l40-5 7 28-45 4z"/><path d="M462 174l42 6-4 26-40-4z"/><path d="M520 92h60v96h-60z" opacity=".8"/></g>
-            <g stroke="#F0B03A" stroke-width="3" stroke-linecap="round"><path d="M392 104l-12-12M392 176l-12 12"/></g>
-            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
-              <text x="20" y="206" fill="#A8B3BF">← NEW HDPE PIPE</text>
-              <text x="296" y="236" fill="#F0B03A">BURSTING HEAD</text>
-              <text x="450" y="58" fill="#A8B3BF">OLD PIPE</text>
-            </g>
-          </svg></div><div class="svc-preview__art" data-art="water"><svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
-            <rect x="0" y="92" width="600" height="6" fill="#5FAF72"/>
-            <rect x="0" y="98" width="600" height="182" fill="#121B26"/>
-            <path d="M40 92V48l50-30 50 30v44z" fill="#2B3747"/>
-            <rect x="40" y="98" width="100" height="50" fill="#1A2533"/>
-            <path d="M100 148v52c0 10 8 18 18 18H470" stroke="#2B5BB5" stroke-width="18" fill="none" stroke-linecap="round"/>
-            <path d="M100 148v52c0 10 8 18 18 18H470" stroke="#9AB8F2" stroke-width="2.5" fill="none" stroke-dasharray="12 14"/>
-            <rect x="466" y="186" width="48" height="66" rx="7" fill="#2B3747" stroke="#55606C" stroke-width="2"/>
-            <circle cx="540" cy="50" r="28" fill="#0B121B" stroke="#9AB8F2" stroke-width="2.5"/>
-            <path d="M540 50l13-11" stroke="#F0B03A" stroke-width="3" stroke-linecap="round"/>
-            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
-              <text x="372" y="56" fill="#9AB8F2">PSI TEST</text>
-              <text x="190" y="252" fill="#A8B3BF">NEW CTS POLY</text>
-              <text x="464" y="272" fill="#A8B3BF">METER</text>
-            </g>
-          </svg></div><div class="svc-preview__art" data-art="camera"><div class="feed feed--roots"><span class="feed__cross"></span><div class="feed__hud feed__hud--top"><span class="feed__rec">LIVE</span><span>6" CAST IRON</span></div><div class="feed__hud"><span>DIST</span><span class="feed__ft">062.4 FT</span></div></div></div></div>
 </section>
 
 <!-- ======================= COMPARISON ======================= -->
-<section class="section compare bg--stone">
+<section class="section compare bg--white">
   <div class="container">
     <div class="head">
       <span class="eyebrow">Trenchless vs. traditional</span>
@@ -1414,23 +1346,6 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
       xsec.querySelectorAll('.toggle button').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
     });
   });
-
-  /* services: floating preview follows the cursor */
-  var list = document.getElementById('svcList'), prev = document.getElementById('svcPreview');
-  if (list && prev && window.matchMedia('(hover: hover) and (min-width: 1001px)').matches && !reduce) {
-    var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
-    var arts = prev.querySelectorAll('.svc-preview__art');
-    function loop() { cx += (tx - cx) * 0.16; cy += (ty - cy) * 0.16; prev.style.setProperty('--x', cx + 'px'); prev.style.setProperty('--y', cy + 'px'); raf = Math.abs(tx - cx) + Math.abs(ty - cy) > 0.5 ? requestAnimationFrame(loop) : null; }
-    list.addEventListener('mousemove', function (e) { tx = e.clientX + 200; ty = e.clientY; if (!raf) raf = requestAnimationFrame(loop); });
-    list.querySelectorAll('.svc-row').forEach(function (row) {
-      row.addEventListener('mouseenter', function (e) {
-        if (!prev.classList.contains('is-on')) { cx = tx = e.clientX + 200; cy = ty = e.clientY; prev.style.setProperty('--x', cx + 'px'); prev.style.setProperty('--y', cy + 'px'); }
-        arts.forEach(function (a) { a.classList.toggle('is-on', a.dataset.art === row.dataset.art); });
-        prev.classList.add('is-on');
-      });
-    });
-    list.addEventListener('mouseleave', function () { prev.classList.remove('is-on'); });
-  }
 
   /* before / after slider */
   var ba = document.getElementById('ba'), range = document.getElementById('baRange');
