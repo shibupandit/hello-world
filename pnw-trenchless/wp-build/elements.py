@@ -1,0 +1,738 @@
+"""PNW Trenchless: native Bricks element trees (header, footer, Home sections).
+
+Placeholders resolved on the site by the import script:
+- "_cls": [class names]          -> "_cssGlobalClasses": [ids]
+- {"__media": "file.ext", ...}   -> {"id": <attachment id>, "url": "<url>", ...}
+
+Run: python3 elements.py -> writes elements.json
+"""
+import json, pathlib
+
+TEL = "tel:5099532036"
+SMS = "sms:5099532036"
+MAIL = "mailto:info@pnwtrenchless.com"
+FB = "https://www.facebook.com/profile.php?id=61589495076554"
+PHONE = "509-953-2036"
+
+
+def M(f, **extra):
+    d = {"__media": f}
+    d.update(extra)
+    return d
+
+
+def link(url, new_tab=False, aria=None):
+    d = {"type": "external", "url": url}
+    if new_tab:
+        d["newTab"] = True
+        d["rel"] = "noopener"
+    if aria:
+        d["ariaLabel"] = aria
+    return d
+
+
+def attrs(**kv):
+    return [{"name": k.replace("_", "-"), "value": v} for k, v in kv.items()]
+
+
+TAGS = {
+    "text-basic": {"div", "p", "span", "figcaption", "address", "figure"},
+    "block": {"div", "section", "a", "article", "nav", "ol", "ul", "li", "aside", "address", "figure"},
+    "div": {"div", "section", "a", "article", "nav", "ol", "ul", "li", "aside", "address", "figure"},
+    "heading": {"h1", "h2", "h3", "h4", "h5", "h6"},
+    "section": {"section"},
+}
+
+
+class N:
+    def __init__(self, name, cls=None, children=None, label=None, **settings):
+        self.name, self.children, self.settings = name, list(children or []), dict(settings)
+        tag = self.settings.get("tag")
+        if tag and name in TAGS and tag not in TAGS[name]:
+            self.settings["tag"] = "custom"
+            self.settings["customTag"] = tag
+        if cls:
+            self.settings["_cls"] = cls.split() if isinstance(cls, str) else list(cls)
+        self.label = label or (self.settings.get("_cls") or [None])[0]
+
+
+# --- element helpers ------------------------------------------------------
+def section(cls, children, sid=None, label=None, tag=None, **s):
+    if sid:
+        s["_cssId"] = sid
+    if tag:
+        s["tag"] = tag
+    return N("section", cls, children, label=label, **s)
+
+
+def container(children, cls=None, **s):
+    return N("container", cls, children, **s)
+
+
+def block(cls, children=(), tag=None, href=None, **s):
+    if tag:
+        s["tag"] = tag
+    if href:
+        s["tag"] = "a"
+        s["link"] = href if isinstance(href, dict) else link(href)
+    return N("block", cls, children, **s)
+
+
+def div(cls, children=(), tag=None, **s):
+    if tag:
+        s["tag"] = tag
+    return N("div", cls, children, **s)
+
+
+def h(tag, text, cls=None, **s):
+    return N("heading", cls, text=text, tag=tag, **s)
+
+
+def t(text, cls=None, tag="p", **s):
+    return N("text-basic", cls, text=text, tag=tag, **s)
+
+
+def span(text, cls=None, **s):
+    return t(text, cls, tag="span", **s)
+
+
+def a(text, href, cls=None, **s):
+    return N("text-link", cls, text=text, link=href if isinstance(href, dict) else link(href), **s)
+
+
+def svg(f, cls=None, **s):
+    return N("svg", cls, file=M(f), **s)
+
+
+def img(f, cls=None, alt=None, **s):
+    st = {"image": M(f, size="full")}
+    if alt is not None:
+        st["altText"] = alt
+    st.update(s)
+    return N("image", cls, **st)
+
+
+def btn(text, href, cls="btn--primary", icon=None, icon_left=False, **s):
+    st = {"text": text, "link": href if isinstance(href, dict) else link(href)}
+    if icon:
+        st["icon"] = {"library": "svg", "svg": M(icon)}
+        st["iconPosition"] = "left" if icon_left else "right"
+    st.update(s)
+    return N("button", cls, **st)
+
+
+def eyebrow(text):
+    return span(text, "eyebrow")
+
+
+# --------------------------------------------------------------------------
+# HEADER TEMPLATE
+# --------------------------------------------------------------------------
+def header():
+    topbar = block("topbar", [
+        block("topbar__inner", [
+            span("Serving Spokane, Spokane Valley, Deer Park, Clayton, Stevens &amp; Spokane County", "topbar__area"),
+            block("topbar__links", [
+                span("WA Reg. #PNWTRT*744KQ"),
+                block("topbar__link", [svg("icon-mail.svg", "icon"), span("info@pnwtrenchless.com")], href=MAIL),
+                block("topbar__link", [svg("icon-fb.svg", "icon"), span("Facebook")], href=link(FB, True)),
+            ]),
+        ]),
+    ])
+    head = block("header", [
+        block("header__inner", [
+            block("logo", [img("logo.png", alt="PNW Trenchless")], href=link("/", aria="PNW Trenchless home")),
+            N("nav-menu", "nav", menu="10", ariaLabel="Main", mobileMenu="custom", mobileMenuCustomBreakpoint=1200,
+              mobileMenuPosition="right", mobileMenuToggleAriaLabel="Open menu",
+              mobileMenuBackground={"color": {"raw": "var(--base)"}},
+              mobileMenuToggleColor={"raw": "var(--white)"}, mobileMenuToggleColorClose={"raw": "var(--white)"}),
+            block("header__cta", [
+                block("header__phone", [
+                    block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),
+                    block("header__phone-text", [span("Call or text", "header__phone-label"), span(PHONE, "header__phone-num")], tag="span"),
+                ], href=link(TEL, aria=f"Call or text {PHONE}")),
+                btn("Get a Quote", "/#estimate", "btn--primary btn--s"),
+            ]),
+        ]),
+    ], tag="div")
+    return [topbar, head]
+
+
+# --------------------------------------------------------------------------
+# FOOTER TEMPLATE (+ mobile call bar)
+# --------------------------------------------------------------------------
+def footer():
+    def col(title, links):
+        return block("footer__col", [h("h4", title, "footer__heading")] + [a(x, u) for x, u in links])
+
+    foot = section("footer section--deep", [
+        container([
+            block("footer__grid", [
+                block("footer__col", [
+                    block("logo logo--footer", [img("logo.png", alt="PNW Trenchless")], href=link("/", aria="PNW Trenchless home")),
+                    span("Less digging. Less disruption. Built to last."),
+                    span('<span class="tbc">Address or service-area business</span>, Clayton, WA'),
+                    a(PHONE, TEL, "footer__phone"),
+                    a("info@pnwtrenchless.com", MAIL),
+                    block("social", [
+                        block("social__link", [svg("icon-fb.svg")], href=link(FB, True, "PNW Trenchless on Facebook")),
+                        block("social__link", [svg("icon-mail.svg")], href=link(MAIL, aria="Email PNW Trenchless")),
+                        block("social__link", [svg("icon-chat.svg")], href=link(SMS, aria="Text PNW Trenchless")),
+                    ]),
+                ]),
+                col("Services", [("Sewer Pipe Lining", "/#services"), ("Pipe Bursting", "/#services"), ("Water Line Pulling", "/#services"), ("Point Repairs", "/#services")]),
+                col("Service Areas", [(x, "/#areas") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
+                block("footer__col", [h("h4", "Company", "footer__heading"), a("About", "/#mike"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/#estimate"), span('<span class="tbc">Hours</span>')]),
+            ]),
+            t("TRENCHLESS", "footer__word", tag="div", _attributes=attrs(aria_hidden="true")),
+            block("footer__bottom", [
+                span("© 2026 PNW Trenchless · WA Contractor Reg. #PNWTRT*744KQ · Licensed, bonded &amp; insured"),
+                block("footer__legal", [a("Privacy", "/privacy-policy/"), span("·"), a("Accessibility", "#")], tag="span"),
+            ]),
+        ]),
+    ], tag="footer", label="Footer")
+    callbar = block("callbar", [
+        btn("Call / Text", SMS, "btn--white btn--outline btn--s", icon="icon-chat.svg", icon_left=True),
+        btn("Free Estimate", "/#estimate", "btn--primary btn--s"),
+    ], _attributes=attrs(aria_label="Quick contact"))
+    return [foot, callbar]
+
+
+# --------------------------------------------------------------------------
+# HOME SECTIONS
+# --------------------------------------------------------------------------
+def head_split(eyebrow_text, title, right):
+    return block("section__head section__head--split", [
+        block("section__head-main", [eyebrow(eyebrow_text), h("h2", title)]),
+        right,
+    ])
+
+
+def head(eyebrow_text, title, intro=None):
+    kids = [eyebrow(eyebrow_text), h("h2", title)]
+    if intro:
+        kids.append(t(intro, "section__intro"))
+    return block("section__head", kids)
+
+
+def hero():
+    feed = block("feed feed--roots hero-feed", [
+        div("feed__cross", tag="span"),
+        block("feed__hud feed__hud--top", [span("REC", "feed__rec"), span('4" CLAY · JOINT 6')]),
+        block("feed__hud", [span("PNW CAM 01"), span("047.6 FT", "feed__ft")]),
+    ], _attributes=attrs(role="img", aria_label="Sewer camera view showing roots at a pipe joint"))
+    proof = [("icon-liner.svg", "Pipe bursting, CIPP lining, water line pulling &amp; point repairs"),
+             ("icon-yard.svg", "Two small access points instead of a trench across your property"),
+             ("icon-film.svg", "Camera footage before and after, yours to keep")]
+    return section("section hero section--dark grain", [
+        block("hero__bg", [img("trailer.jpg", alt="")]),
+        container([
+            block("hero__inner", [
+                block("hero__content", [
+                    block("hero__kicker rise", [
+                        span('<span class="tbc">X.X</span> ★★★★★ on Google', "chip"),
+                        span("Family-owned · 14+ years · Residential, commercial &amp; industrial"),
+                    ]),
+                    t("Trenchless sewer &amp; water line repair · Spokane, WA", "hero__seo rise rise--2"),
+                    h("h1", 'Fix the pipe. <span class="serif">Keep the yard.</span>', "hero__title rise rise--3"),
+                    t("Family-owned and led by Mike Jeisma, with 14+ years in trenchless sewer and water line work. We camera the line, show you exactly what we see, and give you a true and honest quote.", "hero__lede rise rise--4"),
+                    block("hero__actions rise rise--5", [
+                        btn("Get a True &amp; Honest Quote", "#estimate", "btn--primary", icon="icon-arrow.svg"),
+                        btn("Text a Photo of the Problem", SMS, "btn--white btn--outline", icon="icon-camera.svg", icon_left=True),
+                    ]),
+                ]),
+                block("hero__aside rise rise--5", [
+                    feed,
+                    t("<strong>You see what we see.</strong> Footage before and after, yours to keep.", "hero-feed__cap"),
+                ]),
+            ]),
+            block("hero__proof", [block("hero__proof-item", [svg(i), span(x)], tag="li") for i, x in proof], tag="ul"),
+        ], _rowGap="0"),
+    ], label="Hero")
+
+
+def ticker():
+    items = [("icon-liner.svg", "Sewer pipe lining", "CIPP"), ("icon-burst.svg", "Pipe bursting", "HDPE"),
+             ("icon-drop.svg", "Water line replacement", "CTS POLY"), ("icon-patch.svg", "Point repairs", "SPOT LINER")]
+
+    def group(hidden):
+        kids = []
+        for n, (ic, name, spec) in enumerate(items):
+            cls = "ticker__item" + (" ticker__item--outline" if n % 2 == 1 else "")
+            extra = {"_attributes": attrs(tabindex="-1")} if hidden else {}
+            kids.append(block(cls, [block("ticker__ico", [svg(ic)], tag="span"), span(name, "ticker__name"), span(spec, "ticker__spec")], href="#services", **extra))
+            kids.append(div("ticker__joint", tag="span", _attributes=attrs(aria_hidden="true")))
+        return block("ticker__group", kids, **({"_attributes": attrs(aria_hidden="true")} if hidden else {}))
+
+    words = [("less digging", "Spokane"), ("less disruption", "Spokane Valley"), ("built to last", "Deer Park"),
+             ("no trench", "Clayton"), ("yard intact", "Stevens County"), ("honest pricing", "Spokane County")]
+
+    def sub():
+        kids = []
+        for w, city in words:
+            kids += [span(w, "ticker__word"), div("ticker__dot", tag="i"), span(city, "ticker__city"), div("ticker__dot", tag="i")]
+        return block("ticker__group ticker__group--sub", kids)
+
+    return section("ticker", [
+        block("ticker__row", [block("ticker__track", [group(False), group(True)])]),
+        block("ticker__row", [block("ticker__track ticker__track--reverse", [sub(), sub()])], _attributes=attrs(aria_hidden="true")),
+    ], label="Service ticker", _attributes=attrs(aria_label="Our trenchless services"))
+
+
+def stats():
+    data = [("14<small>+ yrs</small>", "repairing sewer &amp; water lines in the Inland NW"),
+            ("2", "small access pits instead of one long trench"),
+            ("50<small>+ yrs</small>", "expected lifespan of new HDPE pipe"),
+            ('<span class="tbc">X</span><small>-yr</small>', "workmanship warranty on every repair")]
+    return section("section section--tint section--tight", [
+        container([block("stats__grid", [block("stat", [span(n, "stat__num"), span(l, "stat__label")], tag="li") for n, l in data], tag="ul")]),
+    ], label="Stats", _attributes=attrs(aria_label="At a glance"))
+
+
+def signs():
+    rows = [("icon-sign-recurring-clogs.svg", "Recurring clogs", "Drains back up again weeks after clearing.", "Most common"),
+            ("icon-sign-gurgling-drains.svg", "Gurgling drains", "Toilets bubble when the tub drains.", "Blockage"),
+            ("icon-sign-sewer-odor.svg", "Sewer odor", "A smell in the basement or the yard.", "Crack or break"),
+            ("icon-yard.svg", "Soggy or extra-green patches", "Lush strips of lawn over the line's path.", "Leak"),
+            ("icon-sign-tree-roots.svg", "Tree roots", "Roots pulled out on your plumber's snake.", "Joint intrusion"),
+            ("icon-sign-low-water-pressure.svg", "Low water pressure", "Often corroded galvanized water service.", "Water line")]
+    return section("section section--tint section--flush-top", [
+        container([
+            block("split", [
+                block("sticky-aside", [
+                    eyebrow("Warning signs"),
+                    h("h2", 'Is your sewer line <span class="serif">failing?</span>'),
+                    t("Most homeowners call us after the third snake job in a year. If any of these sound familiar, a camera inspection will tell you what's actually happening underground."),
+                    btn("Book a camera inspection", "#estimate", "btn--base btn--outline", icon="icon-camera.svg", icon_left=True),
+                ]),
+                block("sign-list", [
+                    block("sign", [block("sign__ico", [svg(ic)], tag="span"), block("sign__body", [h("h3", ti, "sign__title"), t(tx, "sign__text")]), span(tag, "sign__tag")], tag="li")
+                    for ic, ti, tx, tag in rows
+                ], tag="ul"),
+            ]),
+        ]),
+    ], label="Warning signs")
+
+
+def explain():
+    facts = [("Digging", "Trench the full length", "1–2 small access points"),
+             ("Lawn, driveway, trees", "Removed, then rebuilt", "Left intact in most cases"),
+             ("Restoration", "Landscaping, concrete, paving extra", "Minimal"),
+             ("Disruption", "Yard torn up for the duration", "Water off for hours, not days")]
+    video = block("feed video", [
+        block("feed__hud feed__hud--top", [span("ON SITE", "feed__rec"), span("1:24")]),
+        block("video__play", [svg("icon-play.svg")], tag="span", _attributes=attrs(role="img", aria_label="Video placeholder")),
+        block("feed__label", [block("video__caption", [span("Video · 60–90s", "video__meta"), span('<span class="tbc">Mike walks between the two access pits</span>', "video__title")])]),
+    ], _attributes=attrs(role="img", aria_label="Video placeholder: Mike explains trenchless repair on a job site"))
+    xsec = block("xsec", [
+        block("xsec__bar", [
+            h("h3", "See the difference in your yard", "xsec__title"),
+            block("toggle", [
+                div("toggle__btn", [span("Traditional dig")], tag="button", _cssId="xsec-dig", _attributes=attrs(type="button", aria_pressed="true")),
+                div("toggle__btn", [span("Trenchless")], tag="button", _cssId="xsec-trenchless", _attributes=attrs(type="button", aria_pressed="false")),
+            ], _attributes=attrs(role="group", aria_label="Repair method")),
+        ]),
+        block("xsec__art", [svg("art-cross-section.svg", _attributes=attrs(role="img", aria_label="Cross-section of a yard from house to street, showing either a full trench or two small access pits"))]),
+        block("xsec__facts", [
+            block("xsec__fact", [span(lbl, "xsec__fact-label"), t(f'<span data-show="dig">{d}</span><span data-show="trenchless">{tr}</span>', "xsec__fact-value", tag="span")])
+            for lbl, d, tr in facts
+        ]),
+    ], _cssId="xsec", _attributes=attrs(data_mode="dig"))
+    return section("section section--white", [
+        container([
+            block("split split--center", [
+                block("explain__text", [
+                    eyebrow("The basics"),
+                    h("h2", 'What is trenchless <span class="serif">pipe repair?</span>'),
+                    t("Instead of digging a trench the full length of your sewer or water line, we open one or two small access points and repair or replace the pipe underground. Your lawn, driveway, trees and landscaping stay where they are."),
+                    t("There are two main ways to do it. <strong>Pipe lining</strong> builds a new pipe inside the old one. <strong>Pipe bursting</strong> pulls a brand-new pipe through while breaking the old one apart. The camera tells us which one you need."),
+                ]),
+                video,
+            ]),
+            xsec,
+        ]),
+    ], sid="how", label="What is trenchless")
+
+
+def services():
+    cards = [
+        ("", "art-service-lining.svg", "CIPP · pipe in a pipe", 'Sewer pipe <span class="serif">lining</span>',
+         "A resin liner cures inside your old pipe, creating a seamless, jointless pipe within a pipe. No trench, and no joints for roots to find.",
+         ["Cracks", "Leaks", "Root intrusion"]),
+        ("svc-card--accent", "art-service-burst.svg", "HDPE · full replacement", 'Pipe <span class="serif">bursting</span>',
+         "A bursting head breaks the old pipe outward while new HDPE pipe is pulled in behind it. A completely new pipe with a 50+ year lifespan, and it can be upsized for better flow.",
+         ["Collapsed lines", "Orangeburg", "Clay", "Upsizing"]),
+        ("svc-card--water", "art-service-water.svg", "CTS poly · pressure tested", 'Water line <span class="serif">replacement</span>',
+         "We pull a new CTS poly line underground, reconnect it, and test it for pressure and leaks. No rust or scale buildup, and better water pressure.",
+         ["Old galvanized", "Leaks", "Low pressure"]),
+        ("svc-card--accent", "art-service-spot.svg", "Spot repair · localized relining", 'Point <span class="serif">repairs</span>',
+         "When the damage is isolated to one section and the rest of the pipe is sound, we reline just that spot instead of replacing the whole line.",
+         ["One bad joint", "A single crack", "Localized roots"]),
+    ]
+
+    def card(mod, art, spec, title, text, tags):
+        return block(("svc-card " + mod).strip(), [
+            block("svc-card__art", [svg(art)], _attributes=attrs(aria_hidden="true")),
+            block("svc-card__body", [
+                block("svc-card__top", [span(spec, "svc-card__spec"), block("svc-card__go", [svg("icon-arrow.svg")], tag="span", _attributes=attrs(aria_hidden="true"))]),
+                h("h3", f'<a class="svc-card__link" href="#estimate">{title}</a>', "svc-card__title"),
+                t(text),
+                block("svc-card__foot", [span("Best for", "svc-card__foot-label")] + [span(x, "tag") for x in tags]),
+            ]),
+        ], tag="li")
+
+    return section("section section--tint", [
+        container([
+            head_split("Services", 'Four ways we fix it, <span class="serif">without the trench.</span>',
+                       t("Every job starts with a CCTV camera inspection. We match the method to your pipe, not the other way around.", "section__intro", _widthMax="36ch")),
+            block("svc-grid", [card(*c) for c in cards], tag="ul"),
+            block("svc-strip", [
+                block("svc-strip__text", [svg("icon-film.svg"), span("Every job starts with a CCTV inspection, and you keep the before and after footage.")], tag="span"),
+                btn("Request a quote", "#estimate", "btn--primary", icon="icon-arrow.svg"),
+            ]),
+        ]),
+    ], sid="services", label="Services")
+
+
+def audience():
+    cards = [("icon-home.svg", "Homeowners", "Sewer and water lines under lawns, driveways, patios and mature trees. Small access points instead of a torn-up yard.",
+              ["Sewer lateral lining &amp; bursting", "Water service line pulls", "Camera footage you keep"]),
+             ("icon-building.svg", "Commercial properties", "We choose methods that keep your property open and running during the work, with less disruption to parking, landscaping and tenants.",
+              ["Lines under parking lots &amp; hardscape", "Clear schedule and budget up front", "Lower restoration costs"]),
+             ("icon-factory.svg", "Industrial &amp; municipal", "Larger lines and longer runs, with a CCTV assessment, a written recommendation, and documentation from evaluation through final testing.",
+              ["Site and pipe condition evaluation", "Lifecycle cost comparison", "Code and compliance focused"])]
+    return section("section section--white", [
+        container([
+            head_split("Who we work for", 'Homes, businesses <span class="serif">and industrial sites.</span>',
+                       t("Trenchless repair and replacement for residential, commercial and industrial properties, from a home's sewer line to lines under parking lots, roadways and working facilities.", "section__intro", _widthMax="38ch")),
+            block("aud-grid", [
+                block("aud-card", [
+                    block("aud-card__ico", [svg(ic)], tag="span"),
+                    h("h3", ti, "aud-card__title"),
+                    t(tx),
+                    block("checklist", [block("checklist__item", [svg("icon-check.svg"), span(x)], tag="li") for x in items], tag="ul"),
+                ], tag="li") for ic, ti, tx, items in cards
+            ], tag="ul"),
+        ]),
+    ], sid="who", label="Who we serve")
+
+
+def compare():
+    rows = [("Digging", "1–2 small access points", "Trench the full length of the pipe"),
+            ("Lawn, driveway, trees", "Left intact in most cases", "Removed, then rebuilt"),
+            ("Typical timeline", 'Faster in most cases (<span class="tbc">X</span> day typical)', '<span class="tbc">X</span> days to weeks'),
+            ("Restoration costs", "Minimal", "Landscaping, concrete, paving extra"),
+            ("Finished pipe", "Seamless, root- and corrosion-resistant. HDPE rated 50+ years", "New pipe, with joints"),
+            ("Disruption to your home", "Water off for hours, not days", "Yard torn up for the duration")]
+    cells = [
+        block("compare__cell compare__cell--head", [span("Factor", "eyebrow")], _attributes=attrs(role="columnheader")),
+        block("compare__cell compare__cell--head compare__cell--us", [span("PNW Trenchless", "compare__kicker"), span("Trenchless")], _attributes=attrs(role="columnheader")),
+        block("compare__cell compare__cell--head", [span("The old way", "compare__kicker"), span("Traditional excavation")], _attributes=attrs(role="columnheader")),
+    ]
+    for i, (lbl, us, them) in enumerate(rows):
+        last = " compare__cell--last" if i == len(rows) - 1 else ""
+        cells += [
+            t(lbl, "compare__cell compare__cell--label", tag="div", _attributes=attrs(role="rowheader")),
+            t(us, "compare__cell compare__cell--us" + last, tag="div", _attributes=attrs(role="cell")),
+            t(them, "compare__cell compare__cell--them", tag="div", _attributes=attrs(role="cell")),
+        ]
+    return section("section section--tint", [
+        container([
+            head("Trenchless vs. traditional", 'The repair price is <span class="serif">only part of the cost.</span>',
+                 "With a traditional dig you also pay to restore everything that came out of the ground."),
+            block("compare", [block("compare__table", cells, _attributes=attrs(role="table", aria_label="Trenchless compared with traditional excavation"))]),
+            block("note", [svg("icon-alert.svg"), t("<strong>Trenchless isn't right for every pipe.</strong> If a section has a belly (sag) or is out of grade, digging that spot may be the better fix, and we'll tell you so.")]),
+        ]),
+    ], label="Comparison")
+
+
+def decide():
+    outs = [("", "If the camera shows", "The pipe still holds its shape", "Cracks, joint gaps and roots, but structurally intact.", "Pipe lining"),
+            ("outcome--burst", "If the camera shows", "It's collapsed or deformed", "Orangeburg, crushed clay, or you need a bigger diameter.", "Pipe bursting"),
+            ("outcome--spot", "If the damage is", "Isolated to one spot", "One bad joint or crack, and the rest of the pipe is sound.", "Point repair"),
+            ("outcome--water", "If the problem is", "Your water service", "Rusty galvanized pipe, repeated leaks, weak pressure.", "Water line pull")]
+    return section("section section--white", [
+        container([
+            head("Which repair do I need?", 'Lining or bursting? <span class="serif">The camera decides.</span>'),
+            block("flow", [
+                block("flow__start", [
+                    block("feed flow__feed", [
+                        div("feed__cross", tag="span"),
+                        block("feed__hud feed__hud--top", [span("INSPECT", "feed__rec")]),
+                        block("feed__hud", [span("STEP 1", "feed__ft")]),
+                    ], _attributes=attrs(role="img", aria_label="Camera inspection view")),
+                    t("Every recommendation starts with what the camera actually shows."),
+                ]),
+                block("flow__lines", [svg("art-flow-lines.svg")], _attributes=attrs(aria_hidden="true")),
+                block("flow__outcomes", [
+                    block(("outcome " + mod).strip(), [span(i, "outcome__if"), h("h3", ti, "outcome__title"), t(tx), span(pill, "outcome__pill")], tag="article")
+                    for mod, i, ti, tx, pill in outs
+                ]),
+            ]),
+        ]),
+    ], label="Decision flow")
+
+
+def process():
+    steps = [("Camera inspection", "We run a camera through the line and locate the problem."),
+             ("You see the footage", "Mike walks you through what's wrong and your options."),
+             ("Written quote", "Clear scope and price. No pressure."),
+             ("Trenchless repair", "Small access points, repair done, area restored."),
+             ("Final camera proof", "A post-repair video for your records and warranty.")]
+    return section("section section--dark grain", [
+        container([
+            head_split("Our process", 'Start to finish, <span class="serif">on camera.</span>',
+                       btn("Start with step 01", "#estimate", "btn--primary", icon="icon-arrow.svg")),
+            block("steps", [block("step", [h("h3", ti, "step__title"), t(tx)], tag="li") for ti, tx in steps], tag="ol"),
+        ]),
+    ], sid="process", label="Process")
+
+
+def mike():
+    creds = [("icon-check.svg", "14+ years in trenchless sewer &amp; water line repair"),
+             ("icon-check.svg", '<span class="tbc">Manufacturer certifications</span>'),
+             ("icon-shield.svg", "WA Reg. #PNWTRT*744KQ, licensed, bonded &amp; insured"),
+             ("icon-home.svg", "Lives and works locally in Clayton, WA")]
+    return section("section section--tint", [
+        container([
+            block("split split--center split--mike", [
+                block("mike__media", [
+                    block("mike__photo", [
+                        svg("art-silhouette.svg", "mike__silhouette", _attributes=attrs(aria_hidden="true")),
+                        block("mike__photo-ph", [svg("icon-photo.svg"), span('<span class="tbc">Portrait: Mike Jeisma in work gear beside the rig</span>')]),
+                        block("mike__plate", [
+                            block("mike__id", [span("Mike Jeisma", "mike__name"), span("Owner &amp; lead technician", "mike__role")], tag="span"),
+                            span('Clayton, WA · Est. <span class="tbc">2025</span>', "mike__est"),
+                        ]),
+                    ]),
+                    img("trailer.jpg", "mike__inset", alt="PNW Trenchless equipment trailer"),
+                ]),
+                block("mike__content", [
+                    eyebrow("Family-owned · meet the owner"),
+                    t("We treat every project like it’s for our own family. Our customers deserve honest work, fair pricing, and results built to last.", "mike__quote", tag="blockquote"),
+                    t('PNW Trenchless is a family-owned company built on honesty, quality workmanship and customer care. Mike has spent 14+ years in sewer and water line work across the Spokane area, the last decade-plus focused on trenchless lining and bursting. In <span class="tbc">2025</span> he started PNW Trenchless to do it his way: show customers the footage, give them a straight answer, and do the work himself.', "mike__bio"),
+                    block("creds", [block("creds__item", [svg(ic), span(tx)], tag="li") for ic, tx in creds], tag="ul"),
+                    block("mike__sign", [
+                        block("mike__sig", [span("Mike Jeisma", "mike__sig-name"), span("Owner, PNW Trenchless", "mike__sig-role")], tag="span"),
+                        a("Read Mike's full story", "#", "link-arrow"),
+                    ]),
+                ]),
+            ]),
+        ]),
+    ], sid="mike", label="About Mike")
+
+
+def projects():
+    def fig(f, alt, tag, after=False):
+        return block("job-pair__fig", [img(f, alt=alt), span(tag, "job-pair__tag" + (" job-pair__tag--after" if after else ""))], tag="figure")
+
+    return section("section section--white", [
+        container([
+            head_split("Recent projects", 'Real jobs. <span class="serif">Real yards.</span>', a("See all projects", "#", "link-arrow")),
+            block("project", [
+                block("job-pair", [
+                    fig("job-during.jpg", "Small access pit dug in a front lawn during a trenchless repair", "DURING"),
+                    fig("job-after.jpg", "The same front lawn after the access pit was backfilled", "AFTER", True),
+                ]),
+                block("project__info", [
+                    eyebrow("Recent job · front yard"),
+                    span('One small pit. <span class="serif">Same lawn, after.</span>', "project__title"),
+                    block("spec", [
+                        span("Location", "spec__term"), span('<span class="tbc">Neighborhood, city</span>', "spec__value"),
+                        span("Problem", "spec__term"), span('<span class="tbc">What the camera found</span>', "spec__value"),
+                        span("Method", "spec__term"), span('<span class="tbc">Bursting / lining, length</span>', "spec__value"),
+                        span("Yard", "spec__term"), span("One access pit, backfilled after the repair", "spec__value"),
+                    ]),
+                    a("See more projects", "#", "link-arrow"),
+                ]),
+            ], tag="article"),
+            block("projects__more", [
+                block("mini", [
+                    block("feed", [block("feed__hud", [span("021.7 FT", "feed__ft")])], tag="span", _attributes=attrs(role="img", aria_label="Collapsed pipe still")),
+                    block("mini__body", [span('<span class="tbc">City</span>, Spokane Valley', "mini__title"), span('Collapsed Orangeburg replaced by pipe bursting, 4" HDPE · <span class="tbc">X</span> days', "mini__text")], tag="span"),
+                ], href="#"),
+                block("mini", [
+                    img("job-waterline.jpg", alt="Access pit with the new blue water line in place next to the meter box"),
+                    block("mini__body", [span("Water line pull", "mini__title"), span('New line pulled through a small access pit at the meter · <span class="tbc">City</span>', "mini__text")], tag="span"),
+                ], href="#"),
+            ]),
+        ]),
+    ], sid="projects", label="Projects")
+
+
+def reviews():
+    def review(letter, text):
+        return block("review", [
+            span("★★★★★", "stars", _attributes=attrs(aria_label="5 stars")),
+            t(f'<span class="tbc">{text}</span>', "review__quote", tag="blockquote"),
+            block("review__by", [span(letter, "review__av"), block("review__name", [span('<span class="tbc">Name</span>'), span('<span class="tbc">City</span> · Google review', "review__meta")], tag="span")], tag="figcaption"),
+        ], tag="figure")
+
+    return section("section section--dark grain", [
+        container([
+            head("Reviews", 'What Spokane homeowners <span class="serif">say.</span>'),
+            block("reviews__grid", [
+                block("rating", [
+                    span('<span class="tbc">X.X</span>', "rating__num"),
+                    span("★★★★★", "stars", _attributes=attrs(aria_label="5 stars")),
+                    t('Average from <span class="tbc">N</span> Google reviews'),
+                    a("Read them on Google", "#", "link-arrow"),
+                ]),
+                block("review-row", [
+                    review("A", "Real Google review text, ideally mentioning the method and the yard staying intact."),
+                    review("B", "Real Google review text."),
+                    review("C", "Real Google review text."),
+                ]),
+            ]),
+            block("assure", [
+                block("assure__item", [svg("icon-shield.svg"), h("h3", '<span class="tbc">X</span>-year warranty on every repair', "assure__title"), t('<span class="tbc">What\'s covered: materials and workmanship, transferable if you sell?</span>')]),
+                block("assure__item", [svg("icon-card.svg"), h("h3", "Sewer emergencies don't wait for payday", "assure__title"), t('<span class="tbc">Financing partner, terms and apply link (if offered).</span>')]),
+            ]),
+        ]),
+    ], sid="reviews", label="Reviews")
+
+
+def areas():
+    cities = [("Spokane", "Metro"), ("Spokane Valley", "East"), ("Deer Park", "North"), ("Clayton", "Home base"), ("Stevens County", "North"), ("Spokane County", "+ nearby")]
+    return section("section section--tint", [
+        container([
+            block("split split--center split--areas", [
+                block("areas__text", [
+                    eyebrow("Local expertise"),
+                    h("h2", 'Built for <span class="serif">Inland Northwest</span> sewer lines.'),
+                    t('Many older Spokane-area homes still run on clay, cast iron or Orangeburg sewer lines and galvanized water service. Add mature pines and maples, and root intrusion is one of the most common problems we see. <span class="tbc">Mike to add 2–3 sentences from his own experience: neighborhoods, soil, depth.</span>'),
+                    block("materials", [span(x, "material") for x in ["Clay", "Cast iron", "Orangeburg", "Galvanized"]], _attributes=attrs(aria_label="Pipe materials common in the area")),
+                    block("city-list", [block("", [block("city", [span(c), span(n, "city__note")], href="#estimate")], tag="li") for c, n in cities], tag="ul"),
+                ]),
+                block("map", [
+                    svg("art-service-map.svg", _attributes=attrs(role="img", aria_label="Service area map from Clayton south to Spokane and Spokane Valley")),
+                    t("APPROXIMATE SERVICE AREA · CLAYTON TO SPOKANE METRO", "map__caption", tag="figcaption"),
+                ], tag="figure"),
+            ]),
+        ]),
+    ], sid="areas", label="Service areas")
+
+
+FAQ = [
+    ("How much does trenchless sewer repair cost in Spokane?", ["It depends on the length of the line, how deep it is, how easy it is to reach, and whether it needs lining or bursting. After a camera inspection you get a written quote with a fixed scope, so there are no surprises.", '<span class="tbc">Honest price range from Mike.</span>'], True),
+    ("Is a lined pipe as strong as a new one?", ['A cured-in-place liner forms a seamless, jointless pipe inside the old one. With no joints, roots have nowhere to get in. <span class="tbc">Design life and liner spec.</span>'], True),
+    ("Will you have to dig at all?", ["Usually one or two small access points, not a trench. If the camera shows a sag or a section that's out of grade, digging that one spot may be the better fix, and we'll tell you before we start."], True),
+    ("How long does the job take, and can I use my plumbing?", ['Most jobs take <span class="tbc">X</span> day(s). Your water or sewer is off for hours, not days, and we\'ll tell you exactly when.'], True),
+    ("Can you fix a pipe full of tree roots?", ["Yes. We clear the roots, then line the pipe so there are no joints for them to grow back through."], True),
+    ("What if my pipe has collapsed?", ["Lining needs a pipe that still holds its shape. For a collapsed or crushed line, pipe bursting pulls a brand-new HDPE pipe through the old path."], True),
+    ("Do you work on commercial and industrial properties?", ["Yes. Along with homes, we repair and replace lines for commercial and industrial properties, and we choose methods that keep your property running during the work."], False),
+    ("How do you decide which method to use?", ["We look at the pipe on camera, plus access points, soil, surface use and nearby utilities. Then we recommend the method that fits: bursting for full replacement, lining for sound host pipes, or a point repair when damage is isolated. You get the reasoning, schedule and budget in writing."], False),
+    ("Does homeowners insurance cover sewer line repair?", ['It depends on your policy and any service-line coverage you carry. We can provide camera footage and a written report for your insurer. <span class="tbc">Mike to add what he typically sees.</span>'], True),
+    ("Do you handle permits?", ['<span class="tbc">Yes / which jurisdictions, and how it\'s billed.</span>'], True),
+]
+
+
+def faq():
+    items = []
+    for q, answers, draft in FAQ:
+        content = [t(x) for x in answers]
+        if draft:
+            content.append(span("Draft · Mike to confirm", "draft"))
+        items.append(block("faq__item", [
+            block("", [h("h3", q, "faq__q")], label="Title", _hidden={"_cssClasses": "accordion-title-wrapper"}),
+            block("faq__answer", content, label="Content", _hidden={"_cssClasses": "accordion-content-wrapper"}),
+        ], label="Item"))
+    # FAQ schema stays off until Mike confirms the draft answers.
+    return section("section section--white", [
+        container([
+            block("split split--faq", [
+                block("sticky-aside", [
+                    eyebrow("FAQ"),
+                    h("h2", 'Straight <span class="serif">answers.</span>'),
+                    t("Don't see your question? Call or text Mike and he'll give you a straight answer."),
+                    btn(PHONE, TEL, "btn--base btn--outline", icon="icon-phone.svg", icon_left=True),
+                ]),
+                N("accordion-nested", "faq__list", items, expandItem="0", independentToggle=True),
+            ]),
+        ]),
+    ], sid="faq", label="FAQ")
+
+
+def estimate():
+    ways = [("icon-phone.svg", "Call", PHONE, TEL, False), ("icon-chat.svg", "Text", "Send a photo", SMS, False),
+            ("icon-mail.svg", "Email", "Write to us", MAIL + "?subject=Quote%20request", False), ("icon-fb.svg", "Facebook", "Message us", FB, True)]
+
+    def chips(legend, options):
+        return block("chips", [
+            span(legend, "chips__legend"),
+            block("chips__list", [div("chip-option" + (" is-selected" if i == 0 else ""), [span(o)], tag="button",
+                                      _attributes=attrs(type="button", aria_pressed="true" if i == 0 else "false")) for i, o in enumerate(options)]),
+        ], _attributes=attrs(role="group", aria_label=legend))
+
+    def field(label_text, ph=""):
+        return block("field", [span(label_text, "field__label"), div("field__input", tag="span", _attributes=attrs(role="textbox", aria_label=label_text, data_placeholder=ph))])
+
+    # Dummy form (design only). Swap this block for the Fluent Forms element later; keep the `form` wrapper class.
+    form = block("form", [
+        block("form__head", [h("h3", "Request a quote", "form__title"), span("Takes about a minute", "form__hint")]),
+        chips("What do you need?", ["Sewer line repair", "Pipe bursting", "CIPP lining", "Water line", "Point repair", "Not sure yet"]),
+        chips("Property type", ["Residential", "Commercial", "Industrial"]),
+        div("form__sep"),
+        block("form__row", [field("Name"), field("Phone")]),
+        block("form__row", [field("Email"), field("Property address or city")]),
+        field("Tell us what's going on (optional)"),
+        block("upload", [svg("icon-upload.svg"), span("Add a photo or video of the problem (optional)")]),
+        btn("Request My Quote", TEL, "btn--primary form__submit", icon="icon-arrow.svg"),
+        t('No obligation. We reply personally, usually <span class="tbc">same day</span>.', "form__fine"),
+    ], label="Quote form (dummy, swap for Fluent Forms)")
+    return section("section section--dark estimate", [
+        div("estimate__glow", _attributes=attrs(aria_hidden="true")),
+        container([
+            block("split split--center", [
+                block("estimate__text", [
+                    eyebrow("Request a quote"),
+                    h("h2", 'Get a <span class="serif">true and honest</span> quote.'),
+                    t("Give us some details and we'll reach out right away. Homes, businesses and industrial sites across Spokane and Stevens County."),
+                    block("bigphone", [span("Call or text now", "bigphone__label"), span(PHONE, "bigphone__num"), span("Send a photo or video of the problem if you can.", "bigphone__note")], href=TEL),
+                    block("contact-ways", [block("contact-way", [svg(ic), span(lbl), span(note, "contact-way__note")], href=link(u, nt)) for ic, lbl, note, u, nt in ways]),
+                    block("next", [block("next__item", [span(f"0{i + 1}", "next__num"), span(x)], tag="li") for i, x in enumerate(["You send the details or a photo", "Mike calls you back and books the camera", "You see the footage and get a written quote"])], tag="ol"),
+                ]),
+                form,
+            ]),
+        ]),
+    ], sid="estimate", label="Quote")
+
+
+SECTIONS = [hero, ticker, stats, signs, explain, services, audience, compare, decide, process, mike, projects, reviews, areas, faq, estimate]
+
+
+# --------------------------------------------------------------------------
+def flatten(nodes, prefix):
+    out, counter = [], [0]
+
+    def nid():
+        counter[0] += 1
+        return (prefix + format(counter[0], "x").rjust(6 - len(prefix), "0"))[:6]
+
+    def walk(n, parent):
+        i = nid()
+        e = {"id": i, "name": n.name, "parent": parent, "settings": n.settings}
+        if n.label:
+            e["label"] = n.label
+        out.append(e)
+        for ch in n.children:
+            walk(ch, i)
+
+    for n in nodes:
+        walk(n, 0)
+    return out
+
+
+def build():
+    data = {
+        "header": flatten(header(), "h"),
+        "footer": flatten(footer(), "f"),
+        "sections": [{"key": fn.__name__, "elements": flatten([fn()], "s" + format(k, "x"))} for k, fn in enumerate(SECTIONS)],
+    }
+    pathlib.Path(__file__).with_name("elements.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
+    return data
+
+
+if __name__ == "__main__":
+    d = build()
+    print("header", len(d["header"]), "footer", len(d["footer"]), "sections", [(s["key"], len(s["elements"])) for s in d["sections"]])

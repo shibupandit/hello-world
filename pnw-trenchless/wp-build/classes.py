@@ -143,7 +143,9 @@ c("feed__label", """
 # Header / top bar
 # --------------------------------------------------------------------------
 c("topbar", f"""
-%root% {{ background: var(--base-dark); color: var(--text-light-muted); font-size: var(--text-xs); letter-spacing: .02em; padding-block: var(--space-xs); padding-inline: var(--gutter); border-bottom: var(--pnw-border-dark); }}
+%root% {{ background: var(--base-dark); color: var(--text-light-muted); font-size: var(--text-xs); letter-spacing: .02em; padding-block: var(--space-xs); padding-inline: var(--gutter); border-bottom: var(--pnw-border-dark); line-height: 1.6; }}
+%root% .topbar__area {{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }}
+{L} {{ %root% .topbar__links {{ display: none; }} }}
 %root% a {{ color: inherit; text-decoration: none; }}
 %root% a:hover {{ color: var(--white); }}
 """)
@@ -162,7 +164,7 @@ c("topbar__link", """
 %root% svg { width: 1.1em; height: 1.1em; }
 """)
 c("header", f"""
-%root% {{ position: sticky; top: 0; z-index: 60; background: var(--base-trans-90); -webkit-backdrop-filter: saturate(1.5) blur(.9em); backdrop-filter: saturate(1.5) blur(.9em); border-bottom: var(--pnw-border-dark); color: var(--text-light); padding-inline: var(--gutter); }}
+%root% {{ position: relative; z-index: 2; background: var(--base-trans-90); -webkit-backdrop-filter: saturate(1.5) blur(.9em); backdrop-filter: saturate(1.5) blur(.9em); border-bottom: var(--pnw-border-dark); color: var(--text-light); padding-inline: var(--gutter); }}
 """)
 c("header__inner", f"""
 %root% {{ width: 100%; max-width: var(--content-width); margin-inline: auto; min-height: var(--pnw-header-h); display: flex; flex-direction: row; align-items: center; gap: var(--space-l); }}
@@ -230,7 +232,7 @@ c("chip", """
 %root% .tbc { background: var(--accent); color: var(--base); border: 0; border-radius: var(--radius-circle); padding: .1em .55em; font-size: .8em; }
 """)
 c("hero__seo", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .16em; text-transform: uppercase; color: var(--text-light-muted); }")
-c("hero__title", "%root% .serif { color: var(--primary-light); }")
+c("hero__title", "%root% .serif { color: var(--primary-light); display: block; }")
 c("hero__lede", "%root% { font-size: var(--text-l); color: var(--white-trans-80); max-width: 52ch; }")
 c("hero__actions", f"""
 %root% {{ display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-s); }}
@@ -283,7 +285,7 @@ c("ticker__ico", """
 %root% { width: .85em; height: .85em; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; border: .03em solid var(--white-trans-20); color: var(--primary-light); transition: background-color .3s, border-color .3s, color .3s; margin-right: .2em; }
 %root% svg { width: 46%; height: 46%; }
 """)
-c("ticker__name", "")
+c("ticker__name", "%root% { display: inline-block; }")
 c("ticker__spec", """
 %root% { align-self: flex-start; margin-top: .35em; margin-left: .2em; font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; line-height: 1.2; color: var(--accent); padding: .3em .55em; border: var(--border-size) solid var(--accent-trans-40); border-radius: var(--radius-circle); }
 """)
@@ -509,6 +511,9 @@ c("compare__cell--us", """
 %root%.compare__cell--last { border-radius: 0 0 var(--radius-l) var(--radius-l); border-bottom: 0; }
 %root% .tbc { background: var(--accent-trans-30); border-bottom-color: var(--accent); }
 """)
+c("compare__cell--last", "%root%.compare__cell--us { border-radius: 0 0 var(--radius-l) var(--radius-l); border-bottom: 0; }")
+c("is-selected", "%root%.chip-option { background: var(--base); color: var(--white); border-color: var(--base); }")
+c("mike__id", "%root% { display: flex; flex-direction: column; }")
 c("compare__kicker", "%root% { display: block; font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; font-weight: 700; opacity: .7; }")
 c("note", """
 %root% { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-m); align-items: start; max-width: 54em; padding: var(--space-m) var(--space-l); border-radius: var(--radius); background: var(--white); border: var(--pnw-border); }
@@ -786,7 +791,11 @@ c("field", """
 %root% :is(input, textarea, select):focus { outline: none; border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 .25em var(--primary-ultra-light); }
 """)
 c("field__label", "%root% { font-size: var(--text-s); font-weight: 600; }")
-c("field__input", "")
+c("field__input", """
+%root% { display: block; width: 100%; min-height: 3.1em; padding: var(--space-s) var(--space-m); border: var(--border-size) solid var(--neutral-light); border-radius: var(--radius); background: var(--neutral-ultra-light); font-weight: 400; color: var(--neutral); }
+%root%:empty::before { content: attr(data-placeholder); }
+.field:last-of-type > %root% { min-height: 3.1em; }
+""")
 c("chips", """
 %root% { display: flex; flex-direction: column; gap: var(--space-xs); border: 0; padding: 0; margin: 0; min-width: 0; }
 """)
@@ -843,8 +852,21 @@ c("callbar", f"""
 """)
 
 
+def _row_default(css):
+    """Bricks blocks default to flex-direction: column; make flex rules explicit rows."""
+    import re
+
+    def fix(rule):
+        body = rule.group(2)
+        if re.search(r"display:\s*(inline-)?flex", body) and "flex-direction" not in body:
+            body = re.sub(r"(display:\s*(?:inline-)?flex;)", r"\1 flex-direction: row;", body, count=1)
+        return rule.group(1) + "{" + body + "}"
+
+    return re.sub(r"([^{}]*)\{([^{}]*)\}", fix, css)
+
+
 def build():
-    out = [{"name": n, "css": css, "category": cat} for n, (css, cat) in C.items() if css]
+    out = [{"name": n, "css": _row_default(css), "category": cat} for n, (css, cat) in C.items() if css]
     p = pathlib.Path(__file__).with_name("classes.json")
     p.write_text(json.dumps(out, indent=1))
     return out
