@@ -407,10 +407,10 @@ c("explain__media", """
 %root% img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; display: block; }
 """)
 c("explain__caption", """
-%root% { position: absolute; left: var(--space-m); right: var(--space-m); bottom: var(--space-m); z-index: 2; display: flex; flex-direction: column; gap: .2em; padding: var(--space-s) var(--space-m); border-radius: var(--radius); background: var(--base-trans-70); -webkit-backdrop-filter: blur(.6em); backdrop-filter: blur(.6em); color: var(--white); border: var(--pnw-border-dark); }
+%root% { position: absolute; left: var(--space-m); right: var(--space-m); bottom: var(--space-m); z-index: 2; display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: .2em; padding: var(--space-s) var(--space-m); border-radius: var(--radius); background: var(--base-trans-70); -webkit-backdrop-filter: blur(.6em); backdrop-filter: blur(.6em); color: var(--white); border: var(--pnw-border-dark); }
 """)
 c("explain__caption-label", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--primary-light); }")
-c("explain__caption-title", "%root% { font-family: var(--heading-font-family); font-size: var(--h4); font-weight: 700; line-height: 1.25; }")
+c("explain__caption-title", f"%root% {{ font-family: var(--heading-font-family); font-size: var(--h4); font-weight: 700; line-height: 1.25; }}\n{L} {{ %root% {{ font-size: var(--text-m); }} }}")
 c("xsec", """
 %root% { background: var(--base); color: var(--text-light); border-radius: var(--radius-l); overflow: hidden; display: flex; flex-direction: column; min-width: 0; width: 100%; }
 %root% :is(h3) { color: var(--text-light); }
