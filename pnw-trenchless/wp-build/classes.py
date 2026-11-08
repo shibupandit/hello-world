@@ -730,12 +730,12 @@ c("map__caption", "%root% { padding: var(--space-s) var(--space-m); font-size: v
 c("faq__list", "%root% { border-top: var(--border-size) solid var(--text-dark); width: 100%; }")
 c("faq__item", """
 %root% { border-bottom: var(--pnw-border); }
-%root% .accordion-title-wrapper, %root% > .brxe-block:first-child { cursor: pointer; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: var(--space-m); padding: var(--space-m) 0; }
+%root% .accordion-title-wrapper, %root% > .brxe-block:first-child { cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: var(--space-m); padding: var(--space-m) 0; }
 %root% .accordion-title-wrapper::after, %root% > .brxe-block:first-child::after { content: ""; flex: none; width: 2.5em; height: 2.5em; border-radius: var(--radius-circle); border: var(--pnw-border); background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111A16' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center / 45% no-repeat; transition: transform .35s var(--pnw-ease), background-color .3s; }
 %root%.brx-open .accordion-title-wrapper::after, %root%.brx-open > .brxe-block:first-child::after { transform: rotate(135deg); background-color: var(--primary); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E"); border-color: var(--primary); }
 %root%:hover .faq__q { color: var(--primary); }
 """)
-c("faq__q", "%root% { font-family: var(--heading-font-family); font-weight: 700; font-size: var(--text-l); line-height: 1.3; letter-spacing: -.01em; transition: color .2s; margin: 0; }")
+c("faq__q", "%root% { flex: 1 1 auto; min-width: 0; font-family: var(--heading-font-family); font-weight: 700; font-size: var(--text-l); line-height: 1.3; letter-spacing: -.01em; transition: color .2s; margin: 0; }")
 c("faq__answer", f"""
 %root% {{ padding: 0 var(--space-xxl) var(--space-m) 0; color: var(--text-dark-muted); }}
 %root% > * + * {{ margin-top: var(--space-xs); }}
@@ -870,6 +870,12 @@ def _row_default(css):
         return rule.group(1) + "{" + body + "}"
 
     return re.sub(r"([^{}]*)\{([^{}]*)\}", fix, css)
+
+
+# Icon + text rows: keep the icon beside the text at every width.
+for _n in ["creds__item", "hero__proof-item", "checklist__item", "svc-strip__text", "topbar__link"]:
+    _css, _cat = C[_n]
+    C[_n] = (_css + "\n%root% { flex-wrap: nowrap; }\n%root% > :not(svg) { flex: 1 1 auto; min-width: 0; width: auto; }", _cat)
 
 
 def build():
