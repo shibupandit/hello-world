@@ -178,11 +178,9 @@ c("logo--footer", "%root% img { height: 4.25em; }")
 c("nav", f"""
 %root% {{ margin-inline: auto; }}
 {NAV} {{
-  %root% {{ margin-inline: auto 0; order: 3; }}
-  /* backdrop */
-  %root%::before {{ content: ""; position: fixed; inset: var(--wp-admin--admin-bar--height, 0) 0 0 0; z-index: 98; background: color-mix(in srgb, var(--base) 60%, transparent); -webkit-backdrop-filter: blur(.4em); backdrop-filter: blur(.4em); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .4s var(--pnw-ease), visibility 0s linear .4s; }}
-  %root%.brx-open::before {{ opacity: 1; visibility: visible; transition: opacity .4s var(--pnw-ease), visibility 0s; }}
-  %root%.brx-open.brx-closing::before {{ opacity: 0; transition: opacity .2s ease-in; }}
+  %root% {{ margin-inline: auto 0; order: 3; position: static; }}
+  /* while open, the page under the dimmed area ignores taps, so a tap there only closes the menu */
+  body.no-scroll :is(#brx-content, #brx-footer) {{ pointer-events: none; }}
 }}
 """)
 c("nav__items", f"""
@@ -190,21 +188,23 @@ c("nav__items", f"""
 {NAV} {{
   .nav %root% {{
     display: flex !important; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
-    position: fixed !important; top: var(--wp-admin--admin-bar--height, 0); right: 0; bottom: 0; left: auto; z-index: 99; width: min(100%, 26em); height: auto; max-height: none;
-    padding: 0 var(--gutter) var(--space-l); overflow-y: auto; overscroll-behavior: contain;
-    background: var(--base); border-left: var(--pnw-border-dark); box-shadow: var(--box-shadow-l);
-    visibility: hidden; opacity: 0; transform: translateX(100%);
-    transition: transform .4s var(--pnw-ease), opacity .4s var(--pnw-ease), visibility 0s linear .4s;
+    position: absolute !important; top: 100%; left: 0; right: 0; bottom: auto; z-index: 5; width: auto; height: auto;
+    max-height: calc(100dvh - var(--pnw-header-h) - var(--pnw-topbar-h, 0px) - var(--wp-admin--admin-bar--height, 0px)); overflow-y: auto; overscroll-behavior: contain;
+    padding: var(--space-xs) var(--gutter) var(--space-l);
+    background: var(--base); border-bottom: var(--pnw-border-dark);
+    /* dimmed backdrop below the panel (clipped so the header stays clear) */
+    box-shadow: 0 0 0 100vmax color-mix(in srgb, var(--base) 60%, transparent);
+    visibility: hidden; opacity: 0; transform: translateY(-.75em); clip-path: inset(0 0 100% 0);
+    transition: clip-path .4s var(--pnw-ease), transform .4s var(--pnw-ease), opacity .3s var(--pnw-ease), visibility 0s linear .4s;
   }}
-  .nav.brx-open %root% {{ visibility: visible; opacity: 1; transform: none; transition: transform .4s var(--pnw-ease), opacity .3s var(--pnw-ease), visibility 0s; }}
-  .nav.brx-open.brx-closing %root% {{ opacity: 0; transform: translateX(30%); transition: transform .2s ease-in, opacity .2s ease-in; }}
+  .nav.brx-open %root% {{ visibility: visible; opacity: 1; transform: none; clip-path: inset(0 0 -100vmax 0); transition: clip-path .4s var(--pnw-ease), transform .4s var(--pnw-ease), opacity .3s var(--pnw-ease), visibility 0s; }}
+  .nav.brx-open.brx-closing %root% {{ opacity: 0; transform: translateY(-.5em); clip-path: inset(0 0 100% 0); transition: clip-path .2s ease-in, transform .2s ease-in, opacity .2s ease-in; }}
   %root% > li {{ width: 100%; }}
-  %root% > li:has(> .nav__close) {{ position: absolute; top: calc((var(--pnw-header-h) - 2.6em) / 2); right: var(--gutter); width: auto; z-index: 2; animation: none !important; }}
   .nav.brx-open:not(.brx-closing) %root% > li {{ animation: pnw-nav-in .45s var(--pnw-ease) both; }}
-  {"".join(f".nav.brx-open:not(.brx-closing) %root% > li:nth-child({n}) {{ animation-delay: {0.06 + n * 0.04:.2f}s; }} " for n in range(1, 10))}
+  {"".join(f".nav.brx-open:not(.brx-closing) %root% > li:nth-child({n}) {{ animation-delay: {0.04 + n * 0.04:.2f}s; }} " for n in range(1, 9))}
 }}
-@keyframes pnw-nav-in {{ from {{ opacity: 0; transform: translateY(.75em); }} to {{ opacity: 1; transform: none; }} }}
-@media (prefers-reduced-motion: reduce) {{ .nav %root%, .nav %root% > li, .nav::before {{ transition: none !important; animation: none !important; }} }}
+@keyframes pnw-nav-in {{ from {{ opacity: 0; transform: translateY(.6em); }} to {{ opacity: 1; transform: none; }} }}
+@media (prefers-reduced-motion: reduce) {{ .nav %root%, .nav %root% > li {{ transition: none !important; animation: none !important; }} }}
 """)
 c("nav__link", f"""
 %root% {{ position: relative; display: inline-block; color: var(--text-light-muted); font-weight: 600; font-size: var(--text-s); padding-block: var(--space-xs); white-space: nowrap; text-decoration: none; transition: color .2s; }}
@@ -212,7 +212,7 @@ c("nav__link", f"""
 %root%:hover, %root%[aria-current] {{ color: var(--white); }}
 %root%:hover::after, %root%[aria-current]::after {{ transform: scaleX(1); }}
 {NAV} {{
-  %root% {{ display: flex; align-items: center; justify-content: space-between; width: 100%; color: var(--text-light); font-family: var(--heading-font-family); font-size: var(--text-l); font-weight: 800; letter-spacing: -.01em; padding: var(--space-s) 0; border-bottom: var(--pnw-border-dark); }}
+  %root% {{ display: flex; align-items: center; justify-content: space-between; width: 100%; color: var(--text-light); font-family: var(--text-font-family); font-size: var(--text-l); font-weight: 600; letter-spacing: 0; padding: var(--space-s) 0; border-bottom: var(--pnw-border-dark); }}
   %root%::after {{ content: "\\2192"; position: static; height: auto; background: none; transform: translateX(-.4em); opacity: 0; color: var(--primary-light); font-family: var(--text-font-family); transition: opacity .25s, transform .25s var(--pnw-ease); }}
   %root%:hover, %root%:focus-visible, %root%[aria-current], %root%:active {{ color: var(--primary-light); }}
   %root%:hover::after, %root%:focus-visible::after, %root%[aria-current]::after, %root%:active::after {{ opacity: 1; transform: none; }}
@@ -222,10 +222,7 @@ c("nav__extras", f"""
 %root% {{ display: none; }}
 {NAV} {{ %root% {{ display: flex; flex-direction: column; align-items: stretch; gap: var(--space-m); margin-top: auto; padding-top: var(--space-l); }} }}
 """)
-c("nav__brand", f"""
-%root% {{ display: none; }}
-{NAV} {{ %root% {{ display: flex; flex-direction: row; align-items: center; min-height: var(--pnw-header-h); border-bottom: var(--pnw-border-dark); margin-bottom: var(--space-xs); }} %root% .logo img {{ height: 2.9em; }} }}
-""")
+
 c("nav__contact", """
 %root% { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs) var(--space-m); font-size: var(--text-s); color: var(--text-light-muted); }
 %root% a { color: inherit; text-decoration: none; }
@@ -239,13 +236,9 @@ c("nav__open", f"""
 {NAV} {{ .nav %root% {{ display: grid; place-items: center; font-size: var(--text-m); width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: 1; --brxe-toggle-width: 1.15em; --brxe-toggle-height: .8em; --brxe-toggle-bar-width: 1.15em; --brxe-toggle-bar-height: .12em; --brxe-toggle-bar-radius: var(--radius-circle); line-height: 0; }} }}
 %root% .brxa-wrap {{ display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }}
 %root% .brxa-inner {{ color: inherit; }}
+%root%:hover, %root%.is-active {{ border-color: var(--primary-light); }}
 """)
-c("nav__close", f"""
-%root% {{ display: none; }}
-%root% .brxa-wrap {{ display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }}
-{NAV} {{ .nav %root% {{ display: grid; place-items: center; font-size: var(--text-m); width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: 1; --brxe-toggle-width: 1.15em; --brxe-toggle-height: .8em; --brxe-toggle-bar-width: 1.15em; --brxe-toggle-bar-height: .12em; --brxe-toggle-bar-radius: var(--radius-circle); line-height: 0; }}
-  .nav %root%:hover {{ border-color: var(--primary-light); color: var(--primary-light); }} }}
-""")
+
 c("header__cta", f"""
 %root% {{ display: flex; flex-direction: row; align-items: center; gap: var(--space-m); flex: none; }}
 {NAV} {{ %root% {{ margin-left: auto; gap: var(--space-s); }} }}

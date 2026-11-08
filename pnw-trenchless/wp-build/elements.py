@@ -155,9 +155,6 @@ def header():
             block("logo", [img("logo.png", alt="PNW Trenchless")], href=link("/", aria="PNW Trenchless home")),
             N("nav-nested", "nav", [
                 block("nav__items", [
-                    N("toggle", "nav__close", animation="squeeze", ariaLabel="Close menu", _cssId="nav-close",
-                      _hidden={"_cssClasses": "brx-toggle-div"}, label="Toggle (Close: Mobile)"),
-                    block("nav__brand", [block("logo", [img("logo.png", alt="PNW Trenchless")], href=link("/#top", aria="PNW Trenchless home"))], tag="li", label="Panel brand (mobile)"),
                 ] + [a(t, u, "nav__link") for t, u in NAV_LINKS] + [
                     block("nav__extras", [
                         block("nav__phone", [

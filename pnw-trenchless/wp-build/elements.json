@@ -218,64 +218,6 @@
   },
   {
    "id": "h00012",
-   "name": "toggle",
-   "parent": "h00011",
-   "settings": {
-    "animation": "squeeze",
-    "ariaLabel": "Close menu",
-    "_cssId": "nav-close",
-    "_hidden": {
-     "_cssClasses": "brx-toggle-div"
-    },
-    "_cls": [
-     "nav__close"
-    ]
-   },
-   "label": "Toggle (Close: Mobile)"
-  },
-  {
-   "id": "h00013",
-   "name": "block",
-   "parent": "h00011",
-   "settings": {
-    "tag": "li",
-    "_cls": [
-     "nav__brand"
-    ]
-   },
-   "label": "Panel brand (mobile)"
-  },
-  {
-   "id": "h00014",
-   "name": "block",
-   "parent": "h00013",
-   "settings": {
-    "tag": "a",
-    "link": {
-     "type": "external",
-     "url": "/#top",
-     "ariaLabel": "PNW Trenchless home"
-    },
-    "_cls": [
-     "logo"
-    ]
-   },
-   "label": "logo"
-  },
-  {
-   "id": "h00015",
-   "name": "image",
-   "parent": "h00014",
-   "settings": {
-    "image": {
-     "__media": "logo.png",
-     "size": "full"
-    },
-    "altText": "PNW Trenchless"
-   }
-  },
-  {
-   "id": "h00016",
    "name": "text-link",
    "parent": "h00011",
    "settings": {
@@ -291,7 +233,7 @@
    "label": "nav__link"
   },
   {
-   "id": "h00017",
+   "id": "h00013",
    "name": "text-link",
    "parent": "h00011",
    "settings": {
@@ -307,7 +249,7 @@
    "label": "nav__link"
   },
   {
-   "id": "h00018",
+   "id": "h00014",
    "name": "text-link",
    "parent": "h00011",
    "settings": {
@@ -323,7 +265,7 @@
    "label": "nav__link"
   },
   {
-   "id": "h00019",
+   "id": "h00015",
    "name": "text-link",
    "parent": "h00011",
    "settings": {
@@ -339,7 +281,7 @@
    "label": "nav__link"
   },
   {
-   "id": "h0001a",
+   "id": "h00016",
    "name": "text-link",
    "parent": "h00011",
    "settings": {
@@ -355,7 +297,7 @@
    "label": "nav__link"
   },
   {
-   "id": "h0001b",
+   "id": "h00017",
    "name": "text-link",
    "parent": "h00011",
    "settings": {
@@ -371,7 +313,7 @@
    "label": "nav__link"
   },
   {
-   "id": "h0001c",
+   "id": "h00018",
    "name": "block",
    "parent": "h00011",
    "settings": {
@@ -383,9 +325,9 @@
    "label": "nav__extras"
   },
   {
-   "id": "h0001d",
+   "id": "h00019",
    "name": "block",
-   "parent": "h0001c",
+   "parent": "h00018",
    "settings": {
     "tag": "a",
     "link": {
@@ -400,9 +342,9 @@
    "label": "nav__phone"
   },
   {
-   "id": "h0001e",
+   "id": "h0001a",
    "name": "block",
-   "parent": "h0001d",
+   "parent": "h00019",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -413,9 +355,9 @@
    "label": "header__phone-ico"
   },
   {
-   "id": "h0001f",
+   "id": "h0001b",
    "name": "svg",
-   "parent": "h0001e",
+   "parent": "h0001a",
    "settings": {
     "file": {
      "__media": "icon-phone.svg"
@@ -423,9 +365,9 @@
    }
   },
   {
-   "id": "h00020",
+   "id": "h0001c",
    "name": "block",
-   "parent": "h0001d",
+   "parent": "h00019",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -436,9 +378,9 @@
    "label": "header__phone-text"
   },
   {
-   "id": "h00021",
+   "id": "h0001d",
    "name": "text-basic",
-   "parent": "h00020",
+   "parent": "h0001c",
    "settings": {
     "text": "Call or text",
     "tag": "span",
@@ -449,9 +391,9 @@
    "label": "header__phone-label"
   },
   {
-   "id": "h00022",
+   "id": "h0001e",
    "name": "text-basic",
-   "parent": "h00020",
+   "parent": "h0001c",
    "settings": {
     "text": "509-953-2036",
     "tag": "span",
@@ -462,9 +404,9 @@
    "label": "header__phone-num"
   },
   {
-   "id": "h00023",
+   "id": "h0001f",
    "name": "button",
-   "parent": "h0001c",
+   "parent": "h00018",
    "settings": {
     "text": "Get a Quote",
     "link": {
@@ -486,9 +428,9 @@
    "label": "btn--primary"
   },
   {
-   "id": "h00024",
+   "id": "h00020",
    "name": "block",
-   "parent": "h0001c",
+   "parent": "h00018",
    "settings": {
     "_cls": [
      "nav__contact"
@@ -497,9 +439,9 @@
    "label": "nav__contact"
   },
   {
-   "id": "h00025",
+   "id": "h00021",
    "name": "block",
-   "parent": "h00024",
+   "parent": "h00020",
    "settings": {
     "tag": "a",
     "link": {
@@ -513,9 +455,9 @@
    "label": "topbar__link"
   },
   {
-   "id": "h00026",
+   "id": "h00022",
    "name": "svg",
-   "parent": "h00025",
+   "parent": "h00021",
    "settings": {
     "file": {
      "__media": "icon-mail.svg"
@@ -527,18 +469,18 @@
    "label": "ico"
   },
   {
-   "id": "h00027",
+   "id": "h00023",
    "name": "text-basic",
-   "parent": "h00025",
+   "parent": "h00021",
    "settings": {
     "text": "info@pnwtrenchless.com",
     "tag": "span"
    }
   },
   {
-   "id": "h00028",
+   "id": "h00024",
    "name": "block",
-   "parent": "h00024",
+   "parent": "h00020",
    "settings": {
     "tag": "a",
     "link": {
@@ -554,9 +496,9 @@
    "label": "topbar__link"
   },
   {
-   "id": "h00029",
+   "id": "h00025",
    "name": "svg",
-   "parent": "h00028",
+   "parent": "h00024",
    "settings": {
     "file": {
      "__media": "icon-fb.svg"
@@ -568,18 +510,18 @@
    "label": "ico"
   },
   {
-   "id": "h0002a",
+   "id": "h00026",
    "name": "text-basic",
-   "parent": "h00028",
+   "parent": "h00024",
    "settings": {
     "text": "Facebook",
     "tag": "span"
    }
   },
   {
-   "id": "h0002b",
+   "id": "h00027",
    "name": "text-basic",
-   "parent": "h0001c",
+   "parent": "h00018",
    "settings": {
     "text": "Serving Spokane, Spokane Valley, Deer Park, Clayton, Stevens &amp; Spokane County",
     "tag": "span",
@@ -590,7 +532,7 @@
    "label": "nav__area"
   },
   {
-   "id": "h0002c",
+   "id": "h00028",
    "name": "toggle",
    "parent": "h00010",
    "settings": {
@@ -603,7 +545,7 @@
    "label": "Toggle (Open: Mobile)"
   },
   {
-   "id": "h0002d",
+   "id": "h00029",
    "name": "block",
    "parent": "h0000d",
    "settings": {
@@ -614,9 +556,9 @@
    "label": "header__cta"
   },
   {
-   "id": "h0002e",
+   "id": "h0002a",
    "name": "block",
-   "parent": "h0002d",
+   "parent": "h00029",
    "settings": {
     "tag": "a",
     "link": {
@@ -631,9 +573,9 @@
    "label": "header__phone"
   },
   {
-   "id": "h0002f",
+   "id": "h0002b",
    "name": "block",
-   "parent": "h0002e",
+   "parent": "h0002a",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -644,9 +586,9 @@
    "label": "header__phone-ico"
   },
   {
-   "id": "h00030",
+   "id": "h0002c",
    "name": "svg",
-   "parent": "h0002f",
+   "parent": "h0002b",
    "settings": {
     "file": {
      "__media": "icon-phone.svg"
@@ -654,9 +596,9 @@
    }
   },
   {
-   "id": "h00031",
+   "id": "h0002d",
    "name": "block",
-   "parent": "h0002e",
+   "parent": "h0002a",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -667,9 +609,9 @@
    "label": "header__phone-text"
   },
   {
-   "id": "h00032",
+   "id": "h0002e",
    "name": "text-basic",
-   "parent": "h00031",
+   "parent": "h0002d",
    "settings": {
     "text": "Call or text",
     "tag": "span",
@@ -680,9 +622,9 @@
    "label": "header__phone-label"
   },
   {
-   "id": "h00033",
+   "id": "h0002f",
    "name": "text-basic",
-   "parent": "h00031",
+   "parent": "h0002d",
    "settings": {
     "text": "509-953-2036",
     "tag": "span",
@@ -693,9 +635,9 @@
    "label": "header__phone-num"
   },
   {
-   "id": "h00034",
+   "id": "h00030",
    "name": "button",
-   "parent": "h0002d",
+   "parent": "h00029",
    "settings": {
     "text": "Get a Quote",
     "link": {
