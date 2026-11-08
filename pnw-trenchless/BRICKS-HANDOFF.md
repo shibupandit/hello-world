@@ -54,7 +54,7 @@ Copy each rule set from the `<style>` block in `index.html` into a Bricks global
 |---|---|---|
 | Top bar + header `topbar`, `header` | **Header template**. Sticky with a glass blur. Nav Menu element, phone link, CTA button | Below 1200px the nav collapses to a toggle. Replace the logo stand-in with the final SVG |
 | Hero `hero` | Section with a background image (trailer) and a gradient overlay. Content grid on the left, camera-feed card on the right, 3-item proof strip below | The footage counter ticks up (a small JS snippet in a Code element). Final photo: Mike and the rig on a job |
-| Marquee `marquee` | Div with a duplicated inline track (CSS animation) | Decorative only, `aria-hidden` |
+| Service ticker `ticker` | Section with 2 rows, each a Div track holding the same group twice (CSS `ticker` animation). Row 1: large service links (icon + name + spec chip such as CIPP / HDPE / CTS POLY / CCTV), every other name outlined. Row 2: moves the opposite way with tagline words and city names | Pauses on hover/focus, edges fade out. In the duplicate group, set `aria-hidden` and `tabindex="-1"` on its links |
 | Stats `stats` | Block of 4 items with large numerals | |
 | Warning signs `signs` | Two columns: sticky intro on the left, list of 6 rows on the right | Rows slide in on hover |
 | Explainer `explain` + `xsec` | Text + video, then the **interactive cross-section** (inline SVG in a Code element) | The Traditional / Trenchless toggle switches the SVG and the 4 fact cells via a `data-mode` attribute (a few lines of JS) |
