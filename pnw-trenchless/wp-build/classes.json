@@ -201,7 +201,7 @@
  },
  {
   "name": "nav",
-  "css": "%root% { margin-inline: auto; }\n%root% .bricks-nav-menu { gap: calc(var(--space-xs) / 2) clamp(var(--space-s), 2vw, var(--space-l)); }\n%root% .bricks-nav-menu > li > a { position: relative; color: var(--text-light-muted); font-weight: 600; font-size: var(--text-s); padding-block: var(--space-xs); white-space: nowrap; transition: color .2s; }\n%root% .bricks-nav-menu > li > a::after { content: \"\"; position: absolute; left: 0; right: 0; bottom: 0; height: .15em; background: var(--primary-light); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--pnw-ease); }\n%root% .bricks-nav-menu > li > a:hover { color: var(--white); }\n%root% .bricks-nav-menu > li > a:hover::after { transform: scaleX(1); }\n%root% .bricks-mobile-menu-toggle { color: var(--white); width: 2.9em; height: 2.9em; border: var(--pnw-border-dark); border-radius: var(--radius-circle); display: grid; place-items: center; }\n%root% .bricks-mobile-menu-toggle span { width: 1.2em !important; left: auto; }\n%root% .bricks-mobile-menu-wrapper { background: var(--base); }\n%root% .bricks-mobile-menu > li > a { color: var(--white); font-size: var(--text-l); font-weight: 600; padding: var(--space-s) var(--gutter); border-bottom: var(--pnw-border-dark); display: block; }\n@media (max-width: 1200px) { %root% { margin-inline: auto 0; order: 3; } }",
+  "css": "%root% { margin-inline: auto; }\n%root% .bricks-nav-menu { gap: calc(var(--space-xs) / 2) clamp(var(--space-s), 2vw, var(--space-l)); }\n%root% .bricks-nav-menu > li > a { position: relative; color: var(--text-light-muted); font-weight: 600; font-size: var(--text-s); padding-block: var(--space-xs); white-space: nowrap; transition: color .2s; }\n%root% .bricks-nav-menu > li > a::after { content: \"\"; position: absolute; left: 0; right: 0; bottom: 0; height: .15em; background: var(--primary-light); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--pnw-ease); }\n%root% .bricks-nav-menu > li > a:hover { color: var(--white); }\n%root% .bricks-nav-menu > li > a:hover::after { transform: scaleX(1); }\n%root% .bricks-mobile-menu-toggle { color: var(--white); width: 2.9em; height: 2.9em; border: var(--pnw-border-dark); border-radius: var(--radius-circle); place-items: center; }\n%root% .bricks-mobile-menu-toggle span { width: 1.2em !important; left: auto; }\n%root% .bricks-mobile-menu-wrapper { background: var(--base); }\n%root% .bricks-mobile-menu > li > a { color: var(--white); font-size: var(--text-l); font-weight: 600; padding: var(--space-s) var(--gutter); border-bottom: var(--pnw-border-dark); display: block; }\n@media (max-width: 1200px) { %root% { margin-inline: auto 0; order: 3; } %root% .bricks-mobile-menu-toggle { display: grid; } }",
   "category": "PNW"
  },
  {
@@ -321,7 +321,7 @@
  },
  {
   "name": "ticker__track",
-  "css": "%root% { display: flex; flex-direction: row; flex-wrap: nowrap; width: max-content; animation: pnw-ticker 55s linear infinite; }\n@keyframes pnw-ticker { to { transform: translateX(-50%); } }\n@media (prefers-reduced-motion: reduce) { %root% { animation: none; } }",
+  "css": "%root% { display: flex; flex-direction: row; flex-wrap: nowrap; width: max-content; max-width: none; animation: pnw-ticker 55s linear infinite; }\n@keyframes pnw-ticker { to { transform: translateX(-50%); } }\n@media (prefers-reduced-motion: reduce) { %root% { animation: none; } }",
   "category": "PNW"
  },
  {
@@ -331,7 +331,7 @@
  },
  {
   "name": "ticker__group",
-  "css": "%root% { width: max-content; flex: none; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: clamp(var(--space-l), 2.5vw, var(--space-xxl)); padding-right: clamp(var(--space-l), 2.5vw, var(--space-xxl)); white-space: nowrap; }",
+  "css": "%root% { width: max-content; max-width: none; flex: none; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: clamp(var(--space-l), 2.5vw, var(--space-xxl)); padding-right: clamp(var(--space-l), 2.5vw, var(--space-xxl)); white-space: nowrap; }",
   "category": "PNW"
  },
  {
@@ -1241,7 +1241,7 @@
  },
  {
   "name": "footer",
-  "css": "%root% { padding-bottom: var(--space-l); color: var(--text-light-muted); font-size: var(--text-s); }\n%root% a { color: inherit; text-decoration: none; transition: color .2s; }\n%root% a:hover { color: var(--white); }\n%root% > .brxe-container { gap: 0; }",
+  "css": "%root% { padding: var(--section-space-m) var(--gutter) var(--space-l); color: var(--text-light-muted); font-size: var(--text-s); }\n%root% a { color: inherit; text-decoration: none; transition: color .2s; }\n%root% a:hover { color: var(--white); }\n%root% > .brxe-container { gap: 0; }",
   "category": "PNW"
  },
  {
