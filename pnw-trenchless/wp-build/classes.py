@@ -199,6 +199,7 @@ c("nav__items", f"""
   .nav.brx-open %root% {{ visibility: visible; opacity: 1; transform: none; transition: transform .4s var(--pnw-ease), opacity .3s var(--pnw-ease), visibility 0s; }}
   .nav.brx-open.brx-closing %root% {{ opacity: 0; transform: translateX(30%); transition: transform .2s ease-in, opacity .2s ease-in; }}
   %root% > li {{ width: 100%; }}
+  %root% > li:has(> .nav__close) {{ position: absolute; top: calc((var(--pnw-header-h) - 2.9em) / 2); right: var(--gutter); width: auto; z-index: 2; animation: none !important; }}
   .nav.brx-open:not(.brx-closing) %root% > li {{ animation: pnw-nav-in .45s var(--pnw-ease) both; }}
   {"".join(f".nav.brx-open:not(.brx-closing) %root% > li:nth-child({n}) {{ animation-delay: {0.06 + n * 0.04:.2f}s; }} " for n in range(1, 10))}
 }}
@@ -224,13 +225,13 @@ c("nav__phone", "%root% { display: flex; flex-direction: row; align-items: cente
 c("nav__quote", "%root% { width: 100%; justify-content: center; }")
 c("nav__open", f"""
 %root% {{ display: none; }}
-{NAV} {{ %root% {{ display: grid; place-items: center; width: 2.9em; height: 2.9em; padding: 0; border: var(--pnw-border-dark); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .62; }} }}
+{NAV} {{ .nav %root% {{ display: grid; place-items: center; width: 2.9em; height: 2.9em; padding: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .62; }} }}
 %root% .brxa-wrap, %root% .brxa-inner {{ color: inherit; }}
 """)
 c("nav__close", f"""
 %root% {{ display: none; }}
-{NAV} {{ %root% {{ display: grid; place-items: center; position: absolute; top: calc((var(--pnw-header-h) - 2.9em) / 2); right: var(--gutter); width: 2.9em; height: 2.9em; padding: 0; border: var(--pnw-border-dark); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .62; }}
-  %root%:hover {{ border-color: var(--primary-light); color: var(--primary-light); }} }}
+{NAV} {{ .nav %root% {{ display: grid; place-items: center; width: 2.9em; height: 2.9em; padding: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .62; }}
+  .nav %root%:hover {{ border-color: var(--primary-light); color: var(--primary-light); }} }}
 """)
 c("header__cta", f"""
 %root% {{ display: flex; flex-direction: row; align-items: center; gap: var(--space-m); flex: none; }}
@@ -894,6 +895,8 @@ c("callbar", f"""
   %root% {{ display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs); position: fixed; left: 0; right: 0; bottom: 0; z-index: 65; background: var(--base-trans-90); -webkit-backdrop-filter: blur(.75em); backdrop-filter: blur(.75em); border-top: var(--pnw-border-dark); padding: var(--space-xs) var(--gutter) calc(var(--space-xs) + env(safe-area-inset-bottom, 0px)); }}
   %root% .brxe-button {{ justify-content: center; }}
   body {{ padding-bottom: 4.75em; }}
+  %root% {{ transition: opacity .3s var(--pnw-ease), visibility 0s; }}
+  body.no-scroll %root% {{ opacity: 0; visibility: hidden; transition: opacity .2s, visibility 0s linear .2s; }}
 }}
 """)
 
