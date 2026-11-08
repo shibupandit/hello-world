@@ -113,7 +113,7 @@ Mobile call bar.
   - ACSS had been regenerated without the Bricks platform flag (empty `automatic-bricks.css`, no `btn--` classes). Rebuilt with it; base (ink) buttons enabled. Second backup: `pnw_acss_settings_backup_20261108b`.
   - Media: logos, trailer, 3 job photos, 37 SVG icons/illustrations (`pnw-trenchless/wp-assets/svg/`), in HappyFiles folders. IDs stored in WP option `pnw_media_ids`.
   - 259 BEM global classes, category `PNW`, ACSS variables only. Source: `pnw-trenchless/wp-build/classes.py`.
-  - Header template 101, footer template 102 (entire site), WP menu `PNW Main` (id 10). Home = page 94 (front page), 16 sections. Source: `pnw-trenchless/wp-build/elements.py`.
+  - Header template 101, footer template 102 (entire site). The nav is the native **Nav (Nestable)** element (`nav-nested`, mobile below 1200px). Its links live in `NAV_LINKS` in `elements.py` (the WP menu `PNW Main`, id 10, is no longer used). The mobile panel slides in from the right with a backdrop, staggered links, a hamburger-to-X toggle and the phone + Get a Quote button. Bricks handles the scroll lock, focus trap, Esc, outside tap and anchor-link close. The call bar hides while the menu is open. Home = page 94 (front page), 16 sections. Source: `pnw-trenchless/wp-build/elements.py`.
   - Re-sync everything with `pnw-trenchless/wp-build/import.php` (run through execute-php with `$sha` = a pushed commit). It rebuilds the Home page, so manual Bricks edits to page 94 / templates 101–102 are overwritten: change the generators instead, or stop using the script.
   - Final screenshots: `pnw-trenchless/screenshots/bricks-staging/`.
 - **Known differences from the design / open items:**
