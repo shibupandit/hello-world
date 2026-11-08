@@ -403,45 +403,60 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
 @media (max-width: 420px) { .xsec__facts { grid-template-columns: 1fr; } .xsec__fact + .xsec__fact { border-left: 0; border-top: var(--border-dark); } }
 
 /* ==========================================================================
-   SERVICES (tabs)
+   SERVICES (bento grid)
    ========================================================================== */
-.services__body { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); gap: var(--space-xl); align-items: start; }
-.svc-tabs { display: flex; flex-direction: column; border-top: var(--border-dark); }
-.svc-tab {
-  appearance: none; background: none; border: 0; border-bottom: var(--border-dark); color: var(--text-light-muted);
-  font: inherit; text-align: left; cursor: pointer; padding: 1.35rem 0; display: grid; grid-template-columns: 2.75rem minmax(0, 1fr) auto; align-items: center; gap: var(--space-s);
-  transition: color .3s, padding .35s var(--ease);
+.svc-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-areas: "lining burst" "lining water" "camera camera"; gap: var(--space-m); }
+.svc-card {
+  --card-accent: var(--primary-light);
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; flex-direction: column; min-width: 0;
+  background: var(--base-medium); border: var(--border-dark); border-radius: var(--radius-l);
+  transition: transform .45s var(--ease), border-color .45s, box-shadow .45s;
 }
-.svc-tab__ico { width: 2.75rem; height: 2.75rem; border-radius: 50%; display: grid; place-items: center; border: var(--border-dark); transition: background-color .3s, border-color .3s, color .3s; }
-.svc-tab__ico svg { width: 1.25rem; height: 1.25rem; }
-.svc-tab__name { font-family: var(--heading-font-family); font-stretch: 112%; font-weight: 800; font-size: clamp(1.1rem, 1rem + .55vw, 1.45rem); letter-spacing: -.02em; line-height: 1.15; }
-.svc-tab__arrow { opacity: 0; transform: translateX(-8px); transition: opacity .3s, transform .3s var(--ease); color: var(--primary-light); font-size: 1.25rem; }
-.svc-tab:hover { color: var(--white); }
-.svc-tab[aria-selected="true"] { color: var(--white); padding-left: var(--space-s); }
-.svc-tab[aria-selected="true"] .svc-tab__ico { background: var(--primary); border-color: var(--primary); color: var(--white); }
-.svc-tab[aria-selected="true"] .svc-tab__arrow { opacity: 1; transform: none; }
-.svc-panel { background: var(--base-medium); border: var(--border-dark); border-radius: var(--radius-l); overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); min-height: 30rem; }
-.svc-panel[hidden] { display: none !important; }
-.svc-panel__art { position: relative; background: #0B121B; min-height: 18rem; }
-.svc-panel__art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.svc-panel__art .feed { position: absolute; inset: 0; }
-.svc-panel__body { padding: var(--space-l); display: flex; flex-direction: column; gap: var(--space-m); min-width: 0; }
-.svc-panel__body h3 { font-size: var(--h3); }
-.svc-panel__body > p { color: var(--text-light-muted); }
-.svc-panel__best { padding: var(--space-m); border-radius: var(--radius); background: rgb(255 255 255 / .05); border: var(--border-dark); font-size: .95rem; color: var(--text-light); }
-.svc-panel__best small { display: block; font-family: var(--mono-font-family); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .3rem; }
-.svc-panel__body .link-arrow { margin-top: auto; }
-.svc-panel.is-in { animation: panelIn .55s var(--ease); }
-@keyframes panelIn { from { opacity: .3; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-@media (max-width: 1080px) { .svc-panel { grid-template-columns: 1fr; } }
-@media (max-width: 960px) {
-  .services__body { grid-template-columns: 1fr; }
-  .svc-tabs { flex-direction: row; overflow-x: auto; border: 0; gap: .5rem; padding-bottom: .25rem; scrollbar-width: none; }
-  .svc-tab { flex: none; border: var(--border-dark); border-radius: var(--radius-circle); padding: .4rem 1.1rem .4rem .4rem; grid-template-columns: 2.25rem auto; }
-  .svc-tab__ico { width: 2.25rem; height: 2.25rem; }
-  .svc-tab__name { font-size: 1rem; white-space: nowrap; }
-  .svc-tab__arrow { display: none; }
-  .svc-tab[aria-selected="true"] { padding-left: .4rem; background: rgb(255 255 255 / .06); border-color: var(--primary); }
+.svc-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--card-accent) 45%, transparent); box-shadow: 0 30px 60px -30px rgb(0 0 0 / .8); }
+.svc-card--lining { grid-area: lining; }
+.svc-card--burst { grid-area: burst; --card-accent: var(--accent); }
+.svc-card--water { grid-area: water; --card-accent: var(--secondary-light); }
+.svc-card--camera { grid-area: camera; --card-accent: var(--accent); flex-direction: row; }
+.svc-card__art {
+  position: relative; flex: 1 1 auto; min-height: 12rem; overflow: hidden;
+  background: radial-gradient(80% 90% at 30% 50%, color-mix(in srgb, var(--card-accent) 14%, transparent), transparent 70%), #0B121B;
+  border-bottom: var(--border-dark);
+}
+.svc-card__art svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .8s var(--ease); }
+.svc-card:hover .svc-card__art svg { transform: scale(1.04); }
+.svc-card--lining .svc-card__art { min-height: 22rem; }
+.svc-card__body { position: relative; padding: var(--space-l); display: flex; flex-direction: column; gap: var(--space-s); }
+.svc-card__top { display: flex; justify-content: space-between; align-items: center; gap: var(--space-s); }
+.svc-card__spec { font-family: var(--mono-font-family); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--card-accent); padding: .35rem .7rem; border: 1px solid color-mix(in srgb, var(--card-accent) 40%, transparent); border-radius: var(--radius-circle); }
+.svc-card__go { width: 3rem; height: 3rem; flex: none; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgb(255 255 255 / .18); color: var(--white); transition: background-color .35s, border-color .35s, color .35s, transform .45s var(--ease); }
+.svc-card__go svg { width: 1.2rem; height: 1.2rem; transform: rotate(-45deg); transition: transform .45s var(--ease); }
+.svc-card:hover .svc-card__go { background: var(--card-accent); border-color: var(--card-accent); color: var(--base); }
+.svc-card:hover .svc-card__go svg { transform: rotate(0); }
+.svc-card h3 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem); font-stretch: 115%; font-weight: 850; letter-spacing: -.03em; line-height: 1.02; }
+.svc-card h3 a { color: inherit; text-decoration: none; }
+.svc-card h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; } /* whole card clickable */
+.svc-card h3 a:focus-visible { outline: none; }
+.svc-card:has(h3 a:focus-visible) { outline: 3px solid var(--accent); outline-offset: 3px; }
+.svc-card__body > p { color: var(--text-light-muted); max-width: 52ch; }
+.svc-card__best { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+.svc-card__best li { font-size: .82rem; font-weight: 600; padding: .35rem .7rem; border-radius: var(--radius-circle); background: rgb(255 255 255 / .06); color: var(--text-light); }
+.svc-card__best li:first-child { background: none; padding-left: 0; color: var(--text-light-muted); font-family: var(--mono-font-family); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; align-self: center; }
+.svc-card--camera .svc-card__art { flex: 0 0 38%; border-bottom: 0; border-right: var(--border-dark); min-height: 16rem; }
+.svc-card--camera .svc-card__art .feed { position: absolute; inset: 0; }
+.svc-card--camera .svc-card__body { flex: 1; justify-content: center; }
+.svc-card--camera .svc-card__note { display: flex; align-items: center; gap: .6rem; font-size: var(--text-s); color: var(--text-light-muted); padding-top: var(--space-xs); }
+.svc-card--camera .svc-card__note svg { width: 1.1rem; height: 1.1rem; color: var(--accent); flex: none; }
+@media (max-width: 1000px) {
+  .svc-grid { grid-template-columns: 1fr 1fr; grid-template-areas: "lining lining" "burst water" "camera camera"; }
+  .svc-card--lining .svc-card__art { min-height: 16rem; }
+}
+@media (max-width: 720px) {
+  .svc-grid { grid-template-columns: 1fr; grid-template-areas: "lining" "burst" "water" "camera"; }
+  .svc-card--camera { flex-direction: column; }
+  .svc-card--camera .svc-card__art { flex: none; aspect-ratio: 16 / 10; min-height: 0; border-right: 0; border-bottom: var(--border-dark); }
+  .svc-card__art { min-height: 0; aspect-ratio: 16 / 10; flex: none; }
+  .svc-card--lining .svc-card__art { min-height: 0; }
 }
 
 /* ==========================================================================
@@ -908,7 +923,7 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
   </div>
 </section>
 
-<!-- ======================= SERVICES (tabs) ======================= -->
+<!-- ======================= SERVICES ======================= -->
 <section class="section services bg--ink grain" id="services">
   <div class="container">
     <div class="head head--row">
@@ -918,104 +933,101 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
       </div>
       <p class="head__lede" style="max-width:34ch">Every job starts with a camera inspection. The footage decides which repair fits your pipe.</p>
     </div>
-    <div class="services__body">
-      <div class="svc-tabs" role="tablist" aria-label="Services">
-        <button class="svc-tab" role="tab" id="t-lining" aria-controls="p-lining" aria-selected="true"><span class="svc-tab__ico"><svg><use href="#i-liner"/></svg></span><span class="svc-tab__name">Sewer pipe lining</span><span class="svc-tab__arrow">→</span></button>
-        <button class="svc-tab" role="tab" id="t-burst" aria-controls="p-burst" aria-selected="false" tabindex="-1"><span class="svc-tab__ico"><svg><use href="#i-burst"/></svg></span><span class="svc-tab__name">Pipe bursting</span><span class="svc-tab__arrow">→</span></button>
-        <button class="svc-tab" role="tab" id="t-water" aria-controls="p-water" aria-selected="false" tabindex="-1"><span class="svc-tab__ico"><svg><use href="#i-drop"/></svg></span><span class="svc-tab__name">Water line replacement</span><span class="svc-tab__arrow">→</span></button>
-        <button class="svc-tab" role="tab" id="t-camera" aria-controls="p-camera" aria-selected="false" tabindex="-1"><span class="svc-tab__ico"><svg><use href="#i-camera"/></svg></span><span class="svc-tab__name">Camera inspection</span><span class="svc-tab__arrow">→</span></button>
-      </div>
-      <div class="svc-panels">
-        <article class="svc-panel" role="tabpanel" id="p-lining" aria-labelledby="t-lining">
-          <div class="svc-panel__art" aria-hidden="true">
-            <svg viewBox="0 0 520 480" preserveAspectRatio="xMidYMid meet">
-              <rect width="520" height="480" fill="#0B121B"/>
-              <circle cx="240" cy="240" r="170" fill="#4A4F55"/>
-              <circle cx="240" cy="240" r="150" fill="#2A2E33"/>
-              <path d="M120 150l26 30-8 22M350 300l-22-18 4-26M330 140l-16 28" stroke="#0B121B" stroke-width="5" fill="none"/>
-              <circle cx="240" cy="240" r="132" fill="#2F7A4B"/>
-              <circle cx="240" cy="240" r="116" fill="#0B121B"/>
-              <circle cx="240" cy="240" r="116" fill="none" stroke="#6CC08A" stroke-width="2" stroke-dasharray="4 8" opacity=".6"/>
-              <g font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="1.5">
-                <path d="M392 170h110" stroke="#A8B3BF"/><text x="400" y="160" fill="#A8B3BF">OLD PIPE</text>
-                <path d="M372 250h130" stroke="#6CC08A"/><text x="384" y="240" fill="#6CC08A">RESIN LINER</text>
-                <text x="196" y="246" fill="#F0B03A">FLOW →</text>
-              </g>
-            </svg>
-          </div>
-          <div class="svc-panel__body">
-            <span class="eyebrow">CIPP · pipe within a pipe</span>
-            <h3>Sewer Pipe Lining</h3>
-            <p>A resin liner cures inside your old pipe, creating a seamless, jointless pipe within a pipe. No trench, and no joints for roots to find.</p>
-            <div class="svc-panel__best"><small>Best for</small>Cracks, leaks, root intrusion, pipes that still hold their shape</div>
-            <a class="link-arrow" href="#">Learn about pipe lining</a>
-          </div>
-        </article>
-        <article class="svc-panel" role="tabpanel" id="p-burst" aria-labelledby="t-burst" hidden>
-          <div class="svc-panel__art" aria-hidden="true">
-            <svg viewBox="0 0 520 480" preserveAspectRatio="xMidYMid meet">
-              <rect width="520" height="480" fill="#0B121B"/>
-              <rect x="-10" y="200" width="290" height="80" rx="6" fill="#050709"/>
-              <rect x="-10" y="210" width="290" height="12" fill="#2B3747"/>
-              <path d="M280 192l86 48-86 48z" fill="#C8CDD2" stroke="#8D96A0" stroke-width="2"/>
-              <g fill="#6B6F73"><path d="M380 160l52 6-8 30-46-4z"/><path d="M446 150l54 10-10 32-40-6z"/><path d="M384 290l46-6 8 34-52 4z"/><path d="M448 296l50 6-4 30-48-4z"/><path d="M340 150l30 10-6 22-28-8z"/><path d="M340 316l28-8 6 22-30 10z"/></g>
-              <g stroke="#F0B03A" stroke-width="3" stroke-linecap="round"><path d="M372 180l-12-12M372 300l-12 12"/></g>
-              <g font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="1.5">
-                <text x="30" y="320" fill="#A8B3BF">← NEW HDPE PIPE</text>
-                <text x="290" y="390" fill="#F0B03A">BURSTING HEAD</text>
-                <text x="392" y="120" fill="#A8B3BF">OLD PIPE</text>
-              </g>
-            </svg>
-          </div>
-          <div class="svc-panel__body">
-            <span class="eyebrow">Full replacement</span>
-            <h3>Pipe Bursting</h3>
-            <p>A bursting head breaks the old pipe outward while new HDPE pipe is pulled in behind it. A full replacement, not a patch.</p>
-            <div class="svc-panel__best"><small>Best for</small>Collapsed, Orangeburg or clay lines, or upsizing</div>
-            <a class="link-arrow" href="#">Learn about pipe bursting</a>
-          </div>
-        </article>
-        <article class="svc-panel" role="tabpanel" id="p-water" aria-labelledby="t-water" hidden>
-          <div class="svc-panel__art" aria-hidden="true">
-            <svg viewBox="0 0 520 480" preserveAspectRatio="xMidYMid meet">
-              <rect width="520" height="480" fill="#0B121B"/>
-              <rect y="150" width="520" height="8" fill="#5FAF72"/>
-              <rect y="158" width="520" height="322" fill="#16202C"/>
-              <rect x="30" y="40" width="120" height="118" fill="#2B3747"/><path d="M20 50l70-40 70 40" fill="none" stroke="#55606C" stroke-width="8"/>
-              <rect x="30" y="158" width="120" height="70" fill="#1F2A37"/>
-              <path d="M110 228v90c0 14 10 24 24 24H440" stroke="#2B5BB5" stroke-width="22" fill="none" stroke-linecap="round"/>
-              <path d="M110 228v90c0 14 10 24 24 24H440" stroke="#9AB8F2" stroke-width="3" fill="none" stroke-dasharray="14 18"/>
-              <rect x="430" y="300" width="56" height="84" rx="8" fill="#2B3747" stroke="#55606C" stroke-width="2"/>
-              <circle cx="458" cy="100" r="34" fill="#0B121B" stroke="#9AB8F2" stroke-width="3"/>
-              <path d="M458 100l16-14" stroke="#F0B03A" stroke-width="3" stroke-linecap="round"/>
-              <g font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="1.5">
-                <text x="380" y="52" fill="#9AB8F2">PRESSURE TEST</text>
-                <text x="190" y="390" fill="#A8B3BF">NEW CTS POLY LINE</text>
-                <text x="426" y="412" fill="#A8B3BF">METER</text>
-              </g>
-            </svg>
-          </div>
-          <div class="svc-panel__body">
-            <span class="eyebrow">Better pressure, no leaks</span>
-            <h3>Water Line Replacement</h3>
-            <p>We pull a new CTS poly water line underground, reconnect it and pressure test it, with minimal digging.</p>
-            <div class="svc-panel__best"><small>Best for</small>Old galvanized lines, leaks, low pressure</div>
-            <a class="link-arrow" href="#">Learn about water lines</a>
-          </div>
-        </article>
-        <article class="svc-panel" role="tabpanel" id="p-camera" aria-labelledby="t-camera" hidden>
-          <div class="svc-panel__art" aria-hidden="true">
-            <div class="feed feed--roots"><span class="feed__cross"></span><div class="feed__hud feed__hud--top"><span class="feed__rec">LIVE</span><span>6" CAST IRON</span></div><div class="feed__hud"><span>DIST</span><span class="feed__ft">062.4 FT</span></div></div>
-          </div>
-          <div class="svc-panel__body">
-            <span class="eyebrow">Know before you spend</span>
-            <h3>Sewer Camera Inspection</h3>
-            <p>See inside your line before you spend a dollar on repairs. Useful for home buyers too. <span class="tbc">Confirm offered as standalone</span></p>
-            <div class="svc-panel__best"><small>Best for</small>Diagnosing problems, pre-purchase inspections</div>
-            <a class="link-arrow" href="#">Learn about inspections</a>
-          </div>
-        </article>
-      </div>
+    <div class="svc-grid">
+
+      <article class="svc-card svc-card--lining">
+        <div class="svc-card__art" aria-hidden="true">
+          <svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(225 210)">
+              <circle r="168" fill="#3E444B"/>
+              <circle r="150" fill="#262B31"/>
+              <path d="M-118-88l22 26-6 20M104 92l-20-14 4-24M86-112l-14 26" stroke="#0B121B" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <circle r="132" fill="#2F7A4B"/>
+              <circle r="132" fill="none" stroke="#6CC08A" stroke-width="2" opacity=".5"/>
+              <circle r="114" fill="#0B121B"/>
+              <circle r="114" fill="none" stroke="#6CC08A" stroke-width="1.5" stroke-dasharray="3 9" opacity=".7"/>
+              <path d="M-20 0h40M12-8l8 8-8 8" stroke="#F0B03A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="0" y="30" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="2" fill="#F0B03A">FLOW</text>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
+              <circle cx="378" cy="122" r="4" fill="#A8B3BF"/><path d="M378 122 L440 92 H580" stroke="#A8B3BF" stroke-width="1.2" fill="none"/><text x="446" y="84" fill="#A8B3BF">OLD CLAY PIPE</text>
+              <circle cx="352" cy="212" r="4" fill="#6CC08A"/><path d="M352 212 H580" stroke="#6CC08A" stroke-width="1.2"/><text x="446" y="204" fill="#6CC08A">CURED LINER</text>
+              <circle cx="300" cy="300" r="4" fill="#F0B03A"/><path d="M300 300 L360 330 H580" stroke="#F0B03A" stroke-width="1.2" fill="none"/><text x="446" y="322" fill="#F0B03A">NO JOINTS</text>
+            </g>
+          </svg>
+        </div>
+        <div class="svc-card__body">
+          <div class="svc-card__top"><span class="svc-card__spec">CIPP · pipe within a pipe</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
+          <h3><a href="#">Sewer Pipe Lining</a></h3>
+          <p>A resin liner cures inside your old pipe, creating a seamless, jointless pipe within a pipe. No trench, and no joints for roots to find.</p>
+          <ul class="svc-card__best"><li>Best for</li><li>Cracks</li><li>Leaks</li><li>Root intrusion</li><li>Pipes that hold their shape</li></ul>
+        </div>
+      </article>
+
+      <article class="svc-card svc-card--burst">
+        <div class="svc-card__art" aria-hidden="true">
+          <svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
+            <rect x="0" y="112" width="300" height="56" rx="4" fill="#050709"/>
+            <rect x="0" y="118" width="300" height="9" fill="#2B3747"/>
+            <path d="M300 104l84 36-84 36z" fill="#C8CDD2"/>
+            <path d="M300 104l84 36-84 36" fill="none" stroke="#8D96A0" stroke-width="2"/>
+            <g fill="#5E6268"><path d="M398 82l44 6-7 26-40-4z"/><path d="M456 74l46 9-8 28-36-6z"/><path d="M402 170l40-5 7 28-45 4z"/><path d="M462 174l42 6-4 26-40-4z"/><path d="M520 92h60v96h-60z" opacity=".8"/></g>
+            <g stroke="#F0B03A" stroke-width="3" stroke-linecap="round"><path d="M392 104l-12-12M392 176l-12 12"/></g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
+              <text x="20" y="206" fill="#A8B3BF">← NEW HDPE PIPE</text>
+              <text x="296" y="236" fill="#F0B03A">BURSTING HEAD</text>
+              <text x="450" y="58" fill="#A8B3BF">OLD PIPE</text>
+            </g>
+          </svg>
+        </div>
+        <div class="svc-card__body">
+          <div class="svc-card__top"><span class="svc-card__spec">HDPE · full replacement</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
+          <h3><a href="#">Pipe Bursting</a></h3>
+          <p>A bursting head breaks the old pipe outward while new HDPE pipe is pulled in behind it.</p>
+          <ul class="svc-card__best"><li>Best for</li><li>Collapsed lines</li><li>Orangeburg</li><li>Clay</li><li>Upsizing</li></ul>
+        </div>
+      </article>
+
+      <article class="svc-card svc-card--water">
+        <div class="svc-card__art" aria-hidden="true">
+          <svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
+            <rect x="0" y="92" width="600" height="6" fill="#5FAF72"/>
+            <rect x="0" y="98" width="600" height="182" fill="#121B26"/>
+            <path d="M40 92V48l50-30 50 30v44z" fill="#2B3747"/>
+            <rect x="40" y="98" width="100" height="50" fill="#1A2533"/>
+            <path d="M100 148v52c0 10 8 18 18 18H470" stroke="#2B5BB5" stroke-width="18" fill="none" stroke-linecap="round"/>
+            <path d="M100 148v52c0 10 8 18 18 18H470" stroke="#9AB8F2" stroke-width="2.5" fill="none" stroke-dasharray="12 14"/>
+            <rect x="466" y="186" width="48" height="66" rx="7" fill="#2B3747" stroke="#55606C" stroke-width="2"/>
+            <circle cx="540" cy="50" r="28" fill="#0B121B" stroke="#9AB8F2" stroke-width="2.5"/>
+            <path d="M540 50l13-11" stroke="#F0B03A" stroke-width="3" stroke-linecap="round"/>
+            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
+              <text x="372" y="56" fill="#9AB8F2">PSI TEST</text>
+              <text x="190" y="252" fill="#A8B3BF">NEW CTS POLY</text>
+              <text x="464" y="272" fill="#A8B3BF">METER</text>
+            </g>
+          </svg>
+        </div>
+        <div class="svc-card__body">
+          <div class="svc-card__top"><span class="svc-card__spec">CTS poly · pressure tested</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
+          <h3><a href="#">Water Line Replacement</a></h3>
+          <p>We pull a new CTS poly water line underground, reconnect it and pressure test it, with minimal digging.</p>
+          <ul class="svc-card__best"><li>Best for</li><li>Old galvanized</li><li>Leaks</li><li>Low pressure</li></ul>
+        </div>
+      </article>
+
+      <article class="svc-card svc-card--camera">
+        <div class="svc-card__art" aria-hidden="true">
+          <div class="feed feed--roots"><span class="feed__cross"></span><div class="feed__hud feed__hud--top"><span class="feed__rec">LIVE</span><span>6" CAST IRON</span></div><div class="feed__hud"><span>DIST</span><span class="feed__ft">062.4 FT</span></div></div>
+        </div>
+        <div class="svc-card__body">
+          <div class="svc-card__top"><span class="svc-card__spec">CCTV · where every job starts</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
+          <h3><a href="#">Sewer Camera Inspection</a></h3>
+          <p>See inside your line before you spend a dollar on repairs. Useful for home buyers too. <span class="tbc">Confirm offered as standalone</span></p>
+          <ul class="svc-card__best"><li>Best for</li><li>Diagnosing problems</li><li>Pre-purchase inspections</li></ul>
+          <span class="svc-card__note"><svg><use href="#i-film"/></svg>You keep the footage, before and after.</span>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -1352,25 +1364,6 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
     b.addEventListener('click', function () {
       xsec.dataset.mode = b.dataset.mode;
       xsec.querySelectorAll('.toggle button').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
-    });
-  });
-
-  /* services tabs */
-  var tabs = [].slice.call(document.querySelectorAll('.svc-tab'));
-  function select(tab) {
-    tabs.forEach(function (t) {
-      var on = t === tab, p = document.getElementById(t.getAttribute('aria-controls'));
-      t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; p.hidden = !on;
-      if (on) { p.classList.remove('is-in'); void p.offsetWidth; p.classList.add('is-in'); }
-    });
-  }
-  tabs.forEach(function (t, i) {
-    t.addEventListener('click', function () { select(t); });
-    t.addEventListener('keydown', function (e) {
-      var n = null;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
-      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
-      if (n) { e.preventDefault(); select(n); n.focus(); }
     });
   });
 

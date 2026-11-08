@@ -58,7 +58,7 @@ Copy each rule set from the `<style>` block in `index.html` into a Bricks global
 | Stats `stats` | Block of 4 items with large numerals | |
 | Warning signs `signs` | Two columns: sticky intro on the left, list of 6 rows on the right | Rows slide in on hover |
 | Explainer `explain` + `xsec` | Text + video, then the **interactive cross-section** (inline SVG in a Code element) | The Traditional / Trenchless toggle switches the SVG and the 4 fact cells via a `data-mode` attribute (a few lines of JS) |
-| Services `services` | **Bricks Tabs (nested)**: tab list on the left, panels on the right (illustration + copy) | Tabs become a horizontal row of pills on mobile. Swap the illustrations for job photos later if you prefer |
+| Services `services` | Bento **grid** (`svc-grid`, named grid areas): Lining is a tall card on the left, Bursting and Water Line are stacked on the right, and Camera Inspection is a full-width horizontal card. Each `svc-card` = art panel (inline SVG / camera feed) + body (spec chip, arrow button, H3 link, text, "Best for" chips). Build with Div/Block elements, or a Query Loop over a Services CPT | The whole card is clickable (H3 link stretched over the card), and each card sets its own `--card-accent`. Layout: 2 columns below 1000px, 1 column below 720px. No JS needed |
 | Comparison `compare` | Table (Code element) with the trenchless column raised as a dark card | Scrolls horizontally on mobile |
 | Decision flow `decide` / `flow` | Circular camera feed → dotted connector SVG → 3 outcome cards | Connector lines hidden on mobile |
 | Process `steps` | `ol` with 5 steps. Outlined numerals come from a CSS counter | Becomes a vertical list below 1000px |
