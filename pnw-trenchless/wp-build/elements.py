@@ -157,6 +157,7 @@ def header():
                 block("nav__items", [
                     N("toggle", "nav__close", animation="squeeze", ariaLabel="Close menu", _cssId="nav-close",
                       _hidden={"_cssClasses": "brx-toggle-div"}, label="Toggle (Close: Mobile)"),
+                    block("nav__brand", [block("logo", [img("logo.png", alt="PNW Trenchless")], href=link("/#top", aria="PNW Trenchless home"))], tag="li", label="Panel brand (mobile)"),
                 ] + [a(t, u, "nav__link") for t, u in NAV_LINKS] + [
                     block("nav__extras", [
                         block("nav__phone", [
@@ -164,6 +165,11 @@ def header():
                             block("header__phone-text", [span("Call or text", "header__phone-label"), span(PHONE, "header__phone-num")], tag="span"),
                         ], href=link(TEL, aria=f"Call or text {PHONE}")),
                         btn("Get a Quote", "/#estimate", "btn--primary nav__quote", icon="icon-arrow.svg"),
+                        block("nav__contact", [
+                            block("topbar__link", [svg("icon-mail.svg", "ico"), span("info@pnwtrenchless.com")], href=MAIL),
+                            block("topbar__link", [svg("icon-fb.svg", "ico"), span("Facebook")], href=link(FB, True)),
+                        ]),
+                        span("Serving Spokane, Spokane Valley, Deer Park, Clayton, Stevens &amp; Spokane County", "nav__area"),
                     ], tag="li"),
                 ], tag="ul", _hidden={"_cssClasses": "brx-nav-nested-items"}, label="Nav items"),
                 N("toggle", "nav__open", animation="squeeze", ariaLabel="Open menu", label="Toggle (Open: Mobile)"),

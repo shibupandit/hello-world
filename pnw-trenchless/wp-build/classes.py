@@ -144,7 +144,7 @@ c("feed__label", """
 # --------------------------------------------------------------------------
 c("topbar", f"""
 %root% {{ background: var(--base-dark); color: var(--text-light-muted); font-size: var(--text-xs); letter-spacing: .02em; padding-block: var(--space-xs); padding-inline: var(--gutter); border-bottom: var(--pnw-border-dark); line-height: 1.6; }}
-%root% .topbar__area {{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }}
+%root% .topbar__area {{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1 1 0; display: block; }}
 {L} {{ %root% .topbar__links {{ display: none; }} }}
 %root% a {{ color: inherit; text-decoration: none; }}
 %root% a:hover {{ color: var(--white); }}
@@ -180,7 +180,7 @@ c("nav", f"""
 {NAV} {{
   %root% {{ margin-inline: auto 0; order: 3; }}
   /* backdrop */
-  %root%::before {{ content: ""; position: fixed; inset: 0; z-index: 98; background: var(--base-trans-60); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .4s var(--pnw-ease), visibility 0s linear .4s; }}
+  %root%::before {{ content: ""; position: fixed; inset: var(--wp-admin--admin-bar--height, 0) 0 0 0; z-index: 98; background: color-mix(in srgb, var(--base) 60%, transparent); -webkit-backdrop-filter: blur(.4em); backdrop-filter: blur(.4em); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .4s var(--pnw-ease), visibility 0s linear .4s; }}
   %root%.brx-open::before {{ opacity: 1; visibility: visible; transition: opacity .4s var(--pnw-ease), visibility 0s; }}
   %root%.brx-open.brx-closing::before {{ opacity: 0; transition: opacity .2s ease-in; }}
 }}
@@ -190,8 +190,8 @@ c("nav__items", f"""
 {NAV} {{
   .nav %root% {{
     display: flex !important; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
-    position: fixed !important; top: 0; right: 0; bottom: 0; left: auto; z-index: 99; width: min(100%, 26em); height: 100dvh; max-height: none;
-    padding: calc(var(--pnw-header-h) + var(--space-s)) var(--gutter) var(--space-l); overflow-y: auto; overscroll-behavior: contain;
+    position: fixed !important; top: var(--wp-admin--admin-bar--height, 0); right: 0; bottom: 0; left: auto; z-index: 99; width: min(100%, 26em); height: auto; max-height: none;
+    padding: 0 var(--gutter) var(--space-l); overflow-y: auto; overscroll-behavior: contain;
     background: var(--base); border-left: var(--pnw-border-dark); box-shadow: var(--box-shadow-l);
     visibility: hidden; opacity: 0; transform: translateX(100%);
     transition: transform .4s var(--pnw-ease), opacity .4s var(--pnw-ease), visibility 0s linear .4s;
@@ -199,7 +199,7 @@ c("nav__items", f"""
   .nav.brx-open %root% {{ visibility: visible; opacity: 1; transform: none; transition: transform .4s var(--pnw-ease), opacity .3s var(--pnw-ease), visibility 0s; }}
   .nav.brx-open.brx-closing %root% {{ opacity: 0; transform: translateX(30%); transition: transform .2s ease-in, opacity .2s ease-in; }}
   %root% > li {{ width: 100%; }}
-  %root% > li:has(> .nav__close) {{ position: absolute; top: calc((var(--pnw-header-h) - 2.9em) / 2); right: var(--gutter); width: auto; z-index: 2; animation: none !important; }}
+  %root% > li:has(> .nav__close) {{ position: absolute; top: calc((var(--pnw-header-h) - 2.6em) / 2); right: var(--gutter); width: auto; z-index: 2; animation: none !important; }}
   .nav.brx-open:not(.brx-closing) %root% > li {{ animation: pnw-nav-in .45s var(--pnw-ease) both; }}
   {"".join(f".nav.brx-open:not(.brx-closing) %root% > li:nth-child({n}) {{ animation-delay: {0.06 + n * 0.04:.2f}s; }} " for n in range(1, 10))}
 }}
@@ -212,25 +212,38 @@ c("nav__link", f"""
 %root%:hover, %root%[aria-current] {{ color: var(--white); }}
 %root%:hover::after, %root%[aria-current]::after {{ transform: scaleX(1); }}
 {NAV} {{
-  %root% {{ display: block; width: 100%; color: var(--text-light); font-family: var(--heading-font-family); font-size: var(--text-xl); font-weight: 800; letter-spacing: -.02em; padding: var(--space-s) 0; border-bottom: var(--pnw-border-dark); }}
-  %root%::after {{ display: none; }}
-  %root%:hover, %root%:focus-visible, %root%[aria-current] {{ color: var(--primary-light); }}
+  %root% {{ display: flex; align-items: center; justify-content: space-between; width: 100%; color: var(--text-light); font-family: var(--heading-font-family); font-size: var(--text-l); font-weight: 800; letter-spacing: -.01em; padding: var(--space-s) 0; border-bottom: var(--pnw-border-dark); }}
+  %root%::after {{ content: "\\2192"; position: static; height: auto; background: none; transform: translateX(-.4em); opacity: 0; color: var(--primary-light); font-family: var(--text-font-family); transition: opacity .25s, transform .25s var(--pnw-ease); }}
+  %root%:hover, %root%:focus-visible, %root%[aria-current], %root%:active {{ color: var(--primary-light); }}
+  %root%:hover::after, %root%:focus-visible::after, %root%[aria-current]::after, %root%:active::after {{ opacity: 1; transform: none; }}
 }}
 """)
 c("nav__extras", f"""
 %root% {{ display: none; }}
 {NAV} {{ %root% {{ display: flex; flex-direction: column; align-items: stretch; gap: var(--space-m); margin-top: auto; padding-top: var(--space-l); }} }}
 """)
+c("nav__brand", f"""
+%root% {{ display: none; }}
+{NAV} {{ %root% {{ display: flex; flex-direction: row; align-items: center; min-height: var(--pnw-header-h); border-bottom: var(--pnw-border-dark); margin-bottom: var(--space-xs); }} %root% .logo img {{ height: 2.9em; }} }}
+""")
+c("nav__contact", """
+%root% { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs) var(--space-m); font-size: var(--text-s); color: var(--text-light-muted); }
+%root% a { color: inherit; text-decoration: none; }
+%root% a:hover { color: var(--primary-light); }
+""")
+c("nav__area", "%root% { font-size: var(--text-xs); color: var(--text-light-muted); line-height: 1.5; }")
 c("nav__phone", "%root% { display: flex; flex-direction: row; align-items: center; gap: .6em; width: auto; color: var(--white); text-decoration: none; }\n%root%:hover .header__phone-num { color: var(--primary-light); }")
 c("nav__quote", "%root% { width: 100%; justify-content: center; }")
 c("nav__open", f"""
 %root% {{ display: none; }}
-{NAV} {{ .nav %root% {{ display: grid; place-items: center; width: 2.9em; height: 2.9em; padding: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .62; }} }}
-%root% .brxa-wrap, %root% .brxa-inner {{ color: inherit; }}
+{NAV} {{ .nav %root% {{ display: grid; place-items: center; width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; }} }}
+%root% .brxa-wrap {{ display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }}
+%root% .brxa-inner {{ color: inherit; }}
 """)
 c("nav__close", f"""
 %root% {{ display: none; }}
-{NAV} {{ .nav %root% {{ display: grid; place-items: center; width: 2.9em; height: 2.9em; padding: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .62; }}
+%root% .brxa-wrap {{ display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }}
+{NAV} {{ .nav %root% {{ display: grid; place-items: center; width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; }}
   .nav %root%:hover {{ border-color: var(--primary-light); color: var(--primary-light); }} }}
 """)
 c("header__cta", f"""
