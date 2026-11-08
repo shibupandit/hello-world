@@ -134,8 +134,8 @@ def header():
             span("Serving Spokane, Spokane Valley, Deer Park, Clayton, Stevens &amp; Spokane County", "topbar__area"),
             block("topbar__links", [
                 span("WA Reg. #PNWTRT*744KQ"),
-                block("topbar__link", [svg("icon-mail.svg", "icon"), span("info@pnwtrenchless.com")], href=MAIL),
-                block("topbar__link", [svg("icon-fb.svg", "icon"), span("Facebook")], href=link(FB, True)),
+                block("topbar__link", [svg("icon-mail.svg", "ico"), span("info@pnwtrenchless.com")], href=MAIL),
+                block("topbar__link", [svg("icon-fb.svg", "ico"), span("Facebook")], href=link(FB, True)),
             ]),
         ]),
     ])
@@ -327,9 +327,9 @@ def explain():
     xsec = block("xsec", [
         block("xsec__bar", [
             h("h3", "See the difference in your yard", "xsec__title"),
-            block("toggle", [
-                div("toggle__btn", [span("Traditional dig")], tag="button", _cssId="xsec-dig", _attributes=attrs(type="button", aria_pressed="true")),
-                div("toggle__btn", [span("Trenchless")], tag="button", _cssId="xsec-trenchless", _attributes=attrs(type="button", aria_pressed="false")),
+            block("xsec__toggle", [
+                div("xsec__toggle-btn", [span("Traditional dig")], tag="button", _cssId="xsec-dig", _attributes=attrs(type="button", aria_pressed="true")),
+                div("xsec__toggle-btn", [span("Trenchless")], tag="button", _cssId="xsec-trenchless", _attributes=attrs(type="button", aria_pressed="false")),
             ], _attributes=attrs(role="group", aria_label="Repair method")),
         ]),
         block("xsec__art", [svg("art-cross-section.svg", _attributes=attrs(role="img", aria_label="Cross-section of a yard from house to street, showing either a full trench or two small access pits"))]),
@@ -377,7 +377,7 @@ def services():
                 block("svc-card__top", [span(spec, "svc-card__spec"), block("svc-card__go", [svg("icon-arrow.svg")], tag="span", _attributes=attrs(aria_hidden="true"))]),
                 h("h3", f'<a class="svc-card__link" href="#estimate">{title}</a>', "svc-card__title"),
                 t(text),
-                block("svc-card__foot", [span("Best for", "svc-card__foot-label")] + [span(x, "tag") for x in tags]),
+                block("svc-card__foot", [span("Best for", "svc-card__foot-label")] + [span(x, "pill-tag") for x in tags]),
             ]),
         ], tag="li")
 
@@ -665,7 +665,7 @@ def estimate():
         ], _attributes=attrs(role="group", aria_label=legend))
 
     def field(label_text, ph=""):
-        return block("field", [span(label_text, "field__label"), div("field__input", tag="span", _attributes=attrs(role="textbox", aria_label=label_text, data_placeholder=ph))])
+        return block("form__field", [span(label_text, "form__field-label"), div("form__field-input", tag="span", _attributes=attrs(role="textbox", aria_label=label_text, data_placeholder=ph))])
 
     # Dummy form (design only). Swap this block for the Fluent Forms element later; keep the `form` wrapper class.
     form = block("form", [
