@@ -3,86 +3,98 @@
 Design file: `index.html` (with `assets/trailer.jpg`). Open it in a browser to see the approved design.
 Every value in the CSS is an ACSS-named variable, so the build is mostly entering values in ACSS and then building the HTML structure as Bricks elements.
 
-## 1. ACSS settings
+**Design direction ("Surface / Underground"):** deep-ink sections stand for the ground the pipe runs through, and stone-white sections stand for the yard we leave intact. Headlines are set in wide Archivo, with Instrument Serif italic on the emotional words ("Keep the yard."). The sewer-camera feed, with its amber footage readout, is the signature detail.
 
-Enter these in **ACSS Dashboard**. When ACSS generates shades automatically, check that they come out close to these values.
+## 1. ACSS settings
 
 | ACSS setting | Value | Used for |
 |---|---|---|
-| Primary | `#2C6B3F` (dark `#1F4C2D`, light `#D7E8DB`, ultra-light `#EDF4EE`) | Main CTAs, checks, eyebrows (trailer green) |
-| Secondary | `#2A4E9B` (dark `#1E3A78`, light `#DCE4F4`) | Links, process steps, warranty card (trailer blue) |
-| Accent | `#E8A41C` (dark `#9A5F00`) | Stars, camera-feed readouts, focus ring |
-| Base | `#22272C` (dark `#181B1F`, ultra-dark `#111316`, medium `#3A4148`) | Body text, dark bands, footer |
-| Neutral | `#5B615C` (medium `#A9ADA4`, light `#D5D8D0`, ultra-light `#F3F4EF`) | Muted text, borders, page background |
-| Heading font | **Archivo** (variable, `wdth` 62–125, weights 500–900). Headings use `font-stretch: 112%` | All headings |
-| Body font | **Public Sans** 400/500/600/700 | Body text |
-| Root font size | 16px. Body line height 1.6. Headings line height 1.08 | |
-| Content width | 76rem (1216px) | `.container` |
-| Section padding | `--section-space-m` ≈ 56 → 104px fluid | Every section |
-| Radius | s 4px · default 8px · l 14px | Inputs · buttons/cards · large cards |
+| Primary | `#2F7A4B` (dark `#215936`, light `#6CC08A`, ultra-light `#E7F1EA`) | CTAs, accents. Use the light shade for green text on ink |
+| Secondary | `#2B5BB5` (dark `#1F468F`, light `#9AB8F2`) | Water-line art, review avatars, the I-90 marker |
+| Accent | `#F0B03A` (dark `#9A6200`) | Stars, camera readouts, focus ring |
+| Base | `#0E1621` (dark `#090F17`, medium `#1A2533`, light `#2B3747`) | Ink sections, header, footer |
+| Neutral | `#616B66` (medium `#A3ABA6`, light `#DCE1DB`, ultra-light `#F1F3EF`) | Stone sections, borders, muted text |
+| Heading font | **Archivo** variable (`wdth` 62–125, weights 400–900). H1 `font-stretch:118%`, H2 112% | Headings |
+| Body font | **Public Sans** 400–700, line height 1.65, base size 17px | Body text |
+| H1 / H2 / H3 | `clamp(2.75rem…6rem)` / `clamp(2.1rem…3.75rem)` / `clamp(1.35rem…1.75rem)` | Fluid type scale |
+| Content width | 80rem | `.container` |
+| Section padding | `--section-space-m` = `clamp(4.5rem, 3rem + 6vw, 9rem)` | Every section |
+| Radius | s 6px · default 12px · l 22px · buttons are pill-shaped | |
 
 Paste these into **ACSS > Custom CSS (`:root`)**. ACSS has no equivalent for them:
 
 ```css
 :root {
-  --mono-font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
-  --feed-bg: radial-gradient(circle at 50% 50%, #0B0D0F 0 9%, #1A1F1B 10% 22%, #2A302A 23% 34%, #3D433A 35% 46%, #262B27 47% 64%, #15181A 65%);
-  --header-h: 76px;
+  --serif-font-family: "Instrument Serif", Georgia, serif;   /* italic accent words */
+  --mono-font-family: "JetBrains Mono", ui-monospace, monospace; /* eyebrows, labels, readouts */
+  --header-h: 80px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
 }
 ```
 
-Load JetBrains Mono 500/700 (eyebrows, labels and footage readouts), Archivo and Public Sans through Bricks > Custom Fonts, or self-host them.
+Fonts to load in Bricks > Custom Fonts (or self-host them):
+- Archivo (variable, including the width axis)
+- Instrument Serif (italic)
+- Public Sans
+- JetBrains Mono
 
-## 2. Global classes to create in Bricks
+## 2. Global classes
 
 Copy each rule set from the `<style>` block in `index.html` into a Bricks global class with the same name:
 
-- **Layout:** `section`, `container`, `bg--white`, `bg--yard`, `bg--base`, `bg--base-dark`, `border-block`, `section-head`, `section-head--split`, `section-head__lede`
-- **Type:** `eyebrow`, `tbc` (highlights content still to confirm; remove before launch)
-- **Buttons:** `btn`, `btn--primary`, `btn--outline`, `btn--light`, `btn--block`, `link-arrow`. If the ACSS button classes already match, use those instead.
-- **Camera-feed motif:** `feed`, `feed__hud`, `feed__hud--top`, `feed__ft`, `feed__rec`, `feed__label`, `feed--after`, `feed--water`
+- **Layout:** `section`, `container`, `bg--ink`, `bg--ink-dark`, `bg--stone`, `bg--white`, `grain` (film-grain overlay on ink sections), `head`, `head--row`, `head__main`, `head__lede`
+- **Type:** `eyebrow`, `serif` (wrap accent words in a span with this class), `tbc` (highlights content still to confirm; remove before launch)
+- **Buttons:** `btn`, `btn--primary`, `btn--ghost`, `btn--ghost-light`, `btn--block`, `link-arrow`
+- **Camera-feed motif:** `feed`, `feed--roots`, `feed--clean`, `feed--blue`, `feed__hud`, `feed__hud--top`, `feed__ft`, `feed__rec`, `feed__cross`, `feed__label`
+- **Motion:** `rise`, `rise-2` … `rise-5` (hero load sequence, disabled automatically for reduced-motion users)
 
-Every other class is component-scoped (BEM). Create it on the component it belongs to.
+## 3. Section map
 
-## 3. Section map (Bricks element tree)
-
-| # | Section (class) | Bricks structure | Notes |
-|---|---|---|---|
-| – | Top bar `topbar` | Header template › Div › 2× Text | Goes in the Bricks **Header template** |
-| – | Header `header` | Header template › Container › Logo (Image/SVG), Nav Menu, phone link, Button | Sticky. Below 1200px the nav collapses to the Bricks mobile-menu toggle. Replace the logo stand-in with the final SVG |
-| 01 | Hero `hero` | Section › Container › Block `hero__grid` (2 columns) › content Block + Image. Below it, Block `trustbar` › 4 icon items | The badge over the photo is a `feed` Div positioned absolutely |
-| 02 | Signs `signs` | Section › Container › `section-head` + Block `signs__grid` (3 columns, 2 below 860px, 1 below 540px) › 6× `sign-card` + CTA strip | Icons are inline SVG. Use the Bricks Icon element |
-| 03 | Trenchless explainer `explain` | Section › Block `explain__grid` › Video (YouTube/self-host) + text + `diagram` (Code or SVG element) | The diagram SVG sits inside a horizontal-scroll wrapper on mobile |
-| 04 | Services `services` | Section › `services__grid` (4 columns, 2, then 1) › 4× `service-card` | Each card links to its own service page. Swap the SVG art for real photos when they exist |
-| 05 | Comparison `compare` | Section `bg--base` › table (Code element, or the Bricks Table element) + `compare__note` | Keep the `overflow-x:auto` wrapper |
-| 06 | Decision guide `decide` | Section › `decide__grid` › 3× `decide-card` | |
-| 07 | Process `process` | Section › `ol.process__list` › 5× `li.process-step` | Step numbers come from a CSS counter. Becomes a vertical timeline below 980px |
-| 08 | Meet Mike `mike` | Section › `mike__grid` › photo grid + content (quote, `creds` list) | |
-| 09 | Projects `projects` | Section › `projects__grid` › **Query Loop** of a Projects CPT (ACF: before/after still, location, problem, method, duration) | Each card is a `project-card`. Before/after images replace the `feed` placeholders |
-| 10–11 | Reviews + warranty/financing `reviews` | Section › head with rating summary › `reviews__grid` (Query Loop or GBP feed) › `assure__grid` 2 cards | Use real Google reviews only |
-| 12 | Service areas `areas` | Section › `areas__grid` › text + city link grid + map | The map is a static SVG (in the file) or a Leaflet map |
-| 13 | FAQ `faq` | Section › `faq__grid` › sticky aside + **Bricks Accordion (nested)** using `faq__item` | Turn on FAQPage schema in the accordion settings or with Rank Math |
-| 14 | Estimate `estimate` | Section `bg--base` › `estimate__grid` › text + **Fluent Form / GHL form** styled with `form` classes | Form goes to GHL. The GA4/Ads conversion fires on submit |
-| – | Footer `footer` | Footer template | |
-| – | Mobile call bar `callbar` | Footer template › Div (fixed, visible only below 700px) | Adds 4.5rem of bottom padding to `body` on mobile |
+| Section (class) | Bricks build | Interaction / notes |
+|---|---|---|
+| Top bar + header `topbar`, `header` | **Header template**. Sticky with a glass blur. Nav Menu element, phone link, CTA button | Below 1200px the nav collapses to a toggle. Replace the logo stand-in with the final SVG |
+| Hero `hero` | Section with a background image (trailer) and a gradient overlay. Content grid on the left, camera-feed card on the right, 3-item proof strip below | The footage counter ticks up (a small JS snippet in a Code element). Final photo: Mike and the rig on a job |
+| Marquee `marquee` | Div with a duplicated inline track (CSS animation) | Decorative only, `aria-hidden` |
+| Stats `stats` | Block of 4 items with large numerals | |
+| Warning signs `signs` | Two columns: sticky intro on the left, list of 6 rows on the right | Rows slide in on hover |
+| Explainer `explain` + `xsec` | Text + video, then the **interactive cross-section** (inline SVG in a Code element) | The Traditional / Trenchless toggle switches the SVG and the 4 fact cells via a `data-mode` attribute (a few lines of JS) |
+| Services `services` | **Bricks Tabs (nested)**: tab list on the left, panels on the right (illustration + copy) | Tabs become a horizontal row of pills on mobile. Swap the illustrations for job photos later if you prefer |
+| Comparison `compare` | Table (Code element) with the trenchless column raised as a dark card | Scrolls horizontally on mobile |
+| Decision flow `decide` / `flow` | Circular camera feed → dotted connector SVG → 3 outcome cards | Connector lines hidden on mobile |
+| Process `steps` | `ol` with 5 steps. Outlined numerals come from a CSS counter | Becomes a vertical list below 1000px |
+| Meet Mike `mike` | Portrait (placeholder) with a name plate, trailer inset photo, serif pull quote, credentials grid, signature line | |
+| Projects `projects` | Featured **before/after slider** + 2 mini cards. Use a Query Loop of a Projects CPT (ACF fields: before still, after still, location, problem, method, duration) | The slider is a range input that clips the "after" image. Use a Code element or a before/after plugin |
+| Reviews `reviews` | Rating card + horizontal scroll-snap row of reviews, then the warranty / financing pair | Feed it real Google reviews only |
+| Service areas `areas` | Large city link list + dark map (inline SVG, roughly to scale with a 10-mile bar) | The Clayton pin pulses |
+| FAQ `faq` | Sticky aside + **Bricks Accordion (nested)** using `faq__item` | Enable FAQPage schema |
+| Estimate `estimate` | Big phone number, 3 next steps, **Fluent Form / GHL form** styled with the `form`, `field`, `chips` and `upload` classes | Issue-type chips replace the dropdown. The GA4/Ads conversion fires on submit |
+| Footer `footer` | **Footer template** with a large outlined "TRENCHLESS" wordmark | |
+| Mobile call bar `callbar` | Footer template, fixed, visible only below 700px | Adds bottom padding to `body` on mobile |
 
 ## 4. Content still needed before launch
 
-Everything wrapped in `.tbc` is highlighted in the design so it can't be missed:
+Everything wrapped in `.tbc` is highlighted in amber in the design:
 
 - Google rating and review count; 3 real reviews
 - Warranty length and what it covers; financing partner (if offered)
-- Typical job timeline; liner design life
-- Founding year; quote from Mike; manufacturer certifications
-- 3 real projects (before and after camera stills, location, method, duration)
+- Typical job timeline; liner design life; founding year
+- Quote from Mike; manufacturer certifications
+- Real projects (before and after camera stills, location, method, duration)
 - FAQ answers: drafts are written, and Mike needs to confirm or edit each one
 - Price range wording; permit handling; whether camera inspections are offered as a standalone service
-- Business address or service-area setting; hours
-- Photography: Mike and the rig on a live job (hero), Mike's portrait, wrapped truck, service photos, a 60–90s explainer video
+- Address or service-area setting; hours
+- Photography: Mike and the rig on a live job (hero), Mike's portrait, and a 60–90s explainer video
 - Final SVG logo
 
 ## 5. Pre-launch checks
 
 - No hex codes or px values typed into Bricks style panels. Use the ACSS variables or classes above.
 - Delete the `.tbc` class from every element once its content is final.
-- Test the header's mobile menu, the FAQ accordion, the form (the conversion fires) and the mobile call bar on a real phone.
+- Test on a real phone:
+  - header menu
+  - cross-section toggle
+  - services tabs
+  - before/after slider
+  - FAQ accordion
+  - form (the conversion fires)
+  - mobile call bar
