@@ -236,14 +236,14 @@ c("nav__phone", "%root% { display: flex; flex-direction: row; align-items: cente
 c("nav__quote", "%root% { width: 100%; justify-content: center; }")
 c("nav__open", f"""
 %root% {{ display: none; }}
-{NAV} {{ .nav %root% {{ display: grid; place-items: center; width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; }} }}
+{NAV} {{ .nav %root% {{ display: grid; place-items: center; font-size: var(--text-m); width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; }} }}
 %root% .brxa-wrap {{ display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }}
 %root% .brxa-inner {{ color: inherit; }}
 """)
 c("nav__close", f"""
 %root% {{ display: none; }}
 %root% .brxa-wrap {{ display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }}
-{NAV} {{ .nav %root% {{ display: grid; place-items: center; width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; }}
+{NAV} {{ .nav %root% {{ display: grid; place-items: center; font-size: var(--text-m); width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; }}
   .nav %root%:hover {{ border-color: var(--primary-light); color: var(--primary-light); }} }}
 """)
 c("header__cta", f"""

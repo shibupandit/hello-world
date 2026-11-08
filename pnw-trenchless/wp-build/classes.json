@@ -246,12 +246,12 @@
  },
  {
   "name": "nav__open",
-  "css": "%root% { display: none; }\n@media (max-width: 1200px) { .nav %root% { display: grid; place-items: center; width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; } }\n%root% .brxa-wrap { display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }\n%root% .brxa-inner { color: inherit; }",
+  "css": "%root% { display: none; }\n@media (max-width: 1200px) { .nav %root% { display: grid; place-items: center; font-size: var(--text-m); width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; } }\n%root% .brxa-wrap { display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }\n%root% .brxa-inner { color: inherit; }",
   "category": "PNW"
  },
  {
   "name": "nav__close",
-  "css": "%root% { display: none; }\n%root% .brxa-wrap { display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }\n@media (max-width: 1200px) { .nav %root% { display: grid; place-items: center; width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; }\n  .nav %root%:hover { border-color: var(--primary-light); color: var(--primary-light); } }",
+  "css": "%root% { display: none; }\n%root% .brxa-wrap { display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }\n@media (max-width: 1200px) { .nav %root% { display: grid; place-items: center; font-size: var(--text-m); width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: .55; line-height: 0; }\n  .nav %root%:hover { border-color: var(--primary-light); color: var(--primary-light); } }",
   "category": "PNW"
  },
  {
