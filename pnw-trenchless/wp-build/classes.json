@@ -41,7 +41,7 @@
  },
  {
   "name": "section__head",
-  "css": "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); max-width: 52ch; }",
+  "css": "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); max-width: var(--width-l); }",
   "category": "PNW"
  },
  {
@@ -51,7 +51,7 @@
  },
  {
   "name": "section__head-main",
-  "css": "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); max-width: 46ch; min-width: 0; }",
+  "css": "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); max-width: calc(var(--width-l) - var(--space-xl)); min-width: 0; }",
   "category": "PNW"
  },
  {
@@ -761,7 +761,7 @@
  },
  {
   "name": "flow__feed",
-  "css": "%root% { border-radius: var(--radius-circle); aspect-ratio: 1; width: min(100%, 22em); border: .4em solid var(--white); box-shadow: var(--box-shadow-l); }\n%root% .feed__hud { justify-content: center; bottom: 18%; }\n%root% .feed__hud--top { top: 18%; bottom: auto; }\n@media (max-width: 991px) { %root% { width: 8em; flex: none; border-width: .25em; } }",
+  "css": "%root% { border-radius: var(--radius-circle); aspect-ratio: 1; width: min(100%, calc(var(--text-m) * 22)); border: .4em solid var(--white); box-shadow: var(--box-shadow-l); }\n%root% .feed__hud { justify-content: center; bottom: 18%; }\n%root% .feed__hud--top { top: 18%; bottom: auto; }\n@media (max-width: 991px) { %root% { width: calc(var(--text-m) * 7.5); flex: none; border-width: .25em; } }",
   "category": "PNW"
  },
  {
@@ -921,12 +921,12 @@
  },
  {
   "name": "job-pair",
-  "css": "%root% { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: .2em; background: var(--base); min-width: 0; }",
+  "css": "%root% { position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; align-items: stretch; gap: .2em; background: var(--base); min-width: 0; height: 100%; }",
   "category": "PNW"
  },
  {
   "name": "job-pair__fig",
-  "css": "%root% { position: relative; margin: 0; min-width: 0; height: 100%; }\n%root% img { width: 100%; height: 100%; min-height: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }\n%root% figcaption, %root% .job-pair__tag { position: absolute; left: var(--space-s); top: var(--space-s); }",
+  "css": "%root% { position: relative; margin: 0; min-width: 0; height: 100%; display: flex; flex-direction: column; }\n%root% img { flex: 1 1 auto; width: 100%; height: 100%; min-height: 0; aspect-ratio: 4 / 5; object-fit: cover; display: block; }\n@media (min-width: 992px) { %root% img { aspect-ratio: auto; } }\n%root% figcaption, %root% .job-pair__tag { position: absolute; left: var(--space-s); top: var(--space-s); }",
   "category": "PNW"
  },
  {

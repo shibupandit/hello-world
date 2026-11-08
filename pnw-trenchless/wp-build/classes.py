@@ -48,13 +48,13 @@ c("grain", """
 }
 """)
 c("section__head", """
-%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); max-width: 52ch; }
+%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); max-width: var(--width-l); }
 """)
 c("section__head--split", """
 %root% { max-width: none; width: 100%; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-m) var(--space-xl); }
 """)
 c("section__head-main", """
-%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); max-width: 46ch; min-width: 0; }
+%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); max-width: calc(var(--width-l) - var(--space-xl)); min-width: 0; }
 """)
 c("section__intro--narrow", "%root% { max-width: 38ch; }")
 c("section__intro", """
@@ -585,10 +585,10 @@ c("flow__start", f"""
 {T} {{ %root% {{ flex-direction: row; flex-wrap: nowrap; align-items: center; }} }}
 """)
 c("flow__feed", f"""
-%root% {{ border-radius: var(--radius-circle); aspect-ratio: 1; width: min(100%, 22em); border: .4em solid var(--white); box-shadow: var(--box-shadow-l); }}
+%root% {{ border-radius: var(--radius-circle); aspect-ratio: 1; width: min(100%, calc(var(--text-m) * 22)); border: .4em solid var(--white); box-shadow: var(--box-shadow-l); }}
 %root% .feed__hud {{ justify-content: center; bottom: 18%; }}
 %root% .feed__hud--top {{ top: 18%; bottom: auto; }}
-{T} {{ %root% {{ width: 8em; flex: none; border-width: .25em; }} }}
+{T} {{ %root% {{ width: calc(var(--text-m) * 7.5); flex: none; border-width: .25em; }} }}
 """)
 c("flow__lines", f"""
 %root% {{ position: relative; }}
@@ -680,11 +680,12 @@ c("project", f"""
 {T} {{ %root% {{ grid-template-columns: 1fr; }} }}
 """)
 c("job-pair", """
-%root% { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: .2em; background: var(--base); min-width: 0; }
+%root% { position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; align-items: stretch; gap: .2em; background: var(--base); min-width: 0; height: 100%; }
 """)
 c("job-pair__fig", """
-%root% { position: relative; margin: 0; min-width: 0; height: 100%; }
-%root% img { width: 100%; height: 100%; min-height: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+%root% { position: relative; margin: 0; min-width: 0; height: 100%; display: flex; flex-direction: column; }
+%root% img { flex: 1 1 auto; width: 100%; height: 100%; min-height: 0; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+@media (min-width: 992px) { %root% img { aspect-ratio: auto; } }
 %root% figcaption, %root% .job-pair__tag { position: absolute; left: var(--space-s); top: var(--space-s); }
 """)
 c("job-pair__tag", """
