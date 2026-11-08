@@ -59,6 +59,7 @@ Copy each rule set from the `<style>` block in `index.html` into a Bricks global
 | Warning signs `signs` | Two columns: sticky intro on the left, list of 6 rows on the right | Rows slide in on hover |
 | Explainer `explain` + `xsec` | Text + video, then the **interactive cross-section** (inline SVG in a Code element) | The Traditional / Trenchless toggle switches the SVG and the 4 fact cells via a `data-mode` attribute (a few lines of JS) |
 | Services `services` | Light **stone** section (`bg--stone`). `svc-grid` is a 2-column grid of 4 white `svc-card`s, each a dark inset art panel (inline SVG / camera feed) + spec label with colored dot, arrow button, H3 with a green serif accent word, description, "Best for" tag row. Below the grid sits a dark `svc-strip` CTA bar. Build with Div/Block cards, or a Query Loop over a Services CPT | The whole card is clickable (H3 link stretched), and each card sets its own `--card-accent`. 1 column below 860px. No JS. The comparison section that follows switched to `bg--white` so light sections alternate |
+| Who we serve `audience` | White section, 3 `aud-card`s: Homeowners, Commercial properties, Industrial & municipal (icon, text, check list) | Copy based on the live site's "residential, commercial and industrial" positioning |
 | Comparison `compare` | Table (Code element) with the trenchless column raised as a dark card | Scrolls horizontally on mobile |
 | Decision flow `decide` / `flow` | Circular camera feed → dotted connector SVG → 3 outcome cards | Connector lines hidden on mobile |
 | Process `steps` | `ol` with 5 steps. Outlined numerals come from a CSS counter | Becomes a vertical list below 1000px |
@@ -98,3 +99,23 @@ Everything wrapped in `.tbc` is highlighted in amber in the design:
   - FAQ accordion
   - form (the conversion fires)
   - mobile call bar
+
+## 6. Content and assets taken from the live site (pnwtrenchless.com)
+
+| Item | Where it's used |
+|---|---|
+| Logo (`assets/logo.png`, made from the site's `logo 1.png` with the black background removed) | Header and footer |
+| Facebook: https://www.facebook.com/profile.php?id=61589495076554 | Top bar, quote section, footer |
+| Email: info@pnwtrenchless.com · Call/Text 509-953-2036 · WA Reg. PNWTRT*744KQ | Top bar, quote section, footer |
+| Services: Pipe bursting (HDPE, 50+ yr lifespan, can upsize), CIPP lining, Water line pulling (CTS poly, pressure/leak tested), Point repairs / localized relining | Service cards, ticker, decision flow, footer |
+| Customer types: residential, commercial, industrial; "keep your property running"; evaluation through final testing and documentation | "Who we serve" section, hero, FAQ |
+| Mission: "honest work, fair pricing, and results built to last", family-owned, 14+ years | Hero, About quote and bio |
+| "Request a true and honest quote" | Quote section heading |
+| Areas: Spokane, Spokane Valley, Deer Park, Clayton, Stevens County, Spokane County | Top bar, area list, footer |
+| Real job photos (`assets/job-during.jpg`, `job-after.jpg`, `job-waterline.jpg`, from the contact page) | Projects section |
+
+Images on the live site that were **not** used: the AI-generated trailer render, the YouTube-style bursting thumbnail and the stock "Pipe-lining.jpg". Their usage rights are unclear.
+
+## 7. Quote form (directly above the footer)
+
+Fields: service needed (chips), property type (Residential / Commercial / Industrial), name, phone, email, address, details, photo/video upload. There are also one-tap Call, Text, Email and Facebook buttons. Build it in Fluent Forms or GHL with the same fields and style it with the `form`, `field`, `chips` and `upload` classes.

@@ -1,6 +1,6 @@
 <title>PNW Trenchless Homepage</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Trenchless sewer and water line repair in Spokane, Spokane Valley, Deer Park, Clayton and Stevens County. Owner-operated by Mike Jeisma.">
+<meta name="description" content="Family-owned trenchless sewer and water line repair in Spokane, Spokane Valley, Deer Park, Clayton, Stevens County and Spokane County. Pipe bursting, CIPP lining, water line pulling and point repairs for residential, commercial and industrial properties.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Serif:ital@0;1&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -464,7 +464,7 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
 .compare__table tbody tr:last-child .is-us { border-radius: 0 0 var(--radius-l) var(--radius-l); border-bottom: 0; }
 .compare__table td.is-us::before { content: ""; display: inline-block; width: 1.25rem; height: 1.25rem; margin-right: .65rem; vertical-align: -.25rem; border-radius: 50%; background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 65% no-repeat; }
 .compare__table .is-us .tbc { background: rgb(240 176 58 / .25); border-bottom-color: var(--accent); }
-.compare__note { display: grid; background: var(--neutral-ultra-light) !important; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-m); align-items: start; max-width: 54rem; padding: var(--space-m) var(--space-l); border-radius: var(--radius); background: var(--white); border: var(--border); }
+.compare__note { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-m); align-items: start; max-width: 54rem; padding: var(--space-m) var(--space-l); border-radius: var(--radius); background: var(--white); border: var(--border); }
 .compare__note svg { width: 1.6rem; height: 1.6rem; color: var(--accent-dark); }
 .compare__note p { color: var(--text-dark-muted); }
 .compare__note strong { color: var(--text-dark); }
@@ -688,6 +688,50 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
 @media (max-width: 900px) { .footer__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer__grid { grid-template-columns: 1fr; } }
 
+
+/* ==========================================================================
+   LIVE-SITE CONTENT ADDITIONS (logo, socials, audience, job photos, quote)
+   ========================================================================== */
+.logo__img { height: 58px; width: auto; display: block; }
+.footer .logo__img { height: 72px; }
+.topbar a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: .4em; }
+.topbar a:hover { color: var(--white); }
+.topbar__links { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .25rem 1rem; }
+.topbar__links svg { width: 13px; height: 13px; }
+.social { display: flex; gap: .5rem; }
+.social a { width: 2.5rem; height: 2.5rem; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgb(255 255 255 / .18); color: var(--white); transition: background-color .25s, border-color .25s; }
+.social a:hover { background: var(--secondary); border-color: var(--secondary); }
+.social svg { width: 1.05rem; height: 1.05rem; }
+
+.audience__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-m); }
+.aud-card { position: relative; display: flex; flex-direction: column; gap: var(--space-s); padding: var(--space-l); border-radius: var(--radius-l); background: var(--neutral-ultra-light); border: var(--border); transition: transform .4s var(--ease), box-shadow .4s, background-color .4s; }
+.aud-card:hover { transform: translateY(-4px); box-shadow: var(--box-shadow-m); background: var(--white); }
+.aud-card__ico { width: 3.5rem; height: 3.5rem; border-radius: var(--radius); display: grid; place-items: center; background: var(--base); color: var(--primary-light); margin-bottom: var(--space-xs); }
+.aud-card__ico svg { width: 1.6rem; height: 1.6rem; }
+.aud-card h3 { font-size: 1.5rem; }
+.aud-card p { color: var(--text-dark-muted); }
+.aud-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .45rem; padding-top: var(--space-s); border-top: var(--border); margin-top: auto; }
+.aud-card li { display: flex; gap: .55rem; align-items: flex-start; font-size: .95rem; font-weight: 600; }
+.aud-card li svg { width: 1.1rem; height: 1.1rem; color: var(--primary); flex: none; margin-top: .2rem; }
+@media (max-width: 960px) { .audience__grid { grid-template-columns: 1fr; } }
+
+.job-pair { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: var(--base); min-width: 0; }
+.job-pair figure { position: relative; margin: 0; min-width: 0; }
+.job-pair img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.job-pair figcaption { position: absolute; left: .9rem; top: .9rem; padding: .35rem .75rem; border-radius: var(--radius-circle); background: rgb(0 0 0 / .6); backdrop-filter: blur(6px); color: var(--white); font-family: var(--mono-font-family); font-size: .7rem; font-weight: 700; letter-spacing: .12em; }
+.job-pair figure:last-child figcaption { background: var(--primary); }
+.mini img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); display: block; }
+
+.contact-ways { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; }
+.contact-ways a { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; padding: .85rem .9rem; border-radius: var(--radius); border: var(--border-dark); background: rgb(255 255 255 / .04); color: var(--white); text-decoration: none; font-weight: 700; font-size: .92rem; transition: background-color .25s, border-color .25s; min-width: 0; }
+.contact-ways a small { font-weight: 500; font-size: .75rem; color: var(--text-light-muted); overflow-wrap: anywhere; }
+.contact-ways a:hover { background: rgb(255 255 255 / .09); border-color: rgb(255 255 255 / .3); }
+.contact-ways svg { width: 1.25rem; height: 1.25rem; color: var(--primary-light); }
+@media (max-width: 560px) { .contact-ways { grid-template-columns: 1fr 1fr; } }
+.form__sep { height: 1px; background: var(--neutral-light); margin-block: .25rem; }
+.outcome--spot .outcome__pill { background: var(--accent-dark); }
+.svc-card--spot { --card-accent: var(--accent-dark); }
+
 .callbar { display: none; }
 @media (max-width: 700px) {
   .callbar {
@@ -718,6 +762,11 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
     <symbol id="i-liner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/></symbol>
     <symbol id="i-burst" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h9"/><path d="M12 8l6 4-6 4z"/><path d="M19.5 6.5l1.5-1.5M20 12h1.5M19.5 17.5l1.5 1.5"/></symbol>
     <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c3.5 4.2 5.5 7.2 5.5 9.8a5.5 5.5 0 0 1-11 0c0-2.6 2-5.6 5.5-9.8z"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5V5.5l8-2.5v17.5M12 8.5l8 2.5v9.5"/><path d="M2.5 20.5h19M7 8h2M7 11.5h2M7 15h2M15 13h2M15 16.5h2"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 20.5V11l5 3V11l5 3V11l5 3V4.5h4v16z"/><path d="M6 17.5h2M11 17.5h2M16 17.5h2"/></symbol>
+    <symbol id="i-patch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9h19M2.5 15h19"/><rect x="8.5" y="7.5" width="7" height="9" rx="1.5"/></symbol>
     <symbol id="i-mountain" viewBox="0 0 48 36"><path d="M2 32l13-18 6 8 7-14 18 24z" fill="currentColor"/><path d="M28 8l3.2 6.5-3.2-1.6-3 2.3z" fill="#0E1621" opacity=".5"/><path d="M7 32l3-6 3 6zM37 32l3-8 3 8zM41 32l2-5 2.5 5z" fill="#6CC08A"/></symbol>
   </defs>
 </svg>
@@ -725,27 +774,24 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
 <!-- ======================= TOP BAR + HEADER ======================= -->
 <div class="topbar">
   <div class="topbar__inner">
-    <span><i></i>Serving Spokane, Spokane Valley, Deer Park, Clayton &amp; Stevens County</span>
-    <span>WA Contractor Reg. #PNWTRT*744KQ &nbsp;·&nbsp; Licensed, bonded &amp; insured</span>
+    <span><i></i>Serving Spokane, Spokane Valley, Deer Park, Clayton, Stevens &amp; Spokane County</span>
+    <span class="topbar__links"><span>WA Reg. #PNWTRT*744KQ</span><a href="mailto:info@pnwtrenchless.com"><svg><use href="#i-mail"/></svg>info@pnwtrenchless.com</a><a href="https://www.facebook.com/profile.php?id=61589495076554" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg>Facebook</a></span>
   </div>
 </div>
 <header class="header" id="header">
   <div class="header__inner">
-    <a class="logo" href="#top" aria-label="PNW Trenchless home">
-      <svg><use href="#i-mountain"/></svg>
-      <span class="logo__word"><span class="logo__pnw">PN<b>W</b></span><span class="logo__sub">TRENCHLESS</span></span>
-    </a>
+    <a class="logo" href="#top" aria-label="PNW Trenchless home"><img class="logo__img" src="assets/logo.png" alt="PNW Trenchless" width="640" height="263"></a>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#services">Services</a>
-      <a href="#how">Trenchless vs. Digging</a>
-      <a href="#process">How It Works</a>
-      <a href="#mike">About Mike</a>
+      <a href="#who">Who We Serve</a>
+      <a href="#how">How It Works</a>
+      <a href="#mike">About</a>
       <a href="#areas">Service Areas</a>
-      <a href="#reviews">Reviews</a>
+      <a href="#estimate">Contact</a>
     </nav>
     <div class="header__cta">
       <a class="header__phone" href="tel:5099532036" aria-label="Call or text 509-953-2036"><span class="header__phone-ico"><svg><use href="#i-phone"/></svg></span><div><small>Call or text</small><b>509-953-2036</b></div></a>
-      <a class="btn btn--primary" href="#estimate">Free Camera Estimate</a>
+      <a class="btn btn--primary" href="#estimate">Get a Quote</a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
   </div>
@@ -761,13 +807,13 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
       <div class="hero__content">
         <div class="hero__kicker rise">
           <span class="chip"><b class="tbc">X.X</b> ★★★★★ on Google</span>
-          <span>Owner-operated · 14+ years</span>
+          <span>Family-owned · 14+ years · Residential, commercial &amp; industrial</span>
         </div>
         <p class="hero__seo rise rise-2">Trenchless sewer &amp; water line repair · Spokane, WA</p>
         <h1 class="rise rise-3">Fix the pipe.<br><span class="serif">Keep the yard.</span></h1>
-        <p class="hero__lede rise rise-4">Mike Jeisma has spent 14+ years repairing sewer and water lines across the Inland Northwest. He cameras the line, shows you exactly what he sees, and gives you an honest recommendation.</p>
+        <p class="hero__lede rise rise-4">Family-owned and led by Mike Jeisma, with 14+ years in trenchless sewer and water line work. We camera the line, show you exactly what we see, and give you a true and honest quote.</p>
         <div class="hero__actions rise rise-5">
-          <a class="btn btn--primary" href="#estimate">Get a Free Estimate <svg class="arrow"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--primary" href="#estimate">Get a True &amp; Honest Quote <svg class="arrow"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--ghost-light" href="sms:5099532036"><svg><use href="#i-camera"/></svg>Text a Photo of the Problem</a>
         </div>
       </div>
@@ -781,7 +827,7 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
       </div>
     </div>
     <ul class="hero__proof">
-      <li><svg><use href="#i-liner"/></svg>Sewer pipe lining (CIPP), pipe bursting &amp; water line replacement</li>
+      <li><svg><use href="#i-liner"/></svg>Pipe bursting, CIPP lining, water line pulling &amp; point repairs</li>
       <li><svg><use href="#i-yard"/></svg>Two small access points instead of a trench across your property</li>
       <li><svg><use href="#i-film"/></svg>Camera footage before and after, yours to keep</li>
     </ul>
@@ -792,14 +838,14 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
 <section class="ticker" aria-label="Our trenchless services">
   <div class="ticker__row">
     <div class="ticker__track">
-      <div class="ticker__group"><a class="ticker__item" href="#services"><span class="ticker__ico"><svg><use href="#i-liner"/></svg></span><span class="ticker__name">Sewer pipe lining</span><span class="ticker__spec">CIPP</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services"><span class="ticker__ico"><svg><use href="#i-burst"/></svg></span><span class="ticker__name">Pipe bursting</span><span class="ticker__spec">HDPE</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services"><span class="ticker__ico"><svg><use href="#i-drop"/></svg></span><span class="ticker__name">Water line replacement</span><span class="ticker__spec">CTS POLY</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services"><span class="ticker__ico"><svg><use href="#i-camera"/></svg></span><span class="ticker__name">Camera inspection</span><span class="ticker__spec">CCTV</span></a><span class="ticker__joint" aria-hidden="true"></span></div>
-      <div class="ticker__group" aria-hidden="true"><a class="ticker__item" href="#services" tabindex="-1"><span class="ticker__ico"><svg><use href="#i-liner"/></svg></span><span class="ticker__name">Sewer pipe lining</span><span class="ticker__spec">CIPP</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services" tabindex="-1"><span class="ticker__ico"><svg><use href="#i-burst"/></svg></span><span class="ticker__name">Pipe bursting</span><span class="ticker__spec">HDPE</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services" tabindex="-1"><span class="ticker__ico"><svg><use href="#i-drop"/></svg></span><span class="ticker__name">Water line replacement</span><span class="ticker__spec">CTS POLY</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services" tabindex="-1"><span class="ticker__ico"><svg><use href="#i-camera"/></svg></span><span class="ticker__name">Camera inspection</span><span class="ticker__spec">CCTV</span></a><span class="ticker__joint" aria-hidden="true"></span></div>
+      <div class="ticker__group"><a class="ticker__item" href="#services"><span class="ticker__ico"><svg><use href="#i-liner"/></svg></span><span class="ticker__name">Sewer pipe lining</span><span class="ticker__spec">CIPP</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services"><span class="ticker__ico"><svg><use href="#i-burst"/></svg></span><span class="ticker__name">Pipe bursting</span><span class="ticker__spec">HDPE</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services"><span class="ticker__ico"><svg><use href="#i-drop"/></svg></span><span class="ticker__name">Water line replacement</span><span class="ticker__spec">CTS POLY</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services"><span class="ticker__ico"><svg><use href="#i-patch"/></svg></span><span class="ticker__name">Point repairs</span><span class="ticker__spec">SPOT LINER</span></a><span class="ticker__joint" aria-hidden="true"></span></div>
+      <div class="ticker__group" aria-hidden="true"><a class="ticker__item" href="#services" tabindex="-1"><span class="ticker__ico"><svg><use href="#i-liner"/></svg></span><span class="ticker__name">Sewer pipe lining</span><span class="ticker__spec">CIPP</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services" tabindex="-1"><span class="ticker__ico"><svg><use href="#i-burst"/></svg></span><span class="ticker__name">Pipe bursting</span><span class="ticker__spec">HDPE</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services" tabindex="-1"><span class="ticker__ico"><svg><use href="#i-drop"/></svg></span><span class="ticker__name">Water line replacement</span><span class="ticker__spec">CTS POLY</span></a><span class="ticker__joint" aria-hidden="true"></span><a class="ticker__item" href="#services" tabindex="-1"><span class="ticker__ico"><svg><use href="#i-patch"/></svg></span><span class="ticker__name">Point repairs</span><span class="ticker__spec">SPOT LINER</span></a><span class="ticker__joint" aria-hidden="true"></span></div>
     </div>
   </div>
   <div class="ticker__row ticker__row--sub" aria-hidden="true">
     <div class="ticker__track">
-      <div class="ticker__group"><em>less digging</em><i></i><span>Spokane</span><i></i><em>less disruption</em><i></i><span>Spokane Valley</span><i></i><em>built to last</em><i></i><span>Deer Park</span><i></i><em>no trench</em><i></i><span>Clayton</span><i></i><em>yard intact</em><i></i><span>Stevens County</span><i></i></div>
-      <div class="ticker__group"><em>less digging</em><i></i><span>Spokane</span><i></i><em>less disruption</em><i></i><span>Spokane Valley</span><i></i><em>built to last</em><i></i><span>Deer Park</span><i></i><em>no trench</em><i></i><span>Clayton</span><i></i><em>yard intact</em><i></i><span>Stevens County</span><i></i></div>
+      <div class="ticker__group"><em>less digging</em><i></i><span>Spokane</span><i></i><em>less disruption</em><i></i><span>Spokane Valley</span><i></i><em>built to last</em><i></i><span>Deer Park</span><i></i><em>no trench</em><i></i><span>Clayton</span><i></i><em>yard intact</em><i></i><span>Stevens County</span><i></i><em>honest pricing</em><i></i><span>Spokane County</span><i></i></div>
+      <div class="ticker__group"><em>less digging</em><i></i><span>Spokane</span><i></i><em>less disruption</em><i></i><span>Spokane Valley</span><i></i><em>built to last</em><i></i><span>Deer Park</span><i></i><em>no trench</em><i></i><span>Clayton</span><i></i><em>yard intact</em><i></i><span>Stevens County</span><i></i><em>honest pricing</em><i></i><span>Spokane County</span><i></i></div>
     </div>
   </div>
 </section>
@@ -810,7 +856,7 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
     <ul class="stats__grid">
       <li class="stat"><span class="stat__num">14<small>+ yrs</small></span><span class="stat__label">repairing sewer &amp; water lines in the Inland NW</span></li>
       <li class="stat"><span class="stat__num">2</span><span class="stat__label">small access pits instead of one long trench</span></li>
-      <li class="stat"><span class="stat__num">1</span><span class="stat__label">owner on every job. Mike does the work himself</span></li>
+      <li class="stat"><span class="stat__num">50<small>+ yrs</small></span><span class="stat__label">expected lifespan of new HDPE pipe</span></li>
       <li class="stat"><span class="stat__num"><span class="tbc">X</span><small>-yr</small></span><span class="stat__label">workmanship warranty on every repair</span></li>
     </ul>
   </div>
@@ -921,7 +967,7 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
         <span class="eyebrow">Services</span>
         <h2>Four ways we fix it, <span class="serif">without the trench.</span></h2>
       </div>
-      <p class="head__lede" style="max-width:34ch">Every job starts with a camera inspection. The footage decides which repair fits your pipe.</p>
+      <p class="head__lede" style="max-width:36ch">Every job starts with a CCTV camera inspection. We match the method to your pipe, not the other way around.</p>
     </div>
     <div class="svc-grid">
       <article class="svc-card svc-card--lining">
@@ -967,7 +1013,7 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
         <div class="svc-card__body">
           <div class="svc-card__top"><span class="svc-card__spec">HDPE · full replacement</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
           <h3><a href="#">Pipe <span class="serif">bursting</span></a></h3>
-          <p>A bursting head breaks the old pipe outward while new HDPE pipe is pulled in behind it. A full replacement, not a patch.</p>
+          <p>A bursting head breaks the old pipe outward while new HDPE pipe is pulled in behind it. A completely new pipe with a 50+ year lifespan, and it can be upsized for better flow.</p>
           <div class="svc-card__foot"><b>Best for</b><span>Collapsed lines</span><span>Orangeburg</span><span>Clay</span><span>Upsizing</span></div>
         </div>
       </article>
@@ -991,29 +1037,78 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
         <div class="svc-card__body">
           <div class="svc-card__top"><span class="svc-card__spec">CTS poly · pressure tested</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
           <h3><a href="#">Water line <span class="serif">replacement</span></a></h3>
-          <p>We pull a new CTS poly water line underground, reconnect it and pressure test it, with minimal digging.</p>
+          <p>We pull a new CTS poly line underground, reconnect it, and test it for pressure and leaks. No rust or scale buildup, and better water pressure.</p>
           <div class="svc-card__foot"><b>Best for</b><span>Old galvanized</span><span>Leaks</span><span>Low pressure</span></div>
         </div>
       </article>
-      <article class="svc-card svc-card--camera">
-        <div class="svc-card__art" aria-hidden="true"><div class="feed feed--roots"><span class="feed__cross"></span><div class="feed__hud feed__hud--top"><span class="feed__rec">LIVE</span><span>6" CAST IRON</span></div><div class="feed__hud"><span></span><span class="feed__ft">062.4 FT</span></div></div><span class="svc-card__badge">Every job starts here</span></div>
+      <article class="svc-card svc-card--spot">
+        <div class="svc-card__art" aria-hidden="true">
+          <svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
+            <rect x="0" y="108" width="600" height="64" rx="6" fill="#4A4F55"/>
+            <rect x="0" y="120" width="600" height="40" fill="#262B31"/>
+            <path d="M120 108l10 20-8 12M470 172l-8-18 10-10M520 108l-6 16" stroke="#0B121B" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M300 108l-12 22 14 10-10 32" stroke="#0B121B" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="236" y="116" width="132" height="48" rx="8" fill="#B07A1E"/>
+            <rect x="236" y="116" width="132" height="48" rx="8" fill="none" stroke="#F0B03A" stroke-width="2"/>
+            <path d="M236 82v-12h132v12" fill="none" stroke="#F0B03A" stroke-width="2"/>
+            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
+              <text x="302" y="56" text-anchor="middle" fill="#F0B03A">ONLY THE DAMAGED SECTION</text>
+              <text x="24" y="214" fill="#A8B3BF">HOST PIPE STAYS</text>
+              <text x="246" y="214" fill="#F0B03A">SPOT LINER</text>
+              <text x="430" y="214" fill="#A8B3BF">HOST PIPE STAYS</text>
+            </g>
+          </svg>
+        </div>
         <div class="svc-card__body">
-          <div class="svc-card__top"><span class="svc-card__spec">CCTV · know before you spend</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
-          <h3><a href="#">Camera <span class="serif">inspection</span></a></h3>
-          <p>See inside your line before you spend a dollar on repairs. Useful for home buyers too. <span class="tbc">Confirm offered as standalone</span></p>
-          <div class="svc-card__foot"><b>Best for</b><span>Diagnosing problems</span><span>Home purchase</span></div>
+          <div class="svc-card__top"><span class="svc-card__spec">Spot repair · localized relining</span><span class="svc-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></div>
+          <h3><a href="#">Point <span class="serif">repairs</span></a></h3>
+          <p>When the damage is isolated to one section and the rest of the pipe is sound, we reline just that spot instead of replacing the whole line.</p>
+          <div class="svc-card__foot"><b>Best for</b><span>One bad joint</span><span>A single crack</span><span>Localized roots</span></div>
         </div>
       </article>
     </div>
     <div class="svc-strip">
-      <span><svg><use href="#i-film"/></svg>Every repair comes with before and after camera footage, yours to keep.</span>
-      <a class="btn btn--primary" href="#estimate">Book a camera estimate <svg class="arrow"><use href="#i-arrow"/></svg></a>
+      <span><svg><use href="#i-film"/></svg>Every job starts with a CCTV inspection, and you keep the before and after footage.</span>
+      <a class="btn btn--primary" href="#estimate">Request a quote <svg class="arrow"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHO WE SERVE ======================= -->
+<section class="section audience bg--white" id="who">
+  <div class="container">
+    <div class="head head--row">
+      <div class="head__main">
+        <span class="eyebrow">Who we work for</span>
+        <h2>Homes, businesses <span class="serif">and industrial sites.</span></h2>
+      </div>
+      <p class="head__lede" style="max-width:38ch">Trenchless repair and replacement for residential, commercial and industrial properties, from a home's sewer line to lines under parking lots, roadways and working facilities.</p>
+    </div>
+    <div class="audience__grid">
+      <article class="aud-card">
+        <span class="aud-card__ico"><svg><use href="#i-home"/></svg></span>
+        <h3>Homeowners</h3>
+        <p>Sewer and water lines under lawns, driveways, patios and mature trees. Small access points instead of a torn-up yard.</p>
+        <ul><li><svg><use href="#i-check"/></svg>Sewer lateral lining &amp; bursting</li><li><svg><use href="#i-check"/></svg>Water service line pulls</li><li><svg><use href="#i-check"/></svg>Camera footage you keep</li></ul>
+      </article>
+      <article class="aud-card">
+        <span class="aud-card__ico"><svg><use href="#i-building"/></svg></span>
+        <h3>Commercial properties</h3>
+        <p>We choose methods that keep your property open and running during the work, with less disruption to parking, landscaping and tenants.</p>
+        <ul><li><svg><use href="#i-check"/></svg>Lines under parking lots &amp; hardscape</li><li><svg><use href="#i-check"/></svg>Clear schedule and budget up front</li><li><svg><use href="#i-check"/></svg>Lower restoration costs</li></ul>
+      </article>
+      <article class="aud-card">
+        <span class="aud-card__ico"><svg><use href="#i-factory"/></svg></span>
+        <h3>Industrial &amp; municipal</h3>
+        <p>Larger lines and longer runs, with a CCTV assessment, a written recommendation, and documentation from evaluation through final testing.</p>
+        <ul><li><svg><use href="#i-check"/></svg>Site and pipe condition evaluation</li><li><svg><use href="#i-check"/></svg>Lifecycle cost comparison</li><li><svg><use href="#i-check"/></svg>Code and compliance focused</li></ul>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ======================= COMPARISON ======================= -->
-<section class="section compare bg--white">
+<section class="section compare bg--stone">
   <div class="container">
     <div class="head">
       <span class="eyebrow">Trenchless vs. traditional</span>
@@ -1026,9 +1121,9 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
         <tbody>
           <tr><th scope="row">Digging</th><td class="is-us">1–2 small access points</td><td>Trench the full length of the pipe</td></tr>
           <tr><th scope="row">Lawn, driveway, trees</th><td class="is-us">Left intact in most cases</td><td>Removed, then rebuilt</td></tr>
-          <tr><th scope="row">Typical timeline</th><td class="is-us"><span class="tbc">X</span> day(s)</td><td><span class="tbc">X</span> days to weeks</td></tr>
+          <tr><th scope="row">Typical timeline</th><td class="is-us">Faster in most cases (<span class="tbc">X</span> day typical)</td><td><span class="tbc">X</span> days to weeks</td></tr>
           <tr><th scope="row">Restoration costs</th><td class="is-us">Minimal</td><td>Landscaping, concrete, paving extra</td></tr>
-          <tr><th scope="row">Finished pipe</th><td class="is-us">Seamless, root-resistant, <span class="tbc">X</span>-yr design life</td><td>New pipe, with joints</td></tr>
+          <tr><th scope="row">Finished pipe</th><td class="is-us">Seamless, root- and corrosion-resistant. HDPE rated 50+ years</td><td>New pipe, with joints</td></tr>
           <tr><th scope="row">Disruption to your home</th><td class="is-us">Water off for hours, not days</td><td>Yard torn up for the duration</td></tr>
         </tbody>
       </table>
@@ -1053,11 +1148,12 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
         <p>Every recommendation starts with what the camera actually shows.</p>
       </div>
       <div class="flow__lines" aria-hidden="true">
-        <svg viewBox="0 0 80 300" preserveAspectRatio="none"><g fill="none" stroke="#A3ABA6" stroke-width="1.5" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"><path d="M0 150 C40 150 40 50 80 50" vector-effect="non-scaling-stroke"/><path d="M0 150 H80" vector-effect="non-scaling-stroke"/><path d="M0 150 C40 150 40 250 80 250" vector-effect="non-scaling-stroke"/></g></svg>
+        <svg viewBox="0 0 80 300" preserveAspectRatio="none"><g fill="none" stroke="#A3ABA6" stroke-width="1.5" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"><path d="M0 150 C40 150 40 37 80 37" vector-effect="non-scaling-stroke"/><path d="M0 150 C40 150 40 112 80 112" vector-effect="non-scaling-stroke"/><path d="M0 150 C40 150 40 188 80 188" vector-effect="non-scaling-stroke"/><path d="M0 150 C40 150 40 263 80 263" vector-effect="non-scaling-stroke"/></g></svg>
       </div>
       <div class="flow__outcomes">
         <article class="outcome"><span class="outcome__if">If the camera shows</span><h3>The pipe still holds its shape</h3><p>Cracks, joint gaps and roots, but structurally intact.</p><span class="outcome__pill">Pipe lining</span></article>
         <article class="outcome outcome--burst"><span class="outcome__if">If the camera shows</span><h3>It's collapsed or deformed</h3><p>Orangeburg, crushed clay, or you need a bigger diameter.</p><span class="outcome__pill">Pipe bursting</span></article>
+        <article class="outcome outcome--spot"><span class="outcome__if">If the damage is</span><h3>Isolated to one spot</h3><p>One bad joint or crack, and the rest of the pipe is sound.</p><span class="outcome__pill">Point repair</span></article>
         <article class="outcome outcome--water"><span class="outcome__if">If the problem is</span><h3>Your water service</h3><p>Rusty galvanized pipe, repeated leaks, weak pressure.</p><span class="outcome__pill">Water line pull</span></article>
       </div>
     </div>
@@ -1097,9 +1193,9 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
         <img class="mike__inset" src="assets/trailer.jpg" alt="PNW Trenchless equipment trailer" width="1600" height="794" loading="lazy">
       </div>
       <div class="mike__content">
-        <span class="eyebrow">Meet the owner</span>
-        <blockquote class="mike__quote"><span class="tbc">A short quote from Mike, in his own words, on why he shows every customer the footage.</span></blockquote>
-        <p class="mike__bio">Mike has spent 14+ years in sewer and water line work across the Spokane area, the last decade-plus focused on trenchless lining and bursting. In <span class="tbc">2025</span> he started PNW Trenchless to do it his way: show customers the footage, give them a straight answer, and do the work himself.</p>
+        <span class="eyebrow">Family-owned · meet the owner</span>
+        <blockquote class="mike__quote">We treat every project like it’s for our own family. Our customers deserve honest work, fair pricing, and results built to last.</blockquote>
+        <p class="mike__bio">PNW Trenchless is a family-owned company built on honesty, quality workmanship and customer care. Mike has spent 14+ years in sewer and water line work across the Spokane area, the last decade-plus focused on trenchless lining and bursting. In <span class="tbc">2025</span> he started PNW Trenchless to do it his way: show customers the footage, give them a straight answer, and do the work himself.</p>
         <ul class="creds">
           <li><svg><use href="#i-check"/></svg>14+ years in trenchless sewer &amp; water line repair</li>
           <li><svg><use href="#i-check"/></svg><span class="tbc">Manufacturer certifications</span></li>
@@ -1121,33 +1217,30 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
     <div class="head head--row">
       <div class="head__main">
         <span class="eyebrow">Recent projects</span>
-        <h2>Real jobs. <span class="serif">Real footage.</span></h2>
+        <h2>Real jobs. <span class="serif">Real yards.</span></h2>
       </div>
       <a class="link-arrow" href="#">See all projects</a>
     </div>
     <article class="projects__feature">
-      <div class="ba" id="ba">
-        <div class="feed feed--roots" role="img" aria-label="Before: roots in a clay joint"><span class="feed__cross"></span><div class="feed__hud"><span>4" CLAY</span><span class="feed__ft">038.2 FT</span></div></div>
-        <div class="feed feed--clean ba__after" role="img" aria-label="After: smooth lined pipe"><span class="feed__cross"></span><div class="feed__hud"><span>CIPP LINED</span><span class="feed__ft">038.2 FT</span></div></div>
-        <span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span>
-        <input class="ba__range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
-        <div class="ba__divider"><span class="ba__handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+      <div class="job-pair">
+        <figure><img src="assets/job-during.jpg" alt="Small access pit dug in a front lawn during a trenchless repair" width="900" height="1125" loading="lazy"><figcaption>DURING</figcaption></figure>
+        <figure><img src="assets/job-after.jpg" alt="The same front lawn after the access pit was backfilled" width="900" height="1125" loading="lazy"><figcaption>AFTER</figcaption></figure>
       </div>
       <div class="projects__info">
-        <span class="eyebrow">Featured · lining</span>
-        <span class="projects__loc"><span class="tbc">Neighborhood</span>, Spokane</span>
+        <span class="eyebrow">Recent job · front yard</span>
+        <span class="projects__loc">One small pit. <span class="serif">Same lawn, after.</span></span>
         <dl class="spec">
-          <dt>Problem</dt><dd><span class="tbc">Roots in clay joints</span></dd>
-          <dt>Method</dt><dd><span class="tbc">CIPP lining, 62 ft</span></dd>
-          <dt>Done in</dt><dd><span class="tbc">1 day</span></dd>
-          <dt>Yard</dt><dd>Two access pits, lawn intact</dd>
+          <dt>Location</dt><dd><span class="tbc">Neighborhood, city</span></dd>
+          <dt>Problem</dt><dd><span class="tbc">What the camera found</span></dd>
+          <dt>Method</dt><dd><span class="tbc">Bursting / lining, length</span></dd>
+          <dt>Yard</dt><dd>One access pit, backfilled after the repair</dd>
         </dl>
-        <a class="link-arrow" href="#">Watch the full footage</a>
+        <a class="link-arrow" href="#">See more projects</a>
       </div>
     </article>
     <div class="projects__more">
       <a class="mini" href="#"><span class="feed" role="img" aria-label="Collapsed pipe still"><span class="feed__hud"><span class="feed__ft">021.7 FT</span></span></span><span><b><span class="tbc">City</span>, Spokane Valley</b><span>Collapsed Orangeburg replaced by pipe bursting, 4" HDPE · <span class="tbc">X</span> days</span></span></a>
-      <a class="mini" href="#"><span class="feed feed--blue" role="img" aria-label="New water line still"><span class="feed__hud"><span class="feed__ft">CTS POLY</span></span></span><span><b><span class="tbc">City</span>, Deer Park</b><span>Leaking galvanized water line pulled and replaced · <span class="tbc">X</span> day</span></span></a>
+      <a class="mini" href="#"><img src="assets/job-waterline.jpg" alt="Access pit with the new blue water line in place next to the meter box" width="900" height="1125" loading="lazy"><span><b>Water line pull</b><span>New line pulled through a small access pit at the meter · <span class="tbc">City</span></span></span></a>
     </div>
   </div>
 </section>
@@ -1193,7 +1286,8 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
           <li><a href="#">Spokane Valley <small>East</small></a></li>
           <li><a href="#">Deer Park <small>North</small></a></li>
           <li><a href="#">Clayton <small>Home base</small></a></li>
-          <li><a href="#">Stevens County <small>+ nearby</small></a></li>
+          <li><a href="#">Stevens County <small>North</small></a></li>
+          <li><a href="#">Spokane County <small>+ nearby</small></a></li>
         </ul>
       </div>
       <figure class="map">
@@ -1247,6 +1341,8 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
         <details class="faq__item"><summary>How long does the job take, and can I use my plumbing?</summary><div class="faq__answer"><p>Most jobs take <span class="tbc">X</span> day(s). Your water or sewer is off for hours, not days, and we'll tell you exactly when.</p><span class="draft">Draft · Mike to confirm</span></div></details>
         <details class="faq__item"><summary>Can you fix a pipe full of tree roots?</summary><div class="faq__answer"><p>Yes. We clear the roots, then line the pipe so there are no joints for them to grow back through.</p><span class="draft">Draft · Mike to confirm</span></div></details>
         <details class="faq__item"><summary>What if my pipe has collapsed?</summary><div class="faq__answer"><p>Lining needs a pipe that still holds its shape. For a collapsed or crushed line, pipe bursting pulls a brand-new HDPE pipe through the old path.</p><span class="draft">Draft · Mike to confirm</span></div></details>
+        <details class="faq__item"><summary>Do you work on commercial and industrial properties?</summary><div class="faq__answer"><p>Yes. Along with homes, we repair and replace lines for commercial and industrial properties, and we choose methods that keep your property running during the work.</p></div></details>
+        <details class="faq__item"><summary>How do you decide which method to use?</summary><div class="faq__answer"><p>We look at the pipe on camera, plus access points, soil, surface use and nearby utilities. Then we recommend the method that fits: bursting for full replacement, lining for sound host pipes, or a point repair when damage is isolated. You get the reasoning, schedule and budget in writing.</p></div></details>
         <details class="faq__item"><summary>Does homeowners insurance cover sewer line repair?</summary><div class="faq__answer"><p>It depends on your policy and any service-line coverage you carry. We can provide camera footage and a written report for your insurer. <span class="tbc">Mike to add what he typically sees.</span></p><span class="draft">Draft · Mike to confirm</span></div></details>
         <details class="faq__item"><summary>Do you handle permits?</summary><div class="faq__answer"><p><span class="tbc">Yes / which jurisdictions, and how it's billed.</span></p><span class="draft">Draft · Mike to confirm</span></div></details>
       </div>
@@ -1260,10 +1356,16 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
   <div class="container">
     <div class="estimate__grid">
       <div class="estimate__text">
-        <span class="eyebrow">Free camera estimate</span>
-        <h2>Find out what's <span class="serif">really going on</span> in your line.</h2>
-        <p>Tell us what's happening. Mike will get back to you personally, usually <span class="tbc">same day</span>.</p>
-        <a class="bigphone" href="tel:5099532036"><small>Call or text Mike</small><b>509-953-2036</b><span>Send a photo or video of the problem if you can.</span></a>
+        <span class="eyebrow">Request a quote</span>
+        <h2>Get a <span class="serif">true and honest</span> quote.</h2>
+        <p>Give us some details and we'll reach out right away. Homes, businesses and industrial sites across Spokane and Stevens County.</p>
+        <a class="bigphone" href="tel:5099532036"><small>Call or text now</small><b>509-953-2036</b><span>Send a photo or video of the problem if you can.</span></a>
+        <div class="contact-ways">
+          <a href="tel:5099532036"><svg><use href="#i-phone"/></svg>Call<small>509-953-2036</small></a>
+          <a href="sms:5099532036"><svg><use href="#i-chat"/></svg>Text<small>Send a photo</small></a>
+          <a href="mailto:info@pnwtrenchless.com?subject=Quote%20request"><svg><use href="#i-mail"/></svg>Email<small>Write to us</small></a>
+          <a href="https://www.facebook.com/profile.php?id=61589495076554" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg>Facebook<small>Message us</small></a>
+        </div>
         <ol class="next">
           <li><b>01</b>You send the details or a photo</li>
           <li><b>02</b>Mike calls you back and books the camera</li>
@@ -1271,25 +1373,36 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
         </ol>
       </div>
       <form class="form" id="estimateForm" novalidate>
-        <div class="form__head"><h3>Request your free estimate</h3><span>Takes about a minute</span></div>
+        <div class="form__head"><h3>Request a quote</h3><span>Takes about a minute</span></div>
         <fieldset class="chips">
-          <legend>What's going on?</legend>
-          <label for="i1"><input type="radio" name="issue" id="i1" value="clogs" checked><span>Clogs / backups</span></label>
-          <label for="i2"><input type="radio" name="issue" id="i2" value="roots"><span>Roots</span></label>
-          <label for="i3"><input type="radio" name="issue" id="i3" value="water"><span>Water line / pressure</span></label>
-          <label for="i4"><input type="radio" name="issue" id="i4" value="purchase"><span>Home purchase</span></label>
-          <label for="i5"><input type="radio" name="issue" id="i5" value="other"><span>Other</span></label>
+          <legend>What do you need?</legend>
+          <label for="i1"><input type="radio" name="service" id="i1" value="sewer" checked><span>Sewer line repair</span></label>
+          <label for="i2"><input type="radio" name="service" id="i2" value="bursting"><span>Pipe bursting</span></label>
+          <label for="i3"><input type="radio" name="service" id="i3" value="lining"><span>CIPP lining</span></label>
+          <label for="i4"><input type="radio" name="service" id="i4" value="water"><span>Water line</span></label>
+          <label for="i5"><input type="radio" name="service" id="i5" value="point"><span>Point repair</span></label>
+          <label for="i6"><input type="radio" name="service" id="i6" value="unsure"><span>Not sure yet</span></label>
         </fieldset>
+        <fieldset class="chips">
+          <legend>Property type</legend>
+          <label for="pt1"><input type="radio" name="property" id="pt1" value="residential" checked><span>Residential</span></label>
+          <label for="pt2"><input type="radio" name="property" id="pt2" value="commercial"><span>Commercial</span></label>
+          <label for="pt3"><input type="radio" name="property" id="pt3" value="industrial"><span>Industrial</span></label>
+        </fieldset>
+        <div class="form__sep"></div>
         <div class="form__row">
           <label class="field" for="f-name">Name<input id="f-name" name="name" type="text" autocomplete="name"></label>
           <label class="field" for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
         </div>
-        <label class="field" for="f-address">Property address or city<input id="f-address" name="address" type="text" autocomplete="street-address"></label>
-        <label class="field" for="f-details">Details (optional)<textarea id="f-details" name="details" rows="3"></textarea></label>
+        <div class="form__row">
+          <label class="field" for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email"></label>
+          <label class="field" for="f-address">Property address or city<input id="f-address" name="address" type="text" autocomplete="street-address"></label>
+        </div>
+        <label class="field" for="f-details">Tell us what's going on (optional)<textarea id="f-details" name="details" rows="3"></textarea></label>
         <label class="upload" for="f-photo"><svg><use href="#i-upload"/></svg><span id="f-photo-label">Add a photo or video of the problem (optional)</span><input id="f-photo" name="photo" type="file" accept="image/*,video/*"></label>
-        <button class="btn btn--primary btn--block" type="submit">Request My Free Estimate <svg class="arrow"><use href="#i-arrow"/></svg></button>
+        <button class="btn btn--primary btn--block" type="submit">Request My Quote <svg class="arrow"><use href="#i-arrow"/></svg></button>
         <p class="form__done" id="formDone" hidden>Design preview: on the live site this sends to GoHighLevel and fires the GA4 / Ads conversion.</p>
-        <p class="form__fine">No obligation. Mike replies personally.</p>
+        <p class="form__fine">No obligation. We reply personally, usually <span class="tbc">same day</span>.</p>
       </form>
     </div>
   </div>
@@ -1302,15 +1415,16 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
   <div class="container" style="gap:0">
     <div class="footer__grid">
       <div class="footer__col">
-        <a class="logo" href="#top" aria-label="PNW Trenchless home"><svg><use href="#i-mountain"/></svg><span class="logo__word"><span class="logo__pnw">PN<b>W</b></span><span class="logo__sub">TRENCHLESS</span></span></a>
-        <span style="margin-top:.5rem">Sewer lining · Pipe bursting · Waterline replacement</span>
+        <a class="logo" href="#top" aria-label="PNW Trenchless home"><img class="logo__img" src="assets/logo.png" alt="PNW Trenchless" width="640" height="263" loading="lazy"></a>
+        <span style="margin-top:.5rem">Less digging. Less disruption. Built to last.</span>
         <span><span class="tbc">Address or service-area business</span>, Clayton, WA</span>
         <a class="footer__phone" href="tel:5099532036">509-953-2036</a>
         <a href="mailto:info@pnwtrenchless.com">info@pnwtrenchless.com</a>
+        <div class="social" style="margin-top:.5rem"><a href="https://www.facebook.com/profile.php?id=61589495076554" target="_blank" rel="noopener" aria-label="PNW Trenchless on Facebook"><svg><use href="#i-fb"/></svg></a><a href="mailto:info@pnwtrenchless.com" aria-label="Email PNW Trenchless"><svg><use href="#i-mail"/></svg></a><a href="sms:5099532036" aria-label="Text PNW Trenchless"><svg><use href="#i-chat"/></svg></a></div>
       </div>
-      <div class="footer__col"><h4>Services</h4><a href="#">Sewer Pipe Lining</a><a href="#">Pipe Bursting</a><a href="#">Water Line Replacement</a><a href="#">Camera Inspection</a></div>
-      <div class="footer__col"><h4>Service Areas</h4><a href="#">Spokane</a><a href="#">Spokane Valley</a><a href="#">Deer Park</a><a href="#">Clayton</a><a href="#">Stevens County</a></div>
-      <div class="footer__col"><h4>Company</h4><a href="#mike">About Mike</a><a href="#">Projects</a><a href="#reviews">Reviews</a><span><span class="tbc">Hours</span></span></div>
+      <div class="footer__col"><h4>Services</h4><a href="#">Sewer Pipe Lining</a><a href="#">Pipe Bursting</a><a href="#">Water Line Pulling</a><a href="#">Point Repairs</a></div>
+      <div class="footer__col"><h4>Service Areas</h4><a href="#">Spokane</a><a href="#">Spokane Valley</a><a href="#">Deer Park</a><a href="#">Clayton</a><a href="#">Stevens County</a><a href="#">Spokane County</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="#mike">About</a><a href="#who">Who We Serve</a><a href="#">Projects</a><a href="#reviews">Reviews</a><a href="#estimate">Contact</a><span><span class="tbc">Hours</span></span></div>
     </div>
     <div class="footer__word" aria-hidden="true">TRENCHLESS</div>
     <div class="footer__bottom">
@@ -1347,9 +1461,6 @@ h1 .serif, h2 .serif { font-size: 1.08em; }
     });
   });
 
-  /* before / after slider */
-  var ba = document.getElementById('ba'), range = document.getElementById('baRange');
-  range.addEventListener('input', function () { ba.style.setProperty('--pos', range.value + '%'); });
 
   /* form (design preview only) */
   var photo = document.getElementById('f-photo');
