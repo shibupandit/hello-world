@@ -1,0 +1,82 @@
+---
+name: bricks-acss-build-conventions
+description: House conventions for building WordPress sites in Bricks Builder with Automatic.css (ACSS), Fluent Forms, ACF and HappyFiles through the Novamira MCP connector. Use when designing a page that will be rebuilt in Bricks, when building or editing pages/templates/classes in Bricks, or when preparing a Bricks + ACSS handoff.
+---
+
+# Bricks + ACSS build conventions
+
+Learned from the agency's reference build (the "Hartwell & Crane" template on whitecrowtemplate.kinsta.cloud). Follow these on every new build so all sites share the same structure.
+
+## Before touching any site
+
+1. Confirm **which WordPress site** the work is for. Never write to a site the user hasn't named for this project.
+2. Start **read-only**. Use the `novamira/bricks-get-design-system`, `novamira/bricks-check-setup`, `novamira/bricks-list-templates`, `novamira/bricks-list-global-classes`, `bricks/get-page-structure`, `novamira/bricks-read-css` and `novamira/memory-list` abilities to learn the site first. Reuse existing classes, templates and forms before creating new ones.
+3. Read the site's Novamira memories (`novamira/memory-get`) and follow them.
+
+## Stack
+
+- Bricks (theme), Automatic.css, ACF Pro, Fluent Forms + Pro, HappyFiles Pro, Perfmatters.
+- **ACSS owns the variables.** Don't create Bricks global variables for design tokens. Put project-specific variables in the **Global theme style > Custom CSS** `:root` block with a project prefix (e.g. `--pc-…`, `--pnw-…`), and build them from ACSS colours with `color-mix()`.
+- **Google Fonts are disabled in Bricks.** Self-host woff2 files as Bricks Custom Fonts.
+- Breakpoints are desktop-first: base 1279, tablet portrait 991, mobile landscape 767, mobile portrait 478.
+
+## Structure and naming
+
+- Every section: **Section › Container › Div/Block**.
+- One **BEM global class** per element (`hero`, `hero__inner`, `hero__content`, `service-card__title`). Style the class, not the element.
+- Shared section classes:
+  - `section` (padding `var(--section-space-m)`)
+  - modifiers `section--tint`, `section--dark`, `section--tight-top`
+  - `section__inner`, `section__head` (`--split`, `--center`), `section__title`, `section__intro`
+- **Buttons:** the native Button element with **ACSS button classes** (`btn--primary`, `btn--outline`, `btn--white`, sizes `btn--s/m/l`). Set the icon in the Button element.
+- Icons are inline SVG with a shared `icon` class (1.2em, currentColor).
+- **Clickable cards:** stretched link (`.card__link::after { content:""; position:absolute; inset:0 }`), never an `<a>` around the whole card.
+- Card lists are `ul`/`li` with `list-style: none`.
+- Repeating content (team, services, projects, reviews, locations, posts) uses **custom post types (ACF) + Bricks single/archive templates + Query Loops**. Reusable strips (CTA band, testimonials slider, logos strip) are **Section templates** inserted with a Template element.
+
+## Styling rules
+
+- Only ACSS variables:
+  - spacing: `--space-xs…xxl`, `--section-space-m`, `--grid-gap`
+  - type: `--h1…h4`, `--text-xs…xl`
+  - colour: `--primary` / `-dark` / `-ultra-dark` / `-light` / `-ultra-light`, `--accent…`, `--base`, `--base-semi-dark`, `--white-trans-10/20/60`, `--base-trans-10`
+  - shape: `--radius`, `--radius-s`, `--radius-circle`, `--border-size`
+
+  No hardcoded hex/px in the builder.
+- Use native Bricks controls first. A class's custom CSS is only for pseudo-elements, child `:hover`, Fluent Forms selectors and things the controls can't express.
+- Put responsive changes in the class's breakpoint settings (e.g. grid 3 → 2 at 767 → 1 at 478).
+- Motion is CSS only and always disabled under `prefers-reduced-motion`:
+  - scroll-driven card reveal (`.brx-animated` + keyframes)
+  - `::details-content` FAQ animation
+  - scroll-drawn process connector
+
+## Section patterns to reuse
+
+| Need | Pattern |
+|---|---|
+| Hero over a photo | `hero` with `::before` gradient overlay (`--primary-ultra-dark` → `-trans-60`), `hero__inner` grid 1.25fr/1fr, 1 column below 991 |
+| Stats band | `stats` > `stats__grid` (4 → 2 cols) > `stat` (`stat__value`, `stat__label`) |
+| Service/practice cards | `practice-card`: icon, title, text, stretched `__link`, hover fills `--primary` |
+| Process | `process__steps` (ol) + `process-step` with a `__num` circle and dashed connector (vertical below 991) |
+| FAQ | `faq__inner` (sticky `faq__intro`) + `faq-item` using `details`/`summary`, icon rotates 45° |
+| Quote/contact before the footer | `contact` on `--primary-dark`: `contact__inner` grid, `contact__details` with round icons, white `contact__form` card with large shadow |
+| Footer | `footer`, `footer__inner`, `footer__col`, `footer__legal`, `social-links--light` |
+
+## Forms (Fluent Forms)
+
+- Wrap the form in the global class `form` (add `form--dark` on dark backgrounds). That class styles labels, inputs (`--base-ultra-light`, `--primary` focus ring) and a full-width submit button.
+- Side-by-side fields use the Fluent Forms container class `ff-half` inside a 2-column grid `fieldset`, 1 column below 480px.
+- Set a same-page confirmation message. Wire the form to the client's CRM (e.g. GoHighLevel) and the GA4/Ads conversion.
+
+## Media
+
+- Every upload goes into a **HappyFiles folder** (taxonomy `happyfiles_category`): Brand > Logos, Brand > Fonts, Images > Hero / About / Team / Services / Projects / Testimonials, Images > Placeholders, Icons, Documents.
+
+## Design-to-Bricks handoff checklist
+
+- An HTML design uses ACSS-named tokens in `:root` (so values copy straight into ACSS) and BEM classes that match the names above.
+- The handoff document lists: ACSS colour/type/spacing values, custom variables, global classes, a section-by-section Bricks element tree, form fields, CPTs/templates, content still to confirm.
+- Pre-launch:
+  - no hardcoded values
+  - remove placeholder classes
+  - test the mobile menu, interactive parts, form submit/conversion and the mobile call bar on a real phone
