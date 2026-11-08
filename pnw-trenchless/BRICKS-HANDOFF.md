@@ -1,100 +1,121 @@
 # PNW Trenchless homepage: Bricks + ACSS handoff
 
-Design file: `index.html` and the `assets/` folder. Open `index.html` in a browser to see the design, and use `screenshots/` for a quick look.
-Every value in the CSS is an ACSS-named variable. The build is mostly entering the values below in ACSS, then building each section from Bricks elements with the listed classes.
+Design file: `index.html` (with `assets/trailer.jpg`). Open it in a browser to see the approved design.
+Every value in the CSS is an ACSS-named variable, so the build is mostly entering values in ACSS and then building the HTML structure as Bricks elements.
 
-**Direction: clean / modern / premium.**
-- White and soft-stone sections with generous spacing.
-- One typeface (Geist).
-- Rounded photography and soft cards.
-- Brand green carries every action.
-- Navy appears only in the quote section and footer.
+**Design direction ("Surface / Underground"):** deep-ink sections stand for the ground the pipe runs through, and stone-white sections stand for the yard we leave intact. Headlines are set in wide Archivo, with Instrument Serif italic on the emotional words ("Keep the yard."). The sewer-camera feed, with its amber footage readout, is the signature detail.
 
 ## 1. ACSS settings
 
 | ACSS setting | Value | Used for |
 |---|---|---|
-| Primary | `#2F7A4B` (dark `#215936`, light `#7CC796`, ultra-light `#EBF4EE`) | Buttons, links, icons, eyebrow pills |
-| Secondary | `#1F4FB0` (ultra-light `#EAF0FA`) | Logo blue: water-line art, review avatars |
-| Accent | `#E3A42B` (ultra-light `#FBF3E2`) | Stars, the "honest note" box, `.tbc` highlights |
-| Base | `#0E1621` (dark `#0A111A`) | Quote section, footer |
-| Neutral | `#5D6761` (light `#E5E8E3` borders, ultra-light `#F5F6F3` soft sections) | Muted text, borders, soft backgrounds |
-| Text | `#0F1A14` dark, `#56605A` muted | |
-| Heading + body font | **Geist** 400/500/600/700. Headings weight 600, letter-spacing −0.035 to −0.04em | Everything |
-| Mono font (custom) | **Geist Mono** 500 | Small service tags only |
-| H1 / H2 / H3 | `clamp(2.5rem…4.5rem)` / `clamp(2rem…3.25rem)` / `clamp(1.25rem…1.5rem)` | |
-| Body | 17px, line height 1.65 | |
-| Content width | 76rem | `.container` |
-| Section padding | `clamp(4.5rem, 3.25rem + 5vw, 8rem)` | Every section |
-| Radius | 8 / 14 / 24 / 32px, buttons are pill-shaped | Inputs / chips / cards / large cards and photos |
-| Shadows | s: `0 1px 2px rgb(15 26 20/.05)`; m: `+ 0 12px 32px -12px rgb(15 26 20/.14)`; l: `+ 0 30px 60px -24px rgb(15 26 20/.22)` | Cards on hover, floating cards, form |
+| Primary | `#2F7A4B` (dark `#215936`, light `#6CC08A`, ultra-light `#E7F1EA`) | CTAs, accents. Use the light shade for green text on ink |
+| Secondary | `#2B5BB5` (dark `#1F468F`, light `#9AB8F2`) | Water-line art, review avatars, the I-90 marker |
+| Accent | `#F0B03A` (dark `#9A6200`) | Stars, camera readouts, focus ring |
+| Base | `#0E1621` (dark `#090F17`, medium `#1A2533`, light `#2B3747`) | Ink sections, header, footer |
+| Neutral | `#616B66` (medium `#A3ABA6`, light `#DCE1DB`, ultra-light `#F1F3EF`) | Stone sections, borders, muted text |
+| Heading font | **Archivo** variable (`wdth` 62–125, weights 400–900). H1 `font-stretch:118%`, H2 112% | Headings |
+| Body font | **Public Sans** 400–700, line height 1.65, base size 17px | Body text |
+| H1 / H2 / H3 | `clamp(2.75rem…6rem)` / `clamp(2.1rem…3.75rem)` / `clamp(1.35rem…1.75rem)` | Fluid type scale |
+| Content width | 80rem | `.container` |
+| Section padding | `--section-space-m` = `clamp(4.5rem, 3rem + 6vw, 9rem)` | Every section |
+| Radius | s 6px · default 12px · l 22px · buttons are pill-shaped | |
 
-Custom variables for **ACSS > Custom CSS**: `--mono-font-family`, `--header-h: 76px`, `--ease: cubic-bezier(.2,.7,.2,1)`.
+Paste these into **ACSS > Custom CSS (`:root`)**. ACSS has no equivalent for them:
+
+```css
+:root {
+  --serif-font-family: "Instrument Serif", Georgia, serif;   /* italic accent words */
+  --mono-font-family: "JetBrains Mono", ui-monospace, monospace; /* eyebrows, labels, readouts */
+  --header-h: 80px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+```
+
+Fonts to load in Bricks > Custom Fonts (or self-host them):
+- Archivo (variable, including the width axis)
+- Instrument Serif (italic)
+- Public Sans
+- JetBrains Mono
 
 ## 2. Global classes
 
-- **Layout:** `section`, `container`, `bg--white`, `bg--soft`, `bg--navy`, `head`, `head--center`, `head--row`, `lede`
-- **UI:** `eyebrow` (pill label with a dot), `btn`, `btn--primary`, `btn--outline`, `btn--block`, `link`, `checks`, `float-card`, `tbc` (content to confirm; remove before launch)
-- **Motion:** `fade-up` (`--2`, `--3`, `--4`), for the hero only
+Copy each rule set from the `<style>` block in `index.html` into a Bricks global class with the same name:
 
-## 3. Section map (top to bottom)
+- **Layout:** `section`, `container`, `bg--ink`, `bg--ink-dark`, `bg--stone`, `bg--white`, `grain` (film-grain overlay on ink sections), `head`, `head--row`, `head__main`, `head__lede`
+- **Type:** `eyebrow`, `serif` (wrap accent words in a span with this class), `tbc` (highlights content still to confirm; remove before launch)
+- **Buttons:** `btn`, `btn--primary`, `btn--ghost`, `btn--ghost-light`, `btn--block`, `link-arrow`
+- **Camera-feed motif:** `feed`, `feed--roots`, `feed--clean`, `feed--blue`, `feed__hud`, `feed__hud--top`, `feed__ft`, `feed__rec`, `feed__cross`, `feed__label`
+- **Motion:** `rise`, `rise-2` … `rise-5` (hero load sequence, disabled automatically for reduced-motion users)
 
-| Section | Background | Bricks build | Notes |
-|---|---|---|---|
-| Top bar | soft | Header template: service areas, email, Facebook | |
-| Header | white, sticky with blur | Logo (`assets/logo-dark.png`), Nav Menu, phone link, "Get a Quote" button | Mobile menu below 1100px |
-| Hero | white | 2 columns: eyebrow, H1 (green second line), lede, 2 buttons, trust row; rounded trailer photo with 2 `float-card`s. Below: 4 `stat` tiles | |
-| Services `#services` | soft | 2×2 `svc-card` grid: tinted art panel (inline SVG), service tag, H3 link (stretched so the whole card is clickable), text, tag chips, arrow button. Then a `svc-note` bar | Query Loop over a Services CPT works well |
-| Who we serve `#who` | white | Centered head + 3 `aud-card`s (Homeowners, Commercial, Industrial & municipal) | |
-| Warning signs | white | Sticky intro + 2×3 grid of `sign` tiles | |
-| Why trenchless `#why` | soft | Interactive cross-section (`xsec`, inline SVG + toggle) + comparison table + `note` | The toggle needs a few lines of JS (Code element) |
-| How it works `#process` | white | 5 numbered `step`s connected by a line | Becomes a vertical list on mobile |
-| Projects `#projects` | white | During/after photo pair + `proj__info` panel with `spec` list and a water-line `proj__mini` link | Real photos from the client |
-| About `#about` | soft | Photo with a "Family-owned" `float-card` + H2, bio, `quote`, `checks` | Swap in Mike's portrait when available |
-| Reviews `#reviews` | soft | Rating pill + 3 `review` cards + warranty/financing `assure` cards | Real Google reviews only |
-| Service areas `#areas` | white | Text, area `pills`, light map (inline SVG) | |
-| FAQ `#faq` | soft | Sticky aside + Bricks Accordion (nested) styled as `faq__item` cards | Enable FAQPage schema |
-| **Quote form** `#quote` | **navy** | Text, big phone number, 4 contact `ways` (Text, Email, Facebook, Call) + white `form` card | Directly above the footer. Fluent Forms or GHL |
-| Footer | navy dark | Logo (`assets/logo.png`), contact, socials, 3 link columns | |
-| Mobile call bar | white | Fixed bar below 700px: Call/Text + Get a Quote | |
+## 3. Section map
 
-## 4. Quote form fields
+| Section (class) | Bricks build | Interaction / notes |
+|---|---|---|
+| Top bar + header `topbar`, `header` | **Header template**. Sticky with a glass blur. Nav Menu element, phone link, CTA button | Below 1200px the nav collapses to a toggle. Replace the logo stand-in with the final SVG |
+| Hero `hero` | Section with a background image (trailer) and a gradient overlay. Content grid on the left, camera-feed card on the right, 3-item proof strip below | The footage counter ticks up (a small JS snippet in a Code element). Final photo: Mike and the rig on a job |
+| Service ticker `ticker` | Section with 2 rows, each a Div track holding the same group twice (CSS `ticker` animation). Row 1: large service links (icon + name + spec chip such as CIPP / HDPE / CTS POLY / CCTV), every other name outlined. Row 2: moves the opposite way with tagline words and city names | Pauses on hover/focus, edges fade out. In the duplicate group, set `aria-hidden` and `tabindex="-1"` on its links |
+| Stats `stats` | Block of 4 items with large numerals | |
+| Warning signs `signs` | Two columns: sticky intro on the left, list of 6 rows on the right | Rows slide in on hover |
+| Explainer `explain` + `xsec` | Text + video, then the **interactive cross-section** (inline SVG in a Code element) | The Traditional / Trenchless toggle switches the SVG and the 4 fact cells via a `data-mode` attribute (a few lines of JS) |
+| Services `services` | Light **stone** section (`bg--stone`). `svc-grid` is a 2-column grid of 4 white `svc-card`s, each a dark inset art panel (inline SVG / camera feed) + spec label with colored dot, arrow button, H3 with a green serif accent word, description, "Best for" tag row. Below the grid sits a dark `svc-strip` CTA bar. Build with Div/Block cards, or a Query Loop over a Services CPT | The whole card is clickable (H3 link stretched), and each card sets its own `--card-accent`. 1 column below 860px. No JS. The comparison section that follows switched to `bg--white` so light sections alternate |
+| Who we serve `audience` | White section, 3 `aud-card`s: Homeowners, Commercial properties, Industrial & municipal (icon, text, check list) | Copy based on the live site's "residential, commercial and industrial" positioning |
+| Comparison `compare` | Table (Code element) with the trenchless column raised as a dark card | Scrolls horizontally on mobile |
+| Decision flow `decide` / `flow` | Circular camera feed → dotted connector SVG → 3 outcome cards | Connector lines hidden on mobile |
+| Process `steps` | `ol` with 5 steps. Outlined numerals come from a CSS counter | Becomes a vertical list below 1000px |
+| Meet Mike `mike` | Portrait (placeholder) with a name plate, trailer inset photo, serif pull quote, credentials grid, signature line | |
+| Projects `projects` | Featured **before/after slider** + 2 mini cards. Use a Query Loop of a Projects CPT (ACF fields: before still, after still, location, problem, method, duration) | The slider is a range input that clips the "after" image. Use a Code element or a before/after plugin |
+| Reviews `reviews` | Rating card + horizontal scroll-snap row of reviews, then the warranty / financing pair | Feed it real Google reviews only |
+| Service areas `areas` | Large city link list + dark map (inline SVG, roughly to scale with a 10-mile bar) | The Clayton pin pulses |
+| FAQ `faq` | Sticky aside + **Bricks Accordion (nested)** using `faq__item` | Enable FAQPage schema |
+| Estimate `estimate` | Big phone number, 3 next steps, **Fluent Form / GHL form** styled with the `form`, `field`, `chips` and `upload` classes | Issue-type chips replace the dropdown. The GA4/Ads conversion fires on submit |
+| Footer `footer` | **Footer template** with a large outlined "TRENCHLESS" wordmark | |
+| Mobile call bar `callbar` | Footer template, fixed, visible only below 700px | Adds bottom padding to `body` on mobile |
 
-- **What do you need?** (chips): Sewer line repair, Pipe bursting, CIPP lining, Water line, Point repair, Not sure yet
-- **Property type** (chips): Residential, Commercial, Industrial
-- **Fields:** Name, Phone, Email, Property address or city, Details (optional), Photo/video upload (optional)
-- **Submit:** "Request my quote". The form goes to GHL, and the GA4/Ads conversion fires on submit.
+## 4. Content still needed before launch
 
-## 5. Content taken from the live site (pnwtrenchless.com)
+Everything wrapped in `.tbc` is highlighted in amber in the design:
+
+- Google rating and review count; 3 real reviews
+- Warranty length and what it covers; financing partner (if offered)
+- Typical job timeline; liner design life; founding year
+- Quote from Mike; manufacturer certifications
+- Real projects (before and after camera stills, location, method, duration)
+- FAQ answers: drafts are written, and Mike needs to confirm or edit each one
+- Price range wording; permit handling; whether camera inspections are offered as a standalone service
+- Address or service-area setting; hours
+- Photography: Mike and the rig on a live job (hero), Mike's portrait, and a 60–90s explainer video
+- Final SVG logo
+
+## 5. Pre-launch checks
+
+- No hex codes or px values typed into Bricks style panels. Use the ACSS variables or classes above.
+- Delete the `.tbc` class from every element once its content is final.
+- Test on a real phone:
+  - header menu
+  - cross-section toggle
+  - services tabs
+  - before/after slider
+  - FAQ accordion
+  - form (the conversion fires)
+  - mobile call bar
+
+## 6. Content and assets taken from the live site (pnwtrenchless.com)
 
 | Item | Where it's used |
 |---|---|
-| Logo. `assets/logo.png` is for dark backgrounds; `assets/logo-dark.png` recolors the white parts to navy for light backgrounds | Footer / header |
-| Facebook: https://www.facebook.com/profile.php?id=61589495076554 · info@pnwtrenchless.com · 509-953-2036 · WA Reg. PNWTRT*744KQ | Top bar, quote section, footer |
-| Services: pipe bursting (HDPE, 50+ yr lifespan, upsizing), CIPP lining, water line pulling (CTS poly, pressure/leak tested), point repairs / localized relining | Services, form, footer |
-| Customer types: residential, commercial, industrial | Hero, Who we serve, FAQ, form |
-| Mission: family-owned, 14+ years, "honest work, fair pricing, results built to last", "treat every project like it's for our own family" | About |
-| Service areas: Spokane, Spokane Valley, Deer Park, Clayton, Stevens County, Spokane County | Top bar, areas, footer |
-| Job photos `job-during.jpg`, `job-after.jpg`, `job-waterline.jpg` | Projects, hero card |
+| Logo (`assets/logo.png`, made from the site's `logo 1.png` with the black background removed) | Header and footer |
+| Facebook: https://www.facebook.com/profile.php?id=61589495076554 | Top bar, quote section, footer |
+| Email: info@pnwtrenchless.com · Call/Text 509-953-2036 · WA Reg. PNWTRT*744KQ | Top bar, quote section, footer |
+| Services: Pipe bursting (HDPE, 50+ yr lifespan, can upsize), CIPP lining, Water line pulling (CTS poly, pressure/leak tested), Point repairs / localized relining | Service cards, ticker, decision flow, footer |
+| Customer types: residential, commercial, industrial; "keep your property running"; evaluation through final testing and documentation | "Who we serve" section, hero, FAQ |
+| Mission: "honest work, fair pricing, and results built to last", family-owned, 14+ years | Hero, About quote and bio |
+| "Request a true and honest quote" | Quote section heading |
+| Areas: Spokane, Spokane Valley, Deer Park, Clayton, Stevens County, Spokane County | Top bar, area list, footer |
+| Real job photos (`assets/job-during.jpg`, `job-after.jpg`, `job-waterline.jpg`, from the contact page) | Projects section |
 
-Not used: the AI-generated trailer render, the YouTube-style bursting thumbnail and the stock "Pipe-lining.jpg". Their usage rights are unclear.
+Images on the live site that were **not** used: the AI-generated trailer render, the YouTube-style bursting thumbnail and the stock "Pipe-lining.jpg". Their usage rights are unclear.
 
-## 6. Still needed before launch (highlighted with `.tbc`)
+## 7. Quote form (directly above the footer)
 
-- Google rating, review count and 3 real reviews
-- Warranty length and coverage; financing (if offered)
-- Typical job timeline; liner design life; permit handling; typical price range
-- Project details (location, problem, method)
-- Manufacturer certifications
-- Photos: Mike's portrait and more job photos
-
-## 7. Pre-launch checks
-
-- No hex or px values typed into Bricks style panels. Use the ACSS variables and classes.
-- Remove the `.tbc` class once content is final.
-- Test on a real phone:
-  - menu
-  - cross-section toggle
-  - FAQ
-  - form submit and conversion
-  - mobile call bar
+Fields: service needed (chips), property type (Residential / Commercial / Industrial), name, phone, email, address, details, photo/video upload. There are also one-tap Call, Text, Email and Facebook buttons. Build it in Fluent Forms or GHL with the same fields and style it with the `form`, `field`, `chips` and `upload` classes.
