@@ -108,7 +108,20 @@ Mobile call bar.
 - **User decisions (2026-11-08):** "all google fonts are already uploaded to wordpress, fluent form - skip for now.. use dummy style form".
   - Fonts: use the self-hosted Bricks fonts. Don't block on Archivo's missing width axis. Build the headings as they are, and the wide stretch arrives when a variable Archivo file with the `wdth` axis is uploaded.
   - Quote form: no Fluent Forms for now. Build a styled dummy form (native Bricks elements or the Bricks Form element) with the design's fields: service chips, property type, name, phone, email, address, details, upload. Style it with `form` / `field` / `chips` / `upload` using ACSS variables only, and make it easy to swap for Fluent Forms later.
-- **Planned next steps (ask the user before each starts):** global theme style → shared global classes (section, buttons, form, eyebrow, serif, feed motif) → header and footer templates → Home page section by section, compared against `pnw-trenchless/screenshots/`.
+- **Build status (2026-11-08, user said "start now", build without stopping):** stages 1–4 done on staging.
+  - Theme style `PNW Trenchless` (id `ts-8paif5`, condition: entire site). Google Fonts disabled in Bricks.
+  - ACSS had been regenerated without the Bricks platform flag (empty `automatic-bricks.css`, no `btn--` classes). Rebuilt with it; base (ink) buttons enabled. Second backup: `pnw_acss_settings_backup_20261108b`.
+  - Media: logos, trailer, 3 job photos, 37 SVG icons/illustrations (`pnw-trenchless/wp-assets/svg/`), in HappyFiles folders. IDs stored in WP option `pnw_media_ids`.
+  - 259 BEM global classes, category `PNW`, ACSS variables only. Source: `pnw-trenchless/wp-build/classes.py`.
+  - Header template 101, footer template 102 (entire site), WP menu `PNW Main` (id 10). Home = page 94 (front page), 16 sections. Source: `pnw-trenchless/wp-build/elements.py`.
+  - Re-sync everything with `pnw-trenchless/wp-build/import.php` (run through execute-php with `$sha` = a pushed commit). It rebuilds the Home page, so manual Bricks edits to page 94 / templates 101–102 are overwritten: change the generators instead, or stop using the script.
+  - Final screenshots: `pnw-trenchless/screenshots/bricks-staging/`.
+- **Known differences from the design / open items:**
+  - Archivo has no width axis yet, so headings are not stretched wide.
+  - Quote form is a styled dummy (no inputs submit). Swap for Fluent Forms later, keep the `form` wrapper class.
+  - Not built (would need a code element, needs explicit user OK): hero footage counter animation, explainer video (placeholder card).
+  - FAQ schema is off until Mike confirms the draft answers. Service and city links point to `#estimate` / anchors until those pages exist.
+  - Repeating content (services, projects, reviews, areas) is static, not CPT + Query Loop yet. ACF Pro is now available for that.
 
 ## Still unknown (ask Mike / the user)
 

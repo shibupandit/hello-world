@@ -89,3 +89,16 @@ Learned from the agency's reference build (the "Hartwell & Crane" template on wh
   - no hardcoded values
   - remove placeholder classes
   - test the mobile menu, interactive parts, form submit/conversion and the mobile call bar on a real phone
+
+## Gotchas learned on the PNW staging build (Bricks 2.4.5 + ACSS 3.3.8, via Novamira)
+
+- **ACSS CSS regenerated from execute-php/REST skips the Bricks platform** (its `option-bricks` filter is only registered in admin). Result: near-empty `automatic-bricks.css` and no `btn--` classes. Regenerate with `add_filter('automaticcss_framework_variables', fn($v)=>$v+['option-bricks'=>'on'])` before `save_settings()`, or save from the ACSS admin screen.
+- **ACSS contextual buttons can't be switched off** (`bg-*-button` empty falls back to `primary`). Inside `bg--ultra-dark` / `bg--ultra-light` every `btn--*` is repainted primary. Use your own section modifiers (`section--dark`, `section--tint`) built from ACSS variables when you need white or ink outline buttons.
+- **Bricks blocks default to `width: 100%`, `max-width: 100%` and `flex-direction: column`.** Write `flex-direction: row` explicitly, set `width: auto` on inline-style blocks (logos, chips, link groups, absolute HUD rows) and `max-width: none` on `max-content` tracks (tickers).
+- **Never send an empty settings object (`{}` / stdClass)** through set/insert-content: Bricks fatals ("Cannot use object of type stdClass as array"). Send `[]`.
+- **`backdrop-filter` on a header makes it the containing block for the fixed mobile menu.** Put the blur on a `::before` layer.
+- **ACSS only pads `<section>`.** A Bricks section with tag `footer` needs its own padding.
+- **Global class CSS is only output for classes on elements.** Inline helper spans in text (`serif`, `tbc`) need their CSS in the theme style.
+- **Avoid class names Bricks already uses** (`icon`, `toggle`, `tag`, `field`).
+- **Accordion content:** never set `display` on the content wrapper class. It overrides Bricks' `display: none` for closed items.
+- **Headless screenshots of stackstaging sites:** the page cache and bot challenge block Playwright. Fetch HTML with curl plus a cache-busting query, add `<base href>`, and route asset requests through `route.fetch` with a curl user-agent. Full-page captures stop at 16,384px.

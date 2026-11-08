@@ -135,3 +135,7 @@ Images on the live site that were **not** used: the AI-generated trailer render,
 ## 7. Quote form (directly above the footer)
 
 Fields: service needed (chips), property type (Residential / Commercial / Industrial), name, phone, email, address, details, photo/video upload. There are also one-tap Call, Text, Email and Facebook buttons. Build it in Fluent Forms or GHL with the same fields and style it with the `form`, `field`, `chips` and `upload` classes.
+
+## 8. What is built on staging (2026-11-08)
+
+The build is generated from code in `wp-build/`: `classes.py` → `classes.json` (259 global classes), `elements.py` → `elements.json` (header, footer, 16 Home sections). `import.php` syncs both to the site through the Novamira Bricks abilities. Section-level names differ from section 2 above where the house conventions apply: `section--dark` / `--deep` / `--tint` / `--white` instead of `bg--ink` / `bg--stone`, `section__head`, `section__intro`, ACSS `btn--primary`, `btn--white btn--outline` and `btn--base btn--outline` instead of the custom `.btn` rules. Icons render through the Bricks SVG element from the media library. The cross-section toggle uses Bricks `setAttribute` interactions. Screenshots: `screenshots/bricks-staging/`.
