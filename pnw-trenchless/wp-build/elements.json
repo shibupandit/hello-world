@@ -3955,6 +3955,35 @@
         "value": "true"
        }
       ],
+      "_interactions": [
+       {
+        "id": "xd0001",
+        "trigger": "click",
+        "action": "setAttribute",
+        "target": "custom",
+        "targetSelector": "#xsec",
+        "actionAttributeKey": "data-mode",
+        "actionAttributeValue": "dig"
+       },
+       {
+        "id": "xd0002",
+        "trigger": "click",
+        "action": "setAttribute",
+        "target": "custom",
+        "targetSelector": "#xsec-dig",
+        "actionAttributeKey": "aria-pressed",
+        "actionAttributeValue": "true"
+       },
+       {
+        "id": "xd0003",
+        "trigger": "click",
+        "action": "setAttribute",
+        "target": "custom",
+        "targetSelector": "#xsec-trenchless",
+        "actionAttributeKey": "aria-pressed",
+        "actionAttributeValue": "false"
+       }
+      ],
       "tag": "custom",
       "customTag": "button",
       "_cls": [
@@ -3986,6 +4015,35 @@
        {
         "name": "aria-pressed",
         "value": "false"
+       }
+      ],
+      "_interactions": [
+       {
+        "id": "xt0001",
+        "trigger": "click",
+        "action": "setAttribute",
+        "target": "custom",
+        "targetSelector": "#xsec",
+        "actionAttributeKey": "data-mode",
+        "actionAttributeValue": "trenchless"
+       },
+       {
+        "id": "xt0002",
+        "trigger": "click",
+        "action": "setAttribute",
+        "target": "custom",
+        "targetSelector": "#xsec-trenchless",
+        "actionAttributeKey": "aria-pressed",
+        "actionAttributeValue": "true"
+       },
+       {
+        "id": "xt0003",
+        "trigger": "click",
+        "action": "setAttribute",
+        "target": "custom",
+        "targetSelector": "#xsec-dig",
+        "actionAttributeKey": "aria-pressed",
+        "actionAttributeValue": "false"
        }
       ],
       "tag": "custom",

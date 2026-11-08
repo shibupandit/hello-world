@@ -121,6 +121,15 @@ def btn(text, href, cls="btn--primary", icon=None, icon_left=False, **s):
     return N("button", cls, **st)
 
 
+def mode_switch(mode, pfx):
+    """Bricks interactions for the cross-section toggle (no custom JS)."""
+    other = "trenchless" if mode == "dig" else "dig"
+    def ia(n, sel, key, val):
+        return {"id": f"{pfx}{n:04d}", "trigger": "click", "action": "setAttribute", "target": "custom",
+                "targetSelector": sel, "actionAttributeKey": key, "actionAttributeValue": val}
+    return [ia(1, "#xsec", "data-mode", mode), ia(2, f"#xsec-{mode}", "aria-pressed", "true"), ia(3, f"#xsec-{other}", "aria-pressed", "false")]
+
+
 def eyebrow(text):
     return span(text, "eyebrow")
 
@@ -328,8 +337,8 @@ def explain():
         block("xsec__bar", [
             h("h3", "See the difference in your yard", "xsec__title"),
             block("xsec__toggle", [
-                div("xsec__toggle-btn", [span("Traditional dig")], tag="button", _cssId="xsec-dig", _attributes=attrs(type="button", aria_pressed="true")),
-                div("xsec__toggle-btn", [span("Trenchless")], tag="button", _cssId="xsec-trenchless", _attributes=attrs(type="button", aria_pressed="false")),
+                div("xsec__toggle-btn", [span("Traditional dig")], tag="button", _cssId="xsec-dig", _attributes=attrs(type="button", aria_pressed="true"), _interactions=mode_switch("dig", "xd")),
+                div("xsec__toggle-btn", [span("Trenchless")], tag="button", _cssId="xsec-trenchless", _attributes=attrs(type="button", aria_pressed="false"), _interactions=mode_switch("trenchless", "xt")),
             ], _attributes=attrs(role="group", aria_label="Repair method")),
         ]),
         block("xsec__art", [svg("art-cross-section.svg", _attributes=attrs(role="img", aria_label="Cross-section of a yard from house to street, showing either a full trench or two small access pits"))]),
