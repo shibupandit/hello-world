@@ -1100,7 +1100,7 @@
     "text": "Projects",
     "link": {
      "type": "external",
-     "url": "/#projects"
+     "url": "/projects/"
     }
    }
   },
@@ -7794,7 +7794,7 @@
       "text": "See all projects",
       "link": {
        "type": "external",
-       "url": "#"
+       "url": "/projects/"
       },
       "_cls": [
        "link-arrow"
@@ -7806,18 +7806,44 @@
      "id": "sb0008",
      "name": "block",
      "parent": "sb0002",
-     "settings": {
-      "tag": "article",
-      "_cls": [
-       "project"
-      ]
-     },
-     "label": "project"
+     "settings": {},
+     "label": "Featured project"
     },
     {
      "id": "sb0009",
      "name": "block",
      "parent": "sb0008",
+     "settings": {
+      "tag": "article",
+      "hasLoop": true,
+      "query": {
+       "objectType": "post",
+       "post_type": [
+        "project"
+       ],
+       "orderby": "date",
+       "order": "desc",
+       "no_found_rows": true,
+       "posts_per_page": 1,
+       "meta_query": [
+        {
+         "id": "feat",
+         "key": "featured",
+         "value": "1",
+         "compare": "="
+        }
+       ]
+      },
+      "_cls": [
+       "project"
+      ]
+     },
+     "label": "Featured project (loop)"
+    },
+    {
+     "id": "sb000a",
+     "name": "block",
+     "parent": "sb0009",
      "settings": {
       "_cls": [
        "job-pair"
@@ -7826,9 +7852,9 @@
      "label": "job-pair"
     },
     {
-     "id": "sb000a",
+     "id": "sb000b",
      "name": "block",
-     "parent": "sb0009",
+     "parent": "sb000a",
      "settings": {
       "tag": "figure",
       "_cls": [
@@ -7838,21 +7864,20 @@
      "label": "job-pair__fig"
     },
     {
-     "id": "sb000b",
+     "id": "sb000c",
      "name": "image",
-     "parent": "sb000a",
+     "parent": "sb000b",
      "settings": {
       "image": {
-       "__media": "job-during.jpg",
-       "size": "full"
-      },
-      "altText": "Small access pit dug in a front lawn during a trenchless repair"
+       "useDynamicData": "{acf_before_image}",
+       "size": "large"
+      }
      }
     },
     {
-     "id": "sb000c",
+     "id": "sb000d",
      "name": "text-basic",
-     "parent": "sb000a",
+     "parent": "sb000b",
      "settings": {
       "text": "DURING",
       "tag": "span",
@@ -7863,9 +7888,9 @@
      "label": "job-pair__tag"
     },
     {
-     "id": "sb000d",
+     "id": "sb000e",
      "name": "block",
-     "parent": "sb0009",
+     "parent": "sb000a",
      "settings": {
       "tag": "figure",
       "_cls": [
@@ -7875,21 +7900,20 @@
      "label": "job-pair__fig"
     },
     {
-     "id": "sb000e",
+     "id": "sb000f",
      "name": "image",
-     "parent": "sb000d",
+     "parent": "sb000e",
      "settings": {
       "image": {
-       "__media": "job-after.jpg",
-       "size": "full"
-      },
-      "altText": "The same front lawn after the access pit was backfilled"
+       "useDynamicData": "{acf_after_image}",
+       "size": "large"
+      }
      }
     },
     {
-     "id": "sb000f",
+     "id": "sb0010",
      "name": "text-basic",
-     "parent": "sb000d",
+     "parent": "sb000e",
      "settings": {
       "text": "AFTER",
       "tag": "span",
@@ -7901,9 +7925,9 @@
      "label": "job-pair__tag"
     },
     {
-     "id": "sb0010",
+     "id": "sb0011",
      "name": "block",
-     "parent": "sb0008",
+     "parent": "sb0009",
      "settings": {
       "_cls": [
        "project__info"
@@ -7912,11 +7936,11 @@
      "label": "project__info"
     },
     {
-     "id": "sb0011",
+     "id": "sb0012",
      "name": "text-basic",
-     "parent": "sb0010",
+     "parent": "sb0011",
      "settings": {
-      "text": "Recent job · front yard",
+      "text": "{acf_service} · {acf_setting}",
       "tag": "span",
       "_cls": [
        "eyebrow"
@@ -7925,11 +7949,11 @@
      "label": "eyebrow"
     },
     {
-     "id": "sb0012",
+     "id": "sb0013",
      "name": "text-basic",
-     "parent": "sb0010",
+     "parent": "sb0011",
      "settings": {
-      "text": "One small pit. <span class=\"serif\">Same lawn, after.</span>",
+      "text": "{post_title} <span class=\"serif\">{acf_title_accent}</span>",
       "tag": "span",
       "_cls": [
        "project__title"
@@ -7938,10 +7962,50 @@
      "label": "project__title"
     },
     {
-     "id": "sb0013",
+     "id": "sb0014",
      "name": "block",
-     "parent": "sb0010",
+     "parent": "sb0011",
      "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "o0loca",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_location}"
+        }
+       ],
+       [
+        {
+         "id": "o1prob",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_problem}"
+        }
+       ],
+       [
+        {
+         "id": "o2meth",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_method}"
+        }
+       ],
+       [
+        {
+         "id": "o3yard",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_yard}"
+        }
+       ]
+      ],
+      "tag": "custom",
+      "customTag": "dl",
       "_cls": [
        "spec"
       ]
@@ -7949,90 +8013,124 @@
      "label": "spec"
     },
     {
-     "id": "sb0014",
+     "id": "sb0015",
      "name": "text-basic",
-     "parent": "sb0013",
+     "parent": "sb0014",
      "settings": {
       "text": "Location",
-      "tag": "span",
+      "tag": "custom",
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_location}"
+        }
+       ]
+      ],
+      "customTag": "dt",
       "_cls": [
        "spec__term"
       ]
      },
      "label": "spec__term"
-    },
-    {
-     "id": "sb0015",
-     "name": "text-basic",
-     "parent": "sb0013",
-     "settings": {
-      "text": "<span class=\"tbc\">Neighborhood, city</span>",
-      "tag": "span",
-      "_cls": [
-       "spec__value"
-      ]
-     },
-     "label": "spec__value"
     },
     {
      "id": "sb0016",
      "name": "text-basic",
-     "parent": "sb0013",
+     "parent": "sb0014",
      "settings": {
-      "text": "Problem",
-      "tag": "span",
+      "text": "{acf_location}",
+      "tag": "custom",
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_location}"
+        }
+       ]
+      ],
+      "customTag": "dd",
       "_cls": [
-       "spec__term"
+       "spec__value"
       ]
      },
-     "label": "spec__term"
+     "label": "spec__value"
     },
     {
      "id": "sb0017",
      "name": "text-basic",
-     "parent": "sb0013",
+     "parent": "sb0014",
      "settings": {
-      "text": "<span class=\"tbc\">What the camera found</span>",
-      "tag": "span",
+      "text": "Problem",
+      "tag": "custom",
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_problem}"
+        }
+       ]
+      ],
+      "customTag": "dt",
       "_cls": [
-       "spec__value"
+       "spec__term"
       ]
      },
-     "label": "spec__value"
+     "label": "spec__term"
     },
     {
      "id": "sb0018",
      "name": "text-basic",
-     "parent": "sb0013",
+     "parent": "sb0014",
      "settings": {
-      "text": "Method",
-      "tag": "span",
+      "text": "{acf_problem}",
+      "tag": "custom",
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_problem}"
+        }
+       ]
+      ],
+      "customTag": "dd",
       "_cls": [
-       "spec__term"
+       "spec__value"
       ]
      },
-     "label": "spec__term"
+     "label": "spec__value"
     },
     {
      "id": "sb0019",
      "name": "text-basic",
-     "parent": "sb0013",
+     "parent": "sb0014",
      "settings": {
-      "text": "<span class=\"tbc\">Bursting / lining, length</span>",
-      "tag": "span",
-      "_cls": [
-       "spec__value"
-      ]
-     },
-     "label": "spec__value"
-    },
-    {
-     "id": "sb001a",
-     "name": "text-basic",
-     "parent": "sb0013",
-     "settings": {
-      "text": "Yard",
-      "tag": "span",
+      "text": "Method",
+      "tag": "custom",
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_method}"
+        }
+       ]
+      ],
+      "customTag": "dt",
       "_cls": [
        "spec__term"
       ]
@@ -8040,12 +8138,24 @@
      "label": "spec__term"
     },
     {
-     "id": "sb001b",
+     "id": "sb001a",
      "name": "text-basic",
-     "parent": "sb0013",
+     "parent": "sb0014",
      "settings": {
-      "text": "One access pit, backfilled after the repair",
-      "tag": "span",
+      "text": "{acf_method}",
+      "tag": "custom",
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_method}"
+        }
+       ]
+      ],
+      "customTag": "dd",
       "_cls": [
        "spec__value"
       ]
@@ -8053,20 +8163,54 @@
      "label": "spec__value"
     },
     {
-     "id": "sb001c",
-     "name": "text-link",
-     "parent": "sb0010",
+     "id": "sb001b",
+     "name": "text-basic",
+     "parent": "sb0014",
      "settings": {
-      "text": "See more projects",
-      "link": {
-       "type": "external",
-       "url": "#"
-      },
+      "text": "Yard",
+      "tag": "custom",
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_yard}"
+        }
+       ]
+      ],
+      "customTag": "dt",
       "_cls": [
-       "link-arrow"
+       "spec__term"
       ]
      },
-     "label": "link-arrow"
+     "label": "spec__term"
+    },
+    {
+     "id": "sb001c",
+     "name": "text-basic",
+     "parent": "sb0014",
+     "settings": {
+      "text": "{acf_yard}",
+      "tag": "custom",
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_yard}"
+        }
+       ]
+      ],
+      "customTag": "dd",
+      "_cls": [
+       "spec__value"
+      ]
+     },
+     "label": "spec__value"
     },
     {
      "id": "sb001d",
@@ -8087,13 +8231,33 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/pipe-bursting/"
+       "url": "{post_url}"
+      },
+      "hasLoop": true,
+      "query": {
+       "objectType": "post",
+       "post_type": [
+        "project"
+       ],
+       "orderby": "date",
+       "order": "desc",
+       "no_found_rows": true,
+       "posts_per_page": 2,
+       "offset": 1,
+       "meta_query": [
+        {
+         "id": "real",
+         "key": "is_placeholder",
+         "value": "1",
+         "compare": "!="
+        }
+       ]
       },
       "_cls": [
        "mini"
       ]
      },
-     "label": "mini"
+     "label": "Project mini card (loop)"
     },
     {
      "id": "sb001f",
@@ -8101,10 +8265,9 @@
      "parent": "sb001e",
      "settings": {
       "image": {
-       "__media": "job-pipe-connection.jpg",
-       "size": "full"
-      },
-      "altText": "The new sewer pipe connected in the access pit"
+       "useDynamicData": "{acf_cover_image}",
+       "size": "medium"
+      }
      }
     },
     {
@@ -8125,7 +8288,7 @@
      "name": "text-basic",
      "parent": "sb0020",
      "settings": {
-      "text": "Sewer line reconnection",
+      "text": "{post_title}",
       "tag": "span",
       "_cls": [
        "mini__title"
@@ -8138,74 +8301,7 @@
      "name": "text-basic",
      "parent": "sb0020",
      "settings": {
-      "text": "New pipe connected in the access pit before backfill",
-      "tag": "span",
-      "_cls": [
-       "mini__text"
-      ]
-     },
-     "label": "mini__text"
-    },
-    {
-     "id": "sb0023",
-     "name": "block",
-     "parent": "sb001d",
-     "settings": {
-      "tag": "a",
-      "link": {
-       "type": "external",
-       "url": "#"
-      },
-      "_cls": [
-       "mini"
-      ]
-     },
-     "label": "mini"
-    },
-    {
-     "id": "sb0024",
-     "name": "image",
-     "parent": "sb0023",
-     "settings": {
-      "image": {
-       "__media": "job-waterline.jpg",
-       "size": "full"
-      },
-      "altText": "Access pit with the new blue water line in place next to the meter box"
-     }
-    },
-    {
-     "id": "sb0025",
-     "name": "block",
-     "parent": "sb0023",
-     "settings": {
-      "tag": "custom",
-      "customTag": "span",
-      "_cls": [
-       "mini__body"
-      ]
-     },
-     "label": "mini__body"
-    },
-    {
-     "id": "sb0026",
-     "name": "text-basic",
-     "parent": "sb0025",
-     "settings": {
-      "text": "Water line pull",
-      "tag": "span",
-      "_cls": [
-       "mini__title"
-      ]
-     },
-     "label": "mini__title"
-    },
-    {
-     "id": "sb0027",
-     "name": "text-basic",
-     "parent": "sb0025",
-     "settings": {
-      "text": "New line pulled through a small access pit at the meter",
+      "text": "{acf_summary}",
       "tag": "span",
       "_cls": [
        "mini__text"
@@ -13092,7 +13188,7 @@
         "text": "All projects",
         "link": {
          "type": "external",
-         "url": "/#projects"
+         "url": "/projects/"
         },
         "_cls": [
          "link-arrow"
@@ -23271,7 +23367,7 @@
         "text": "All projects",
         "link": {
          "type": "external",
-         "url": "/#projects"
+         "url": "/projects/"
         },
         "_cls": [
          "link-arrow"
@@ -25112,6 +25208,4573 @@
        "label": "form__fine"
       }
      ]
+    }
+   ]
+  },
+  {
+   "key": "projects",
+   "post_type": "page",
+   "title": "Projects",
+   "slug": "projects",
+   "excerpt": "Real PNW Trenchless jobs: small access pits instead of trenches, the old pipe we pull out, what goes in its place, and the yard after.",
+   "sections": [
+    {
+     "key": "p_hero",
+     "elements": [
+      {
+       "id": "p00001",
+       "name": "section",
+       "parent": 0,
+       "settings": {
+        "_cls": [
+         "section",
+         "svc-hero",
+         "projects-hero",
+         "section--dark",
+         "grain"
+        ]
+       },
+       "label": "Hero"
+      },
+      {
+       "id": "p00002",
+       "name": "container",
+       "parent": "p00001",
+       "settings": {}
+      },
+      {
+       "id": "p00003",
+       "name": "block",
+       "parent": "p00002",
+       "settings": {
+        "tag": "nav",
+        "_attributes": [
+         {
+          "name": "aria-label",
+          "value": "Breadcrumb"
+         }
+        ],
+        "_cls": [
+         "crumbs"
+        ]
+       },
+       "label": "crumbs"
+      },
+      {
+       "id": "p00004",
+       "name": "block",
+       "parent": "p00003",
+       "settings": {
+        "tag": "ol",
+        "_cls": [
+         "crumbs__list"
+        ]
+       },
+       "label": "crumbs__list"
+      },
+      {
+       "id": "p00005",
+       "name": "block",
+       "parent": "p00004",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "crumbs__item"
+        ]
+       },
+       "label": "crumbs__item"
+      },
+      {
+       "id": "p00006",
+       "name": "text-link",
+       "parent": "p00005",
+       "settings": {
+        "text": "Home",
+        "link": {
+         "type": "external",
+         "url": "/"
+        },
+        "_cls": [
+         "crumbs__link"
+        ]
+       },
+       "label": "crumbs__link"
+      },
+      {
+       "id": "p00007",
+       "name": "block",
+       "parent": "p00004",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "crumbs__item"
+        ]
+       },
+       "label": "crumbs__item"
+      },
+      {
+       "id": "p00008",
+       "name": "text-basic",
+       "parent": "p00007",
+       "settings": {
+        "text": "Projects",
+        "tag": "span",
+        "_attributes": [
+         {
+          "name": "aria-current",
+          "value": "page"
+         }
+        ],
+        "_cls": [
+         "crumbs__current"
+        ]
+       },
+       "label": "crumbs__current"
+      },
+      {
+       "id": "p00009",
+       "name": "block",
+       "parent": "p00002",
+       "settings": {
+        "_cls": [
+         "svc-hero__grid"
+        ]
+       },
+       "label": "svc-hero__grid"
+      },
+      {
+       "id": "p0000a",
+       "name": "block",
+       "parent": "p00009",
+       "settings": {
+        "_cls": [
+         "svc-hero__content"
+        ]
+       },
+       "label": "svc-hero__content"
+      },
+      {
+       "id": "p0000b",
+       "name": "text-basic",
+       "parent": "p0000a",
+       "settings": {
+        "text": "Projects",
+        "tag": "span",
+        "_cls": [
+         "eyebrow",
+         "rise"
+        ]
+       },
+       "label": "eyebrow"
+      },
+      {
+       "id": "p0000c",
+       "name": "heading",
+       "parent": "p0000a",
+       "settings": {
+        "text": "Real jobs. <span class=\"serif\">Real yards.</span>",
+        "tag": "h1",
+        "_cls": [
+         "svc-hero__title",
+         "rise",
+         "rise--2"
+        ]
+       },
+       "label": "svc-hero__title"
+      },
+      {
+       "id": "p0000d",
+       "name": "text-basic",
+       "parent": "p0000a",
+       "settings": {
+        "text": "Every job starts with a camera and ends with one. Here's what our work actually looks like: the small pits, the pipe we pull out, what goes in its place, and the yard after we leave.",
+        "tag": "p",
+        "_cls": [
+         "svc-hero__lede",
+         "rise",
+         "rise--3"
+        ]
+       },
+       "label": "svc-hero__lede"
+      },
+      {
+       "id": "p0000e",
+       "name": "block",
+       "parent": "p0000a",
+       "settings": {
+        "tag": "ul",
+        "_cls": [
+         "owner__creds",
+         "rise",
+         "rise--4"
+        ]
+       },
+       "label": "owner__creds"
+      },
+      {
+       "id": "p0000f",
+       "name": "block",
+       "parent": "p0000e",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "owner__cred"
+        ]
+       },
+       "label": "owner__cred"
+      },
+      {
+       "id": "p00010",
+       "name": "svg",
+       "parent": "p0000f",
+       "settings": {
+        "file": {
+         "__media": "icon-camera.svg"
+        }
+       }
+      },
+      {
+       "id": "p00011",
+       "name": "text-basic",
+       "parent": "p0000f",
+       "settings": {
+        "text": "Camera before &amp; after",
+        "tag": "span"
+       }
+      },
+      {
+       "id": "p00012",
+       "name": "block",
+       "parent": "p0000e",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "owner__cred"
+        ]
+       },
+       "label": "owner__cred"
+      },
+      {
+       "id": "p00013",
+       "name": "svg",
+       "parent": "p00012",
+       "settings": {
+        "file": {
+         "__media": "icon-yard.svg"
+        }
+       }
+      },
+      {
+       "id": "p00014",
+       "name": "text-basic",
+       "parent": "p00012",
+       "settings": {
+        "text": "Small pits, not trenches",
+        "tag": "span"
+       }
+      },
+      {
+       "id": "p00015",
+       "name": "block",
+       "parent": "p0000e",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "owner__cred"
+        ]
+       },
+       "label": "owner__cred"
+      },
+      {
+       "id": "p00016",
+       "name": "svg",
+       "parent": "p00015",
+       "settings": {
+        "file": {
+         "__media": "icon-home.svg"
+        }
+       }
+      },
+      {
+       "id": "p00017",
+       "name": "text-basic",
+       "parent": "p00015",
+       "settings": {
+        "text": "Yard put back",
+        "tag": "span"
+       }
+      },
+      {
+       "id": "p00018",
+       "name": "block",
+       "parent": "p00009",
+       "settings": {
+        "_attributes": [
+         {
+          "name": "aria-label",
+          "value": "Photos from our jobs"
+         }
+        ],
+        "_cls": [
+         "mosaic",
+         "rise",
+         "rise--4"
+        ]
+       },
+       "label": "mosaic"
+      },
+      {
+       "id": "p00019",
+       "name": "block",
+       "parent": "p00018",
+       "settings": {
+        "tag": "figure",
+        "_cls": [
+         "mosaic__item",
+         "mosaic__item--tall"
+        ]
+       },
+       "label": "mosaic__item"
+      },
+      {
+       "id": "p0001a",
+       "name": "image",
+       "parent": "p00019",
+       "settings": {
+        "image": {
+         "__media": "job-access-pit.jpg",
+         "size": "full"
+        },
+        "altText": "A shored access pit in a front lawn",
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
+      },
+      {
+       "id": "p0001b",
+       "name": "text-basic",
+       "parent": "p00019",
+       "settings": {
+        "text": "Access pit",
+        "tag": "figcaption",
+        "_cls": [
+         "mosaic__tag"
+        ]
+       },
+       "label": "mosaic__tag"
+      },
+      {
+       "id": "p0001c",
+       "name": "block",
+       "parent": "p00018",
+       "settings": {
+        "tag": "figure",
+        "_cls": [
+         "mosaic__item"
+        ]
+       },
+       "label": "mosaic__item"
+      },
+      {
+       "id": "p0001d",
+       "name": "image",
+       "parent": "p0001c",
+       "settings": {
+        "image": {
+         "__media": "job-lined-pipe.jpg",
+         "size": "full"
+        },
+        "altText": "An old sewer pipe cut open, with the new liner cured inside",
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
+      },
+      {
+       "id": "p0001e",
+       "name": "text-basic",
+       "parent": "p0001c",
+       "settings": {
+        "text": "New liner",
+        "tag": "figcaption",
+        "_cls": [
+         "mosaic__tag"
+        ]
+       },
+       "label": "mosaic__tag"
+      },
+      {
+       "id": "p0001f",
+       "name": "block",
+       "parent": "p00018",
+       "settings": {
+        "tag": "figure",
+        "_cls": [
+         "mosaic__item"
+        ]
+       },
+       "label": "mosaic__item"
+      },
+      {
+       "id": "p00020",
+       "name": "image",
+       "parent": "p0001f",
+       "settings": {
+        "image": {
+         "__media": "job-lawn-restored.jpg",
+         "size": "full"
+        },
+        "altText": "A front lawn after the job",
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
+      },
+      {
+       "id": "p00021",
+       "name": "text-basic",
+       "parent": "p0001f",
+       "settings": {
+        "text": "Lawn after",
+        "tag": "figcaption",
+        "_cls": [
+         "mosaic__tag",
+         "mosaic__tag--after"
+        ]
+       },
+       "label": "mosaic__tag"
+      }
+     ]
+    },
+    {
+     "key": "p_list",
+     "elements": [
+      {
+       "id": "p10001",
+       "name": "section",
+       "parent": 0,
+       "settings": {
+        "_cssId": "list",
+        "_cls": [
+         "section",
+         "section--white"
+        ]
+       },
+       "label": "Projects (loops)"
+      },
+      {
+       "id": "p10002",
+       "name": "container",
+       "parent": "p10001",
+       "settings": {}
+      },
+      {
+       "id": "p10003",
+       "name": "block",
+       "parent": "p10002",
+       "settings": {
+        "_cls": [
+         "section__head",
+         "section__head--split"
+        ]
+       },
+       "label": "section__head"
+      },
+      {
+       "id": "p10004",
+       "name": "block",
+       "parent": "p10003",
+       "settings": {
+        "_cls": [
+         "section__head-main"
+        ]
+       },
+       "label": "section__head-main"
+      },
+      {
+       "id": "p10005",
+       "name": "text-basic",
+       "parent": "p10004",
+       "settings": {
+        "text": "Recent projects",
+        "tag": "span",
+        "_cls": [
+         "eyebrow"
+        ]
+       },
+       "label": "eyebrow"
+      },
+      {
+       "id": "p10006",
+       "name": "heading",
+       "parent": "p10004",
+       "settings": {
+        "text": "Before, during <span class=\"serif\">and after.</span>",
+        "tag": "h2"
+       }
+      },
+      {
+       "id": "p10007",
+       "name": "text-basic",
+       "parent": "p10003",
+       "settings": {
+        "text": "Photos straight from the job site. Details are added once the homeowner is happy for us to share them.",
+        "tag": "p",
+        "_cls": [
+         "section__intro",
+         "section__intro--narrow"
+        ]
+       },
+       "label": "section__intro"
+      },
+      {
+       "id": "p10008",
+       "name": "block",
+       "parent": "p10002",
+       "settings": {
+        "_cls": [
+         "project-list"
+        ]
+       },
+       "label": "project-list"
+      },
+      {
+       "id": "p10009",
+       "name": "block",
+       "parent": "p10008",
+       "settings": {
+        "tag": "article",
+        "hasLoop": true,
+        "query": {
+         "objectType": "post",
+         "post_type": [
+          "project"
+         ],
+         "orderby": "date",
+         "order": "desc",
+         "no_found_rows": true,
+         "posts_per_page": 2,
+         "meta_query": [
+          {
+           "id": "hasb",
+           "key": "before_image",
+           "value": "",
+           "compare": "!="
+          },
+          {
+           "id": "hasa",
+           "key": "after_image",
+           "value": "",
+           "compare": "!="
+          },
+          {
+           "id": "real",
+           "key": "is_placeholder",
+           "value": "1",
+           "compare": "!="
+          }
+         ]
+        },
+        "_cls": [
+         "project"
+        ]
+       },
+       "label": "Project feature (loop)"
+      },
+      {
+       "id": "p1000a",
+       "name": "block",
+       "parent": "p10009",
+       "settings": {
+        "_cls": [
+         "job-pair"
+        ]
+       },
+       "label": "job-pair"
+      },
+      {
+       "id": "p1000b",
+       "name": "block",
+       "parent": "p1000a",
+       "settings": {
+        "tag": "figure",
+        "_cls": [
+         "job-pair__fig"
+        ]
+       },
+       "label": "job-pair__fig"
+      },
+      {
+       "id": "p1000c",
+       "name": "image",
+       "parent": "p1000b",
+       "settings": {
+        "image": {
+         "useDynamicData": "{acf_before_image}",
+         "size": "large"
+        }
+       }
+      },
+      {
+       "id": "p1000d",
+       "name": "text-basic",
+       "parent": "p1000b",
+       "settings": {
+        "text": "DURING",
+        "tag": "span",
+        "_cls": [
+         "job-pair__tag"
+        ]
+       },
+       "label": "job-pair__tag"
+      },
+      {
+       "id": "p1000e",
+       "name": "block",
+       "parent": "p1000a",
+       "settings": {
+        "tag": "figure",
+        "_cls": [
+         "job-pair__fig"
+        ]
+       },
+       "label": "job-pair__fig"
+      },
+      {
+       "id": "p1000f",
+       "name": "image",
+       "parent": "p1000e",
+       "settings": {
+        "image": {
+         "useDynamicData": "{acf_after_image}",
+         "size": "large"
+        }
+       }
+      },
+      {
+       "id": "p10010",
+       "name": "text-basic",
+       "parent": "p1000e",
+       "settings": {
+        "text": "AFTER",
+        "tag": "span",
+        "_cls": [
+         "job-pair__tag",
+         "job-pair__tag--after"
+        ]
+       },
+       "label": "job-pair__tag"
+      },
+      {
+       "id": "p10011",
+       "name": "block",
+       "parent": "p10009",
+       "settings": {
+        "_cls": [
+         "project__info"
+        ]
+       },
+       "label": "project__info"
+      },
+      {
+       "id": "p10012",
+       "name": "text-basic",
+       "parent": "p10011",
+       "settings": {
+        "text": "{acf_service} · {acf_setting}",
+        "tag": "span",
+        "_cls": [
+         "eyebrow"
+        ]
+       },
+       "label": "eyebrow"
+      },
+      {
+       "id": "p10013",
+       "name": "text-basic",
+       "parent": "p10011",
+       "settings": {
+        "text": "{post_title} <span class=\"serif\">{acf_title_accent}</span>",
+        "tag": "span",
+        "_cls": [
+         "project__title"
+        ]
+       },
+       "label": "project__title"
+      },
+      {
+       "id": "p10014",
+       "name": "block",
+       "parent": "p10011",
+       "settings": {
+        "_conditions": [
+         [
+          {
+           "id": "o0loca",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_location}"
+          }
+         ],
+         [
+          {
+           "id": "o1prob",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_problem}"
+          }
+         ],
+         [
+          {
+           "id": "o2meth",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_method}"
+          }
+         ],
+         [
+          {
+           "id": "o3yard",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_yard}"
+          }
+         ]
+        ],
+        "tag": "custom",
+        "customTag": "dl",
+        "_cls": [
+         "spec"
+        ]
+       },
+       "label": "spec"
+      },
+      {
+       "id": "p10015",
+       "name": "text-basic",
+       "parent": "p10014",
+       "settings": {
+        "text": "Location",
+        "tag": "custom",
+        "_conditions": [
+         [
+          {
+           "id": "cacf_n",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_location}"
+          }
+         ]
+        ],
+        "customTag": "dt",
+        "_cls": [
+         "spec__term"
+        ]
+       },
+       "label": "spec__term"
+      },
+      {
+       "id": "p10016",
+       "name": "text-basic",
+       "parent": "p10014",
+       "settings": {
+        "text": "{acf_location}",
+        "tag": "custom",
+        "_conditions": [
+         [
+          {
+           "id": "cacf_n",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_location}"
+          }
+         ]
+        ],
+        "customTag": "dd",
+        "_cls": [
+         "spec__value"
+        ]
+       },
+       "label": "spec__value"
+      },
+      {
+       "id": "p10017",
+       "name": "text-basic",
+       "parent": "p10014",
+       "settings": {
+        "text": "Problem",
+        "tag": "custom",
+        "_conditions": [
+         [
+          {
+           "id": "cacf_n",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_problem}"
+          }
+         ]
+        ],
+        "customTag": "dt",
+        "_cls": [
+         "spec__term"
+        ]
+       },
+       "label": "spec__term"
+      },
+      {
+       "id": "p10018",
+       "name": "text-basic",
+       "parent": "p10014",
+       "settings": {
+        "text": "{acf_problem}",
+        "tag": "custom",
+        "_conditions": [
+         [
+          {
+           "id": "cacf_n",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_problem}"
+          }
+         ]
+        ],
+        "customTag": "dd",
+        "_cls": [
+         "spec__value"
+        ]
+       },
+       "label": "spec__value"
+      },
+      {
+       "id": "p10019",
+       "name": "text-basic",
+       "parent": "p10014",
+       "settings": {
+        "text": "Method",
+        "tag": "custom",
+        "_conditions": [
+         [
+          {
+           "id": "cacf_n",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_method}"
+          }
+         ]
+        ],
+        "customTag": "dt",
+        "_cls": [
+         "spec__term"
+        ]
+       },
+       "label": "spec__term"
+      },
+      {
+       "id": "p1001a",
+       "name": "text-basic",
+       "parent": "p10014",
+       "settings": {
+        "text": "{acf_method}",
+        "tag": "custom",
+        "_conditions": [
+         [
+          {
+           "id": "cacf_n",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_method}"
+          }
+         ]
+        ],
+        "customTag": "dd",
+        "_cls": [
+         "spec__value"
+        ]
+       },
+       "label": "spec__value"
+      },
+      {
+       "id": "p1001b",
+       "name": "text-basic",
+       "parent": "p10014",
+       "settings": {
+        "text": "Yard",
+        "tag": "custom",
+        "_conditions": [
+         [
+          {
+           "id": "cacf_n",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_yard}"
+          }
+         ]
+        ],
+        "customTag": "dt",
+        "_cls": [
+         "spec__term"
+        ]
+       },
+       "label": "spec__term"
+      },
+      {
+       "id": "p1001c",
+       "name": "text-basic",
+       "parent": "p10014",
+       "settings": {
+        "text": "{acf_yard}",
+        "tag": "custom",
+        "_conditions": [
+         [
+          {
+           "id": "cacf_n",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_yard}"
+          }
+         ]
+        ],
+        "customTag": "dd",
+        "_cls": [
+         "spec__value"
+        ]
+       },
+       "label": "spec__value"
+      },
+      {
+       "id": "p1001d",
+       "name": "text-link",
+       "parent": "p10011",
+       "settings": {
+        "text": "View project",
+        "link": {
+         "type": "external",
+         "url": "{post_url}"
+        },
+        "_cls": [
+         "link-arrow",
+         "project__link"
+        ]
+       },
+       "label": "link-arrow"
+      },
+      {
+       "id": "p1001e",
+       "name": "block",
+       "parent": "p10002",
+       "settings": {
+        "tag": "ul",
+        "_cls": [
+         "pcards",
+         "pcards--spaced"
+        ]
+       },
+       "label": "pcards"
+      },
+      {
+       "id": "p1001f",
+       "name": "block",
+       "parent": "p1001e",
+       "settings": {
+        "tag": "a",
+        "link": {
+         "type": "external",
+         "url": "{post_url}"
+        },
+        "hasLoop": true,
+        "query": {
+         "objectType": "post",
+         "post_type": [
+          "project"
+         ],
+         "orderby": "date",
+         "order": "desc",
+         "no_found_rows": true,
+         "posts_per_page": 12,
+         "offset": 2
+        },
+        "_cls": [
+         "pcard"
+        ]
+       },
+       "label": "Project card (loop)"
+      },
+      {
+       "id": "p10020",
+       "name": "block",
+       "parent": "p1001f",
+       "settings": {
+        "tag": "figure",
+        "_cls": [
+         "pcard__media"
+        ]
+       },
+       "label": "pcard__media"
+      },
+      {
+       "id": "p10021",
+       "name": "image",
+       "parent": "p10020",
+       "settings": {
+        "image": {
+         "useDynamicData": "{acf_cover_image}",
+         "size": "large"
+        },
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
+      },
+      {
+       "id": "p10022",
+       "name": "block",
+       "parent": "p1001f",
+       "settings": {
+        "_cls": [
+         "pcard__body"
+        ]
+       },
+       "label": "pcard__body"
+      },
+      {
+       "id": "p10023",
+       "name": "text-basic",
+       "parent": "p10022",
+       "settings": {
+        "text": "{acf_service}",
+        "tag": "span",
+        "_cls": [
+         "pcard__tag"
+        ]
+       },
+       "label": "pcard__tag"
+      },
+      {
+       "id": "p10024",
+       "name": "heading",
+       "parent": "p10022",
+       "settings": {
+        "text": "{post_title}",
+        "tag": "h3",
+        "_cls": [
+         "pcard__title"
+        ]
+       },
+       "label": "pcard__title"
+      },
+      {
+       "id": "p10025",
+       "name": "text-basic",
+       "parent": "p10022",
+       "settings": {
+        "text": "{acf_summary}",
+        "tag": "p",
+        "_conditions": [
+         [
+          {
+           "id": "cacf_n",
+           "key": "dynamic_data",
+           "compare": "!=",
+           "value": "",
+           "dynamic_data": "{acf_summary}"
+          }
+         ]
+        ],
+        "_cls": [
+         "pcard__text"
+        ]
+       },
+       "label": "pcard__text"
+      }
+     ]
+    },
+    {
+     "key": "p_docs",
+     "elements": [
+      {
+       "id": "p20001",
+       "name": "section",
+       "parent": 0,
+       "settings": {
+        "_cls": [
+         "section",
+         "section--tint"
+        ]
+       },
+       "label": "How we document"
+      },
+      {
+       "id": "p20002",
+       "name": "container",
+       "parent": "p20001",
+       "settings": {}
+      },
+      {
+       "id": "p20003",
+       "name": "block",
+       "parent": "p20002",
+       "settings": {
+        "_cls": [
+         "section__head",
+         "section__head--split"
+        ]
+       },
+       "label": "section__head"
+      },
+      {
+       "id": "p20004",
+       "name": "block",
+       "parent": "p20003",
+       "settings": {
+        "_cls": [
+         "section__head-main"
+        ]
+       },
+       "label": "section__head-main"
+      },
+      {
+       "id": "p20005",
+       "name": "text-basic",
+       "parent": "p20004",
+       "settings": {
+        "text": "How we document every job",
+        "tag": "span",
+        "_cls": [
+         "eyebrow"
+        ]
+       },
+       "label": "eyebrow"
+      },
+      {
+       "id": "p20006",
+       "name": "heading",
+       "parent": "p20004",
+       "settings": {
+        "text": "You see it all, <span class=\"serif\">start to finish.</span>",
+        "tag": "h2"
+       }
+      },
+      {
+       "id": "p20007",
+       "name": "text-basic",
+       "parent": "p20003",
+       "settings": {
+        "text": "The same record you see here, you get for your own line.",
+        "tag": "p",
+        "_cls": [
+         "section__intro",
+         "section__intro--narrow"
+        ]
+       },
+       "label": "section__intro"
+      },
+      {
+       "id": "p20008",
+       "name": "block",
+       "parent": "p20002",
+       "settings": {
+        "tag": "ol",
+        "_cls": [
+         "docs__grid"
+        ]
+       },
+       "label": "docs__grid"
+      },
+      {
+       "id": "p20009",
+       "name": "block",
+       "parent": "p20008",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "docs__item"
+        ]
+       },
+       "label": "docs__item"
+      },
+      {
+       "id": "p2000a",
+       "name": "block",
+       "parent": "p20009",
+       "settings": {
+        "tag": "custom",
+        "customTag": "span",
+        "_cls": [
+         "docs__ico"
+        ]
+       },
+       "label": "docs__ico"
+      },
+      {
+       "id": "p2000b",
+       "name": "svg",
+       "parent": "p2000a",
+       "settings": {
+        "file": {
+         "__media": "icon-camera.svg"
+        }
+       }
+      },
+      {
+       "id": "p2000c",
+       "name": "text-basic",
+       "parent": "p20009",
+       "settings": {
+        "text": "01",
+        "tag": "span",
+        "_cls": [
+         "docs__num"
+        ]
+       },
+       "label": "docs__num"
+      },
+      {
+       "id": "p2000d",
+       "name": "heading",
+       "parent": "p20009",
+       "settings": {
+        "text": "Camera before",
+        "tag": "h3",
+        "_cls": [
+         "docs__title"
+        ]
+       },
+       "label": "docs__title"
+      },
+      {
+       "id": "p2000e",
+       "name": "text-basic",
+       "parent": "p20009",
+       "settings": {
+        "text": "We run the camera first and show you exactly what's wrong.",
+        "tag": "p",
+        "_cls": [
+         "docs__text"
+        ]
+       },
+       "label": "docs__text"
+      },
+      {
+       "id": "p2000f",
+       "name": "block",
+       "parent": "p20008",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "docs__item"
+        ]
+       },
+       "label": "docs__item"
+      },
+      {
+       "id": "p20010",
+       "name": "block",
+       "parent": "p2000f",
+       "settings": {
+        "tag": "custom",
+        "customTag": "span",
+        "_cls": [
+         "docs__ico"
+        ]
+       },
+       "label": "docs__ico"
+      },
+      {
+       "id": "p20011",
+       "name": "svg",
+       "parent": "p20010",
+       "settings": {
+        "file": {
+         "__media": "icon-photo.svg"
+        }
+       }
+      },
+      {
+       "id": "p20012",
+       "name": "text-basic",
+       "parent": "p2000f",
+       "settings": {
+        "text": "02",
+        "tag": "span",
+        "_cls": [
+         "docs__num"
+        ]
+       },
+       "label": "docs__num"
+      },
+      {
+       "id": "p20013",
+       "name": "heading",
+       "parent": "p2000f",
+       "settings": {
+        "text": "Photos during",
+        "tag": "h3",
+        "_cls": [
+         "docs__title"
+        ]
+       },
+       "label": "docs__title"
+      },
+      {
+       "id": "p20014",
+       "name": "text-basic",
+       "parent": "p2000f",
+       "settings": {
+        "text": "Pits, old pipe and new pipe, photographed as the work happens.",
+        "tag": "p",
+        "_cls": [
+         "docs__text"
+        ]
+       },
+       "label": "docs__text"
+      },
+      {
+       "id": "p20015",
+       "name": "block",
+       "parent": "p20008",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "docs__item"
+        ]
+       },
+       "label": "docs__item"
+      },
+      {
+       "id": "p20016",
+       "name": "block",
+       "parent": "p20015",
+       "settings": {
+        "tag": "custom",
+        "customTag": "span",
+        "_cls": [
+         "docs__ico"
+        ]
+       },
+       "label": "docs__ico"
+      },
+      {
+       "id": "p20017",
+       "name": "svg",
+       "parent": "p20016",
+       "settings": {
+        "file": {
+         "__media": "icon-film.svg"
+        }
+       }
+      },
+      {
+       "id": "p20018",
+       "name": "text-basic",
+       "parent": "p20015",
+       "settings": {
+        "text": "03",
+        "tag": "span",
+        "_cls": [
+         "docs__num"
+        ]
+       },
+       "label": "docs__num"
+      },
+      {
+       "id": "p20019",
+       "name": "heading",
+       "parent": "p20015",
+       "settings": {
+        "text": "Camera after",
+        "tag": "h3",
+        "_cls": [
+         "docs__title"
+        ]
+       },
+       "label": "docs__title"
+      },
+      {
+       "id": "p2001a",
+       "name": "text-basic",
+       "parent": "p20015",
+       "settings": {
+        "text": "A final camera run proves the new line is clear and sound.",
+        "tag": "p",
+        "_cls": [
+         "docs__text"
+        ]
+       },
+       "label": "docs__text"
+      },
+      {
+       "id": "p2001b",
+       "name": "block",
+       "parent": "p20008",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "docs__item"
+        ]
+       },
+       "label": "docs__item"
+      },
+      {
+       "id": "p2001c",
+       "name": "block",
+       "parent": "p2001b",
+       "settings": {
+        "tag": "custom",
+        "customTag": "span",
+        "_cls": [
+         "docs__ico"
+        ]
+       },
+       "label": "docs__ico"
+      },
+      {
+       "id": "p2001d",
+       "name": "svg",
+       "parent": "p2001c",
+       "settings": {
+        "file": {
+         "__media": "icon-check.svg"
+        }
+       }
+      },
+      {
+       "id": "p2001e",
+       "name": "text-basic",
+       "parent": "p2001b",
+       "settings": {
+        "text": "04",
+        "tag": "span",
+        "_cls": [
+         "docs__num"
+        ]
+       },
+       "label": "docs__num"
+      },
+      {
+       "id": "p2001f",
+       "name": "heading",
+       "parent": "p2001b",
+       "settings": {
+        "text": "Yours to keep",
+        "tag": "h3",
+        "_cls": [
+         "docs__title"
+        ]
+       },
+       "label": "docs__title"
+      },
+      {
+       "id": "p20020",
+       "name": "text-basic",
+       "parent": "p2001b",
+       "settings": {
+        "text": "You keep the footage for your records, warranty and resale.",
+        "tag": "p",
+        "_cls": [
+         "docs__text"
+        ]
+       },
+       "label": "docs__text"
+      }
+     ]
+    },
+    {
+     "key": "p_reviews",
+     "elements": [
+      {
+       "id": "p30001",
+       "name": "section",
+       "parent": 0,
+       "settings": {
+        "_cls": [
+         "section",
+         "section--dark",
+         "grain"
+        ]
+       },
+       "label": "Reviews"
+      },
+      {
+       "id": "p30002",
+       "name": "container",
+       "parent": "p30001",
+       "settings": {}
+      },
+      {
+       "id": "p30003",
+       "name": "block",
+       "parent": "p30002",
+       "settings": {
+        "_cls": [
+         "section__head",
+         "section__head--split"
+        ]
+       },
+       "label": "section__head"
+      },
+      {
+       "id": "p30004",
+       "name": "block",
+       "parent": "p30003",
+       "settings": {
+        "_cls": [
+         "section__head-main"
+        ]
+       },
+       "label": "section__head-main"
+      },
+      {
+       "id": "p30005",
+       "name": "text-basic",
+       "parent": "p30004",
+       "settings": {
+        "text": "Reviews",
+        "tag": "span",
+        "_cls": [
+         "eyebrow"
+        ]
+       },
+       "label": "eyebrow"
+      },
+      {
+       "id": "p30006",
+       "name": "heading",
+       "parent": "p30004",
+       "settings": {
+        "text": "What homeowners <span class=\"serif\">say after.</span>",
+        "tag": "h2"
+       }
+      },
+      {
+       "id": "p30007",
+       "name": "text-link",
+       "parent": "p30003",
+       "settings": {
+        "text": "All reviews",
+        "link": {
+         "type": "external",
+         "url": "/#reviews"
+        },
+        "_cls": [
+         "link-arrow"
+        ]
+       },
+       "label": "link-arrow"
+      },
+      {
+       "id": "p30008",
+       "name": "block",
+       "parent": "p30002",
+       "settings": {
+        "_cls": [
+         "quotes__grid",
+         "quotes__grid--3"
+        ]
+       },
+       "label": "quotes__grid"
+      },
+      {
+       "id": "p30009",
+       "name": "block",
+       "parent": "p30008",
+       "settings": {
+        "tag": "figure",
+        "hasLoop": true,
+        "query": {
+         "objectType": "post",
+         "post_type": [
+          "testimonial"
+         ],
+         "orderby": "date",
+         "order": "desc",
+         "no_found_rows": true,
+         "posts_per_page": 3
+        },
+        "_cls": [
+         "review"
+        ]
+       },
+       "label": "Reviews (loop)"
+      },
+      {
+       "id": "p3000a",
+       "name": "text-basic",
+       "parent": "p30009",
+       "settings": {
+        "text": "★★★★★",
+        "tag": "span",
+        "_attributes": [
+         {
+          "name": "role",
+          "value": "img"
+         },
+         {
+          "name": "aria-label",
+          "value": "{acf_rating} out of 5 stars"
+         },
+         {
+          "name": "data-rating",
+          "value": "{acf_rating}"
+         }
+        ],
+        "_cls": [
+         "stars"
+        ]
+       },
+       "label": "stars"
+      },
+      {
+       "id": "p3000b",
+       "name": "text-basic",
+       "parent": "p30009",
+       "settings": {
+        "text": "{acf_review_text}",
+        "tag": "custom",
+        "customTag": "blockquote",
+        "_cls": [
+         "review__quote"
+        ]
+       },
+       "label": "review__quote"
+      },
+      {
+       "id": "p3000c",
+       "name": "block",
+       "parent": "p30009",
+       "settings": {
+        "tag": "custom",
+        "customTag": "figcaption",
+        "_cls": [
+         "review__by"
+        ]
+       },
+       "label": "review__by"
+      },
+      {
+       "id": "p3000d",
+       "name": "block",
+       "parent": "p3000c",
+       "settings": {
+        "_attributes": [
+         {
+          "name": "aria-hidden",
+          "value": "true"
+         }
+        ],
+        "tag": "custom",
+        "customTag": "span",
+        "_cls": [
+         "review__av"
+        ]
+       },
+       "label": "review__av"
+      },
+      {
+       "id": "p3000e",
+       "name": "text-basic",
+       "parent": "p3000d",
+       "settings": {
+        "text": "{post_title}",
+        "tag": "span",
+        "_cls": [
+         "review__initial"
+        ]
+       },
+       "label": "review__initial"
+      },
+      {
+       "id": "p3000f",
+       "name": "block",
+       "parent": "p3000c",
+       "settings": {
+        "tag": "custom",
+        "customTag": "span",
+        "_cls": [
+         "review__name"
+        ]
+       },
+       "label": "review__name"
+      },
+      {
+       "id": "p30010",
+       "name": "text-basic",
+       "parent": "p3000f",
+       "settings": {
+        "text": "{post_title}",
+        "tag": "span",
+        "_cls": [
+         "review__author"
+        ]
+       },
+       "label": "review__author"
+      },
+      {
+       "id": "p30011",
+       "name": "text-basic",
+       "parent": "p3000f",
+       "settings": {
+        "text": "{acf_city} · {acf_source}",
+        "tag": "span",
+        "_cls": [
+         "review__meta"
+        ]
+       },
+       "label": "review__meta"
+      }
+     ]
+    },
+    {
+     "key": "p_quote",
+     "elements": [
+      {
+       "id": "p40001",
+       "name": "section",
+       "parent": 0,
+       "settings": {
+        "_cssId": "estimate",
+        "_cls": [
+         "section",
+         "section--dark",
+         "estimate"
+        ]
+       },
+       "label": "Quote"
+      },
+      {
+       "id": "p40002",
+       "name": "div",
+       "parent": "p40001",
+       "settings": {
+        "_attributes": [
+         {
+          "name": "aria-hidden",
+          "value": "true"
+         }
+        ],
+        "_cls": [
+         "estimate__glow"
+        ]
+       },
+       "label": "estimate__glow"
+      },
+      {
+       "id": "p40003",
+       "name": "container",
+       "parent": "p40001",
+       "settings": {}
+      },
+      {
+       "id": "p40004",
+       "name": "block",
+       "parent": "p40003",
+       "settings": {
+        "_cls": [
+         "split",
+         "split--center"
+        ]
+       },
+       "label": "split"
+      },
+      {
+       "id": "p40005",
+       "name": "block",
+       "parent": "p40004",
+       "settings": {
+        "_cls": [
+         "estimate__text"
+        ]
+       },
+       "label": "estimate__text"
+      },
+      {
+       "id": "p40006",
+       "name": "text-basic",
+       "parent": "p40005",
+       "settings": {
+        "text": "Free camera estimate",
+        "tag": "span",
+        "_cls": [
+         "eyebrow"
+        ]
+       },
+       "label": "eyebrow"
+      },
+      {
+       "id": "p40007",
+       "name": "heading",
+       "parent": "p40005",
+       "settings": {
+        "text": "Want a result <span class=\"serif\">like these?</span>",
+        "tag": "h2"
+       }
+      },
+      {
+       "id": "p40008",
+       "name": "text-basic",
+       "parent": "p40005",
+       "settings": {
+        "text": "Start with a camera inspection. You'll see what we see before you decide anything.",
+        "tag": "p"
+       }
+      },
+      {
+       "id": "p40009",
+       "name": "block",
+       "parent": "p40005",
+       "settings": {
+        "tag": "a",
+        "link": {
+         "type": "external",
+         "url": "tel:{acf_site_phone}"
+        },
+        "_cls": [
+         "bigphone"
+        ]
+       },
+       "label": "bigphone"
+      },
+      {
+       "id": "p4000a",
+       "name": "text-basic",
+       "parent": "p40009",
+       "settings": {
+        "text": "Call or text now",
+        "tag": "span",
+        "_cls": [
+         "bigphone__label"
+        ]
+       },
+       "label": "bigphone__label"
+      },
+      {
+       "id": "p4000b",
+       "name": "text-basic",
+       "parent": "p40009",
+       "settings": {
+        "text": "{acf_site_phone}",
+        "tag": "span",
+        "_cls": [
+         "bigphone__num"
+        ]
+       },
+       "label": "bigphone__num"
+      },
+      {
+       "id": "p4000c",
+       "name": "text-basic",
+       "parent": "p40009",
+       "settings": {
+        "text": "Send a photo or video of the problem if you can.",
+        "tag": "span",
+        "_cls": [
+         "bigphone__note"
+        ]
+       },
+       "label": "bigphone__note"
+      },
+      {
+       "id": "p4000d",
+       "name": "block",
+       "parent": "p40005",
+       "settings": {
+        "tag": "ol",
+        "_cls": [
+         "next"
+        ]
+       },
+       "label": "next"
+      },
+      {
+       "id": "p4000e",
+       "name": "block",
+       "parent": "p4000d",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "next__item"
+        ]
+       },
+       "label": "next__item"
+      },
+      {
+       "id": "p4000f",
+       "name": "text-basic",
+       "parent": "p4000e",
+       "settings": {
+        "text": "01",
+        "tag": "span",
+        "_cls": [
+         "next__num"
+        ]
+       },
+       "label": "next__num"
+      },
+      {
+       "id": "p40010",
+       "name": "text-basic",
+       "parent": "p4000e",
+       "settings": {
+        "text": "You send the details or a photo",
+        "tag": "span"
+       }
+      },
+      {
+       "id": "p40011",
+       "name": "block",
+       "parent": "p4000d",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "next__item"
+        ]
+       },
+       "label": "next__item"
+      },
+      {
+       "id": "p40012",
+       "name": "text-basic",
+       "parent": "p40011",
+       "settings": {
+        "text": "02",
+        "tag": "span",
+        "_cls": [
+         "next__num"
+        ]
+       },
+       "label": "next__num"
+      },
+      {
+       "id": "p40013",
+       "name": "text-basic",
+       "parent": "p40011",
+       "settings": {
+        "text": "Mike calls you back and books the camera",
+        "tag": "span"
+       }
+      },
+      {
+       "id": "p40014",
+       "name": "block",
+       "parent": "p4000d",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "next__item"
+        ]
+       },
+       "label": "next__item"
+      },
+      {
+       "id": "p40015",
+       "name": "text-basic",
+       "parent": "p40014",
+       "settings": {
+        "text": "03",
+        "tag": "span",
+        "_cls": [
+         "next__num"
+        ]
+       },
+       "label": "next__num"
+      },
+      {
+       "id": "p40016",
+       "name": "text-basic",
+       "parent": "p40014",
+       "settings": {
+        "text": "You see the footage and get a written quote",
+        "tag": "span"
+       }
+      },
+      {
+       "id": "p40017",
+       "name": "block",
+       "parent": "p40004",
+       "settings": {
+        "_cls": [
+         "form"
+        ]
+       },
+       "label": "Quote form (Fluent Forms #3)"
+      },
+      {
+       "id": "p40018",
+       "name": "block",
+       "parent": "p40017",
+       "settings": {
+        "_cls": [
+         "form__head"
+        ]
+       },
+       "label": "form__head"
+      },
+      {
+       "id": "p40019",
+       "name": "heading",
+       "parent": "p40018",
+       "settings": {
+        "text": "Request a quote",
+        "tag": "h3",
+        "_cls": [
+         "form__title"
+        ]
+       },
+       "label": "form__title"
+      },
+      {
+       "id": "p4001a",
+       "name": "text-basic",
+       "parent": "p40018",
+       "settings": {
+        "text": "Takes about a minute",
+        "tag": "span",
+        "_cls": [
+         "form__hint"
+        ]
+       },
+       "label": "form__hint"
+      },
+      {
+       "id": "p4001b",
+       "name": "shortcode",
+       "parent": "p40017",
+       "settings": {
+        "shortcode": "[fluentform id=\"3\"]",
+        "_cls": [
+         "form__fluent"
+        ]
+       },
+       "label": "form__fluent"
+      },
+      {
+       "id": "p4001c",
+       "name": "text-basic",
+       "parent": "p40017",
+       "settings": {
+        "text": "No obligation. We reply personally, usually <span class=\"tbc\">same day</span>.",
+        "tag": "p",
+        "_cls": [
+         "form__fine"
+        ]
+       },
+       "label": "form__fine"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "templates": [
+  {
+   "key": "project_single",
+   "area": "content",
+   "elements": [
+    {
+     "id": "j00001",
+     "name": "section",
+     "parent": 0,
+     "settings": {
+      "_cls": [
+       "section",
+       "pj-hero",
+       "section--dark",
+       "grain"
+      ]
+     },
+     "label": "Hero"
+    },
+    {
+     "id": "j00002",
+     "name": "container",
+     "parent": "j00001",
+     "settings": {}
+    },
+    {
+     "id": "j00003",
+     "name": "block",
+     "parent": "j00002",
+     "settings": {
+      "tag": "nav",
+      "_attributes": [
+       {
+        "name": "aria-label",
+        "value": "Breadcrumb"
+       }
+      ],
+      "_cls": [
+       "crumbs"
+      ]
+     },
+     "label": "crumbs"
+    },
+    {
+     "id": "j00004",
+     "name": "block",
+     "parent": "j00003",
+     "settings": {
+      "tag": "ol",
+      "_cls": [
+       "crumbs__list"
+      ]
+     },
+     "label": "crumbs__list"
+    },
+    {
+     "id": "j00005",
+     "name": "block",
+     "parent": "j00004",
+     "settings": {
+      "tag": "li",
+      "_cls": [
+       "crumbs__item"
+      ]
+     },
+     "label": "crumbs__item"
+    },
+    {
+     "id": "j00006",
+     "name": "text-link",
+     "parent": "j00005",
+     "settings": {
+      "text": "Home",
+      "link": {
+       "type": "external",
+       "url": "/"
+      },
+      "_cls": [
+       "crumbs__link"
+      ]
+     },
+     "label": "crumbs__link"
+    },
+    {
+     "id": "j00007",
+     "name": "block",
+     "parent": "j00004",
+     "settings": {
+      "tag": "li",
+      "_cls": [
+       "crumbs__item"
+      ]
+     },
+     "label": "crumbs__item"
+    },
+    {
+     "id": "j00008",
+     "name": "text-link",
+     "parent": "j00007",
+     "settings": {
+      "text": "Projects",
+      "link": {
+       "type": "external",
+       "url": "/projects/"
+      },
+      "_cls": [
+       "crumbs__link"
+      ]
+     },
+     "label": "crumbs__link"
+    },
+    {
+     "id": "j00009",
+     "name": "block",
+     "parent": "j00004",
+     "settings": {
+      "tag": "li",
+      "_cls": [
+       "crumbs__item"
+      ]
+     },
+     "label": "crumbs__item"
+    },
+    {
+     "id": "j0000a",
+     "name": "text-basic",
+     "parent": "j00009",
+     "settings": {
+      "text": "{post_title}",
+      "tag": "span",
+      "_attributes": [
+       {
+        "name": "aria-current",
+        "value": "page"
+       }
+      ],
+      "_cls": [
+       "crumbs__current"
+      ]
+     },
+     "label": "crumbs__current"
+    },
+    {
+     "id": "j0000b",
+     "name": "block",
+     "parent": "j00002",
+     "settings": {
+      "_cls": [
+       "pj-hero__head"
+      ]
+     },
+     "label": "pj-hero__head"
+    },
+    {
+     "id": "j0000c",
+     "name": "block",
+     "parent": "j0000b",
+     "settings": {
+      "_cls": [
+       "pj-hero__title"
+      ]
+     },
+     "label": "pj-hero__title"
+    },
+    {
+     "id": "j0000d",
+     "name": "text-basic",
+     "parent": "j0000c",
+     "settings": {
+      "text": "{acf_service} · {acf_setting}",
+      "tag": "span",
+      "_cls": [
+       "eyebrow",
+       "rise"
+      ]
+     },
+     "label": "eyebrow"
+    },
+    {
+     "id": "j0000e",
+     "name": "heading",
+     "parent": "j0000c",
+     "settings": {
+      "text": "{post_title} <span class=\"serif\">{acf_title_accent}</span>",
+      "tag": "h1",
+      "_cls": [
+       "pj-hero__h1",
+       "rise",
+       "rise--2"
+      ]
+     },
+     "label": "pj-hero__h1"
+    },
+    {
+     "id": "j0000f",
+     "name": "block",
+     "parent": "j0000b",
+     "settings": {
+      "tag": "custom",
+      "customTag": "dl",
+      "_cls": [
+       "pj-meta",
+       "rise",
+       "rise--3"
+      ]
+     },
+     "label": "pj-meta"
+    },
+    {
+     "id": "j00010",
+     "name": "block",
+     "parent": "j0000f",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_location}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-meta__item"
+      ]
+     },
+     "label": "pj-meta__item"
+    },
+    {
+     "id": "j00011",
+     "name": "text-basic",
+     "parent": "j00010",
+     "settings": {
+      "text": "Location",
+      "tag": "custom",
+      "customTag": "dt",
+      "_cls": [
+       "pj-meta__term"
+      ]
+     },
+     "label": "pj-meta__term"
+    },
+    {
+     "id": "j00012",
+     "name": "text-basic",
+     "parent": "j00010",
+     "settings": {
+      "text": "{acf_location}",
+      "tag": "custom",
+      "customTag": "dd",
+      "_cls": [
+       "pj-meta__value"
+      ]
+     },
+     "label": "pj-meta__value"
+    },
+    {
+     "id": "j00013",
+     "name": "block",
+     "parent": "j0000f",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_service}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-meta__item"
+      ]
+     },
+     "label": "pj-meta__item"
+    },
+    {
+     "id": "j00014",
+     "name": "text-basic",
+     "parent": "j00013",
+     "settings": {
+      "text": "Service",
+      "tag": "custom",
+      "customTag": "dt",
+      "_cls": [
+       "pj-meta__term"
+      ]
+     },
+     "label": "pj-meta__term"
+    },
+    {
+     "id": "j00015",
+     "name": "text-basic",
+     "parent": "j00013",
+     "settings": {
+      "text": "{acf_service}",
+      "tag": "custom",
+      "customTag": "dd",
+      "_cls": [
+       "pj-meta__value"
+      ]
+     },
+     "label": "pj-meta__value"
+    },
+    {
+     "id": "j00016",
+     "name": "block",
+     "parent": "j0000f",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_completed}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-meta__item"
+      ]
+     },
+     "label": "pj-meta__item"
+    },
+    {
+     "id": "j00017",
+     "name": "text-basic",
+     "parent": "j00016",
+     "settings": {
+      "text": "Completed",
+      "tag": "custom",
+      "customTag": "dt",
+      "_cls": [
+       "pj-meta__term"
+      ]
+     },
+     "label": "pj-meta__term"
+    },
+    {
+     "id": "j00018",
+     "name": "text-basic",
+     "parent": "j00016",
+     "settings": {
+      "text": "{acf_completed}",
+      "tag": "custom",
+      "customTag": "dd",
+      "_cls": [
+       "pj-meta__value"
+      ]
+     },
+     "label": "pj-meta__value"
+    },
+    {
+     "id": "j00019",
+     "name": "block",
+     "parent": "j0000f",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_time_on_site}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-meta__item"
+      ]
+     },
+     "label": "pj-meta__item"
+    },
+    {
+     "id": "j0001a",
+     "name": "text-basic",
+     "parent": "j00019",
+     "settings": {
+      "text": "Time on site",
+      "tag": "custom",
+      "customTag": "dt",
+      "_cls": [
+       "pj-meta__term"
+      ]
+     },
+     "label": "pj-meta__term"
+    },
+    {
+     "id": "j0001b",
+     "name": "text-basic",
+     "parent": "j00019",
+     "settings": {
+      "text": "{acf_time_on_site}",
+      "tag": "custom",
+      "customTag": "dd",
+      "_cls": [
+       "pj-meta__value"
+      ]
+     },
+     "label": "pj-meta__value"
+    },
+    {
+     "id": "j0001c",
+     "name": "block",
+     "parent": "j00002",
+     "settings": {
+      "tag": "figure",
+      "_cls": [
+       "pj-cover",
+       "rise",
+       "rise--4"
+      ]
+     },
+     "label": "pj-cover"
+    },
+    {
+     "id": "j0001d",
+     "name": "image",
+     "parent": "j0001c",
+     "settings": {
+      "image": {
+       "useDynamicData": "{acf_cover_image}",
+       "size": "full"
+      },
+      "_cls": [
+       "cover-img"
+      ]
+     },
+     "label": "cover-img"
+    },
+    {
+     "id": "j0001e",
+     "name": "text-basic",
+     "parent": "j0001c",
+     "settings": {
+      "text": "{acf_service}",
+      "tag": "figcaption",
+      "_cls": [
+       "pj-cover__tag"
+      ]
+     },
+     "label": "pj-cover__tag"
+    },
+    {
+     "id": "j10001",
+     "name": "section",
+     "parent": 0,
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "o0old_",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_old_pipe}"
+        }
+       ],
+       [
+        {
+         "id": "o1new_",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_new_pipe}"
+        }
+       ],
+       [
+        {
+         "id": "o2leng",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_length}"
+        }
+       ],
+       [
+        {
+         "id": "o3digg",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_digging}"
+        }
+       ]
+      ],
+      "_cls": [
+       "section",
+       "pj-glance",
+       "section--tint"
+      ]
+     },
+     "label": "At a glance"
+    },
+    {
+     "id": "j10002",
+     "name": "container",
+     "parent": "j10001",
+     "settings": {}
+    },
+    {
+     "id": "j10003",
+     "name": "block",
+     "parent": "j10002",
+     "settings": {
+      "tag": "ul",
+      "_cls": [
+       "pj-glance__grid"
+      ]
+     },
+     "label": "pj-glance__grid"
+    },
+    {
+     "id": "j10004",
+     "name": "block",
+     "parent": "j10003",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_old_pipe}"
+        }
+       ]
+      ],
+      "tag": "li",
+      "_cls": [
+       "pj-glance__item"
+      ]
+     },
+     "label": "pj-glance__item"
+    },
+    {
+     "id": "j10005",
+     "name": "text-basic",
+     "parent": "j10004",
+     "settings": {
+      "text": "Old pipe",
+      "tag": "span",
+      "_cls": [
+       "pj-glance__label"
+      ]
+     },
+     "label": "pj-glance__label"
+    },
+    {
+     "id": "j10006",
+     "name": "text-basic",
+     "parent": "j10004",
+     "settings": {
+      "text": "{acf_old_pipe}",
+      "tag": "span",
+      "_cls": [
+       "pj-glance__value"
+      ]
+     },
+     "label": "pj-glance__value"
+    },
+    {
+     "id": "j10007",
+     "name": "block",
+     "parent": "j10003",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_new_pipe}"
+        }
+       ]
+      ],
+      "tag": "li",
+      "_cls": [
+       "pj-glance__item"
+      ]
+     },
+     "label": "pj-glance__item"
+    },
+    {
+     "id": "j10008",
+     "name": "text-basic",
+     "parent": "j10007",
+     "settings": {
+      "text": "New pipe",
+      "tag": "span",
+      "_cls": [
+       "pj-glance__label"
+      ]
+     },
+     "label": "pj-glance__label"
+    },
+    {
+     "id": "j10009",
+     "name": "text-basic",
+     "parent": "j10007",
+     "settings": {
+      "text": "{acf_new_pipe}",
+      "tag": "span",
+      "_cls": [
+       "pj-glance__value"
+      ]
+     },
+     "label": "pj-glance__value"
+    },
+    {
+     "id": "j1000a",
+     "name": "block",
+     "parent": "j10003",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_length}"
+        }
+       ]
+      ],
+      "tag": "li",
+      "_cls": [
+       "pj-glance__item"
+      ]
+     },
+     "label": "pj-glance__item"
+    },
+    {
+     "id": "j1000b",
+     "name": "text-basic",
+     "parent": "j1000a",
+     "settings": {
+      "text": "Length",
+      "tag": "span",
+      "_cls": [
+       "pj-glance__label"
+      ]
+     },
+     "label": "pj-glance__label"
+    },
+    {
+     "id": "j1000c",
+     "name": "text-basic",
+     "parent": "j1000a",
+     "settings": {
+      "text": "{acf_length}",
+      "tag": "span",
+      "_cls": [
+       "pj-glance__value"
+      ]
+     },
+     "label": "pj-glance__value"
+    },
+    {
+     "id": "j1000d",
+     "name": "block",
+     "parent": "j10003",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_digging}"
+        }
+       ]
+      ],
+      "tag": "li",
+      "_cls": [
+       "pj-glance__item"
+      ]
+     },
+     "label": "pj-glance__item"
+    },
+    {
+     "id": "j1000e",
+     "name": "text-basic",
+     "parent": "j1000d",
+     "settings": {
+      "text": "Digging",
+      "tag": "span",
+      "_cls": [
+       "pj-glance__label"
+      ]
+     },
+     "label": "pj-glance__label"
+    },
+    {
+     "id": "j1000f",
+     "name": "text-basic",
+     "parent": "j1000d",
+     "settings": {
+      "text": "{acf_digging}",
+      "tag": "span",
+      "_cls": [
+       "pj-glance__value"
+      ]
+     },
+     "label": "pj-glance__value"
+    },
+    {
+     "id": "j20001",
+     "name": "section",
+     "parent": 0,
+     "settings": {
+      "_cls": [
+       "section",
+       "section--white"
+      ]
+     },
+     "label": "The story"
+    },
+    {
+     "id": "j20002",
+     "name": "container",
+     "parent": "j20001",
+     "settings": {}
+    },
+    {
+     "id": "j20003",
+     "name": "block",
+     "parent": "j20002",
+     "settings": {
+      "_cls": [
+       "pj-story__grid"
+      ]
+     },
+     "label": "pj-story__grid"
+    },
+    {
+     "id": "j20004",
+     "name": "block",
+     "parent": "j20003",
+     "settings": {
+      "_cls": [
+       "pj-story__body"
+      ]
+     },
+     "label": "pj-story__body"
+    },
+    {
+     "id": "j20005",
+     "name": "block",
+     "parent": "j20004",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_e",
+         "key": "dynamic_data",
+         "compare": "==",
+         "value": "",
+         "dynamic_data": "{acf_story_problem}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-block"
+      ]
+     },
+     "label": "pj-block"
+    },
+    {
+     "id": "j20006",
+     "name": "text-basic",
+     "parent": "j20005",
+     "settings": {
+      "text": "01",
+      "tag": "span",
+      "_cls": [
+       "pj-block__num"
+      ]
+     },
+     "label": "pj-block__num"
+    },
+    {
+     "id": "j20007",
+     "name": "heading",
+     "parent": "j20005",
+     "settings": {
+      "text": "About this job",
+      "tag": "h2",
+      "_cls": [
+       "pj-block__title"
+      ]
+     },
+     "label": "pj-block__title"
+    },
+    {
+     "id": "j20008",
+     "name": "text-basic",
+     "parent": "j20005",
+     "settings": {
+      "text": "{acf_summary}",
+      "tag": "p",
+      "_cls": [
+       "pj-block__text"
+      ]
+     },
+     "label": "pj-block__text"
+    },
+    {
+     "id": "j20009",
+     "name": "block",
+     "parent": "j20005",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_work_image}"
+        }
+       ]
+      ],
+      "tag": "figure",
+      "_cls": [
+       "pj-inline"
+      ]
+     },
+     "label": "pj-inline"
+    },
+    {
+     "id": "j2000a",
+     "name": "image",
+     "parent": "j20009",
+     "settings": {
+      "image": {
+       "useDynamicData": "{acf_work_image}",
+       "size": "medium"
+      }
+     }
+    },
+    {
+     "id": "j2000b",
+     "name": "text-basic",
+     "parent": "j20009",
+     "settings": {
+      "text": "{acf_work_caption}",
+      "tag": "figcaption",
+      "_cls": [
+       "pj-inline__cap"
+      ]
+     },
+     "label": "pj-inline__cap"
+    },
+    {
+     "id": "j2000c",
+     "name": "block",
+     "parent": "j20004",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_story_problem}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-block"
+      ]
+     },
+     "label": "pj-block"
+    },
+    {
+     "id": "j2000d",
+     "name": "text-basic",
+     "parent": "j2000c",
+     "settings": {
+      "text": "01",
+      "tag": "span",
+      "_cls": [
+       "pj-block__num"
+      ]
+     },
+     "label": "pj-block__num"
+    },
+    {
+     "id": "j2000e",
+     "name": "heading",
+     "parent": "j2000c",
+     "settings": {
+      "text": "The problem",
+      "tag": "h2",
+      "_cls": [
+       "pj-block__title"
+      ]
+     },
+     "label": "pj-block__title"
+    },
+    {
+     "id": "j2000f",
+     "name": "text-basic",
+     "parent": "j2000c",
+     "settings": {
+      "text": "{acf_story_problem}",
+      "tag": "p",
+      "_cls": [
+       "pj-block__text"
+      ]
+     },
+     "label": "pj-block__text"
+    },
+    {
+     "id": "j20010",
+     "name": "block",
+     "parent": "j20004",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_story_work}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-block"
+      ]
+     },
+     "label": "pj-block"
+    },
+    {
+     "id": "j20011",
+     "name": "text-basic",
+     "parent": "j20010",
+     "settings": {
+      "text": "02",
+      "tag": "span",
+      "_cls": [
+       "pj-block__num"
+      ]
+     },
+     "label": "pj-block__num"
+    },
+    {
+     "id": "j20012",
+     "name": "heading",
+     "parent": "j20010",
+     "settings": {
+      "text": "What we did",
+      "tag": "h2",
+      "_cls": [
+       "pj-block__title"
+      ]
+     },
+     "label": "pj-block__title"
+    },
+    {
+     "id": "j20013",
+     "name": "text-basic",
+     "parent": "j20010",
+     "settings": {
+      "text": "{acf_story_work}",
+      "tag": "p",
+      "_cls": [
+       "pj-block__text"
+      ]
+     },
+     "label": "pj-block__text"
+    },
+    {
+     "id": "j20014",
+     "name": "block",
+     "parent": "j20010",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_work_image}"
+        }
+       ]
+      ],
+      "tag": "figure",
+      "_cls": [
+       "pj-inline"
+      ]
+     },
+     "label": "pj-inline"
+    },
+    {
+     "id": "j20015",
+     "name": "image",
+     "parent": "j20014",
+     "settings": {
+      "image": {
+       "useDynamicData": "{acf_work_image}",
+       "size": "medium"
+      }
+     }
+    },
+    {
+     "id": "j20016",
+     "name": "text-basic",
+     "parent": "j20014",
+     "settings": {
+      "text": "{acf_work_caption}",
+      "tag": "figcaption",
+      "_cls": [
+       "pj-inline__cap"
+      ]
+     },
+     "label": "pj-inline__cap"
+    },
+    {
+     "id": "j20017",
+     "name": "block",
+     "parent": "j20004",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_story_result}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-block"
+      ]
+     },
+     "label": "pj-block"
+    },
+    {
+     "id": "j20018",
+     "name": "text-basic",
+     "parent": "j20017",
+     "settings": {
+      "text": "03",
+      "tag": "span",
+      "_cls": [
+       "pj-block__num"
+      ]
+     },
+     "label": "pj-block__num"
+    },
+    {
+     "id": "j20019",
+     "name": "heading",
+     "parent": "j20017",
+     "settings": {
+      "text": "The result",
+      "tag": "h2",
+      "_cls": [
+       "pj-block__title"
+      ]
+     },
+     "label": "pj-block__title"
+    },
+    {
+     "id": "j2001a",
+     "name": "text-basic",
+     "parent": "j20017",
+     "settings": {
+      "text": "{acf_story_result}",
+      "tag": "p",
+      "_cls": [
+       "pj-block__text"
+      ]
+     },
+     "label": "pj-block__text"
+    },
+    {
+     "id": "j2001b",
+     "name": "block",
+     "parent": "j20003",
+     "settings": {
+      "tag": "aside",
+      "_cls": [
+       "pj-aside"
+      ]
+     },
+     "label": "pj-aside"
+    },
+    {
+     "id": "j2001c",
+     "name": "block",
+     "parent": "j2001b",
+     "settings": {
+      "_cls": [
+       "pj-card"
+      ]
+     },
+     "label": "pj-card"
+    },
+    {
+     "id": "j2001d",
+     "name": "text-basic",
+     "parent": "j2001c",
+     "settings": {
+      "text": "This job",
+      "tag": "span",
+      "_cls": [
+       "eyebrow"
+      ]
+     },
+     "label": "eyebrow"
+    },
+    {
+     "id": "j2001e",
+     "name": "block",
+     "parent": "j2001c",
+     "settings": {
+      "tag": "custom",
+      "customTag": "dl",
+      "_cls": [
+       "pj-card__list"
+      ]
+     },
+     "label": "pj-card__list"
+    },
+    {
+     "id": "j2001f",
+     "name": "block",
+     "parent": "j2001e",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_service}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-card__row"
+      ]
+     },
+     "label": "pj-card__row"
+    },
+    {
+     "id": "j20020",
+     "name": "text-basic",
+     "parent": "j2001f",
+     "settings": {
+      "text": "Service",
+      "tag": "custom",
+      "customTag": "dt",
+      "_cls": [
+       "pj-card__term"
+      ]
+     },
+     "label": "pj-card__term"
+    },
+    {
+     "id": "j20021",
+     "name": "text-basic",
+     "parent": "j2001f",
+     "settings": {
+      "text": "{acf_service}",
+      "tag": "custom",
+      "customTag": "dd",
+      "_cls": [
+       "pj-card__value"
+      ]
+     },
+     "label": "pj-card__value"
+    },
+    {
+     "id": "j20022",
+     "name": "block",
+     "parent": "j2001e",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_location}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-card__row"
+      ]
+     },
+     "label": "pj-card__row"
+    },
+    {
+     "id": "j20023",
+     "name": "text-basic",
+     "parent": "j20022",
+     "settings": {
+      "text": "Location",
+      "tag": "custom",
+      "customTag": "dt",
+      "_cls": [
+       "pj-card__term"
+      ]
+     },
+     "label": "pj-card__term"
+    },
+    {
+     "id": "j20024",
+     "name": "text-basic",
+     "parent": "j20022",
+     "settings": {
+      "text": "{acf_location}",
+      "tag": "custom",
+      "customTag": "dd",
+      "_cls": [
+       "pj-card__value"
+      ]
+     },
+     "label": "pj-card__value"
+    },
+    {
+     "id": "j20025",
+     "name": "block",
+     "parent": "j2001e",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_problem}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-card__row"
+      ]
+     },
+     "label": "pj-card__row"
+    },
+    {
+     "id": "j20026",
+     "name": "text-basic",
+     "parent": "j20025",
+     "settings": {
+      "text": "Problem",
+      "tag": "custom",
+      "customTag": "dt",
+      "_cls": [
+       "pj-card__term"
+      ]
+     },
+     "label": "pj-card__term"
+    },
+    {
+     "id": "j20027",
+     "name": "text-basic",
+     "parent": "j20025",
+     "settings": {
+      "text": "{acf_problem}",
+      "tag": "custom",
+      "customTag": "dd",
+      "_cls": [
+       "pj-card__value"
+      ]
+     },
+     "label": "pj-card__value"
+    },
+    {
+     "id": "j20028",
+     "name": "block",
+     "parent": "j2001e",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_method}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-card__row"
+      ]
+     },
+     "label": "pj-card__row"
+    },
+    {
+     "id": "j20029",
+     "name": "text-basic",
+     "parent": "j20028",
+     "settings": {
+      "text": "Method",
+      "tag": "custom",
+      "customTag": "dt",
+      "_cls": [
+       "pj-card__term"
+      ]
+     },
+     "label": "pj-card__term"
+    },
+    {
+     "id": "j2002a",
+     "name": "text-basic",
+     "parent": "j20028",
+     "settings": {
+      "text": "{acf_method}",
+      "tag": "custom",
+      "customTag": "dd",
+      "_cls": [
+       "pj-card__value"
+      ]
+     },
+     "label": "pj-card__value"
+    },
+    {
+     "id": "j2002b",
+     "name": "block",
+     "parent": "j2001e",
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_yard}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pj-card__row"
+      ]
+     },
+     "label": "pj-card__row"
+    },
+    {
+     "id": "j2002c",
+     "name": "text-basic",
+     "parent": "j2002b",
+     "settings": {
+      "text": "Yard",
+      "tag": "custom",
+      "customTag": "dt",
+      "_cls": [
+       "pj-card__term"
+      ]
+     },
+     "label": "pj-card__term"
+    },
+    {
+     "id": "j2002d",
+     "name": "text-basic",
+     "parent": "j2002b",
+     "settings": {
+      "text": "{acf_yard}",
+      "tag": "custom",
+      "customTag": "dd",
+      "_cls": [
+       "pj-card__value"
+      ]
+     },
+     "label": "pj-card__value"
+    },
+    {
+     "id": "j2002e",
+     "name": "button",
+     "parent": "j2001c",
+     "settings": {
+      "text": "Get a quote like this",
+      "link": {
+       "type": "external",
+       "url": "#estimate"
+      },
+      "icon": {
+       "library": "svg",
+       "svg": {
+        "__media": "icon-arrow.svg"
+       }
+      },
+      "iconPosition": "right",
+      "_cls": [
+       "btn--primary",
+       "form__submit"
+      ]
+     },
+     "label": "btn--primary"
+    },
+    {
+     "id": "j2002f",
+     "name": "block",
+     "parent": "j2001c",
+     "settings": {
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "tel:{acf_site_phone}"
+      },
+      "_cls": [
+       "pj-card__phone"
+      ]
+     },
+     "label": "pj-card__phone"
+    },
+    {
+     "id": "j20030",
+     "name": "svg",
+     "parent": "j2002f",
+     "settings": {
+      "file": {
+       "__media": "icon-phone.svg"
+      }
+     }
+    },
+    {
+     "id": "j20031",
+     "name": "text-basic",
+     "parent": "j2002f",
+     "settings": {
+      "text": "Or call / text {acf_site_phone}",
+      "tag": "span"
+     }
+    },
+    {
+     "id": "j30001",
+     "name": "section",
+     "parent": 0,
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "bab",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_before_image}"
+        },
+        {
+         "id": "baa",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_after_image}"
+        }
+       ]
+      ],
+      "_cls": [
+       "section",
+       "section--dark",
+       "grain"
+      ]
+     },
+     "label": "Before and after"
+    },
+    {
+     "id": "j30002",
+     "name": "container",
+     "parent": "j30001",
+     "settings": {}
+    },
+    {
+     "id": "j30003",
+     "name": "block",
+     "parent": "j30002",
+     "settings": {
+      "_cls": [
+       "section__head",
+       "section__head--split"
+      ]
+     },
+     "label": "section__head"
+    },
+    {
+     "id": "j30004",
+     "name": "block",
+     "parent": "j30003",
+     "settings": {
+      "_cls": [
+       "section__head-main"
+      ]
+     },
+     "label": "section__head-main"
+    },
+    {
+     "id": "j30005",
+     "name": "text-basic",
+     "parent": "j30004",
+     "settings": {
+      "text": "Before &amp; after",
+      "tag": "span",
+      "_cls": [
+       "eyebrow"
+      ]
+     },
+     "label": "eyebrow"
+    },
+    {
+     "id": "j30006",
+     "name": "heading",
+     "parent": "j30004",
+     "settings": {
+      "text": "Same yard, <span class=\"serif\">before and after.</span>",
+      "tag": "h2"
+     }
+    },
+    {
+     "id": "j30007",
+     "name": "text-basic",
+     "parent": "j30003",
+     "settings": {
+      "text": "One small pit instead of a trench across the yard.",
+      "tag": "p",
+      "_cls": [
+       "section__intro",
+       "section__intro--narrow"
+      ]
+     },
+     "label": "section__intro"
+    },
+    {
+     "id": "j30008",
+     "name": "block",
+     "parent": "j30002",
+     "settings": {
+      "_cls": [
+       "job-pair",
+       "pj-ba"
+      ]
+     },
+     "label": "job-pair"
+    },
+    {
+     "id": "j30009",
+     "name": "block",
+     "parent": "j30008",
+     "settings": {
+      "tag": "figure",
+      "_cls": [
+       "job-pair__fig"
+      ]
+     },
+     "label": "job-pair__fig"
+    },
+    {
+     "id": "j3000a",
+     "name": "image",
+     "parent": "j30009",
+     "settings": {
+      "image": {
+       "useDynamicData": "{acf_before_image}",
+       "size": "large"
+      }
+     }
+    },
+    {
+     "id": "j3000b",
+     "name": "text-basic",
+     "parent": "j30009",
+     "settings": {
+      "text": "DURING",
+      "tag": "span",
+      "_cls": [
+       "job-pair__tag"
+      ]
+     },
+     "label": "job-pair__tag"
+    },
+    {
+     "id": "j3000c",
+     "name": "block",
+     "parent": "j30008",
+     "settings": {
+      "tag": "figure",
+      "_cls": [
+       "job-pair__fig"
+      ]
+     },
+     "label": "job-pair__fig"
+    },
+    {
+     "id": "j3000d",
+     "name": "image",
+     "parent": "j3000c",
+     "settings": {
+      "image": {
+       "useDynamicData": "{acf_after_image}",
+       "size": "large"
+      }
+     }
+    },
+    {
+     "id": "j3000e",
+     "name": "text-basic",
+     "parent": "j3000c",
+     "settings": {
+      "text": "AFTER",
+      "tag": "span",
+      "_cls": [
+       "job-pair__tag",
+       "job-pair__tag--after"
+      ]
+     },
+     "label": "job-pair__tag"
+    },
+    {
+     "id": "j40001",
+     "name": "section",
+     "parent": 0,
+     "settings": {
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_gallery}"
+        }
+       ]
+      ],
+      "_cls": [
+       "section",
+       "section--white"
+      ]
+     },
+     "label": "Gallery"
+    },
+    {
+     "id": "j40002",
+     "name": "container",
+     "parent": "j40001",
+     "settings": {}
+    },
+    {
+     "id": "j40003",
+     "name": "block",
+     "parent": "j40002",
+     "settings": {
+      "_cls": [
+       "section__head"
+      ]
+     },
+     "label": "section__head"
+    },
+    {
+     "id": "j40004",
+     "name": "text-basic",
+     "parent": "j40003",
+     "settings": {
+      "text": "Job photos",
+      "tag": "span",
+      "_cls": [
+       "eyebrow"
+      ]
+     },
+     "label": "eyebrow"
+    },
+    {
+     "id": "j40005",
+     "name": "heading",
+     "parent": "j40003",
+     "settings": {
+      "text": "From the <span class=\"serif\">job site.</span>",
+      "tag": "h2"
+     }
+    },
+    {
+     "id": "j40006",
+     "name": "image-gallery",
+     "parent": "j40002",
+     "settings": {
+      "items": {
+       "useDynamicData": "{acf_gallery}"
+      },
+      "layout": "grid",
+      "columns": 3,
+      "imageSize": "large",
+      "link": "lightbox",
+      "_cls": [
+       "pj-gallery"
+      ]
+     },
+     "label": "pj-gallery"
+    },
+    {
+     "id": "j50001",
+     "name": "section",
+     "parent": 0,
+     "settings": {
+      "_cls": [
+       "section",
+       "section--dark",
+       "grain"
+      ]
+     },
+     "label": "Reviews"
+    },
+    {
+     "id": "j50002",
+     "name": "container",
+     "parent": "j50001",
+     "settings": {}
+    },
+    {
+     "id": "j50003",
+     "name": "block",
+     "parent": "j50002",
+     "settings": {
+      "_cls": [
+       "section__head",
+       "section__head--split"
+      ]
+     },
+     "label": "section__head"
+    },
+    {
+     "id": "j50004",
+     "name": "block",
+     "parent": "j50003",
+     "settings": {
+      "_cls": [
+       "section__head-main"
+      ]
+     },
+     "label": "section__head-main"
+    },
+    {
+     "id": "j50005",
+     "name": "text-basic",
+     "parent": "j50004",
+     "settings": {
+      "text": "Reviews",
+      "tag": "span",
+      "_cls": [
+       "eyebrow"
+      ]
+     },
+     "label": "eyebrow"
+    },
+    {
+     "id": "j50006",
+     "name": "heading",
+     "parent": "j50004",
+     "settings": {
+      "text": "What homeowners <span class=\"serif\">say.</span>",
+      "tag": "h2"
+     }
+    },
+    {
+     "id": "j50007",
+     "name": "text-link",
+     "parent": "j50003",
+     "settings": {
+      "text": "All reviews",
+      "link": {
+       "type": "external",
+       "url": "/#reviews"
+      },
+      "_cls": [
+       "link-arrow"
+      ]
+     },
+     "label": "link-arrow"
+    },
+    {
+     "id": "j50008",
+     "name": "block",
+     "parent": "j50002",
+     "settings": {
+      "_cls": [
+       "quotes__grid",
+       "quotes__grid--3"
+      ]
+     },
+     "label": "quotes__grid"
+    },
+    {
+     "id": "j50009",
+     "name": "block",
+     "parent": "j50008",
+     "settings": {
+      "tag": "figure",
+      "hasLoop": true,
+      "query": {
+       "objectType": "post",
+       "post_type": [
+        "testimonial"
+       ],
+       "orderby": "date",
+       "order": "desc",
+       "no_found_rows": true,
+       "posts_per_page": 3
+      },
+      "_cls": [
+       "review"
+      ]
+     },
+     "label": "Reviews (loop)"
+    },
+    {
+     "id": "j5000a",
+     "name": "text-basic",
+     "parent": "j50009",
+     "settings": {
+      "text": "★★★★★",
+      "tag": "span",
+      "_attributes": [
+       {
+        "name": "role",
+        "value": "img"
+       },
+       {
+        "name": "aria-label",
+        "value": "{acf_rating} out of 5 stars"
+       },
+       {
+        "name": "data-rating",
+        "value": "{acf_rating}"
+       }
+      ],
+      "_cls": [
+       "stars"
+      ]
+     },
+     "label": "stars"
+    },
+    {
+     "id": "j5000b",
+     "name": "text-basic",
+     "parent": "j50009",
+     "settings": {
+      "text": "{acf_review_text}",
+      "tag": "custom",
+      "customTag": "blockquote",
+      "_cls": [
+       "review__quote"
+      ]
+     },
+     "label": "review__quote"
+    },
+    {
+     "id": "j5000c",
+     "name": "block",
+     "parent": "j50009",
+     "settings": {
+      "tag": "custom",
+      "customTag": "figcaption",
+      "_cls": [
+       "review__by"
+      ]
+     },
+     "label": "review__by"
+    },
+    {
+     "id": "j5000d",
+     "name": "block",
+     "parent": "j5000c",
+     "settings": {
+      "_attributes": [
+       {
+        "name": "aria-hidden",
+        "value": "true"
+       }
+      ],
+      "tag": "custom",
+      "customTag": "span",
+      "_cls": [
+       "review__av"
+      ]
+     },
+     "label": "review__av"
+    },
+    {
+     "id": "j5000e",
+     "name": "text-basic",
+     "parent": "j5000d",
+     "settings": {
+      "text": "{post_title}",
+      "tag": "span",
+      "_cls": [
+       "review__initial"
+      ]
+     },
+     "label": "review__initial"
+    },
+    {
+     "id": "j5000f",
+     "name": "block",
+     "parent": "j5000c",
+     "settings": {
+      "tag": "custom",
+      "customTag": "span",
+      "_cls": [
+       "review__name"
+      ]
+     },
+     "label": "review__name"
+    },
+    {
+     "id": "j50010",
+     "name": "text-basic",
+     "parent": "j5000f",
+     "settings": {
+      "text": "{post_title}",
+      "tag": "span",
+      "_cls": [
+       "review__author"
+      ]
+     },
+     "label": "review__author"
+    },
+    {
+     "id": "j50011",
+     "name": "text-basic",
+     "parent": "j5000f",
+     "settings": {
+      "text": "{acf_city} · {acf_source}",
+      "tag": "span",
+      "_cls": [
+       "review__meta"
+      ]
+     },
+     "label": "review__meta"
+    },
+    {
+     "id": "j60001",
+     "name": "section",
+     "parent": 0,
+     "settings": {
+      "_cls": [
+       "section",
+       "section--white"
+      ]
+     },
+     "label": "More projects"
+    },
+    {
+     "id": "j60002",
+     "name": "container",
+     "parent": "j60001",
+     "settings": {}
+    },
+    {
+     "id": "j60003",
+     "name": "block",
+     "parent": "j60002",
+     "settings": {
+      "_cls": [
+       "section__head",
+       "section__head--split"
+      ]
+     },
+     "label": "section__head"
+    },
+    {
+     "id": "j60004",
+     "name": "block",
+     "parent": "j60003",
+     "settings": {
+      "_cls": [
+       "section__head-main"
+      ]
+     },
+     "label": "section__head-main"
+    },
+    {
+     "id": "j60005",
+     "name": "text-basic",
+     "parent": "j60004",
+     "settings": {
+      "text": "More projects",
+      "tag": "span",
+      "_cls": [
+       "eyebrow"
+      ]
+     },
+     "label": "eyebrow"
+    },
+    {
+     "id": "j60006",
+     "name": "heading",
+     "parent": "j60004",
+     "settings": {
+      "text": "Other jobs <span class=\"serif\">like this one.</span>",
+      "tag": "h2"
+     }
+    },
+    {
+     "id": "j60007",
+     "name": "text-link",
+     "parent": "j60003",
+     "settings": {
+      "text": "All projects",
+      "link": {
+       "type": "external",
+       "url": "/projects/"
+      },
+      "_cls": [
+       "link-arrow"
+      ]
+     },
+     "label": "link-arrow"
+    },
+    {
+     "id": "j60008",
+     "name": "block",
+     "parent": "j60002",
+     "settings": {
+      "tag": "ul",
+      "_cls": [
+       "pcards"
+      ]
+     },
+     "label": "pcards"
+    },
+    {
+     "id": "j60009",
+     "name": "block",
+     "parent": "j60008",
+     "settings": {
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "{post_url}"
+      },
+      "hasLoop": true,
+      "query": {
+       "objectType": "post",
+       "post_type": [
+        "project"
+       ],
+       "orderby": "date",
+       "order": "desc",
+       "no_found_rows": true,
+       "posts_per_page": 3,
+       "post__not_in": [
+        "{post_id}"
+       ],
+       "excludeCurrentPost": true
+      },
+      "_cls": [
+       "pcard"
+      ]
+     },
+     "label": "Project card (loop)"
+    },
+    {
+     "id": "j6000a",
+     "name": "block",
+     "parent": "j60009",
+     "settings": {
+      "tag": "figure",
+      "_cls": [
+       "pcard__media"
+      ]
+     },
+     "label": "pcard__media"
+    },
+    {
+     "id": "j6000b",
+     "name": "image",
+     "parent": "j6000a",
+     "settings": {
+      "image": {
+       "useDynamicData": "{acf_cover_image}",
+       "size": "large"
+      },
+      "_cls": [
+       "cover-img"
+      ]
+     },
+     "label": "cover-img"
+    },
+    {
+     "id": "j6000c",
+     "name": "block",
+     "parent": "j60009",
+     "settings": {
+      "_cls": [
+       "pcard__body"
+      ]
+     },
+     "label": "pcard__body"
+    },
+    {
+     "id": "j6000d",
+     "name": "text-basic",
+     "parent": "j6000c",
+     "settings": {
+      "text": "{acf_service}",
+      "tag": "span",
+      "_cls": [
+       "pcard__tag"
+      ]
+     },
+     "label": "pcard__tag"
+    },
+    {
+     "id": "j6000e",
+     "name": "heading",
+     "parent": "j6000c",
+     "settings": {
+      "text": "{post_title}",
+      "tag": "h3",
+      "_cls": [
+       "pcard__title"
+      ]
+     },
+     "label": "pcard__title"
+    },
+    {
+     "id": "j6000f",
+     "name": "text-basic",
+     "parent": "j6000c",
+     "settings": {
+      "text": "{acf_summary}",
+      "tag": "p",
+      "_conditions": [
+       [
+        {
+         "id": "cacf_n",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_summary}"
+        }
+       ]
+      ],
+      "_cls": [
+       "pcard__text"
+      ]
+     },
+     "label": "pcard__text"
+    },
+    {
+     "id": "j70001",
+     "name": "section",
+     "parent": 0,
+     "settings": {
+      "_cssId": "estimate",
+      "_cls": [
+       "section",
+       "section--dark",
+       "estimate"
+      ]
+     },
+     "label": "Quote"
+    },
+    {
+     "id": "j70002",
+     "name": "div",
+     "parent": "j70001",
+     "settings": {
+      "_attributes": [
+       {
+        "name": "aria-hidden",
+        "value": "true"
+       }
+      ],
+      "_cls": [
+       "estimate__glow"
+      ]
+     },
+     "label": "estimate__glow"
+    },
+    {
+     "id": "j70003",
+     "name": "container",
+     "parent": "j70001",
+     "settings": {}
+    },
+    {
+     "id": "j70004",
+     "name": "block",
+     "parent": "j70003",
+     "settings": {
+      "_cls": [
+       "split",
+       "split--center"
+      ]
+     },
+     "label": "split"
+    },
+    {
+     "id": "j70005",
+     "name": "block",
+     "parent": "j70004",
+     "settings": {
+      "_cls": [
+       "estimate__text"
+      ]
+     },
+     "label": "estimate__text"
+    },
+    {
+     "id": "j70006",
+     "name": "text-basic",
+     "parent": "j70005",
+     "settings": {
+      "text": "Free camera estimate",
+      "tag": "span",
+      "_cls": [
+       "eyebrow"
+      ]
+     },
+     "label": "eyebrow"
+    },
+    {
+     "id": "j70007",
+     "name": "heading",
+     "parent": "j70005",
+     "settings": {
+      "text": "Want a result <span class=\"serif\">like this one?</span>",
+      "tag": "h2"
+     }
+    },
+    {
+     "id": "j70008",
+     "name": "text-basic",
+     "parent": "j70005",
+     "settings": {
+      "text": "Start with a camera inspection. You'll see what we see before you decide anything.",
+      "tag": "p"
+     }
+    },
+    {
+     "id": "j70009",
+     "name": "block",
+     "parent": "j70005",
+     "settings": {
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "tel:{acf_site_phone}"
+      },
+      "_cls": [
+       "bigphone"
+      ]
+     },
+     "label": "bigphone"
+    },
+    {
+     "id": "j7000a",
+     "name": "text-basic",
+     "parent": "j70009",
+     "settings": {
+      "text": "Call or text now",
+      "tag": "span",
+      "_cls": [
+       "bigphone__label"
+      ]
+     },
+     "label": "bigphone__label"
+    },
+    {
+     "id": "j7000b",
+     "name": "text-basic",
+     "parent": "j70009",
+     "settings": {
+      "text": "{acf_site_phone}",
+      "tag": "span",
+      "_cls": [
+       "bigphone__num"
+      ]
+     },
+     "label": "bigphone__num"
+    },
+    {
+     "id": "j7000c",
+     "name": "text-basic",
+     "parent": "j70009",
+     "settings": {
+      "text": "Send a photo or video of the problem if you can.",
+      "tag": "span",
+      "_cls": [
+       "bigphone__note"
+      ]
+     },
+     "label": "bigphone__note"
+    },
+    {
+     "id": "j7000d",
+     "name": "block",
+     "parent": "j70005",
+     "settings": {
+      "tag": "ol",
+      "_cls": [
+       "next"
+      ]
+     },
+     "label": "next"
+    },
+    {
+     "id": "j7000e",
+     "name": "block",
+     "parent": "j7000d",
+     "settings": {
+      "tag": "li",
+      "_cls": [
+       "next__item"
+      ]
+     },
+     "label": "next__item"
+    },
+    {
+     "id": "j7000f",
+     "name": "text-basic",
+     "parent": "j7000e",
+     "settings": {
+      "text": "01",
+      "tag": "span",
+      "_cls": [
+       "next__num"
+      ]
+     },
+     "label": "next__num"
+    },
+    {
+     "id": "j70010",
+     "name": "text-basic",
+     "parent": "j7000e",
+     "settings": {
+      "text": "You send the details or a photo",
+      "tag": "span"
+     }
+    },
+    {
+     "id": "j70011",
+     "name": "block",
+     "parent": "j7000d",
+     "settings": {
+      "tag": "li",
+      "_cls": [
+       "next__item"
+      ]
+     },
+     "label": "next__item"
+    },
+    {
+     "id": "j70012",
+     "name": "text-basic",
+     "parent": "j70011",
+     "settings": {
+      "text": "02",
+      "tag": "span",
+      "_cls": [
+       "next__num"
+      ]
+     },
+     "label": "next__num"
+    },
+    {
+     "id": "j70013",
+     "name": "text-basic",
+     "parent": "j70011",
+     "settings": {
+      "text": "Mike calls you back and books the camera",
+      "tag": "span"
+     }
+    },
+    {
+     "id": "j70014",
+     "name": "block",
+     "parent": "j7000d",
+     "settings": {
+      "tag": "li",
+      "_cls": [
+       "next__item"
+      ]
+     },
+     "label": "next__item"
+    },
+    {
+     "id": "j70015",
+     "name": "text-basic",
+     "parent": "j70014",
+     "settings": {
+      "text": "03",
+      "tag": "span",
+      "_cls": [
+       "next__num"
+      ]
+     },
+     "label": "next__num"
+    },
+    {
+     "id": "j70016",
+     "name": "text-basic",
+     "parent": "j70014",
+     "settings": {
+      "text": "You see the footage and get a written quote",
+      "tag": "span"
+     }
+    },
+    {
+     "id": "j70017",
+     "name": "block",
+     "parent": "j70004",
+     "settings": {
+      "_cls": [
+       "form"
+      ]
+     },
+     "label": "Quote form (Fluent Forms #3)"
+    },
+    {
+     "id": "j70018",
+     "name": "block",
+     "parent": "j70017",
+     "settings": {
+      "_cls": [
+       "form__head"
+      ]
+     },
+     "label": "form__head"
+    },
+    {
+     "id": "j70019",
+     "name": "heading",
+     "parent": "j70018",
+     "settings": {
+      "text": "Request a quote",
+      "tag": "h3",
+      "_cls": [
+       "form__title"
+      ]
+     },
+     "label": "form__title"
+    },
+    {
+     "id": "j7001a",
+     "name": "text-basic",
+     "parent": "j70018",
+     "settings": {
+      "text": "Takes about a minute",
+      "tag": "span",
+      "_cls": [
+       "form__hint"
+      ]
+     },
+     "label": "form__hint"
+    },
+    {
+     "id": "j7001b",
+     "name": "shortcode",
+     "parent": "j70017",
+     "settings": {
+      "shortcode": "[fluentform id=\"3\"]",
+      "_cls": [
+       "form__fluent"
+      ]
+     },
+     "label": "form__fluent"
+    },
+    {
+     "id": "j7001c",
+     "name": "text-basic",
+     "parent": "j70017",
+     "settings": {
+      "text": "No obligation. We reply personally, usually <span class=\"tbc\">same day</span>.",
+      "tag": "p",
+      "_cls": [
+       "form__fine"
+      ]
+     },
+     "label": "form__fine"
     }
    ]
   }

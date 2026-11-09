@@ -129,6 +129,18 @@ foreach ( $do( 'templates' ) ? [ 'header', 'footer' ] : [] as $area ) {
 	$out[ $area ] = is_wp_error( $r ) ? $r->get_error_message() : ( $r['verified'] ? 'ok' : 'mismatch' );
 }
 
+// 3b. Other Bricks templates (e.g. the single project template), by key in pnw_template_ids.
+$out['templates'] = [];
+foreach ( $do( 'templates' ) ? (array) ( $els['templates'] ?? [] ) : [] as $tp ) {
+	$tid = (int) ( $tpls[ $tp['key'] ] ?? 0 );
+	if ( ! $tid ) {
+		$out['templates'][ $tp['key'] ] = 'no template id';
+		continue;
+	}
+	$r = $set->execute( [ 'post_id' => $tid, 'area' => $tp['area'], 'elements' => $prep( $tp['elements'] ) ] );
+	$out['templates'][ $tp['key'] ] = is_wp_error( $r ) ? $r->get_error_message() : ( $r['verified'] ? 'ok' : 'mismatch' );
+}
+
 // 4. Home page, one insert per section.
 $post = (int) get_option( 'page_on_front' );
 $home = $do( 'home' ) ? $els['sections'] : [];

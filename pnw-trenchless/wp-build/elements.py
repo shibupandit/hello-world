@@ -223,7 +223,7 @@ def footer():
                 ]),
                 col("Services", [("Sewer Pipe Lining", "/services/sewer-pipe-lining/"), ("Pipe Bursting", "/services/pipe-bursting/"), ("Water Line Pulling", "/#services"), ("Point Repairs", "/#services")]),
                 col("Service Areas", [(x, "/#areas") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
-                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/about/"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/contact/"), span(HOURS, "footer__hours", **when(HOURS))]),
+                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/about/"), a("Who We Serve", "/#who"), a("Projects", "/projects/"), a("Reviews", "/#reviews"), a("Contact", "/contact/"), span(HOURS, "footer__hours", **when(HOURS))]),
             ]),
             t("TRENCHLESS", "footer__word", tag="div", _attributes=attrs(aria_hidden="true")),
             block("footer__bottom", [
@@ -559,39 +559,16 @@ def mike():
 
 
 def projects():
-    def fig(f, alt, tag, after=False):
-        return block("job-pair__fig", [img(f, alt=alt), span(tag, "job-pair__tag" + (" job-pair__tag--after" if after else ""))], tag="figure")
-
     return section("section section--white", [
         container([
-            head_split("Recent projects", 'Real jobs. <span class="serif">Real yards.</span>', a("See all projects", "#", "link-arrow")),
-            block("project", [
-                block("job-pair", [
-                    fig("job-during.jpg", "Small access pit dug in a front lawn during a trenchless repair", "DURING"),
-                    fig("job-after.jpg", "The same front lawn after the access pit was backfilled", "AFTER", True),
-                ]),
-                block("project__info", [
-                    eyebrow("Recent job · front yard"),
-                    span('One small pit. <span class="serif">Same lawn, after.</span>', "project__title"),
-                    block("spec", [
-                        span("Location", "spec__term"), span('<span class="tbc">Neighborhood, city</span>', "spec__value"),
-                        span("Problem", "spec__term"), span('<span class="tbc">What the camera found</span>', "spec__value"),
-                        span("Method", "spec__term"), span('<span class="tbc">Bursting / lining, length</span>', "spec__value"),
-                        span("Yard", "spec__term"), span("One access pit, backfilled after the repair", "spec__value"),
-                    ]),
-                    a("See more projects", "#", "link-arrow"),
-                ]),
-            ], tag="article"),
-            block("projects__more", [
-                block("mini", [
-                    img("job-pipe-connection.jpg", alt="The new sewer pipe connected in the access pit"),
-                    block("mini__body", [span("Sewer line reconnection", "mini__title"), span("New pipe connected in the access pit before backfill", "mini__text")], tag="span"),
-                ], href="/services/pipe-bursting/"),
-                block("mini", [
-                    img("job-waterline.jpg", alt="Access pit with the new blue water line in place next to the meter box"),
-                    block("mini__body", [span("Water line pull", "mini__title"), span("New line pulled through a small access pit at the meter", "mini__text")], tag="span"),
-                ], href="#"),
-            ]),
+            head_split("Recent projects", 'Real jobs. <span class="serif">Real yards.</span>', a("See all projects", "/projects/", "link-arrow")),
+            # Bricks query loops over the `project` post type (elements_projects.py).
+            block("", [__import__("elements_projects").project_feature(
+                {"objectType": "post", "post_type": ["project"], "orderby": "date", "order": "desc", "no_found_rows": True, "posts_per_page": 1,
+                 "meta_query": [{"id": "feat", "key": "featured", "value": "1", "compare": "="}]}, label="Featured project (loop)", cta=False)], label="Featured project"),
+            block("projects__more", [__import__("elements_projects").project_mini(
+                {"objectType": "post", "post_type": ["project"], "orderby": "date", "order": "desc", "no_found_rows": True, "posts_per_page": 2, "offset": 1,
+                 "meta_query": [{"id": "real", "key": "is_placeholder", "value": "1", "compare": "!="}]})]),
         ]),
     ], sid="projects", label="Projects")
 
@@ -773,6 +750,9 @@ def build():
     data["pages"].append(elements_contact.page())
     import elements_bursting
     data["pages"].append(elements_bursting.page())
+    import elements_projects
+    data["pages"].append(elements_projects.page())
+    data["templates"] = [elements_projects.single_template()]
     pathlib.Path(__file__).with_name("elements.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
     return data
 

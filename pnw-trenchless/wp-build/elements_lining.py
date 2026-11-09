@@ -201,7 +201,7 @@ def jobs():
              ("job-lawn-restored.jpg", "A front lawn after the job, with the pit backfilled and the grass back in place", "The yard afterwards", "Pit backfilled and the lawn back in place.")]
     return section("section section--white", [
         container([
-            head_split("On the job", 'One job, <span class="serif">start to finish.</span>', a("All projects", "/#projects", "link-arrow")),
+            head_split("On the job", 'One job, <span class="serif">start to finish.</span>', a("All projects", "/projects/", "link-arrow")),
             block("jobs__grid", [
                 block("job", [
                     block("job__media", [img(f, "cover-img", alt=alt)], tag="figure"),
