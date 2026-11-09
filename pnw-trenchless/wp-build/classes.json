@@ -2251,7 +2251,7 @@
  },
  {
   "name": "facts",
-  "css": "%root% { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-s); }",
+  "css": "%root% { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-s); align-items: stretch; }",
   "category": "PNW"
  },
  {
