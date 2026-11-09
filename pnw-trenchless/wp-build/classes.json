@@ -176,7 +176,7 @@
  },
  {
   "name": "header",
-  "css": "%root% { position: relative; z-index: 2; isolation: isolate; border-bottom: var(--pnw-border-dark); color: var(--text-light); padding-inline: var(--gutter); }\n%root%::before { content: \"\"; position: absolute; inset: 0; z-index: -1; background: var(--base-trans-90); -webkit-backdrop-filter: saturate(1.5) blur(.9em); backdrop-filter: saturate(1.5) blur(.9em); }",
+  "css": "%root% { position: relative; z-index: 2; isolation: isolate; color: var(--text-light); padding-inline: var(--gutter); }\n%root%::before { content: \"\"; position: absolute; inset: 0; z-index: -1; background: var(--base-trans-90); -webkit-backdrop-filter: saturate(1.5) blur(.9em); backdrop-filter: saturate(1.5) blur(.9em); }",
   "category": "PNW"
  },
  {

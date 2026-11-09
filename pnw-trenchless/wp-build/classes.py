@@ -162,7 +162,7 @@ c("topbar__link", """
 %root% svg { width: 1.1em; height: 1.1em; }
 """)
 c("header", f"""
-%root% {{ position: relative; z-index: 2; isolation: isolate; border-bottom: var(--pnw-border-dark); color: var(--text-light); padding-inline: var(--gutter); }}
+%root% {{ position: relative; z-index: 2; isolation: isolate; color: var(--text-light); padding-inline: var(--gutter); }}
 %root%::before {{ content: ""; position: absolute; inset: 0; z-index: -1; background: var(--base-trans-90); -webkit-backdrop-filter: saturate(1.5) blur(.9em); backdrop-filter: saturate(1.5) blur(.9em); }}
 """)
 c("header__inner", f"""
