@@ -150,3 +150,7 @@ The build is generated from code in `wp-build/`: `classes.py` → `classes.json`
 - **Contact (built 2026-11-09):** page 785, `/contact/`, from the approved `contact.html` (builder `wp-build/elements_contact.py`). Menu and footer "Contact" links point to it.
 - **Pipe Bursting (built 2026-11-09):** service post 842, `/services/pipe-bursting/`, from the approved `service-pipe-bursting.html` (builder `wp-build/elements_bursting.py`). Footer service links now go to the two service pages.
 - **Projects (built 2026-11-09):** ACF post type `project` + field group "Project details"; `/projects/` page (1088) and the "Single: Project" template (1040) use Bricks query loops and dynamic data (builder `wp-build/elements_projects.py`). To add a project: Projects › Add New, fill the Card and Photos tabs (the rest is optional; empty fields stay hidden).
+
+## Site-wide quote section (2026-11-09)
+
+The "Request a quote" section with the Fluent form lives in the **footer template**, above the footer, and shows on every page except Contact (element condition: Post ID is not 785). Pages no longer have their own quote section. To change the quote section, edit the footer template; to hide it on another page, add that page ID to the condition.
