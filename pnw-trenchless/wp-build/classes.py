@@ -656,13 +656,13 @@ c("mike__quote", """
 """)
 c("mike__bio", "%root% { color: var(--text-dark-muted); font-size: var(--text-l); max-width: 58ch; }")
 c("creds", f"""
-%root% {{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: var(--pnw-border); width: 100%; }}
+%root% {{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; align-items: stretch; border-top: var(--pnw-border); width: 100%; }}
 {P} {{ %root% {{ grid-template-columns: 1fr; }} %root% > :nth-child(even) {{ padding-left: 0 !important; border-left: 0 !important; }} }}
 """)
 c("creds__item", """
-%root% { display: flex; flex-direction: row; gap: .7em; align-items: flex-start; padding: var(--space-s) var(--space-s) var(--space-s) 0; border-bottom: var(--pnw-border); font-weight: 600; font-size: var(--text-s); line-height: 1.4; }
+%root% { display: flex; flex-direction: row; gap: .7em; align-items: flex-start; height: 100%; padding: var(--space-s) var(--space-s) var(--space-s) 0; border-bottom: var(--pnw-border); font-weight: 600; font-size: var(--text-s); line-height: 1.4; }
 %root%:nth-child(even) { padding-left: var(--space-s); border-left: var(--pnw-border); }
-%root% svg { width: 1.25em; height: 1.25em; flex: none; color: var(--primary); }
+%root% svg { width: 1.25em; height: 1.25em; flex: none; color: var(--primary); margin-top: .1em; }
 """)
 c("mike__sign", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-m); width: 100%; }")
 c("mike__sig", "%root% { display: flex; flex-direction: column; gap: .35em; }")
