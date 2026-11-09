@@ -601,7 +601,7 @@
  },
  {
   "name": "svc-card",
-  "css": "%root% { --card-accent: var(--primary); height: 100%; position: relative; display: flex; flex-direction: column; min-width: 0; background: var(--white); border: var(--pnw-border); border-radius: calc(var(--radius-l) + var(--space-xs)); padding: var(--space-xs); box-shadow: var(--box-shadow-m); transition: transform .45s var(--pnw-ease), box-shadow .45s var(--pnw-ease), border-color .45s; }\n%root%:hover { transform: translateY(-.35em); box-shadow: var(--box-shadow-l); border-color: color-mix(in srgb, var(--card-accent) 35%, var(--neutral-light)); }\n%root%:hover .svc-card__art svg { transform: scale(1.05); }\n%root%:hover .svc-card__go { background: var(--primary); border-color: var(--primary); color: var(--white); }\n%root%:hover .svc-card__go svg { transform: rotate(0); }\n%root%:has(.svc-card__link:focus-visible) { outline: .2em solid var(--accent); outline-offset: .25em; }",
+  "css": "%root% { --card-accent: var(--primary); height: 100%; position: relative; display: flex; flex-direction: column; min-width: 0; background: var(--white); border: var(--pnw-border); border-radius: calc(var(--radius-l) + var(--space-xs)); padding: var(--space-xs); box-shadow: var(--box-shadow-m); transition: transform .45s var(--pnw-ease), box-shadow .45s var(--pnw-ease), border-color .45s; }\n%root%:hover { transform: translateY(-.35em); box-shadow: var(--box-shadow-l); border-color: color-mix(in srgb, var(--card-accent) 35%, var(--neutral-light)); }\n%root%:hover .svc-card__art svg { transform: scale(1.05); }\n%root%:hover .svc-card__go { background: var(--primary); border-color: var(--primary); color: var(--white); }\n%root%:hover .svc-card__go svg { transform: rotate(0); }",
   "category": "PNW"
  },
  {
@@ -616,7 +616,7 @@
  },
  {
   "name": "svc-card__art",
-  "css": "%root% { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-l); overflow: hidden; background: radial-gradient(70% 90% at 30% 50%, color-mix(in srgb, var(--card-accent) 22%, transparent), transparent 70%), var(--base); }\n%root% svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .8s var(--pnw-ease); }",
+  "css": "%root% { display: block; position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-l); overflow: hidden; background: radial-gradient(70% 90% at 30% 50%, color-mix(in srgb, var(--card-accent) 22%, transparent), transparent 70%), var(--base); }\n%root% svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .8s var(--pnw-ease); }",
   "category": "PNW"
  },
  {
@@ -641,12 +641,7 @@
  },
  {
   "name": "svc-card__title",
-  "css": "%root% { font-size: calc(var(--h3) * 1.37); font-weight: 800; letter-spacing: -.035em; line-height: 1; }\n%root% .serif { color: var(--primary); }",
-  "category": "PNW"
- },
- {
-  "name": "svc-card__link",
-  "css": "%root% { color: inherit; text-decoration: none; }\n%root%::after { content: \"\"; position: absolute; inset: 0; z-index: 5; border-radius: inherit; }\n%root%:focus-visible { outline: none; }",
+  "css": "%root% { font-size: calc(var(--h3) * 1.37); font-weight: 800; letter-spacing: -.035em; line-height: 1; }\n%root% a { color: inherit; text-decoration: none; transition: color .3s; }\n%root% a:hover, %root% a:focus-visible { color: var(--card-accent); }",
   "category": "PNW"
  },
  {

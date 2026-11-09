@@ -393,26 +393,29 @@ def explain():
 
 def services():
     cards = [
-        ("", "art-service-lining.svg", "CIPP · pipe in a pipe", 'Sewer pipe <span class="serif">lining</span>',
+        ("", "/services/sewer-pipe-lining/", "art-service-lining.svg", "CIPP · pipe in a pipe", "Sewer pipe lining",
          "A resin liner cures inside your old pipe, creating a seamless, jointless pipe within a pipe. No trench, and no joints for roots to find.",
          ["Cracks", "Leaks", "Root intrusion"]),
-        ("svc-card--accent", "art-service-burst.svg", "HDPE · full replacement", 'Pipe <span class="serif">bursting</span>',
+        ("svc-card--accent", "/services/pipe-bursting/", "art-service-burst.svg", "HDPE · full replacement", "Pipe bursting",
          "A bursting head breaks the old pipe outward while new HDPE pipe is pulled in behind it. A completely new pipe with a 50+ year lifespan, and it can be upsized for better flow.",
          ["Collapsed lines", "Orangeburg", "Clay", "Upsizing"]),
-        ("svc-card--water", "art-service-water.svg", "CTS poly · pressure tested", 'Water line <span class="serif">replacement</span>',
+        ("svc-card--water", "/services/water-line-pulling/", "art-service-water.svg", "CTS poly · pressure tested", "Water line replacement",
          "We pull a new CTS poly line underground, reconnect it, and test it for pressure and leaks. No rust or scale buildup, and better water pressure.",
          ["Old galvanized", "Leaks", "Low pressure"]),
-        ("svc-card--accent", "art-service-spot.svg", "Spot repair · localized relining", 'Point <span class="serif">repairs</span>',
+        ("svc-card--accent", "/services/point-repairs/", "art-service-spot.svg", "Spot repair · localized relining", "Point repairs",
          "When the damage is isolated to one section and the rest of the pipe is sound, we reline just that spot instead of replacing the whole line.",
          ["One bad joint", "A single crack", "Localized roots"]),
     ]
 
-    def card(mod, art, spec, title, text, tags):
+    def card(mod, url, art, spec, title, text, tags):
+        # Image, arrow and heading all link to the service page. The image and arrow are hidden
+        # from screen readers and skipped by Tab, so each card has one announced link (the heading).
+        quiet = attrs(aria_hidden="true", tabindex="-1")
         return block(("svc-card " + mod).strip(), [
-            block("svc-card__art", [svg(art)], _attributes=attrs(aria_hidden="true")),
+            block("svc-card__art", [svg(art)], href=url, _attributes=quiet),
             block("svc-card__body", [
-                block("svc-card__top", [span(spec, "svc-card__spec"), block("svc-card__go", [svg("icon-arrow.svg")], tag="span", _attributes=attrs(aria_hidden="true"))]),
-                h("h3", f'<a class="svc-card__link" href="#estimate">{title}</a>', "svc-card__title"),
+                block("svc-card__top", [span(spec, "svc-card__spec"), block("svc-card__go", [svg("icon-arrow.svg")], href=url, _attributes=quiet)]),
+                h("h3", title, "svc-card__title", link=link(url)),
                 t(text),
                 block("svc-card__foot", [span("Best for", "svc-card__foot-label")] + [span(x, "pill-tag") for x in tags]),
             ]),

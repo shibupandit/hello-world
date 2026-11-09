@@ -4585,8 +4585,17 @@
        {
         "name": "aria-hidden",
         "value": "true"
+       },
+       {
+        "name": "tabindex",
+        "value": "-1"
        }
       ],
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "/services/sewer-pipe-lining/"
+      },
       "_cls": [
        "svc-card__art"
       ]
@@ -4647,10 +4656,17 @@
        {
         "name": "aria-hidden",
         "value": "true"
+       },
+       {
+        "name": "tabindex",
+        "value": "-1"
        }
       ],
-      "tag": "custom",
-      "customTag": "span",
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "/services/sewer-pipe-lining/"
+      },
       "_cls": [
        "svc-card__go"
       ]
@@ -4672,8 +4688,12 @@
      "name": "heading",
      "parent": "s5000c",
      "settings": {
-      "text": "<a class=\"svc-card__link\" href=\"#estimate\">Sewer pipe <span class=\"serif\">lining</span></a>",
+      "text": "Sewer pipe lining",
       "tag": "h3",
+      "link": {
+       "type": "external",
+       "url": "/services/sewer-pipe-lining/"
+      },
       "_cls": [
        "svc-card__title"
       ]
@@ -4774,8 +4794,17 @@
        {
         "name": "aria-hidden",
         "value": "true"
+       },
+       {
+        "name": "tabindex",
+        "value": "-1"
        }
       ],
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "/services/pipe-bursting/"
+      },
       "_cls": [
        "svc-card__art"
       ]
@@ -4836,10 +4865,17 @@
        {
         "name": "aria-hidden",
         "value": "true"
+       },
+       {
+        "name": "tabindex",
+        "value": "-1"
        }
       ],
-      "tag": "custom",
-      "customTag": "span",
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "/services/pipe-bursting/"
+      },
       "_cls": [
        "svc-card__go"
       ]
@@ -4861,8 +4897,12 @@
      "name": "heading",
      "parent": "s5001b",
      "settings": {
-      "text": "<a class=\"svc-card__link\" href=\"#estimate\">Pipe <span class=\"serif\">bursting</span></a>",
+      "text": "Pipe bursting",
       "tag": "h3",
+      "link": {
+       "type": "external",
+       "url": "/services/pipe-bursting/"
+      },
       "_cls": [
        "svc-card__title"
       ]
@@ -4976,8 +5016,17 @@
        {
         "name": "aria-hidden",
         "value": "true"
+       },
+       {
+        "name": "tabindex",
+        "value": "-1"
        }
       ],
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "/services/water-line-pulling/"
+      },
       "_cls": [
        "svc-card__art"
       ]
@@ -5038,10 +5087,17 @@
        {
         "name": "aria-hidden",
         "value": "true"
+       },
+       {
+        "name": "tabindex",
+        "value": "-1"
        }
       ],
-      "tag": "custom",
-      "customTag": "span",
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "/services/water-line-pulling/"
+      },
       "_cls": [
        "svc-card__go"
       ]
@@ -5063,8 +5119,12 @@
      "name": "heading",
      "parent": "s5002b",
      "settings": {
-      "text": "<a class=\"svc-card__link\" href=\"#estimate\">Water line <span class=\"serif\">replacement</span></a>",
+      "text": "Water line replacement",
       "tag": "h3",
+      "link": {
+       "type": "external",
+       "url": "/services/water-line-pulling/"
+      },
       "_cls": [
        "svc-card__title"
       ]
@@ -5165,8 +5225,17 @@
        {
         "name": "aria-hidden",
         "value": "true"
+       },
+       {
+        "name": "tabindex",
+        "value": "-1"
        }
       ],
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "/services/point-repairs/"
+      },
       "_cls": [
        "svc-card__art"
       ]
@@ -5227,10 +5296,17 @@
        {
         "name": "aria-hidden",
         "value": "true"
+       },
+       {
+        "name": "tabindex",
+        "value": "-1"
        }
       ],
-      "tag": "custom",
-      "customTag": "span",
+      "tag": "a",
+      "link": {
+       "type": "external",
+       "url": "/services/point-repairs/"
+      },
       "_cls": [
        "svc-card__go"
       ]
@@ -5252,8 +5328,12 @@
      "name": "heading",
      "parent": "s5003a",
      "settings": {
-      "text": "<a class=\"svc-card__link\" href=\"#estimate\">Point <span class=\"serif\">repairs</span></a>",
+      "text": "Point repairs",
       "tag": "h3",
+      "link": {
+       "type": "external",
+       "url": "/services/point-repairs/"
+      },
       "_cls": [
        "svc-card__title"
       ]
