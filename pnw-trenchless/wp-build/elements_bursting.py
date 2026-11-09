@@ -33,7 +33,7 @@ def hero():
                     h("h1", 'Trenchless pipe <span class="serif">bursting</span> in Spokane', "svc-hero__title rise rise--2"),
                     t("Replace a collapsed, crushed or undersized sewer line without trenching your yard. A bursting head breaks the old pipe apart underground while a brand-new HDPE pipe is pulled in right behind it, through two small access pits.", "svc-hero__lede rise rise--3"),
                     block("hero__actions rise rise--4", [
-                        btn("See if bursting fits your line", "#estimate", "btn--primary", icon="icon-arrow.svg"),
+                        btn("See if bursting fits your line", "/contact/", "btn--primary", icon="icon-arrow.svg"),
                         btn(f"Call or text {PHONE}", TEL, "btn--white btn--outline", icon="icon-phone.svg", icon_left=True),
                     ]),
                     block("byline rise rise--5", [
@@ -168,7 +168,7 @@ def cost():
                 block("cost-card", [
                     h("h3", "What affects the price", "cost-card__title"),
                     block("cost-card__list", [block("cost-card__item", [span(f"0{i + 1}", "cost-card__num"), span(x)], tag="li") for i, x in enumerate(factors)], tag="ul"),
-                    btn("Get my written quote", "#estimate", "btn--primary form__submit", icon="icon-arrow.svg"),
+                    btn("Get my written quote", "/contact/", "btn--primary form__submit", icon="icon-arrow.svg"),
                 ]),
             ]),
         ]),

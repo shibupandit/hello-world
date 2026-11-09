@@ -178,7 +178,7 @@ def header():
                             block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),
                             block("header__phone-text", [span("Call or text", "header__phone-label"), span(PHONE, "header__phone-num")], tag="span"),
                         ], href=link(TEL, aria=f"Call or text {PHONE}")),
-                        btn("Get a Quote", "#estimate", "btn--primary nav__quote", icon="icon-arrow.svg"),
+                        btn("Get a Quote", "/contact/", "btn--primary nav__quote", icon="icon-arrow.svg"),
                         block("nav__contact", [
                             block("topbar__link", [svg("icon-mail.svg", "ico"), span(EMAIL)], href=MAIL),
                             block("topbar__link", [svg("icon-fb.svg", "ico"), span("Facebook")], href=link(FB, True)),
@@ -193,7 +193,7 @@ def header():
                     block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),
                     block("header__phone-text", [span("Call or text", "header__phone-label"), span(PHONE, "header__phone-num")], tag="span"),
                 ], href=link(TEL, aria=f"Call or text {PHONE}")),
-                btn("Get a Quote", "#estimate", "btn--primary btn--s"),
+                btn("Get a Quote", "/contact/", "btn--primary btn--s"),
             ]),
         ]),
     ], tag="div")
@@ -280,7 +280,7 @@ def hero():
                     h("h1", 'Fix the pipe. <span class="serif">Keep the yard.</span>', "hero__title rise rise--3"),
                     t("Family-owned and led by Mike Jeisma, with 14+ years in trenchless sewer and water line work. We camera the line, show you exactly what we see, and give you a true and honest quote.", "hero__lede rise rise--4"),
                     block("hero__actions rise rise--5", [
-                        btn("Get a True &amp; Honest Quote", "#estimate", "btn--primary", icon="icon-arrow.svg"),
+                        btn("Get a True &amp; Honest Quote", "/contact/", "btn--primary", icon="icon-arrow.svg"),
                         btn("Text a Photo of the Problem", SMS, "btn--white btn--outline", icon="icon-camera.svg", icon_left=True),
                     ]),
                 ]),
@@ -346,7 +346,7 @@ def signs():
                     eyebrow("Warning signs"),
                     h("h2", 'Is your sewer line <span class="serif">failing?</span>'),
                     t("Most homeowners call us after the third snake job in a year. If any of these sound familiar, a camera inspection will tell you what's actually happening underground."),
-                    btn("Book a camera inspection", "#estimate", "btn--base btn--outline", icon="icon-camera.svg", icon_left=True),
+                    btn("Book a camera inspection", "/contact/", "btn--base btn--outline", icon="icon-camera.svg", icon_left=True),
                 ]),
                 block("sign-list", [
                     block("sign", [block("sign__ico", [svg(ic)], tag="span"), block("sign__body", [h("h3", ti, "sign__title"), t(tx, "sign__text")]), span(tag, "sign__tag")], tag="li")
@@ -433,7 +433,7 @@ def services():
             block("svc-grid", [card(*c) for c in cards], tag="ul"),
             block("svc-strip", [
                 block("svc-strip__text", [svg("icon-film.svg"), span("Every job starts with a CCTV inspection, and you keep the before and after footage.")], tag="span"),
-                btn("Request a quote", "#estimate", "btn--primary", icon="icon-arrow.svg"),
+                btn("Request a quote", "/contact/", "btn--primary", icon="icon-arrow.svg"),
             ]),
         ]),
     ], sid="services", label="Services")
@@ -527,7 +527,7 @@ def process():
     return section("section section--dark grain", [
         container([
             head_split("Our process", 'Start to finish, <span class="serif">on camera.</span>',
-                       btn("Start with step 01", "#estimate", "btn--primary", icon="icon-arrow.svg")),
+                       btn("Start with step 01", "/contact/", "btn--primary", icon="icon-arrow.svg")),
             block("steps", [block("step", [h("h3", ti, "step__title"), t(tx)], tag="li") for ti, tx in steps], tag="ol"),
         ]),
     ], sid="process", label="Process")
@@ -632,7 +632,7 @@ def areas():
                     h("h2", 'Built for <span class="serif">Inland Northwest</span> sewer lines.'),
                     t('Many older Spokane-area homes still run on clay, cast iron or Orangeburg sewer lines and galvanized water service. Add mature pines and maples, and root intrusion is one of the most common problems we see. <span class="tbc">Mike to add 2–3 sentences from his own experience: neighborhoods, soil, depth.</span>'),
                     block("materials", [span(x, "material") for x in ["Clay", "Cast iron", "Orangeburg", "Galvanized"]], _attributes=attrs(aria_label="Pipe materials common in the area")),
-                    block("city-list", [block("", [block("city", [span(c), span(n, "city__note")], href="#estimate")], tag="li") for c, n in cities], tag="ul"),
+                    block("city-list", [block("", [block("city", [span(c), span(n, "city__note")], href="/contact/")], tag="li") for c, n in cities], tag="ul"),
                 ]),
                 block("map", [
                     # The Google map embed (Website Settings) replaces the illustrated map when it is filled in.

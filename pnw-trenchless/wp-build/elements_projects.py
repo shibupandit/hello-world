@@ -230,7 +230,7 @@ def s_story():
                             block("pj-card__row", [t(term, "pj-card__term", tag="dt"), t(tag, "pj-card__value", tag="dd")], **when(tag))
                             for term, tag in card_rows
                         ], tag="dl"),
-                        btn("Get a quote like this", "#estimate", "btn--primary form__submit", icon="icon-arrow.svg"),
+                        btn("Get a quote like this", "/contact/", "btn--primary form__submit", icon="icon-arrow.svg"),
                         block("pj-card__phone", [svg("icon-phone.svg"), span(f"Or call / text {PHONE}")], href=TEL),
                     ]),
                 ], tag="aside"),

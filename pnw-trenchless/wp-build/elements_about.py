@@ -42,7 +42,7 @@ def hero():
                     h("h1", 'Meet Mike Jeisma, <span class="serif">the owner who shows up</span> to your job.', "svc-hero__title rise rise--2"),
                     t(f"PNW Trenchless is a family-owned sewer and water line company based in {ADDRESS}. Mike has spent 14+ years fixing underground pipes across the Spokane area. When you call, you talk to him. When the trailer pulls up, he's on it.", "svc-hero__lede rise rise--3"),
                     block("hero__actions rise rise--4", [
-                        btn("Talk to Mike about your line", "#estimate", "btn--primary", icon="icon-arrow.svg"),
+                        btn("Talk to Mike about your line", "/contact/", "btn--primary", icon="icon-arrow.svg"),
                         btn(PHONE, TEL, "btn--white btn--outline", icon="icon-phone.svg", icon_left=True),
                     ]),
                 ]),

@@ -37,7 +37,7 @@ def hero():
                     h("h1", 'Homes, businesses <span class="serif">and industrial sites.</span>', "svc-hero__title rise rise--2"),
                     t("Trenchless repair and replacement for residential, commercial and industrial properties, from a home's sewer line to lines under parking lots, roadways and working facilities.", "svc-hero__lede rise rise--3"),
                     block("hero__actions rise rise--4", [
-                        btn("Request a quote", "#estimate", "btn--primary", icon="icon-arrow.svg"),
+                        btn("Request a quote", "/contact/", "btn--primary", icon="icon-arrow.svg"),
                         btn(f"Call or text {PHONE}", TEL, "btn--white btn--outline", icon="icon-phone.svg", icon_left=True),
                     ]),
                 ]),

@@ -411,7 +411,7 @@
     "text": "Get a Quote",
     "link": {
      "type": "external",
-     "url": "#estimate"
+     "url": "/contact/"
     },
     "icon": {
      "library": "svg",
@@ -642,7 +642,7 @@
     "text": "Get a Quote",
     "link": {
      "type": "external",
-     "url": "#estimate"
+     "url": "/contact/"
     },
     "_cls": [
      "btn--primary",
@@ -2025,7 +2025,7 @@
       "text": "Get a True &amp; Honest Quote",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "icon": {
        "library": "svg",
@@ -3952,7 +3952,7 @@
       "text": "Book a camera inspection",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "icon": {
        "library": "svg",
@@ -6011,7 +6011,7 @@
       "text": "Request a quote",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "icon": {
        "library": "svg",
@@ -7741,7 +7741,7 @@
       "text": "Start with step 01",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "icon": {
        "library": "svg",
@@ -9593,7 +9593,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "_cls": [
        "city"
@@ -9639,7 +9639,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "_cls": [
        "city"
@@ -9685,7 +9685,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "_cls": [
        "city"
@@ -9731,7 +9731,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "_cls": [
        "city"
@@ -9777,7 +9777,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "_cls": [
        "city"
@@ -9823,7 +9823,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "_cls": [
        "city"
@@ -10886,7 +10886,7 @@
         "text": "See if lining works for your pipe",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -12946,7 +12946,7 @@
         "text": "Get my written quote",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -15044,7 +15044,7 @@
         "text": "Talk to Mike about your line",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -20370,7 +20370,7 @@
         "text": "See if bursting fits your line",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -22430,7 +22430,7 @@
         "text": "Get my written quote",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -27409,7 +27409,7 @@
         "text": "Get a water line quote",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -29212,7 +29212,7 @@
         "text": "Get my written quote",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -31177,7 +31177,7 @@
         "text": "See if a spot fix will do",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -33237,7 +33237,7 @@
         "text": "Get my written quote",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -35175,7 +35175,7 @@
         "text": "Request a quote",
         "link": {
          "type": "external",
-         "url": "#estimate"
+         "url": "/contact/"
         },
         "icon": {
          "library": "svg",
@@ -40366,7 +40366,7 @@
       "text": "Get a quote like this",
       "link": {
        "type": "external",
-       "url": "#estimate"
+       "url": "/contact/"
       },
       "icon": {
        "library": "svg",
