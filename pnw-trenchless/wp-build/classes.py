@@ -909,7 +909,8 @@ c("callbar", f"""
 {L} {{
   %root% {{ display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs); position: fixed; left: 0; right: 0; bottom: 0; z-index: 65; background: var(--base-trans-90); -webkit-backdrop-filter: blur(.75em); backdrop-filter: blur(.75em); border-top: var(--pnw-border-dark); padding: var(--space-xs) var(--gutter) calc(var(--space-xs) + env(safe-area-inset-bottom, 0px)); }}
   %root% .brxe-button {{ justify-content: center; }}
-  body {{ padding-bottom: 4.75em; }}
+  body {{ padding-bottom: 4.75em; background-color: var(--base-dark); }}
+  main {{ background-color: var(--white); }}
   %root% {{ transition: opacity .3s var(--pnw-ease), visibility 0s; }}
   body.no-scroll %root% {{ opacity: 0; visibility: hidden; transition: opacity .2s, visibility 0s linear .2s; }}
 }}

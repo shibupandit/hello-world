@@ -1291,7 +1291,7 @@
  },
  {
   "name": "callbar",
-  "css": "%root% { display: none; }\n@media (max-width: 767px) {\n  %root% { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs); position: fixed; left: 0; right: 0; bottom: 0; z-index: 65; background: var(--base-trans-90); -webkit-backdrop-filter: blur(.75em); backdrop-filter: blur(.75em); border-top: var(--pnw-border-dark); padding: var(--space-xs) var(--gutter) calc(var(--space-xs) + env(safe-area-inset-bottom, 0px)); }\n  %root% .brxe-button { justify-content: center; }\n  body { padding-bottom: 4.75em; }\n  %root% { transition: opacity .3s var(--pnw-ease), visibility 0s; }\n  body.no-scroll %root% { opacity: 0; visibility: hidden; transition: opacity .2s, visibility 0s linear .2s; }\n}",
+  "css": "%root% { display: none; }\n@media (max-width: 767px) {\n  %root% { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs); position: fixed; left: 0; right: 0; bottom: 0; z-index: 65; background: var(--base-trans-90); -webkit-backdrop-filter: blur(.75em); backdrop-filter: blur(.75em); border-top: var(--pnw-border-dark); padding: var(--space-xs) var(--gutter) calc(var(--space-xs) + env(safe-area-inset-bottom, 0px)); }\n  %root% .brxe-button { justify-content: center; }\n  body { padding-bottom: 4.75em; background-color: var(--base-dark); }\n  main { background-color: var(--white); }\n  %root% { transition: opacity .3s var(--pnw-ease), visibility 0s; }\n  body.no-scroll %root% { opacity: 0; visibility: hidden; transition: opacity .2s, visibility 0s linear .2s; }\n}",
   "category": "PNW"
  },
  {
