@@ -17,6 +17,14 @@ if ( ! $classes || ! $els ) {
 }
 update_option( 'pnw_build_sha', $sha, false );
 $out = [];
+// Optional, to run part of the sync (the host can drop long requests):
+// $steps = [ 'classes', 'templates', 'home', 'pages', 'render' ]; $from = '<home section key>' resumes the
+// home page from that section without clearing it.
+$steps = $steps ?? [ 'classes', 'templates', 'home', 'pages', 'render' ];
+$from  = $from ?? null;
+$do    = function ( $step ) use ( $steps ) {
+	return in_array( $step, $steps, true );
+};
 
 // 1. Classes: create / update, then delete PNW classes no longer in the generator.
 $create = wp_get_ability( 'novamira/bricks-create-global-class' );
@@ -28,7 +36,7 @@ foreach ( (array) get_option( 'bricks_global_classes', [] ) as $c ) {
 }
 $want_names = [];
 $made = $upd = 0;
-foreach ( $classes as $x ) {
+foreach ( $do( 'classes' ) ? $classes : [] as $x ) {
 	$want_names[] = $x['name'];
 	$s = [ '_cssCustom' => $x['css'] ];
 	if ( isset( $ex[ $x['name'] ] ) ) {
@@ -53,7 +61,7 @@ foreach ( (array) get_option( 'bricks_global_classes_categories', [] ) as $cat )
 	}
 }
 $removed = [];
-foreach ( $ex as $name => $c ) {
+foreach ( $do( 'classes' ) ? $ex : [] as $name => $c ) {
 	if ( $pnw_cat && ( $c['category'] ?? '' ) === $pnw_cat && ! in_array( $name, $want_names, true ) ) {
 		$r = $del->execute( [ 'id' => $c['id'] ] );
 		$removed[] = $name . ( is_wp_error( $r ) ? ' (error: ' . $r->get_error_message() . ')' : '' );
@@ -116,22 +124,30 @@ $prep = function ( $list ) use ( $resolve ) {
 $set  = wp_get_ability( 'novamira/bricks-set-content' );
 $ins  = wp_get_ability( 'novamira/bricks-insert-content' );
 $tpls = get_option( 'pnw_template_ids', [] );
-foreach ( [ 'header', 'footer' ] as $area ) {
+foreach ( $do( 'templates' ) ? [ 'header', 'footer' ] : [] as $area ) {
 	$r = $set->execute( [ 'post_id' => (int) $tpls[ $area ], 'area' => $area, 'elements' => $prep( $els[ $area ] ) ] );
 	$out[ $area ] = is_wp_error( $r ) ? $r->get_error_message() : ( $r['verified'] ? 'ok' : 'mismatch' );
 }
 
 // 4. Home page, one insert per section.
 $post = (int) get_option( 'page_on_front' );
-$set->execute( [ 'post_id' => $post, 'area' => 'content', 'elements' => [] ] );
-foreach ( $els['sections'] as $s ) {
+$home = $do( 'home' ) ? $els['sections'] : [];
+if ( $home && ! $from ) {
+	$set->execute( [ 'post_id' => $post, 'area' => 'content', 'elements' => [] ] );
+}
+$skip = (bool) $from;
+foreach ( $home as $s ) {
+	if ( $skip && $s['key'] !== $from ) {
+		continue;
+	}
+	$skip = false;
 	$r = $ins->execute( [ 'post_id' => $post, 'area' => 'content', 'elements' => $prep( $s['elements'] ) ] );
 	$out['page'][ $s['key'] ] = is_wp_error( $r ) ? $r->get_error_message() : ( $r['verified'] ? 'ok' : 'mismatch' );
 }
 
 // 4b. Other pages (e.g. service posts), found or created by slug + post type.
 $out['pages'] = [];
-foreach ( (array) ( $els['pages'] ?? [] ) as $pg ) {
+foreach ( $do( 'pages' ) ? (array) ( $els['pages'] ?? [] ) : [] as $pg ) {
 	$p = get_page_by_path( $pg['slug'], OBJECT, $pg['post_type'] );
 	$pid = $p ? (int) $p->ID : (int) wp_insert_post( [
 		'post_type'   => $pg['post_type'],
@@ -155,7 +171,7 @@ foreach ( (array) ( $els['pages'] ?? [] ) as $pg ) {
 	$res['url'] = get_permalink( $pid );
 	$out['pages'][ $pg['key'] ] = $res;
 }
-if ( ! empty( $els['pages'] ) ) {
+if ( $do( 'pages' ) && ! empty( $els['pages'] ) ) {
 	flush_rewrite_rules( false );
 }
 
@@ -171,6 +187,8 @@ $test = function ( $elements ) {
 		return $e->getMessage();
 	}
 };
+$out['render'] = [];
+if ( $do( 'render' ) ) {
 $out['render'] = [
 	'header' => $test( get_post_meta( (int) $tpls['header'], BRICKS_DB_PAGE_HEADER, true ) ),
 	'footer' => $test( get_post_meta( (int) $tpls['footer'], BRICKS_DB_PAGE_FOOTER, true ) ),
@@ -178,6 +196,7 @@ $out['render'] = [
 ];
 foreach ( $out['pages'] as $k => $res ) {
 	$out['render'][ $k ] = $test( get_post_meta( $res['id'], BRICKS_DB_PAGE_CONTENT, true ) );
+}
 }
 $out['missing'] = array_values( array_unique( $missing ) );
 return $out;
