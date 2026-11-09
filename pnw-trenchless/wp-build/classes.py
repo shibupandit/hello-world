@@ -386,10 +386,10 @@ c("sign", f"""
 %root% {{ display: grid; grid-template-columns: 3.5em minmax(0, 1fr) auto; gap: var(--space-m); align-items: center; padding: var(--space-m) 0; border-bottom: var(--pnw-border); border-radius: var(--radius); transition: padding .35s var(--pnw-ease), background-color .35s; }}
 %root%:hover {{ padding-inline: var(--space-s); background: var(--white); }}
 %root%:hover .sign__ico {{ background: var(--primary); color: var(--white); border-color: var(--primary); }}
-{L} {{ %root% {{ grid-template-columns: 3em minmax(0, 1fr); }} %root% .sign__tag {{ grid-column: 2; justify-self: start; }} }}
+{L} {{ %root% {{ grid-template-columns: 3em minmax(0, 1fr); }} %root% .sign__ico {{ width: 3em; height: 3em; }} %root% .sign__tag {{ grid-column: 2; justify-self: start; }} }}
 """)
 c("sign__ico", """
-%root% { width: 3.5em; height: 3.5em; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white); border: var(--pnw-border); color: var(--primary); transition: background-color .3s, color .3s, border-color .3s; }
+%root% { width: 3.5em; height: 3.5em; aspect-ratio: 1; flex: none; justify-self: start; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white); border: var(--pnw-border); color: var(--primary); transition: background-color .3s, color .3s, border-color .3s; }
 %root% svg { width: 1.5em; height: 1.5em; }
 """)
 c("sign__body", "%root% { display: flex; flex-direction: column; gap: calc(var(--space-xs) / 2); }")

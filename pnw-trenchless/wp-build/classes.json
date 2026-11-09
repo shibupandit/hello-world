@@ -471,12 +471,12 @@
  },
  {
   "name": "sign",
-  "css": "%root% { display: grid; grid-template-columns: 3.5em minmax(0, 1fr) auto; gap: var(--space-m); align-items: center; padding: var(--space-m) 0; border-bottom: var(--pnw-border); border-radius: var(--radius); transition: padding .35s var(--pnw-ease), background-color .35s; }\n%root%:hover { padding-inline: var(--space-s); background: var(--white); }\n%root%:hover .sign__ico { background: var(--primary); color: var(--white); border-color: var(--primary); }\n@media (max-width: 767px) { %root% { grid-template-columns: 3em minmax(0, 1fr); } %root% .sign__tag { grid-column: 2; justify-self: start; } }",
+  "css": "%root% { display: grid; grid-template-columns: 3.5em minmax(0, 1fr) auto; gap: var(--space-m); align-items: center; padding: var(--space-m) 0; border-bottom: var(--pnw-border); border-radius: var(--radius); transition: padding .35s var(--pnw-ease), background-color .35s; }\n%root%:hover { padding-inline: var(--space-s); background: var(--white); }\n%root%:hover .sign__ico { background: var(--primary); color: var(--white); border-color: var(--primary); }\n@media (max-width: 767px) { %root% { grid-template-columns: 3em minmax(0, 1fr); } %root% .sign__ico { width: 3em; height: 3em; } %root% .sign__tag { grid-column: 2; justify-self: start; } }",
   "category": "PNW"
  },
  {
   "name": "sign__ico",
-  "css": "%root% { width: 3.5em; height: 3.5em; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white); border: var(--pnw-border); color: var(--primary); transition: background-color .3s, color .3s, border-color .3s; }\n%root% svg { width: 1.5em; height: 1.5em; }",
+  "css": "%root% { width: 3.5em; height: 3.5em; aspect-ratio: 1; flex: none; justify-self: start; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white); border: var(--pnw-border); color: var(--primary); transition: background-color .3s, color .3s, border-color .3s; }\n%root% svg { width: 1.5em; height: 1.5em; }",
   "category": "PNW"
  },
  {
