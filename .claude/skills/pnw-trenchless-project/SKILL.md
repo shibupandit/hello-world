@@ -149,6 +149,13 @@ Mobile call bar.
 - Service-area city lists (Clayton etc.), the map illustration's labels and the "Est. 2025" year stay static.
 - **Page cache:** StackCache (host) only purges a post's own URL. The mu-plugin `wp-content/mu-plugins/pnw-cache-purge.php` (source `wp-build/mu-plugins/pnw-cache-purge.php`) purges everything when Website Settings, a testimonial or a service is saved, trashed or deleted.
 
+## Quote form (Fluent Forms)
+
+- Fluent Forms (free, 6.2.17) installed from wordpress.org on 2026-11-09. Form **#3 "Request a quote"**: service (radio chips: Sewer line repair, Pipe lining, Pipe bursting, Water line, Camera inspection, Not sure yet; required), property type (radio chips), name + phone (required, `ff-half`), email + address (`ff-half`), details textarea, a photo tip (custom HTML), submit "Request My Quote" with the ACSS `btn--primary` class. Same-page confirmation, form hidden after submit. Fluent stores the page URL with each entry, so there is no hidden source field.
+- In Bricks the `estimate()` section embeds it with a **Shortcode** element (`[fluentform id="3"]`, constant `QUOTE_FORM_ID` in `elements.py`) carrying the class `form__fluent`, inside the white `form` card (title, "Takes about a minute", fine print stay as Bricks elements).
+- `form__fluent` restyles Fluent's markup with ACSS variables (labels, inputs, radio chips with `:has(input:checked)`, error text, tip box, submit using ACSS `--btn-*` variables plus an arrow, success message) and maps Fluent's `--fluentform-primary/-danger/-border-color` to ACSS colours. The dummy-form classes (chips, chip-option, form__row, form__field*, form__sep, upload) were deleted.
+- Not done yet: **file upload** needs Fluent Forms Pro; email notification recipients and the GoHighLevel / GA4 hookup still to set up.
+
 ## Still unknown (ask Mike / the user)
 
 - Google rating, review count and real reviews

@@ -48,7 +48,7 @@ Source: a read-only review of the whitecrowtemplate.kinsta.cloud build (the "Har
 - The form sits in a wrapper with the global class `form` (plus `form--dark` on dark backgrounds). That class restyles Fluent Forms: labels, inputs on `--base-ultra-light`, a focus ring in `--primary`, and a full-width submit button.
 - Two-column fields use the Fluent Forms container class `ff-half` inside a grid `fieldset`, collapsing to 1 column below 480px.
 - Example: "Case Review (short)" has Full name (`ff-half`), Phone (`ff-half`), a Type of matter select and a "Briefly, what happened?" textarea, with a same-page confirmation message.
-- For PNW: create the "Request a quote" form the same way. Name and Phone use `ff-half`, Email and Address use `ff-half`, the service type and property type are radio/select fields, then details and a file upload. Style it with the `form` class.
+- PNW (built 2026-11-09): Fluent Forms #3 "Request a quote", embedded with a Bricks Shortcode element that has the class `form__fluent` inside the `form` card; see the project skill for fields and styling. Originally planned: create the "Request a quote" form the same way. Name and Phone use `ff-half`, Email and Address use `ff-half`, the service type and property type are radio/select fields, then details and a file upload. Style it with the `form` class.
 
 ## Media
 
