@@ -8,6 +8,7 @@ from elements import (N, section, container, block, div, h, t, span, a, svg, btn
                       head, head_split, estimate, flatten, review_loop, TEL, PHONE, ADDRESS)
 
 HOME = "/"
+BURSTING = "/services/pipe-bursting/"
 
 
 def tbc(x):
@@ -82,7 +83,7 @@ def fit():
                 block("fit-card fit-card--no", [
                     block("fit-card__head", [block("fit-card__ico", [svg("icon-alert.svg")], tag="span"), h("h3", "Usually a different fix", "fit-card__title")]),
                     block("fit-card__list", [
-                        block("fit-card__item", [span(x), a(alt, "/#services", "fit-card__alt") if linked else span(alt, "fit-card__alt fit-card__alt--static")], tag="li")
+                        block("fit-card__item", [span(x), a(alt, BURSTING, "fit-card__alt") if linked else span(alt, "fit-card__alt fit-card__alt--static")], tag="li")
                         for x, alt, linked in no
                     ], tag="ul"),
                 ]),
@@ -125,7 +126,7 @@ def inside():
                  f"Same pipe, same camera, before and after lining. {tbc('Job location, pipe material, length')}."),
             block("inside__grid", [
                 still("feed--roots", "Before", "", '4" CLAY · JOINT 6', "Roots at the joint.", "Illustrated camera view: roots at a pipe joint before lining"),
-                still("", "After", "still__tag--after", "CURED LINER", "Smooth, jointless liner.", "Illustrated camera view: smooth lined pipe after lining"),
+                still("feed--clean", "After", "still__tag--after", "CURED LINER", "Smooth, jointless liner.", "Illustrated camera view: smooth lined pipe after lining"),
             ]),
         ]),
     ], label="Before and after")
@@ -261,7 +262,7 @@ def faq():
 
 
 def more():
-    rel = [("icon-burst.svg", "Pipe bursting", "/#services"), ("icon-drop.svg", "Water line replacement", "/#services"),
+    rel = [("icon-burst.svg", "Pipe bursting", BURSTING), ("icon-drop.svg", "Water line replacement", "/#services"),
            ("icon-camera.svg", f"Sewer camera inspection {tbc('standalone?')}", "/#services"), ("icon-yard.svg", "Trenchless vs. digging: full comparison", "/#how")]
     cities = ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]
     return section("section section--tint", [

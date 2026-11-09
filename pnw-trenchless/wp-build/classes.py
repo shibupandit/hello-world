@@ -114,6 +114,7 @@ c("feed--roots", """
     radial-gradient(ellipse 4% 16% at 40% 66%, color-mix(in srgb, var(--accent-dark) 45%, var(--base-dark)) 0 60%, transparent 62%),
     radial-gradient(ellipse 18% 4% at 50% 30%, color-mix(in srgb, var(--accent-dark) 35%, var(--base-dark)) 0 60%, transparent 62%); }
 """)
+c("feed--clean", "%root% { background: radial-gradient(circle at 50% 52%, var(--black) 0 9%, color-mix(in srgb, var(--primary) 30%, var(--base-dark)) 10% 24%, color-mix(in srgb, var(--primary) 85%, var(--base-dark)) 25% 37%, color-mix(in srgb, var(--primary) 65%, var(--base-dark)) 38% 56%, color-mix(in srgb, var(--primary) 20%, var(--base-dark)) 57%); }")
 c("feed__hud", """
 %root% { position: absolute; left: .9em; right: .9em; bottom: .8em; z-index: 3; display: flex; justify-content: space-between; gap: .6em; text-transform: uppercase; }
 """)
