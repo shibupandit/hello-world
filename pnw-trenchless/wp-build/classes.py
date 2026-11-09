@@ -1063,6 +1063,78 @@ c("quotes__grid--3", f"%root% {{ grid-template-columns: repeat(3, minmax(0, 1fr)
 
 
 # --------------------------------------------------------------------------
+# CONTACT PAGE (design: pnw-trenchless/contact.html)
+# Reuses crumbs, svc-hero, owner__creds, form + form__fluent, split--areas, city-list, map, split--faq.
+# --------------------------------------------------------------------------
+c("contact-hero", "%root% .svc-hero__title { max-width: 14ch; }")
+c("reach", f"""
+%root% {{ display: flex; flex-direction: column; gap: .6em; padding: var(--space-m); border-radius: var(--radius-l); background: var(--white-trans-10); border: var(--pnw-border-dark); box-shadow: var(--box-shadow-l); width: 100%; }}
+{L} {{ %root% {{ padding: var(--space-s); }} }}
+""")
+c("reach__item", f"""
+%root% {{ display: flex; flex-direction: row; align-items: center; gap: var(--space-m); padding: var(--space-s) var(--space-m); border-radius: var(--radius); background: var(--white-trans-10); border: var(--border-size) solid var(--white-trans-10); color: var(--white); text-decoration: none; transition: background-color .25s, border-color .25s, transform .3s var(--pnw-ease); width: 100%; }}
+%root%:hover {{ background: var(--white-trans-20); border-color: var(--white-trans-30); transform: translateX(.2em); }}
+@media (prefers-reduced-motion: reduce) {{ %root%:hover {{ transform: none; }} }}
+{L} {{ %root% {{ gap: var(--space-s); padding: var(--space-s); }} }}
+""")
+c("reach__item--primary", """
+%root% { background: var(--primary); border-color: var(--primary); box-shadow: var(--pnw-shadow-primary); }
+%root%:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+%root% .reach__ico { background: var(--white-trans-20); color: var(--white); }
+%root% .reach__label { color: var(--white-trans-80); }
+%root% .reach__value { font-size: calc(var(--h3) * 1.05); font-weight: 900; }
+""")
+c("reach__ico", "%root% { width: 2.75em; height: 2.75em; aspect-ratio: 1; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white-trans-10); color: var(--primary-light); }\n%root% svg { width: 1.25em; height: 1.25em; }")
+c("reach__body", "%root% { display: flex; flex-direction: column; gap: 0; min-width: 0; flex: 1 1 auto; }")
+c("reach__label", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--text-light-muted); }")
+c("reach__value", f"%root% {{ font-family: var(--heading-font-family); font-weight: 800; font-size: var(--h4); color: var(--white); }}\n{L} {{ %root% {{ font-size: var(--text-m); }} }}")
+c("reach__go", f"%root% {{ width: 1.1em; height: 1.1em; flex: none; opacity: .7; }}\n{L} {{ %root% {{ display: none; }} }}")
+c("reach__hours", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: .5em; padding: .35em .25em 0; font-size: var(--text-s); color: var(--text-light-muted); }")
+c("reach__dot", "%root% { display: block; width: .55em; height: .55em; flex: none; border-radius: var(--radius-circle); background: var(--primary-light); box-shadow: 0 0 0 .25em var(--primary-light-trans-20); }")
+
+c("connect__grid", f"""
+%root% {{ display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: var(--space-xxl); align-items: start; width: 100%; }}
+{T} {{ %root% {{ grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }} }}
+""")
+c("connect__form", "%root% { box-shadow: var(--box-shadow-l); border: var(--pnw-border); }\n%root% .form__title { font-size: calc(var(--h3) * 1.05); }")
+c("connect__side", f"""
+%root% {{ display: flex; flex-direction: column; gap: var(--space-xl); position: sticky; top: calc(var(--pnw-header-h) + var(--space-l)); min-width: 0; }}
+{T} {{ %root% {{ position: static; }} }}
+""")
+c("connect__block", "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-s); }")
+c("connect__title", "%root% { font-size: calc(var(--h3) * 1.05); }\n%root% .serif { color: var(--primary); }")
+c("steps-mini", "%root% { list-style: none; margin: var(--space-s) 0 0; padding: 0; width: 100%; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; gap: 0; }")
+c("steps-mini__item", "%root% { display: grid; grid-template-columns: 2.5em minmax(0, 1fr); gap: var(--space-s); padding: var(--space-s) 0; border-bottom: var(--pnw-border); }")
+c("steps-mini__num", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); color: var(--primary); padding-top: .25em; }")
+c("steps-mini__body", "%root% { display: flex; flex-direction: column; gap: .15em; }")
+c("steps-mini__title", "%root% { font-family: var(--heading-font-family); font-weight: 700; font-size: var(--text-l); color: var(--text-dark); }")
+c("steps-mini__text", "%root% { color: var(--text-dark-muted); font-size: var(--text-s); }")
+c("info-card", "%root% { margin: 0; padding: var(--space-l); border-radius: var(--radius-l); background: var(--base); color: var(--text-light); box-shadow: var(--box-shadow-l); display: flex; flex-direction: column; gap: 0; width: 100%; }")
+c("info-card__row", f"""
+%root% {{ display: grid; grid-template-columns: 7em minmax(0, 1fr); gap: var(--space-s); padding: .7em 0; border-bottom: var(--pnw-border-dark); }}
+%root%:first-child {{ padding-top: 0; }}
+%root%:last-child {{ border-bottom: 0; padding-bottom: 0; }}
+{L} {{ %root% {{ grid-template-columns: minmax(0, 1fr); gap: .2em; }} }}
+""")
+c("info-card__term", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--primary-light); padding-top: .2em; }")
+c("info-card__value", "%root% { margin: 0; font-weight: 600; color: var(--white); }")
+
+c("urgent", "%root% { padding-block: var(--space-xxl); }")
+c("urgent__card", f"""
+%root% {{ display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-l); align-items: center; padding: var(--space-l) var(--space-xl); border-radius: var(--radius-l); background: color-mix(in srgb, var(--accent) 12%, var(--white)); border: var(--border-size) solid color-mix(in srgb, var(--accent) 45%, transparent); width: 100%; }}
+{T} {{ %root% {{ grid-template-columns: auto minmax(0, 1fr); }} }}
+{L} {{ %root% {{ grid-template-columns: minmax(0, 1fr); padding: var(--space-l); }} }}
+""")
+c("urgent__ico", "%root% { width: 3.5em; height: 3.5em; aspect-ratio: 1; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--accent); color: var(--base); }\n%root% svg { width: 1.6em; height: 1.6em; }")
+c("urgent__text", "%root% { display: flex; flex-direction: column; gap: .35em; min-width: 0; }\n%root% > p { color: var(--text-dark-muted); }")
+c("urgent__title", "%root% { font-size: calc(var(--h3) * 1.05); }")
+c("urgent__actions", f"""
+%root% {{ display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs); justify-content: flex-end; width: auto; }}
+{T} {{ %root% {{ grid-column: 1 / -1; justify-content: flex-start; }} }}
+""")
+
+
+# --------------------------------------------------------------------------
 # SERVICE PAGE: Sewer Pipe Lining (shared service-page blocks)
 # --------------------------------------------------------------------------
 c("crumbs", "%root% { display: block; width: 100%; }")

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520"><rect width="600" height="520" fill="#0E1621"/>
+          <g fill="none" stroke="#1A2533" stroke-width="1.2">
+            <path d="M0 50c90-26 170 30 270 2s200-34 330 8"/><path d="M0 90c90-26 170 30 270 2s200-34 330 8"/><path d="M0 230c90-30 170 20 260-5s210-20 340 15"/><path d="M0 270c90-30 170 20 260-5s210-20 340 15"/><path d="M0 330c120 20 200-30 300-10s180 30 300 0"/><path d="M0 470c120 20 200-30 300-10s180 30 300 0"/>
+          </g>
+          <path d="M0 150 L260 150 L300 136 L420 136 L420 0" fill="none" stroke="#2B3747" stroke-width="1.5" stroke-dasharray="6 6"/>
+          <text x="24" y="120" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#5D6A7A">STEVENS CO.</text>
+          <text x="24" y="176" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#5D6A7A">SPOKANE CO.</text>
+          <ellipse cx="380" cy="285" rx="235" ry="205" fill="#2F7A4B" fill-opacity=".12" stroke="#6CC08A" stroke-opacity=".6" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+          <path d="M383 409 L360 290 L349 163 L330 0" fill="none" stroke="#2B3747" stroke-width="6" stroke-linecap="round"/>
+          <path d="M0 412 L383 409 L507 398 L600 392" fill="none" stroke="#2B3747" stroke-width="8" stroke-linecap="round"/>
+          <path d="M120 480 C220 450 300 410 383 428 S520 388 600 368" fill="none" stroke="#2B5BB5" stroke-width="3" opacity=".8"/>
+          <g font-family="JetBrains Mono, monospace" font-size="10"><rect x="331" y="250" width="34" height="16" rx="3" fill="#1A2533"/><text x="337" y="262" fill="#A8B3BF">395</text><rect x="196" y="402" width="32" height="16" rx="3" fill="#2B5BB5"/><text x="203" y="414" fill="#fff">I-90</text></g>
+          <g font-family="Public Sans, sans-serif" font-weight="700" font-size="15" fill="#F3F5F2">
+            <circle class="map__pulse" cx="293" cy="128" r="12" fill="#6CC08A"/>
+            <circle cx="293" cy="128" r="9" fill="#6CC08A" stroke="#0E1621" stroke-width="3"/>
+            <text x="196" y="118">Clayton</text>
+            <circle cx="349" cy="163" r="7" fill="#F3F5F2" stroke="#0E1621" stroke-width="3"/><text x="362" y="168">Deer Park</text>
+            <circle cx="383" cy="409" r="9" fill="#F3F5F2" stroke="#0E1621" stroke-width="3"/><text x="336" y="448">Spokane</text>
+            <circle cx="507" cy="398" r="7" fill="#F3F5F2" stroke="#0E1621" stroke-width="3"/><text x="440" y="378">Spokane Valley</text>
+          </g>
+          <g font-family="JetBrains Mono, monospace" font-size="10" fill="#5D6A7A">
+            <path d="M24 490h143" stroke="#A8B3BF" stroke-width="2"/><path d="M24 484v12M95 486v8M167 484v12" stroke="#A8B3BF" stroke-width="1.5"/>
+            <text x="24" y="478">0</text><text x="150" y="478">10 MI</text>
+            <path d="M566 30l10 26-10-6-10 6z" fill="#A8B3BF"/><text x="562" y="72">N</text>
+          </g></svg>

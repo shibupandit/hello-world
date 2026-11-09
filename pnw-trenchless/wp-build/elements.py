@@ -24,7 +24,7 @@ FB = "https://www.facebook.com/profile.php?id=61589495076554"
 PHONE = "{acf_site_phone}"
 QUOTE_FORM_ID = 3  # Fluent Forms "Request a quote"
 NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/#who"), ("How It Works", "/#how"),
-             ("About", "/about/"), ("Service Areas", "/#areas"), ("Contact", "/#estimate")]
+             ("About", "/about/"), ("Service Areas", "/#areas"), ("Contact", "/contact/")]
 
 
 def M(f, **extra):
@@ -223,7 +223,7 @@ def footer():
                 ]),
                 col("Services", [("Sewer Pipe Lining", "/#services"), ("Pipe Bursting", "/#services"), ("Water Line Pulling", "/#services"), ("Point Repairs", "/#services")]),
                 col("Service Areas", [(x, "/#areas") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
-                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/about/"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/#estimate"), span(HOURS, "footer__hours", **when(HOURS))]),
+                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/about/"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/contact/"), span(HOURS, "footer__hours", **when(HOURS))]),
             ]),
             t("TRENCHLESS", "footer__word", tag="div", _attributes=attrs(aria_hidden="true")),
             block("footer__bottom", [
@@ -704,18 +704,23 @@ def faq():
     ], sid="faq", label="FAQ")
 
 
+def quote_form(title_tag="h3", extra_cls=""):
+    """The white quote card around Fluent Forms "Request a quote" (one form for every page;
+    Fluent stores the page URL with each entry)."""
+    return block(("form " + extra_cls).strip(), [
+        block("form__head", [h(title_tag, "Request a quote", "form__title"), span("Takes about a minute", "form__hint")]),
+        N("shortcode", "form__fluent", shortcode=f'[fluentform id="{QUOTE_FORM_ID}"]'),
+        t('No obligation. We reply personally, usually <span class="tbc">same day</span>.', "form__fine"),
+    ], label=f"Quote form (Fluent Forms #{QUOTE_FORM_ID})")
+
+
 def estimate(kicker="Request a quote", title='Get a <span class="serif">true and honest</span> quote.',
              intro="Give us some details and we'll reach out right away. Homes, businesses and industrial sites across Spokane and Stevens County.",
              contact_ways=True):
     ways = [("icon-phone.svg", "Call", PHONE, TEL, False), ("icon-chat.svg", "Text", "Send a photo", SMS, False),
             ("icon-mail.svg", "Email", "Write to us", MAIL + "?subject=Quote%20request", False), ("icon-fb.svg", "Facebook", "Message us", FB, True)]
 
-    # Fluent Forms "Request a quote" (one form for every page; a hidden field records the page title).
-    form = block("form", [
-        block("form__head", [h("h3", "Request a quote", "form__title"), span("Takes about a minute", "form__hint")]),
-        N("shortcode", "form__fluent", shortcode=f'[fluentform id="{QUOTE_FORM_ID}"]'),
-        t('No obligation. We reply personally, usually <span class="tbc">same day</span>.', "form__fine"),
-    ], label=f"Quote form (Fluent Forms #{QUOTE_FORM_ID})")
+    form = quote_form()
     return section("section section--dark estimate", [
         div("estimate__glow", _attributes=attrs(aria_hidden="true")),
         container([
@@ -770,6 +775,8 @@ def build():
     data["pages"].append(elements_lining.page())
     import elements_about
     data["pages"].append(elements_about.page())
+    import elements_contact
+    data["pages"].append(elements_contact.page())
     pathlib.Path(__file__).with_name("elements.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
     return data
 
