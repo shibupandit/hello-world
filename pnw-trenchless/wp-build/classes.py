@@ -879,7 +879,7 @@ c("footer__phone", "%root% { font-family: var(--heading-font-family); font-weigh
 c("footer__word", """
 %root% { font-family: var(--heading-font-family); font-weight: 900; font-size: clamp(var(--h2), calc(var(--space-xs) + 8.4vw), calc(var(--h1) * 1.55)); line-height: .85; letter-spacing: -.06em; color: transparent; -webkit-text-stroke: .008em var(--white-trans-20); text-align: center; padding-block: var(--space-xl) var(--space-m); white-space: nowrap; overflow: hidden; user-select: none; width: 100%; }
 """)
-c("footer__bottom", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: var(--space-xs) var(--space-l); font-size: var(--text-xs); width: 100%; }")
+c("footer__bottom", f"%root% {{ display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: var(--space-xs) var(--space-l); font-size: var(--text-xs); width: 100%; }}\n{T} {{ %root% {{ flex-direction: column; align-items: center; justify-content: center; text-align: center; }} %root% .footer__legal {{ justify-content: center; }} }}")
 c("footer__legal", "%root% { display: flex; flex-direction: row; gap: var(--space-xs); }")
 c("social", "%root% { display: flex; flex-direction: row; gap: var(--space-xs); margin-top: var(--space-xs); }")
 c("social__link", """
