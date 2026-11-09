@@ -226,7 +226,7 @@ c("nav__phone", "%root% { display: flex; flex-direction: row; align-items: cente
 c("nav__quote", "%root% { width: 100%; justify-content: center; }")
 c("nav__open", f"""
 %root% {{ display: none; }}
-{NAV} {{ .nav %root% {{ display: grid; place-items: center; font-size: var(--text-m); width: 2.6em; height: 2.6em; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: 1; --brxe-toggle-width: 1.15em; --brxe-toggle-height: .8em; --brxe-toggle-bar-width: 1.15em; --brxe-toggle-bar-height: .12em; --brxe-toggle-bar-radius: var(--radius-circle); line-height: 0; }} }}
+{NAV} {{ .nav %root% {{ display: grid; place-items: center; font-size: var(--text-m); width: 52px; height: 52px; flex: none; padding: 0; margin: 0; border: var(--border-size) solid var(--white-trans-20); border-radius: var(--radius-circle); color: var(--white); --brxe-toggle-scale: 1; --brxe-toggle-width: 32px; --brxe-toggle-height: 22px; --brxe-toggle-bar-width: 32px; --brxe-toggle-bar-height: 2.5px; --brxe-toggle-bar-radius: var(--radius-circle); line-height: 0; }} }}
 %root% .brxa-wrap {{ display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }}
 %root% .brxa-inner {{ color: inherit; }}
 %root%:hover, %root%.is-active {{ border-color: var(--primary-light); }}
@@ -242,8 +242,8 @@ c("header__phone", f"""
 {NAV} {{ %root% .header__phone-text {{ display: none; }} }}
 """)
 c("header__phone-ico", """
-%root% { width: 2.6em; height: 2.6em; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; border: var(--border-size) solid var(--white-trans-20); }
-%root% svg { width: 1.05em; height: 1.05em; }
+%root% { width: 52px; height: 52px; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; border: var(--border-size) solid var(--white-trans-20); }
+%root% svg { width: 32px; height: 32px; min-width: 32px; min-height: 32px; flex: none; }
 """)
 c("header__phone-text", "%root% { display: flex; flex-direction: column; line-height: 1.15; }")
 c("header__phone-label", "%root% { font-size: var(--text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--text-light-muted); font-weight: 600; }")
@@ -804,7 +804,7 @@ c("contact-ways", f"""
 c("contact-way", """
 %root% { display: flex; flex-direction: column; align-items: flex-start; gap: .35em; padding: var(--space-s); border-radius: var(--radius); border: var(--pnw-border-dark); background: var(--white-trans-10); color: var(--white); text-decoration: none; font-weight: 700; font-size: var(--text-s); transition: background-color .25s, border-color .25s; min-width: 0; }
 %root%:hover { background: var(--white-trans-20); border-color: var(--white-trans-30); }
-%root% svg { width: 1.25em; height: 1.25em; color: var(--primary-light); }
+%root% svg { width: 32px; height: 32px; min-width: 32px; min-height: 32px; flex: none; color: var(--primary-light); }
 """)
 c("contact-way__note", "%root% { font-weight: 500; font-size: var(--text-xs); color: var(--text-light-muted); overflow-wrap: anywhere; }")
 c("next", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; border-top: var(--pnw-border-dark); width: 100%; }")
@@ -882,9 +882,9 @@ c("footer__bottom", "%root% { display: flex; flex-direction: row; flex-wrap: wra
 c("footer__legal", "%root% { display: flex; flex-direction: row; gap: var(--space-xs); }")
 c("social", "%root% { display: flex; flex-direction: row; gap: var(--space-xs); margin-top: var(--space-xs); }")
 c("social__link", """
-%root% { width: 2.5em; height: 2.5em; border-radius: var(--radius-circle); display: grid; place-items: center; border: var(--border-size) solid var(--white-trans-20); color: var(--white); transition: background-color .25s, border-color .25s; }
+%root% { width: calc(32px + 1.25em); height: calc(32px + 1.25em); border-radius: var(--radius-circle); display: grid; place-items: center; border: var(--border-size) solid var(--white-trans-20); color: var(--white); transition: background-color .25s, border-color .25s; }
 %root%:hover { background: var(--secondary); border-color: var(--secondary); }
-%root% svg { width: 1.05em; height: 1.05em; }
+%root% svg { width: 32px; height: 32px; min-width: 32px; min-height: 32px; flex: none; }
 """)
 c("callbar", f"""
 %root% {{ display: none; }}
@@ -1064,7 +1064,7 @@ c("reach__item--primary", """
 %root% .reach__label { color: var(--white-trans-80); }
 %root% .reach__value { font-size: calc(var(--h3) * 1.05); font-weight: 900; }
 """)
-c("reach__ico", "%root% { width: 2.75em; height: 2.75em; aspect-ratio: 1; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white-trans-10); color: var(--primary-light); }\n%root% svg { width: 1.25em; height: 1.25em; }")
+c("reach__ico", "%root% { width: calc(32px + 1.25em); height: calc(32px + 1.25em); aspect-ratio: 1; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white-trans-10); color: var(--primary-light); }\n%root% svg { width: 32px; height: 32px; min-width: 32px; min-height: 32px; flex: none; }")
 c("reach__body", "%root% { display: flex; flex-direction: column; gap: 0; min-width: 0; flex: 1 1 auto; }")
 c("reach__label", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--text-light-muted); }")
 c("reach__value", f"%root% {{ font-family: var(--heading-font-family); font-weight: 800; font-size: var(--h4); color: var(--white); }}\n{L} {{ %root% {{ font-size: var(--text-m); }} }}")
