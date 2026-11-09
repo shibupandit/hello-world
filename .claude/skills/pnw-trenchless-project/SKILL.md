@@ -130,6 +130,12 @@ Mobile call bar.
 - **Services CPT:** ACF Pro post type `service` (ACF post 443), archive and rewrite slug `services`, REST on, supports title/editor/thumbnail/excerpt/revisions/custom-fields. Bricks is enabled for `page` + `service` (Bricks › Settings › Post types).
 - **Build:** `wp-build/elements_lining.py` returns the page (13 sections) into `elements.json` → `pages`; `import.php` finds the post by slug + post type (creates it if missing), clears it, inserts each section and runs a render test. Next service pages: add an `elements_<slug>.py` and append it in `elements.py` `build()`.
 
+## Testimonials CPT
+
+- ACF Pro post type `testimonial` (ACF post 545): not public (no single pages or archive), shown in admin and REST, menu icon star. Title = reviewer name.
+- Field group `group_pnw_testimonial` (ACF post 546): `review_text` (textarea, required), `rating` (1–5, default 5), `city`, `source` (google / facebook / direct, returns label e.g. "Google review"), `source_url`, `review_date` (Ymd), `services` (relationship to `service`, returns IDs; service pages filter by it), `featured` (show on home), `is_placeholder` (dummy flag).
+- **10 dummy reviews** (posts 556–565, "Dummy Reviewer A–J", text starts "Dummy review text.", `is_placeholder` on), added at the user's request (2026-11-09) to test layouts. A, B and C are featured; A, C, E, G and J are linked to Sewer Pipe Lining. **They are not real reviews: delete all `is_placeholder` testimonials before launch** and replace them with real Google reviews.
+
 ## Still unknown (ask Mike / the user)
 
 - Google rating, review count and real reviews
