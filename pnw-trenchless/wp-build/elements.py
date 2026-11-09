@@ -24,7 +24,7 @@ FB = "https://www.facebook.com/profile.php?id=61589495076554"
 PHONE = "{acf_site_phone}"
 QUOTE_FORM_ID = 3  # Fluent Forms "Request a quote"
 NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/#who"), ("How It Works", "/#how"),
-             ("About", "/#mike"), ("Service Areas", "/#areas"), ("Contact", "/#estimate")]
+             ("About", "/about/"), ("Service Areas", "/#areas"), ("Contact", "/#estimate")]
 
 
 def M(f, **extra):
@@ -223,7 +223,7 @@ def footer():
                 ]),
                 col("Services", [("Sewer Pipe Lining", "/#services"), ("Pipe Bursting", "/#services"), ("Water Line Pulling", "/#services"), ("Point Repairs", "/#services")]),
                 col("Service Areas", [(x, "/#areas") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
-                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/#mike"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/#estimate"), span(HOURS, "footer__hours", **when(HOURS))]),
+                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/about/"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/#estimate"), span(HOURS, "footer__hours", **when(HOURS))]),
             ]),
             t("TRENCHLESS", "footer__word", tag="div", _attributes=attrs(aria_hidden="true")),
             block("footer__bottom", [
@@ -554,7 +554,7 @@ def mike():
                     block("creds", [block("creds__item", [svg(ic), span(tx)], tag="li") for ic, tx in creds], tag="ul"),
                     block("mike__sign", [
                         block("mike__sig", [span("Mike Jeisma", "mike__sig-name"), span("Owner, PNW Trenchless", "mike__sig-role")], tag="span"),
-                        a("Read Mike's full story", "#", "link-arrow"),
+                        a("Read Mike's full story", "/about/", "link-arrow"),
                     ]),
                 ]),
             ]),
@@ -768,6 +768,8 @@ def build():
     }
     import elements_lining
     data["pages"].append(elements_lining.page())
+    import elements_about
+    data["pages"].append(elements_about.page())
     pathlib.Path(__file__).with_name("elements.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
     return data
 

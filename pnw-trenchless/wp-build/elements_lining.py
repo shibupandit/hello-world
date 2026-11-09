@@ -190,7 +190,7 @@ def owner():
                         block("owner__cred", [svg("icon-check.svg"), span("WA Reg. #PNWTRT*744KQ")], tag="li"),
                         block("owner__cred", [svg("icon-home.svg"), span(f"Family-owned, {ADDRESS}")], tag="li"),
                     ], tag="ul"),
-                    a("About Mike", "/#mike", "link-arrow"),
+                    a("About Mike", "/about/", "link-arrow"),
                 ]),
             ]),
         ]),
