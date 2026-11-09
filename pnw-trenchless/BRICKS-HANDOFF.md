@@ -147,3 +147,4 @@ The build is generated from code in `wp-build/`: `classes.py` → `classes.json`
 - **Testimonials:** ACF post type `testimonial` with fields review_text, rating, city, source, source_url, review_date, services (relationship), featured and is_placeholder. 10 dummy posts ("Dummy Reviewer A–J", flagged `is_placeholder`) are for layout testing only; delete them before launch.
 - **Review loops:** Home Reviews shows the 3 newest featured testimonials; each service page shows the 2 newest testimonials linked to it (Service mentioned field). To change which reviews appear, edit the testimonial posts, not the page.
 - **About (built 2026-11-09):** page 706, `/about/`, from the approved `about.html` (builder `wp-build/elements_about.py`). Menu and footer "About" links point to it.
+- **Contact (built 2026-11-09):** page 785, `/contact/`, from the approved `contact.html` (builder `wp-build/elements_contact.py`). Menu and footer "Contact" links point to it.
