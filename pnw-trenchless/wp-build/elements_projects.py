@@ -8,7 +8,7 @@ work_caption, gallery). Every card and detail is Bricks dynamic data; empty fiel
 with element conditions, so nothing unconfirmed is shown.
 """
 from elements import (N, section, container, block, div, h, t, span, a, svg, img, btn, eyebrow, attrs, link,
-                      head, head_split, estimate, flatten, review_loop, when, TEL, PHONE)
+                      head, head_split, flatten, review_loop, when, TEL, PHONE)
 
 PROJECTS = "/projects/"
 BASE_Q = {"objectType": "post", "post_type": ["project"], "orderby": "date", "order": "desc", "no_found_rows": True}
@@ -152,12 +152,9 @@ def p_reviews():
     ], label="Reviews")
 
 
-def p_quote():
-    return estimate(kicker="Free camera estimate", title='Want a result <span class="serif">like these?</span>',
-                    intro="Start with a camera inspection. You'll see what we see before you decide anything.", contact_ways=False)
 
 
-PAGE_SECTIONS = [p_hero, p_list, p_docs, p_reviews, p_quote]
+PAGE_SECTIONS = [p_hero, p_list, p_docs, p_reviews]
 
 
 def page():
@@ -283,12 +280,9 @@ def s_more():
     ], label="More projects")
 
 
-def s_quote():
-    return estimate(kicker="Free camera estimate", title='Want a result <span class="serif">like this one?</span>',
-                    intro="Start with a camera inspection. You'll see what we see before you decide anything.", contact_ways=False)
 
 
-SINGLE_SECTIONS = [s_hero, s_glance, s_story, s_ba, s_gallery, s_reviews, s_more, s_quote]
+SINGLE_SECTIONS = [s_hero, s_glance, s_story, s_ba, s_gallery, s_reviews, s_more]
 
 
 def single_template():

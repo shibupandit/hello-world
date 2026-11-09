@@ -5,7 +5,7 @@ Review cards are a Bricks query loop over the `testimonial` post type; the proje
 query loop over `project` (cards shared with elements_projects.py). Empty values are hidden.
 """
 from elements import (N, section, container, block, h, t, span, a, svg, btn, eyebrow, attrs, link,
-                      head_split, estimate, flatten, when, RATING, REVIEWS, GOOGLE_URL)
+                      head_split, flatten, when, RATING, REVIEWS, GOOGLE_URL)
 from elements_projects import project_card, q, REAL_ONLY
 
 
@@ -99,12 +99,9 @@ def projects():
     ], label="Projects (loop)")
 
 
-def quote():
-    return estimate(kicker="Free camera estimate", title='Ready to be <span class="serif">our next review?</span>',
-                    intro="Start with a camera inspection. You'll see what we see before you decide anything.", contact_ways=False)
 
 
-SECTIONS = [hero, all_reviews, leave, projects, quote]
+SECTIONS = [hero, all_reviews, leave, projects]
 
 
 def page():

@@ -7,7 +7,7 @@ site-wide Bricks templates (101 / 102), so this file only builds the page conten
 Unknown facts stay as `tbc` placeholders; FAQ answers carry no draft label (user, 2026-11-09).
 """
 from elements import (N, section, container, block, div, h, t, span, a, svg, img, btn, eyebrow, attrs, link,
-                      head, head_split, estimate, flatten, review_loop, TEL, PHONE, ADDRESS)
+                      head, head_split, flatten, review_loop, TEL, PHONE, ADDRESS)
 from elements_projects import project_card, q, REAL_ONLY
 
 HOME = "/"
@@ -277,13 +277,9 @@ def more():
     ], label="Related + near you")
 
 
-def quote():
-    return estimate(kicker="Free camera estimate", title='Find out if one fix <span class="serif">is all you need.</span>',
-                    intro="Start with a camera inspection. If the damage is in one spot, you'll see it on the footage, and you won't pay to line the whole pipe.",
-                    contact_ways=False)
 
 
-SECTIONS = [hero, answer, fit, how, inside, specs, cost, owner, jobs, quotes, faq, more, quote]
+SECTIONS = [hero, answer, fit, how, inside, specs, cost, owner, jobs, quotes, faq, more]
 
 
 def page():

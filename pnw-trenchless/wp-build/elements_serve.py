@@ -5,7 +5,7 @@ the projects strip is a query loop over real `project` posts (cards shared with 
 Unknown facts stay as `tbc` placeholders.
 """
 from elements import (N, section, container, block, h, t, span, a, svg, img, btn, eyebrow, attrs, link,
-                      head, head_split, estimate, flatten, TEL, PHONE)
+                      head, head_split, flatten, TEL, PHONE)
 from elements_projects import project_card, q, REAL_ONLY
 
 SERVICES = [("icon-liner.svg", "Sewer pipe lining", "/services/sewer-pipe-lining/", "A new pipe inside the old one, for cracks, leaks and roots."),
@@ -210,12 +210,9 @@ def faq():
     ], sid="faq", label="FAQ")
 
 
-def quote():
-    return estimate(kicker="Free camera estimate", title='Tell us about <span class="serif">your property.</span>',
-                    intro="Start with a camera inspection. You'll see what we see before you decide anything.", contact_ways=False)
 
 
-SECTIONS = [hero, homes, commercial, industrial, side, services, projects, faq, quote]
+SECTIONS = [hero, homes, commercial, industrial, side, services, projects, faq]
 
 
 def page():

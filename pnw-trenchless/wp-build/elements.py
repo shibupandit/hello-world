@@ -23,6 +23,7 @@ MAP_IFRAME = "{acf_site_google_map_iframe}"
 FB = "https://www.facebook.com/profile.php?id=61589495076554"
 PHONE = "{acf_site_phone}"
 QUOTE_FORM_ID = 3  # Fluent Forms "Request a quote"
+CONTACT_ID = 785  # Contact page: has its own form, so the footer quote section is hidden there
 NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/who-we-serve/"), ("How It Works", "/#how"),
              ("About", "/about/"), ("Service Areas", "/#areas"), ("Contact", "/contact/")]
 
@@ -177,7 +178,7 @@ def header():
                             block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),
                             block("header__phone-text", [span("Call or text", "header__phone-label"), span(PHONE, "header__phone-num")], tag="span"),
                         ], href=link(TEL, aria=f"Call or text {PHONE}")),
-                        btn("Get a Quote", "/#estimate", "btn--primary nav__quote", icon="icon-arrow.svg"),
+                        btn("Get a Quote", "#estimate", "btn--primary nav__quote", icon="icon-arrow.svg"),
                         block("nav__contact", [
                             block("topbar__link", [svg("icon-mail.svg", "ico"), span(EMAIL)], href=MAIL),
                             block("topbar__link", [svg("icon-fb.svg", "ico"), span("Facebook")], href=link(FB, True)),
@@ -192,7 +193,7 @@ def header():
                     block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),
                     block("header__phone-text", [span("Call or text", "header__phone-label"), span(PHONE, "header__phone-num")], tag="span"),
                 ], href=link(TEL, aria=f"Call or text {PHONE}")),
-                btn("Get a Quote", "/#estimate", "btn--primary btn--s"),
+                btn("Get a Quote", "#estimate", "btn--primary btn--s"),
             ]),
         ]),
     ], tag="div")
@@ -234,9 +235,13 @@ def footer():
     ], tag="footer", label="Footer")
     callbar = block("callbar", [
         btn("Call / Text", SMS, "btn--white btn--outline btn--s", icon="icon-chat.svg", icon_left=True),
-        btn("Free Estimate", "/#estimate", "btn--primary btn--s"),
+        btn("Free Estimate", "#estimate", "btn--primary btn--s"),
     ], _attributes=attrs(aria_label="Quick contact"))
-    return [foot, callbar]
+    # Site-wide quote section (user, 2026-11-09): lives in the footer template, above the footer,
+    # on every page except Contact (which has its own form section with id="estimate").
+    quote = estimate()
+    quote.settings["_conditions"] = [[{"id": "nocnt", "key": "post_id", "compare": "!=", "value": str(CONTACT_ID)}]]
+    return [quote, foot, callbar]
 
 
 # --------------------------------------------------------------------------
@@ -713,7 +718,7 @@ def estimate(kicker="Request a quote", title='Get a <span class="serif">true and
     ], sid="estimate", label="Quote")
 
 
-SECTIONS = [hero, ticker, stats, signs, explain, services, audience, compare, decide, process, mike, projects, reviews, areas, faq, estimate]
+SECTIONS = [hero, ticker, stats, signs, explain, services, audience, compare, decide, process, mike, projects, reviews, areas, faq]
 
 
 # --------------------------------------------------------------------------

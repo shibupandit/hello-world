@@ -6,7 +6,7 @@ from the Website Settings options page; reviews come from the Testimonials post 
 Unknown facts stay as `tbc` placeholders.
 """
 from elements import (N, section, container, block, div, h, t, span, a, svg, img, btn, eyebrow, attrs, link,
-                      head, head_split, estimate, flatten, review_loop, when, TEL, PHONE, ADDRESS)
+                      head, head_split, flatten, review_loop, when, TEL, PHONE, ADDRESS)
 
 HOME = "/"
 RATING = "{acf_site_google_rating}"
@@ -229,13 +229,9 @@ def reviews():
     ], label="Reviews")
 
 
-def quote():
-    return estimate(kicker="Talk to the owner", title='Got a sewer problem? <span class="serif">Talk to Mike directly.</span>',
-                    intro="Call or text with a photo or video of the problem. He'll tell you honestly whether you need a camera inspection.",
-                    contact_ways=False)
 
 
-SECTIONS = [hero, numbers, story, promises, rig, verify, local, reviews, quote]
+SECTIONS = [hero, numbers, story, promises, rig, verify, local, reviews]
 
 
 def page():
