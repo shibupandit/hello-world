@@ -838,10 +838,11 @@ c("form__head", "%root% { display: flex; flex-direction: row; justify-content: s
 c("form__title", "%root% { font-size: calc(var(--h4) * 1.39); }")
 c("form__hint", "%root% { font-size: var(--text-s); color: var(--neutral); }")
 # Fluent Forms "Request a quote" (#3), embedded with a Shortcode element that carries this class.
-# Fluent's own markup is restyled here with ACSS variables (labels, inputs, radio chips, submit, messages).
+# Fluent's own markup is restyled here with ACSS variables (labels, inputs, radio chips, submit, messages);
+# Fluent's colour variables (--fluentform-*) are pointed at ACSS colours.
 ARROW_MASK = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E\") center / contain no-repeat"
 c("form__fluent", f"""
-%root% {{ width: 100%; }}
+%root% {{ width: 100%; --fluentform-primary: var(--primary); --fluentform-danger: var(--accent-dark); --fluentform-border-color: var(--neutral-light); }}
 %root% .fluentform {{ width: 100%; }}
 %root% .frm-fluent-form fieldset {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-s); }}
 %root% .fluentform .ff-el-group {{ grid-column: 1 / -1; margin: 0; }}
@@ -849,7 +850,6 @@ c("form__fluent", f"""
 {P} {{ %root% .fluentform .ff-el-group.ff-half {{ grid-column: 1 / -1; }} }}
 %root% .fluentform .ff-el-input--label {{ margin-bottom: .4em; }}
 %root% .fluentform .ff-el-input--label label {{ margin: 0; font-size: var(--text-s); font-weight: 600; color: var(--text-dark); }}
-%root% .fluentform .ff-el-is-required.asterisk-right label::after {{ color: var(--accent-dark); margin-left: .2em; }}
 %root% .fluentform .ff-el-form-control {{ font: inherit; font-size: var(--text-m); color: var(--text-dark); width: 100%; min-height: 3.1em; padding: var(--space-s) var(--space-m); border: var(--border-size) solid var(--neutral-light); border-radius: var(--radius); background: var(--neutral-ultra-light); box-shadow: none; transition: border-color .2s, box-shadow .2s, background-color .2s; }}
 %root% .fluentform textarea.ff-el-form-control {{ min-height: 6.5em; resize: vertical; }}
 %root% .fluentform .ff-el-form-control:focus {{ outline: none; border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 .25em var(--primary-ultra-light); }}
