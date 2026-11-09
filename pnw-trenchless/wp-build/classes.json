@@ -1701,7 +1701,7 @@
  },
  {
   "name": "related__ico",
-  "css": "%root% { width: 2.75em; height: 2.75em; aspect-ratio: 1; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white); border: var(--pnw-border); color: var(--primary); }\n%root% svg { width: 1.2em; height: 1.2em; }",
+  "css": "%root% { width: calc(var(--text-m) * 2.75); height: calc(var(--text-m) * 2.75); aspect-ratio: 1; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white); border: var(--pnw-border); color: var(--primary); }\n%root% svg { width: 1.2em; height: 1.2em; }",
   "category": "PNW"
  },
  {
