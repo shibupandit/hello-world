@@ -130,6 +130,8 @@ Mobile call bar.
 - **Services CPT:** ACF Pro post type `service` (ACF post 443), archive and rewrite slug `services`, REST on, supports title/editor/thumbnail/excerpt/revisions/custom-fields. Bricks is enabled for `page` + `service` (Bricks › Settings › Post types).
 - **Build:** `wp-build/elements_lining.py` returns the page (13 sections) into `elements.json` → `pages`; `import.php` finds the post by slug + post type (creates it if missing), clears it, inserts each section and runs a render test. Next service pages: add an `elements_<slug>.py` and append it in `elements.py` `build()`.
 
+- **About / Meet Mike** — design `pnw-trenchless/about.html` (2026-11-09), redesigned from the user's wireframe "About page · Meet Mike" (9 sections: hero + portrait, numbers, story + career timeline, how we work (6 promises), equipment, credentials (block `verify`; `.creds` is taken by the homepage), local & family, reviews that mention Mike, conversion form with `source = About`). Built with `python3 src/build_about.py` from the service page shell + `src/about-main.html` + `src/about.css` (it reuses the service-page blocks). AboutPage + Person JSON-LD. Unknowns are `tbc` (career years, past employer name, job/footage counts, review count, equipment brands, bond/insurance, certifications, memberships, family detail, photos). Address shown as North Spokane County (wireframe said Clayton). **Status: waiting for the user's approval. Do not build it in Bricks until they say so.**
+
 ## Testimonials CPT
 
 - ACF Pro post type `testimonial` (ACF post 545): not public (no single pages or archive), shown in admin and REST, menu icon star. Title = reviewer name.
