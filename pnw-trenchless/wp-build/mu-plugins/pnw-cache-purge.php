@@ -4,7 +4,7 @@
  * Description: StackCache only purges a post's own URL when it is edited. Website Settings
  *              (ACF options page), testimonials and services appear on many pages, so saving
  *              any of them purges the whole cache and the change shows on every page at once.
- * Version:     1.1.0
+ * Version:     1.2.0
  *
  * Source: pnw-trenchless/wp-build/mu-plugins/pnw-cache-purge.php (deployed to wp-content/mu-plugins).
  */
@@ -13,7 +13,8 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Full purge through StackCache's own purge endpoint (the same request its admin-bar
- * "Purge all" button sends). Runs once, at the end of the request.
+ * "Purge all" button sends). Runs once per request. StackCache clears in the background,
+ * so pages show the change a few seconds later.
  */
 function pnw_purge_all_cache() {
 	static $done = false;
@@ -31,7 +32,7 @@ add_action(
 		$sitewide = ( 'options' === $post_id || 'option' === $post_id )
 			|| ( is_numeric( $post_id ) && in_array( get_post_type( (int) $post_id ), [ 'testimonial', 'service' ], true ) );
 		if ( $sitewide ) {
-			add_action( 'shutdown', 'pnw_purge_all_cache' );
+			pnw_purge_all_cache(); // Priority 20: ACF has already saved the values (priority 10).
 		}
 	},
 	20
@@ -43,7 +44,7 @@ foreach ( [ 'trashed_post', 'untrashed_post', 'deleted_post' ] as $pnw_hook ) {
 		$pnw_hook,
 		function ( $post_id ) {
 			if ( in_array( get_post_type( (int) $post_id ), [ 'testimonial', 'service' ], true ) ) {
-				add_action( 'shutdown', 'pnw_purge_all_cache' );
+				pnw_purge_all_cache();
 			}
 		}
 	);

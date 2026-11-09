@@ -142,7 +142,10 @@ Mobile call bar.
 - Options page `website-settings` ("Website Settings" in the WP admin menu, ACF post 615), values stored in the default `options` store. Field group `group_pnw_site_settings` (ACF post 616).
 - Fields (Bricks dynamic data `{acf_<name>}`): `site_phone` (= 509-953-2036), `site_email` (= info@pnwtrenchless.com), `site_address` (= "North Spokane County", set by the user 2026-11-09), `site_hours`, `site_google_url`, `site_google_rating` (0–5, step 0.1; = 4.9, set by the user 2026-11-09 as a temporary value: confirm against Google before launch), `site_google_review_count`, `site_google_map_iframe` (raw embed code).
 - Hours, Google URL, review count and map embed are empty until the client confirms them. Never fill the rating or count with made-up numbers.
-- Note: the user gave the office address as North Spokane County; the build still says "Clayton, WA" in places (top bar, footer, Mike creds). Not yet wired to these fields.
+- **Wired into the build (2026-11-09)** through Bricks dynamic data (constants at the top of `wp-build/elements.py`: `PHONE`, `TEL`, `SMS`, `MAIL`, `EMAIL`, `ADDRESS`, `RATING`, `REVIEWS`, `GOOGLE_URL`, `HOURS`, `MAP_IFRAME`). Phone and email everywhere (top bar, header, mobile menu, hero, estimate, footer, call bar, lining page), call/text/mail links (`tel:{acf_site_phone}` etc.), address in the footer, Mike's plate and creds, and the lining page's "Family-owned" badge; hours in the footer; rating in the hero chip and the reviews box; review count line; "Read them on Google" link; the Google map embed replaces the illustrated service-area map when filled in.
+- Empty values are hidden with Bricks element conditions (`when()` helper in `elements.py`). Rating empty → reviews box falls back to the `tbc` "X.X"; review count empty → "Average Google rating".
+- Service-area city lists (Clayton etc.), the map illustration's labels and the "Est. 2025" year stay static.
+- **Page cache:** StackCache (host) only purges a post's own URL. The mu-plugin `wp-content/mu-plugins/pnw-cache-purge.php` (source `wp-build/mu-plugins/pnw-cache-purge.php`) purges everything when Website Settings, a testimonial or a service is saved, trashed or deleted.
 
 ## Still unknown (ask Mike / the user)
 
