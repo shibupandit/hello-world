@@ -288,7 +288,7 @@ c("hero-feed", "%root% { border-radius: var(--radius-l); aspect-ratio: 4 / 3; bo
 c("hero-photo", "%root% { position: relative; overflow: hidden; margin: 0; width: 100%; background: var(--base); }")
 c("hero-feed__cap", "%root% { font-size: var(--text-s); color: var(--text-light-muted); }\n%root% strong { color: var(--white); }")
 c("hero__proof", f"""
-%root% {{ position: relative; z-index: 1; list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }}
+%root% {{ position: relative; z-index: 1; list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; width: 100%; }}
 {T} {{ %root% {{ grid-template-columns: 1fr; }} }}
 """)
 c("hero__proof-item", f"""
@@ -376,7 +376,7 @@ c("sticky-aside", f"""
 %root% > p {{ color: var(--text-dark-muted); font-size: var(--text-l); }}
 {T} {{ %root% {{ position: static; }} }}
 """)
-c("sign-list", "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; }")
+c("sign-list", "%root% { list-style: none; margin: 0; padding: 0; gap: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; }")
 c("sign", f"""
 %root% {{ display: grid; grid-template-columns: 3.5em minmax(0, 1fr) auto; gap: var(--space-m); align-items: center; padding: var(--space-m) 0; border-bottom: var(--pnw-border); border-radius: var(--radius); transition: padding .35s var(--pnw-ease), background-color .35s; }}
 %root%:hover {{ padding-inline: var(--space-s); background: var(--white); }}
@@ -407,7 +407,7 @@ c("explain__caption", """
 c("explain__caption-label", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--primary-light); }")
 c("explain__caption-title", f"%root% {{ font-family: var(--heading-font-family); font-size: var(--h4); font-weight: 700; line-height: 1.25; }}\n{L} {{ %root% {{ font-size: var(--text-m); }} }}")
 c("xsec", """
-%root% { background: var(--base); color: var(--text-light); border-radius: var(--radius-l); overflow: hidden; display: flex; flex-direction: column; min-width: 0; width: 100%; }
+%root% { background: var(--base); color: var(--text-light); border-radius: var(--radius-l); overflow: hidden; display: flex; flex-direction: column; gap: 0; min-width: 0; width: 100%; }
 %root% :is(h3) { color: var(--text-light); }
 """)
 c("xsec__bar", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-s) var(--space-m); padding: var(--space-m) var(--space-l); border-bottom: var(--pnw-border-dark); }")
@@ -435,7 +435,7 @@ c("xsec__art", """
 .xsec:not([data-mode="trenchless"]) %root% .xsec__pitlabel { opacity: 0; }
 """)
 c("xsec__facts", f"""
-%root% {{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--pnw-border-dark); }}
+%root% {{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: var(--pnw-border-dark); }}
 {T} {{ %root% {{ grid-template-columns: 1fr 1fr; }} %root% > :nth-child(3) {{ border-left: 0; }} %root% > :nth-child(n+3) {{ border-top: var(--pnw-border-dark); }} }}
 {P} {{ %root% {{ grid-template-columns: 1fr; }} %root% > * + * {{ border-left: 0 !important; border-top: var(--pnw-border-dark); }} }}
 """)
@@ -599,7 +599,7 @@ c("outcome__pill", "%root% { grid-row: 2 / span 2; grid-column: 2; align-self: c
 # Process
 # --------------------------------------------------------------------------
 c("steps", f"""
-%root% {{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); counter-reset: step; border-top: var(--pnw-border-dark); width: 100%; }}
+%root% {{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; counter-reset: step; border-top: var(--pnw-border-dark); width: 100%; }}
 {T} {{ %root% {{ grid-template-columns: 1fr; border-top: 0; }} }}
 """)
 c("step", f"""
@@ -807,7 +807,7 @@ c("contact-way", """
 %root% svg { width: 1.25em; height: 1.25em; color: var(--primary-light); }
 """)
 c("contact-way__note", "%root% { font-weight: 500; font-size: var(--text-xs); color: var(--text-light-muted); overflow-wrap: anywhere; }")
-c("next", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: var(--pnw-border-dark); width: 100%; }")
+c("next", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; border-top: var(--pnw-border-dark); width: 100%; }")
 c("next__item", """
 %root% { display: grid; grid-template-columns: 2.5em minmax(0, 1fr); gap: var(--space-s); padding: var(--space-s) 0; border-bottom: var(--pnw-border-dark); color: var(--white-trans-80); }
 """)
@@ -979,7 +979,7 @@ c("timeline__seg--now", "%root% { background: var(--accent); box-shadow: 0 0 0 .
 c("timeline__list", f"""
 %root% {{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-m); width: 100%; }}
 {T} {{ %root% {{ grid-template-columns: 1fr 1fr; }} }}
-{L} {{ %root% {{ grid-template-columns: 1fr; margin-top: var(--space-m); }} }}
+{L} {{ %root% {{ grid-template-columns: 1fr; gap: 0; margin-top: var(--space-m); }} %root% > * {{ padding-block: var(--space-s); }} }}
 """)
 c("milestone", "%root% { display: flex; flex-direction: column; gap: .45em; padding-top: var(--space-s); border-top: var(--pnw-border-dark); min-width: 0; }")
 c("milestone__when", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--primary-light); }")

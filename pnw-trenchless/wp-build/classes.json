@@ -351,7 +351,7 @@
  },
  {
   "name": "hero__proof",
-  "css": "%root% { position: relative; z-index: 1; list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; } }",
+  "css": "%root% { position: relative; z-index: 1; list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; width: 100%; }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; } }",
   "category": "PNW"
  },
  {
@@ -486,7 +486,7 @@
  },
  {
   "name": "sign-list",
-  "css": "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; }",
+  "css": "%root% { list-style: none; margin: 0; padding: 0; gap: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; }",
   "category": "PNW"
  },
  {
@@ -546,7 +546,7 @@
  },
  {
   "name": "xsec",
-  "css": "%root% { background: var(--base); color: var(--text-light); border-radius: var(--radius-l); overflow: hidden; display: flex; flex-direction: column; min-width: 0; width: 100%; }\n%root% :is(h3) { color: var(--text-light); }",
+  "css": "%root% { background: var(--base); color: var(--text-light); border-radius: var(--radius-l); overflow: hidden; display: flex; flex-direction: column; gap: 0; min-width: 0; width: 100%; }\n%root% :is(h3) { color: var(--text-light); }",
   "category": "PNW"
  },
  {
@@ -576,7 +576,7 @@
  },
  {
   "name": "xsec__facts",
-  "css": "%root% { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--pnw-border-dark); }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr 1fr; } %root% > :nth-child(3) { border-left: 0; } %root% > :nth-child(n+3) { border-top: var(--pnw-border-dark); } }\n@media (max-width: 478px) { %root% { grid-template-columns: 1fr; } %root% > * + * { border-left: 0 !important; border-top: var(--pnw-border-dark); } }",
+  "css": "%root% { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: var(--pnw-border-dark); }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr 1fr; } %root% > :nth-child(3) { border-left: 0; } %root% > :nth-child(n+3) { border-top: var(--pnw-border-dark); } }\n@media (max-width: 478px) { %root% { grid-template-columns: 1fr; } %root% > * + * { border-left: 0 !important; border-top: var(--pnw-border-dark); } }",
   "category": "PNW"
  },
  {
@@ -821,7 +821,7 @@
  },
  {
   "name": "steps",
-  "css": "%root% { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); counter-reset: step; border-top: var(--pnw-border-dark); width: 100%; }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; border-top: 0; } }",
+  "css": "%root% { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; counter-reset: step; border-top: var(--pnw-border-dark); width: 100%; }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; border-top: 0; } }",
   "category": "PNW"
  },
  {
@@ -1191,7 +1191,7 @@
  },
  {
   "name": "next",
-  "css": "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: var(--pnw-border-dark); width: 100%; }",
+  "css": "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; border-top: var(--pnw-border-dark); width: 100%; }",
   "category": "PNW"
  },
  {
@@ -1446,7 +1446,7 @@
  },
  {
   "name": "timeline__list",
-  "css": "%root% { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-m); width: 100%; }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr 1fr; } }\n@media (max-width: 767px) { %root% { grid-template-columns: 1fr; margin-top: var(--space-m); } }",
+  "css": "%root% { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-m); width: 100%; }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr 1fr; } }\n@media (max-width: 767px) { %root% { grid-template-columns: 1fr; gap: 0; margin-top: var(--space-m); } %root% > * { padding-block: var(--space-s); } }",
   "category": "PNW"
  },
  {
