@@ -1,0 +1,61 @@
+/* ==========================================================================
+   PROJECTS PAGE
+   Same tokens and patterns as the other pages. Reuses the homepage projects
+   blocks (projects__feature, job-pair, projects__info, spec) and the
+   service-page blocks (crumbs, svc-hero, owner__creds, quotes, review).
+   Page-only blocks below.
+   ========================================================================== */
+
+/* 01 hero mosaic */
+.projects-hero h1 { max-width: 12ch; }
+.mosaic { display: grid; grid-template-columns: 1.15fr .85fr; grid-template-rows: 1fr 1fr; gap: .6rem; aspect-ratio: 5 / 4; }
+.mosaic__item { position: relative; margin: 0; border-radius: var(--radius-l); overflow: hidden; box-shadow: var(--box-shadow-l); border: 1px solid rgb(255 255 255 / .12); background: var(--base); }
+.mosaic__item--tall { grid-row: span 2; }
+.mosaic__item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.mosaic__tag { position: absolute; left: .75rem; top: .75rem; padding: .3rem .65rem; border-radius: var(--radius-circle); background: rgb(0 0 0 / .6); backdrop-filter: blur(6px); font-family: var(--mono-font-family); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--white); }
+.mosaic__tag--after { background: var(--primary); }
+
+/* 02 project list */
+.project-list { display: flex; flex-direction: column; gap: var(--space-xl); }
+.projects__feature--reverse { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+.projects__feature--reverse .job-pair { order: 2; }
+.proj-thumb { margin: 0; display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: var(--space-s); align-items: center; padding: var(--space-xs); border-radius: var(--radius); background: rgb(255 255 255 / .05); border: var(--border-dark); }
+.proj-thumb img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: calc(var(--radius) - 4px); display: block; }
+.proj-thumb figcaption { font-size: var(--text-s); color: var(--text-light-muted); }
+.proj-thumb b { color: var(--white); }
+
+.pcards { list-style: none; margin: var(--space-xl) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-m); }
+.pcard { display: flex; flex-direction: column; border-radius: var(--radius-l); overflow: hidden; border: var(--border); background: var(--neutral-ultra-light); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+.pcard:hover { transform: translateY(-4px); box-shadow: var(--box-shadow-m); }
+.pcard__media { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; }
+.pcard__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+.pcard:hover .pcard__media img { transform: scale(1.04); }
+.pcard__body { display: flex; flex-direction: column; align-items: flex-start; gap: .4rem; padding: var(--space-m); }
+.pcard__tag { font-family: var(--mono-font-family); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; padding: .25rem .6rem; border-radius: var(--radius-circle); background: var(--base); color: var(--white); }
+.pcard__tag--after { background: var(--primary); }
+.pcard__title { font-size: 1.25rem; }
+.pcard__body p { color: var(--text-dark-muted); font-size: var(--text-s); }
+
+/* 03 documentation steps */
+.docs__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-m); }
+.docs__item { position: relative; display: flex; flex-direction: column; gap: var(--space-s); padding: var(--space-l); border-radius: var(--radius-l); background: var(--white); border: var(--border); }
+.docs__ico { width: 3rem; height: 3rem; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--primary-ultra-light); color: var(--primary); }
+.docs__ico svg { width: 1.4rem; height: 1.4rem; }
+.docs__num { position: absolute; top: var(--space-l); right: var(--space-l); font-family: var(--mono-font-family); font-size: .72rem; letter-spacing: .12em; color: var(--neutral); }
+.docs__item h3 { font-size: 1.2rem; }
+.docs__item p { color: var(--text-dark-muted); font-size: var(--text-s); }
+
+/* 04 reviews: three across */
+.quotes__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media (max-width: 991px) {
+  .projects__feature--reverse { grid-template-columns: minmax(0, 1fr); }
+  .projects__feature--reverse .job-pair { order: 0; }
+  .pcards { grid-template-columns: 1fr 1fr; }
+  .docs__grid { grid-template-columns: 1fr 1fr; }
+  .quotes__grid--3 { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 767px) {
+  .mosaic { aspect-ratio: 4 / 3; }
+  .pcards, .docs__grid { grid-template-columns: minmax(0, 1fr); }
+}
