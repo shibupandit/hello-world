@@ -257,11 +257,8 @@ def head(eyebrow_text, title, intro=None):
 
 
 def hero():
-    feed = block("feed feed--roots hero-feed", [
-        div("feed__cross", tag="span"),
-        block("feed__hud feed__hud--top", [span("REC", "feed__rec"), span('4" CLAY · JOINT 6')]),
-        block("feed__hud", [span("PNW CAM 01"), span("047.6 FT", "feed__ft")]),
-    ], _attributes=attrs(role="img", aria_label="Sewer camera view showing roots at a pipe joint"))
+    # Real job photo (client, 2026-11-09) in place of the drawn camera screen.
+    feed = block("hero-feed hero-photo", [img("job-access-pit.jpg", "cover-img", alt="A small, shored access pit in a front lawn on a PNW Trenchless job")], tag="figure")
     proof = [("icon-liner.svg", "Pipe bursting, CIPP lining, water line pulling &amp; point repairs"),
              ("icon-yard.svg", "Two small access points instead of a trench across your property"),
              ("icon-film.svg", "Camera footage before and after, yours to keep")]
@@ -284,7 +281,7 @@ def hero():
                 ]),
                 block("hero__aside rise rise--5", [
                     feed,
-                    t("<strong>You see what we see.</strong> Footage before and after, yours to keep.", "hero-feed__cap"),
+                    t("<strong>One small pit, not a trench.</strong> A real access pit from one of our jobs.", "hero-feed__cap"),
                 ]),
             ]),
             block("hero__proof", [block("hero__proof-item", [svg(i), span(x)], tag="li") for i, x in proof], tag="ul"),

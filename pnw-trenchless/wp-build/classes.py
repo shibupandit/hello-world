@@ -107,13 +107,6 @@ c("feed", """
 """)
 
 
-c("feed--roots", """
-%root%::before { content: ""; position: absolute; inset: 0; z-index: 1;
-  background:
-    radial-gradient(ellipse 6% 22% at 62% 34%, color-mix(in srgb, var(--accent-dark) 55%, var(--base-dark)) 0 60%, transparent 62%),
-    radial-gradient(ellipse 4% 16% at 40% 66%, color-mix(in srgb, var(--accent-dark) 45%, var(--base-dark)) 0 60%, transparent 62%),
-    radial-gradient(ellipse 18% 4% at 50% 30%, color-mix(in srgb, var(--accent-dark) 35%, var(--base-dark)) 0 60%, transparent 62%); }
-""")
 # Real job photos (client photos, 2026-11-09)
 c("cover-img", "%root% { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; display: block; }")
 c("still__media", "%root% { position: relative; overflow: hidden; background: var(--base); color: var(--white); font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; }")
@@ -294,6 +287,7 @@ c("hero__actions", f"""
 """)
 c("hero__aside", "%root% { display: flex; flex-direction: column; gap: var(--space-s); min-width: 0; }")
 c("hero-feed", "%root% { border-radius: var(--radius-l); aspect-ratio: 4 / 3; border: var(--border-size) solid var(--white-trans-20); box-shadow: var(--box-shadow-l); }")
+c("hero-photo", "%root% { position: relative; overflow: hidden; margin: 0; width: 100%; background: var(--base); }")
 c("hero-feed__cap", "%root% { font-size: var(--text-s); color: var(--text-light-muted); }\n%root% strong { color: var(--white); }")
 c("hero__proof", f"""
 %root% {{ position: relative; z-index: 1; list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }}

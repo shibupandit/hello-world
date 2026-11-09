@@ -110,11 +110,6 @@
   "category": "PNW"
  },
  {
-  "name": "feed--roots",
-  "css": "%root%::before { content: \"\"; position: absolute; inset: 0; z-index: 1;\n  background:\n    radial-gradient(ellipse 6% 22% at 62% 34%, color-mix(in srgb, var(--accent-dark) 55%, var(--base-dark)) 0 60%, transparent 62%),\n    radial-gradient(ellipse 4% 16% at 40% 66%, color-mix(in srgb, var(--accent-dark) 45%, var(--base-dark)) 0 60%, transparent 62%),\n    radial-gradient(ellipse 18% 4% at 50% 30%, color-mix(in srgb, var(--accent-dark) 35%, var(--base-dark)) 0 60%, transparent 62%); }",
-  "category": "PNW"
- },
- {
   "name": "cover-img",
   "css": "%root% { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; display: block; }",
   "category": "PNW"
@@ -342,6 +337,11 @@
  {
   "name": "hero-feed",
   "css": "%root% { border-radius: var(--radius-l); aspect-ratio: 4 / 3; border: var(--border-size) solid var(--white-trans-20); box-shadow: var(--box-shadow-l); }",
+  "category": "PNW"
+ },
+ {
+  "name": "hero-photo",
+  "css": "%root% { position: relative; overflow: hidden; margin: 0; width: 100%; background: var(--base); }",
   "category": "PNW"
  },
  {

@@ -1534,110 +1534,36 @@
      "name": "block",
      "parent": "s00010",
      "settings": {
-      "_attributes": [
-       {
-        "name": "role",
-        "value": "img"
-       },
-       {
-        "name": "aria-label",
-        "value": "Sewer camera view showing roots at a pipe joint"
-       }
-      ],
+      "tag": "figure",
       "_cls": [
-       "feed",
-       "feed--roots",
-       "hero-feed"
+       "hero-feed",
+       "hero-photo"
       ]
      },
-     "label": "feed"
+     "label": "hero-feed"
     },
     {
      "id": "s00012",
-     "name": "div",
+     "name": "image",
      "parent": "s00011",
      "settings": {
-      "tag": "custom",
-      "customTag": "span",
+      "image": {
+       "__media": "job-access-pit.jpg",
+       "size": "full"
+      },
+      "altText": "A small, shored access pit in a front lawn on a PNW Trenchless job",
       "_cls": [
-       "feed__cross"
+       "cover-img"
       ]
      },
-     "label": "feed__cross"
+     "label": "cover-img"
     },
     {
      "id": "s00013",
-     "name": "block",
-     "parent": "s00011",
-     "settings": {
-      "_cls": [
-       "feed__hud",
-       "feed__hud--top"
-      ]
-     },
-     "label": "feed__hud"
-    },
-    {
-     "id": "s00014",
-     "name": "text-basic",
-     "parent": "s00013",
-     "settings": {
-      "text": "REC",
-      "tag": "span",
-      "_cls": [
-       "feed__rec"
-      ]
-     },
-     "label": "feed__rec"
-    },
-    {
-     "id": "s00015",
-     "name": "text-basic",
-     "parent": "s00013",
-     "settings": {
-      "text": "4\" CLAY · JOINT 6",
-      "tag": "span"
-     }
-    },
-    {
-     "id": "s00016",
-     "name": "block",
-     "parent": "s00011",
-     "settings": {
-      "_cls": [
-       "feed__hud"
-      ]
-     },
-     "label": "feed__hud"
-    },
-    {
-     "id": "s00017",
-     "name": "text-basic",
-     "parent": "s00016",
-     "settings": {
-      "text": "PNW CAM 01",
-      "tag": "span"
-     }
-    },
-    {
-     "id": "s00018",
-     "name": "text-basic",
-     "parent": "s00016",
-     "settings": {
-      "text": "047.6 FT",
-      "tag": "span",
-      "_cls": [
-       "feed__ft"
-      ]
-     },
-     "label": "feed__ft"
-    },
-    {
-     "id": "s00019",
      "name": "text-basic",
      "parent": "s00010",
      "settings": {
-      "text": "<strong>You see what we see.</strong> Footage before and after, yours to keep.",
+      "text": "<strong>One small pit, not a trench.</strong> A real access pit from one of our jobs.",
       "tag": "p",
       "_cls": [
        "hero-feed__cap"
@@ -1646,7 +1572,7 @@
      "label": "hero-feed__cap"
     },
     {
-     "id": "s0001a",
+     "id": "s00014",
      "name": "block",
      "parent": "s00004",
      "settings": {
@@ -1658,9 +1584,71 @@
      "label": "hero__proof"
     },
     {
+     "id": "s00015",
+     "name": "block",
+     "parent": "s00014",
+     "settings": {
+      "tag": "li",
+      "_cls": [
+       "hero__proof-item"
+      ]
+     },
+     "label": "hero__proof-item"
+    },
+    {
+     "id": "s00016",
+     "name": "svg",
+     "parent": "s00015",
+     "settings": {
+      "file": {
+       "__media": "icon-liner.svg"
+      }
+     }
+    },
+    {
+     "id": "s00017",
+     "name": "text-basic",
+     "parent": "s00015",
+     "settings": {
+      "text": "Pipe bursting, CIPP lining, water line pulling &amp; point repairs",
+      "tag": "span"
+     }
+    },
+    {
+     "id": "s00018",
+     "name": "block",
+     "parent": "s00014",
+     "settings": {
+      "tag": "li",
+      "_cls": [
+       "hero__proof-item"
+      ]
+     },
+     "label": "hero__proof-item"
+    },
+    {
+     "id": "s00019",
+     "name": "svg",
+     "parent": "s00018",
+     "settings": {
+      "file": {
+       "__media": "icon-yard.svg"
+      }
+     }
+    },
+    {
+     "id": "s0001a",
+     "name": "text-basic",
+     "parent": "s00018",
+     "settings": {
+      "text": "Two small access points instead of a trench across your property",
+      "tag": "span"
+     }
+    },
+    {
      "id": "s0001b",
      "name": "block",
-     "parent": "s0001a",
+     "parent": "s00014",
      "settings": {
       "tag": "li",
       "_cls": [
@@ -1675,7 +1663,7 @@
      "parent": "s0001b",
      "settings": {
       "file": {
-       "__media": "icon-liner.svg"
+       "__media": "icon-film.svg"
       }
      }
     },
@@ -1683,68 +1671,6 @@
      "id": "s0001d",
      "name": "text-basic",
      "parent": "s0001b",
-     "settings": {
-      "text": "Pipe bursting, CIPP lining, water line pulling &amp; point repairs",
-      "tag": "span"
-     }
-    },
-    {
-     "id": "s0001e",
-     "name": "block",
-     "parent": "s0001a",
-     "settings": {
-      "tag": "li",
-      "_cls": [
-       "hero__proof-item"
-      ]
-     },
-     "label": "hero__proof-item"
-    },
-    {
-     "id": "s0001f",
-     "name": "svg",
-     "parent": "s0001e",
-     "settings": {
-      "file": {
-       "__media": "icon-yard.svg"
-      }
-     }
-    },
-    {
-     "id": "s00020",
-     "name": "text-basic",
-     "parent": "s0001e",
-     "settings": {
-      "text": "Two small access points instead of a trench across your property",
-      "tag": "span"
-     }
-    },
-    {
-     "id": "s00021",
-     "name": "block",
-     "parent": "s0001a",
-     "settings": {
-      "tag": "li",
-      "_cls": [
-       "hero__proof-item"
-      ]
-     },
-     "label": "hero__proof-item"
-    },
-    {
-     "id": "s00022",
-     "name": "svg",
-     "parent": "s00021",
-     "settings": {
-      "file": {
-       "__media": "icon-film.svg"
-      }
-     }
-    },
-    {
-     "id": "s00023",
-     "name": "text-basic",
-     "parent": "s00021",
      "settings": {
       "text": "Camera footage before and after, yours to keep",
       "tag": "span"
