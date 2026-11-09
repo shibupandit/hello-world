@@ -1315,7 +1315,7 @@ c("answer__card", """
 %root%::before { content: ""; position: absolute; left: 0; top: var(--space-l); bottom: var(--space-l); width: .25em; border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--primary); }
 %root% > p { color: var(--text-dark-muted); font-size: var(--text-l); }
 """)
-c("facts", "%root% { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-s); }")
+c("facts", "%root% { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-s); align-items: stretch; }")
 c("fact", """
 %root% { display: flex; flex-direction: column; justify-content: center; gap: .35em; padding: var(--space-m); border-radius: var(--radius-l); background: var(--base); color: var(--white); }
 """)
