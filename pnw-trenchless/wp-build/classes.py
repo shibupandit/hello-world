@@ -1379,9 +1379,9 @@ c("city-cover", "%root% { width: 100%; aspect-ratio: 16 / 9; border-radius: var(
 c("prose", f"""
 %root% {{ color: var(--text-dark-muted); font-size: var(--text-m); line-height: 1.7; width: 100%; }}
 %root% > * + * {{ margin-top: 1.1em; }}
-%root% > p:first-child {{ font-family: var(--heading-font-family); font-size: var(--text-xl); line-height: 1.4; font-weight: 600; color: var(--text-dark); }}
-%root% h2 {{ margin-top: 2em; font-size: var(--h3); color: var(--text-dark); scroll-margin-top: calc(var(--pnw-header-h, 5em) + var(--space-m)); }}
-%root% h3 {{ margin-top: 1.6em; font-size: var(--text-xl); line-height: 1.3; color: var(--text-dark); }}
+%root% > p:first-child {{ font-family: var(--heading-font-family); font-size: calc(var(--text-l) * 1.15); line-height: 1.4; font-weight: 600; color: var(--text-dark); }}
+%root% h2 {{ margin-top: 2em; font-size: calc(var(--h3) * 1.4); line-height: 1.15; color: var(--text-dark); scroll-margin-top: calc(var(--pnw-header-h, 5em) + var(--space-m)); }}
+%root% h3 {{ margin-top: 1.6em; font-size: var(--h3); line-height: 1.25; color: var(--text-dark); }}
 %root% h2 + *, %root% h3 + * {{ margin-top: .6em; }}
 %root% strong {{ color: var(--text-dark); }}
 %root% a:not(.wp-block-button__link) {{ color: var(--primary); text-decoration: underline; text-underline-offset: .2em; }}
@@ -1402,11 +1402,11 @@ c("prose", f"""
 %root% .wp-block-button__link:hover {{ background: var(--primary-dark); }}
 %root% .wp-block-button + .wp-block-button .wp-block-button__link {{ background: transparent; color: var(--text-dark); box-shadow: inset 0 0 0 var(--border-size) var(--text-dark); }}
 %root% .wp-block-button + .wp-block-button .wp-block-button__link:hover {{ background: var(--base); color: var(--white); }}
-{L} {{ %root% > p:first-child {{ font-size: var(--text-l); }} %root% .wp-block-button, %root% .wp-block-button__link {{ width: 100%; }} }}
+{L} {{ %root% > p:first-child {{ font-size: var(--text-l); }} %root% h2 {{ font-size: calc(var(--h3) * 1.2); }} %root% .wp-block-button, %root% .wp-block-button__link {{ width: 100%; }} }}
 """)
 c("city-block", "%root% { display: flex; flex-direction: column; gap: var(--space-m); padding-top: var(--space-l); border-top: var(--pnw-border); width: 100%; }")
 c("city-block__head", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-m); width: 100%; }")
-c("city-block__title", "%root% { font-size: var(--h3); }")
+c("city-block__title", "%root% { font-size: calc(var(--h3) * 1.4); line-height: 1.15; }")
 c("why", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .75em; width: 100%; }")
 c("why__item", r"""%root% { position: relative; padding-left: 2em; color: var(--text-dark-muted); }
 %root% strong { color: var(--text-dark); }
