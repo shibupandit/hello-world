@@ -16721,27 +16721,15 @@
        "parent": "a30002",
        "settings": {
         "_cls": [
-         "section__head",
-         "section__head--split"
+         "section__head"
         ]
        },
        "label": "section__head"
       },
       {
        "id": "a30004",
-       "name": "block",
-       "parent": "a30003",
-       "settings": {
-        "_cls": [
-         "section__head-main"
-        ]
-       },
-       "label": "section__head-main"
-      },
-      {
-       "id": "a30005",
        "name": "text-basic",
-       "parent": "a30004",
+       "parent": "a30003",
        "settings": {
         "text": "How we work",
         "tag": "span",
@@ -16752,30 +16740,29 @@
        "label": "eyebrow"
       },
       {
-       "id": "a30006",
+       "id": "a30005",
        "name": "heading",
-       "parent": "a30004",
+       "parent": "a30003",
        "settings": {
         "text": "What you can <span class=\"serif\">expect from us.</span>",
         "tag": "h2"
        }
       },
       {
-       "id": "a30007",
+       "id": "a30006",
        "name": "text-basic",
        "parent": "a30003",
        "settings": {
         "text": "Six promises Mike makes on every job, big or small.",
         "tag": "p",
         "_cls": [
-         "section__intro",
-         "section__intro--narrow"
+         "section__intro"
         ]
        },
        "label": "section__intro"
       },
       {
-       "id": "a30008",
+       "id": "a30007",
        "name": "block",
        "parent": "a30002",
        "settings": {
@@ -16787,9 +16774,9 @@
        "label": "promises__grid"
       },
       {
-       "id": "a30009",
+       "id": "a30008",
        "name": "block",
-       "parent": "a30008",
+       "parent": "a30007",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -16799,9 +16786,9 @@
        "label": "promise"
       },
       {
-       "id": "a3000a",
+       "id": "a30009",
        "name": "block",
-       "parent": "a30009",
+       "parent": "a30008",
        "settings": {
         "tag": "custom",
         "customTag": "span",
@@ -16812,9 +16799,9 @@
        "label": "promise__ico"
       },
       {
-       "id": "a3000b",
+       "id": "a3000a",
        "name": "svg",
-       "parent": "a3000a",
+       "parent": "a30009",
        "settings": {
         "file": {
          "__media": "icon-camera.svg"
@@ -16822,9 +16809,9 @@
        }
       },
       {
-       "id": "a3000c",
+       "id": "a3000b",
        "name": "text-basic",
-       "parent": "a30009",
+       "parent": "a30008",
        "settings": {
         "text": "01",
         "tag": "span",
@@ -16835,9 +16822,9 @@
        "label": "promise__num"
       },
       {
-       "id": "a3000d",
+       "id": "a3000c",
        "name": "heading",
-       "parent": "a30009",
+       "parent": "a30008",
        "settings": {
         "text": "You see what we see",
         "tag": "h3",
@@ -16848,9 +16835,9 @@
        "label": "promise__title"
       },
       {
-       "id": "a3000e",
+       "id": "a3000d",
        "name": "text-basic",
-       "parent": "a30009",
+       "parent": "a30008",
        "settings": {
         "text": "Every recommendation starts with camera footage you watch with us.",
         "tag": "p",
@@ -16861,9 +16848,9 @@
        "label": "promise__text"
       },
       {
-       "id": "a3000f",
+       "id": "a3000e",
        "name": "block",
-       "parent": "a30008",
+       "parent": "a30007",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -16873,9 +16860,9 @@
        "label": "promise"
       },
       {
-       "id": "a30010",
+       "id": "a3000f",
        "name": "block",
-       "parent": "a3000f",
+       "parent": "a3000e",
        "settings": {
         "tag": "custom",
         "customTag": "span",
@@ -16886,9 +16873,9 @@
        "label": "promise__ico"
       },
       {
-       "id": "a30011",
+       "id": "a30010",
        "name": "svg",
-       "parent": "a30010",
+       "parent": "a3000f",
        "settings": {
         "file": {
          "__media": "icon-check.svg"
@@ -16896,9 +16883,9 @@
        }
       },
       {
-       "id": "a30012",
+       "id": "a30011",
        "name": "text-basic",
-       "parent": "a3000f",
+       "parent": "a3000e",
        "settings": {
         "text": "02",
         "tag": "span",
@@ -16909,9 +16896,9 @@
        "label": "promise__num"
       },
       {
-       "id": "a30013",
+       "id": "a30012",
        "name": "heading",
-       "parent": "a3000f",
+       "parent": "a3000e",
        "settings": {
         "text": "A straight answer",
         "tag": "h3",
@@ -16922,9 +16909,9 @@
        "label": "promise__title"
       },
       {
-       "id": "a30014",
+       "id": "a30013",
        "name": "text-basic",
-       "parent": "a3000f",
+       "parent": "a3000e",
        "settings": {
         "text": "If digging, a spot repair or doing nothing yet is the better call, we'll say so.",
         "tag": "p",
@@ -16935,9 +16922,9 @@
        "label": "promise__text"
       },
       {
-       "id": "a30015",
+       "id": "a30014",
        "name": "block",
-       "parent": "a30008",
+       "parent": "a30007",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -16947,9 +16934,9 @@
        "label": "promise"
       },
       {
-       "id": "a30016",
+       "id": "a30015",
        "name": "block",
-       "parent": "a30015",
+       "parent": "a30014",
        "settings": {
         "tag": "custom",
         "customTag": "span",
@@ -16960,9 +16947,9 @@
        "label": "promise__ico"
       },
       {
-       "id": "a30017",
+       "id": "a30016",
        "name": "svg",
-       "parent": "a30016",
+       "parent": "a30015",
        "settings": {
         "file": {
          "__media": "icon-home.svg"
@@ -16970,9 +16957,9 @@
        }
       },
       {
-       "id": "a30018",
+       "id": "a30017",
        "name": "text-basic",
-       "parent": "a30015",
+       "parent": "a30014",
        "settings": {
         "text": "03",
         "tag": "span",
@@ -16983,9 +16970,9 @@
        "label": "promise__num"
       },
       {
-       "id": "a30019",
+       "id": "a30018",
        "name": "heading",
-       "parent": "a30015",
+       "parent": "a30014",
        "settings": {
         "text": "The owner on the job",
         "tag": "h3",
@@ -16996,9 +16983,9 @@
        "label": "promise__title"
       },
       {
-       "id": "a3001a",
+       "id": "a30019",
        "name": "text-basic",
-       "parent": "a30015",
+       "parent": "a30014",
        "settings": {
         "text": "Mike runs the work himself. No handoff to a crew you've never met.",
         "tag": "p",
@@ -17009,9 +16996,9 @@
        "label": "promise__text"
       },
       {
-       "id": "a3001b",
+       "id": "a3001a",
        "name": "block",
-       "parent": "a30008",
+       "parent": "a30007",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -17021,9 +17008,9 @@
        "label": "promise"
       },
       {
-       "id": "a3001c",
+       "id": "a3001b",
        "name": "block",
-       "parent": "a3001b",
+       "parent": "a3001a",
        "settings": {
         "tag": "custom",
         "customTag": "span",
@@ -17034,9 +17021,9 @@
        "label": "promise__ico"
       },
       {
-       "id": "a3001d",
+       "id": "a3001c",
        "name": "svg",
-       "parent": "a3001c",
+       "parent": "a3001b",
        "settings": {
         "file": {
          "__media": "icon-card.svg"
@@ -17044,9 +17031,9 @@
        }
       },
       {
-       "id": "a3001e",
+       "id": "a3001d",
        "name": "text-basic",
-       "parent": "a3001b",
+       "parent": "a3001a",
        "settings": {
         "text": "04",
         "tag": "span",
@@ -17057,9 +17044,9 @@
        "label": "promise__num"
       },
       {
-       "id": "a3001f",
+       "id": "a3001e",
        "name": "heading",
-       "parent": "a3001b",
+       "parent": "a3001a",
        "settings": {
         "text": "Written price first",
         "tag": "h3",
@@ -17070,9 +17057,9 @@
        "label": "promise__title"
       },
       {
-       "id": "a30020",
+       "id": "a3001f",
        "name": "text-basic",
-       "parent": "a3001b",
+       "parent": "a3001a",
        "settings": {
         "text": "A clear scope and price before any work starts.",
         "tag": "p",
@@ -17083,9 +17070,9 @@
        "label": "promise__text"
       },
       {
-       "id": "a30021",
+       "id": "a30020",
        "name": "block",
-       "parent": "a30008",
+       "parent": "a30007",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -17095,9 +17082,9 @@
        "label": "promise"
       },
       {
-       "id": "a30022",
+       "id": "a30021",
        "name": "block",
-       "parent": "a30021",
+       "parent": "a30020",
        "settings": {
         "tag": "custom",
         "customTag": "span",
@@ -17108,9 +17095,9 @@
        "label": "promise__ico"
       },
       {
-       "id": "a30023",
+       "id": "a30022",
        "name": "svg",
-       "parent": "a30022",
+       "parent": "a30021",
        "settings": {
         "file": {
          "__media": "icon-film.svg"
@@ -17118,9 +17105,9 @@
        }
       },
       {
-       "id": "a30024",
+       "id": "a30023",
        "name": "text-basic",
-       "parent": "a30021",
+       "parent": "a30020",
        "settings": {
         "text": "05",
         "tag": "span",
@@ -17131,9 +17118,9 @@
        "label": "promise__num"
       },
       {
-       "id": "a30025",
+       "id": "a30024",
        "name": "heading",
-       "parent": "a30021",
+       "parent": "a30020",
        "settings": {
         "text": "Proof at the end",
         "tag": "h3",
@@ -17144,9 +17131,9 @@
        "label": "promise__title"
       },
       {
-       "id": "a30026",
+       "id": "a30025",
        "name": "text-basic",
-       "parent": "a30021",
+       "parent": "a30020",
        "settings": {
         "text": "A final camera video of the finished pipe, for your records and warranty.",
         "tag": "p",
@@ -17157,9 +17144,9 @@
        "label": "promise__text"
       },
       {
-       "id": "a30027",
+       "id": "a30026",
        "name": "block",
-       "parent": "a30008",
+       "parent": "a30007",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -17169,9 +17156,9 @@
        "label": "promise"
       },
       {
-       "id": "a30028",
+       "id": "a30027",
        "name": "block",
-       "parent": "a30027",
+       "parent": "a30026",
        "settings": {
         "tag": "custom",
         "customTag": "span",
@@ -17182,9 +17169,9 @@
        "label": "promise__ico"
       },
       {
-       "id": "a30029",
+       "id": "a30028",
        "name": "svg",
-       "parent": "a30028",
+       "parent": "a30027",
        "settings": {
         "file": {
          "__media": "icon-yard.svg"
@@ -17192,9 +17179,9 @@
        }
       },
       {
-       "id": "a3002a",
+       "id": "a30029",
        "name": "text-basic",
-       "parent": "a30027",
+       "parent": "a30026",
        "settings": {
         "text": "06",
         "tag": "span",
@@ -17205,9 +17192,9 @@
        "label": "promise__num"
       },
       {
-       "id": "a3002b",
+       "id": "a3002a",
        "name": "heading",
-       "parent": "a30027",
+       "parent": "a30026",
        "settings": {
         "text": "Your property, respected",
         "tag": "h3",
@@ -17218,9 +17205,9 @@
        "label": "promise__title"
       },
       {
-       "id": "a3002c",
+       "id": "a3002b",
        "name": "text-basic",
-       "parent": "a30027",
+       "parent": "a30026",
        "settings": {
         "text": "Small footprint, access points restored, site cleaned before we leave.",
         "tag": "p",

@@ -1316,7 +1316,7 @@
  },
  {
   "name": "portrait__id",
-  "css": "%root% { display: flex; flex-direction: column; }",
+  "css": "%root% { display: flex; flex-direction: column; gap: 0; width: auto; }",
   "category": "PNW"
  },
  {
@@ -1386,7 +1386,7 @@
  },
  {
   "name": "signature__id",
-  "css": "%root% { display: flex; flex-direction: column; width: auto; }",
+  "css": "%root% { display: flex; flex-direction: column; gap: 0; width: auto; }",
   "category": "PNW"
  },
  {

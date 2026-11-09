@@ -128,8 +128,7 @@ def promises():
              ("icon-yard.svg", "Your property, respected", "Small footprint, access points restored, site cleaned before we leave.")]
     return section("section section--tint", [
         container([
-            head_split("How we work", 'What you can <span class="serif">expect from us.</span>',
-                       t("Six promises Mike makes on every job, big or small.", "section__intro section__intro--narrow")),
+            head("How we work", 'What you can <span class="serif">expect from us.</span>', "Six promises Mike makes on every job, big or small."),
             block("promises__grid", [
                 block("promise", [
                     block("promise__ico", [svg(ic)], tag="span"),

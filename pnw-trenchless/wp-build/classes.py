@@ -948,7 +948,7 @@ c("portrait__frame", """
 %root%::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, var(--white-trans-10) 0 1px, transparent 1px 3px); opacity: .25; }
 """ + f"{L} {{ %root% {{ max-width: none; }} }}")
 c("portrait__plate", "%root% { position: absolute; left: var(--space-s); right: var(--space-s); bottom: var(--space-s); z-index: 2; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: var(--space-s); padding: var(--space-s) var(--space-m); border-radius: var(--radius); background: var(--base-trans-80); -webkit-backdrop-filter: blur(.5em); backdrop-filter: blur(.5em); border: var(--pnw-border-dark); color: var(--text-light); width: auto; }")
-c("portrait__id", "%root% { display: flex; flex-direction: column; }")
+c("portrait__id", "%root% { display: flex; flex-direction: column; gap: 0; width: auto; }")
 c("portrait__name", "%root% { font-family: var(--heading-font-family); font-weight: 800; font-size: var(--text-l); color: var(--white); }")
 c("portrait__role", "%root% { color: var(--text-light-muted); font-size: var(--text-xs); }")
 c("portrait__est", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }")
@@ -972,7 +972,7 @@ c("story__text", "%root% { margin: 0; }")
 c("story__close", "%root% { margin: 0; padding-left: var(--space-m); border-left: .2em solid var(--accent); }")
 c("signature", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--space-m); padding-top: var(--space-m); border-top: var(--pnw-border); width: 100%; }")
 c("signature__mark", "%root% { font-family: var(--pnw-font-serif); font-style: italic; font-size: calc(var(--h3) * 1.3); line-height: 1; color: var(--primary); }")
-c("signature__id", "%root% { display: flex; flex-direction: column; width: auto; }")
+c("signature__id", "%root% { display: flex; flex-direction: column; gap: 0; width: auto; }")
 c("signature__name", "%root% { font-weight: 700; color: var(--text-dark); }")
 c("signature__role", "%root% { color: var(--text-dark-muted); font-size: var(--text-s); }")
 
