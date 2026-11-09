@@ -146,7 +146,7 @@ def p_docs():
 def p_reviews():
     return section("section section--dark grain", [
         container([
-            head_split("Reviews", 'What homeowners <span class="serif">say after.</span>', a("All reviews", "/#reviews", "link-arrow")),
+            head_split("Reviews", 'What homeowners <span class="serif">say after.</span>', a("All reviews", "/reviews/", "link-arrow")),
             block("quotes__grid quotes__grid--3", [review_loop({"posts_per_page": 3}, label="Reviews (loop)")]),
         ]),
     ], label="Reviews")
@@ -268,7 +268,7 @@ def s_gallery():
 def s_reviews():
     return section("section section--dark grain", [
         container([
-            head_split("Reviews", 'What homeowners <span class="serif">say.</span>', a("All reviews", "/#reviews", "link-arrow")),
+            head_split("Reviews", 'What homeowners <span class="serif">say.</span>', a("All reviews", "/reviews/", "link-arrow")),
             block("quotes__grid quotes__grid--3", [review_loop({"posts_per_page": 3}, label="Reviews (loop)")]),
         ]),
     ], label="Reviews")

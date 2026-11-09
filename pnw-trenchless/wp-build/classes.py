@@ -1241,6 +1241,42 @@ c("pj-gallery", f"""
 
 
 # --------------------------------------------------------------------------
+# REVIEWS PAGE (design: reviews.html). Review cards are a query loop over `testimonial`.
+# --------------------------------------------------------------------------
+c("reviews-hero", "%root% .svc-hero__title { max-width: 13ch; font-size: clamp(var(--h2), calc(var(--h1) * .75 + 2vw), calc(var(--h1) * 1.1)); }")
+c("score", "%root% { display: flex; flex-direction: column; gap: var(--space-m); padding: var(--space-l); border-radius: var(--radius-l); background: var(--white-trans-10); border: var(--pnw-border-dark); box-shadow: var(--box-shadow-l); width: 100%; }")
+c("score__label", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--primary-light); }")
+c("score__main", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--space-m); }")
+c("score__num", "%root% { font-family: var(--heading-font-family); font-weight: 900; font-size: calc(var(--h1) * 1.6); line-height: .85; letter-spacing: -.05em; color: var(--white); }")
+c("score__side", "%root% { display: flex; flex-direction: column; gap: .35em; width: auto; }")
+c("score__stars", "%root% { color: var(--accent); font-size: var(--h4); letter-spacing: .12em; line-height: 1; }")
+c("score__count", "%root% { color: var(--text-light-muted); }")
+c("rv-grid", "%root% { list-style: none; margin: 0; padding: 0; display: block; columns: 3 18em; column-gap: var(--space-m); width: 100%; }")
+c("rv-card", """
+%root% { break-inside: avoid; margin: 0 0 var(--space-m); display: flex; flex-direction: column; gap: var(--space-m); padding: var(--space-l); border-radius: var(--radius-l); background: var(--neutral-ultra-light); border: var(--pnw-border); transition: box-shadow .35s var(--pnw-ease), transform .35s var(--pnw-ease); width: 100%; }
+%root%:hover { box-shadow: var(--box-shadow-m); transform: translateY(-.2em); }
+@media (prefers-reduced-motion: reduce) { %root%, %root%:hover { transition: none; transform: none; } }
+""")
+c("rv-card__text", "%root% { margin: 0; padding: 0; border: 0; font-family: var(--pnw-font-serif); font-size: calc(var(--h4) * 1.15); line-height: 1.3; color: var(--text-dark); }")
+c("rv-card__by", "%root% { display: flex; flex-direction: row; align-items: center; gap: .7em; font-size: var(--text-s); }")
+c("rv-card__id", "%root% { display: flex; flex-direction: column; gap: 0; width: auto; }")
+c("rv-card__name", "%root% { font-weight: 700; color: var(--text-dark); }")
+c("rv-card__meta", "%root% { color: var(--text-dark-muted); font-size: var(--text-xs); }")
+c("rv-more", "%root% { display: flex; flex-direction: row; justify-content: center; margin-top: var(--space-l); width: 100%; }")
+c("rv-leave__grid", f"""
+%root% {{ display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xxl); align-items: center; width: 100%; }}
+{T} {{ %root% {{ grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }} }}
+""")
+c("rv-leave__text", "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-l); }\n%root% .serif { color: var(--primary-light); }\n%root% > p { color: var(--text-light-muted); font-size: var(--text-l); max-width: 46ch; }")
+c("rv-steps", "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: flex; flex-direction: column; gap: 0; width: 100%; }")
+c("rv-steps__item", "%root% { display: grid; grid-template-columns: 3em minmax(0, 1fr); gap: var(--space-s); padding: var(--space-m) 0; border-bottom: var(--pnw-border-dark); }")
+c("rv-steps__num", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-s); color: var(--accent); padding-top: .2em; }")
+c("rv-steps__body", "%root% { display: flex; flex-direction: column; gap: .2em; }")
+c("rv-steps__title", "%root% { font-family: var(--heading-font-family); font-weight: 700; font-size: var(--text-l); color: var(--white); }")
+c("rv-steps__text", "%root% { color: var(--text-light-muted); }")
+
+
+# --------------------------------------------------------------------------
 # SERVICE PAGE: Sewer Pipe Lining (shared service-page blocks)
 # --------------------------------------------------------------------------
 c("crumbs", "%root% { display: block; width: 100%; }")

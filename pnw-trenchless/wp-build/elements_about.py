@@ -223,7 +223,7 @@ def local():
 def reviews():
     return section("section section--dark grain", [
         container([
-            head_split("Reviews that mention Mike", 'What customers say <span class="serif">about Mike.</span>', a("All reviews", "/#reviews", "link-arrow")),
+            head_split("Reviews that mention Mike", 'What customers say <span class="serif">about Mike.</span>', a("All reviews", "/reviews/", "link-arrow")),
             block("quotes__grid quotes__grid--3", [review_loop({"posts_per_page": 3}, label="Reviews (loop)")]),
         ]),
     ], label="Reviews")

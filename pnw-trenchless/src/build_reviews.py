@@ -18,18 +18,6 @@ conv = conv.replace('<label for="i2"><input type="radio" name="service" id="i2" 
 main = open("src/reviews-main.html").read().replace("<!--CONVERSION-->", conv)
 css = l + "\n" + open("src/projects.css").read() + "\n" + open("src/reviews.css").read()
 out = s[:ci] + css + s[ci + len(l):mi] + main + s[mi + len(lm):]
-# Design-only filter for the review chips (in Bricks: a query filter or one loop per service).
-JS = """<script>
-document.querySelectorAll('.rv-filter__chip').forEach(function (chip) {
-  chip.addEventListener('click', function () {
-    var f = chip.dataset.filter;
-    document.querySelectorAll('.rv-filter__chip').forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
-    document.querySelectorAll('.rv-card').forEach(function (card) { card.hidden = f !== 'all' && card.dataset.service !== f; });
-  });
-});
-</script>
-"""
-out = out.replace("</body>", JS + "</body>", 1)
 out = re.sub(r"<title>.*?</title>", "<title>Reviews | What Spokane Homeowners Say | PNW Trenchless</title>", out, count=1)
 out = re.sub(r'<meta name="description" content="[^"]*">',
              lambda m: '<meta name="description" content="Read real Google reviews of PNW Trenchless: trenchless sewer lining, pipe bursting and '
