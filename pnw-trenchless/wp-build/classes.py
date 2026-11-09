@@ -1365,6 +1365,76 @@ c("ws-svc__go", "%root% { width: 1.2em; height: 1.2em; min-width: 0; min-height:
 
 
 # --------------------------------------------------------------------------
+# CITY PAGES (design: city-single.html). Bricks template for the 6 city pages; the city text is
+# the page's Gutenberg content, styled by `prose` (plain core blocks, no classes in the content).
+# --------------------------------------------------------------------------
+c("city-hero", "%root% { padding-block: var(--space-xl) var(--space-xxl); }\n%root% .crumbs { margin-bottom: var(--space-l); }")
+c("city-hero__title", "%root% { max-width: 20ch; margin: 0 0 var(--space-l); font-size: clamp(var(--h2), calc(var(--h1) * .55 + 1.5vw), calc(var(--h1) * .9)); color: var(--white); }")
+c("city-layout", f"""
+%root% {{ display: grid; grid-template-columns: minmax(0, 1fr) 22em; gap: var(--space-xxl); align-items: start; width: 100%; }}
+{T} {{ %root% {{ grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }} }}
+""")
+c("city-main", "%root% { display: flex; flex-direction: column; gap: var(--space-xl); min-width: 0; }")
+c("city-cover", "%root% { width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-l); overflow: hidden; box-shadow: var(--box-shadow-m); }\n%root% img { width: 100%; height: 100%; object-fit: cover; display: block; }")
+c("prose", f"""
+%root% {{ color: var(--text-dark-muted); font-size: var(--text-m); line-height: 1.7; width: 100%; }}
+%root% > * + * {{ margin-top: 1.1em; }}
+%root% > p:first-child {{ font-family: var(--heading-font-family); font-size: var(--text-xl); line-height: 1.4; font-weight: 600; color: var(--text-dark); }}
+%root% h2 {{ margin-top: 2em; font-size: var(--h3); color: var(--text-dark); scroll-margin-top: calc(var(--pnw-header-h, 5em) + var(--space-m)); }}
+%root% h3 {{ margin-top: 1.6em; font-size: var(--h5); color: var(--text-dark); }}
+%root% h2 + *, %root% h3 + * {{ margin-top: .6em; }}
+%root% strong {{ color: var(--text-dark); }}
+%root% a:not(.wp-block-button__link) {{ color: var(--primary); text-decoration: underline; text-underline-offset: .2em; }}
+%root% ul, %root% ol {{ margin-left: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: .55em; }}
+%root% ul > li {{ position: relative; padding-left: 1.9em; }}
+%root% ul > li::before {{ content: ""; position: absolute; left: 0; top: .3em; width: 1.15em; height: 1.15em; border-radius: var(--radius-circle); background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 65% no-repeat; }}
+%root% ol {{ counter-reset: prose; gap: 0; }}
+%root% ol > li {{ counter-increment: prose; position: relative; padding: .9em 0 .9em 3em; border-bottom: var(--pnw-border); }}
+%root% ol > li:first-child {{ border-top: var(--pnw-border); }}
+%root% ol > li::before {{ content: counter(prose, decimal-leading-zero); position: absolute; left: 0; top: 1.05em; font-family: var(--pnw-font-mono); font-size: var(--text-s); font-weight: 700; color: var(--accent-dark); }}
+%root% .wp-block-image {{ margin: 2em 0; }}
+%root% .wp-block-image img {{ width: 100%; height: auto; border-radius: var(--radius-l); display: block; }}
+%root% figcaption {{ margin-top: .6em; font-size: var(--text-s); color: var(--text-dark-muted); text-align: left; }}
+%root% blockquote {{ margin: 2em 0; padding: var(--space-m) var(--space-l); border-left: .25em solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; background: var(--neutral-ultra-light); }}
+%root% blockquote p {{ font-family: var(--heading-font-family); font-size: var(--text-l); line-height: 1.45; color: var(--text-dark); font-weight: 600; }}
+%root% .wp-block-buttons {{ display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs); margin-top: 1.4em; }}
+%root% .wp-block-button__link {{ display: inline-flex; align-items: center; justify-content: center; padding: .85em 1.6em; border-radius: var(--radius-circle); background: var(--primary); color: var(--white); font-weight: 700; text-decoration: none; transition: background-color .25s; }}
+%root% .wp-block-button__link:hover {{ background: var(--primary-dark); }}
+%root% .wp-block-button + .wp-block-button .wp-block-button__link {{ background: transparent; color: var(--text-dark); box-shadow: inset 0 0 0 var(--border-size) var(--text-dark); }}
+%root% .wp-block-button + .wp-block-button .wp-block-button__link:hover {{ background: var(--base); color: var(--white); }}
+{L} {{ %root% > p:first-child {{ font-size: var(--text-l); }} %root% .wp-block-button, %root% .wp-block-button__link {{ width: 100%; }} }}
+""")
+c("city-block", "%root% { display: flex; flex-direction: column; gap: var(--space-m); padding-top: var(--space-l); border-top: var(--pnw-border); width: 100%; }")
+c("city-block__head", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-m); width: 100%; }")
+c("city-block__title", "%root% { font-size: var(--h4); }")
+c("why", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .75em; width: 100%; }")
+c("why__item", r"""%root% { position: relative; padding-left: 2em; color: var(--text-dark-muted); }
+%root% strong { color: var(--text-dark); }
+%root%::before { content: ""; position: absolute; left: 0; top: .25em; width: 1.2em; height: 1.2em; border-radius: var(--radius-circle); background: var(--primary-ultra-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A4B' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 65% no-repeat; }""")
+c("pcards--two", f"%root% {{ grid-template-columns: 1fr 1fr; }}\n{L} {{ %root% {{ grid-template-columns: minmax(0, 1fr); }} }}")
+c("city-aside", f"%root% {{ display: flex; flex-direction: column; gap: var(--space-m); position: sticky; top: calc(var(--pnw-header-h, 5em) + var(--space-m)); width: 100%; }}\n{T} {{ %root% {{ position: static; }} }}")
+c("widget", f"%root% {{ display: flex; flex-direction: column; align-items: flex-start; gap: .6em; padding: var(--space-l); border-radius: var(--radius-l); background: var(--white); border: var(--pnw-border); width: 100%; }}\n{L} {{ %root% {{ padding: var(--space-m); }} }}")
+c("widget__title", "%root% { font-size: var(--text-l); font-weight: 800; margin-bottom: .2em; }")
+c("widget__name", "%root% { font-weight: 700; color: var(--text-dark); }")
+c("widget__muted", "%root% { font-size: var(--text-s); color: var(--text-dark-muted); }")
+c("widget__hours", "%root% { font-size: var(--text-s); color: var(--text-dark-muted); padding-top: .6em; border-top: var(--pnw-border); width: 100%; }")
+c("widget__contact", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .45em; width: 100%; }")
+c("widget__contact-item", "%root% { display: flex; flex-direction: row; align-items: center; gap: .6em; font-weight: 600; font-size: var(--text-s); color: var(--text-dark); text-decoration: none; overflow-wrap: anywhere; }\n%root% svg { width: 32px; height: 32px; min-width: 32px; padding: .35em; border-radius: var(--radius); background: var(--primary-ultra-light); color: var(--primary); flex: none; }\n%root%:hover { color: var(--primary); }")
+c("widget__list", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; width: 100%; }")
+c("widget__list-item", "%root% { display: flex; flex-direction: column; gap: .15em; padding: .7em 0; border-bottom: var(--pnw-border); color: var(--text-dark); text-decoration: none; }\n%root%:hover .widget__list-title { color: var(--primary); }\n%root%:last-child { border-bottom: 0; }")
+c("widget__list-title", "%root% { font-weight: 700; }")
+c("widget__list-meta", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); }")
+c("widget--tint", "%root% { background: var(--neutral-ultra-light); }")
+c("widget__areas", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .35em; width: 100%; }")
+c("widget__area", "%root% { display: block; width: 100%; padding: .6em .8em; border-radius: var(--radius); background: var(--white); border: var(--pnw-border); color: var(--text-dark); font-weight: 600; font-size: var(--text-s); text-decoration: none; }\n%root%:hover { border-color: var(--primary); color: var(--primary); }")
+c("widget__svc", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; width: 100%; }")
+c("widget__svc-item", "%root% { display: flex; flex-direction: row; align-items: center; gap: .7em; padding: .6em 0; color: var(--text-dark); font-weight: 700; text-decoration: none; transition: color .25s; width: 100%; }\n%root%:hover { color: var(--primary); }\n%root% svg { width: 32px; height: 32px; min-width: 32px; padding: .35em; border-radius: var(--radius); background: var(--base); color: var(--primary-light); flex: none; }")
+c("widget__svc-row", "%root% + %root% { border-top: var(--pnw-border); }")
+c("widget--dark", "%root% { background: var(--base); border-color: var(--base); color: var(--text-light-muted); }\n%root% .widget__title { color: var(--white); }\n%root% .brxe-button { width: 100%; justify-content: center; }")
+c("widget__phone", "%root% { display: flex; flex-direction: row; align-items: center; gap: .5em; font-family: var(--heading-font-family); font-weight: 900; font-size: var(--h4); color: var(--white); text-decoration: none; margin: .2em 0 .4em; }\n%root% svg { width: 32px; height: 32px; min-width: 32px; color: var(--primary-light); }")
+
+
+# --------------------------------------------------------------------------
 # SERVICE PAGE: Sewer Pipe Lining (shared service-page blocks)
 # --------------------------------------------------------------------------
 c("crumbs", "%root% { display: block; width: 100%; }")

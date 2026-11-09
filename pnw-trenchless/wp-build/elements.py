@@ -223,7 +223,7 @@ def footer():
                     ]),
                 ]),
                 col("Services", [("Sewer Pipe Lining", "/services/sewer-pipe-lining/"), ("Pipe Bursting", "/services/pipe-bursting/"), ("Water Line Pulling", "/services/water-line-pulling/"), ("Point Repairs", "/services/point-repairs/")]),
-                col("Service Areas", [(x, "/#areas") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
+                col("Service Areas", [(x, "/" + x.lower().replace(" ", "-") + "/") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
                 block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/about/"), a("Who We Serve", "/who-we-serve/"), a("Projects", "/projects/"), a("Reviews", "/reviews/"), a("Contact", "/contact/"), span(HOURS, "footer__hours", **when(HOURS))]),
             ]),
             t("TRENCHLESS", "footer__word", tag="div", _attributes=attrs(aria_hidden="true")),
@@ -768,7 +768,8 @@ def build():
     data["pages"].append(elements_point.page())
     import elements_serve
     data["pages"].append(elements_serve.page())
-    data["templates"] = [elements_projects.single_template()]
+    import elements_city
+    data["templates"] = [elements_projects.single_template(), elements_city.template()]
     pathlib.Path(__file__).with_name("elements.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
     return data
 
