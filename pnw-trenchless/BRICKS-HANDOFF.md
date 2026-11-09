@@ -148,3 +148,4 @@ The build is generated from code in `wp-build/`: `classes.py` → `classes.json`
 - **Review loops:** Home Reviews shows the 3 newest featured testimonials; each service page shows the 2 newest testimonials linked to it (Service mentioned field). To change which reviews appear, edit the testimonial posts, not the page.
 - **About (built 2026-11-09):** page 706, `/about/`, from the approved `about.html` (builder `wp-build/elements_about.py`). Menu and footer "About" links point to it.
 - **Contact (built 2026-11-09):** page 785, `/contact/`, from the approved `contact.html` (builder `wp-build/elements_contact.py`). Menu and footer "Contact" links point to it.
+- **Pipe Bursting (built 2026-11-09):** service post 842, `/services/pipe-bursting/`, from the approved `service-pipe-bursting.html` (builder `wp-build/elements_bursting.py`). Footer service links now go to the two service pages.
