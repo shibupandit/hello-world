@@ -538,8 +538,7 @@ def mike():
             block("split split--center split--mike", [
                 block("mike__media", [
                     block("mike__photo", [
-                        svg("art-silhouette.svg", "mike__silhouette", _attributes=attrs(aria_hidden="true")),
-                        block("mike__photo-ph", [svg("icon-photo.svg"), span('<span class="tbc">Portrait: Mike Jeisma in work gear beside the rig</span>')]),
+                        img("job-access-pit.jpg", "cover-img", alt="A shored access pit in a front lawn on a PNW Trenchless job"),
                         block("mike__plate", [
                             block("mike__id", [span("Mike Jeisma", "mike__name"), span("Owner &amp; lead technician", "mike__role")], tag="span"),
                             span(f'{ADDRESS} · Est. <span class="tbc">2025</span>', "mike__est"),
@@ -588,12 +587,12 @@ def projects():
             ], tag="article"),
             block("projects__more", [
                 block("mini", [
-                    block("feed", [block("feed__hud", [span("021.7 FT", "feed__ft")])], tag="span", _attributes=attrs(role="img", aria_label="Collapsed pipe still")),
-                    block("mini__body", [span('<span class="tbc">City</span>, Spokane Valley', "mini__title"), span('Collapsed Orangeburg replaced by pipe bursting, 4" HDPE · <span class="tbc">X</span> days', "mini__text")], tag="span"),
-                ], href="#"),
+                    img("job-pipe-connection.jpg", alt="The new sewer pipe connected in the access pit"),
+                    block("mini__body", [span("Sewer line reconnection", "mini__title"), span("New pipe connected in the access pit before backfill", "mini__text")], tag="span"),
+                ], href="/services/pipe-bursting/"),
                 block("mini", [
                     img("job-waterline.jpg", alt="Access pit with the new blue water line in place next to the meter box"),
-                    block("mini__body", [span("Water line pull", "mini__title"), span('New line pulled through a small access pit at the meter · <span class="tbc">City</span>', "mini__text")], tag="span"),
+                    block("mini__body", [span("Water line pull", "mini__title"), span("New line pulled through a small access pit at the meter", "mini__text")], tag="span"),
                 ], href="#"),
             ]),
         ]),

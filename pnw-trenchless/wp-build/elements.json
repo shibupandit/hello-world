@@ -7445,56 +7445,22 @@
     },
     {
      "id": "sa0006",
-     "name": "svg",
+     "name": "image",
      "parent": "sa0005",
      "settings": {
-      "file": {
-       "__media": "art-silhouette.svg"
+      "image": {
+       "__media": "job-access-pit.jpg",
+       "size": "full"
       },
-      "_attributes": [
-       {
-        "name": "aria-hidden",
-        "value": "true"
-       }
-      ],
+      "altText": "A shored access pit in a front lawn on a PNW Trenchless job",
       "_cls": [
-       "mike__silhouette"
+       "cover-img"
       ]
      },
-     "label": "mike__silhouette"
+     "label": "cover-img"
     },
     {
      "id": "sa0007",
-     "name": "block",
-     "parent": "sa0005",
-     "settings": {
-      "_cls": [
-       "mike__photo-ph"
-      ]
-     },
-     "label": "mike__photo-ph"
-    },
-    {
-     "id": "sa0008",
-     "name": "svg",
-     "parent": "sa0007",
-     "settings": {
-      "file": {
-       "__media": "icon-photo.svg"
-      }
-     }
-    },
-    {
-     "id": "sa0009",
-     "name": "text-basic",
-     "parent": "sa0007",
-     "settings": {
-      "text": "<span class=\"tbc\">Portrait: Mike Jeisma in work gear beside the rig</span>",
-      "tag": "span"
-     }
-    },
-    {
-     "id": "sa000a",
      "name": "block",
      "parent": "sa0005",
      "settings": {
@@ -7505,9 +7471,9 @@
      "label": "mike__plate"
     },
     {
-     "id": "sa000b",
+     "id": "sa0008",
      "name": "block",
-     "parent": "sa000a",
+     "parent": "sa0007",
      "settings": {
       "tag": "custom",
       "customTag": "span",
@@ -7518,9 +7484,9 @@
      "label": "mike__id"
     },
     {
-     "id": "sa000c",
+     "id": "sa0009",
      "name": "text-basic",
-     "parent": "sa000b",
+     "parent": "sa0008",
      "settings": {
       "text": "Mike Jeisma",
       "tag": "span",
@@ -7531,9 +7497,9 @@
      "label": "mike__name"
     },
     {
-     "id": "sa000d",
+     "id": "sa000a",
      "name": "text-basic",
-     "parent": "sa000b",
+     "parent": "sa0008",
      "settings": {
       "text": "Owner &amp; lead technician",
       "tag": "span",
@@ -7544,9 +7510,9 @@
      "label": "mike__role"
     },
     {
-     "id": "sa000e",
+     "id": "sa000b",
      "name": "text-basic",
-     "parent": "sa000a",
+     "parent": "sa0007",
      "settings": {
       "text": "{acf_site_address} · Est. <span class=\"tbc\">2025</span>",
       "tag": "span",
@@ -7557,7 +7523,7 @@
      "label": "mike__est"
     },
     {
-     "id": "sa000f",
+     "id": "sa000c",
      "name": "image",
      "parent": "sa0004",
      "settings": {
@@ -7573,7 +7539,7 @@
      "label": "mike__inset"
     },
     {
-     "id": "sa0010",
+     "id": "sa000d",
      "name": "block",
      "parent": "sa0003",
      "settings": {
@@ -7584,9 +7550,9 @@
      "label": "mike__content"
     },
     {
-     "id": "sa0011",
+     "id": "sa000e",
      "name": "text-basic",
-     "parent": "sa0010",
+     "parent": "sa000d",
      "settings": {
       "text": "Family-owned · meet the owner",
       "tag": "span",
@@ -7597,9 +7563,9 @@
      "label": "eyebrow"
     },
     {
-     "id": "sa0012",
+     "id": "sa000f",
      "name": "text-basic",
-     "parent": "sa0010",
+     "parent": "sa000d",
      "settings": {
       "text": "We treat every project like it’s for our own family. Our customers deserve honest work, fair pricing, and results built to last.",
       "tag": "custom",
@@ -7611,9 +7577,9 @@
      "label": "mike__quote"
     },
     {
-     "id": "sa0013",
+     "id": "sa0010",
      "name": "text-basic",
-     "parent": "sa0010",
+     "parent": "sa000d",
      "settings": {
       "text": "PNW Trenchless is a family-owned company built on honesty, quality workmanship and customer care. Mike has spent 14+ years in sewer and water line work across the Spokane area, the last decade-plus focused on trenchless lining and bursting. In <span class=\"tbc\">2025</span> he started PNW Trenchless to do it his way: show customers the footage, give them a straight answer, and do the work himself.",
       "tag": "p",
@@ -7624,9 +7590,9 @@
      "label": "mike__bio"
     },
     {
-     "id": "sa0014",
+     "id": "sa0011",
      "name": "block",
-     "parent": "sa0010",
+     "parent": "sa000d",
      "settings": {
       "tag": "ul",
       "_cls": [
@@ -7636,9 +7602,40 @@
      "label": "creds"
     },
     {
+     "id": "sa0012",
+     "name": "block",
+     "parent": "sa0011",
+     "settings": {
+      "tag": "li",
+      "_cls": [
+       "creds__item"
+      ]
+     },
+     "label": "creds__item"
+    },
+    {
+     "id": "sa0013",
+     "name": "svg",
+     "parent": "sa0012",
+     "settings": {
+      "file": {
+       "__media": "icon-check.svg"
+      }
+     }
+    },
+    {
+     "id": "sa0014",
+     "name": "text-basic",
+     "parent": "sa0012",
+     "settings": {
+      "text": "14+ years in trenchless sewer &amp; water line repair",
+      "tag": "span"
+     }
+    },
+    {
      "id": "sa0015",
      "name": "block",
-     "parent": "sa0014",
+     "parent": "sa0011",
      "settings": {
       "tag": "li",
       "_cls": [
@@ -7662,14 +7659,14 @@
      "name": "text-basic",
      "parent": "sa0015",
      "settings": {
-      "text": "14+ years in trenchless sewer &amp; water line repair",
+      "text": "<span class=\"tbc\">Manufacturer certifications</span>",
       "tag": "span"
      }
     },
     {
      "id": "sa0018",
      "name": "block",
-     "parent": "sa0014",
+     "parent": "sa0011",
      "settings": {
       "tag": "li",
       "_cls": [
@@ -7684,7 +7681,7 @@
      "parent": "sa0018",
      "settings": {
       "file": {
-       "__media": "icon-check.svg"
+       "__media": "icon-shield.svg"
       }
      }
     },
@@ -7693,14 +7690,14 @@
      "name": "text-basic",
      "parent": "sa0018",
      "settings": {
-      "text": "<span class=\"tbc\">Manufacturer certifications</span>",
+      "text": "WA Reg. #PNWTRT*744KQ, licensed, bonded &amp; insured",
       "tag": "span"
      }
     },
     {
      "id": "sa001b",
      "name": "block",
-     "parent": "sa0014",
+     "parent": "sa0011",
      "settings": {
       "tag": "li",
       "_cls": [
@@ -7715,7 +7712,7 @@
      "parent": "sa001b",
      "settings": {
       "file": {
-       "__media": "icon-shield.svg"
+       "__media": "icon-home.svg"
       }
      }
     },
@@ -7724,45 +7721,14 @@
      "name": "text-basic",
      "parent": "sa001b",
      "settings": {
-      "text": "WA Reg. #PNWTRT*744KQ, licensed, bonded &amp; insured",
+      "text": "Lives and works locally in {acf_site_address}",
       "tag": "span"
      }
     },
     {
      "id": "sa001e",
      "name": "block",
-     "parent": "sa0014",
-     "settings": {
-      "tag": "li",
-      "_cls": [
-       "creds__item"
-      ]
-     },
-     "label": "creds__item"
-    },
-    {
-     "id": "sa001f",
-     "name": "svg",
-     "parent": "sa001e",
-     "settings": {
-      "file": {
-       "__media": "icon-home.svg"
-      }
-     }
-    },
-    {
-     "id": "sa0020",
-     "name": "text-basic",
-     "parent": "sa001e",
-     "settings": {
-      "text": "Lives and works locally in {acf_site_address}",
-      "tag": "span"
-     }
-    },
-    {
-     "id": "sa0021",
-     "name": "block",
-     "parent": "sa0010",
+     "parent": "sa000d",
      "settings": {
       "_cls": [
        "mike__sign"
@@ -7771,9 +7737,9 @@
      "label": "mike__sign"
     },
     {
-     "id": "sa0022",
+     "id": "sa001f",
      "name": "block",
-     "parent": "sa0021",
+     "parent": "sa001e",
      "settings": {
       "tag": "custom",
       "customTag": "span",
@@ -7784,9 +7750,9 @@
      "label": "mike__sig"
     },
     {
-     "id": "sa0023",
+     "id": "sa0020",
      "name": "text-basic",
-     "parent": "sa0022",
+     "parent": "sa001f",
      "settings": {
       "text": "Mike Jeisma",
       "tag": "span",
@@ -7797,9 +7763,9 @@
      "label": "mike__sig-name"
     },
     {
-     "id": "sa0024",
+     "id": "sa0021",
      "name": "text-basic",
-     "parent": "sa0022",
+     "parent": "sa001f",
      "settings": {
       "text": "Owner, PNW Trenchless",
       "tag": "span",
@@ -7810,9 +7776,9 @@
      "label": "mike__sig-role"
     },
     {
-     "id": "sa0025",
+     "id": "sa0022",
      "name": "text-link",
-     "parent": "sa0021",
+     "parent": "sa001e",
      "settings": {
       "text": "Read Mike's full story",
       "link": {
@@ -8195,7 +8161,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#"
+       "url": "/services/pipe-bursting/"
       },
       "_cls": [
        "mini"
@@ -8205,53 +8171,18 @@
     },
     {
      "id": "sb001f",
-     "name": "block",
+     "name": "image",
      "parent": "sb001e",
      "settings": {
-      "_attributes": [
-       {
-        "name": "role",
-        "value": "img"
-       },
-       {
-        "name": "aria-label",
-        "value": "Collapsed pipe still"
-       }
-      ],
-      "tag": "custom",
-      "customTag": "span",
-      "_cls": [
-       "feed"
-      ]
-     },
-     "label": "feed"
+      "image": {
+       "__media": "job-pipe-connection.jpg",
+       "size": "full"
+      },
+      "altText": "The new sewer pipe connected in the access pit"
+     }
     },
     {
      "id": "sb0020",
-     "name": "block",
-     "parent": "sb001f",
-     "settings": {
-      "_cls": [
-       "feed__hud"
-      ]
-     },
-     "label": "feed__hud"
-    },
-    {
-     "id": "sb0021",
-     "name": "text-basic",
-     "parent": "sb0020",
-     "settings": {
-      "text": "021.7 FT",
-      "tag": "span",
-      "_cls": [
-       "feed__ft"
-      ]
-     },
-     "label": "feed__ft"
-    },
-    {
-     "id": "sb0022",
      "name": "block",
      "parent": "sb001e",
      "settings": {
@@ -8264,11 +8195,11 @@
      "label": "mini__body"
     },
     {
-     "id": "sb0023",
+     "id": "sb0021",
      "name": "text-basic",
-     "parent": "sb0022",
+     "parent": "sb0020",
      "settings": {
-      "text": "<span class=\"tbc\">City</span>, Spokane Valley",
+      "text": "Sewer line reconnection",
       "tag": "span",
       "_cls": [
        "mini__title"
@@ -8277,11 +8208,11 @@
      "label": "mini__title"
     },
     {
-     "id": "sb0024",
+     "id": "sb0022",
      "name": "text-basic",
-     "parent": "sb0022",
+     "parent": "sb0020",
      "settings": {
-      "text": "Collapsed Orangeburg replaced by pipe bursting, 4\" HDPE · <span class=\"tbc\">X</span> days",
+      "text": "New pipe connected in the access pit before backfill",
       "tag": "span",
       "_cls": [
        "mini__text"
@@ -8290,7 +8221,7 @@
      "label": "mini__text"
     },
     {
-     "id": "sb0025",
+     "id": "sb0023",
      "name": "block",
      "parent": "sb001d",
      "settings": {
@@ -8306,9 +8237,9 @@
      "label": "mini"
     },
     {
-     "id": "sb0026",
+     "id": "sb0024",
      "name": "image",
-     "parent": "sb0025",
+     "parent": "sb0023",
      "settings": {
       "image": {
        "__media": "job-waterline.jpg",
@@ -8318,9 +8249,9 @@
      }
     },
     {
-     "id": "sb0027",
+     "id": "sb0025",
      "name": "block",
-     "parent": "sb0025",
+     "parent": "sb0023",
      "settings": {
       "tag": "custom",
       "customTag": "span",
@@ -8331,9 +8262,9 @@
      "label": "mini__body"
     },
     {
-     "id": "sb0028",
+     "id": "sb0026",
      "name": "text-basic",
-     "parent": "sb0027",
+     "parent": "sb0025",
      "settings": {
       "text": "Water line pull",
       "tag": "span",
@@ -8344,11 +8275,11 @@
      "label": "mini__title"
     },
     {
-     "id": "sb0029",
+     "id": "sb0027",
      "name": "text-basic",
-     "parent": "sb0027",
+     "parent": "sb0025",
      "settings": {
-      "text": "New line pulled through a small access pit at the meter · <span class=\"tbc\">City</span>",
+      "text": "New line pulled through a small access pit at the meter",
       "tag": "span",
       "_cls": [
        "mini__text"
@@ -11055,12 +10986,6 @@
        "name": "block",
        "parent": "l00016",
        "settings": {
-        "_attributes": [
-         {
-          "name": "aria-hidden",
-          "value": "true"
-         }
-        ],
         "_cls": [
          "svc-hero__art"
         ]
@@ -11069,20 +10994,26 @@
       },
       {
        "id": "l00018",
-       "name": "svg",
+       "name": "image",
        "parent": "l00017",
        "settings": {
-        "file": {
-         "__media": "art-service-lining.svg"
-        }
-       }
+        "image": {
+         "__media": "job-lined-pipe.jpg",
+         "size": "full"
+        },
+        "altText": "An old sewer pipe cut open, with the new blue liner cured inside it",
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
       },
       {
        "id": "l00019",
        "name": "text-basic",
        "parent": "l00016",
        "settings": {
-        "text": "<span class=\"tbc\">Replace with a real job photo: Mike feeding the liner into a cleanout on a Spokane job (not stock)</span>",
+        "text": "A cut section of an old pipe with the new liner cured inside.",
         "tag": "figcaption",
         "_cls": [
          "svc-hero__cap"
@@ -12158,7 +12089,7 @@
        "name": "text-basic",
        "parent": "l40003",
        "settings": {
-        "text": "Same pipe, same camera, before and after lining. <span class=\"tbc\">Job location, pipe material, length</span>.",
+        "text": "Real photos from our jobs: the old pipe we find, and the liner that goes inside it.",
         "tag": "p",
         "_cls": [
          "section__intro"
@@ -12194,36 +12125,28 @@
        "name": "block",
        "parent": "l40008",
        "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Illustrated camera view: roots at a pipe joint before lining"
-         }
-        ],
         "_cls": [
-         "feed",
-         "feed--roots",
-         "still__feed"
+         "still__feed",
+         "still__media"
         ]
        },
-       "label": "feed"
+       "label": "still__feed"
       },
       {
        "id": "l4000a",
-       "name": "div",
+       "name": "image",
        "parent": "l40009",
        "settings": {
-        "tag": "custom",
-        "customTag": "span",
+        "image": {
+         "__media": "job-old-pipe.jpg",
+         "size": "full"
+        },
+        "altText": "A section of old sewer pipe cut open, with heavy buildup inside",
         "_cls": [
-         "feed__cross"
+         "cover-img"
         ]
        },
-       "label": "feed__cross"
+       "label": "cover-img"
       },
       {
        "id": "l4000b",
@@ -12255,49 +12178,16 @@
        "name": "text-basic",
        "parent": "l4000b",
        "settings": {
-        "text": "4\" CLAY · JOINT 6",
+        "text": "OLD PIPE",
         "tag": "span"
        }
       },
       {
        "id": "l4000e",
-       "name": "block",
-       "parent": "l40009",
-       "settings": {
-        "_cls": [
-         "feed__hud"
-        ]
-       },
-       "label": "feed__hud"
-      },
-      {
-       "id": "l4000f",
-       "name": "text-basic",
-       "parent": "l4000e",
-       "settings": {
-        "text": "PNW CAM 01",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "l40010",
-       "name": "text-basic",
-       "parent": "l4000e",
-       "settings": {
-        "text": "047.6 FT",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "l40011",
        "name": "text-basic",
        "parent": "l40008",
        "settings": {
-        "text": "<strong>Roots at the joint.</strong> <span class=\"tbc\">Replace with a real camera still from a PNW job</span>",
+        "text": "<strong>Before: an old line choked with buildup.</strong>",
         "tag": "figcaption",
         "_cls": [
          "still__cap"
@@ -12306,7 +12196,7 @@
        "label": "still__cap"
       },
       {
-       "id": "l40012",
+       "id": "l4000f",
        "name": "block",
        "parent": "l40007",
        "settings": {
@@ -12318,45 +12208,37 @@
        "label": "still"
       },
       {
-       "id": "l40013",
+       "id": "l40010",
        "name": "block",
-       "parent": "l40012",
+       "parent": "l4000f",
        "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Illustrated camera view: smooth lined pipe after lining"
-         }
-        ],
         "_cls": [
-         "feed",
-         "feed--clean",
-         "still__feed"
+         "still__feed",
+         "still__media"
         ]
        },
-       "label": "feed"
+       "label": "still__feed"
       },
       {
-       "id": "l40014",
-       "name": "div",
-       "parent": "l40013",
+       "id": "l40011",
+       "name": "image",
+       "parent": "l40010",
        "settings": {
-        "tag": "custom",
-        "customTag": "span",
+        "image": {
+         "__media": "job-lined-pipe.jpg",
+         "size": "full"
+        },
+        "altText": "An old sewer pipe cut open, with the new blue liner cured inside it",
         "_cls": [
-         "feed__cross"
+         "cover-img"
         ]
        },
-       "label": "feed__cross"
+       "label": "cover-img"
       },
       {
-       "id": "l40015",
+       "id": "l40012",
        "name": "block",
-       "parent": "l40013",
+       "parent": "l40010",
        "settings": {
         "_cls": [
          "feed__hud",
@@ -12366,9 +12248,9 @@
        "label": "feed__hud"
       },
       {
-       "id": "l40016",
+       "id": "l40013",
        "name": "text-basic",
-       "parent": "l40015",
+       "parent": "l40012",
        "settings": {
         "text": "After",
         "tag": "span",
@@ -12380,53 +12262,20 @@
        "label": "still__tag"
       },
       {
-       "id": "l40017",
-       "name": "text-basic",
-       "parent": "l40015",
-       "settings": {
-        "text": "CURED LINER",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "l40018",
-       "name": "block",
-       "parent": "l40013",
-       "settings": {
-        "_cls": [
-         "feed__hud"
-        ]
-       },
-       "label": "feed__hud"
-      },
-      {
-       "id": "l40019",
-       "name": "text-basic",
-       "parent": "l40018",
-       "settings": {
-        "text": "PNW CAM 01",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "l4001a",
-       "name": "text-basic",
-       "parent": "l40018",
-       "settings": {
-        "text": "047.6 FT",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "l4001b",
+       "id": "l40014",
        "name": "text-basic",
        "parent": "l40012",
        "settings": {
-        "text": "<strong>Smooth, jointless liner.</strong> <span class=\"tbc\">Replace with a real camera still from a PNW job</span>",
+        "text": "NEW LINER",
+        "tag": "span"
+       }
+      },
+      {
+       "id": "l40015",
+       "name": "text-basic",
+       "parent": "l4000f",
+       "settings": {
+        "text": "<strong>After: the new liner cured inside the old pipe.</strong>",
         "tag": "figcaption",
         "_cls": [
          "still__cap"
@@ -13159,58 +13008,22 @@
       },
       {
        "id": "l70005",
-       "name": "svg",
+       "name": "image",
        "parent": "l70004",
        "settings": {
-        "file": {
-         "__media": "art-silhouette.svg"
+        "image": {
+         "__media": "trailer.jpg",
+         "size": "full"
         },
-        "_attributes": [
-         {
-          "name": "aria-hidden",
-          "value": "true"
-         }
-        ],
+        "altText": "The PNW Trenchless equipment trailer",
         "_cls": [
-         "mike__silhouette"
+         "cover-img"
         ]
        },
-       "label": "mike__silhouette"
+       "label": "cover-img"
       },
       {
        "id": "l70006",
-       "name": "block",
-       "parent": "l70004",
-       "settings": {
-        "tag": "custom",
-        "customTag": "span",
-        "_cls": [
-         "owner__ph"
-        ]
-       },
-       "label": "owner__ph"
-      },
-      {
-       "id": "l70007",
-       "name": "svg",
-       "parent": "l70006",
-       "settings": {
-        "file": {
-         "__media": "icon-photo.svg"
-        }
-       }
-      },
-      {
-       "id": "l70008",
-       "name": "text-basic",
-       "parent": "l70006",
-       "settings": {
-        "text": "<span class=\"tbc\">Mike headshot</span>",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "l70009",
        "name": "block",
        "parent": "l70003",
        "settings": {
@@ -13221,9 +13034,9 @@
        "label": "owner__content"
       },
       {
-       "id": "l7000a",
+       "id": "l70007",
        "name": "text-basic",
-       "parent": "l70009",
+       "parent": "l70006",
        "settings": {
         "text": "Who does the work",
         "tag": "span",
@@ -13234,9 +13047,9 @@
        "label": "eyebrow"
       },
       {
-       "id": "l7000b",
+       "id": "l70008",
        "name": "heading",
-       "parent": "l70009",
+       "parent": "l70006",
        "settings": {
         "text": "Mike Jeisma has lined <span class=\"tbc\">hundreds of</span> <span class=\"serif\">Inland Northwest</span> sewer lines.",
         "tag": "h2",
@@ -13247,9 +13060,9 @@
        "label": "owner__title"
       },
       {
-       "id": "l7000c",
+       "id": "l70009",
        "name": "text-basic",
-       "parent": "l70009",
+       "parent": "l70006",
        "settings": {
         "text": "<span class=\"tbc\">Mike, 2–3 sentences: what he looks for on the camera, the mistake he sees other companies make with lining, why he does the final video.</span>",
         "tag": "custom",
@@ -13261,9 +13074,9 @@
        "label": "owner__quote"
       },
       {
-       "id": "l7000d",
+       "id": "l7000a",
        "name": "block",
-       "parent": "l70009",
+       "parent": "l70006",
        "settings": {
         "tag": "ul",
         "_cls": [
@@ -13273,9 +13086,40 @@
        "label": "owner__creds"
       },
       {
+       "id": "l7000b",
+       "name": "block",
+       "parent": "l7000a",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "owner__cred"
+        ]
+       },
+       "label": "owner__cred"
+      },
+      {
+       "id": "l7000c",
+       "name": "svg",
+       "parent": "l7000b",
+       "settings": {
+        "file": {
+         "__media": "icon-shield.svg"
+        }
+       }
+      },
+      {
+       "id": "l7000d",
+       "name": "text-basic",
+       "parent": "l7000b",
+       "settings": {
+        "text": "<span class=\"tbc\">Liner manufacturer certification</span>",
+        "tag": "span"
+       }
+      },
+      {
        "id": "l7000e",
        "name": "block",
-       "parent": "l7000d",
+       "parent": "l7000a",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -13290,7 +13134,7 @@
        "parent": "l7000e",
        "settings": {
         "file": {
-         "__media": "icon-shield.svg"
+         "__media": "icon-check.svg"
         }
        }
       },
@@ -13299,14 +13143,14 @@
        "name": "text-basic",
        "parent": "l7000e",
        "settings": {
-        "text": "<span class=\"tbc\">Liner manufacturer certification</span>",
+        "text": "WA Reg. #PNWTRT*744KQ",
         "tag": "span"
        }
       },
       {
        "id": "l70011",
        "name": "block",
-       "parent": "l7000d",
+       "parent": "l7000a",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -13321,7 +13165,7 @@
        "parent": "l70011",
        "settings": {
         "file": {
-         "__media": "icon-check.svg"
+         "__media": "icon-home.svg"
         }
        }
       },
@@ -13330,45 +13174,14 @@
        "name": "text-basic",
        "parent": "l70011",
        "settings": {
-        "text": "WA Reg. #PNWTRT*744KQ",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "l70014",
-       "name": "block",
-       "parent": "l7000d",
-       "settings": {
-        "tag": "li",
-        "_cls": [
-         "owner__cred"
-        ]
-       },
-       "label": "owner__cred"
-      },
-      {
-       "id": "l70015",
-       "name": "svg",
-       "parent": "l70014",
-       "settings": {
-        "file": {
-         "__media": "icon-home.svg"
-        }
-       }
-      },
-      {
-       "id": "l70016",
-       "name": "text-basic",
-       "parent": "l70014",
-       "settings": {
         "text": "Family-owned, {acf_site_address}",
         "tag": "span"
        }
       },
       {
-       "id": "l70017",
+       "id": "l70014",
        "name": "text-link",
-       "parent": "l70009",
+       "parent": "l70006",
        "settings": {
         "text": "About Mike",
         "link": {
@@ -13432,7 +13245,7 @@
        "name": "text-basic",
        "parent": "l80004",
        "settings": {
-        "text": "Lining projects",
+        "text": "On the job",
         "tag": "span",
         "_cls": [
          "eyebrow"
@@ -13445,7 +13258,7 @@
        "name": "heading",
        "parent": "l80004",
        "settings": {
-        "text": "Recent pipe <span class=\"serif\">lining jobs.</span>",
+        "text": "One job, <span class=\"serif\">start to finish.</span>",
         "tag": "h2"
        }
       },
@@ -13494,50 +13307,31 @@
        "name": "block",
        "parent": "l80009",
        "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Camera still placeholder"
-         }
-        ],
+        "tag": "figure",
         "_cls": [
-         "feed",
-         "feed--roots",
-         "job__feed"
+         "job__media"
         ]
        },
-       "label": "feed"
+       "label": "job__media"
       },
       {
        "id": "l8000b",
-       "name": "block",
+       "name": "image",
        "parent": "l8000a",
        "settings": {
+        "image": {
+         "__media": "job-access-pit.jpg",
+         "size": "full"
+        },
+        "altText": "A shored access pit in a front lawn, with the camera reel and jetter beside it",
         "_cls": [
-         "feed__hud"
+         "cover-img"
         ]
        },
-       "label": "feed__hud"
+       "label": "cover-img"
       },
       {
        "id": "l8000c",
-       "name": "text-basic",
-       "parent": "l8000b",
-       "settings": {
-        "text": "CAMERA STILL",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "l8000d",
        "name": "block",
        "parent": "l80009",
        "settings": {
@@ -13548,11 +13342,11 @@
        "label": "job__body"
       },
       {
-       "id": "l8000e",
+       "id": "l8000d",
        "name": "text-basic",
-       "parent": "l8000d",
+       "parent": "l8000c",
        "settings": {
-        "text": "<span class=\"tbc\">Neighborhood</span>, Spokane",
+        "text": "The access pit",
         "tag": "span",
         "_cls": [
          "job__title"
@@ -13561,11 +13355,11 @@
        "label": "job__title"
       },
       {
-       "id": "l8000f",
+       "id": "l8000e",
        "name": "text-basic",
-       "parent": "l8000d",
+       "parent": "l8000c",
        "settings": {
-        "text": "<span class=\"tbc\">Material, size, length · problem</span>",
+        "text": "One small, shored pit instead of a trench across the yard.",
         "tag": "p",
         "_cls": [
          "job__spec"
@@ -13574,20 +13368,7 @@
        "label": "job__spec"
       },
       {
-       "id": "l80010",
-       "name": "text-basic",
-       "parent": "l8000d",
-       "settings": {
-        "text": "<span class=\"tbc\">Lined in X day(s), X pits</span>",
-        "tag": "p",
-        "_cls": [
-         "job__result"
-        ]
-       },
-       "label": "job__result"
-      },
-      {
-       "id": "l80011",
+       "id": "l8000f",
        "name": "block",
        "parent": "l80008",
        "settings": {
@@ -13597,57 +13378,39 @@
         ]
        },
        "label": "job"
+      },
+      {
+       "id": "l80010",
+       "name": "block",
+       "parent": "l8000f",
+       "settings": {
+        "tag": "figure",
+        "_cls": [
+         "job__media"
+        ]
+       },
+       "label": "job__media"
+      },
+      {
+       "id": "l80011",
+       "name": "image",
+       "parent": "l80010",
+       "settings": {
+        "image": {
+         "__media": "job-old-pipe.jpg",
+         "size": "full"
+        },
+        "altText": "A section of old sewer pipe cut open, with heavy buildup inside",
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
       },
       {
        "id": "l80012",
        "name": "block",
-       "parent": "l80011",
-       "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Camera still placeholder"
-         }
-        ],
-        "_cls": [
-         "feed",
-         "job__feed"
-        ]
-       },
-       "label": "feed"
-      },
-      {
-       "id": "l80013",
-       "name": "block",
-       "parent": "l80012",
-       "settings": {
-        "_cls": [
-         "feed__hud"
-        ]
-       },
-       "label": "feed__hud"
-      },
-      {
-       "id": "l80014",
-       "name": "text-basic",
-       "parent": "l80013",
-       "settings": {
-        "text": "CAMERA STILL",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "l80015",
-       "name": "block",
-       "parent": "l80011",
+       "parent": "l8000f",
        "settings": {
         "_cls": [
          "job__body"
@@ -13656,11 +13419,11 @@
        "label": "job__body"
       },
       {
-       "id": "l80016",
+       "id": "l80013",
        "name": "text-basic",
-       "parent": "l80015",
+       "parent": "l80012",
        "settings": {
-        "text": "<span class=\"tbc\">City</span>, Spokane Valley",
+        "text": "The old pipe",
         "tag": "span",
         "_cls": [
          "job__title"
@@ -13669,11 +13432,11 @@
        "label": "job__title"
       },
       {
-       "id": "l80017",
+       "id": "l80014",
        "name": "text-basic",
-       "parent": "l80015",
+       "parent": "l80012",
        "settings": {
-        "text": "<span class=\"tbc\">Material, size, length · problem</span>",
+        "text": "What years of buildup look like inside an old line.",
         "tag": "p",
         "_cls": [
          "job__spec"
@@ -13682,20 +13445,7 @@
        "label": "job__spec"
       },
       {
-       "id": "l80018",
-       "name": "text-basic",
-       "parent": "l80015",
-       "settings": {
-        "text": "<span class=\"tbc\">Lined in X day(s), X pits</span>",
-        "tag": "p",
-        "_cls": [
-         "job__result"
-        ]
-       },
-       "label": "job__result"
-      },
-      {
-       "id": "l80019",
+       "id": "l80015",
        "name": "block",
        "parent": "l80008",
        "settings": {
@@ -13707,55 +13457,37 @@
        "label": "job"
       },
       {
-       "id": "l8001a",
+       "id": "l80016",
        "name": "block",
-       "parent": "l80019",
+       "parent": "l80015",
        "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Camera still placeholder"
-         }
-        ],
+        "tag": "figure",
         "_cls": [
-         "feed",
-         "job__feed"
+         "job__media"
         ]
        },
-       "label": "feed"
+       "label": "job__media"
       },
       {
-       "id": "l8001b",
-       "name": "block",
-       "parent": "l8001a",
+       "id": "l80017",
+       "name": "image",
+       "parent": "l80016",
        "settings": {
+        "image": {
+         "__media": "job-lawn-restored.jpg",
+         "size": "full"
+        },
+        "altText": "A front lawn after the job, with the pit backfilled and the grass back in place",
         "_cls": [
-         "feed__hud"
+         "cover-img"
         ]
        },
-       "label": "feed__hud"
+       "label": "cover-img"
       },
       {
-       "id": "l8001c",
-       "name": "text-basic",
-       "parent": "l8001b",
-       "settings": {
-        "text": "CAMERA STILL",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "l8001d",
+       "id": "l80018",
        "name": "block",
-       "parent": "l80019",
+       "parent": "l80015",
        "settings": {
         "_cls": [
          "job__body"
@@ -13764,11 +13496,11 @@
        "label": "job__body"
       },
       {
-       "id": "l8001e",
+       "id": "l80019",
        "name": "text-basic",
-       "parent": "l8001d",
+       "parent": "l80018",
        "settings": {
-        "text": "<span class=\"tbc\">City</span>, Deer Park",
+        "text": "The yard afterwards",
         "tag": "span",
         "_cls": [
          "job__title"
@@ -13777,30 +13509,17 @@
        "label": "job__title"
       },
       {
-       "id": "l8001f",
+       "id": "l8001a",
        "name": "text-basic",
-       "parent": "l8001d",
+       "parent": "l80018",
        "settings": {
-        "text": "<span class=\"tbc\">Material, size, length · problem</span>",
+        "text": "Pit backfilled and the lawn back in place.",
         "tag": "p",
         "_cls": [
          "job__spec"
         ]
        },
        "label": "job__spec"
-      },
-      {
-       "id": "l80020",
-       "name": "text-basic",
-       "parent": "l8001d",
-       "settings": {
-        "text": "<span class=\"tbc\">Lined in X day(s), X pits</span>",
-        "tag": "p",
-        "_cls": [
-         "job__result"
-        ]
-       },
-       "label": "job__result"
       }
      ]
     },
@@ -15791,58 +15510,22 @@
       },
       {
        "id": "a00013",
-       "name": "svg",
+       "name": "image",
        "parent": "a00012",
        "settings": {
-        "file": {
-         "__media": "art-silhouette.svg"
+        "image": {
+         "__media": "trailer.jpg",
+         "size": "full"
         },
-        "_attributes": [
-         {
-          "name": "aria-hidden",
-          "value": "true"
-         }
-        ],
+        "altText": "The PNW Trenchless equipment trailer",
         "_cls": [
-         "mike__silhouette"
+         "cover-img"
         ]
        },
-       "label": "mike__silhouette"
+       "label": "cover-img"
       },
       {
        "id": "a00014",
-       "name": "block",
-       "parent": "a00012",
-       "settings": {
-        "tag": "custom",
-        "customTag": "span",
-        "_cls": [
-         "owner__ph"
-        ]
-       },
-       "label": "owner__ph"
-      },
-      {
-       "id": "a00015",
-       "name": "svg",
-       "parent": "a00014",
-       "settings": {
-        "file": {
-         "__media": "icon-photo.svg"
-        }
-       }
-      },
-      {
-       "id": "a00016",
-       "name": "text-basic",
-       "parent": "a00014",
-       "settings": {
-        "text": "<span class=\"tbc\">Portrait: Mike in work gear, trailer behind him. Real, not a stock smile</span>",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "a00017",
        "name": "block",
        "parent": "a00012",
        "settings": {
@@ -15853,9 +15536,9 @@
        "label": "portrait__plate"
       },
       {
-       "id": "a00018",
+       "id": "a00015",
        "name": "block",
-       "parent": "a00017",
+       "parent": "a00014",
        "settings": {
         "tag": "custom",
         "customTag": "span",
@@ -15866,9 +15549,9 @@
        "label": "portrait__id"
       },
       {
-       "id": "a00019",
+       "id": "a00016",
        "name": "text-basic",
-       "parent": "a00018",
+       "parent": "a00015",
        "settings": {
         "text": "Mike Jeisma",
         "tag": "span",
@@ -15879,9 +15562,9 @@
        "label": "portrait__name"
       },
       {
-       "id": "a0001a",
+       "id": "a00017",
        "name": "text-basic",
-       "parent": "a00018",
+       "parent": "a00015",
        "settings": {
         "text": "Owner &amp; lead technician",
         "tag": "span",
@@ -15892,9 +15575,9 @@
        "label": "portrait__role"
       },
       {
-       "id": "a0001b",
+       "id": "a00018",
        "name": "text-basic",
-       "parent": "a00017",
+       "parent": "a00014",
        "settings": {
         "text": "Est. <span class=\"tbc\">2025</span>",
         "tag": "span",
@@ -17308,29 +16991,39 @@
        "settings": {
         "tag": "figure",
         "_cls": [
-         "rig__ph"
+         "rig__shot"
         ]
        },
-       "label": "rig__ph"
+       "label": "rig__shot"
       },
       {
        "id": "a40009",
-       "name": "svg",
+       "name": "image",
        "parent": "a40008",
        "settings": {
-        "file": {
-         "__media": "icon-photo.svg"
-        }
-       }
+        "image": {
+         "__media": "job-access-pit.jpg",
+         "size": "full"
+        },
+        "altText": "Camera reel, jetter and shoring set up around an access pit",
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
       },
       {
        "id": "a4000a",
        "name": "text-basic",
        "parent": "a40008",
        "settings": {
-        "text": "<span class=\"tbc\">Photo: wrapped truck</span>",
-        "tag": "span"
-       }
+        "text": "On site",
+        "tag": "figcaption",
+        "_cls": [
+         "rig__tag"
+        ]
+       },
+       "label": "rig__tag"
       },
       {
        "id": "a4000b",
@@ -17339,29 +17032,39 @@
        "settings": {
         "tag": "figure",
         "_cls": [
-         "rig__ph"
+         "rig__shot"
         ]
        },
-       "label": "rig__ph"
+       "label": "rig__shot"
       },
       {
        "id": "a4000c",
-       "name": "svg",
+       "name": "image",
        "parent": "a4000b",
        "settings": {
-        "file": {
-         "__media": "icon-photo.svg"
-        }
-       }
+        "image": {
+         "__media": "job-pipe-connection.jpg",
+         "size": "full"
+        },
+        "altText": "A new sewer pipe connected in the access pit",
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
       },
       {
        "id": "a4000d",
        "name": "text-basic",
        "parent": "a4000b",
        "settings": {
-        "text": "<span class=\"tbc\">Photo: inside the trailer / gear</span>",
-        "tag": "span"
-       }
+        "text": "New connection",
+        "tag": "figcaption",
+        "_cls": [
+         "rig__tag"
+        ]
+       },
+       "label": "rig__tag"
       },
       {
        "id": "a4000e",
@@ -18238,62 +17941,19 @@
       },
       {
        "id": "a60012",
-       "name": "block",
+       "name": "image",
        "parent": "a60011",
        "settings": {
-        "_attributes": [
-         {
-          "name": "aria-hidden",
-          "value": "true"
-         }
-        ],
+        "image": {
+         "__media": "job-lawn-restored.jpg",
+         "size": "full"
+        },
+        "altText": "A front lawn after a trenchless job, with the grass back in place",
         "_cls": [
-         "local__mtn"
+         "cover-img"
         ]
        },
-       "label": "local__mtn"
-      },
-      {
-       "id": "a60013",
-       "name": "svg",
-       "parent": "a60012",
-       "settings": {
-        "file": {
-         "__media": "art-local-mountains.svg"
-        }
-       }
-      },
-      {
-       "id": "a60014",
-       "name": "block",
-       "parent": "a60011",
-       "settings": {
-        "tag": "custom",
-        "customTag": "span",
-        "_cls": [
-         "owner__ph"
-        ]
-       },
-       "label": "owner__ph"
-      },
-      {
-       "id": "a60015",
-       "name": "svg",
-       "parent": "a60014",
-       "settings": {
-        "file": {
-         "__media": "icon-photo.svg"
-        }
-       }
-      },
-      {
-       "id": "a60016",
-       "name": "text-basic",
-       "parent": "a60014",
-       "settings": {
-        "text": "<span class=\"tbc\">Photo: Mike and family, or Mike at a local community event</span>",
-        "tag": "span"
-       }
+       "label": "cover-img"
       }
      ]
     },
@@ -21596,12 +21256,6 @@
        "name": "block",
        "parent": "b00016",
        "settings": {
-        "_attributes": [
-         {
-          "name": "aria-hidden",
-          "value": "true"
-         }
-        ],
         "_cls": [
          "svc-hero__art"
         ]
@@ -21610,20 +21264,26 @@
       },
       {
        "id": "b00018",
-       "name": "svg",
+       "name": "image",
        "parent": "b00017",
        "settings": {
-        "file": {
-         "__media": "art-service-burst.svg"
-        }
-       }
+        "image": {
+         "__media": "job-access-pit.jpg",
+         "size": "full"
+        },
+        "altText": "A shored access pit in a front lawn, with the camera reel and jetter beside it",
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
       },
       {
        "id": "b00019",
        "name": "text-basic",
        "parent": "b00016",
        "settings": {
-        "text": "<span class=\"tbc\">Replace with a real job photo: the bursting head and new HDPE pipe at an access pit on a Spokane job (not stock)</span>",
+        "text": "One of the small access pits: shored, with the camera and jetter on hand.",
         "tag": "figcaption",
         "_cls": [
          "svc-hero__cap"
@@ -22699,7 +22359,7 @@
        "name": "text-basic",
        "parent": "b40003",
        "settings": {
-        "text": "Same line, same camera, before and after bursting. <span class=\"tbc\">Job location, old pipe material, length</span>.",
+        "text": "Real photos from our jobs: the old pipe we find, and the new pipe that replaces it.",
         "tag": "p",
         "_cls": [
          "section__intro"
@@ -22735,35 +22395,28 @@
        "name": "block",
        "parent": "b40008",
        "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Illustrated camera view: collapsed section before bursting"
-         }
-        ],
         "_cls": [
-         "feed",
-         "still__feed"
+         "still__feed",
+         "still__media"
         ]
        },
-       "label": "feed"
+       "label": "still__feed"
       },
       {
        "id": "b4000a",
-       "name": "div",
+       "name": "image",
        "parent": "b40009",
        "settings": {
-        "tag": "custom",
-        "customTag": "span",
+        "image": {
+         "__media": "job-old-pipe.jpg",
+         "size": "full"
+        },
+        "altText": "A section of old sewer pipe cut open, with heavy buildup inside",
         "_cls": [
-         "feed__cross"
+         "cover-img"
         ]
        },
-       "label": "feed__cross"
+       "label": "cover-img"
       },
       {
        "id": "b4000b",
@@ -22795,49 +22448,16 @@
        "name": "text-basic",
        "parent": "b4000b",
        "settings": {
-        "text": "4\" CLAY · COLLAPSED",
+        "text": "OLD PIPE",
         "tag": "span"
        }
       },
       {
        "id": "b4000e",
-       "name": "block",
-       "parent": "b40009",
-       "settings": {
-        "_cls": [
-         "feed__hud"
-        ]
-       },
-       "label": "feed__hud"
-      },
-      {
-       "id": "b4000f",
-       "name": "text-basic",
-       "parent": "b4000e",
-       "settings": {
-        "text": "PNW CAM 01",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "b40010",
-       "name": "text-basic",
-       "parent": "b4000e",
-       "settings": {
-        "text": "021.7 FT",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "b40011",
        "name": "text-basic",
        "parent": "b40008",
        "settings": {
-        "text": "<strong>Collapsed section.</strong> <span class=\"tbc\">Replace with a real camera still from a PNW job</span>",
+        "text": "<strong>Before: the old line, worn out and full of buildup.</strong>",
         "tag": "figcaption",
         "_cls": [
          "still__cap"
@@ -22846,7 +22466,7 @@
        "label": "still__cap"
       },
       {
-       "id": "b40012",
+       "id": "b4000f",
        "name": "block",
        "parent": "b40007",
        "settings": {
@@ -22858,45 +22478,37 @@
        "label": "still"
       },
       {
-       "id": "b40013",
+       "id": "b40010",
        "name": "block",
-       "parent": "b40012",
+       "parent": "b4000f",
        "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Illustrated camera view: new HDPE pipe after bursting"
-         }
-        ],
         "_cls": [
-         "feed",
-         "feed--clean",
-         "still__feed"
+         "still__feed",
+         "still__media"
         ]
        },
-       "label": "feed"
+       "label": "still__feed"
       },
       {
-       "id": "b40014",
-       "name": "div",
-       "parent": "b40013",
+       "id": "b40011",
+       "name": "image",
+       "parent": "b40010",
        "settings": {
-        "tag": "custom",
-        "customTag": "span",
+        "image": {
+         "__media": "job-pipe-connection.jpg",
+         "size": "full"
+        },
+        "altText": "The new sewer pipe connected in the access pit",
         "_cls": [
-         "feed__cross"
+         "cover-img"
         ]
        },
-       "label": "feed__cross"
+       "label": "cover-img"
       },
       {
-       "id": "b40015",
+       "id": "b40012",
        "name": "block",
-       "parent": "b40013",
+       "parent": "b40010",
        "settings": {
         "_cls": [
          "feed__hud",
@@ -22906,9 +22518,9 @@
        "label": "feed__hud"
       },
       {
-       "id": "b40016",
+       "id": "b40013",
        "name": "text-basic",
-       "parent": "b40015",
+       "parent": "b40012",
        "settings": {
         "text": "After",
         "tag": "span",
@@ -22920,53 +22532,20 @@
        "label": "still__tag"
       },
       {
-       "id": "b40017",
-       "name": "text-basic",
-       "parent": "b40015",
-       "settings": {
-        "text": "NEW HDPE",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "b40018",
-       "name": "block",
-       "parent": "b40013",
-       "settings": {
-        "_cls": [
-         "feed__hud"
-        ]
-       },
-       "label": "feed__hud"
-      },
-      {
-       "id": "b40019",
-       "name": "text-basic",
-       "parent": "b40018",
-       "settings": {
-        "text": "PNW CAM 01",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "b4001a",
-       "name": "text-basic",
-       "parent": "b40018",
-       "settings": {
-        "text": "021.7 FT",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "b4001b",
+       "id": "b40014",
        "name": "text-basic",
        "parent": "b40012",
        "settings": {
-        "text": "<strong>New, seamless HDPE pipe.</strong> <span class=\"tbc\">Replace with a real camera still from a PNW job</span>",
+        "text": "NEW PIPE",
+        "tag": "span"
+       }
+      },
+      {
+       "id": "b40015",
+       "name": "text-basic",
+       "parent": "b4000f",
+       "settings": {
+        "text": "<strong>After: the new pipe connected in the access pit.</strong>",
         "tag": "figcaption",
         "_cls": [
          "still__cap"
@@ -23699,58 +23278,22 @@
       },
       {
        "id": "b70005",
-       "name": "svg",
+       "name": "image",
        "parent": "b70004",
        "settings": {
-        "file": {
-         "__media": "art-silhouette.svg"
+        "image": {
+         "__media": "trailer.jpg",
+         "size": "full"
         },
-        "_attributes": [
-         {
-          "name": "aria-hidden",
-          "value": "true"
-         }
-        ],
+        "altText": "The PNW Trenchless equipment trailer",
         "_cls": [
-         "mike__silhouette"
+         "cover-img"
         ]
        },
-       "label": "mike__silhouette"
+       "label": "cover-img"
       },
       {
        "id": "b70006",
-       "name": "block",
-       "parent": "b70004",
-       "settings": {
-        "tag": "custom",
-        "customTag": "span",
-        "_cls": [
-         "owner__ph"
-        ]
-       },
-       "label": "owner__ph"
-      },
-      {
-       "id": "b70007",
-       "name": "svg",
-       "parent": "b70006",
-       "settings": {
-        "file": {
-         "__media": "icon-photo.svg"
-        }
-       }
-      },
-      {
-       "id": "b70008",
-       "name": "text-basic",
-       "parent": "b70006",
-       "settings": {
-        "text": "<span class=\"tbc\">Mike headshot</span>",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "b70009",
        "name": "block",
        "parent": "b70003",
        "settings": {
@@ -23761,9 +23304,9 @@
        "label": "owner__content"
       },
       {
-       "id": "b7000a",
+       "id": "b70007",
        "name": "text-basic",
-       "parent": "b70009",
+       "parent": "b70006",
        "settings": {
         "text": "Who does the work",
         "tag": "span",
@@ -23774,9 +23317,9 @@
        "label": "eyebrow"
       },
       {
-       "id": "b7000b",
+       "id": "b70008",
        "name": "heading",
-       "parent": "b70009",
+       "parent": "b70006",
        "settings": {
         "text": "Mike Jeisma has replaced <span class=\"tbc\">hundreds of</span> <span class=\"serif\">Inland Northwest</span> sewer lines.",
         "tag": "h2",
@@ -23787,9 +23330,9 @@
        "label": "owner__title"
       },
       {
-       "id": "b7000c",
+       "id": "b70009",
        "name": "text-basic",
-       "parent": "b70009",
+       "parent": "b70006",
        "settings": {
         "text": "<span class=\"tbc\">Mike, 2–3 sentences: when he chooses bursting over lining, what he checks before he pulls the head, why he does the final video.</span>",
         "tag": "custom",
@@ -23801,9 +23344,9 @@
        "label": "owner__quote"
       },
       {
-       "id": "b7000d",
+       "id": "b7000a",
        "name": "block",
-       "parent": "b70009",
+       "parent": "b70006",
        "settings": {
         "tag": "ul",
         "_cls": [
@@ -23813,9 +23356,40 @@
        "label": "owner__creds"
       },
       {
+       "id": "b7000b",
+       "name": "block",
+       "parent": "b7000a",
+       "settings": {
+        "tag": "li",
+        "_cls": [
+         "owner__cred"
+        ]
+       },
+       "label": "owner__cred"
+      },
+      {
+       "id": "b7000c",
+       "name": "svg",
+       "parent": "b7000b",
+       "settings": {
+        "file": {
+         "__media": "icon-shield.svg"
+        }
+       }
+      },
+      {
+       "id": "b7000d",
+       "name": "text-basic",
+       "parent": "b7000b",
+       "settings": {
+        "text": "<span class=\"tbc\">Bursting system certification</span>",
+        "tag": "span"
+       }
+      },
+      {
        "id": "b7000e",
        "name": "block",
-       "parent": "b7000d",
+       "parent": "b7000a",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -23830,7 +23404,7 @@
        "parent": "b7000e",
        "settings": {
         "file": {
-         "__media": "icon-shield.svg"
+         "__media": "icon-check.svg"
         }
        }
       },
@@ -23839,14 +23413,14 @@
        "name": "text-basic",
        "parent": "b7000e",
        "settings": {
-        "text": "<span class=\"tbc\">Bursting system certification</span>",
+        "text": "WA Reg. #PNWTRT*744KQ",
         "tag": "span"
        }
       },
       {
        "id": "b70011",
        "name": "block",
-       "parent": "b7000d",
+       "parent": "b7000a",
        "settings": {
         "tag": "li",
         "_cls": [
@@ -23861,7 +23435,7 @@
        "parent": "b70011",
        "settings": {
         "file": {
-         "__media": "icon-check.svg"
+         "__media": "icon-home.svg"
         }
        }
       },
@@ -23870,45 +23444,14 @@
        "name": "text-basic",
        "parent": "b70011",
        "settings": {
-        "text": "WA Reg. #PNWTRT*744KQ",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "b70014",
-       "name": "block",
-       "parent": "b7000d",
-       "settings": {
-        "tag": "li",
-        "_cls": [
-         "owner__cred"
-        ]
-       },
-       "label": "owner__cred"
-      },
-      {
-       "id": "b70015",
-       "name": "svg",
-       "parent": "b70014",
-       "settings": {
-        "file": {
-         "__media": "icon-home.svg"
-        }
-       }
-      },
-      {
-       "id": "b70016",
-       "name": "text-basic",
-       "parent": "b70014",
-       "settings": {
         "text": "Family-owned, {acf_site_address}",
         "tag": "span"
        }
       },
       {
-       "id": "b70017",
+       "id": "b70014",
        "name": "text-link",
-       "parent": "b70009",
+       "parent": "b70006",
        "settings": {
         "text": "About Mike",
         "link": {
@@ -23972,7 +23515,7 @@
        "name": "text-basic",
        "parent": "b80004",
        "settings": {
-        "text": "Bursting projects",
+        "text": "On the job",
         "tag": "span",
         "_cls": [
          "eyebrow"
@@ -23985,7 +23528,7 @@
        "name": "heading",
        "parent": "b80004",
        "settings": {
-        "text": "Recent pipe <span class=\"serif\">bursting jobs.</span>",
+        "text": "One job, <span class=\"serif\">start to finish.</span>",
         "tag": "h2"
        }
       },
@@ -24034,50 +23577,31 @@
        "name": "block",
        "parent": "b80009",
        "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Camera still placeholder"
-         }
-        ],
+        "tag": "figure",
         "_cls": [
-         "feed",
-         "feed--roots",
-         "job__feed"
+         "job__media"
         ]
        },
-       "label": "feed"
+       "label": "job__media"
       },
       {
        "id": "b8000b",
-       "name": "block",
+       "name": "image",
        "parent": "b8000a",
        "settings": {
+        "image": {
+         "__media": "job-access-pit.jpg",
+         "size": "full"
+        },
+        "altText": "A shored access pit in a front lawn, with the camera reel and jetter beside it",
         "_cls": [
-         "feed__hud"
+         "cover-img"
         ]
        },
-       "label": "feed__hud"
+       "label": "cover-img"
       },
       {
        "id": "b8000c",
-       "name": "text-basic",
-       "parent": "b8000b",
-       "settings": {
-        "text": "CAMERA STILL",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "b8000d",
        "name": "block",
        "parent": "b80009",
        "settings": {
@@ -24088,11 +23612,11 @@
        "label": "job__body"
       },
       {
-       "id": "b8000e",
+       "id": "b8000d",
        "name": "text-basic",
-       "parent": "b8000d",
+       "parent": "b8000c",
        "settings": {
-        "text": "<span class=\"tbc\">Neighborhood</span>, Spokane",
+        "text": "The access pit",
         "tag": "span",
         "_cls": [
          "job__title"
@@ -24101,11 +23625,11 @@
        "label": "job__title"
       },
       {
-       "id": "b8000f",
+       "id": "b8000e",
        "name": "text-basic",
-       "parent": "b8000d",
+       "parent": "b8000c",
        "settings": {
-        "text": "<span class=\"tbc\">Material, size, length · problem</span>",
+        "text": "One small, shored pit instead of a trench across the yard.",
         "tag": "p",
         "_cls": [
          "job__spec"
@@ -24114,20 +23638,7 @@
        "label": "job__spec"
       },
       {
-       "id": "b80010",
-       "name": "text-basic",
-       "parent": "b8000d",
-       "settings": {
-        "text": "<span class=\"tbc\">Replaced X ft in X day(s)</span>",
-        "tag": "p",
-        "_cls": [
-         "job__result"
-        ]
-       },
-       "label": "job__result"
-      },
-      {
-       "id": "b80011",
+       "id": "b8000f",
        "name": "block",
        "parent": "b80008",
        "settings": {
@@ -24137,57 +23648,39 @@
         ]
        },
        "label": "job"
+      },
+      {
+       "id": "b80010",
+       "name": "block",
+       "parent": "b8000f",
+       "settings": {
+        "tag": "figure",
+        "_cls": [
+         "job__media"
+        ]
+       },
+       "label": "job__media"
+      },
+      {
+       "id": "b80011",
+       "name": "image",
+       "parent": "b80010",
+       "settings": {
+        "image": {
+         "__media": "job-old-pipe.jpg",
+         "size": "full"
+        },
+        "altText": "A section of old sewer pipe cut open, with heavy buildup inside",
+        "_cls": [
+         "cover-img"
+        ]
+       },
+       "label": "cover-img"
       },
       {
        "id": "b80012",
        "name": "block",
-       "parent": "b80011",
-       "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Camera still placeholder"
-         }
-        ],
-        "_cls": [
-         "feed",
-         "job__feed"
-        ]
-       },
-       "label": "feed"
-      },
-      {
-       "id": "b80013",
-       "name": "block",
-       "parent": "b80012",
-       "settings": {
-        "_cls": [
-         "feed__hud"
-        ]
-       },
-       "label": "feed__hud"
-      },
-      {
-       "id": "b80014",
-       "name": "text-basic",
-       "parent": "b80013",
-       "settings": {
-        "text": "CAMERA STILL",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "b80015",
-       "name": "block",
-       "parent": "b80011",
+       "parent": "b8000f",
        "settings": {
         "_cls": [
          "job__body"
@@ -24196,11 +23689,11 @@
        "label": "job__body"
       },
       {
-       "id": "b80016",
+       "id": "b80013",
        "name": "text-basic",
-       "parent": "b80015",
+       "parent": "b80012",
        "settings": {
-        "text": "<span class=\"tbc\">City</span>, Spokane Valley",
+        "text": "The old pipe",
         "tag": "span",
         "_cls": [
          "job__title"
@@ -24209,11 +23702,11 @@
        "label": "job__title"
       },
       {
-       "id": "b80017",
+       "id": "b80014",
        "name": "text-basic",
-       "parent": "b80015",
+       "parent": "b80012",
        "settings": {
-        "text": "<span class=\"tbc\">Material, size, length · problem</span>",
+        "text": "What years of buildup look like inside an old line.",
         "tag": "p",
         "_cls": [
          "job__spec"
@@ -24222,20 +23715,7 @@
        "label": "job__spec"
       },
       {
-       "id": "b80018",
-       "name": "text-basic",
-       "parent": "b80015",
-       "settings": {
-        "text": "<span class=\"tbc\">Replaced X ft in X day(s)</span>",
-        "tag": "p",
-        "_cls": [
-         "job__result"
-        ]
-       },
-       "label": "job__result"
-      },
-      {
-       "id": "b80019",
+       "id": "b80015",
        "name": "block",
        "parent": "b80008",
        "settings": {
@@ -24247,55 +23727,37 @@
        "label": "job"
       },
       {
-       "id": "b8001a",
+       "id": "b80016",
        "name": "block",
-       "parent": "b80019",
+       "parent": "b80015",
        "settings": {
-        "_attributes": [
-         {
-          "name": "role",
-          "value": "img"
-         },
-         {
-          "name": "aria-label",
-          "value": "Camera still placeholder"
-         }
-        ],
+        "tag": "figure",
         "_cls": [
-         "feed",
-         "job__feed"
+         "job__media"
         ]
        },
-       "label": "feed"
+       "label": "job__media"
       },
       {
-       "id": "b8001b",
-       "name": "block",
-       "parent": "b8001a",
+       "id": "b80017",
+       "name": "image",
+       "parent": "b80016",
        "settings": {
+        "image": {
+         "__media": "job-lawn-restored.jpg",
+         "size": "full"
+        },
+        "altText": "A front lawn after the job, with the pit backfilled and the grass back in place",
         "_cls": [
-         "feed__hud"
+         "cover-img"
         ]
        },
-       "label": "feed__hud"
+       "label": "cover-img"
       },
       {
-       "id": "b8001c",
-       "name": "text-basic",
-       "parent": "b8001b",
-       "settings": {
-        "text": "CAMERA STILL",
-        "tag": "span",
-        "_cls": [
-         "feed__ft"
-        ]
-       },
-       "label": "feed__ft"
-      },
-      {
-       "id": "b8001d",
+       "id": "b80018",
        "name": "block",
-       "parent": "b80019",
+       "parent": "b80015",
        "settings": {
         "_cls": [
          "job__body"
@@ -24304,11 +23766,11 @@
        "label": "job__body"
       },
       {
-       "id": "b8001e",
+       "id": "b80019",
        "name": "text-basic",
-       "parent": "b8001d",
+       "parent": "b80018",
        "settings": {
-        "text": "<span class=\"tbc\">City</span>, Deer Park",
+        "text": "The yard afterwards",
         "tag": "span",
         "_cls": [
          "job__title"
@@ -24317,30 +23779,17 @@
        "label": "job__title"
       },
       {
-       "id": "b8001f",
+       "id": "b8001a",
        "name": "text-basic",
-       "parent": "b8001d",
+       "parent": "b80018",
        "settings": {
-        "text": "<span class=\"tbc\">Material, size, length · problem</span>",
+        "text": "Pit backfilled and the lawn back in place.",
         "tag": "p",
         "_cls": [
          "job__spec"
         ]
        },
        "label": "job__spec"
-      },
-      {
-       "id": "b80020",
-       "name": "text-basic",
-       "parent": "b8001d",
-       "settings": {
-        "text": "<span class=\"tbc\">Replaced X ft in X day(s)</span>",
-        "tag": "p",
-        "_cls": [
-         "job__result"
-        ]
-       },
-       "label": "job__result"
       }
      ]
     },

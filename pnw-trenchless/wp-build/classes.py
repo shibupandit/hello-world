@@ -114,7 +114,11 @@ c("feed--roots", """
     radial-gradient(ellipse 4% 16% at 40% 66%, color-mix(in srgb, var(--accent-dark) 45%, var(--base-dark)) 0 60%, transparent 62%),
     radial-gradient(ellipse 18% 4% at 50% 30%, color-mix(in srgb, var(--accent-dark) 35%, var(--base-dark)) 0 60%, transparent 62%); }
 """)
-c("feed--clean", "%root% { background: radial-gradient(circle at 50% 52%, var(--black) 0 9%, color-mix(in srgb, var(--primary) 30%, var(--base-dark)) 10% 24%, color-mix(in srgb, var(--primary) 85%, var(--base-dark)) 25% 37%, color-mix(in srgb, var(--primary) 65%, var(--base-dark)) 38% 56%, color-mix(in srgb, var(--primary) 20%, var(--base-dark)) 57%); }")
+# Real job photos (client photos, 2026-11-09)
+c("cover-img", "%root% { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; display: block; }")
+c("still__media", "%root% { position: relative; overflow: hidden; background: var(--base); color: var(--white); font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; }")
+c("job__media", "%root% { position: relative; overflow: hidden; aspect-ratio: 16 / 10; width: 100%; margin: 0; background: var(--base); }")
+c("rig__shot", "%root% { position: relative; margin: 0; aspect-ratio: 4 / 3; width: 100%; border-radius: var(--radius); overflow: hidden; background: var(--base); }")
 c("feed__hud", """
 %root% { position: absolute; left: .9em; right: .9em; bottom: .8em; z-index: 3; display: flex; justify-content: space-between; gap: .6em; text-transform: uppercase; }
 """)
@@ -633,11 +637,6 @@ c("mike__photo", f"""
 %root% {{ position: relative; border-radius: var(--radius-l); overflow: hidden; aspect-ratio: 4 / 5; background: linear-gradient(160deg, var(--base-light), var(--base)); color: var(--text-light-muted); }}
 {T} {{ %root% {{ aspect-ratio: 1; }} }}
 """)
-c("mike__silhouette", "%root% { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 72%; height: auto; color: var(--white-trans-10); }")
-c("mike__photo-ph", """
-%root% { position: absolute; inset: 0 0 30% 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-l); font-size: var(--text-s); gap: var(--space-s); }
-%root% svg { width: 3em; height: 3em; opacity: .5; }
-""")
 c("mike__plate", """
 %root% { position: absolute; left: var(--space-m); right: var(--space-m); bottom: var(--space-m); z-index: 2; display: flex; flex-direction: row; justify-content: space-between; align-items: flex-end; gap: var(--space-s); padding: var(--space-m); border-radius: var(--radius); background: var(--base-trans-70); -webkit-backdrop-filter: blur(.6em); backdrop-filter: blur(.6em); color: var(--white); border: var(--pnw-border-dark); }
 """)
@@ -1025,7 +1024,6 @@ c("rig__grid", f"""
 c("rig__media", "%root% { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-s); min-width: 0; width: 100%; }")
 c("rig__main", "%root% { grid-column: 1 / -1; position: relative; margin: 0; aspect-ratio: 16 / 10; border-radius: var(--radius-l); overflow: hidden; box-shadow: var(--box-shadow-l); width: 100%; }\n%root% img { width: 100%; height: 100%; object-fit: cover; display: block; }")
 c("rig__tag", "%root% { position: absolute; left: var(--space-s); top: var(--space-s); padding: .3em .65em; border-radius: var(--radius-circle); background: var(--base-trans-70); font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--white); }")
-c("rig__ph", "%root% { margin: 0; aspect-ratio: 4 / 3; border-radius: var(--radius); border: var(--border-size) dashed var(--white-trans-20); background: var(--white-trans-10); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .6em; padding: var(--space-s); text-align: center; font-size: var(--text-s); color: var(--text-light-muted); }\n%root% svg { width: 2em; height: 2em; opacity: .5; }")
 c("rig__text", "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-l); min-width: 0; }\n%root% .serif { color: var(--primary-light); }\n%root% > p { color: var(--text-light-muted); font-size: var(--text-l); }")
 c("kit", "%root% { margin: 0; width: 100%; border-top: var(--pnw-border-dark); display: flex; flex-direction: column; gap: 0; }")
 c("kit__row", "%root% { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--space-m); padding: var(--space-s) 0; border-bottom: var(--pnw-border-dark); align-items: center; width: 100%; }")
@@ -1055,8 +1053,7 @@ c("local__grid", f"""
 {T} {{ %root% {{ grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }} }}
 """)
 c("local__text", "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); min-width: 0; }\n%root% > p { color: var(--text-dark-muted); font-size: var(--text-l); }")
-c("local__photo", "%root% { position: relative; margin: 0; aspect-ratio: 5 / 4; width: 100%; border-radius: var(--radius-l); overflow: hidden; background: linear-gradient(180deg, var(--primary-ultra-light), color-mix(in srgb, var(--primary-ultra-light) 70%, var(--primary-light))); color: var(--text-dark-muted); border: var(--pnw-border); }\n%root% .owner__ph { inset: 0 0 30% 0; padding: var(--space-m); text-align: center; }")
-c("local__mtn", "%root% { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 45%; color: var(--primary-trans-30); }\n%root% svg { width: 100%; height: 100%; display: block; }")
+c("local__photo", "%root% { position: relative; margin: 0; aspect-ratio: 5 / 4; width: 100%; border-radius: var(--radius-l); overflow: hidden; background: linear-gradient(180deg, var(--primary-ultra-light), color-mix(in srgb, var(--primary-ultra-light) 70%, var(--primary-light))); color: var(--text-dark-muted); border: var(--pnw-border); }")
 c("quotes__grid--3", f"%root% {{ grid-template-columns: repeat(3, minmax(0, 1fr)); }}\n{T} {{ %root% {{ grid-template-columns: 1fr; }} }}")
 
 
@@ -1246,7 +1243,6 @@ c("owner__photo", f"""
 %root% {{ position: relative; aspect-ratio: 4 / 5; width: 100%; border-radius: var(--radius-l); overflow: hidden; background: linear-gradient(160deg, var(--base-light), var(--base-dark)); color: var(--text-light-muted); border: var(--pnw-border-dark); }}
 {T} {{ %root% {{ aspect-ratio: 16 / 10; max-width: 28em; }} }}
 """)
-c("owner__ph", "%root% { position: absolute; inset: 0 0 35% 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-s); font-size: var(--text-s); }\n%root% svg { width: 2.5em; height: 2.5em; opacity: .5; }")
 c("owner__content", "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-l); min-width: 0; }")
 c("owner__title", "%root% .serif { color: var(--primary-light); }")
 c("owner__quote", """
@@ -1260,11 +1256,9 @@ c("jobs__grid", f"""
 {T} {{ %root% {{ grid-template-columns: 1fr; }} }}
 """)
 c("job", "%root% { height: 100%; display: flex; flex-direction: column; border-radius: var(--radius-l); overflow: hidden; border: var(--pnw-border); background: var(--neutral-ultra-light); transition: transform .35s var(--pnw-ease), box-shadow .35s; }\n%root%:hover { transform: translateY(-.25em); box-shadow: var(--box-shadow-m); }")
-c("job__feed", "%root% { aspect-ratio: 16 / 10; width: 100%; }")
 c("job__body", "%root% { display: flex; flex-direction: column; gap: .35em; padding: var(--space-m); }")
 c("job__title", "%root% { font-family: var(--heading-font-family); font-weight: 800; font-size: var(--h4); }")
 c("job__spec", "%root% { color: var(--text-dark-muted); font-size: var(--text-s); }")
-c("job__result", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--primary); }")
 c("quotes__grid", f"""
 %root% {{ display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-m); width: 100%; }}
 {T} {{ %root% {{ grid-template-columns: 1fr; }} }}

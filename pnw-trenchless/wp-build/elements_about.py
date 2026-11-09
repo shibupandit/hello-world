@@ -26,8 +26,7 @@ def hero():
     ], tag="nav", _attributes=attrs(aria_label="Breadcrumb"))
     portrait = block("portrait rise rise--4", [
         block("portrait__frame", [
-            svg("art-silhouette.svg", "mike__silhouette", _attributes=attrs(aria_hidden="true")),
-            block("owner__ph", [svg("icon-photo.svg"), span(tbc("Portrait: Mike in work gear, trailer behind him. Real, not a stock smile"))], tag="span"),
+            img("trailer.jpg", "cover-img", alt="The PNW Trenchless equipment trailer"),
             block("portrait__plate", [
                 block("portrait__id", [span("Mike Jeisma", "portrait__name"), span("Owner &amp; lead technician", "portrait__role")], tag="span"),
                 span(f"Est. {tbc('2025')}", "portrait__est"),
@@ -150,8 +149,8 @@ def rig():
             block("rig__grid", [
                 block("rig__media", [
                     block("rig__main", [img("trailer.jpg", alt="The PNW Trenchless equipment trailer"), t("The trailer", "rig__tag", tag="figcaption")], tag="figure"),
-                    block("rig__ph", [svg("icon-photo.svg"), span(tbc("Photo: wrapped truck"))], tag="figure"),
-                    block("rig__ph", [svg("icon-photo.svg"), span(tbc("Photo: inside the trailer / gear"))], tag="figure"),
+                    block("rig__shot", [img("job-access-pit.jpg", "cover-img", alt="Camera reel, jetter and shoring set up around an access pit"), t("On site", "rig__tag", tag="figcaption")], tag="figure"),
+                    block("rig__shot", [img("job-pipe-connection.jpg", "cover-img", alt="A new sewer pipe connected in the access pit"), t("New connection", "rig__tag", tag="figcaption")], tag="figure"),
                 ]),
                 block("rig__text", [
                     eyebrow("Equipment"),
@@ -214,8 +213,7 @@ def local():
                     a("See our service areas", "/#areas", "link-arrow"),
                 ]),
                 block("local__photo", [
-                    block("local__mtn", [svg("art-local-mountains.svg")], _attributes=attrs(aria_hidden="true")),
-                    block("owner__ph", [svg("icon-photo.svg"), span(tbc("Photo: Mike and family, or Mike at a local community event"))], tag="span"),
+                    img("job-lawn-restored.jpg", "cover-img", alt="A front lawn after a trenchless job, with the grass back in place"),
                 ], tag="figure"),
             ]),
         ]),

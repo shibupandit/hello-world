@@ -115,8 +115,23 @@
   "category": "PNW"
  },
  {
-  "name": "feed--clean",
-  "css": "%root% { background: radial-gradient(circle at 50% 52%, var(--black) 0 9%, color-mix(in srgb, var(--primary) 30%, var(--base-dark)) 10% 24%, color-mix(in srgb, var(--primary) 85%, var(--base-dark)) 25% 37%, color-mix(in srgb, var(--primary) 65%, var(--base-dark)) 38% 56%, color-mix(in srgb, var(--primary) 20%, var(--base-dark)) 57%); }",
+  "name": "cover-img",
+  "css": "%root% { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; display: block; }",
+  "category": "PNW"
+ },
+ {
+  "name": "still__media",
+  "css": "%root% { position: relative; overflow: hidden; background: var(--base); color: var(--white); font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; }",
+  "category": "PNW"
+ },
+ {
+  "name": "job__media",
+  "css": "%root% { position: relative; overflow: hidden; aspect-ratio: 16 / 10; width: 100%; margin: 0; background: var(--base); }",
+  "category": "PNW"
+ },
+ {
+  "name": "rig__shot",
+  "css": "%root% { position: relative; margin: 0; aspect-ratio: 4 / 3; width: 100%; border-radius: var(--radius); overflow: hidden; background: var(--base); }",
   "category": "PNW"
  },
  {
@@ -835,16 +850,6 @@
   "category": "PNW"
  },
  {
-  "name": "mike__silhouette",
-  "css": "%root% { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 72%; height: auto; color: var(--white-trans-10); }",
-  "category": "PNW"
- },
- {
-  "name": "mike__photo-ph",
-  "css": "%root% { position: absolute; inset: 0 0 30% 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-l); font-size: var(--text-s); gap: var(--space-s); }\n%root% svg { width: 3em; height: 3em; opacity: .5; }",
-  "category": "PNW"
- },
- {
   "name": "mike__plate",
   "css": "%root% { width: auto; position: absolute; left: var(--space-m); right: var(--space-m); bottom: var(--space-m); z-index: 2; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end; gap: var(--space-s); padding: var(--space-m); border-radius: var(--radius); background: var(--base-trans-70); -webkit-backdrop-filter: blur(.6em); backdrop-filter: blur(.6em); color: var(--white); border: var(--pnw-border-dark); }",
   "category": "PNW"
@@ -1530,11 +1535,6 @@
   "category": "PNW"
  },
  {
-  "name": "rig__ph",
-  "css": "%root% { margin: 0; aspect-ratio: 4 / 3; border-radius: var(--radius); border: var(--border-size) dashed var(--white-trans-20); background: var(--white-trans-10); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .6em; padding: var(--space-s); text-align: center; font-size: var(--text-s); color: var(--text-light-muted); }\n%root% svg { width: 2em; height: 2em; opacity: .5; }",
-  "category": "PNW"
- },
- {
   "name": "rig__text",
   "css": "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-l); min-width: 0; }\n%root% .serif { color: var(--primary-light); }\n%root% > p { color: var(--text-light-muted); font-size: var(--text-l); }",
   "category": "PNW"
@@ -1606,12 +1606,7 @@
  },
  {
   "name": "local__photo",
-  "css": "%root% { position: relative; margin: 0; aspect-ratio: 5 / 4; width: 100%; border-radius: var(--radius-l); overflow: hidden; background: linear-gradient(180deg, var(--primary-ultra-light), color-mix(in srgb, var(--primary-ultra-light) 70%, var(--primary-light))); color: var(--text-dark-muted); border: var(--pnw-border); }\n%root% .owner__ph { inset: 0 0 30% 0; padding: var(--space-m); text-align: center; }",
-  "category": "PNW"
- },
- {
-  "name": "local__mtn",
-  "css": "%root% { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 45%; color: var(--primary-trans-30); }\n%root% svg { width: 100%; height: 100%; display: block; }",
+  "css": "%root% { position: relative; margin: 0; aspect-ratio: 5 / 4; width: 100%; border-radius: var(--radius-l); overflow: hidden; background: linear-gradient(180deg, var(--primary-ultra-light), color-mix(in srgb, var(--primary-ultra-light) 70%, var(--primary-light))); color: var(--text-dark-muted); border: var(--pnw-border); }",
   "category": "PNW"
  },
  {
@@ -2065,11 +2060,6 @@
   "category": "PNW"
  },
  {
-  "name": "owner__ph",
-  "css": "%root% { position: absolute; inset: 0 0 35% 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-s); font-size: var(--text-s); }\n%root% svg { width: 2.5em; height: 2.5em; opacity: .5; }",
-  "category": "PNW"
- },
- {
   "name": "owner__content",
   "css": "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-l); min-width: 0; }",
   "category": "PNW"
@@ -2105,11 +2095,6 @@
   "category": "PNW"
  },
  {
-  "name": "job__feed",
-  "css": "%root% { aspect-ratio: 16 / 10; width: 100%; }",
-  "category": "PNW"
- },
- {
   "name": "job__body",
   "css": "%root% { display: flex; flex-direction: column; gap: .35em; padding: var(--space-m); }",
   "category": "PNW"
@@ -2122,11 +2107,6 @@
  {
   "name": "job__spec",
   "css": "%root% { color: var(--text-dark-muted); font-size: var(--text-s); }",
-  "category": "PNW"
- },
- {
-  "name": "job__result",
-  "css": "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--primary); }",
   "category": "PNW"
  },
  {

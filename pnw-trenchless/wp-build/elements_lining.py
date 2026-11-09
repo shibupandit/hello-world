@@ -4,7 +4,7 @@ Uses the shared helpers and global classes from elements.py. Header and footer c
 site-wide Bricks templates (101 / 102), so this file only builds the page content.
 Unknown facts stay as `tbc` placeholders; FAQ answers reused from the homepage are drafts.
 """
-from elements import (N, section, container, block, div, h, t, span, a, svg, btn, eyebrow, attrs, link,
+from elements import (N, section, container, block, div, h, t, span, a, svg, img, btn, eyebrow, attrs, link,
                       head, head_split, estimate, flatten, review_loop, TEL, PHONE, ADDRESS)
 
 HOME = "/"
@@ -41,8 +41,8 @@ def hero():
                     ]),
                 ]),
                 block("svc-hero__media rise rise--4", [
-                    block("svc-hero__art", [svg("art-service-lining.svg")], _attributes=attrs(aria_hidden="true")),
-                    t(tbc("Replace with a real job photo: Mike feeding the liner into a cleanout on a Spokane job (not stock)"), "svc-hero__cap", tag="figcaption"),
+                    block("svc-hero__art", [img("job-lined-pipe.jpg", "cover-img", alt="An old sewer pipe cut open, with the new blue liner cured inside it")]),
+                    t("A cut section of an old pipe with the new liner cured inside.", "svc-hero__cap", tag="figcaption"),
                 ], tag="figure"),
             ]),
         ]),
@@ -111,22 +111,22 @@ def how():
 
 def inside():
     def still(mod, tag, tag_mod, right, cap_bold, label):
+        # mod is the job photo file; label is its alt text (client photos, 2026-11-09).
         return block("still", [
-            block(f"feed {mod} still__feed".strip(), [
-                div("feed__cross", tag="span"),
+            block("still__feed still__media", [
+                img(mod, "cover-img", alt=label),
                 block("feed__hud feed__hud--top", [span(tag, ("still__tag " + tag_mod).strip()), span(right)]),
-                block("feed__hud", [span("PNW CAM 01"), span("047.6 FT", "feed__ft")]),
-            ], _attributes=attrs(role="img", aria_label=label)),
-            t(f"<strong>{cap_bold}</strong> {tbc('Replace with a real camera still from a PNW job')}", "still__cap", tag="figcaption"),
+            ]),
+            t(f"<strong>{cap_bold}</strong>", "still__cap", tag="figcaption"),
         ], tag="figure")
 
     return section("section section--tint", [
         container([
             head("Before &amp; after", 'See it from <span class="serif">inside the pipe.</span>',
-                 f"Same pipe, same camera, before and after lining. {tbc('Job location, pipe material, length')}."),
+                 "Real photos from our jobs: the old pipe we find, and the liner that goes inside it."),
             block("inside__grid", [
-                still("feed--roots", "Before", "", '4" CLAY · JOINT 6', "Roots at the joint.", "Illustrated camera view: roots at a pipe joint before lining"),
-                still("feed--clean", "After", "still__tag--after", "CURED LINER", "Smooth, jointless liner.", "Illustrated camera view: smooth lined pipe after lining"),
+                still("job-old-pipe.jpg", "Before", "", "OLD PIPE", "Before: an old line choked with buildup.", "A section of old sewer pipe cut open, with heavy buildup inside"),
+                still("job-lined-pipe.jpg", "After", "still__tag--after", "NEW LINER", "After: the new liner cured inside the old pipe.", "An old sewer pipe cut open, with the new blue liner cured inside it"),
             ]),
         ]),
     ], label="Before and after")
@@ -178,10 +178,7 @@ def owner():
     return section("section section--dark grain", [
         container([
             block("owner__grid", [
-                block("owner__photo", [
-                    svg("art-silhouette.svg", "mike__silhouette", _attributes=attrs(aria_hidden="true")),
-                    block("owner__ph", [svg("icon-photo.svg"), span(tbc("Mike headshot"))], tag="span"),
-                ]),
+                block("owner__photo", [img("trailer.jpg", "cover-img", alt="The PNW Trenchless equipment trailer")]),
                 block("owner__content", [
                     eyebrow("Who does the work"),
                     h("h2", f'Mike Jeisma has lined {tbc("hundreds of")} <span class="serif">Inland Northwest</span> sewer lines.', "owner__title"),
@@ -199,19 +196,17 @@ def owner():
 
 
 def jobs():
-    items = [("feed--roots", "Neighborhood", "Spokane"), ("", "City", "Spokane Valley"), ("", "City", "Deer Park")]
+    items = [("job-access-pit.jpg", "A shored access pit in a front lawn, with the camera reel and jetter beside it", "The access pit", "One small, shored pit instead of a trench across the yard."),
+             ("job-old-pipe.jpg", "A section of old sewer pipe cut open, with heavy buildup inside", "The old pipe", "What years of buildup look like inside an old line."),
+             ("job-lawn-restored.jpg", "A front lawn after the job, with the pit backfilled and the grass back in place", "The yard afterwards", "Pit backfilled and the lawn back in place.")]
     return section("section section--white", [
         container([
-            head_split("Lining projects", 'Recent pipe <span class="serif">lining jobs.</span>', a("All projects", "/#projects", "link-arrow")),
+            head_split("On the job", 'One job, <span class="serif">start to finish.</span>', a("All projects", "/#projects", "link-arrow")),
             block("jobs__grid", [
                 block("job", [
-                    block(f"feed {mod} job__feed".strip(), [block("feed__hud", [span("CAMERA STILL", "feed__ft")])], _attributes=attrs(role="img", aria_label="Camera still placeholder")),
-                    block("job__body", [
-                        span(f"{tbc(place)}, {city}", "job__title"),
-                        t(tbc("Material, size, length · problem"), "job__spec"),
-                        t(tbc("Lined in X day(s), X pits"), "job__result"),
-                    ]),
-                ], tag="li") for mod, place, city in items
+                    block("job__media", [img(f, "cover-img", alt=alt)], tag="figure"),
+                    block("job__body", [span(title, "job__title"), t(text, "job__spec")]),
+                ], tag="li") for f, alt, title, text in items
             ], tag="ul"),
         ]),
     ], label="Lining projects")
