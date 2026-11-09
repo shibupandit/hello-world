@@ -744,7 +744,7 @@ c("review__by", "%root% { margin-top: auto; display: flex; flex-direction: row; 
 c("review__av", "%root% { width: 2.6em; height: 2.6em; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--secondary); color: var(--white); font-weight: 800; flex: none; overflow: hidden; }")
 c("review__initial", "%root% { display: block; font-size: 0; line-height: 1; text-transform: uppercase; }\n%root%::first-letter { font-size: var(--text-s); }")
 c("review__author", "%root% { font-weight: 700; color: var(--text-light); }")
-c("review__name", "%root% { display: flex; flex-direction: column; }")
+c("review__name", "%root% { display: flex; flex-direction: column; gap: 0; }")
 c("review__meta", "%root% { color: var(--text-light-muted); font-size: var(--text-xs); }")
 c("assure", f"""
 %root% {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: var(--pnw-border-dark); width: 100%; }}

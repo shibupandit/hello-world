@@ -1046,7 +1046,7 @@
  },
  {
   "name": "review__name",
-  "css": "%root% { width: auto; display: flex; flex-direction: column; }",
+  "css": "%root% { width: auto; display: flex; flex-direction: column; gap: 0; }",
   "category": "PNW"
  },
  {
