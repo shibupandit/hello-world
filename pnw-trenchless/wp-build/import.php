@@ -129,6 +129,34 @@ foreach ( $els['sections'] as $s ) {
 	$out['page'][ $s['key'] ] = is_wp_error( $r ) ? $r->get_error_message() : ( $r['verified'] ? 'ok' : 'mismatch' );
 }
 
+// 4b. Other pages (e.g. service posts), found or created by slug + post type.
+$out['pages'] = [];
+foreach ( (array) ( $els['pages'] ?? [] ) as $pg ) {
+	$p = get_page_by_path( $pg['slug'], OBJECT, $pg['post_type'] );
+	$pid = $p ? (int) $p->ID : (int) wp_insert_post( [
+		'post_type'   => $pg['post_type'],
+		'post_title'  => $pg['title'],
+		'post_name'   => $pg['slug'],
+		'post_status' => 'publish',
+		'post_excerpt' => $pg['excerpt'] ?? '',
+	] );
+	if ( $p && isset( $pg['excerpt'] ) ) {
+		wp_update_post( [ 'ID' => $pid, 'post_excerpt' => $pg['excerpt'], 'post_title' => $pg['title'] ] );
+	}
+	update_post_meta( $pid, '_bricks_editor_mode', 'bricks' );
+	$set->execute( [ 'post_id' => $pid, 'area' => 'content', 'elements' => [] ] );
+	$res = [ 'id' => $pid ];
+	foreach ( $pg['sections'] as $s ) {
+		$r = $ins->execute( [ 'post_id' => $pid, 'area' => 'content', 'elements' => $prep( $s['elements'] ) ] );
+		$res[ $s['key'] ] = is_wp_error( $r ) ? $r->get_error_message() : ( $r['verified'] ? 'ok' : 'mismatch' );
+	}
+	$res['url'] = get_permalink( $pid );
+	$out['pages'][ $pg['key'] ] = $res;
+}
+if ( ! empty( $els['pages'] ) ) {
+	flush_rewrite_rules( false );
+}
+
 // 5. In-process render test.
 $test = function ( $elements ) {
 	try {
@@ -146,5 +174,8 @@ $out['render'] = [
 	'footer' => $test( get_post_meta( (int) $tpls['footer'], BRICKS_DB_PAGE_FOOTER, true ) ),
 	'page'   => $test( get_post_meta( $post, BRICKS_DB_PAGE_CONTENT, true ) ),
 ];
+foreach ( $out['pages'] as $k => $res ) {
+	$out['render'][ $k ] = $test( get_post_meta( $res['id'], BRICKS_DB_PAGE_CONTENT, true ) );
+}
 $out['missing'] = array_values( array_unique( $missing ) );
 return $out;

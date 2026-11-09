@@ -677,7 +677,9 @@ def faq():
     ], sid="faq", label="FAQ")
 
 
-def estimate():
+def estimate(kicker="Request a quote", title='Get a <span class="serif">true and honest</span> quote.',
+             intro="Give us some details and we'll reach out right away. Homes, businesses and industrial sites across Spokane and Stevens County.",
+             services=("Sewer line repair", "Pipe bursting", "CIPP lining", "Water line", "Point repair", "Not sure yet"), contact_ways=True):
     ways = [("icon-phone.svg", "Call", PHONE, TEL, False), ("icon-chat.svg", "Text", "Send a photo", SMS, False),
             ("icon-mail.svg", "Email", "Write to us", MAIL + "?subject=Quote%20request", False), ("icon-fb.svg", "Facebook", "Message us", FB, True)]
 
@@ -694,7 +696,7 @@ def estimate():
     # Dummy form (design only). Swap this block for the Fluent Forms element later; keep the `form` wrapper class.
     form = block("form", [
         block("form__head", [h("h3", "Request a quote", "form__title"), span("Takes about a minute", "form__hint")]),
-        chips("What do you need?", ["Sewer line repair", "Pipe bursting", "CIPP lining", "Water line", "Point repair", "Not sure yet"]),
+        chips("What do you need?", list(services)),
         chips("Property type", ["Residential", "Commercial", "Industrial"]),
         div("form__sep"),
         block("form__row", [field("Name"), field("Phone")]),
@@ -709,11 +711,11 @@ def estimate():
         container([
             block("split split--center", [
                 block("estimate__text", [
-                    eyebrow("Request a quote"),
-                    h("h2", 'Get a <span class="serif">true and honest</span> quote.'),
-                    t("Give us some details and we'll reach out right away. Homes, businesses and industrial sites across Spokane and Stevens County."),
+                    eyebrow(kicker),
+                    h("h2", title),
+                    t(intro),
                     block("bigphone", [span("Call or text now", "bigphone__label"), span(PHONE, "bigphone__num"), span("Send a photo or video of the problem if you can.", "bigphone__note")], href=TEL),
-                    block("contact-ways", [block("contact-way", [svg(ic), span(lbl), span(note, "contact-way__note")], href=link(u, nt)) for ic, lbl, note, u, nt in ways]),
+                ] + ([block("contact-ways", [block("contact-way", [svg(ic), span(lbl), span(note, "contact-way__note")], href=link(u, nt)) for ic, lbl, note, u, nt in ways])] if contact_ways else []) + [
                     block("next", [block("next__item", [span(f"0{i + 1}", "next__num"), span(x)], tag="li") for i, x in enumerate(["You send the details or a photo", "Mike calls you back and books the camera", "You see the footage and get a written quote"])], tag="ol"),
                 ]),
                 form,
@@ -752,7 +754,10 @@ def build():
         "header": flatten(header(), "h"),
         "footer": flatten(footer(), "f"),
         "sections": [{"key": fn.__name__, "elements": flatten([fn()], "s" + format(k, "x"))} for k, fn in enumerate(SECTIONS)],
+        "pages": [],
     }
+    import elements_lining
+    data["pages"].append(elements_lining.page())
     pathlib.Path(__file__).with_name("elements.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
     return data
 

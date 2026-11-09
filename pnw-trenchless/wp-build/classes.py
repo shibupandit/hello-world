@@ -928,6 +928,7 @@ def _row_default(css):
 # --------------------------------------------------------------------------
 # SERVICE PAGE: Sewer Pipe Lining (shared service-page blocks)
 # --------------------------------------------------------------------------
+c("crumbs", "%root% { display: block; width: 100%; }")
 c("crumbs__list", """
 %root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: row; flex-wrap: wrap; gap: calc(var(--space-xs) / 2) var(--space-xs); font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--text-light-muted); }
 """)
