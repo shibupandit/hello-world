@@ -1,7 +1,7 @@
 /* ==========================================================================
    CITY (SERVICE AREA) SINGLE TEMPLATE — article layout (user reference, 2026-11-09)
    Short dark hero, then a two-column article: main column (featured image,
-   "On this page", Gutenberg content in .prose, template blocks) + sticky sidebar.
+   Gutenberg content in .prose, template blocks) + sticky sidebar.
    Reuses crumbs, pcards, quotes/review and the live-site overrides in serve.css.
    ========================================================================== */
 
@@ -16,12 +16,6 @@
 .city-cover { margin: 0; border-radius: var(--radius-l); overflow: hidden; box-shadow: var(--box-shadow-m); }
 .city-cover img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
 
-.toc { padding: var(--space-m) var(--space-l); border-radius: var(--radius-l); background: var(--neutral-ultra-light); border: var(--border); }
-.toc__label { display: block; font-family: var(--mono-font-family); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); margin-bottom: var(--space-s); }
-.toc ol { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: .45rem; }
-.toc li::marker { color: var(--accent-dark); font-weight: 700; }
-.toc a { color: var(--text-dark); text-decoration: none; font-weight: 600; }
-.toc a:hover { color: var(--primary); text-decoration: underline; }
 
 /* Gutenberg content: paragraphs, headings, lists, images, quotes */
 .prose { color: var(--text-dark-muted); font-size: 1.075rem; line-height: 1.7; }
@@ -104,5 +98,5 @@
 @media (max-width: 767px) {
   .svc-links, .pcards--two { grid-template-columns: minmax(0, 1fr); }
   .prose .is-lead { font-size: 1.25rem; }
-  .toc, .widget { padding: var(--space-m); }
+  .widget { padding: var(--space-m); }
 }
