@@ -257,7 +257,7 @@ def faq():
 
 
 def more():
-    rel = [("icon-liner.svg", "Sewer pipe lining", LINING), ("icon-drop.svg", "Water line replacement", "/#services"),
+    rel = [("icon-liner.svg", "Sewer pipe lining", LINING), ("icon-drop.svg", "Water line pulling", "/services/water-line-pulling/"),
            ("icon-camera.svg", f"Sewer camera inspection {tbc('standalone?')}", "/#services"), ("icon-yard.svg", "Trenchless vs. digging: full comparison", "/#how")]
     cities = ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]
     return section("section section--tint", [
