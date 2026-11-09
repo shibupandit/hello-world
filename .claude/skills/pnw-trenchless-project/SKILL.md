@@ -137,6 +137,13 @@ Mobile call bar.
 - **10 dummy reviews** (posts 556–565, "Dummy Reviewer A–J", text starts "Dummy review text.", `is_placeholder` on), added at the user's request (2026-11-09) to test layouts. A, B and C are featured; A, C, E, G and J are linked to Sewer Pipe Lining. **They are not real reviews: delete all `is_placeholder` testimonials before launch** and replace them with real Google reviews.
 - **Review cards are Bricks query loops** (`review_loop()` in `wp-build/elements.py`): one `review` figure with `hasLoop` over `testimonial`, filled by `{acf_review_text}`, `{post_title}`, `{acf_city} · {acf_source}`; stars carry `data-rating="{acf_rating}"` (the `stars` class dims 1–4 star ratings); the avatar letter is the first letter of the name via `review__initial::first-letter`. Home: 3 newest with `featured` = 1. Service pages: 2 newest whose `services` field contains the page (`LIKE '"__POST_ID__"'`, which `import.php` replaces with the post ID). The Google average/count block stays `tbc`.
 
+## Website Settings (ACF options page)
+
+- Options page `website-settings` ("Website Settings" in the WP admin menu, ACF post 615), values stored in the default `options` store. Field group `group_pnw_site_settings` (ACF post 616).
+- Fields (Bricks dynamic data `{acf_<name>}`): `site_phone` (= 509-953-2036), `site_email`, `site_address` (= "North Spokane County", set by the user 2026-11-09), `site_hours`, `site_google_url`, `site_google_rating` (0–5, step 0.1), `site_google_review_count`, `site_google_map_iframe` (raw embed code).
+- Email, hours, Google URL, rating, review count and map embed are empty until the client confirms them. Never fill the rating or count with made-up numbers.
+- Note: the user gave the office address as North Spokane County; the build still says "Clayton, WA" in places (top bar, footer, Mike creds). Not yet wired to these fields.
+
 ## Still unknown (ask Mike / the user)
 
 - Google rating, review count and real reviews
