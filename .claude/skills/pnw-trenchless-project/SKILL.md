@@ -124,6 +124,10 @@ Mobile call bar.
   - FAQ schema is off until Mike confirms the draft answers. Service and city links point to `#estimate` / anchors until those pages exist.
   - Repeating content (services, projects, reviews, areas) is static, not CPT + Query Loop yet. ACF Pro is now available for that.
 
+## Service pages
+
+- **Sewer Pipe Lining (CIPP)** — design `pnw-trenchless/service-sewer-pipe-lining.html` (2026-11-09), redesigned from the user's wireframe "Service page · Sewer Pipe Lining" (13 sections: hero + byline, quick answer + facts, is lining right, process diagram + 6 steps, before/after camera stills (no video), specs, cost, Mike, lining projects, reviews, FAQ, related + near you, quote form). Built in the homepage system (same tokens, header, footer). Source pieces: `pnw-trenchless/src/lining-main.html` + `src/lining.css`. All bracketed wireframe values are `tbc`; FAQ answers taken from the homepage drafts are marked "Draft · Mike to confirm". **Status: waiting for the user's approval. Do not build it in Bricks / publish until they say so.**
+
 ## Still unknown (ask Mike / the user)
 
 - Google rating, review count and real reviews
