@@ -163,6 +163,13 @@ Mobile call bar.
 
 - On the WordPress site the `tbc` class has **no visual style** (user, 2026-11-09): the amber background and dashed underline were removed from the theme style and from the class-level overrides (chip, compare__cell--us, fact, steps--6). The class stays in the markup so unconfirmed facts can be found (search the page content for `class="tbc"`). Placeholder text such as "Confirm OK to name." now reads like normal copy, so every `tbc` must be replaced or removed before launch. The design HTML files still show the highlight for review. Old theme CSS is backed up in the WP option `pnw_theme_css_backup_20261109`.
 
+## Client job photos (2026-11-09)
+
+- Five client photos (EXIF/GPS stripped, max 1600px), media 859–863 in the job-photos HappyFiles folder: `job-old-pipe.jpg` (old pipe cut open, buildup), `job-lined-pipe.jpg` (old pipe with the blue liner inside), `job-access-pit.jpg` (shored pit in a front lawn, camera reel + jetter), `job-pipe-connection.jpg` (new pipe connected in the pit), `job-lawn-restored.jpg` (lawn after the job). See `IMAGE-CREDITS.md`.
+- They replaced every photo placeholder on the site: service-page heroes (lining = lined pipe, bursting = access pit), before/after stills (`still__media` + `cover-img`), service-page project cards ("On the job · One job, start to finish": pit / old pipe / lawn, no invented locations), owner photos (trailer), Home "Meet Mike" photo (access pit) and first project mini card (connection), About portrait (trailer), equipment shots (`rig__shot`) and local photo (lawn).
+- There is no photo of Mike yet; the portrait spots use the trailer / job photos with the name plate.
+- Still waiting for (sent in chat but not as files): two real sewer camera frames (42'11" and 45'0") to use as the "before" camera stills; two flyers and a service banner (marketing graphics, not used as photos). The flyers say "Serving Washington & Idaho" and "Locally owned and operated in North Spokane County"; the site still lists Spokane/Stevens areas only — ask before changing.
+
 ## Still unknown (ask Mike / the user)
 
 - Google rating, review count and real reviews
