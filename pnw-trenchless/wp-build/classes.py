@@ -307,7 +307,6 @@ c("hero__proof-item", f"""
 # --------------------------------------------------------------------------
 c("ticker", """
 %root% { position: relative; overflow: hidden; background: var(--base-dark); color: var(--text-light); border-block: var(--pnw-border-dark); padding: var(--space-l) 0 var(--space-m); display: flex; flex-direction: column; gap: var(--space-s); }
-%root%:hover .ticker__track, %root%:focus-within .ticker__track { animation-play-state: paused; }
 """)
 c("ticker__row", """
 %root% { overflow: hidden; width: 100%; -webkit-mask-image: linear-gradient(90deg, transparent, var(--black) 7%, var(--black) 93%, transparent); mask-image: linear-gradient(90deg, transparent, var(--black) 7%, var(--black) 93%, transparent); }
@@ -333,11 +332,11 @@ c("ticker__item--outline", """
 """)
 c("ticker__ico", """
 %root% { width: .85em; height: .85em; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; border: .03em solid var(--white-trans-20); color: var(--primary-light); transition: background-color .3s, border-color .3s, color .3s; margin-right: .2em; }
-%root% svg { width: 46%; height: 46%; }
+%root% svg { width: .42em; height: .42em; display: block; flex: none; }
 """)
 c("ticker__name", "%root% { display: inline-block; }")
 c("ticker__spec", """
-%root% { align-self: flex-start; margin-top: .35em; margin-left: .2em; font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; line-height: 1.2; color: var(--accent); padding: .3em .55em; border: var(--border-size) solid var(--accent-trans-40); border-radius: var(--radius-circle); }
+%root% { align-self: center; margin-left: .2em; font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; line-height: 1.2; color: var(--accent); padding: .3em .55em; border: var(--border-size) solid var(--accent-trans-40); border-radius: var(--radius-circle); }
 """)
 c("ticker__joint", """
 %root% { width: clamp(.9em, 1vw + .6em, 1.4em); height: clamp(.9em, 1vw + .6em, 1.4em); flex: none; border-radius: var(--radius-circle); border: .2em solid var(--base-light); box-shadow: inset 0 0 0 .2em var(--base-dark), inset 0 0 0 1em var(--accent); }
