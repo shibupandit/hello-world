@@ -1152,6 +1152,13 @@ h1 .serif, h2 .serif { font-size: inherit; }
 .widget__list a:hover { color: var(--primary); }
 .widget__list small { font-family: var(--mono-font-family); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); }
 .widget--tint { background: var(--neutral-ultra-light); }
+.widget__svc { list-style: none; margin: 0; padding: 0; width: 100%; }
+.widget__svc li + li { border-top: var(--border); }
+.widget__svc a { display: flex; align-items: center; gap: .7rem; padding: .6rem 0; color: var(--text-dark); font-weight: 700; text-decoration: none; transition: color .25s; }
+.widget__svc li:first-child a { padding-top: 0; }
+.widget__svc li:last-child a { padding-bottom: 0; }
+.widget__svc a:hover { color: var(--primary); }
+.widget__svc svg { width: 32px; height: 32px; padding: .35rem; border-radius: var(--radius); background: var(--base); color: var(--primary-light); flex: none; }
 .widget__areas { list-style: none; margin: 0; padding: 0; width: 100%; display: flex; flex-direction: column; gap: .35rem; }
 .widget__areas a { display: block; padding: .6rem .8rem; border-radius: var(--radius); background: var(--white); border: var(--border); color: var(--text-dark); font-weight: 600; font-size: var(--text-s); text-decoration: none; }
 .widget__areas a:hover { border-color: var(--primary); color: var(--primary); }
@@ -1341,15 +1348,13 @@ h1 .serif, h2 .serif { font-size: inherit; }
       <!-- ===== Sidebar (template) ===== -->
       <aside class="city-aside">
         <section class="widget">
-          <h2 class="widget__title">Your local contractor</h2>
-          <p class="widget__name">PNW Trenchless</p>
-          <p class="widget__muted">North Spokane County · serving Spokane Valley</p>
-          <ul class="widget__contact">
-            <li><svg><use href="#i-phone"/></svg><a href="tel:5099532036">509-953-2036</a></li>
-            <li><svg><use href="#i-mail"/></svg><a href="mailto:info@pnwtrenchless.com">info@pnwtrenchless.com</a></li>
+          <h2 class="widget__title">Services</h2>
+          <ul class="widget__svc">
+            <li><a href="service-sewer-pipe-lining.html"><svg><use href="#i-liner"/></svg>Sewer pipe lining</a></li>
+            <li><a href="service-pipe-bursting.html"><svg><use href="#i-burst"/></svg>Pipe bursting</a></li>
+            <li><a href="service-water-line-pulling.html"><svg><use href="#i-drop"/></svg>Water line pulling</a></li>
+            <li><a href="service-point-repairs.html"><svg><use href="#i-patch"/></svg>Point repairs</a></li>
           </ul>
-          <p class="widget__hours">Mon–Fri 7am–6pm</p>
-          <a class="link-arrow" href="contact.html">Contact us</a>
         </section>
 
         <section class="widget">
@@ -1367,6 +1372,18 @@ h1 .serif, h2 .serif { font-size: inherit; }
           <ul class="widget__areas">
             <li><a href="#">Spokane</a></li><li><a href="#">Deer Park</a></li><li><a href="#">Clayton</a></li><li><a href="#">Stevens County</a></li><li><a href="#">Spokane County</a></li>
           </ul>
+        </section>
+
+        <section class="widget">
+          <h2 class="widget__title">Your local contractor</h2>
+          <p class="widget__name">PNW Trenchless</p>
+          <p class="widget__muted">North Spokane County · serving Spokane Valley</p>
+          <ul class="widget__contact">
+            <li><svg><use href="#i-phone"/></svg><a href="tel:5099532036">509-953-2036</a></li>
+            <li><svg><use href="#i-mail"/></svg><a href="mailto:info@pnwtrenchless.com">info@pnwtrenchless.com</a></li>
+          </ul>
+          <p class="widget__hours">Mon–Fri 7am–6pm</p>
+          <a class="link-arrow" href="contact.html">Contact us</a>
         </section>
 
         <section class="widget widget--dark">
