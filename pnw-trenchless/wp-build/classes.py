@@ -67,7 +67,6 @@ c("eyebrow", """
   letter-spacing: .16em; text-transform: uppercase; color: var(--primary);
   display: inline-flex; align-items: center; gap: .75em;
 }
-%root%::before { content: ""; flex: none; width: .65em; height: .65em; border-radius: var(--radius-circle); background: currentColor; box-shadow: 0 0 0 .35em color-mix(in srgb, currentColor 22%, transparent); }
 :is(.section--dark, .section--deep) %root% { color: var(--primary-light); }
 """)
 c("link-arrow", """
@@ -149,7 +148,6 @@ c("topbar__inner", f"""
 """)
 c("topbar__area", """
 %root% { display: inline-flex; align-items: center; gap: .5em; }
-%root%::before { content: ""; width: .5em; height: .5em; border-radius: var(--radius-circle); background: var(--primary-light); }
 """)
 c("topbar__links", """
 %root% { display: inline-flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: calc(var(--space-xs) / 2) var(--space-s); }
@@ -479,7 +477,6 @@ c("svc-card__body", f"""
 c("svc-card__top", "%root% { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: var(--space-s); }")
 c("svc-card__spec", """
 %root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--card-accent); display: inline-flex; align-items: center; gap: .55em; }
-%root%::before { content: ""; width: .7em; height: .7em; border-radius: var(--radius-circle); background: var(--card-accent); }
 """)
 c("svc-card__go", """
 %root% { width: 3em; height: 3em; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--neutral-ultra-light); border: var(--pnw-border); color: var(--text-dark); transition: background-color .35s, color .35s, border-color .35s; }
@@ -1073,7 +1070,6 @@ c("reach__label", "%root% { font-family: var(--pnw-font-mono); font-size: var(--
 c("reach__value", f"%root% {{ font-family: var(--heading-font-family); font-weight: 800; font-size: var(--h4); color: var(--white); }}\n{L} {{ %root% {{ font-size: var(--text-m); }} }}")
 c("reach__go", f"%root% {{ width: 1.1em; height: 1.1em; flex: none; opacity: .7; }}\n{L} {{ %root% {{ display: none; }} }}")
 c("reach__hours", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: .5em; padding: .35em .25em 0; font-size: var(--text-s); color: var(--text-light-muted); }")
-c("reach__dot", "%root% { display: block; width: .55em; height: .55em; flex: none; border-radius: var(--radius-circle); background: var(--primary-light); box-shadow: 0 0 0 .25em var(--primary-light-trans-20); }")
 
 c("connect__grid", f"""
 %root% {{ display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: var(--space-xxl); align-items: start; width: 100%; }}

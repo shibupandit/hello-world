@@ -19208,25 +19208,6 @@
       },
       {
        "id": "c00036",
-       "name": "div",
-       "parent": "c00035",
-       "settings": {
-        "_attributes": [
-         {
-          "name": "aria-hidden",
-          "value": "true"
-         }
-        ],
-        "tag": "custom",
-        "customTag": "span",
-        "_cls": [
-         "reach__dot"
-        ]
-       },
-       "label": "reach__dot"
-      },
-      {
-       "id": "c00037",
        "name": "text-basic",
        "parent": "c00035",
        "settings": {
@@ -19246,7 +19227,7 @@
        }
       },
       {
-       "id": "c00038",
+       "id": "c00037",
        "name": "text-basic",
        "parent": "c00035",
        "settings": {

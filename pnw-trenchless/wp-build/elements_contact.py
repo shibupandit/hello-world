@@ -50,7 +50,6 @@ def hero():
                     way("icon-mail.svg", "Email", EMAIL, MAIL + "?subject=Quote%20request"),
                     way("icon-fb.svg", "Facebook", "Message us", FB, new_tab=True),
                     block("reach__hours", [
-                        div("reach__dot", tag="span", _attributes=attrs(aria_hidden="true")),
                         span(f"Hours: {HOURS}", **when(HOURS)),
                         span(f"· {tbc('Emergency calls?')}"),
                     ], tag="p"),
