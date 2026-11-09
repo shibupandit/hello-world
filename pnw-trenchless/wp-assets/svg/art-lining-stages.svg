@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><defs>
+          <linearGradient id="soilg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2533"/><stop offset="1" stop-color="#121B26"/></linearGradient>
+        </defs>
+        <rect width="1200" height="300" rx="22" fill="url(#soilg)"/>
+        <!-- stage 1: old pipe with cracks and roots -->
+        <g transform="translate(40 110)">
+          <rect width="340" height="80" rx="10" fill="#4A4F55"/><rect y="12" width="340" height="56" fill="#262B31"/>
+          <path d="M70 0l12 22-10 14M210 80l-10-20 12-12M280 0l-8 18" stroke="#0B121B" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M150 12c10 14 4 26 18 40M156 12c-8 18 4 30-6 44" stroke="#8B6A3E" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <text x="0" y="122" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="2" fill="#A8B3BF">01 · CRACKED, ROOTED HOST PIPE</text>
+        </g>
+        <!-- stage 2: liner inverting -->
+        <g transform="translate(430 110)">
+          <rect width="340" height="80" rx="10" fill="#4A4F55"/><rect y="12" width="340" height="56" fill="#262B31"/>
+          <path d="M0 18h190a22 22 0 0 1 0 44H0z" fill="#2F7A4B"/>
+          <path d="M0 26h182a14 14 0 0 1 0 28H0z" fill="#6CC08A" opacity=".35"/>
+          <path d="M220 40h70M276 30l14 10-14 10" stroke="#F0B03A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="0" y="122" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="2" fill="#6CC08A">02 · LINER INVERTED + INFLATED</text>
+        </g>
+        <!-- stage 3: cured liner -->
+        <g transform="translate(820 110)">
+          <rect width="340" height="80" rx="10" fill="#4A4F55"/><rect y="12" width="340" height="56" fill="#262B31"/>
+          <rect y="16" width="340" height="48" fill="#2F7A4B"/><rect y="24" width="340" height="32" fill="#0B121B"/>
+          <path d="M120 40h100M206 32l14 8-14 8" stroke="#F0B03A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="0" y="122" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="2" fill="#F0B03A">03 · CURED, JOINTLESS NEW PIPE</text>
+        </g></svg>
