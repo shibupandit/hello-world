@@ -135,6 +135,7 @@ Mobile call bar.
 - ACF Pro post type `testimonial` (ACF post 545): not public (no single pages or archive), shown in admin and REST, menu icon star. Title = reviewer name.
 - Field group `group_pnw_testimonial` (ACF post 546): `review_text` (textarea, required), `rating` (1–5, default 5), `city`, `source` (google / facebook / direct, returns label e.g. "Google review"), `source_url`, `review_date` (Ymd), `services` (relationship to `service`, returns IDs; service pages filter by it), `featured` (show on home), `is_placeholder` (dummy flag).
 - **10 dummy reviews** (posts 556–565, "Dummy Reviewer A–J", text starts "Dummy review text.", `is_placeholder` on), added at the user's request (2026-11-09) to test layouts. A, B and C are featured; A, C, E, G and J are linked to Sewer Pipe Lining. **They are not real reviews: delete all `is_placeholder` testimonials before launch** and replace them with real Google reviews.
+- **Review cards are Bricks query loops** (`review_loop()` in `wp-build/elements.py`): one `review` figure with `hasLoop` over `testimonial`, filled by `{acf_review_text}`, `{post_title}`, `{acf_city} · {acf_source}`; stars carry `data-rating="{acf_rating}"` (the `stars` class dims 1–4 star ratings); the avatar letter is the first letter of the name via `review__initial::first-letter`. Home: 3 newest with `featured` = 1. Service pages: 2 newest whose `services` field contains the page (`LIKE '"__POST_ID__"'`, which `import.php` replaces with the post ID). The Google average/count block stays `tbc`.
 
 ## Still unknown (ask Mike / the user)
 
