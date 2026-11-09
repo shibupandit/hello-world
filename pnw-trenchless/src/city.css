@@ -1,0 +1,44 @@
+/* ==========================================================================
+   CITY (SERVICE AREA) SINGLE TEMPLATE
+   Same tokens and patterns as the other pages. Reuses crumbs, svc-hero, map,
+   materials, quotes/review, pcards, faq, city-list and the Who We Serve service
+   cards (ws-svc, from serve.css). Page-only blocks below (city-*).
+   ========================================================================== */
+
+/* 01 hero */
+.city-hero h1 { max-width: 18ch; font-size: clamp(2.4rem, 1.5rem + 3vw, 4.1rem); }
+.city-hero h1 .serif { color: var(--primary-light); }
+.city-facts { list-style: none; margin: var(--space-m) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; border-top: var(--border-dark); }
+.city-facts li { display: flex; flex-direction: column; gap: .3rem; padding: var(--space-s) var(--space-s) 0 0; }
+.city-facts li + li { padding-left: var(--space-s); border-left: var(--border-dark); }
+.city-facts small { font-family: var(--mono-font-family); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-light-muted); }
+.city-facts b { font-family: var(--heading-font-family); font-stretch: 108%; font-size: 1.05rem; color: var(--white); }
+.city-map .map { border: var(--border-dark); }
+
+/* 02 local */
+.city-local { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xxl); align-items: start; }
+.city-local__text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); }
+.city-local__text h2 .serif { color: var(--primary); }
+.city-local__text p { color: var(--text-dark-muted); font-size: var(--text-l); max-width: 52ch; }
+.city-signs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--text-dark); }
+.city-signs li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: var(--space-m); align-items: center; padding: var(--space-m) 0; border-bottom: var(--border); }
+.city-signs__ico { width: 52px; height: 52px; border-radius: var(--radius); display: grid; place-items: center; background: var(--base); color: var(--primary-light); }
+.city-signs__ico svg { width: 32px; height: 32px; }
+.city-signs b { display: block; font-family: var(--heading-font-family); font-stretch: 108%; font-size: 1.15rem; margin-bottom: .2rem; }
+.city-signs span:not(.city-signs__ico) { color: var(--text-dark-muted); }
+
+/* 04 projects note */
+.city-note { margin: calc(var(--space-m) * -1) 0 var(--space-m); font-size: var(--text-s); }
+
+/* 07 other areas */
+.city-more { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--space-xxl); align-items: start; }
+.city-list--more a { font-size: 1.35rem; }
+
+@media (max-width: 991px) {
+  .city-local, .city-more { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
+}
+@media (max-width: 767px) {
+  .city-facts { grid-template-columns: minmax(0, 1fr); }
+  .city-facts li { padding: var(--space-s) 0; }
+  .city-facts li + li { padding-left: 0; border-left: 0; border-top: var(--border-dark); }
+}
