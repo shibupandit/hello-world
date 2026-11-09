@@ -280,7 +280,6 @@ c("hero__kicker", """
 """)
 c("chip", """
 %root% { display: inline-flex; align-items: center; gap: .5em; padding: .4em .9em .4em .5em; border-radius: var(--radius-circle); background: var(--white-trans-10); border: var(--border-size) solid var(--white-trans-20); color: var(--white); font-weight: 600; }
-%root% .tbc { background: var(--accent); color: var(--base); border: 0; border-radius: var(--radius-circle); padding: .1em .55em; font-size: .8em; }
 """)
 c("hero__seo", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .16em; text-transform: uppercase; color: var(--text-light-muted); }")
 c("hero__title", "%root% .serif { color: var(--primary-light); display: block; }")
@@ -558,7 +557,6 @@ c("compare__cell--us", """
 %root%:not(.compare__cell--head)::before { content: ""; display: inline-block; vertical-align: -.25em; margin-right: .65em; width: 1.25em; height: 1.25em; border-radius: var(--radius-circle); background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 65% no-repeat; }
 %root%.compare__cell--head { background: var(--primary); border-bottom-color: var(--primary); border-radius: var(--radius-l) var(--radius-l) 0 0; }
 %root%.compare__cell--last { border-radius: 0 0 var(--radius-l) var(--radius-l); border-bottom: 0; }
-%root% .tbc { background: var(--accent-trans-30); border-bottom-color: var(--accent); }
 """)
 c("compare__cell--last", "%root%.compare__cell--us { border-radius: 0 0 var(--radius-l) var(--radius-l); border-bottom: 0; }")
 c("mike__id", "%root% { display: flex; flex-direction: column; }")
@@ -1177,7 +1175,6 @@ c("answer__card", """
 c("facts", "%root% { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-s); }")
 c("fact", """
 %root% { display: flex; flex-direction: column; justify-content: center; gap: .35em; padding: var(--space-m); border-radius: var(--radius-l); background: var(--base); color: var(--white); }
-%root% .tbc { background: var(--accent-trans-20); border-bottom-color: var(--accent); }
 """)
 c("fact__label", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--text-light-muted); }")
 c("fact__value", f"%root% {{ margin: 0; font-family: var(--heading-font-family); font-weight: 800; font-size: calc(var(--h4) * 1.17); letter-spacing: -.01em; line-height: 1.15; }}\n{P} {{ %root% {{ font-size: var(--text-m); }} }}")
@@ -1210,7 +1207,6 @@ c("stages", """
 """)
 c("steps--6", f"""
 %root% {{ grid-template-columns: repeat(6, minmax(0, 1fr)); }}
-%root% .tbc {{ background: var(--accent-trans-20); border-bottom-color: var(--accent); }}
 {NAV} {{ %root% {{ grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: var(--space-m); }} %root% > :nth-child(4) {{ padding-left: 0; border-left: 0; }} %root% > :nth-child(4)::after {{ left: 0; }} }}
 {T} {{ %root% {{ grid-template-columns: 1fr; row-gap: 0; }} }}
 """)

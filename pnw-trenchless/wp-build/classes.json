@@ -296,7 +296,7 @@
  },
  {
   "name": "chip",
-  "css": "%root% { display: inline-flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: .5em; padding: .4em .9em .4em .5em; border-radius: var(--radius-circle); background: var(--white-trans-10); border: var(--border-size) solid var(--white-trans-20); color: var(--white); font-weight: 600; }\n%root% .tbc { background: var(--accent); color: var(--base); border: 0; border-radius: var(--radius-circle); padding: .1em .55em; font-size: .8em; }",
+  "css": "%root% { display: inline-flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: .5em; padding: .4em .9em .4em .5em; border-radius: var(--radius-circle); background: var(--white-trans-10); border: var(--border-size) solid var(--white-trans-20); color: var(--white); font-weight: 600; }",
   "category": "PNW"
  },
  {
@@ -721,7 +721,7 @@
  },
  {
   "name": "compare__cell--us",
-  "css": "%root% { background: var(--base); color: var(--white); border-bottom-color: var(--white-trans-10); font-weight: 600; }\n%root%:not(.compare__cell--head)::before { content: \"\"; display: inline-block; vertical-align: -.25em; margin-right: .65em; width: 1.25em; height: 1.25em; border-radius: var(--radius-circle); background: var(--primary) url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E\") center / 65% no-repeat; }\n%root%.compare__cell--head { background: var(--primary); border-bottom-color: var(--primary); border-radius: var(--radius-l) var(--radius-l) 0 0; }\n%root%.compare__cell--last { border-radius: 0 0 var(--radius-l) var(--radius-l); border-bottom: 0; }\n%root% .tbc { background: var(--accent-trans-30); border-bottom-color: var(--accent); }",
+  "css": "%root% { background: var(--base); color: var(--white); border-bottom-color: var(--white-trans-10); font-weight: 600; }\n%root%:not(.compare__cell--head)::before { content: \"\"; display: inline-block; vertical-align: -.25em; margin-right: .65em; width: 1.25em; height: 1.25em; border-radius: var(--radius-circle); background: var(--primary) url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E\") center / 65% no-repeat; }\n%root%.compare__cell--head { background: var(--primary); border-bottom-color: var(--primary); border-radius: var(--radius-l) var(--radius-l) 0 0; }\n%root%.compare__cell--last { border-radius: 0 0 var(--radius-l) var(--radius-l); border-bottom: 0; }",
   "category": "PNW"
  },
  {
@@ -1876,7 +1876,7 @@
  },
  {
   "name": "fact",
-  "css": "%root% { display: flex; flex-direction: column; justify-content: center; gap: .35em; padding: var(--space-m); border-radius: var(--radius-l); background: var(--base); color: var(--white); }\n%root% .tbc { background: var(--accent-trans-20); border-bottom-color: var(--accent); }",
+  "css": "%root% { display: flex; flex-direction: column; justify-content: center; gap: .35em; padding: var(--space-m); border-radius: var(--radius-l); background: var(--base); color: var(--white); }",
   "category": "PNW"
  },
  {
@@ -1951,7 +1951,7 @@
  },
  {
   "name": "steps--6",
-  "css": "%root% { grid-template-columns: repeat(6, minmax(0, 1fr)); }\n%root% .tbc { background: var(--accent-trans-20); border-bottom-color: var(--accent); }\n@media (max-width: 1200px) { %root% { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: var(--space-m); } %root% > :nth-child(4) { padding-left: 0; border-left: 0; } %root% > :nth-child(4)::after { left: 0; } }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; row-gap: 0; } }",
+  "css": "%root% { grid-template-columns: repeat(6, minmax(0, 1fr)); }\n@media (max-width: 1200px) { %root% { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: var(--space-m); } %root% > :nth-child(4) { padding-left: 0; border-left: 0; } %root% > :nth-child(4)::after { left: 0; } }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; row-gap: 0; } }",
   "category": "PNW"
  },
  {
