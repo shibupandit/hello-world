@@ -142,7 +142,7 @@ def specs():
                     eyebrow("What you get"),
                     h("h2", 'What goes <span class="serif">into your pipe.</span>'),
                     t("Real specs from the system we install, not a sales sheet.", "section__intro"),
-                    block("note", [svg("icon-alert.svg"), t("<strong>Straight talk:</strong> a liner slightly reduces the inside diameter, but its smooth, jointless wall usually flows as well as or better than the rough old pipe.")]),
+                    block("note note--tint", [svg("icon-alert.svg"), t("<strong>Straight talk:</strong> a liner slightly reduces the inside diameter, but its smooth, jointless wall usually flows as well as or better than the rough old pipe.")]),
                 ]),
                 block("spec-table", [block("spec-table__row", [span(k, "spec-table__term"), span(v, "spec-table__value")]) for k, v in rows]),
             ]),

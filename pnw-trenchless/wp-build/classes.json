@@ -745,6 +745,11 @@
   "category": "PNW"
  },
  {
+  "name": "note--tint",
+  "css": "%root% { background: var(--neutral-ultra-light); margin-top: var(--space-s); }",
+  "category": "PNW"
+ },
+ {
   "name": "flow",
   "css": "%root% { display: grid; grid-template-columns: minmax(0, .9fr) 5em minmax(0, 1.4fr); align-items: stretch; width: 100%; }\n@media (max-width: 991px) { %root% { grid-template-columns: 1fr; gap: var(--space-l); } }",
   "category": "PNW"
@@ -1336,7 +1341,7 @@
  },
  {
   "name": "crumbs__item",
-  "css": "%root% { display: inline-flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: var(--space-xs); }\n%root% + %root%::before { content: \"/\"; opacity: .5; }",
+  "css": "%root% { width: auto; display: inline-flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: var(--space-xs); }\n%root% + %root%::before { content: \"/\"; opacity: .5; }",
   "category": "PNW"
  },
  {
@@ -1471,12 +1476,12 @@
  },
  {
   "name": "fit-card__list",
-  "css": "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border); display: flex; flex-direction: column; }",
+  "css": "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border); display: flex; flex-direction: column; gap: 0; }",
   "category": "PNW"
  },
  {
   "name": "fit-card__item",
-  "css": "%root% { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: var(--space-s); padding: var(--space-s) 0; border-bottom: var(--pnw-border); font-weight: 600; }\n.fit-card--yes %root%::after { content: \"\"; flex: none; width: 1.25em; height: 1.25em; border-radius: var(--radius-circle); background: var(--primary-ultra-light) url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A4B' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E\") center / 65% no-repeat; }\n@media (max-width: 478px) { .fit-card--no %root% { flex-wrap: wrap; } }",
+  "css": "%root% { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: var(--space-s); padding: var(--space-s) 0; border-bottom: var(--pnw-border); font-weight: 600; width: 100%; }\n.fit-card--yes %root%::after { content: \"\"; flex: none; width: 1.25em; height: 1.25em; border-radius: var(--radius-circle); background: var(--primary-ultra-light) url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A4B' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E\") center / 65% no-repeat; }\n@media (max-width: 478px) { .fit-card--no %root% { flex-wrap: wrap; } }",
   "category": "PNW"
  },
  {
@@ -1536,7 +1541,7 @@
  },
  {
   "name": "spec-table",
-  "css": "%root% { margin: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; width: 100%; }",
+  "css": "%root% { margin: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; gap: 0; width: 100%; }",
   "category": "PNW"
  },
  {
@@ -1586,7 +1591,7 @@
  },
  {
   "name": "cost-card__list",
-  "css": "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: flex; flex-direction: column; }",
+  "css": "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: flex; flex-direction: column; gap: 0; }",
   "category": "PNW"
  },
  {
@@ -1636,7 +1641,7 @@
  },
  {
   "name": "owner__cred",
-  "css": "%root% { display: inline-flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: .5em; padding: .45em .85em; border-radius: var(--radius-circle); border: var(--pnw-border-dark); background: var(--white-trans-10); font-size: var(--text-s); font-weight: 600; }\n%root% svg { width: 1.1em; height: 1.1em; color: var(--primary-light); }",
+  "css": "%root% { width: auto; display: inline-flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: .5em; padding: .45em .85em; border-radius: var(--radius-circle); border: var(--pnw-border-dark); background: var(--white-trans-10); font-size: var(--text-s); font-weight: 600; }\n%root% svg { width: 1.1em; height: 1.1em; color: var(--primary-light); }",
   "category": "PNW"
  },
  {
@@ -1686,7 +1691,7 @@
  },
  {
   "name": "related",
-  "css": "%root% { list-style: none; margin: var(--space-m) 0 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; width: 100%; }",
+  "css": "%root% { list-style: none; margin: var(--space-m) 0 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; gap: 0; width: 100%; }",
   "category": "PNW"
  },
  {

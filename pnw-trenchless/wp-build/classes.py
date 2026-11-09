@@ -569,6 +569,7 @@ c("note", """
 %root% p { color: var(--text-dark-muted); }
 %root% strong { color: var(--text-dark); }
 """)
+c("note--tint", "%root% { background: var(--neutral-ultra-light); margin-top: var(--space-s); }")
 
 # --------------------------------------------------------------------------
 # Decision flow
@@ -907,7 +908,8 @@ c("callbar", f"""
 
 AUTO_WIDTH = ["logo", "topbar__links", "topbar__link", "header__cta", "header__phone", "header__phone-text",
               "ticker__item", "feed__hud", "mike__plate", "xsec__toggle", "mike__id", "mike__sig", "footer__legal",
-              "svc-strip__text", "review__name", "social", "chips__list", "upload"]
+              "svc-strip__text", "review__name", "social", "chips__list", "upload",
+              "crumbs__item", "owner__cred"]
 
 
 def _row_default(css):
@@ -981,9 +983,9 @@ c("fit-card--no", "%root% .fit-card__ico { background: var(--accent); color: var
 c("fit-card__head", "%root% { display: flex; flex-direction: row; align-items: center; gap: var(--space-s); }")
 c("fit-card__ico", "%root% { width: 3em; height: 3em; aspect-ratio: 1; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--primary); color: var(--white); }\n%root% svg { width: 1.4em; height: 1.4em; }")
 c("fit-card__title", "%root% { font-size: calc(var(--h4) * 1.3); }")
-c("fit-card__list", "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border); display: flex; flex-direction: column; }")
+c("fit-card__list", "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border); display: flex; flex-direction: column; gap: 0; }")
 c("fit-card__item", f"""
-%root% {{ display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: var(--space-s); padding: var(--space-s) 0; border-bottom: var(--pnw-border); font-weight: 600; }}
+%root% {{ display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: var(--space-s); padding: var(--space-s) 0; border-bottom: var(--pnw-border); font-weight: 600; width: 100%; }}
 .fit-card--yes %root%::after {{ content: ""; flex: none; width: 1.25em; height: 1.25em; border-radius: var(--radius-circle); background: var(--primary-ultra-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A4B' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 65% no-repeat; }}
 {P} {{ .fit-card--no %root% {{ flex-wrap: wrap; }} }}
 """)
@@ -1017,7 +1019,7 @@ c("specs__grid", f"""
 %root% {{ display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--space-xxl); align-items: start; width: 100%; }}
 {T} {{ %root% {{ grid-template-columns: 1fr; gap: var(--space-xl); }} }}
 """)
-c("spec-table", "%root% { margin: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; width: 100%; }")
+c("spec-table", "%root% { margin: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; gap: 0; width: 100%; }")
 c("spec-table__row", f"%root% {{ display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--space-m); padding: var(--space-m) 0; border-bottom: var(--pnw-border); align-items: baseline; }}\n{P} {{ %root% {{ grid-template-columns: 1fr; gap: calc(var(--space-xs) / 2); }} }}")
 c("spec-table__term", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--neutral); }")
 c("spec-table__value", "%root% { margin: 0; font-family: var(--heading-font-family); font-weight: 700; font-size: var(--h4); }")
@@ -1030,7 +1032,7 @@ c("cost__range", "%root% { font-family: var(--heading-font-family); font-weight:
 c("cost__incl", ".cost__text > %root% { font-size: var(--text-m); }")
 c("cost-card", "%root% { display: flex; flex-direction: column; gap: var(--space-m); padding: var(--space-l); border-radius: var(--radius-l); background: var(--base); color: var(--text-light); box-shadow: var(--box-shadow-l); }\n%root% :is(h3) { color: var(--text-light); }")
 c("cost-card__title", "%root% { font-size: calc(var(--h4) * 1.22); }")
-c("cost-card__list", "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: flex; flex-direction: column; }")
+c("cost-card__list", "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--pnw-border-dark); display: flex; flex-direction: column; gap: 0; }")
 c("cost-card__item", "%root% { display: grid; grid-template-columns: 2.5em minmax(0, 1fr); gap: var(--space-s); padding: var(--space-s) 0; border-bottom: var(--pnw-border-dark); color: var(--white-trans-80); }")
 c("cost-card__num", "%root% { font-family: var(--pnw-font-mono); color: var(--accent); font-size: var(--text-s); padding-top: .2em; }")
 c("owner__grid", f"""
@@ -1068,7 +1070,7 @@ c("more__grid", f"""
 %root% {{ display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xxl); align-items: start; width: 100%; }}
 {T} {{ %root% {{ grid-template-columns: 1fr; gap: var(--space-xl); }} }}
 """)
-c("related", "%root% { list-style: none; margin: var(--space-m) 0 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; width: 100%; }")
+c("related", "%root% { list-style: none; margin: var(--space-m) 0 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; flex-direction: column; gap: 0; width: 100%; }")
 c("related__link", "%root% { display: flex; flex-direction: row; align-items: center; gap: var(--space-s); padding: var(--space-s) 0; border-bottom: var(--pnw-border); text-decoration: none; color: var(--text-dark); font-family: var(--heading-font-family); font-weight: 800; font-size: calc(var(--h4) * 1.04); letter-spacing: -.01em; transition: color .25s, padding .35s var(--pnw-ease); }\n%root%:hover { color: var(--primary); padding-left: var(--space-xs); }\n%root% .tbc { font-family: var(--text-font-family); font-size: var(--text-xs); font-weight: 600; }")
 c("related__ico", "%root% { width: 2.75em; height: 2.75em; aspect-ratio: 1; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--white); border: var(--pnw-border); color: var(--primary); }\n%root% svg { width: 1.2em; height: 1.2em; }")
 c("related__label", "%root% { flex: 1 1 auto; min-width: 0; }")
