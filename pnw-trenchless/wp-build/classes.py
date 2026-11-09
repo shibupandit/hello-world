@@ -1128,7 +1128,7 @@ c("urgent__actions", f"""
 # --------------------------------------------------------------------------
 c("projects-hero", "%root% .svc-hero__title { max-width: 12ch; }")
 c("mosaic", f"""
-%root% {{ display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); grid-template-rows: 1fr 1fr; gap: .6em; aspect-ratio: 5 / 4; width: 100%; }}
+%root% {{ display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); grid-template-rows: 1fr 1fr; align-items: stretch; gap: .6em; aspect-ratio: 5 / 4; width: 100%; }}
 {L} {{ %root% {{ aspect-ratio: 4 / 3; }} }}
 """)
 c("mosaic__item", "%root% { position: relative; margin: 0; border-radius: var(--radius-l); overflow: hidden; box-shadow: var(--box-shadow-l); border: var(--border-size) solid var(--white-trans-10); background: var(--base); min-height: 0; }")
