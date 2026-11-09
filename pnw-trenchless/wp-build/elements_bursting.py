@@ -71,7 +71,7 @@ def fit():
     yes = ["Collapsed or crushed sections", "Orangeburg (fiber pipe) that's deformed", "Clay pipe that's broken or badly offset",
            "Pipe too small for the household (upsize)", "Long runs under lawns, driveways and landscaping"]
     no = [("Pipe still round, with cracks or roots", "Pipe lining", LINING), ("Line under a slab or inside the house", "Pipe lining", LINING),
-          ("Bellies or sags holding water", "Spot excavation", None), ("One damaged spot on a good line", "Point repair", "/#services")]
+          ("Bellies or sags holding water", "Spot excavation", None), ("One damaged spot on a good line", "Point repair", "/services/point-repairs/")]
     return section("section section--white", [
         container([
             head("Is bursting right for your pipe?", 'When bursting works, <span class="serif">and when it doesn\'t.</span>',

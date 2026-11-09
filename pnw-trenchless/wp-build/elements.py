@@ -221,7 +221,7 @@ def footer():
                         block("social__link", [svg("icon-chat.svg")], href=link(SMS, aria="Text PNW Trenchless")),
                     ]),
                 ]),
-                col("Services", [("Sewer Pipe Lining", "/services/sewer-pipe-lining/"), ("Pipe Bursting", "/services/pipe-bursting/"), ("Water Line Pulling", "/services/water-line-pulling/"), ("Point Repairs", "/#services")]),
+                col("Services", [("Sewer Pipe Lining", "/services/sewer-pipe-lining/"), ("Pipe Bursting", "/services/pipe-bursting/"), ("Water Line Pulling", "/services/water-line-pulling/"), ("Point Repairs", "/services/point-repairs/")]),
                 col("Service Areas", [(x, "/#areas") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
                 block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/about/"), a("Who We Serve", "/#who"), a("Projects", "/projects/"), a("Reviews", "/reviews/"), a("Contact", "/contact/"), span(HOURS, "footer__hours", **when(HOURS))]),
             ]),
@@ -756,6 +756,8 @@ def build():
     data["pages"].append(elements_reviews.page())
     import elements_water
     data["pages"].append(elements_water.page())
+    import elements_point
+    data["pages"].append(elements_point.page())
     data["templates"] = [elements_projects.single_template()]
     pathlib.Path(__file__).with_name("elements.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
     return data

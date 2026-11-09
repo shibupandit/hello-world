@@ -232,7 +232,7 @@ def faq():
 
 def more():
     rel = [("icon-liner.svg", "Sewer pipe lining", LINING), ("icon-burst.svg", "Pipe bursting", BURSTING),
-           ("icon-patch.svg", "Point repairs", "/#services"), ("icon-yard.svg", "Trenchless vs. digging: full comparison", "/#how")]
+           ("icon-patch.svg", "Point repairs", "/services/point-repairs/"), ("icon-yard.svg", "Trenchless vs. digging: full comparison", "/#how")]
     cities = ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]
     return section("section section--tint", [
         container([

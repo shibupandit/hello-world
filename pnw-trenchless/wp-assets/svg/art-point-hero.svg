@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
+            <rect x="0" y="108" width="600" height="64" rx="4" fill="#4A4F55"/>
+            <rect x="0" y="118" width="600" height="44" fill="#262B31"/>
+            <rect x="210" y="100" width="180" height="80" rx="6" fill="#2F7A4B"/>
+            <rect x="210" y="118" width="180" height="44" fill="#1E3A2A"/>
+            <g stroke="#0B121B" stroke-width="4" stroke-linecap="round" fill="none" opacity=".55"><path d="M292 102l10 14-8 10 12 12-6 12M310 178l-8-10 6-8"/></g>
+            <path d="M262 140h76M324 132l14 8-14 8" stroke="#F0B03A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <g font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.8">
+              <text x="210" y="80" fill="#F0B03A">SPOT LINER</text>
+              <text x="20" y="206" fill="#A8B3BF">SOUND PIPE</text>
+              <text x="490" y="206" fill="#A8B3BF">SOUND PIPE</text>
+            </g>
+          </svg>
