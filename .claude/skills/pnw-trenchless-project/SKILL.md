@@ -159,6 +159,10 @@ Mobile call bar.
 - `form__fluent` restyles Fluent's markup with ACSS variables (labels, inputs, radio chips with `:has(input:checked)`, error text, tip box, submit using ACSS `--btn-*` variables plus an arrow, success message) and maps Fluent's `--fluentform-primary/-danger/-border-color` to ACSS colours. The dummy-form classes (chips, chip-option, form__row, form__field*, form__sep, upload) were deleted.
 - Not done yet: **file upload** needs Fluent Forms Pro; email notification recipients and the GoHighLevel / GA4 hookup still to set up.
 
+## Placeholder highlight
+
+- On the WordPress site the `tbc` class has **no visual style** (user, 2026-11-09): the amber background and dashed underline were removed from the theme style and from the class-level overrides (chip, compare__cell--us, fact, steps--6). The class stays in the markup so unconfirmed facts can be found (search the page content for `class="tbc"`). Placeholder text such as "Confirm OK to name." now reads like normal copy, so every `tbc` must be replaced or removed before launch. The design HTML files still show the highlight for review. Old theme CSS is backed up in the WP option `pnw_theme_css_backup_20261109`.
+
 ## Still unknown (ask Mike / the user)
 
 - Google rating, review count and real reviews
