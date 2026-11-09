@@ -23,7 +23,7 @@ MAP_IFRAME = "{acf_site_google_map_iframe}"
 FB = "https://www.facebook.com/profile.php?id=61589495076554"
 PHONE = "{acf_site_phone}"
 QUOTE_FORM_ID = 3  # Fluent Forms "Request a quote"
-NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/#who"), ("How It Works", "/#how"),
+NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/who-we-serve/"), ("How It Works", "/#how"),
              ("About", "/about/"), ("Service Areas", "/#areas"), ("Contact", "/contact/")]
 
 
@@ -223,7 +223,7 @@ def footer():
                 ]),
                 col("Services", [("Sewer Pipe Lining", "/services/sewer-pipe-lining/"), ("Pipe Bursting", "/services/pipe-bursting/"), ("Water Line Pulling", "/services/water-line-pulling/"), ("Point Repairs", "/services/point-repairs/")]),
                 col("Service Areas", [(x, "/#areas") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
-                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/about/"), a("Who We Serve", "/#who"), a("Projects", "/projects/"), a("Reviews", "/reviews/"), a("Contact", "/contact/"), span(HOURS, "footer__hours", **when(HOURS))]),
+                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/about/"), a("Who We Serve", "/who-we-serve/"), a("Projects", "/projects/"), a("Reviews", "/reviews/"), a("Contact", "/contact/"), span(HOURS, "footer__hours", **when(HOURS))]),
             ]),
             t("TRENCHLESS", "footer__word", tag="div", _attributes=attrs(aria_hidden="true")),
             block("footer__bottom", [
@@ -761,6 +761,8 @@ def build():
     data["pages"].append(elements_water.page())
     import elements_point
     data["pages"].append(elements_point.page())
+    import elements_serve
+    data["pages"].append(elements_serve.page())
     data["templates"] = [elements_projects.single_template()]
     pathlib.Path(__file__).with_name("elements.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
     return data
