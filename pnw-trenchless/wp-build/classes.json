@@ -1081,7 +1081,7 @@
  },
  {
   "name": "city-list",
-  "css": "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); width: 100%; display: flex; flex-direction: column; }",
+  "css": "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); width: 100%; display: flex; flex-direction: column; gap: 0; }",
   "category": "PNW"
  },
  {

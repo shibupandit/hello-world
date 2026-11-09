@@ -763,7 +763,7 @@ c("assure__title", "%root% { font-size: calc(var(--h4) * 1.17); }")
 c("areas__text", "%root% { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); min-width: 0; }\n%root% > p { color: var(--text-dark-muted); font-size: var(--text-l); }")
 c("materials", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs); }")
 c("material", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; padding: .4em .75em; border-radius: var(--radius-circle); border: var(--pnw-border); background: var(--white); color: var(--text-dark-muted); }")
-c("city-list", "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); width: 100%; display: flex; flex-direction: column; }")
+c("city-list", "%root% { list-style: none; margin: 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); width: 100%; display: flex; flex-direction: column; gap: 0; }")
 c("city", """
 %root% { display: flex; flex-direction: row; align-items: baseline; justify-content: space-between; gap: var(--space-m); padding: var(--space-s) 0; border-bottom: var(--pnw-border); text-decoration: none; color: var(--text-dark); font-family: var(--heading-font-family); font-weight: 800; font-size: var(--h3); letter-spacing: -.02em; transition: color .25s, padding .35s var(--pnw-ease); }
 %root%:hover { color: var(--primary); padding-left: var(--space-s); }
