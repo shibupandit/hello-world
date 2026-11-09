@@ -22,6 +22,7 @@ HOURS = "{acf_site_hours}"
 MAP_IFRAME = "{acf_site_google_map_iframe}"
 FB = "https://www.facebook.com/profile.php?id=61589495076554"
 PHONE = "{acf_site_phone}"
+QUOTE_FORM_ID = 3  # Fluent Forms "Request a quote"
 NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/#who"), ("How It Works", "/#how"),
              ("About", "/#mike"), ("Service Areas", "/#areas"), ("Contact", "/#estimate")]
 
@@ -705,33 +706,16 @@ def faq():
 
 def estimate(kicker="Request a quote", title='Get a <span class="serif">true and honest</span> quote.',
              intro="Give us some details and we'll reach out right away. Homes, businesses and industrial sites across Spokane and Stevens County.",
-             services=("Sewer line repair", "Pipe bursting", "CIPP lining", "Water line", "Point repair", "Not sure yet"), contact_ways=True):
+             contact_ways=True):
     ways = [("icon-phone.svg", "Call", PHONE, TEL, False), ("icon-chat.svg", "Text", "Send a photo", SMS, False),
             ("icon-mail.svg", "Email", "Write to us", MAIL + "?subject=Quote%20request", False), ("icon-fb.svg", "Facebook", "Message us", FB, True)]
 
-    def chips(legend, options):
-        return block("chips", [
-            span(legend, "chips__legend"),
-            block("chips__list", [div("chip-option" + (" chip-option--selected" if i == 0 else ""), [span(o)], tag="button",
-                                      _attributes=attrs(type="button", aria_pressed="true" if i == 0 else "false")) for i, o in enumerate(options)]),
-        ], _attributes=attrs(role="group", aria_label=legend))
-
-    def field(label_text, ph=""):
-        return block("form__field", [span(label_text, "form__field-label"), div("form__field-input", tag="span", _attributes=attrs(role="textbox", aria_label=label_text, data_placeholder=ph))])
-
-    # Dummy form (design only). Swap this block for the Fluent Forms element later; keep the `form` wrapper class.
+    # Fluent Forms "Request a quote" (one form for every page; a hidden field records the page title).
     form = block("form", [
         block("form__head", [h("h3", "Request a quote", "form__title"), span("Takes about a minute", "form__hint")]),
-        chips("What do you need?", list(services)),
-        chips("Property type", ["Residential", "Commercial", "Industrial"]),
-        div("form__sep"),
-        block("form__row", [field("Name"), field("Phone")]),
-        block("form__row", [field("Email"), field("Property address or city")]),
-        block("form__field form__field--area", [span("Tell us what's going on (optional)", "form__field-label"), div("form__field-input", tag="span", _attributes=attrs(role="textbox", aria_label="Tell us what's going on (optional)", aria_multiline="true"))]),
-        block("upload", [svg("icon-upload.svg"), span("Add a photo or video of the problem (optional)")]),
-        btn("Request My Quote", TEL, "btn--primary form__submit", icon="icon-arrow.svg"),
+        N("shortcode", "form__fluent", shortcode=f'[fluentform id="{QUOTE_FORM_ID}"]'),
         t('No obligation. We reply personally, usually <span class="tbc">same day</span>.', "form__fine"),
-    ], label="Quote form (dummy, swap for Fluent Forms)")
+    ], label=f"Quote form (Fluent Forms #{QUOTE_FORM_ID})")
     return section("section section--dark estimate", [
         div("estimate__glow", _attributes=attrs(aria_hidden="true")),
         container([

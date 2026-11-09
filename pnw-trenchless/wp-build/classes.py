@@ -560,7 +560,6 @@ c("compare__cell--us", """
 %root% .tbc { background: var(--accent-trans-30); border-bottom-color: var(--accent); }
 """)
 c("compare__cell--last", "%root%.compare__cell--us { border-radius: 0 0 var(--radius-l) var(--radius-l); border-bottom: 0; }")
-c("chip-option--selected", "%root% { background: var(--base); color: var(--white); border-color: var(--base); }")
 c("mike__id", "%root% { display: flex; flex-direction: column; }")
 c("compare__kicker", "%root% { display: block; font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; font-weight: 700; opacity: .7; }")
 c("note", """
@@ -838,38 +837,41 @@ c("form", f"""
 c("form__head", "%root% { display: flex; flex-direction: row; justify-content: space-between; align-items: baseline; gap: var(--space-s); flex-wrap: wrap; padding-bottom: var(--space-xs); }")
 c("form__title", "%root% { font-size: calc(var(--h4) * 1.39); }")
 c("form__hint", "%root% { font-size: var(--text-s); color: var(--neutral); }")
-c("form__sep", "%root% { height: var(--border-size); background: var(--neutral-light); margin-block: calc(var(--space-xs) / 2); width: 100%; }")
-c("form__row", f"""
-%root% {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-s); width: 100%; }}
-{P} {{ %root% {{ grid-template-columns: 1fr; }} }}
-""")
-c("form__field", """
-%root% { display: flex; flex-direction: column; gap: .4em; font-size: var(--text-s); font-weight: 600; width: 100%; }
-%root% :is(input, textarea, select) { font: inherit; font-weight: 400; font-size: var(--text-m); color: var(--text-dark); width: 100%; min-height: 3.1em; padding: var(--space-s) var(--space-m); border: var(--border-size) solid var(--neutral-light); border-radius: var(--radius); background: var(--neutral-ultra-light); transition: border-color .2s, box-shadow .2s, background-color .2s; }
-%root% textarea { min-height: 6.5em; resize: vertical; }
-%root% :is(input, textarea, select):focus { outline: none; border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 .25em var(--primary-ultra-light); }
-""")
-c("form__field--area", "%root% .form__field-input { min-height: 6.5em; }")
-c("form__field-label", "%root% { font-size: var(--text-s); font-weight: 600; }")
-c("form__field-input", """
-%root% { display: block; width: 100%; min-height: 3.1em; padding: var(--space-s) var(--space-m); border: var(--border-size) solid var(--neutral-light); border-radius: var(--radius); background: var(--neutral-ultra-light); font-weight: 400; color: var(--neutral); }
-%root%:empty::before { content: attr(data-placeholder); }
-.form__field:last-of-type > %root% { min-height: 3.1em; }
-""")
-c("chips", """
-%root% { display: flex; flex-direction: column; gap: var(--space-xs); border: 0; padding: 0; margin: 0; min-width: 0; }
-""")
-c("chips__legend", "%root% { font-size: var(--text-s); font-weight: 600; }")
-c("chips__list", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs); }")
-c("chip-option", """
-%root% { display: inline-block; padding: .55em .95em; border-radius: var(--radius-circle); border: var(--border-size) solid var(--neutral-light); font-size: var(--text-s); font-weight: 600; line-height: 1.2; cursor: pointer; background: var(--white); color: var(--text-dark); transition: background-color .2s, color .2s, border-color .2s; }
-%root%:hover { border-color: var(--base); }
-%root%[aria-pressed="true"] { background: var(--base); color: var(--white); border-color: var(--base); }
-""")
-c("upload", """
-%root% { display: flex; flex-direction: row; align-items: center; gap: var(--space-s); padding: var(--space-s) var(--space-m); border: .1em dashed var(--neutral-medium); border-radius: var(--radius); font-size: var(--text-s); color: var(--text-dark-muted); cursor: pointer; transition: border-color .2s, background-color .2s; position: relative; width: 100%; }
-%root%:hover { border-color: var(--primary); background: var(--primary-ultra-light); }
-%root% svg { width: 1.5em; height: 1.5em; color: var(--primary); flex: none; }
+# Fluent Forms "Request a quote" (#3), embedded with a Shortcode element that carries this class.
+# Fluent's own markup is restyled here with ACSS variables (labels, inputs, radio chips, submit, messages).
+ARROW_MASK = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E\") center / contain no-repeat"
+c("form__fluent", f"""
+%root% {{ width: 100%; }}
+%root% .fluentform {{ width: 100%; }}
+%root% .frm-fluent-form fieldset {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-s); }}
+%root% .fluentform .ff-el-group {{ grid-column: 1 / -1; margin: 0; }}
+%root% .fluentform .ff-el-group.ff-half {{ grid-column: span 1; }}
+{P} {{ %root% .fluentform .ff-el-group.ff-half {{ grid-column: 1 / -1; }} }}
+%root% .fluentform .ff-el-input--label {{ margin-bottom: .4em; }}
+%root% .fluentform .ff-el-input--label label {{ margin: 0; font-size: var(--text-s); font-weight: 600; color: var(--text-dark); }}
+%root% .fluentform .ff-el-is-required.asterisk-right label::after {{ color: var(--accent-dark); margin-left: .2em; }}
+%root% .fluentform .ff-el-form-control {{ font: inherit; font-size: var(--text-m); color: var(--text-dark); width: 100%; min-height: 3.1em; padding: var(--space-s) var(--space-m); border: var(--border-size) solid var(--neutral-light); border-radius: var(--radius); background: var(--neutral-ultra-light); box-shadow: none; transition: border-color .2s, box-shadow .2s, background-color .2s; }}
+%root% .fluentform textarea.ff-el-form-control {{ min-height: 6.5em; resize: vertical; }}
+%root% .fluentform .ff-el-form-control:focus {{ outline: none; border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 .25em var(--primary-ultra-light); }}
+%root% .fluentform .ff-el-is-error .ff-el-form-control {{ border-color: var(--accent-dark); }}
+%root% .fluentform .error, %root% .fluentform .text-danger {{ margin-top: .35em; font-size: var(--text-xs); color: var(--accent-dark); }}
+%root% .fluentform .ff-chips .ff-el-input--content {{ display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs); }}
+%root% .fluentform .ff-chips .ff-el-form-check {{ margin: 0; }}
+%root% .fluentform .ff-chips .ff-el-form-check-label {{ position: relative; display: inline-block; margin: 0; padding: .55em .95em; border-radius: var(--radius-circle); border: var(--border-size) solid var(--neutral-light); font-size: var(--text-s); font-weight: 600; line-height: 1.2; cursor: pointer; background: var(--white); color: var(--text-dark); transition: background-color .2s, color .2s, border-color .2s; }}
+%root% .fluentform .ff-chips .ff-el-form-check-label:hover {{ border-color: var(--base); }}
+%root% .fluentform .ff-chips .ff-el-form-check-input {{ position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }}
+%root% .fluentform .ff-chips .ff-el-form-check-label:has(input:checked), %root% .fluentform .ff-chips .ff_item_selected .ff-el-form-check-label {{ background: var(--base); color: var(--white); border-color: var(--base); }}
+%root% .fluentform .ff-chips .ff-el-form-check-label:has(input:focus-visible) {{ outline: var(--focus-width, .15em) solid var(--focus-color, var(--primary)); outline-offset: var(--focus-offset, .15em); }}
+%root% .fluentform .ff-chips .ff-el-form-check-label > span {{ margin: 0; }}
+%root% .fluentform .ff-tip {{ margin: 0; padding: var(--space-s) var(--space-m); border: var(--border-size) dashed var(--neutral-medium); border-radius: var(--radius); font-size: var(--text-s); color: var(--text-dark-muted); }}
+%root% .fluentform .ff_submit_btn_wrapper {{ margin-top: var(--space-xs); }}
+%root% .fluentform .ff-btn-submit {{ display: inline-flex; align-items: center; justify-content: center; gap: .6em; width: 100%; background: var(--btn-background); color: var(--btn-text-color); padding-block: var(--btn-padding-block); padding-inline: var(--btn-padding-inline); line-height: var(--btn-line-height); font-size: var(--btn-font-size, var(--text-m)); font-weight: var(--btn-font-weight); border-width: var(--btn-border-width); border-style: var(--btn-border-style); border-color: var(--btn-border-color); border-radius: var(--btn-radius); box-shadow: var(--pnw-shadow-primary); opacity: 1; transition: var(--btn-transition, var(--transition)); }}
+%root% .fluentform .ff-btn-submit::after {{ content: ""; width: 1em; height: 1em; background: currentColor; -webkit-mask: {ARROW_MASK}; mask: {ARROW_MASK}; transition: transform .25s var(--pnw-ease); }}
+%root% .fluentform .ff-btn-submit:hover {{ background: var(--btn-background-hover); color: var(--btn-text-color-hover); border-color: var(--btn-border-color-hover); }}
+%root% .fluentform .ff-btn-submit:hover::after {{ transform: translateX(.2em); }}
+%root% .ff-message-success {{ margin: 0; padding: var(--space-m); border: var(--border-size) solid var(--primary-light); border-radius: var(--radius); background: var(--primary-ultra-light); color: var(--text-dark); box-shadow: none; }}
+%root% .ff-message-success p + p {{ margin-top: var(--space-xs); }}
+%root% .ff-errors-in-stack {{ color: var(--accent-dark); font-size: var(--text-s); }}
 """)
 c("form__submit", "%root% { width: 100%; justify-content: center; }")
 c("form__fine", "%root% { font-size: var(--text-xs); color: var(--neutral); text-align: center; width: 100%; }")
@@ -916,7 +918,7 @@ c("callbar", f"""
 
 AUTO_WIDTH = ["logo", "topbar__links", "topbar__link", "header__cta", "header__phone", "header__phone-text",
               "ticker__item", "feed__hud", "mike__plate", "xsec__toggle", "mike__id", "mike__sig", "footer__legal",
-              "svc-strip__text", "review__name", "social", "chips__list", "upload",
+              "svc-strip__text", "review__name", "social",
               "crumbs__item", "owner__cred"]
 
 

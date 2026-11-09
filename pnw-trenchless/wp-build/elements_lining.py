@@ -287,7 +287,7 @@ def more():
 def quote():
     return estimate(kicker="Free camera estimate", title='Find out if your pipe <span class="serif">can be lined.</span>',
                     intro="Start with a camera inspection. You'll see what we see before you decide anything.",
-                    services=("CIPP lining", "Sewer line repair", "Pipe bursting", "Not sure yet"), contact_ways=False)
+                    contact_ways=False)
 
 
 SECTIONS = [hero, answer, fit, how, inside, specs, cost, owner, jobs, quotes, faq, more, quote]

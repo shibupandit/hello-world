@@ -725,11 +725,6 @@
   "category": "PNW"
  },
  {
-  "name": "chip-option--selected",
-  "css": "%root% { background: var(--base); color: var(--white); border-color: var(--base); }",
-  "category": "PNW"
- },
- {
   "name": "mike__id",
   "css": "%root% { width: auto; display: flex; flex-direction: column; }",
   "category": "PNW"
@@ -1230,58 +1225,8 @@
   "category": "PNW"
  },
  {
-  "name": "form__sep",
-  "css": "%root% { height: var(--border-size); background: var(--neutral-light); margin-block: calc(var(--space-xs) / 2); width: 100%; }",
-  "category": "PNW"
- },
- {
-  "name": "form__row",
-  "css": "%root% { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-s); width: 100%; }\n@media (max-width: 478px) { %root% { grid-template-columns: 1fr; } }",
-  "category": "PNW"
- },
- {
-  "name": "form__field",
-  "css": "%root% { display: flex; flex-direction: column; gap: .4em; font-size: var(--text-s); font-weight: 600; width: 100%; }\n%root% :is(input, textarea, select) { font: inherit; font-weight: 400; font-size: var(--text-m); color: var(--text-dark); width: 100%; min-height: 3.1em; padding: var(--space-s) var(--space-m); border: var(--border-size) solid var(--neutral-light); border-radius: var(--radius); background: var(--neutral-ultra-light); transition: border-color .2s, box-shadow .2s, background-color .2s; }\n%root% textarea { min-height: 6.5em; resize: vertical; }\n%root% :is(input, textarea, select):focus { outline: none; border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 .25em var(--primary-ultra-light); }",
-  "category": "PNW"
- },
- {
-  "name": "form__field--area",
-  "css": "%root% .form__field-input { min-height: 6.5em; }",
-  "category": "PNW"
- },
- {
-  "name": "form__field-label",
-  "css": "%root% { font-size: var(--text-s); font-weight: 600; }",
-  "category": "PNW"
- },
- {
-  "name": "form__field-input",
-  "css": "%root% { display: block; width: 100%; min-height: 3.1em; padding: var(--space-s) var(--space-m); border: var(--border-size) solid var(--neutral-light); border-radius: var(--radius); background: var(--neutral-ultra-light); font-weight: 400; color: var(--neutral); }\n%root%:empty::before { content: attr(data-placeholder); }\n.form__field:last-of-type > %root% { min-height: 3.1em; }",
-  "category": "PNW"
- },
- {
-  "name": "chips",
-  "css": "%root% { display: flex; flex-direction: column; gap: var(--space-xs); border: 0; padding: 0; margin: 0; min-width: 0; }",
-  "category": "PNW"
- },
- {
-  "name": "chips__legend",
-  "css": "%root% { font-size: var(--text-s); font-weight: 600; }",
-  "category": "PNW"
- },
- {
-  "name": "chips__list",
-  "css": "%root% { width: auto; display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs); }",
-  "category": "PNW"
- },
- {
-  "name": "chip-option",
-  "css": "%root% { display: inline-block; padding: .55em .95em; border-radius: var(--radius-circle); border: var(--border-size) solid var(--neutral-light); font-size: var(--text-s); font-weight: 600; line-height: 1.2; cursor: pointer; background: var(--white); color: var(--text-dark); transition: background-color .2s, color .2s, border-color .2s; }\n%root%:hover { border-color: var(--base); }\n%root%[aria-pressed=\"true\"] { background: var(--base); color: var(--white); border-color: var(--base); }",
-  "category": "PNW"
- },
- {
-  "name": "upload",
-  "css": "%root% { width: auto; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: var(--space-s); padding: var(--space-s) var(--space-m); border: .1em dashed var(--neutral-medium); border-radius: var(--radius); font-size: var(--text-s); color: var(--text-dark-muted); cursor: pointer; transition: border-color .2s, background-color .2s; position: relative; width: 100%; }\n%root%:hover { border-color: var(--primary); background: var(--primary-ultra-light); }\n%root% svg { width: 1.5em; height: 1.5em; color: var(--primary); flex: none; }",
+  "name": "form__fluent",
+  "css": "%root% { width: 100%; }\n%root% .fluentform { width: 100%; }\n%root% .frm-fluent-form fieldset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-s); }\n%root% .fluentform .ff-el-group { grid-column: 1 / -1; margin: 0; }\n%root% .fluentform .ff-el-group.ff-half { grid-column: span 1; }\n@media (max-width: 478px) { %root% .fluentform .ff-el-group.ff-half { grid-column: 1 / -1; } }\n%root% .fluentform .ff-el-input--label { margin-bottom: .4em; }\n%root% .fluentform .ff-el-input--label label { margin: 0; font-size: var(--text-s); font-weight: 600; color: var(--text-dark); }\n%root% .fluentform .ff-el-is-required.asterisk-right label::after { color: var(--accent-dark); margin-left: .2em; }\n%root% .fluentform .ff-el-form-control { font: inherit; font-size: var(--text-m); color: var(--text-dark); width: 100%; min-height: 3.1em; padding: var(--space-s) var(--space-m); border: var(--border-size) solid var(--neutral-light); border-radius: var(--radius); background: var(--neutral-ultra-light); box-shadow: none; transition: border-color .2s, box-shadow .2s, background-color .2s; }\n%root% .fluentform textarea.ff-el-form-control { min-height: 6.5em; resize: vertical; }\n%root% .fluentform .ff-el-form-control:focus { outline: none; border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 .25em var(--primary-ultra-light); }\n%root% .fluentform .ff-el-is-error .ff-el-form-control { border-color: var(--accent-dark); }\n%root% .fluentform .error, %root% .fluentform .text-danger { margin-top: .35em; font-size: var(--text-xs); color: var(--accent-dark); }\n%root% .fluentform .ff-chips .ff-el-input--content { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs); }\n%root% .fluentform .ff-chips .ff-el-form-check { margin: 0; }\n%root% .fluentform .ff-chips .ff-el-form-check-label { position: relative; display: inline-block; margin: 0; padding: .55em .95em; border-radius: var(--radius-circle); border: var(--border-size) solid var(--neutral-light); font-size: var(--text-s); font-weight: 600; line-height: 1.2; cursor: pointer; background: var(--white); color: var(--text-dark); transition: background-color .2s, color .2s, border-color .2s; }\n%root% .fluentform .ff-chips .ff-el-form-check-label:hover { border-color: var(--base); }\n%root% .fluentform .ff-chips .ff-el-form-check-input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }\n%root% .fluentform .ff-chips .ff-el-form-check-label:has(input:checked), %root% .fluentform .ff-chips .ff_item_selected .ff-el-form-check-label { background: var(--base); color: var(--white); border-color: var(--base); }\n%root% .fluentform .ff-chips .ff-el-form-check-label:has(input:focus-visible) { outline: var(--focus-width, .15em) solid var(--focus-color, var(--primary)); outline-offset: var(--focus-offset, .15em); }\n%root% .fluentform .ff-chips .ff-el-form-check-label > span { margin: 0; }\n%root% .fluentform .ff-tip { margin: 0; padding: var(--space-s) var(--space-m); border: var(--border-size) dashed var(--neutral-medium); border-radius: var(--radius); font-size: var(--text-s); color: var(--text-dark-muted); }\n%root% .fluentform .ff_submit_btn_wrapper { margin-top: var(--space-xs); }\n%root% .fluentform .ff-btn-submit { display: inline-flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: center; gap: .6em; width: 100%; background: var(--btn-background); color: var(--btn-text-color); padding-block: var(--btn-padding-block); padding-inline: var(--btn-padding-inline); line-height: var(--btn-line-height); font-size: var(--btn-font-size, var(--text-m)); font-weight: var(--btn-font-weight); border-width: var(--btn-border-width); border-style: var(--btn-border-style); border-color: var(--btn-border-color); border-radius: var(--btn-radius); box-shadow: var(--pnw-shadow-primary); opacity: 1; transition: var(--btn-transition, var(--transition)); }\n%root% .fluentform .ff-btn-submit::after { content: \"\"; width: 1em; height: 1em; background: currentColor; -webkit-mask: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E\") center / contain no-repeat; mask: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E\") center / contain no-repeat; transition: transform .25s var(--pnw-ease); }\n%root% .fluentform .ff-btn-submit:hover { background: var(--btn-background-hover); color: var(--btn-text-color-hover); border-color: var(--btn-border-color-hover); }\n%root% .fluentform .ff-btn-submit:hover::after { transform: translateX(.2em); }\n%root% .ff-message-success { margin: 0; padding: var(--space-m); border: var(--border-size) solid var(--primary-light); border-radius: var(--radius); background: var(--primary-ultra-light); color: var(--text-dark); box-shadow: none; }\n%root% .ff-message-success p + p { margin-top: var(--space-xs); }\n%root% .ff-errors-in-stack { color: var(--accent-dark); font-size: var(--text-s); }",
   "category": "PNW"
  },
  {
