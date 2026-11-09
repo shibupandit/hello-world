@@ -3,7 +3,7 @@
 Uses the shared helpers and global classes from elements.py. Header and footer come from the
 site-wide Bricks templates. Phone, email, address, hours and the Google map embed come from the
 Website Settings options page; the form is Fluent Forms "Request a quote".
-Unknown facts stay as `tbc` placeholders; unconfirmed FAQ answers are marked as drafts.
+Unknown facts stay as `tbc` placeholders; FAQ answers carry no draft label (user, 2026-11-09).
 """
 from elements import (N, section, container, block, div, h, t, span, a, svg, btn, eyebrow, attrs, link,
                       flatten, when, quote_form, TEL, SMS, MAIL, FB, PHONE, EMAIL, ADDRESS, HOURS, MAP_IFRAME)
@@ -137,7 +137,7 @@ FAQ = [
     ("Is the camera estimate really free?", [f"Yes. Mike runs the camera, shows you the footage and gives you a written quote. {tbc('Confirm what&#39;s included and any travel limits.')}"], True),
     ("How fast will I hear back?", [f"{tbc('Typical reply time, e.g. same day on weekdays.')} If it's urgent, call or text instead of using the form."], True),
     ("What should I send with my message?", ["Your address or city, what you've noticed (slow drains, backups, wet spots, smells) and, if you can, a photo or short video. That's enough for Mike to tell you what's likely going on."], False),
-    ("Do you work outside the listed areas?", [f"We serve Spokane, Spokane Valley, Deer Park, Clayton, Stevens County and Spokane County. If you're nearby, ask. {tbc('Mike to confirm how far he travels.')}"], False),
+    ("Do you work outside the listed areas?", [f"We serve Spokane, Spokane Valley, Deer Park, Clayton, Stevens County and Spokane County. If you're nearby, ask."], False),
 ]
 
 
@@ -145,8 +145,6 @@ def faq():
     items = []
     for q, answers, draft in FAQ:
         content = [t(x) for x in answers]
-        if draft:
-            content.append(span("Draft · Mike to confirm", "draft"))
         items.append(block("faq__item", [
             block("", [h("h3", q, "faq__q")], label="Title", _hidden={"_cssClasses": "accordion-title-wrapper"}),
             block("faq__answer", content, label="Content", _hidden={"_cssClasses": "accordion-content-wrapper"}),

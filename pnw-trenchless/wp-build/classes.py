@@ -788,7 +788,6 @@ c("faq__answer", f"""
 %root% > * + * {{ margin-top: var(--space-xs); }}
 {T} {{ %root% {{ padding-right: 0; }} }}
 """)
-c("draft", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--accent-dark); }")
 
 # --------------------------------------------------------------------------
 # Estimate + form (dummy form, swap for Fluent Forms later)

@@ -678,8 +678,6 @@ def faq():
     items = []
     for q, answers, draft in FAQ:
         content = [t(x) for x in answers]
-        if draft:
-            content.append(span("Draft · Mike to confirm", "draft"))
         items.append(block("faq__item", [
             block("", [h("h3", q, "faq__q")], label="Title", _hidden={"_cssClasses": "accordion-title-wrapper"}),
             block("faq__answer", content, label="Content", _hidden={"_cssClasses": "accordion-content-wrapper"}),

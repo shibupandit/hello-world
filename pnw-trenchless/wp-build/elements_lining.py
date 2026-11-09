@@ -2,7 +2,7 @@
 
 Uses the shared helpers and global classes from elements.py. Header and footer come from the
 site-wide Bricks templates (101 / 102), so this file only builds the page content.
-Unknown facts stay as `tbc` placeholders; FAQ answers reused from the homepage are drafts.
+Unknown facts stay as `tbc` placeholders; FAQ answers carry no draft label (user, 2026-11-09).
 """
 from elements import (N, section, container, block, div, h, t, span, a, svg, img, btn, eyebrow, attrs, link,
                       head, head_split, estimate, flatten, review_loop, TEL, PHONE, ADDRESS)
@@ -227,7 +227,7 @@ FAQ = [
     ("Can I use my water and toilets during the job?", [tbc("How long the line is out of service during lining and curing.")], False),
     ("Will lining make my pipe smaller?", ["Slightly, by the liner's wall thickness. Its smooth, jointless wall usually flows as well as or better than the rough old pipe."], True),
     ("Can you line a pipe that has a belly in it?", ["A belly (sag) that holds water is usually better fixed by digging that one spot. The camera shows us, and we'll tell you before we start."], True),
-    ("Can you line cast iron under my house or slab?", [f"Corroded cast iron that's still round is a good lining candidate, including under slabs. {tbc('Mike to confirm limits.')}"], True),
+    ("Can you line cast iron under my house or slab?", [f"Corroded cast iron that's still round is a good lining candidate, including under slabs."], True),
     ("Is pipe lining or pipe bursting better?", ["It depends on the pipe. Lining needs a host pipe that still holds its shape. For collapsed or deformed pipe, or to upsize, pipe bursting pulls in a brand-new HDPE pipe."], True),
     ("Do I need a permit in Spokane for sewer lining?", [tbc("Yes / no, which jurisdictions, and how it's handled.")], False),
 ]
@@ -236,7 +236,7 @@ FAQ = [
 def faq():
     items = []
     for q, answers, draft in FAQ:
-        content = [t(x) for x in answers] + ([span("Draft · Mike to confirm", "draft")] if draft else [])
+        content = [t(x) for x in answers]
         items.append(block("faq__item", [
             block("", [h("h3", q, "faq__q")], label="Title", _hidden={"_cssClasses": "accordion-title-wrapper"}),
             block("faq__answer", content, label="Content", _hidden={"_cssClasses": "accordion-content-wrapper"}),

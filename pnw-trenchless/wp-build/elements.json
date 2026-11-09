@@ -9404,19 +9404,6 @@
     },
     {
      "id": "se0010",
-     "name": "text-basic",
-     "parent": "se000d",
-     "settings": {
-      "text": "Draft · Mike to confirm",
-      "tag": "span",
-      "_cls": [
-       "draft"
-      ]
-     },
-     "label": "draft"
-    },
-    {
-     "id": "se0011",
      "name": "block",
      "parent": "se0009",
      "settings": {
@@ -9427,9 +9414,9 @@
      "label": "Item"
     },
     {
-     "id": "se0012",
+     "id": "se0011",
      "name": "block",
-     "parent": "se0011",
+     "parent": "se0010",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-title-wrapper"
@@ -9438,9 +9425,9 @@
      "label": "Title"
     },
     {
-     "id": "se0013",
+     "id": "se0012",
      "name": "heading",
-     "parent": "se0012",
+     "parent": "se0011",
      "settings": {
       "text": "Is a lined pipe as strong as a new one?",
       "tag": "h3",
@@ -9451,9 +9438,9 @@
      "label": "faq__q"
     },
     {
-     "id": "se0014",
+     "id": "se0013",
      "name": "block",
-     "parent": "se0011",
+     "parent": "se0010",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-content-wrapper"
@@ -9465,29 +9452,16 @@
      "label": "Content"
     },
     {
-     "id": "se0015",
+     "id": "se0014",
      "name": "text-basic",
-     "parent": "se0014",
+     "parent": "se0013",
      "settings": {
       "text": "A cured-in-place liner forms a seamless, jointless pipe inside the old one. With no joints, roots have nowhere to get in. <span class=\"tbc\">Design life and liner spec.</span>",
       "tag": "p"
      }
     },
     {
-     "id": "se0016",
-     "name": "text-basic",
-     "parent": "se0014",
-     "settings": {
-      "text": "Draft · Mike to confirm",
-      "tag": "span",
-      "_cls": [
-       "draft"
-      ]
-     },
-     "label": "draft"
-    },
-    {
-     "id": "se0017",
+     "id": "se0015",
      "name": "block",
      "parent": "se0009",
      "settings": {
@@ -9498,9 +9472,9 @@
      "label": "Item"
     },
     {
-     "id": "se0018",
+     "id": "se0016",
      "name": "block",
-     "parent": "se0017",
+     "parent": "se0015",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-title-wrapper"
@@ -9509,9 +9483,9 @@
      "label": "Title"
     },
     {
-     "id": "se0019",
+     "id": "se0017",
      "name": "heading",
-     "parent": "se0018",
+     "parent": "se0016",
      "settings": {
       "text": "Will you have to dig at all?",
       "tag": "h3",
@@ -9522,9 +9496,9 @@
      "label": "faq__q"
     },
     {
-     "id": "se001a",
+     "id": "se0018",
      "name": "block",
-     "parent": "se0017",
+     "parent": "se0015",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-content-wrapper"
@@ -9536,29 +9510,16 @@
      "label": "Content"
     },
     {
-     "id": "se001b",
+     "id": "se0019",
      "name": "text-basic",
-     "parent": "se001a",
+     "parent": "se0018",
      "settings": {
       "text": "Usually one or two small access points, not a trench. If the camera shows a sag or a section that's out of grade, digging that one spot may be the better fix, and we'll tell you before we start.",
       "tag": "p"
      }
     },
     {
-     "id": "se001c",
-     "name": "text-basic",
-     "parent": "se001a",
-     "settings": {
-      "text": "Draft · Mike to confirm",
-      "tag": "span",
-      "_cls": [
-       "draft"
-      ]
-     },
-     "label": "draft"
-    },
-    {
-     "id": "se001d",
+     "id": "se001a",
      "name": "block",
      "parent": "se0009",
      "settings": {
@@ -9569,9 +9530,9 @@
      "label": "Item"
     },
     {
-     "id": "se001e",
+     "id": "se001b",
      "name": "block",
-     "parent": "se001d",
+     "parent": "se001a",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-title-wrapper"
@@ -9580,9 +9541,9 @@
      "label": "Title"
     },
     {
-     "id": "se001f",
+     "id": "se001c",
      "name": "heading",
-     "parent": "se001e",
+     "parent": "se001b",
      "settings": {
       "text": "How long does the job take, and can I use my plumbing?",
       "tag": "h3",
@@ -9593,9 +9554,9 @@
      "label": "faq__q"
     },
     {
-     "id": "se0020",
+     "id": "se001d",
      "name": "block",
-     "parent": "se001d",
+     "parent": "se001a",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-content-wrapper"
@@ -9607,29 +9568,16 @@
      "label": "Content"
     },
     {
-     "id": "se0021",
+     "id": "se001e",
      "name": "text-basic",
-     "parent": "se0020",
+     "parent": "se001d",
      "settings": {
       "text": "Most jobs take <span class=\"tbc\">X</span> day(s). Your water or sewer is off for hours, not days, and we'll tell you exactly when.",
       "tag": "p"
      }
     },
     {
-     "id": "se0022",
-     "name": "text-basic",
-     "parent": "se0020",
-     "settings": {
-      "text": "Draft · Mike to confirm",
-      "tag": "span",
-      "_cls": [
-       "draft"
-      ]
-     },
-     "label": "draft"
-    },
-    {
-     "id": "se0023",
+     "id": "se001f",
      "name": "block",
      "parent": "se0009",
      "settings": {
@@ -9640,9 +9588,9 @@
      "label": "Item"
     },
     {
-     "id": "se0024",
+     "id": "se0020",
      "name": "block",
-     "parent": "se0023",
+     "parent": "se001f",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-title-wrapper"
@@ -9651,9 +9599,9 @@
      "label": "Title"
     },
     {
-     "id": "se0025",
+     "id": "se0021",
      "name": "heading",
-     "parent": "se0024",
+     "parent": "se0020",
      "settings": {
       "text": "Can you fix a pipe full of tree roots?",
       "tag": "h3",
@@ -9664,9 +9612,9 @@
      "label": "faq__q"
     },
     {
-     "id": "se0026",
+     "id": "se0022",
      "name": "block",
-     "parent": "se0023",
+     "parent": "se001f",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-content-wrapper"
@@ -9678,26 +9626,71 @@
      "label": "Content"
     },
     {
-     "id": "se0027",
+     "id": "se0023",
      "name": "text-basic",
-     "parent": "se0026",
+     "parent": "se0022",
      "settings": {
       "text": "Yes. We clear the roots, then line the pipe so there are no joints for them to grow back through.",
       "tag": "p"
      }
     },
     {
-     "id": "se0028",
-     "name": "text-basic",
-     "parent": "se0026",
+     "id": "se0024",
+     "name": "block",
+     "parent": "se0009",
      "settings": {
-      "text": "Draft · Mike to confirm",
-      "tag": "span",
       "_cls": [
-       "draft"
+       "faq__item"
       ]
      },
-     "label": "draft"
+     "label": "Item"
+    },
+    {
+     "id": "se0025",
+     "name": "block",
+     "parent": "se0024",
+     "settings": {
+      "_hidden": {
+       "_cssClasses": "accordion-title-wrapper"
+      }
+     },
+     "label": "Title"
+    },
+    {
+     "id": "se0026",
+     "name": "heading",
+     "parent": "se0025",
+     "settings": {
+      "text": "What if my pipe has collapsed?",
+      "tag": "h3",
+      "_cls": [
+       "faq__q"
+      ]
+     },
+     "label": "faq__q"
+    },
+    {
+     "id": "se0027",
+     "name": "block",
+     "parent": "se0024",
+     "settings": {
+      "_hidden": {
+       "_cssClasses": "accordion-content-wrapper"
+      },
+      "_cls": [
+       "faq__answer"
+      ]
+     },
+     "label": "Content"
+    },
+    {
+     "id": "se0028",
+     "name": "text-basic",
+     "parent": "se0027",
+     "settings": {
+      "text": "Lining needs a pipe that still holds its shape. For a collapsed or crushed line, pipe bursting pulls a brand-new HDPE pipe through the old path.",
+      "tag": "p"
+     }
     },
     {
      "id": "se0029",
@@ -9726,7 +9719,7 @@
      "name": "heading",
      "parent": "se002a",
      "settings": {
-      "text": "What if my pipe has collapsed?",
+      "text": "Do you work on commercial and industrial properties?",
       "tag": "h3",
       "_cls": [
        "faq__q"
@@ -9753,83 +9746,12 @@
      "name": "text-basic",
      "parent": "se002c",
      "settings": {
-      "text": "Lining needs a pipe that still holds its shape. For a collapsed or crushed line, pipe bursting pulls a brand-new HDPE pipe through the old path.",
-      "tag": "p"
-     }
-    },
-    {
-     "id": "se002e",
-     "name": "text-basic",
-     "parent": "se002c",
-     "settings": {
-      "text": "Draft · Mike to confirm",
-      "tag": "span",
-      "_cls": [
-       "draft"
-      ]
-     },
-     "label": "draft"
-    },
-    {
-     "id": "se002f",
-     "name": "block",
-     "parent": "se0009",
-     "settings": {
-      "_cls": [
-       "faq__item"
-      ]
-     },
-     "label": "Item"
-    },
-    {
-     "id": "se0030",
-     "name": "block",
-     "parent": "se002f",
-     "settings": {
-      "_hidden": {
-       "_cssClasses": "accordion-title-wrapper"
-      }
-     },
-     "label": "Title"
-    },
-    {
-     "id": "se0031",
-     "name": "heading",
-     "parent": "se0030",
-     "settings": {
-      "text": "Do you work on commercial and industrial properties?",
-      "tag": "h3",
-      "_cls": [
-       "faq__q"
-      ]
-     },
-     "label": "faq__q"
-    },
-    {
-     "id": "se0032",
-     "name": "block",
-     "parent": "se002f",
-     "settings": {
-      "_hidden": {
-       "_cssClasses": "accordion-content-wrapper"
-      },
-      "_cls": [
-       "faq__answer"
-      ]
-     },
-     "label": "Content"
-    },
-    {
-     "id": "se0033",
-     "name": "text-basic",
-     "parent": "se0032",
-     "settings": {
       "text": "Yes. Along with homes, we repair and replace lines for commercial and industrial properties, and we choose methods that keep your property running during the work.",
       "tag": "p"
      }
     },
     {
-     "id": "se0034",
+     "id": "se002e",
      "name": "block",
      "parent": "se0009",
      "settings": {
@@ -9840,9 +9762,9 @@
      "label": "Item"
     },
     {
-     "id": "se0035",
+     "id": "se002f",
      "name": "block",
-     "parent": "se0034",
+     "parent": "se002e",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-title-wrapper"
@@ -9851,9 +9773,9 @@
      "label": "Title"
     },
     {
-     "id": "se0036",
+     "id": "se0030",
      "name": "heading",
-     "parent": "se0035",
+     "parent": "se002f",
      "settings": {
       "text": "How do you decide which method to use?",
       "tag": "h3",
@@ -9864,9 +9786,9 @@
      "label": "faq__q"
     },
     {
-     "id": "se0037",
+     "id": "se0031",
      "name": "block",
-     "parent": "se0034",
+     "parent": "se002e",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-content-wrapper"
@@ -9878,16 +9800,16 @@
      "label": "Content"
     },
     {
-     "id": "se0038",
+     "id": "se0032",
      "name": "text-basic",
-     "parent": "se0037",
+     "parent": "se0031",
      "settings": {
       "text": "We look at the pipe on camera, plus access points, soil, surface use and nearby utilities. Then we recommend the method that fits: bursting for full replacement, lining for sound host pipes, or a point repair when damage is isolated. You get the reasoning, schedule and budget in writing.",
       "tag": "p"
      }
     },
     {
-     "id": "se0039",
+     "id": "se0033",
      "name": "block",
      "parent": "se0009",
      "settings": {
@@ -9898,9 +9820,9 @@
      "label": "Item"
     },
     {
-     "id": "se003a",
+     "id": "se0034",
      "name": "block",
-     "parent": "se0039",
+     "parent": "se0033",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-title-wrapper"
@@ -9909,9 +9831,9 @@
      "label": "Title"
     },
     {
-     "id": "se003b",
+     "id": "se0035",
      "name": "heading",
-     "parent": "se003a",
+     "parent": "se0034",
      "settings": {
       "text": "Does homeowners insurance cover sewer line repair?",
       "tag": "h3",
@@ -9922,9 +9844,9 @@
      "label": "faq__q"
     },
     {
-     "id": "se003c",
+     "id": "se0036",
      "name": "block",
-     "parent": "se0039",
+     "parent": "se0033",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-content-wrapper"
@@ -9936,29 +9858,16 @@
      "label": "Content"
     },
     {
-     "id": "se003d",
+     "id": "se0037",
      "name": "text-basic",
-     "parent": "se003c",
+     "parent": "se0036",
      "settings": {
       "text": "It depends on your policy and any service-line coverage you carry. We can provide camera footage and a written report for your insurer. <span class=\"tbc\">Mike to add what he typically sees.</span>",
       "tag": "p"
      }
     },
     {
-     "id": "se003e",
-     "name": "text-basic",
-     "parent": "se003c",
-     "settings": {
-      "text": "Draft · Mike to confirm",
-      "tag": "span",
-      "_cls": [
-       "draft"
-      ]
-     },
-     "label": "draft"
-    },
-    {
-     "id": "se003f",
+     "id": "se0038",
      "name": "block",
      "parent": "se0009",
      "settings": {
@@ -9969,9 +9878,9 @@
      "label": "Item"
     },
     {
-     "id": "se0040",
+     "id": "se0039",
      "name": "block",
-     "parent": "se003f",
+     "parent": "se0038",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-title-wrapper"
@@ -9980,9 +9889,9 @@
      "label": "Title"
     },
     {
-     "id": "se0041",
+     "id": "se003a",
      "name": "heading",
-     "parent": "se0040",
+     "parent": "se0039",
      "settings": {
       "text": "Do you handle permits?",
       "tag": "h3",
@@ -9993,9 +9902,9 @@
      "label": "faq__q"
     },
     {
-     "id": "se0042",
+     "id": "se003b",
      "name": "block",
-     "parent": "se003f",
+     "parent": "se0038",
      "settings": {
       "_hidden": {
        "_cssClasses": "accordion-content-wrapper"
@@ -10007,26 +9916,13 @@
      "label": "Content"
     },
     {
-     "id": "se0043",
+     "id": "se003c",
      "name": "text-basic",
-     "parent": "se0042",
+     "parent": "se003b",
      "settings": {
       "text": "<span class=\"tbc\">Yes / which jurisdictions, and how it's billed.</span>",
       "tag": "p"
      }
-    },
-    {
-     "id": "se0044",
-     "name": "text-basic",
-     "parent": "se0042",
-     "settings": {
-      "text": "Draft · Mike to confirm",
-      "tag": "span",
-      "_cls": [
-       "draft"
-      ]
-     },
-     "label": "draft"
     }
    ]
   },
@@ -13904,19 +13800,6 @@
       },
       {
        "id": "la0014",
-       "name": "text-basic",
-       "parent": "la0012",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "la0015",
        "name": "block",
        "parent": "la0009",
        "settings": {
@@ -13927,9 +13810,9 @@
        "label": "Item"
       },
       {
-       "id": "la0016",
+       "id": "la0015",
        "name": "block",
-       "parent": "la0015",
+       "parent": "la0014",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -13938,9 +13821,9 @@
        "label": "Title"
       },
       {
-       "id": "la0017",
+       "id": "la0016",
        "name": "heading",
-       "parent": "la0016",
+       "parent": "la0015",
        "settings": {
         "text": "Can I use my water and toilets during the job?",
         "tag": "h3",
@@ -13951,9 +13834,9 @@
        "label": "faq__q"
       },
       {
-       "id": "la0018",
+       "id": "la0017",
        "name": "block",
-       "parent": "la0015",
+       "parent": "la0014",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -13965,16 +13848,16 @@
        "label": "Content"
       },
       {
-       "id": "la0019",
+       "id": "la0018",
        "name": "text-basic",
-       "parent": "la0018",
+       "parent": "la0017",
        "settings": {
         "text": "<span class=\"tbc\">How long the line is out of service during lining and curing.</span>",
         "tag": "p"
        }
       },
       {
-       "id": "la001a",
+       "id": "la0019",
        "name": "block",
        "parent": "la0009",
        "settings": {
@@ -13985,9 +13868,9 @@
        "label": "Item"
       },
       {
-       "id": "la001b",
+       "id": "la001a",
        "name": "block",
-       "parent": "la001a",
+       "parent": "la0019",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -13996,9 +13879,9 @@
        "label": "Title"
       },
       {
-       "id": "la001c",
+       "id": "la001b",
        "name": "heading",
-       "parent": "la001b",
+       "parent": "la001a",
        "settings": {
         "text": "Will lining make my pipe smaller?",
         "tag": "h3",
@@ -14009,9 +13892,9 @@
        "label": "faq__q"
       },
       {
-       "id": "la001d",
+       "id": "la001c",
        "name": "block",
-       "parent": "la001a",
+       "parent": "la0019",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -14023,29 +13906,16 @@
        "label": "Content"
       },
       {
-       "id": "la001e",
+       "id": "la001d",
        "name": "text-basic",
-       "parent": "la001d",
+       "parent": "la001c",
        "settings": {
         "text": "Slightly, by the liner's wall thickness. Its smooth, jointless wall usually flows as well as or better than the rough old pipe.",
         "tag": "p"
        }
       },
       {
-       "id": "la001f",
-       "name": "text-basic",
-       "parent": "la001d",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "la0020",
+       "id": "la001e",
        "name": "block",
        "parent": "la0009",
        "settings": {
@@ -14056,9 +13926,9 @@
        "label": "Item"
       },
       {
-       "id": "la0021",
+       "id": "la001f",
        "name": "block",
-       "parent": "la0020",
+       "parent": "la001e",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -14067,9 +13937,9 @@
        "label": "Title"
       },
       {
-       "id": "la0022",
+       "id": "la0020",
        "name": "heading",
-       "parent": "la0021",
+       "parent": "la001f",
        "settings": {
         "text": "Can you line a pipe that has a belly in it?",
         "tag": "h3",
@@ -14080,9 +13950,9 @@
        "label": "faq__q"
       },
       {
-       "id": "la0023",
+       "id": "la0021",
        "name": "block",
-       "parent": "la0020",
+       "parent": "la001e",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -14094,29 +13964,16 @@
        "label": "Content"
       },
       {
-       "id": "la0024",
+       "id": "la0022",
        "name": "text-basic",
-       "parent": "la0023",
+       "parent": "la0021",
        "settings": {
         "text": "A belly (sag) that holds water is usually better fixed by digging that one spot. The camera shows us, and we'll tell you before we start.",
         "tag": "p"
        }
       },
       {
-       "id": "la0025",
-       "name": "text-basic",
-       "parent": "la0023",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "la0026",
+       "id": "la0023",
        "name": "block",
        "parent": "la0009",
        "settings": {
@@ -14127,9 +13984,9 @@
        "label": "Item"
       },
       {
-       "id": "la0027",
+       "id": "la0024",
        "name": "block",
-       "parent": "la0026",
+       "parent": "la0023",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -14138,9 +13995,9 @@
        "label": "Title"
       },
       {
-       "id": "la0028",
+       "id": "la0025",
        "name": "heading",
-       "parent": "la0027",
+       "parent": "la0024",
        "settings": {
         "text": "Can you line cast iron under my house or slab?",
         "tag": "h3",
@@ -14151,9 +14008,9 @@
        "label": "faq__q"
       },
       {
-       "id": "la0029",
+       "id": "la0026",
        "name": "block",
-       "parent": "la0026",
+       "parent": "la0023",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -14165,29 +14022,16 @@
        "label": "Content"
       },
       {
-       "id": "la002a",
+       "id": "la0027",
        "name": "text-basic",
-       "parent": "la0029",
+       "parent": "la0026",
        "settings": {
-        "text": "Corroded cast iron that's still round is a good lining candidate, including under slabs. <span class=\"tbc\">Mike to confirm limits.</span>",
+        "text": "Corroded cast iron that's still round is a good lining candidate, including under slabs.",
         "tag": "p"
        }
       },
       {
-       "id": "la002b",
-       "name": "text-basic",
-       "parent": "la0029",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "la002c",
+       "id": "la0028",
        "name": "block",
        "parent": "la0009",
        "settings": {
@@ -14198,9 +14042,9 @@
        "label": "Item"
       },
       {
-       "id": "la002d",
+       "id": "la0029",
        "name": "block",
-       "parent": "la002c",
+       "parent": "la0028",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -14209,9 +14053,9 @@
        "label": "Title"
       },
       {
-       "id": "la002e",
+       "id": "la002a",
        "name": "heading",
-       "parent": "la002d",
+       "parent": "la0029",
        "settings": {
         "text": "Is pipe lining or pipe bursting better?",
         "tag": "h3",
@@ -14222,9 +14066,9 @@
        "label": "faq__q"
       },
       {
-       "id": "la002f",
+       "id": "la002b",
        "name": "block",
-       "parent": "la002c",
+       "parent": "la0028",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -14236,29 +14080,16 @@
        "label": "Content"
       },
       {
-       "id": "la0030",
+       "id": "la002c",
        "name": "text-basic",
-       "parent": "la002f",
+       "parent": "la002b",
        "settings": {
         "text": "It depends on the pipe. Lining needs a host pipe that still holds its shape. For collapsed or deformed pipe, or to upsize, pipe bursting pulls in a brand-new HDPE pipe.",
         "tag": "p"
        }
       },
       {
-       "id": "la0031",
-       "name": "text-basic",
-       "parent": "la002f",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "la0032",
+       "id": "la002d",
        "name": "block",
        "parent": "la0009",
        "settings": {
@@ -14269,9 +14100,9 @@
        "label": "Item"
       },
       {
-       "id": "la0033",
+       "id": "la002e",
        "name": "block",
-       "parent": "la0032",
+       "parent": "la002d",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -14280,9 +14111,9 @@
        "label": "Title"
       },
       {
-       "id": "la0034",
+       "id": "la002f",
        "name": "heading",
-       "parent": "la0033",
+       "parent": "la002e",
        "settings": {
         "text": "Do I need a permit in Spokane for sewer lining?",
         "tag": "h3",
@@ -14293,9 +14124,9 @@
        "label": "faq__q"
       },
       {
-       "id": "la0035",
+       "id": "la0030",
        "name": "block",
-       "parent": "la0032",
+       "parent": "la002d",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -14307,9 +14138,9 @@
        "label": "Content"
       },
       {
-       "id": "la0036",
+       "id": "la0031",
        "name": "text-basic",
-       "parent": "la0035",
+       "parent": "la0030",
        "settings": {
         "text": "<span class=\"tbc\">Yes / no, which jurisdictions, and how it's handled.</span>",
         "tag": "p"
@@ -20643,19 +20474,6 @@
       },
       {
        "id": "c4000f",
-       "name": "text-basic",
-       "parent": "c4000d",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "c40010",
        "name": "block",
        "parent": "c40009",
        "settings": {
@@ -20666,9 +20484,9 @@
        "label": "Item"
       },
       {
-       "id": "c40011",
+       "id": "c40010",
        "name": "block",
-       "parent": "c40010",
+       "parent": "c4000f",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -20677,9 +20495,9 @@
        "label": "Title"
       },
       {
-       "id": "c40012",
+       "id": "c40011",
        "name": "heading",
-       "parent": "c40011",
+       "parent": "c40010",
        "settings": {
         "text": "How fast will I hear back?",
         "tag": "h3",
@@ -20690,9 +20508,9 @@
        "label": "faq__q"
       },
       {
-       "id": "c40013",
+       "id": "c40012",
        "name": "block",
-       "parent": "c40010",
+       "parent": "c4000f",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -20704,29 +20522,16 @@
        "label": "Content"
       },
       {
-       "id": "c40014",
+       "id": "c40013",
        "name": "text-basic",
-       "parent": "c40013",
+       "parent": "c40012",
        "settings": {
         "text": "<span class=\"tbc\">Typical reply time, e.g. same day on weekdays.</span> If it's urgent, call or text instead of using the form.",
         "tag": "p"
        }
       },
       {
-       "id": "c40015",
-       "name": "text-basic",
-       "parent": "c40013",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "c40016",
+       "id": "c40014",
        "name": "block",
        "parent": "c40009",
        "settings": {
@@ -20737,9 +20542,9 @@
        "label": "Item"
       },
       {
-       "id": "c40017",
+       "id": "c40015",
        "name": "block",
-       "parent": "c40016",
+       "parent": "c40014",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -20748,9 +20553,9 @@
        "label": "Title"
       },
       {
-       "id": "c40018",
+       "id": "c40016",
        "name": "heading",
-       "parent": "c40017",
+       "parent": "c40015",
        "settings": {
         "text": "What should I send with my message?",
         "tag": "h3",
@@ -20761,9 +20566,9 @@
        "label": "faq__q"
       },
       {
-       "id": "c40019",
+       "id": "c40017",
        "name": "block",
-       "parent": "c40016",
+       "parent": "c40014",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -20775,16 +20580,16 @@
        "label": "Content"
       },
       {
-       "id": "c4001a",
+       "id": "c40018",
        "name": "text-basic",
-       "parent": "c40019",
+       "parent": "c40017",
        "settings": {
         "text": "Your address or city, what you've noticed (slow drains, backups, wet spots, smells) and, if you can, a photo or short video. That's enough for Mike to tell you what's likely going on.",
         "tag": "p"
        }
       },
       {
-       "id": "c4001b",
+       "id": "c40019",
        "name": "block",
        "parent": "c40009",
        "settings": {
@@ -20795,9 +20600,9 @@
        "label": "Item"
       },
       {
-       "id": "c4001c",
+       "id": "c4001a",
        "name": "block",
-       "parent": "c4001b",
+       "parent": "c40019",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -20806,9 +20611,9 @@
        "label": "Title"
       },
       {
-       "id": "c4001d",
+       "id": "c4001b",
        "name": "heading",
-       "parent": "c4001c",
+       "parent": "c4001a",
        "settings": {
         "text": "Do you work outside the listed areas?",
         "tag": "h3",
@@ -20819,9 +20624,9 @@
        "label": "faq__q"
       },
       {
-       "id": "c4001e",
+       "id": "c4001c",
        "name": "block",
-       "parent": "c4001b",
+       "parent": "c40019",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -20833,11 +20638,11 @@
        "label": "Content"
       },
       {
-       "id": "c4001f",
+       "id": "c4001d",
        "name": "text-basic",
-       "parent": "c4001e",
+       "parent": "c4001c",
        "settings": {
-        "text": "We serve Spokane, Spokane Valley, Deer Park, Clayton, Stevens County and Spokane County. If you're nearby, ask. <span class=\"tbc\">Mike to confirm how far he travels.</span>",
+        "text": "We serve Spokane, Spokane Valley, Deer Park, Clayton, Stevens County and Spokane County. If you're nearby, ask.",
         "tag": "p"
        }
       }
@@ -24116,19 +23921,6 @@
       },
       {
        "id": "ba000f",
-       "name": "text-basic",
-       "parent": "ba000d",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "ba0010",
        "name": "block",
        "parent": "ba0009",
        "settings": {
@@ -24139,9 +23931,9 @@
        "label": "Item"
       },
       {
-       "id": "ba0011",
+       "id": "ba0010",
        "name": "block",
-       "parent": "ba0010",
+       "parent": "ba000f",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -24150,9 +23942,9 @@
        "label": "Title"
       },
       {
-       "id": "ba0012",
+       "id": "ba0011",
        "name": "heading",
-       "parent": "ba0011",
+       "parent": "ba0010",
        "settings": {
         "text": "Can you make my pipe bigger?",
         "tag": "h3",
@@ -24163,9 +23955,9 @@
        "label": "faq__q"
       },
       {
-       "id": "ba0013",
+       "id": "ba0012",
        "name": "block",
-       "parent": "ba0010",
+       "parent": "ba000f",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -24177,29 +23969,16 @@
        "label": "Content"
       },
       {
-       "id": "ba0014",
+       "id": "ba0013",
        "name": "text-basic",
-       "parent": "ba0013",
+       "parent": "ba0012",
        "settings": {
         "text": "Often, yes. Because the old pipe is broken outward, bursting can pull in a larger pipe than the one you have. <span class=\"tbc\">Typical upsizing limits.</span>",
         "tag": "p"
        }
       },
       {
-       "id": "ba0015",
-       "name": "text-basic",
-       "parent": "ba0013",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "ba0016",
+       "id": "ba0014",
        "name": "block",
        "parent": "ba0009",
        "settings": {
@@ -24210,9 +23989,9 @@
        "label": "Item"
       },
       {
-       "id": "ba0017",
+       "id": "ba0015",
        "name": "block",
-       "parent": "ba0016",
+       "parent": "ba0014",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -24221,9 +24000,9 @@
        "label": "Title"
       },
       {
-       "id": "ba0018",
+       "id": "ba0016",
        "name": "heading",
-       "parent": "ba0017",
+       "parent": "ba0015",
        "settings": {
         "text": "How much digging is there?",
         "tag": "h3",
@@ -24234,9 +24013,9 @@
        "label": "faq__q"
       },
       {
-       "id": "ba0019",
+       "id": "ba0017",
        "name": "block",
-       "parent": "ba0016",
+       "parent": "ba0014",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -24248,29 +24027,16 @@
        "label": "Content"
       },
       {
-       "id": "ba001a",
+       "id": "ba0018",
        "name": "text-basic",
-       "parent": "ba0019",
+       "parent": "ba0017",
        "settings": {
         "text": "Two small access pits, one at each end of the run, instead of a trench along the whole line. <span class=\"tbc\">Typical pit size and depth.</span>",
         "tag": "p"
        }
       },
       {
-       "id": "ba001b",
-       "name": "text-basic",
-       "parent": "ba0019",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "ba001c",
+       "id": "ba0019",
        "name": "block",
        "parent": "ba0009",
        "settings": {
@@ -24281,9 +24047,9 @@
        "label": "Item"
       },
       {
-       "id": "ba001d",
+       "id": "ba001a",
        "name": "block",
-       "parent": "ba001c",
+       "parent": "ba0019",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -24292,9 +24058,9 @@
        "label": "Title"
       },
       {
-       "id": "ba001e",
+       "id": "ba001b",
        "name": "heading",
-       "parent": "ba001d",
+       "parent": "ba001a",
        "settings": {
         "text": "Can I use my water and toilets during the job?",
         "tag": "h3",
@@ -24305,9 +24071,9 @@
        "label": "faq__q"
       },
       {
-       "id": "ba001f",
+       "id": "ba001c",
        "name": "block",
-       "parent": "ba001c",
+       "parent": "ba0019",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -24319,16 +24085,16 @@
        "label": "Content"
       },
       {
-       "id": "ba0020",
+       "id": "ba001d",
        "name": "text-basic",
-       "parent": "ba001f",
+       "parent": "ba001c",
        "settings": {
         "text": "<span class=\"tbc\">How long the line is out of service during bursting and reconnection.</span>",
         "tag": "p"
        }
       },
       {
-       "id": "ba0021",
+       "id": "ba001e",
        "name": "block",
        "parent": "ba0009",
        "settings": {
@@ -24339,9 +24105,9 @@
        "label": "Item"
       },
       {
-       "id": "ba0022",
+       "id": "ba001f",
        "name": "block",
-       "parent": "ba0021",
+       "parent": "ba001e",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -24350,9 +24116,9 @@
        "label": "Title"
       },
       {
-       "id": "ba0023",
+       "id": "ba0020",
        "name": "heading",
-       "parent": "ba0022",
+       "parent": "ba001f",
        "settings": {
         "text": "Is it safe for nearby gas, water and other lines?",
         "tag": "h3",
@@ -24363,9 +24129,9 @@
        "label": "faq__q"
       },
       {
-       "id": "ba0024",
+       "id": "ba0021",
        "name": "block",
-       "parent": "ba0021",
+       "parent": "ba001e",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -24377,29 +24143,16 @@
        "label": "Content"
       },
       {
-       "id": "ba0025",
+       "id": "ba0022",
        "name": "text-basic",
-       "parent": "ba0024",
+       "parent": "ba0021",
        "settings": {
         "text": "All utilities are located and marked before we dig, and the camera and locator show where your line runs. <span class=\"tbc\">Mike to describe his clearance checks.</span>",
         "tag": "p"
        }
       },
       {
-       "id": "ba0026",
-       "name": "text-basic",
-       "parent": "ba0024",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "ba0027",
+       "id": "ba0023",
        "name": "block",
        "parent": "ba0009",
        "settings": {
@@ -24410,9 +24163,9 @@
        "label": "Item"
       },
       {
-       "id": "ba0028",
+       "id": "ba0024",
        "name": "block",
-       "parent": "ba0027",
+       "parent": "ba0023",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -24421,9 +24174,9 @@
        "label": "Title"
       },
       {
-       "id": "ba0029",
+       "id": "ba0025",
        "name": "heading",
-       "parent": "ba0028",
+       "parent": "ba0024",
        "settings": {
         "text": "Is pipe bursting or pipe lining better?",
         "tag": "h3",
@@ -24434,9 +24187,9 @@
        "label": "faq__q"
       },
       {
-       "id": "ba002a",
+       "id": "ba0026",
        "name": "block",
-       "parent": "ba0027",
+       "parent": "ba0023",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -24448,29 +24201,16 @@
        "label": "Content"
       },
       {
-       "id": "ba002b",
+       "id": "ba0027",
        "name": "text-basic",
-       "parent": "ba002a",
+       "parent": "ba0026",
        "settings": {
         "text": "It depends on the pipe. Lining needs a host pipe that still holds its shape. For collapsed or deformed pipe, or to upsize, bursting pulls in a brand-new HDPE pipe.",
         "tag": "p"
        }
       },
       {
-       "id": "ba002c",
-       "name": "text-basic",
-       "parent": "ba002a",
-       "settings": {
-        "text": "Draft · Mike to confirm",
-        "tag": "span",
-        "_cls": [
-         "draft"
-        ]
-       },
-       "label": "draft"
-      },
-      {
-       "id": "ba002d",
+       "id": "ba0028",
        "name": "block",
        "parent": "ba0009",
        "settings": {
@@ -24481,9 +24221,9 @@
        "label": "Item"
       },
       {
-       "id": "ba002e",
+       "id": "ba0029",
        "name": "block",
-       "parent": "ba002d",
+       "parent": "ba0028",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-title-wrapper"
@@ -24492,9 +24232,9 @@
        "label": "Title"
       },
       {
-       "id": "ba002f",
+       "id": "ba002a",
        "name": "heading",
-       "parent": "ba002e",
+       "parent": "ba0029",
        "settings": {
         "text": "Do I need a permit in Spokane for pipe bursting?",
         "tag": "h3",
@@ -24505,9 +24245,9 @@
        "label": "faq__q"
       },
       {
-       "id": "ba0030",
+       "id": "ba002b",
        "name": "block",
-       "parent": "ba002d",
+       "parent": "ba0028",
        "settings": {
         "_hidden": {
          "_cssClasses": "accordion-content-wrapper"
@@ -24519,9 +24259,9 @@
        "label": "Content"
       },
       {
-       "id": "ba0031",
+       "id": "ba002c",
        "name": "text-basic",
-       "parent": "ba0030",
+       "parent": "ba002b",
        "settings": {
         "text": "<span class=\"tbc\">Yes / no, which jurisdictions, and how it's handled.</span>",
         "tag": "p"
