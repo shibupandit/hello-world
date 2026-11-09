@@ -332,7 +332,7 @@ c("ticker__item--outline", """
 """)
 c("ticker__ico", """
 %root% { width: .85em; height: .85em; flex: none; border-radius: var(--radius-circle); display: grid; place-items: center; border: .03em solid var(--white-trans-20); color: var(--primary-light); transition: background-color .3s, border-color .3s, color .3s; margin-right: .2em; }
-%root% svg { width: .42em; height: .42em; display: block; flex: none; }
+%root% svg { width: .42em; height: .42em; min-width: 0; min-height: 0; display: block; flex: none; }
 """)
 c("ticker__name", "%root% { display: inline-block; }")
 c("ticker__spec", """
