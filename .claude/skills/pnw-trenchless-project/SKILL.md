@@ -36,7 +36,7 @@ You are continuing an existing project. Read this whole file before doing anythi
 The approved direction is the **light and dark mix** design in `pnw-trenchless/index.html`:
 - **Ink (navy) sections:** hero, service ticker, process, reviews, quote form, footer.
 - **Stone/white sections:** stats, warning signs, explainer, services, who we serve, comparison, decision flow, about/Mike, projects, service areas, FAQ.
-- **Type:** wide Archivo display headings, Instrument Serif italic accent words, Public Sans body, JetBrains Mono labels.
+- **Type:** wide Archivo display headings, Public Sans body, JetBrains Mono labels. Accent words in headings (`<span class="serif">`) are **colour only** on the live site (user, 2026-11-09): same font, weight, style and size as the heading; the colour comes from the block (e.g. `.svc-hero__title .serif`). The base `.serif` rules were removed from the Bricks theme style (backup option `pnw_theme_css_backup_serif_20261109`) and from the child theme `style.css` (backup `style.css.bak-20261109-serif`). The design HTML files still show the old Instrument Serif italic. Instrument Serif is still used for the ticker words and signature marks.
 - **Signature motif:** sewer-camera "feed" frames with an amber footage readout.
 
 Section order:

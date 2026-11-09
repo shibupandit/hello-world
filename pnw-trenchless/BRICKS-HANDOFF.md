@@ -3,7 +3,7 @@
 Design file: `index.html` (with `assets/trailer.jpg`). Open it in a browser to see the approved design.
 Every value in the CSS is an ACSS-named variable, so the build is mostly entering values in ACSS and then building the HTML structure as Bricks elements.
 
-**Design direction ("Surface / Underground"):** deep-ink sections stand for the ground the pipe runs through, and stone-white sections stand for the yard we leave intact. Headlines are set in wide Archivo, with Instrument Serif italic on the emotional words ("Keep the yard."). The sewer-camera feed, with its amber footage readout, is the signature detail.
+**Design direction ("Surface / Underground"):** deep-ink sections stand for the ground the pipe runs through, and stone-white sections stand for the yard we leave intact. Headlines are set in wide Archivo, with the emotional words ("Keep the yard.") picked out in colour only (the Instrument Serif italic was dropped on the live site, 2026-11-09). The sewer-camera feed, with its amber footage readout, is the signature detail.
 
 ## 1. ACSS settings
 
