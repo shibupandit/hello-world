@@ -1272,7 +1272,7 @@ c("rv-steps__text", "%root% { color: var(--text-light-muted); }")
 # --------------------------------------------------------------------------
 # WHO WE SERVE PAGE (design: who-we-serve.html). Projects strip is a query loop over `project`.
 # --------------------------------------------------------------------------
-c("serve-hero", "%root% .svc-hero__title { max-width: 16ch; font-size: clamp(var(--h2), calc(var(--h1) * .75 + 2vw), calc(var(--h1) * 1.1)); }")
+c("serve-hero", "%root% .svc-hero__title { max-width: none; font-size: clamp(var(--h2), calc(var(--h1) * .55 + 1.6vw), calc(var(--h1) * .9)); }")
 c("jump", "%root% { display: flex; flex-direction: column; gap: var(--space-xs); padding: var(--space-m); border-radius: var(--radius-l); background: var(--white-trans-10); border: var(--pnw-border-dark); box-shadow: var(--box-shadow-l); width: 100%; }")
 c("jump__label", "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--primary-light); padding: 0 var(--space-xs) var(--space-xs); }")
 c("jump__item", """

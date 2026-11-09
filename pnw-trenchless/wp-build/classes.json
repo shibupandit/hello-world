@@ -2151,7 +2151,7 @@
  },
  {
   "name": "serve-hero",
-  "css": "%root% .svc-hero__title { max-width: 16ch; font-size: clamp(var(--h2), calc(var(--h1) * .75 + 2vw), calc(var(--h1) * 1.1)); }",
+  "css": "%root% .svc-hero__title { max-width: none; font-size: clamp(var(--h2), calc(var(--h1) * .55 + 1.6vw), calc(var(--h1) * .9)); }",
   "category": "PNW"
  },
  {
