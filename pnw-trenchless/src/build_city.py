@@ -9,7 +9,7 @@ l = open("src/lining.css").read()
 lm = open("src/lining-main.html").read()
 ci, mi = s.index(l), s.index(lm)
 conv = re.search(r"<!-- =+ 13 CONVERSION =+ -->.*?</section>", lm, re.S).group(0)
-conv = conv.replace("Find out if your pipe <span class=\"serif\">can be lined.</span>", "Get a quote in <span class=\"serif\">Spokane Valley.</span>")
+conv = conv.replace("Find out if your pipe <span class=\"serif\">can be lined.</span>", "Get a <span class=\"serif\">true and honest</span> quote.")
 conv = conv.replace('value="Pipe Lining"', 'value="City: Spokane Valley"').replace("service = Pipe Lining", "source = City: Spokane Valley")
 conv = conv.replace('<label for="i1"><input type="radio" name="service" id="i1" value="lining" checked><span>CIPP lining</span></label>',
                     '<label for="i1"><input type="radio" name="service" id="i1" value="lining"><span>CIPP lining</span></label>')

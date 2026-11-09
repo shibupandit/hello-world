@@ -1070,48 +1070,105 @@ h1 .serif, h2 .serif { font-size: inherit; }
 }
 
 /* ==========================================================================
-   CITY (SERVICE AREA) SINGLE TEMPLATE
-   Same tokens and patterns as the other pages. Reuses crumbs, svc-hero, map,
-   materials, quotes/review, pcards, faq, city-list and the Who We Serve service
-   cards (ws-svc, from serve.css). Page-only blocks below (city-*).
+   CITY (SERVICE AREA) SINGLE TEMPLATE — article layout (user reference, 2026-11-09)
+   Short dark hero, then a two-column article: main column (featured image,
+   "On this page", Gutenberg content in .prose, template blocks) + sticky sidebar.
+   Reuses crumbs, pcards, quotes/review and the live-site overrides in serve.css.
    ========================================================================== */
 
 /* 01 hero */
-.city-hero h1 { max-width: 18ch; font-size: clamp(2.4rem, 1.5rem + 3vw, 4.1rem); }
-.city-hero h1 .serif { color: var(--primary-light); }
-.city-facts { list-style: none; margin: var(--space-m) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; border-top: var(--border-dark); }
-.city-facts li { display: flex; flex-direction: column; gap: .3rem; padding: var(--space-s) var(--space-s) 0 0; }
-.city-facts li + li { padding-left: var(--space-s); border-left: var(--border-dark); }
-.city-facts small { font-family: var(--mono-font-family); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-light-muted); }
-.city-facts b { font-family: var(--heading-font-family); font-stretch: 108%; font-size: 1.05rem; color: var(--white); }
-.city-map .map { border: var(--border-dark); }
+.city-hero { padding-block: var(--space-xl) var(--space-xxl); }
+.city-hero .crumbs { margin-bottom: var(--space-l); }
+.city-hero__title { max-width: 20ch; margin: 0 0 var(--space-l); font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.6rem); color: var(--white); }
 
-/* 02 local */
-.city-local { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xxl); align-items: start; }
-.city-local__text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); }
-.city-local__text h2 .serif { color: var(--primary); }
-.city-local__text p { color: var(--text-dark-muted); font-size: var(--text-l); max-width: 52ch; }
-.city-signs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--text-dark); }
-.city-signs li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: var(--space-m); align-items: center; padding: var(--space-m) 0; border-bottom: var(--border); }
-.city-signs__ico { width: 52px; height: 52px; border-radius: var(--radius); display: grid; place-items: center; background: var(--base); color: var(--primary-light); }
-.city-signs__ico svg { width: 32px; height: 32px; }
-.city-signs b { display: block; font-family: var(--heading-font-family); font-stretch: 108%; font-size: 1.15rem; margin-bottom: .2rem; }
-.city-signs span:not(.city-signs__ico) { color: var(--text-dark-muted); }
+/* 02 layout */
+.city-layout { display: grid; grid-template-columns: minmax(0, 1fr) 22rem; gap: var(--space-xxl); align-items: start; }
+.city-main { display: flex; flex-direction: column; gap: var(--space-xl); min-width: 0; }
+.city-cover { margin: 0; border-radius: var(--radius-l); overflow: hidden; box-shadow: var(--box-shadow-m); }
+.city-cover img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
 
-/* 04 projects note */
-.city-note { margin: calc(var(--space-m) * -1) 0 var(--space-m); font-size: var(--text-s); }
+.toc { padding: var(--space-m) var(--space-l); border-radius: var(--radius-l); background: var(--neutral-ultra-light); border: var(--border); }
+.toc__label { display: block; font-family: var(--mono-font-family); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); margin-bottom: var(--space-s); }
+.toc ol { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: .45rem; }
+.toc li::marker { color: var(--accent-dark); font-weight: 700; }
+.toc a { color: var(--text-dark); text-decoration: none; font-weight: 600; }
+.toc a:hover { color: var(--primary); text-decoration: underline; }
 
-/* 07 other areas */
-.city-more { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--space-xxl); align-items: start; }
-.city-list--more a { font-size: 1.35rem; }
+/* Gutenberg content: paragraphs, headings, lists, images, quotes */
+.prose { color: var(--text-dark-muted); font-size: 1.075rem; line-height: 1.7; }
+.prose > * + * { margin-top: 1.1em; }
+.prose .is-lead { font-family: var(--heading-font-family); font-size: 1.45rem; line-height: 1.4; font-weight: 600; color: var(--text-dark); }
+.prose h2 { margin-top: 2em; font-size: clamp(1.6rem, 1.2rem + 1vw, 2.1rem); color: var(--text-dark); scroll-margin-top: 7rem; }
+.prose h3 { margin-top: 1.6em; font-size: 1.3rem; color: var(--text-dark); }
+.prose h2 + *, .prose h3 + * { margin-top: .6em; }
+.prose strong { color: var(--text-dark); }
+.prose a { color: var(--primary); text-underline-offset: .2em; }
+.prose ul, .prose ol { padding: 0; list-style: none; display: flex; flex-direction: column; gap: .55em; }
+.prose ul li { position: relative; padding-left: 1.9em; }
+.prose ul li::before { content: ""; position: absolute; left: 0; top: .3em; width: 1.15em; height: 1.15em; border-radius: 50%; background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 65% no-repeat; }
+.prose ol { counter-reset: prose; }
+.prose ol li { counter-increment: prose; position: relative; padding: .9em 0 .9em 3em; border-bottom: var(--border); }
+.prose ol li:first-child { border-top: var(--border); }
+.prose ol li::before { content: counter(prose, decimal-leading-zero); position: absolute; left: 0; top: 1.05em; font-family: var(--mono-font-family); font-size: .85rem; font-weight: 700; color: var(--accent-dark); }
+.prose .wp-block-image { margin: 2em 0; }
+.prose .wp-block-image img { width: 100%; border-radius: var(--radius-l); display: block; }
+.prose figcaption { margin-top: .6em; font-size: var(--text-s); color: var(--text-dark-muted); }
+.prose blockquote { margin: 2em 0; padding: var(--space-m) var(--space-l); border-left: .25rem solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; background: var(--neutral-ultra-light); }
+.prose blockquote p { font-family: var(--heading-font-family); font-size: 1.25rem; line-height: 1.45; color: var(--text-dark); font-weight: 600; }
+.prose blockquote p::before { content: "\201C"; color: var(--primary); }
+.prose blockquote p::after { content: "\201D"; color: var(--primary); }
+.prose cite { display: block; margin-top: .6em; font-style: normal; font-size: var(--text-s); color: var(--text-dark-muted); }
+
+/* template blocks after the content */
+.city-block { display: flex; flex-direction: column; gap: var(--space-m); padding-top: var(--space-l); border-top: var(--border); }
+.city-block__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-m); flex-wrap: wrap; }
+.city-block__title { font-size: clamp(1.5rem, 1.2rem + .8vw, 1.9rem); }
+.svc-links { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs); }
+.svc-links a { display: flex; align-items: center; gap: var(--space-s); padding: .85rem 1rem; border-radius: var(--radius); background: var(--neutral-ultra-light); border: var(--border); color: var(--text-dark); font-weight: 700; text-decoration: none; transition: border-color .25s, color .25s, background-color .25s; }
+.svc-links a:hover { border-color: var(--primary); color: var(--primary); background: var(--white); }
+.svc-links svg { width: 32px; height: 32px; flex: none; color: var(--primary); }
+.why { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .75rem; }
+.why li { position: relative; padding-left: 2rem; color: var(--text-dark-muted); }
+.why li::before { content: ""; position: absolute; left: 0; top: .25rem; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: var(--primary-ultra-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A4B' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 65% no-repeat; }
+.why strong { color: var(--text-dark); }
+.pcards--two { margin-top: 0; grid-template-columns: 1fr 1fr; }
+
+/* sidebar */
+.city-aside { display: flex; flex-direction: column; gap: var(--space-m); position: sticky; top: 7rem; }
+.widget { display: flex; flex-direction: column; align-items: flex-start; gap: .6rem; padding: var(--space-l); border-radius: var(--radius-l); background: var(--white); border: var(--border); }
+.widget__title { font-size: 1.2rem; margin-bottom: .2rem; }
+.widget__name { font-weight: 700; color: var(--text-dark); }
+.widget__muted, .widget__hours { font-size: var(--text-s); color: var(--text-dark-muted); }
+.widget__hours { padding-top: .6rem; border-top: var(--border); width: 100%; }
+.widget__contact { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .45rem; }
+.widget__contact li { display: flex; align-items: center; gap: .6rem; font-weight: 600; font-size: var(--text-s); }
+.widget__contact svg { width: 32px; height: 32px; padding: .35rem; border-radius: var(--radius); background: var(--primary-ultra-light); color: var(--primary); flex: none; }
+.widget__contact a { color: var(--text-dark); text-decoration: none; overflow-wrap: anywhere; }
+.widget__list { list-style: none; margin: 0; padding: 0; width: 100%; }
+.widget__list li { display: flex; flex-direction: column; gap: .15rem; padding: .7rem 0; border-bottom: var(--border); }
+.widget__list li:first-child { padding-top: 0; }
+.widget__list li:last-child { border-bottom: 0; padding-bottom: 0; }
+.widget__list a { font-weight: 700; color: var(--text-dark); text-decoration: none; }
+.widget__list a:hover { color: var(--primary); }
+.widget__list small { font-family: var(--mono-font-family); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); }
+.widget--tint { background: var(--neutral-ultra-light); }
+.widget__areas { list-style: none; margin: 0; padding: 0; width: 100%; display: flex; flex-direction: column; gap: .35rem; }
+.widget__areas a { display: block; padding: .6rem .8rem; border-radius: var(--radius); background: var(--white); border: var(--border); color: var(--text-dark); font-weight: 600; font-size: var(--text-s); text-decoration: none; }
+.widget__areas a:hover { border-color: var(--primary); color: var(--primary); }
+.widget--dark { background: var(--base); border-color: var(--base); color: var(--text-light-muted); }
+.widget--dark .widget__title { color: var(--white); }
+.widget__phone { display: flex; align-items: center; gap: .5rem; font-family: var(--heading-font-family); font-weight: 900; font-size: 1.6rem; color: var(--white); text-decoration: none; margin: .2rem 0 .4rem; }
+.widget__phone svg { width: 32px; height: 32px; color: var(--primary-light); }
+.widget--dark .btn { width: 100%; justify-content: center; }
 
 @media (max-width: 991px) {
-  .city-local, .city-more { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
+  .city-layout { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
+  .city-aside { position: static; }
 }
 @media (max-width: 767px) {
-  .city-facts { grid-template-columns: minmax(0, 1fr); }
-  .city-facts li { padding: var(--space-s) 0; }
-  .city-facts li + li { padding-left: 0; border-left: 0; border-top: var(--border-dark); }
+  .svc-links, .pcards--two { grid-template-columns: minmax(0, 1fr); }
+  .prose .is-lead { font-size: 1.25rem; }
+  .toc, .widget { padding: var(--space-m); }
 }
 
 </style>
@@ -1171,183 +1228,169 @@ h1 .serif, h2 .serif { font-size: inherit; }
 </header>
 
 <main id="top">
-<!-- City single template. Sample content: Spokane Valley. Every [city] value comes from the city post; local facts stay tbc. -->
+<!-- City single template (layout after the user's reference, 2026-11-09). Sample: Spokane Valley.
+     Template parts: hero, featured image, "On this page", services/why/projects blocks, sidebar, reviews.
+     Editor part: everything inside .prose is the post's Gutenberg content (paragraphs, headings, lists, images). -->
 
 <!-- ======================= 01 HERO ======================= -->
-<section class="section svc-hero city-hero bg--ink grain">
+<section class="section city-hero bg--ink grain">
   <div class="container">
     <nav class="crumbs" aria-label="Breadcrumb">
       <ol><li><a href="index.html">Home</a></li><li><a href="index.html#areas">Service areas</a></li><li aria-current="page">Spokane Valley</li></ol>
     </nav>
-    <div class="svc-hero__grid">
-      <div class="svc-hero__content">
-        <span class="eyebrow rise">Service area · East of Spokane</span>
-        <h1 class="rise rise-2">Trenchless sewer &amp; water line repair in <span class="serif">Spokane Valley.</span></h1>
-        <p class="svc-hero__lede rise rise-3">Sewer lining, pipe bursting, water line pulling and point repairs for Spokane Valley homes, businesses and industrial sites. Small access points instead of a torn-up yard, and camera footage you keep.</p>
-        <div class="hero__actions rise rise-4">
-          <a class="btn btn--primary" href="contact.html">Get a quote in Spokane Valley <svg class="arrow"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn--ghost-light" href="tel:5099532036"><svg><use href="#i-phone"/></svg>Call or text 509-953-2036</a>
+    <h1 class="city-hero__title">Trenchless Sewer &amp; Water Line Repair in Spokane Valley</h1>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="contact.html">Get a quote <svg class="arrow"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--ghost-light" href="tel:5099532036"><svg><use href="#i-phone"/></svg>509-953-2036</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 02 ARTICLE + SIDEBAR ======================= -->
+<section class="section city-article bg--white">
+  <div class="container">
+    <div class="city-layout">
+
+      <div class="city-main">
+        <figure class="city-cover"><img src="assets/job-lawn-restored.jpg" alt="A front lawn after a trenchless sewer repair, with the pit backfilled and the grass back in place"></figure>
+
+        <nav class="toc" aria-label="On this page">
+          <span class="toc__label">On this page</span>
+          <ol>
+            <li><a href="#problems">Sewer and water line problems in Spokane Valley</a></li>
+            <li><a href="#how">How a trenchless repair works</a></li>
+            <li><a href="#dig">Trenchless or digging?</a></li>
+            <li><a href="#permits">Permits and scheduling</a></li>
+          </ol>
+        </nav>
+
+        <!-- ===== Gutenberg content (post content) ===== -->
+        <div class="prose">
+          <p class="is-lead">Sewer backing up, or water pressure dropping? In Spokane Valley we fix sewer and water lines from the inside, through small access points instead of a trench across your yard.</p>
+          <p>PNW Trenchless is family-owned and run by Mike Jeisma, who has spent 14+ years in sewer and water line work across the Spokane area. Every job starts with a camera inspection. You see what we see, and you get a written quote before any work begins.</p>
+
+          <h2 id="problems">Sewer and water line problems we see in Spokane Valley</h2>
+          <p>Many older Spokane-area homes still run on clay, cast iron or Orangeburg sewer lines and galvanized water service. Add mature pines and maples, and root intrusion is one of the most common problems we see.</p>
+          <ul>
+            <li><strong>Roots in the line:</strong> backups that keep coming back after the line is cleared.</li>
+            <li><strong>Cracked or collapsed pipe:</strong> old clay and Orangeburg lines past their life.</li>
+            <li><strong>Low water pressure:</strong> often a corroded galvanized water service.</li>
+            <li><strong>One bad spot:</strong> a single crack or joint on an otherwise good line.</li>
+          </ul>
+          <p><span class="tbc">Mike, 2–3 sentences about Spokane Valley: neighborhoods, soil, how deep lines run, what he finds most often.</span></p>
+
+          <figure class="wp-block-image">
+            <img src="assets/job-lined-pipe.jpg" alt="An old sewer pipe cut open, with the new blue liner cured inside it">
+            <figcaption>A new liner cured inside an old pipe: a seamless pipe within a pipe.</figcaption>
+          </figure>
+
+          <h2 id="how">How a trenchless repair works</h2>
+          <ol>
+            <li><strong>Camera inspection.</strong> We record the full line and show you the footage.</li>
+            <li><strong>Written quote.</strong> The method that fits your pipe, and the price, before any work.</li>
+            <li><strong>The repair.</strong> Lining, bursting, a new water line or a point repair, through one or two small access points.</li>
+            <li><strong>Final camera run.</strong> Proof the line is fixed. You keep the before and after footage.</li>
+          </ol>
+
+          <h2 id="dig">Trenchless or digging?</h2>
+          <p>With a traditional dig you also pay to restore everything that came out of the ground. Trenchless repair leaves your lawn, driveway and trees in place in most cases, and your water or sewer is off for hours, not days.</p>
+          <blockquote><p>We treat every project like it's for our own family. Our customers deserve honest work, fair pricing, and results built to last.</p><cite>Mike Jeisma, owner</cite></blockquote>
+          <p>Trenchless isn't right for every pipe. If a section has a belly or is out of grade, digging that spot may be the better fix, and we'll tell you so.</p>
+
+          <h2 id="permits">Permits and scheduling in Spokane Valley</h2>
+          <p><span class="tbc">Which permits apply in Spokane Valley, whether PNW Trenchless pulls them, and how soon a camera inspection can be booked.</span></p>
         </div>
-        <ul class="city-facts rise rise-5">
-          <li><small>From our base</small><b><span class="tbc">X</span> min from Clayton</b></li>
-          <li><small>Permits</small><b><span class="tbc">City of Spokane Valley?</span></b></li>
-          <li><small>Owner on site</small><b>Mike Jeisma</b></li>
-        </ul>
+        <!-- ===== end Gutenberg content ===== -->
+
+        <!-- Template blocks after the content -->
+        <div class="city-block">
+          <h2 class="city-block__title">Our services in Spokane Valley</h2>
+          <ul class="svc-links">
+            <li><a href="service-sewer-pipe-lining.html"><svg><use href="#i-liner"/></svg>Sewer pipe lining</a></li>
+            <li><a href="service-pipe-bursting.html"><svg><use href="#i-burst"/></svg>Pipe bursting</a></li>
+            <li><a href="service-water-line-pulling.html"><svg><use href="#i-drop"/></svg>Water line pulling</a></li>
+            <li><a href="service-point-repairs.html"><svg><use href="#i-patch"/></svg>Point repairs</a></li>
+          </ul>
+        </div>
+
+        <div class="city-block">
+          <h2 class="city-block__title">Why Spokane Valley homeowners choose PNW Trenchless</h2>
+          <ul class="why">
+            <li><strong>The owner on the job.</strong> Mike Jeisma, 14+ years in sewer and water line work.</li>
+            <li><strong>You see the pipe first.</strong> Camera footage before and after, yours to keep.</li>
+            <li><strong>A true and honest quote.</strong> In writing, before any work starts.</li>
+            <li><strong>Less digging.</strong> Small access points instead of a trench across your yard.</li>
+          </ul>
+        </div>
+
+        <div class="city-block">
+          <div class="city-block__head"><h2 class="city-block__title">Recent projects</h2><a class="link-arrow" href="projects.html">All projects</a></div>
+          <ul class="pcards pcards--two">
+            <li class="pcard">
+              <figure class="pcard__media"><img src="assets/job-during.jpg" alt="Small access pit dug in a front lawn during a trenchless repair"></figure>
+              <div class="pcard__body"><span class="pcard__tag">Sewer line</span><h3 class="pcard__title">One small pit.</h3><p>Front-yard sewer repair through a single access pit, with the lawn put back.</p></div>
+            </li>
+            <li class="pcard">
+              <figure class="pcard__media"><img src="assets/job-waterline.jpg" alt="Access pit with the new blue water line next to the meter box"></figure>
+              <div class="pcard__body"><span class="pcard__tag">Water line</span><h3 class="pcard__title">Water line pull.</h3><p>New water line pulled through a small access pit at the meter.</p></div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="city-map rise rise-4">
-        <figure class="map">
-        <svg viewBox="0 0 600 520" role="img" aria-label="Map of our service area with Spokane Valley highlighted">
-          <rect width="600" height="520" fill="#0E1621"/>
-          <g fill="none" stroke="#1A2533" stroke-width="1.2">
-            <path d="M0 50c90-26 170 30 270 2s200-34 330 8"/><path d="M0 90c90-26 170 30 270 2s200-34 330 8"/><path d="M0 230c90-30 170 20 260-5s210-20 340 15"/><path d="M0 270c90-30 170 20 260-5s210-20 340 15"/><path d="M0 330c120 20 200-30 300-10s180 30 300 0"/><path d="M0 470c120 20 200-30 300-10s180 30 300 0"/>
-          </g>
-          <path d="M0 150 L260 150 L300 136 L420 136 L420 0" fill="none" stroke="#2B3747" stroke-width="1.5" stroke-dasharray="6 6"/>
-          <text x="24" y="120" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#5D6A7A">STEVENS CO.</text>
-          <text x="24" y="176" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#5D6A7A">SPOKANE CO.</text>
-          <ellipse cx="380" cy="285" rx="235" ry="205" fill="#2F7A4B" fill-opacity=".12" stroke="#6CC08A" stroke-opacity=".6" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>
-          <path d="M383 409 L360 290 L349 163 L330 0" fill="none" stroke="#2B3747" stroke-width="6" stroke-linecap="round"/>
-          <path d="M0 412 L383 409 L507 398 L600 392" fill="none" stroke="#2B3747" stroke-width="8" stroke-linecap="round"/>
-          <path d="M120 480 C220 450 300 410 383 428 S520 388 600 368" fill="none" stroke="#2B5BB5" stroke-width="3" opacity=".8"/>
-          <g font-family="JetBrains Mono, monospace" font-size="10"><rect x="331" y="250" width="34" height="16" rx="3" fill="#1A2533"/><text x="337" y="262" fill="#A8B3BF">395</text><rect x="196" y="402" width="32" height="16" rx="3" fill="#2B5BB5"/><text x="203" y="414" fill="#fff">I-90</text></g>
-          <g font-family="Public Sans, sans-serif" font-weight="700" font-size="15" fill="#F3F5F2">
-            <circle class="map__pulse" cx="293" cy="128" r="12" fill="#6CC08A"/>
-            <circle cx="293" cy="128" r="9" fill="#6CC08A" stroke="#0E1621" stroke-width="3"/>
-            <text x="196" y="118">Clayton</text><text x="186" y="100" font-size="10" font-family="JetBrains Mono, monospace" fill="#6CC08A" letter-spacing="1.5">HOME BASE</text>
-            <circle cx="349" cy="163" r="7" fill="#F3F5F2" stroke="#0E1621" stroke-width="3"/><text x="362" y="168">Deer Park</text>
-            <circle cx="383" cy="409" r="9" fill="#F3F5F2" stroke="#0E1621" stroke-width="3"/><text x="336" y="448">Spokane</text>
-            <circle class="map__pulse" cx="507" cy="398" r="14" fill="#F0B03A" opacity=".5"/><circle cx="507" cy="398" r="9" fill="#F0B03A" stroke="#0E1621" stroke-width="3"/><text x="440" y="378" fill="#F0B03A" font-weight="700">Spokane Valley</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="10" fill="#5D6A7A">
-            <path d="M24 490h143" stroke="#A8B3BF" stroke-width="2"/><path d="M24 484v12M95 486v8M167 484v12" stroke="#A8B3BF" stroke-width="1.5"/>
-            <text x="24" y="478">0</text><text x="150" y="478">10 MI</text>
-            <path d="M566 30l10 26-10-6-10 6z" fill="#A8B3BF"/><text x="562" y="72">N</text>
-          </g>
-        </svg>
-        <figcaption>Spokane Valley · east of Spokane · <span class="tbc">X</span> min from our Clayton base</figcaption>
-      </figure>
-      </div>
+
+      <!-- ===== Sidebar (template) ===== -->
+      <aside class="city-aside">
+        <section class="widget">
+          <h2 class="widget__title">Your local contractor</h2>
+          <p class="widget__name">PNW Trenchless</p>
+          <p class="widget__muted">North Spokane County · serving Spokane Valley</p>
+          <ul class="widget__contact">
+            <li><svg><use href="#i-phone"/></svg><a href="tel:5099532036">509-953-2036</a></li>
+            <li><svg><use href="#i-mail"/></svg><a href="mailto:info@pnwtrenchless.com">info@pnwtrenchless.com</a></li>
+          </ul>
+          <p class="widget__hours">Mon–Fri 7am–6pm</p>
+          <a class="link-arrow" href="contact.html">Contact us</a>
+        </section>
+
+        <section class="widget">
+          <h2 class="widget__title">Recent projects</h2>
+          <ul class="widget__list">
+            <li><a href="project-single.html">One small pit.</a><small>Sewer line</small></li>
+            <li><a href="project-single.html">A deep pit, shored.</a><small>Sewer line</small></li>
+            <li><a href="project-single.html">Water line pull.</a><small>Water line</small></li>
+            <li><a href="project-single.html">Inside the old pipe.</a><small>Sewer lining</small></li>
+          </ul>
+        </section>
+
+        <section class="widget widget--tint">
+          <h2 class="widget__title">Other areas we serve</h2>
+          <ul class="widget__areas">
+            <li><a href="#">Spokane</a></li><li><a href="#">Deer Park</a></li><li><a href="#">Clayton</a></li><li><a href="#">Stevens County</a></li><li><a href="#">Spokane County</a></li>
+          </ul>
+        </section>
+
+        <section class="widget widget--dark">
+          <h2 class="widget__title">Talk to Mike today</h2>
+          <p>Tell us what's going on. Send a photo or video of the problem if you can.</p>
+          <a class="widget__phone" href="tel:5099532036"><svg><use href="#i-phone"/></svg>509-953-2036</a>
+          <a class="btn btn--primary btn--block" href="contact.html">Get a quote <svg class="arrow"><use href="#i-arrow"/></svg></a>
+        </section>
+      </aside>
+
     </div>
   </div>
 </section>
 
-<!-- ======================= 02 LOCAL ======================= -->
-<section class="section bg--white" aria-labelledby="local-title">
-  <div class="container">
-    <div class="city-local">
-      <div class="city-local__text">
-        <span class="eyebrow">What we see in Spokane Valley</span>
-        <h2 id="local-title">Older lines, <span class="serif">mature trees.</span></h2>
-        <p>Many older Spokane-area homes still run on clay, cast iron or Orangeburg sewer lines and galvanized water service. Add mature pines and maples, and root intrusion is one of the most common problems we see.</p>
-        <p><span class="tbc">Mike, 2–3 sentences about Spokane Valley: neighborhoods, soil, how deep lines run, what he finds most often.</span></p>
-        <div class="materials"><span class="material">Clay</span><span class="material">Cast iron</span><span class="material">Orangeburg</span><span class="material">Galvanized</span></div>
-      </div>
-      <ul class="city-signs">
-        <li><span class="city-signs__ico"><svg><use href="#i-yard"/></svg></span><span><b>Roots in the line</b>Backups that keep coming back after the line is cleared.</span></li>
-        <li><span class="city-signs__ico"><svg><use href="#i-burst"/></svg></span><span><b>Cracked or collapsed pipe</b>Old clay and Orangeburg lines that are past their life.</span></li>
-        <li><span class="city-signs__ico"><svg><use href="#i-drop"/></svg></span><span><b>Low water pressure</b>Often a corroded galvanized water service.</span></li>
-        <li><span class="city-signs__ico"><svg><use href="#i-patch"/></svg></span><span><b>One bad spot</b>A single crack or joint on an otherwise good line.</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= 03 SERVICES ======================= -->
-<section class="section bg--stone" aria-labelledby="svc-title">
-  <div class="container">
-    <div class="head head--row">
-      <div class="head__main">
-        <span class="eyebrow">Services in Spokane Valley</span>
-        <h2 id="svc-title">Four ways we fix it, <span class="serif">without the trench.</span></h2>
-      </div>
-      <p class="head__lede" style="max-width:38ch">Every job starts with a camera inspection. The camera decides the method.</p>
-    </div>
-    <ul class="ws-svc">
-      <li><a class="ws-svc__item" href="service-sewer-pipe-lining.html"><span class="ws-svc__ico"><svg><use href="#i-liner"/></svg></span><b>Sewer pipe lining</b><span>A new pipe inside the old one, for cracks, leaks and roots.</span><svg class="ws-svc__go"><use href="#i-arrow"/></svg></a></li>
-      <li><a class="ws-svc__item" href="service-pipe-bursting.html"><span class="ws-svc__ico"><svg><use href="#i-burst"/></svg></span><b>Pipe bursting</b><span>A brand-new HDPE pipe pulled in, for collapsed or undersized lines.</span><svg class="ws-svc__go"><use href="#i-arrow"/></svg></a></li>
-      <li><a class="ws-svc__item" href="service-water-line-pulling.html"><span class="ws-svc__ico"><svg><use href="#i-drop"/></svg></span><b>Water line pulling</b><span>A new CTS poly water line, pressure and leak tested.</span><svg class="ws-svc__go"><use href="#i-arrow"/></svg></a></li>
-      <li><a class="ws-svc__item" href="service-point-repairs.html"><span class="ws-svc__ico"><svg><use href="#i-patch"/></svg></span><b>Point repairs</b><span>One damaged spot relined, the rest of the pipe left as it is.</span><svg class="ws-svc__go"><use href="#i-arrow"/></svg></a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ======================= 04 PROJECTS IN THIS CITY ======================= -->
-<section class="section bg--white" aria-labelledby="jobs-title">
-  <div class="container">
-    <div class="head head--row">
-      <div class="head__main">
-        <span class="eyebrow">Projects in Spokane Valley</span>
-        <h2 id="jobs-title">Recent work <span class="serif">near you.</span></h2>
-      </div>
-      <a class="link-arrow" href="projects.html">All projects</a>
-    </div>
-    <p class="city-note"><span class="tbc">Live template: shows projects whose location is Spokane Valley; if there are none yet, the newest projects. Locations are not set on the projects yet.</span></p>
-    <ul class="pcards">
-      <li class="pcard">
-        <figure class="pcard__media"><img src="assets/job-during.jpg" alt="Small access pit dug in a front lawn during a trenchless repair"></figure>
-        <div class="pcard__body"><span class="pcard__tag">Sewer line</span><h3 class="pcard__title">One small pit.</h3><p>Front-yard sewer repair through a single access pit, with the lawn put back.</p></div>
-      </li>
-      <li class="pcard">
-        <figure class="pcard__media"><img src="assets/job-access-pit.jpg" alt="A shored access pit in a front lawn"></figure>
-        <div class="pcard__body"><span class="pcard__tag">Sewer line</span><h3 class="pcard__title">A deep pit, shored.</h3><p>A deep, shored access pit, the new pipe connected, and the lawn put back.</p></div>
-      </li>
-      <li class="pcard">
-        <figure class="pcard__media"><img src="assets/job-waterline.jpg" alt="Access pit with the new blue water line next to the meter box"></figure>
-        <div class="pcard__body"><span class="pcard__tag">Water line</span><h3 class="pcard__title">Water line pull.</h3><p>New water line pulled through a small access pit at the meter.</p></div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ======================= 05 REVIEWS FROM THIS CITY ======================= -->
+<!-- ======================= 03 REVIEWS ======================= -->
 <section class="section quotes bg--ink grain">
   <div class="container">
     <div class="head">
-      <span class="eyebrow">Reviews from Spokane Valley</span>
-      <h2>What your neighbors <span class="serif">say.</span></h2>
+      <span class="eyebrow">Reviews</span>
+      <h2>What customers <span class="serif">say.</span></h2>
     </div>
     <div class="quotes__grid">
-      <figure class="review"><span class="stars" aria-label="5 stars">★★★★★</span><blockquote><span class="tbc">Real Google review from a Spokane Valley customer (live template: reviews whose city is Spokane Valley).</span></blockquote><figcaption><span class="review__av">A</span><span><b class="tbc">Name</b><small>Spokane Valley · Google review</small></span></figcaption></figure>
+      <figure class="review"><span class="stars" aria-label="5 stars">★★★★★</span><blockquote><span class="tbc">Real Google review (live template: reviews whose city is Spokane Valley, or the newest reviews).</span></blockquote><figcaption><span class="review__av">A</span><span><b class="tbc">Name</b><small>Spokane Valley · Google review</small></span></figcaption></figure>
       <figure class="review"><span class="stars" aria-label="5 stars">★★★★★</span><blockquote><span class="tbc">Real Google review.</span></blockquote><figcaption><span class="review__av">B</span><span><b class="tbc">Name</b><small>Spokane Valley · Google review</small></span></figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= 06 FAQ ======================= -->
-<section class="section faq bg--white">
-  <div class="container">
-    <div class="faq__grid">
-      <div class="faq__aside">
-        <span class="eyebrow">Spokane Valley FAQ</span>
-        <h2>Straight <span class="serif">answers.</span></h2>
-        <p>Answers come from Mike. Drafts are marked until he confirms them.</p>
-        <a class="btn btn--ghost" href="tel:5099532036"><svg><use href="#i-phone"/></svg>509-953-2036</a>
-      </div>
-      <div class="faq__list">
-        <details class="faq__item" open><summary>Do you work everywhere in Spokane Valley?</summary><div class="faq__answer"><p>Yes, Spokane Valley is one of our core service areas, along with Spokane, Deer Park, Clayton and Stevens and Spokane counties. <span class="tbc">Any parts of the city Mike doesn't cover.</span></p></div></details>
-        <details class="faq__item"><summary>How soon can you come out to Spokane Valley?</summary><div class="faq__answer"><p><span class="tbc">Typical wait for a camera inspection, and how emergencies are handled.</span></p></div></details>
-        <details class="faq__item"><summary>Do I need a permit in Spokane Valley?</summary><div class="faq__answer"><p><span class="tbc">Which permits apply in Spokane Valley, and whether PNW Trenchless pulls them.</span></p></div></details>
-        <details class="faq__item"><summary>Do you charge a trip fee to Spokane Valley?</summary><div class="faq__answer"><p><span class="tbc">Yes / no.</span></p></div></details>
-        <details class="faq__item"><summary>Is my sewer line my responsibility or the city's?</summary><div class="faq__answer"><p><span class="tbc">Where the homeowner's side ends in Spokane Valley (property line, main, cleanout).</span></p></div></details>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= 07 OTHER AREAS ======================= -->
-<section class="section bg--stone" aria-labelledby="areas-title">
-  <div class="container">
-    <div class="city-more">
-      <div>
-        <span class="eyebrow">Other areas we serve</span>
-        <h2 id="areas-title">Across Spokane <span class="serif">&amp; Stevens counties.</span></h2>
-      </div>
-      <ul class="city-list city-list--more">
-        <li><a href="#">Spokane <small>Metro</small></a></li>
-        <li><a href="#">Deer Park <small>North</small></a></li>
-        <li><a href="#">Clayton <small>Home base</small></a></li>
-        <li><a href="#">Stevens County <small>North</small></a></li>
-        <li><a href="#">Spokane County <small>+ nearby</small></a></li>
-      </ul>
     </div>
   </div>
 </section>
@@ -1359,7 +1402,7 @@ h1 .serif, h2 .serif { font-size: inherit; }
     <div class="estimate__grid">
       <div class="estimate__text">
         <span class="eyebrow">Free camera estimate</span>
-        <h2>Get a quote in <span class="serif">Spokane Valley.</span></h2>
+        <h2>Get a <span class="serif">true and honest</span> quote.</h2>
         <p>Start with a camera inspection. You'll see what we see before you decide anything.</p>
         <a class="bigphone" href="tel:5099532036"><small>Call or text now</small><b>509-953-2036</b><span>Send a photo or video of the problem if you can.</span></a>
         <ol class="next">
