@@ -727,7 +727,11 @@ c("rating", """
 %root% .link-arrow { margin-top: auto; }
 """)
 c("rating__num", "%root% { font-family: var(--heading-font-family); font-weight: 900; font-size: calc(var(--h2) * 1.75); line-height: .9; letter-spacing: -.05em; }")
-c("stars", "%root% { color: var(--accent); letter-spacing: .12em; font-size: var(--text-l); line-height: 1; }")
+c("stars", """
+%root% { color: var(--accent); letter-spacing: .12em; font-size: var(--text-l); line-height: 1; }
+%root%[data-rating="1"] { --pnw-stars: 20%; } %root%[data-rating="2"] { --pnw-stars: 40%; } %root%[data-rating="3"] { --pnw-stars: 60%; } %root%[data-rating="4"] { --pnw-stars: 80%; }
+%root%[data-rating="1"], %root%[data-rating="2"], %root%[data-rating="3"], %root%[data-rating="4"] { background: linear-gradient(90deg, var(--accent) var(--pnw-stars), var(--white-trans-20) var(--pnw-stars)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+""")
 c("review-row", f"""
 %root% {{ display: grid; grid-auto-flow: column; grid-auto-columns: minmax(18em, 1fr); gap: var(--space-m); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: var(--space-xs); scrollbar-width: thin; scrollbar-color: var(--base-light) transparent; }}
 {P} {{ %root% {{ grid-auto-columns: 85%; }} }}
@@ -737,7 +741,9 @@ c("review", """
 """)
 c("review__quote", "%root% { margin: 0; padding: 0; border: 0; font-family: var(--pnw-font-serif); font-size: calc(var(--h4) * 1.26); line-height: 1.3; color: var(--text-light); }")
 c("review__by", "%root% { margin-top: auto; display: flex; flex-direction: row; align-items: center; gap: .75em; font-size: var(--text-s); }")
-c("review__av", "%root% { width: 2.6em; height: 2.6em; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--secondary); color: var(--white); font-weight: 800; flex: none; }")
+c("review__av", "%root% { width: 2.6em; height: 2.6em; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--secondary); color: var(--white); font-weight: 800; flex: none; overflow: hidden; }")
+c("review__initial", "%root% { display: block; font-size: 0; line-height: 1; text-transform: uppercase; }\n%root%::first-letter { font-size: var(--text-s); }")
+c("review__author", "%root% { font-weight: 700; color: var(--text-light); }")
 c("review__name", "%root% { display: flex; flex-direction: column; }")
 c("review__meta", "%root% { color: var(--text-light-muted); font-size: var(--text-xs); }")
 c("assure", f"""

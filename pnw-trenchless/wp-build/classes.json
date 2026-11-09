@@ -1006,7 +1006,7 @@
  },
  {
   "name": "stars",
-  "css": "%root% { color: var(--accent); letter-spacing: .12em; font-size: var(--text-l); line-height: 1; }",
+  "css": "%root% { color: var(--accent); letter-spacing: .12em; font-size: var(--text-l); line-height: 1; }\n%root%[data-rating=\"1\"] { --pnw-stars: 20%; } %root%[data-rating=\"2\"] { --pnw-stars: 40%; } %root%[data-rating=\"3\"] { --pnw-stars: 60%; } %root%[data-rating=\"4\"] { --pnw-stars: 80%; }\n%root%[data-rating=\"1\"], %root%[data-rating=\"2\"], %root%[data-rating=\"3\"], %root%[data-rating=\"4\"] { background: linear-gradient(90deg, var(--accent) var(--pnw-stars), var(--white-trans-20) var(--pnw-stars)); -webkit-background-clip: text; background-clip: text; color: transparent; }",
   "category": "PNW"
  },
  {
@@ -1031,7 +1031,17 @@
  },
  {
   "name": "review__av",
-  "css": "%root% { width: 2.6em; height: 2.6em; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--secondary); color: var(--white); font-weight: 800; flex: none; }",
+  "css": "%root% { width: 2.6em; height: 2.6em; border-radius: var(--radius-circle); display: grid; place-items: center; background: var(--secondary); color: var(--white); font-weight: 800; flex: none; overflow: hidden; }",
+  "category": "PNW"
+ },
+ {
+  "name": "review__initial",
+  "css": "%root% { display: block; font-size: 0; line-height: 1; text-transform: uppercase; }\n%root%::first-letter { font-size: var(--text-s); }",
+  "category": "PNW"
+ },
+ {
+  "name": "review__author",
+  "css": "%root% { font-weight: 700; color: var(--text-light); }",
   "category": "PNW"
  },
  {

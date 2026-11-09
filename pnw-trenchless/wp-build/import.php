@@ -147,7 +147,9 @@ foreach ( (array) ( $els['pages'] ?? [] ) as $pg ) {
 	$set->execute( [ 'post_id' => $pid, 'area' => 'content', 'elements' => [] ] );
 	$res = [ 'id' => $pid ];
 	foreach ( $pg['sections'] as $s ) {
-		$r = $ins->execute( [ 'post_id' => $pid, 'area' => 'content', 'elements' => $prep( $s['elements'] ) ] );
+		// __POST_ID__ in element settings (e.g. query loop meta values) becomes this post's ID.
+		$list = json_decode( str_replace( '__POST_ID__', (string) $pid, wp_json_encode( $s['elements'] ) ), true );
+		$r = $ins->execute( [ 'post_id' => $pid, 'area' => 'content', 'elements' => $prep( $list ) ] );
 		$res[ $s['key'] ] = is_wp_error( $r ) ? $r->get_error_message() : ( $r['verified'] ? 'ok' : 'mismatch' );
 	}
 	$res['url'] = get_permalink( $pid );

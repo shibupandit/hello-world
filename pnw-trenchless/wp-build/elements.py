@@ -584,14 +584,22 @@ def projects():
     ], sid="projects", label="Projects")
 
 
-def reviews():
-    def review(letter, text):
-        return block("review", [
-            span("★★★★★", "stars", _attributes=attrs(aria_label="5 stars")),
-            t(f'<span class="tbc">{text}</span>', "review__quote", tag="blockquote"),
-            block("review__by", [span(letter, "review__av"), block("review__name", [span('<span class="tbc">Name</span>'), span('<span class="tbc">City</span> · Google review', "review__meta")], tag="span")], tag="figcaption"),
-        ], tag="figure")
+def review_loop(query, label="Review (query loop)"):
+    """One review card, repeated by a Bricks query loop over the Testimonials post type.
+    Content comes from ACF fields: review_text, rating, city, source; the name is the post title."""
+    q = {"objectType": "post", "post_type": ["testimonial"], "orderby": "date", "order": "desc", "no_found_rows": True}
+    q.update(query)
+    return N("block", "review", [
+        span("★★★★★", "stars", _attributes=attrs(role="img", aria_label="{acf_rating} out of 5 stars", data_rating="{acf_rating}")),
+        t("{acf_review_text}", "review__quote", tag="blockquote"),
+        block("review__by", [
+            block("review__av", [span("{post_title}", "review__initial")], tag="span", _attributes=attrs(aria_hidden="true")),
+            block("review__name", [span("{post_title}", "review__author"), span("{acf_city} · {acf_source}", "review__meta")], tag="span"),
+        ], tag="figcaption"),
+    ], label=label, tag="figure", hasLoop=True, query=q)
 
+
+def reviews():
     return section("section section--dark grain", [
         container([
             head("Reviews", 'What Spokane homeowners <span class="serif">say.</span>'),
@@ -603,9 +611,8 @@ def reviews():
                     a("Read them on Google", "#", "link-arrow"),
                 ]),
                 block("review-row", [
-                    review("A", "Real Google review text, ideally mentioning the method and the yard staying intact."),
-                    review("B", "Real Google review text."),
-                    review("C", "Real Google review text."),
+                    review_loop({"posts_per_page": 3, "meta_query": [{"id": "featured", "key": "featured", "value": "1", "compare": "="}]},
+                                label="Featured reviews (loop)"),
                 ]),
             ]),
             block("assure", [

@@ -8473,11 +8473,30 @@
      "parent": "sc000c",
      "settings": {
       "tag": "figure",
+      "hasLoop": true,
+      "query": {
+       "objectType": "post",
+       "post_type": [
+        "testimonial"
+       ],
+       "orderby": "date",
+       "order": "desc",
+       "no_found_rows": true,
+       "posts_per_page": 3,
+       "meta_query": [
+        {
+         "id": "featured",
+         "key": "featured",
+         "value": "1",
+         "compare": "="
+        }
+       ]
+      },
       "_cls": [
        "review"
       ]
      },
-     "label": "review"
+     "label": "Featured reviews (loop)"
     },
     {
      "id": "sc000e",
@@ -8488,8 +8507,16 @@
       "tag": "span",
       "_attributes": [
        {
+        "name": "role",
+        "value": "img"
+       },
+       {
         "name": "aria-label",
-        "value": "5 stars"
+        "value": "{acf_rating} out of 5 stars"
+       },
+       {
+        "name": "data-rating",
+        "value": "{acf_rating}"
        }
       ],
       "_cls": [
@@ -8503,7 +8530,7 @@
      "name": "text-basic",
      "parent": "sc000d",
      "settings": {
-      "text": "<span class=\"tbc\">Real Google review text, ideally mentioning the method and the yard staying intact.</span>",
+      "text": "{acf_review_text}",
       "tag": "custom",
       "customTag": "blockquote",
       "_cls": [
@@ -8527,11 +8554,17 @@
     },
     {
      "id": "sc0011",
-     "name": "text-basic",
+     "name": "block",
      "parent": "sc0010",
      "settings": {
-      "text": "A",
-      "tag": "span",
+      "_attributes": [
+       {
+        "name": "aria-hidden",
+        "value": "true"
+       }
+      ],
+      "tag": "custom",
+      "customTag": "span",
       "_cls": [
        "review__av"
       ]
@@ -8540,6 +8573,19 @@
     },
     {
      "id": "sc0012",
+     "name": "text-basic",
+     "parent": "sc0011",
+     "settings": {
+      "text": "{post_title}",
+      "tag": "span",
+      "_cls": [
+       "review__initial"
+      ]
+     },
+     "label": "review__initial"
+    },
+    {
+     "id": "sc0013",
      "name": "block",
      "parent": "sc0010",
      "settings": {
@@ -8552,241 +8598,33 @@
      "label": "review__name"
     },
     {
-     "id": "sc0013",
-     "name": "text-basic",
-     "parent": "sc0012",
-     "settings": {
-      "text": "<span class=\"tbc\">Name</span>",
-      "tag": "span"
-     }
-    },
-    {
      "id": "sc0014",
      "name": "text-basic",
-     "parent": "sc0012",
+     "parent": "sc0013",
      "settings": {
-      "text": "<span class=\"tbc\">City</span> · Google review",
+      "text": "{post_title}",
       "tag": "span",
       "_cls": [
-       "review__meta"
+       "review__author"
       ]
      },
-     "label": "review__meta"
+     "label": "review__author"
     },
     {
      "id": "sc0015",
-     "name": "block",
-     "parent": "sc000c",
+     "name": "text-basic",
+     "parent": "sc0013",
      "settings": {
-      "tag": "figure",
+      "text": "{acf_city} · {acf_source}",
+      "tag": "span",
       "_cls": [
-       "review"
+       "review__meta"
       ]
      },
-     "label": "review"
+     "label": "review__meta"
     },
     {
      "id": "sc0016",
-     "name": "text-basic",
-     "parent": "sc0015",
-     "settings": {
-      "text": "★★★★★",
-      "tag": "span",
-      "_attributes": [
-       {
-        "name": "aria-label",
-        "value": "5 stars"
-       }
-      ],
-      "_cls": [
-       "stars"
-      ]
-     },
-     "label": "stars"
-    },
-    {
-     "id": "sc0017",
-     "name": "text-basic",
-     "parent": "sc0015",
-     "settings": {
-      "text": "<span class=\"tbc\">Real Google review text.</span>",
-      "tag": "custom",
-      "customTag": "blockquote",
-      "_cls": [
-       "review__quote"
-      ]
-     },
-     "label": "review__quote"
-    },
-    {
-     "id": "sc0018",
-     "name": "block",
-     "parent": "sc0015",
-     "settings": {
-      "tag": "custom",
-      "customTag": "figcaption",
-      "_cls": [
-       "review__by"
-      ]
-     },
-     "label": "review__by"
-    },
-    {
-     "id": "sc0019",
-     "name": "text-basic",
-     "parent": "sc0018",
-     "settings": {
-      "text": "B",
-      "tag": "span",
-      "_cls": [
-       "review__av"
-      ]
-     },
-     "label": "review__av"
-    },
-    {
-     "id": "sc001a",
-     "name": "block",
-     "parent": "sc0018",
-     "settings": {
-      "tag": "custom",
-      "customTag": "span",
-      "_cls": [
-       "review__name"
-      ]
-     },
-     "label": "review__name"
-    },
-    {
-     "id": "sc001b",
-     "name": "text-basic",
-     "parent": "sc001a",
-     "settings": {
-      "text": "<span class=\"tbc\">Name</span>",
-      "tag": "span"
-     }
-    },
-    {
-     "id": "sc001c",
-     "name": "text-basic",
-     "parent": "sc001a",
-     "settings": {
-      "text": "<span class=\"tbc\">City</span> · Google review",
-      "tag": "span",
-      "_cls": [
-       "review__meta"
-      ]
-     },
-     "label": "review__meta"
-    },
-    {
-     "id": "sc001d",
-     "name": "block",
-     "parent": "sc000c",
-     "settings": {
-      "tag": "figure",
-      "_cls": [
-       "review"
-      ]
-     },
-     "label": "review"
-    },
-    {
-     "id": "sc001e",
-     "name": "text-basic",
-     "parent": "sc001d",
-     "settings": {
-      "text": "★★★★★",
-      "tag": "span",
-      "_attributes": [
-       {
-        "name": "aria-label",
-        "value": "5 stars"
-       }
-      ],
-      "_cls": [
-       "stars"
-      ]
-     },
-     "label": "stars"
-    },
-    {
-     "id": "sc001f",
-     "name": "text-basic",
-     "parent": "sc001d",
-     "settings": {
-      "text": "<span class=\"tbc\">Real Google review text.</span>",
-      "tag": "custom",
-      "customTag": "blockquote",
-      "_cls": [
-       "review__quote"
-      ]
-     },
-     "label": "review__quote"
-    },
-    {
-     "id": "sc0020",
-     "name": "block",
-     "parent": "sc001d",
-     "settings": {
-      "tag": "custom",
-      "customTag": "figcaption",
-      "_cls": [
-       "review__by"
-      ]
-     },
-     "label": "review__by"
-    },
-    {
-     "id": "sc0021",
-     "name": "text-basic",
-     "parent": "sc0020",
-     "settings": {
-      "text": "C",
-      "tag": "span",
-      "_cls": [
-       "review__av"
-      ]
-     },
-     "label": "review__av"
-    },
-    {
-     "id": "sc0022",
-     "name": "block",
-     "parent": "sc0020",
-     "settings": {
-      "tag": "custom",
-      "customTag": "span",
-      "_cls": [
-       "review__name"
-      ]
-     },
-     "label": "review__name"
-    },
-    {
-     "id": "sc0023",
-     "name": "text-basic",
-     "parent": "sc0022",
-     "settings": {
-      "text": "<span class=\"tbc\">Name</span>",
-      "tag": "span"
-     }
-    },
-    {
-     "id": "sc0024",
-     "name": "text-basic",
-     "parent": "sc0022",
-     "settings": {
-      "text": "<span class=\"tbc\">City</span> · Google review",
-      "tag": "span",
-      "_cls": [
-       "review__meta"
-      ]
-     },
-     "label": "review__meta"
-    },
-    {
-     "id": "sc0025",
      "name": "block",
      "parent": "sc0002",
      "settings": {
@@ -8797,9 +8635,9 @@
      "label": "assure"
     },
     {
-     "id": "sc0026",
+     "id": "sc0017",
      "name": "block",
-     "parent": "sc0025",
+     "parent": "sc0016",
      "settings": {
       "_cls": [
        "assure__item"
@@ -8808,9 +8646,9 @@
      "label": "assure__item"
     },
     {
-     "id": "sc0027",
+     "id": "sc0018",
      "name": "svg",
-     "parent": "sc0026",
+     "parent": "sc0017",
      "settings": {
       "file": {
        "__media": "icon-shield.svg"
@@ -8818,9 +8656,9 @@
      }
     },
     {
-     "id": "sc0028",
+     "id": "sc0019",
      "name": "heading",
-     "parent": "sc0026",
+     "parent": "sc0017",
      "settings": {
       "text": "<span class=\"tbc\">X</span>-year warranty on every repair",
       "tag": "h3",
@@ -8831,18 +8669,18 @@
      "label": "assure__title"
     },
     {
-     "id": "sc0029",
+     "id": "sc001a",
      "name": "text-basic",
-     "parent": "sc0026",
+     "parent": "sc0017",
      "settings": {
       "text": "<span class=\"tbc\">What's covered: materials and workmanship, transferable if you sell?</span>",
       "tag": "p"
      }
     },
     {
-     "id": "sc002a",
+     "id": "sc001b",
      "name": "block",
-     "parent": "sc0025",
+     "parent": "sc0016",
      "settings": {
       "_cls": [
        "assure__item"
@@ -8851,9 +8689,9 @@
      "label": "assure__item"
     },
     {
-     "id": "sc002b",
+     "id": "sc001c",
      "name": "svg",
-     "parent": "sc002a",
+     "parent": "sc001b",
      "settings": {
       "file": {
        "__media": "icon-card.svg"
@@ -8861,9 +8699,9 @@
      }
     },
     {
-     "id": "sc002c",
+     "id": "sc001d",
      "name": "heading",
-     "parent": "sc002a",
+     "parent": "sc001b",
      "settings": {
       "text": "Sewer emergencies don't wait for payday",
       "tag": "h3",
@@ -8874,9 +8712,9 @@
      "label": "assure__title"
     },
     {
-     "id": "sc002d",
+     "id": "sc001e",
      "name": "text-basic",
-     "parent": "sc002a",
+     "parent": "sc001b",
      "settings": {
       "text": "<span class=\"tbc\">Financing partner, terms and apply link (if offered).</span>",
       "tag": "p"
@@ -14586,11 +14424,30 @@
        "parent": "l90006",
        "settings": {
         "tag": "figure",
+        "hasLoop": true,
+        "query": {
+         "objectType": "post",
+         "post_type": [
+          "testimonial"
+         ],
+         "orderby": "date",
+         "order": "desc",
+         "no_found_rows": true,
+         "posts_per_page": 2,
+         "meta_query": [
+          {
+           "id": "service",
+           "key": "services",
+           "value": "\"__POST_ID__\"",
+           "compare": "LIKE"
+          }
+         ]
+        },
         "_cls": [
          "review"
         ]
        },
-       "label": "review"
+       "label": "Lining reviews (loop)"
       },
       {
        "id": "l90008",
@@ -14601,8 +14458,16 @@
         "tag": "span",
         "_attributes": [
          {
+          "name": "role",
+          "value": "img"
+         },
+         {
           "name": "aria-label",
-          "value": "5 stars"
+          "value": "{acf_rating} out of 5 stars"
+         },
+         {
+          "name": "data-rating",
+          "value": "{acf_rating}"
          }
         ],
         "_cls": [
@@ -14616,7 +14481,7 @@
        "name": "text-basic",
        "parent": "l90007",
        "settings": {
-        "text": "<span class=\"tbc\">Real Google review that mentions lining or no digging.</span>",
+        "text": "{acf_review_text}",
         "tag": "custom",
         "customTag": "blockquote",
         "_cls": [
@@ -14640,11 +14505,17 @@
       },
       {
        "id": "l9000b",
-       "name": "text-basic",
+       "name": "block",
        "parent": "l9000a",
        "settings": {
-        "text": "A",
-        "tag": "span",
+        "_attributes": [
+         {
+          "name": "aria-hidden",
+          "value": "true"
+         }
+        ],
+        "tag": "custom",
+        "customTag": "span",
         "_cls": [
          "review__av"
         ]
@@ -14653,6 +14524,19 @@
       },
       {
        "id": "l9000c",
+       "name": "text-basic",
+       "parent": "l9000b",
+       "settings": {
+        "text": "{post_title}",
+        "tag": "span",
+        "_cls": [
+         "review__initial"
+        ]
+       },
+       "label": "review__initial"
+      },
+      {
+       "id": "l9000d",
        "name": "block",
        "parent": "l9000a",
        "settings": {
@@ -14665,126 +14549,24 @@
        "label": "review__name"
       },
       {
-       "id": "l9000d",
-       "name": "text-basic",
-       "parent": "l9000c",
-       "settings": {
-        "text": "<span class=\"tbc\">Name</span>",
-        "tag": "span"
-       }
-      },
-      {
        "id": "l9000e",
        "name": "text-basic",
-       "parent": "l9000c",
+       "parent": "l9000d",
        "settings": {
-        "text": "<span class=\"tbc\">City</span> · Google review",
+        "text": "{post_title}",
         "tag": "span",
         "_cls": [
-         "review__meta"
+         "review__author"
         ]
        },
-       "label": "review__meta"
+       "label": "review__author"
       },
       {
        "id": "l9000f",
-       "name": "block",
-       "parent": "l90006",
-       "settings": {
-        "tag": "figure",
-        "_cls": [
-         "review"
-        ]
-       },
-       "label": "review"
-      },
-      {
-       "id": "l90010",
        "name": "text-basic",
-       "parent": "l9000f",
+       "parent": "l9000d",
        "settings": {
-        "text": "★★★★★",
-        "tag": "span",
-        "_attributes": [
-         {
-          "name": "aria-label",
-          "value": "5 stars"
-         }
-        ],
-        "_cls": [
-         "stars"
-        ]
-       },
-       "label": "stars"
-      },
-      {
-       "id": "l90011",
-       "name": "text-basic",
-       "parent": "l9000f",
-       "settings": {
-        "text": "<span class=\"tbc\">Real Google review.</span>",
-        "tag": "custom",
-        "customTag": "blockquote",
-        "_cls": [
-         "review__quote"
-        ]
-       },
-       "label": "review__quote"
-      },
-      {
-       "id": "l90012",
-       "name": "block",
-       "parent": "l9000f",
-       "settings": {
-        "tag": "custom",
-        "customTag": "figcaption",
-        "_cls": [
-         "review__by"
-        ]
-       },
-       "label": "review__by"
-      },
-      {
-       "id": "l90013",
-       "name": "text-basic",
-       "parent": "l90012",
-       "settings": {
-        "text": "B",
-        "tag": "span",
-        "_cls": [
-         "review__av"
-        ]
-       },
-       "label": "review__av"
-      },
-      {
-       "id": "l90014",
-       "name": "block",
-       "parent": "l90012",
-       "settings": {
-        "tag": "custom",
-        "customTag": "span",
-        "_cls": [
-         "review__name"
-        ]
-       },
-       "label": "review__name"
-      },
-      {
-       "id": "l90015",
-       "name": "text-basic",
-       "parent": "l90014",
-       "settings": {
-        "text": "<span class=\"tbc\">Name</span>",
-        "tag": "span"
-       }
-      },
-      {
-       "id": "l90016",
-       "name": "text-basic",
-       "parent": "l90014",
-       "settings": {
-        "text": "<span class=\"tbc\">City</span> · Google review",
+        "text": "{acf_city} · {acf_source}",
         "tag": "span",
         "_cls": [
          "review__meta"

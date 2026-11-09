@@ -5,7 +5,7 @@ site-wide Bricks templates (101 / 102), so this file only builds the page conten
 Unknown facts stay as `tbc` placeholders; FAQ answers reused from the homepage are drafts.
 """
 from elements import (N, section, container, block, div, h, t, span, a, svg, btn, eyebrow, attrs, link,
-                      head, head_split, estimate, flatten, TEL, PHONE)
+                      head, head_split, estimate, flatten, review_loop, TEL, PHONE)
 
 HOME = "/"
 
@@ -217,17 +217,10 @@ def jobs():
 
 
 def quotes():
-    def review(letter, text):
-        return block("review", [
-            span("★★★★★", "stars", _attributes=attrs(aria_label="5 stars")),
-            t(tbc(text), "review__quote", tag="blockquote"),
-            block("review__by", [span(letter, "review__av"), block("review__name", [span(tbc("Name")), span(f"{tbc('City')} · Google review", "review__meta")], tag="span")], tag="figcaption"),
-        ], tag="figure")
-
     return section("section section--dark grain", [
         container([
             head("Reviews that mention lining", 'What lining customers <span class="serif">say.</span>'),
-            block("quotes__grid", [review("A", "Real Google review that mentions lining or no digging."), review("B", "Real Google review.")]),
+            block("quotes__grid", [review_loop({"posts_per_page": 2, "meta_query": [{"id": "service", "key": "services", "value": '"__POST_ID__"', "compare": "LIKE"}]}, label="Lining reviews (loop)")]),
         ]),
     ], label="Reviews")
 
