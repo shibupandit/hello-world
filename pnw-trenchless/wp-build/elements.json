@@ -63,7 +63,7 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "mailto:info@pnwtrenchless.com"
+     "url": "mailto:{acf_site_email}"
     },
     "_cls": [
      "topbar__link"
@@ -90,7 +90,7 @@
    "name": "text-basic",
    "parent": "h00006",
    "settings": {
-    "text": "info@pnwtrenchless.com",
+    "text": "{acf_site_email}",
     "tag": "span"
    }
   },
@@ -332,8 +332,8 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "tel:5099532036",
-     "ariaLabel": "Call or text 509-953-2036"
+     "url": "tel:{acf_site_phone}",
+     "ariaLabel": "Call or text {acf_site_phone}"
     },
     "_cls": [
      "nav__phone"
@@ -395,7 +395,7 @@
    "name": "text-basic",
    "parent": "h0001c",
    "settings": {
-    "text": "509-953-2036",
+    "text": "{acf_site_phone}",
     "tag": "span",
     "_cls": [
      "header__phone-num"
@@ -446,7 +446,7 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "mailto:info@pnwtrenchless.com"
+     "url": "mailto:{acf_site_email}"
     },
     "_cls": [
      "topbar__link"
@@ -473,7 +473,7 @@
    "name": "text-basic",
    "parent": "h00021",
    "settings": {
-    "text": "info@pnwtrenchless.com",
+    "text": "{acf_site_email}",
     "tag": "span"
    }
   },
@@ -563,8 +563,8 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "tel:5099532036",
-     "ariaLabel": "Call or text 509-953-2036"
+     "url": "tel:{acf_site_phone}",
+     "ariaLabel": "Call or text {acf_site_phone}"
     },
     "_cls": [
      "header__phone"
@@ -626,7 +626,7 @@
    "name": "text-basic",
    "parent": "h0002d",
    "settings": {
-    "text": "509-953-2036",
+    "text": "{acf_site_phone}",
     "tag": "span",
     "_cls": [
      "header__phone-num"
@@ -739,8 +739,19 @@
    "name": "text-basic",
    "parent": "f00004",
    "settings": {
-    "text": "<span class=\"tbc\">Address or service-area business</span>, Clayton, WA",
-    "tag": "span"
+    "text": "{acf_site_address}",
+    "tag": "span",
+    "_conditions": [
+     [
+      {
+       "id": "caddrn",
+       "key": "dynamic_data",
+       "compare": "!=",
+       "value": "",
+       "dynamic_data": "{acf_site_address}"
+      }
+     ]
+    ]
    }
   },
   {
@@ -748,10 +759,10 @@
    "name": "text-link",
    "parent": "f00004",
    "settings": {
-    "text": "509-953-2036",
+    "text": "{acf_site_phone}",
     "link": {
      "type": "external",
-     "url": "tel:5099532036"
+     "url": "tel:{acf_site_phone}"
     },
     "_cls": [
      "footer__phone"
@@ -764,10 +775,10 @@
    "name": "text-link",
    "parent": "f00004",
    "settings": {
-    "text": "info@pnwtrenchless.com",
+    "text": "{acf_site_email}",
     "link": {
      "type": "external",
-     "url": "mailto:info@pnwtrenchless.com"
+     "url": "mailto:{acf_site_email}"
     }
    }
   },
@@ -819,7 +830,7 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "mailto:info@pnwtrenchless.com",
+     "url": "mailto:{acf_site_email}",
      "ariaLabel": "Email PNW Trenchless"
     },
     "_cls": [
@@ -846,7 +857,7 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "sms:5099532036",
+     "url": "sms:{acf_site_phone}",
      "ariaLabel": "Text PNW Trenchless"
     },
     "_cls": [
@@ -1122,9 +1133,24 @@
    "name": "text-basic",
    "parent": "f00020",
    "settings": {
-    "text": "<span class=\"tbc\">Hours</span>",
-    "tag": "span"
-   }
+    "text": "{acf_site_hours}",
+    "tag": "span",
+    "_conditions": [
+     [
+      {
+       "id": "chourn",
+       "key": "dynamic_data",
+       "compare": "!=",
+       "value": "",
+       "dynamic_data": "{acf_site_hours}"
+      }
+     ]
+    ],
+    "_cls": [
+     "footer__hours"
+    ]
+   },
+   "label": "footer__hours"
   },
   {
    "id": "f00028",
@@ -1236,7 +1262,7 @@
     "text": "Call / Text",
     "link": {
      "type": "external",
-     "url": "sms:5099532036"
+     "url": "sms:{acf_site_phone}"
     },
     "icon": {
      "library": "svg",
@@ -1357,8 +1383,19 @@
      "name": "text-basic",
      "parent": "s00007",
      "settings": {
-      "text": "<span class=\"tbc\">X.X</span> ★★★★★ on Google",
+      "text": "{acf_site_google_rating} ★★★★★ on Google",
       "tag": "span",
+      "_conditions": [
+       [
+        {
+         "id": "cgoogn",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_site_google_rating}"
+        }
+       ]
+      ],
       "_cls": [
        "chip"
       ]
@@ -1463,7 +1500,7 @@
       "text": "Text a Photo of the Problem",
       "link": {
        "type": "external",
-       "url": "sms:5099532036"
+       "url": "sms:{acf_site_phone}"
       },
       "icon": {
        "library": "svg",
@@ -7511,7 +7548,7 @@
      "name": "text-basic",
      "parent": "sa000a",
      "settings": {
-      "text": "Clayton, WA · Est. <span class=\"tbc\">2025</span>",
+      "text": "{acf_site_address} · Est. <span class=\"tbc\">2025</span>",
       "tag": "span",
       "_cls": [
        "mike__est"
@@ -7718,7 +7755,7 @@
      "name": "text-basic",
      "parent": "sa001e",
      "settings": {
-      "text": "Lives and works locally in Clayton, WA",
+      "text": "Lives and works locally in {acf_site_address}",
       "tag": "span"
      }
     },
@@ -8404,8 +8441,19 @@
      "name": "text-basic",
      "parent": "sc0007",
      "settings": {
-      "text": "<span class=\"tbc\">X.X</span>",
+      "text": "{acf_site_google_rating}",
       "tag": "span",
+      "_conditions": [
+       [
+        {
+         "id": "cgoogn",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_site_google_rating}"
+        }
+       ]
+      ],
       "_cls": [
        "rating__num"
       ]
@@ -8414,6 +8462,30 @@
     },
     {
      "id": "sc0009",
+     "name": "text-basic",
+     "parent": "sc0007",
+     "settings": {
+      "text": "<span class=\"tbc\">X.X</span>",
+      "tag": "span",
+      "_conditions": [
+       [
+        {
+         "id": "cgooge",
+         "key": "dynamic_data",
+         "compare": "==",
+         "value": "",
+         "dynamic_data": "{acf_site_google_rating}"
+        }
+       ]
+      ],
+      "_cls": [
+       "rating__num"
+      ]
+     },
+     "label": "rating__num"
+    },
+    {
+     "id": "sc000a",
      "name": "text-basic",
      "parent": "sc0007",
      "settings": {
@@ -8432,24 +8504,68 @@
      "label": "stars"
     },
     {
-     "id": "sc000a",
+     "id": "sc000b",
      "name": "text-basic",
      "parent": "sc0007",
      "settings": {
-      "text": "Average from <span class=\"tbc\">N</span> Google reviews",
-      "tag": "p"
+      "text": "Average from {acf_site_google_review_count} Google reviews",
+      "tag": "p",
+      "_conditions": [
+       [
+        {
+         "id": "cgoogn",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_site_google_review_count}"
+        }
+       ]
+      ]
      }
     },
     {
-     "id": "sc000b",
+     "id": "sc000c",
+     "name": "text-basic",
+     "parent": "sc0007",
+     "settings": {
+      "text": "Average Google rating",
+      "tag": "p",
+      "_conditions": [
+       [
+        {
+         "id": "cgooge",
+         "key": "dynamic_data",
+         "compare": "==",
+         "value": "",
+         "dynamic_data": "{acf_site_google_review_count}"
+        }
+       ]
+      ]
+     }
+    },
+    {
+     "id": "sc000d",
      "name": "text-link",
      "parent": "sc0007",
      "settings": {
       "text": "Read them on Google",
       "link": {
        "type": "external",
-       "url": "#"
+       "url": "{acf_site_google_url}",
+       "newTab": true,
+       "rel": "noopener"
       },
+      "_conditions": [
+       [
+        {
+         "id": "cgoogn",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_site_google_url}"
+        }
+       ]
+      ],
       "_cls": [
        "link-arrow"
       ]
@@ -8457,7 +8573,7 @@
      "label": "link-arrow"
     },
     {
-     "id": "sc000c",
+     "id": "sc000e",
      "name": "block",
      "parent": "sc0006",
      "settings": {
@@ -8468,9 +8584,9 @@
      "label": "review-row"
     },
     {
-     "id": "sc000d",
+     "id": "sc000f",
      "name": "block",
-     "parent": "sc000c",
+     "parent": "sc000e",
      "settings": {
       "tag": "figure",
       "hasLoop": true,
@@ -8499,9 +8615,9 @@
      "label": "Featured reviews (loop)"
     },
     {
-     "id": "sc000e",
+     "id": "sc0010",
      "name": "text-basic",
-     "parent": "sc000d",
+     "parent": "sc000f",
      "settings": {
       "text": "★★★★★",
       "tag": "span",
@@ -8526,9 +8642,9 @@
      "label": "stars"
     },
     {
-     "id": "sc000f",
+     "id": "sc0011",
      "name": "text-basic",
-     "parent": "sc000d",
+     "parent": "sc000f",
      "settings": {
       "text": "{acf_review_text}",
       "tag": "custom",
@@ -8540,9 +8656,9 @@
      "label": "review__quote"
     },
     {
-     "id": "sc0010",
+     "id": "sc0012",
      "name": "block",
-     "parent": "sc000d",
+     "parent": "sc000f",
      "settings": {
       "tag": "custom",
       "customTag": "figcaption",
@@ -8553,9 +8669,9 @@
      "label": "review__by"
     },
     {
-     "id": "sc0011",
+     "id": "sc0013",
      "name": "block",
-     "parent": "sc0010",
+     "parent": "sc0012",
      "settings": {
       "_attributes": [
        {
@@ -8572,9 +8688,9 @@
      "label": "review__av"
     },
     {
-     "id": "sc0012",
+     "id": "sc0014",
      "name": "text-basic",
-     "parent": "sc0011",
+     "parent": "sc0013",
      "settings": {
       "text": "{post_title}",
       "tag": "span",
@@ -8585,9 +8701,9 @@
      "label": "review__initial"
     },
     {
-     "id": "sc0013",
+     "id": "sc0015",
      "name": "block",
-     "parent": "sc0010",
+     "parent": "sc0012",
      "settings": {
       "tag": "custom",
       "customTag": "span",
@@ -8598,9 +8714,9 @@
      "label": "review__name"
     },
     {
-     "id": "sc0014",
+     "id": "sc0016",
      "name": "text-basic",
-     "parent": "sc0013",
+     "parent": "sc0015",
      "settings": {
       "text": "{post_title}",
       "tag": "span",
@@ -8611,9 +8727,9 @@
      "label": "review__author"
     },
     {
-     "id": "sc0015",
+     "id": "sc0017",
      "name": "text-basic",
-     "parent": "sc0013",
+     "parent": "sc0015",
      "settings": {
       "text": "{acf_city} · {acf_source}",
       "tag": "span",
@@ -8624,7 +8740,7 @@
      "label": "review__meta"
     },
     {
-     "id": "sc0016",
+     "id": "sc0018",
      "name": "block",
      "parent": "sc0002",
      "settings": {
@@ -8635,9 +8751,9 @@
      "label": "assure"
     },
     {
-     "id": "sc0017",
+     "id": "sc0019",
      "name": "block",
-     "parent": "sc0016",
+     "parent": "sc0018",
      "settings": {
       "_cls": [
        "assure__item"
@@ -8646,9 +8762,9 @@
      "label": "assure__item"
     },
     {
-     "id": "sc0018",
+     "id": "sc001a",
      "name": "svg",
-     "parent": "sc0017",
+     "parent": "sc0019",
      "settings": {
       "file": {
        "__media": "icon-shield.svg"
@@ -8656,9 +8772,9 @@
      }
     },
     {
-     "id": "sc0019",
+     "id": "sc001b",
      "name": "heading",
-     "parent": "sc0017",
+     "parent": "sc0019",
      "settings": {
       "text": "<span class=\"tbc\">X</span>-year warranty on every repair",
       "tag": "h3",
@@ -8669,18 +8785,18 @@
      "label": "assure__title"
     },
     {
-     "id": "sc001a",
+     "id": "sc001c",
      "name": "text-basic",
-     "parent": "sc0017",
+     "parent": "sc0019",
      "settings": {
       "text": "<span class=\"tbc\">What's covered: materials and workmanship, transferable if you sell?</span>",
       "tag": "p"
      }
     },
     {
-     "id": "sc001b",
+     "id": "sc001d",
      "name": "block",
-     "parent": "sc0016",
+     "parent": "sc0018",
      "settings": {
       "_cls": [
        "assure__item"
@@ -8689,9 +8805,9 @@
      "label": "assure__item"
     },
     {
-     "id": "sc001c",
+     "id": "sc001e",
      "name": "svg",
-     "parent": "sc001b",
+     "parent": "sc001d",
      "settings": {
       "file": {
        "__media": "icon-card.svg"
@@ -8699,9 +8815,9 @@
      }
     },
     {
-     "id": "sc001d",
+     "id": "sc001f",
      "name": "heading",
-     "parent": "sc001b",
+     "parent": "sc001d",
      "settings": {
       "text": "Sewer emergencies don't wait for payday",
       "tag": "h3",
@@ -8712,9 +8828,9 @@
      "label": "assure__title"
     },
     {
-     "id": "sc001e",
+     "id": "sc0020",
      "name": "text-basic",
-     "parent": "sc001b",
+     "parent": "sc001d",
      "settings": {
       "text": "<span class=\"tbc\">Financing partner, terms and apply link (if offered).</span>",
       "tag": "p"
@@ -9170,6 +9286,30 @@
     },
     {
      "id": "sd0027",
+     "name": "text-basic",
+     "parent": "sd0026",
+     "settings": {
+      "text": "{acf_site_google_map_iframe}",
+      "tag": "div",
+      "_conditions": [
+       [
+        {
+         "id": "cgoogn",
+         "key": "dynamic_data",
+         "compare": "!=",
+         "value": "",
+         "dynamic_data": "{acf_site_google_map_iframe}"
+        }
+       ]
+      ],
+      "_cls": [
+       "map__embed"
+      ]
+     },
+     "label": "map__embed"
+    },
+    {
+     "id": "sd0028",
      "name": "svg",
      "parent": "sd0026",
      "settings": {
@@ -9185,16 +9325,38 @@
         "name": "aria-label",
         "value": "Service area map from Clayton south to Spokane and Spokane Valley"
        }
+      ],
+      "_conditions": [
+       [
+        {
+         "id": "cgooge",
+         "key": "dynamic_data",
+         "compare": "==",
+         "value": "",
+         "dynamic_data": "{acf_site_google_map_iframe}"
+        }
+       ]
       ]
      }
     },
     {
-     "id": "sd0028",
+     "id": "sd0029",
      "name": "text-basic",
      "parent": "sd0026",
      "settings": {
       "text": "APPROXIMATE SERVICE AREA · CLAYTON TO SPOKANE METRO",
       "tag": "figcaption",
+      "_conditions": [
+       [
+        {
+         "id": "cgooge",
+         "key": "dynamic_data",
+         "compare": "==",
+         "value": "",
+         "dynamic_data": "{acf_site_google_map_iframe}"
+        }
+       ]
+      ],
       "_cls": [
        "map__caption"
       ]
@@ -9284,10 +9446,10 @@
      "name": "button",
      "parent": "se0004",
      "settings": {
-      "text": "509-953-2036",
+      "text": "{acf_site_phone}",
       "link": {
        "type": "external",
-       "url": "tel:5099532036"
+       "url": "tel:{acf_site_phone}"
       },
       "icon": {
        "library": "svg",
@@ -10113,7 +10275,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "tel:5099532036"
+       "url": "tel:{acf_site_phone}"
       },
       "_cls": [
        "bigphone"
@@ -10139,7 +10301,7 @@
      "name": "text-basic",
      "parent": "sf0009",
      "settings": {
-      "text": "509-953-2036",
+      "text": "{acf_site_phone}",
       "tag": "span",
       "_cls": [
        "bigphone__num"
@@ -10179,7 +10341,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "tel:5099532036"
+       "url": "tel:{acf_site_phone}"
       },
       "_cls": [
        "contact-way"
@@ -10211,7 +10373,7 @@
      "name": "text-basic",
      "parent": "sf000e",
      "settings": {
-      "text": "509-953-2036",
+      "text": "{acf_site_phone}",
       "tag": "span",
       "_cls": [
        "contact-way__note"
@@ -10227,7 +10389,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "sms:5099532036"
+       "url": "sms:{acf_site_phone}"
       },
       "_cls": [
        "contact-way"
@@ -10275,7 +10437,7 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "mailto:info@pnwtrenchless.com?subject=Quote%20request"
+       "url": "mailto:{acf_site_email}?subject=Quote%20request"
       },
       "_cls": [
        "contact-way"
@@ -11234,7 +11396,7 @@
       "text": "Request My Quote",
       "link": {
        "type": "external",
-       "url": "tel:5099532036"
+       "url": "tel:{acf_site_phone}"
       },
       "icon": {
        "library": "svg",
@@ -11521,10 +11683,10 @@
        "name": "button",
        "parent": "l00010",
        "settings": {
-        "text": "Call or text 509-953-2036",
+        "text": "Call or text {acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:5099532036"
+         "url": "tel:{acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -13909,7 +14071,7 @@
        "name": "text-basic",
        "parent": "l70014",
        "settings": {
-        "text": "Family-owned, Clayton, WA",
+        "text": "Family-owned, {acf_site_address}",
         "tag": "span"
        }
       },
@@ -14657,10 +14819,10 @@
        "name": "button",
        "parent": "la0004",
        "settings": {
-        "text": "509-953-2036",
+        "text": "{acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:5099532036"
+         "url": "tel:{acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -15828,7 +15990,7 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "tel:5099532036"
+         "url": "tel:{acf_site_phone}"
         },
         "_cls": [
          "bigphone"
@@ -15854,7 +16016,7 @@
        "name": "text-basic",
        "parent": "lc0009",
        "settings": {
-        "text": "509-953-2036",
+        "text": "{acf_site_phone}",
         "tag": "span",
         "_cls": [
          "bigphone__num"
@@ -16680,7 +16842,7 @@
         "text": "Request My Quote",
         "link": {
          "type": "external",
-         "url": "tel:5099532036"
+         "url": "tel:{acf_site_phone}"
         },
         "icon": {
          "library": "svg",

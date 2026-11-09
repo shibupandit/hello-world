@@ -777,6 +777,8 @@ c("map", """
 @keyframes pnw-map-pulse { 0% { transform: scale(.6); opacity: .9; } 100% { transform: scale(2.6); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { %root% .map__pulse { animation: none; } }
 """)
+c("map__embed", "%root% { display: block; width: 100%; }\n%root% iframe { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border: 0; }")
+c("footer__hours", "%root% { color: var(--text-light-muted); }")
 c("map__caption", "%root% { padding: var(--space-s) var(--space-m); font-size: var(--text-xs); color: var(--text-light-muted); border-top: var(--pnw-border-dark); font-family: var(--pnw-font-mono); letter-spacing: .06em; }")
 
 # --------------------------------------------------------------------------

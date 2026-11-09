@@ -1105,6 +1105,16 @@
   "category": "PNW"
  },
  {
+  "name": "map__embed",
+  "css": "%root% { display: block; width: 100%; }\n%root% iframe { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border: 0; }",
+  "category": "PNW"
+ },
+ {
+  "name": "footer__hours",
+  "css": "%root% { color: var(--text-light-muted); }",
+  "category": "PNW"
+ },
+ {
   "name": "map__caption",
   "css": "%root% { padding: var(--space-s) var(--space-m); font-size: var(--text-xs); color: var(--text-light-muted); border-top: var(--pnw-border-dark); font-family: var(--pnw-font-mono); letter-spacing: .06em; }",
   "category": "PNW"

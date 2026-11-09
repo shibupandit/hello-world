@@ -5,7 +5,7 @@ site-wide Bricks templates (101 / 102), so this file only builds the page conten
 Unknown facts stay as `tbc` placeholders; FAQ answers reused from the homepage are drafts.
 """
 from elements import (N, section, container, block, div, h, t, span, a, svg, btn, eyebrow, attrs, link,
-                      head, head_split, estimate, flatten, review_loop, TEL, PHONE)
+                      head, head_split, estimate, flatten, review_loop, TEL, PHONE, ADDRESS)
 
 HOME = "/"
 
@@ -188,7 +188,7 @@ def owner():
                     block("owner__creds", [
                         block("owner__cred", [svg("icon-shield.svg"), span(tbc("Liner manufacturer certification"))], tag="li"),
                         block("owner__cred", [svg("icon-check.svg"), span("WA Reg. #PNWTRT*744KQ")], tag="li"),
-                        block("owner__cred", [svg("icon-home.svg"), span("Family-owned, Clayton, WA")], tag="li"),
+                        block("owner__cred", [svg("icon-home.svg"), span(f"Family-owned, {ADDRESS}")], tag="li"),
                     ], tag="ul"),
                     a("About Mike", "/#mike", "link-arrow"),
                 ]),

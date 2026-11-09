@@ -8,11 +8,20 @@ Run: python3 elements.py -> writes elements.json
 """
 import json, pathlib
 
-TEL = "tel:5099532036"
-SMS = "sms:5099532036"
-MAIL = "mailto:info@pnwtrenchless.com"
+# Contact details come from the ACF options page "Website Settings" (Bricks dynamic data),
+# so editing them there updates the whole site.
+TEL = "tel:{acf_site_phone}"
+SMS = "sms:{acf_site_phone}"
+MAIL = "mailto:{acf_site_email}"
+EMAIL = "{acf_site_email}"
+ADDRESS = "{acf_site_address}"
+RATING = "{acf_site_google_rating}"
+REVIEWS = "{acf_site_google_review_count}"
+GOOGLE_URL = "{acf_site_google_url}"
+HOURS = "{acf_site_hours}"
+MAP_IFRAME = "{acf_site_google_map_iframe}"
 FB = "https://www.facebook.com/profile.php?id=61589495076554"
-PHONE = "509-953-2036"
+PHONE = "{acf_site_phone}"
 NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/#who"), ("How It Works", "/#how"),
              ("About", "/#mike"), ("Service Areas", "/#areas"), ("Contact", "/#estimate")]
 
@@ -21,6 +30,12 @@ def M(f, **extra):
     d = {"__media": f}
     d.update(extra)
     return d
+
+
+def when(tag, compare="!="):
+    """Bricks element condition: show only when the dynamic tag is (not) empty."""
+    key = tag.strip("{}").replace("acf_site_", "")
+    return {"_conditions": [[{"id": f"c{key[:4]}{'n' if compare == '!=' else 'e'}", "key": "dynamic_data", "compare": compare, "value": "", "dynamic_data": tag}]]}
 
 
 def link(url, new_tab=False, aria=None):
@@ -145,7 +160,7 @@ def header():
             span("Serving Spokane, Spokane Valley, Deer Park, Clayton, Stevens &amp; Spokane County", "topbar__area"),
             block("topbar__links", [
                 span("WA Reg. #PNWTRT*744KQ"),
-                block("topbar__link", [svg("icon-mail.svg", "ico"), span("info@pnwtrenchless.com")], href=MAIL),
+                block("topbar__link", [svg("icon-mail.svg", "ico"), span(EMAIL)], href=MAIL),
                 block("topbar__link", [svg("icon-fb.svg", "ico"), span("Facebook")], href=link(FB, True)),
             ]),
         ]),
@@ -163,7 +178,7 @@ def header():
                         ], href=link(TEL, aria=f"Call or text {PHONE}")),
                         btn("Get a Quote", "/#estimate", "btn--primary nav__quote", icon="icon-arrow.svg"),
                         block("nav__contact", [
-                            block("topbar__link", [svg("icon-mail.svg", "ico"), span("info@pnwtrenchless.com")], href=MAIL),
+                            block("topbar__link", [svg("icon-mail.svg", "ico"), span(EMAIL)], href=MAIL),
                             block("topbar__link", [svg("icon-fb.svg", "ico"), span("Facebook")], href=link(FB, True)),
                         ]),
                         span("Serving Spokane, Spokane Valley, Deer Park, Clayton, Stevens &amp; Spokane County", "nav__area"),
@@ -196,9 +211,9 @@ def footer():
                 block("footer__col", [
                     block("logo logo--footer", [img("logo.png", alt="PNW Trenchless")], href=link("/", aria="PNW Trenchless home")),
                     span("Less digging. Less disruption. Built to last."),
-                    span('<span class="tbc">Address or service-area business</span>, Clayton, WA'),
+                    span(ADDRESS, **when(ADDRESS)),
                     a(PHONE, TEL, "footer__phone"),
-                    a("info@pnwtrenchless.com", MAIL),
+                    a(EMAIL, MAIL),
                     block("social", [
                         block("social__link", [svg("icon-fb.svg")], href=link(FB, True, "PNW Trenchless on Facebook")),
                         block("social__link", [svg("icon-mail.svg")], href=link(MAIL, aria="Email PNW Trenchless")),
@@ -207,7 +222,7 @@ def footer():
                 ]),
                 col("Services", [("Sewer Pipe Lining", "/#services"), ("Pipe Bursting", "/#services"), ("Water Line Pulling", "/#services"), ("Point Repairs", "/#services")]),
                 col("Service Areas", [(x, "/#areas") for x in ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]]),
-                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/#mike"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/#estimate"), span('<span class="tbc">Hours</span>')]),
+                block("footer__col", [h("h2", "Company", "footer__heading"), a("About", "/#mike"), a("Who We Serve", "/#who"), a("Projects", "/#projects"), a("Reviews", "/#reviews"), a("Contact", "/#estimate"), span(HOURS, "footer__hours", **when(HOURS))]),
             ]),
             t("TRENCHLESS", "footer__word", tag="div", _attributes=attrs(aria_hidden="true")),
             block("footer__bottom", [
@@ -255,7 +270,7 @@ def hero():
             block("hero__inner", [
                 block("hero__content", [
                     block("hero__kicker rise", [
-                        span('<span class="tbc">X.X</span> ★★★★★ on Google', "chip"),
+                        span(f"{RATING} ★★★★★ on Google", "chip", **when(RATING)),
                         span("Family-owned · 14+ years · Residential, commercial &amp; industrial"),
                     ]),
                     t("Trenchless sewer &amp; water line repair · Spokane, WA", "hero__seo rise rise--2"),
@@ -516,7 +531,7 @@ def mike():
     creds = [("icon-check.svg", "14+ years in trenchless sewer &amp; water line repair"),
              ("icon-check.svg", '<span class="tbc">Manufacturer certifications</span>'),
              ("icon-shield.svg", "WA Reg. #PNWTRT*744KQ, licensed, bonded &amp; insured"),
-             ("icon-home.svg", "Lives and works locally in Clayton, WA")]
+             ("icon-home.svg", f"Lives and works locally in {ADDRESS}")]
     return section("section section--tint", [
         container([
             block("split split--center split--mike", [
@@ -526,7 +541,7 @@ def mike():
                         block("mike__photo-ph", [svg("icon-photo.svg"), span('<span class="tbc">Portrait: Mike Jeisma in work gear beside the rig</span>')]),
                         block("mike__plate", [
                             block("mike__id", [span("Mike Jeisma", "mike__name"), span("Owner &amp; lead technician", "mike__role")], tag="span"),
-                            span('Clayton, WA · Est. <span class="tbc">2025</span>', "mike__est"),
+                            span(f'{ADDRESS} · Est. <span class="tbc">2025</span>', "mike__est"),
                         ]),
                     ]),
                     img("trailer.jpg", "mike__inset", alt="PNW Trenchless equipment trailer"),
@@ -605,10 +620,12 @@ def reviews():
             head("Reviews", 'What Spokane homeowners <span class="serif">say.</span>'),
             block("reviews__grid", [
                 block("rating", [
-                    span('<span class="tbc">X.X</span>', "rating__num"),
+                    span(RATING, "rating__num", **when(RATING)),
+                    span('<span class="tbc">X.X</span>', "rating__num", **when(RATING, "==")),
                     span("★★★★★", "stars", _attributes=attrs(aria_label="5 stars")),
-                    t('Average from <span class="tbc">N</span> Google reviews'),
-                    a("Read them on Google", "#", "link-arrow"),
+                    t(f"Average from {REVIEWS} Google reviews", **when(REVIEWS)),
+                    t("Average Google rating", **when(REVIEWS, "==")),
+                    a("Read them on Google", link(GOOGLE_URL, True), "link-arrow", **when(GOOGLE_URL)),
                 ]),
                 block("review-row", [
                     review_loop({"posts_per_page": 3, "meta_query": [{"id": "featured", "key": "featured", "value": "1", "compare": "="}]},
@@ -636,8 +653,10 @@ def areas():
                     block("city-list", [block("", [block("city", [span(c), span(n, "city__note")], href="#estimate")], tag="li") for c, n in cities], tag="ul"),
                 ]),
                 block("map", [
-                    svg("art-service-map.svg", _attributes=attrs(role="img", aria_label="Service area map from Clayton south to Spokane and Spokane Valley")),
-                    t("APPROXIMATE SERVICE AREA · CLAYTON TO SPOKANE METRO", "map__caption", tag="figcaption"),
+                    # The Google map embed (Website Settings) replaces the illustrated map when it is filled in.
+                    t(MAP_IFRAME, "map__embed", tag="div", **when(MAP_IFRAME)),
+                    svg("art-service-map.svg", _attributes=attrs(role="img", aria_label="Service area map from Clayton south to Spokane and Spokane Valley"), **when(MAP_IFRAME, "==")),
+                    t("APPROXIMATE SERVICE AREA · CLAYTON TO SPOKANE METRO", "map__caption", tag="figcaption", **when(MAP_IFRAME, "==")),
                 ], tag="figure"),
             ]),
         ]),
