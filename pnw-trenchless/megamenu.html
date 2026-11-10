@@ -1134,19 +1134,34 @@ h1 .serif, h2 .serif { font-size: inherit; }
   .mega__panel { background: transparent; border: 0; border-radius: 0; box-shadow: none; color: var(--text-light); max-width: none; }
   .mega__grid { grid-template-columns: minmax(0, 1fr); }
   .mega__main { padding: 0 0 var(--space-s); gap: 0; }
-  .mega__label, .mega__aside, .mega__note, .mega-card__art, .mega-card__spec { display: none; }
+  .mega__label, .mega__aside, .mega__note, .mega-card__spec, .mega-card__ico { display: none; }
   .mega__cards { grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .header.is-open .nav .mega-card { display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15rem; align-items: center; padding: .7rem 0; border: 0; border-radius: 0; color: var(--white); transform: none; background: none; font-size: 1rem; }
-  .mega-card__ico { grid-row: span 2; width: 52px; height: 52px; border-radius: var(--radius); display: grid; place-items: center; background: rgb(255 255 255 / .08); color: var(--primary-light); }
-  .mega-card__ico svg { width: 32px; height: 32px; }
+  .header.is-open .nav .mega-card { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15rem; align-items: center; padding: .7rem 0; border: 0; border-radius: 0; color: var(--white); transform: none; background: none; font-size: 1rem; }
+  .mega-card__art { grid-row: 1 / span 2; align-self: center; aspect-ratio: 16 / 10 !important; border-radius: 8px; }
   .mega-card__title { padding: 0; font-size: 1.05rem; color: var(--white); }
   .mega-card__title svg { display: none; }
   .mega-card__text { padding: 0; color: var(--text-light-muted); font-size: .85rem; }
-  .mega__foot { background: transparent; border: 0; padding: 0 0 var(--space-s) calc(52px + var(--space-s)); }
+  .mega__foot { background: transparent; border: 0; padding: var(--space-xs) 0 var(--space-s); }
   .header.is-open .nav .mega__links a { padding: .35rem 0; border: 0; font-size: .95rem; color: var(--primary-light); }
 }
 @media (min-width: 1201px) { .mega-card__ico { display: none; } }
 @media (prefers-reduced-motion: reduce) { .mega, .mega-card, .mega-card__art img, .nav__chev { transition: none; } }
+
+/* Who We Serve mega menu (design 2026-11-10): 3 audience cards with a short checklist */
+.mega__cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.aud-mini .mega-card__art { aspect-ratio: 16 / 9; }
+.aud-mini__list { display: flex; flex-direction: column; gap: .3rem; margin-top: .2rem; padding: .6rem .35rem 0; border-top: var(--border); }
+.aud-mini__list span { position: relative; padding-left: 1.35rem; font-size: .82rem; font-weight: 600; line-height: 1.35; color: var(--text-dark); }
+.aud-mini__list span::before { content: ""; position: absolute; left: 0; top: .1rem; width: .9rem; height: .9rem; border-radius: 50%; background: var(--primary-ultra-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A4B' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 65% no-repeat; }
+#megaServe .mega__note { color: var(--text-dark-muted); font-family: var(--mono-font-family); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
+#megaServe .mega__links { gap: var(--space-s) var(--space-m); }
+
+@media (max-width: 1200px) {
+  .mega__cards--3 { grid-template-columns: minmax(0, 1fr); }
+  .aud-mini__list { display: none; }
+  #megaServe .mega__note { display: inline-flex; color: var(--text-light-muted); font-size: .66rem; width: 100%; }
+  #megaServe .mega__foot { flex-direction: column; align-items: flex-start; gap: .4rem; }
+}
 </style>
 </head>
 <body>
@@ -1241,7 +1256,49 @@ h1 .serif, h2 .serif { font-size: inherit; }
           </div>
         </div>
       </div>
-      <a href="who-we-serve.html">Who We Serve</a>
+      <div class="nav__item" id="navServe">
+        <button class="nav__trigger" type="button" aria-expanded="false" aria-controls="megaServe">Who We Serve <svg class="nav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="mega" id="megaServe">
+          <div class="mega__panel">
+            <div class="mega__grid">
+              <div class="mega__main">
+                <span class="mega__label">Homes, businesses and industrial sites</span>
+                <ul class="mega__cards mega__cards--3">
+                  <li><a class="mega-card aud-mini" href="who-we-serve.html#homes">
+                    <span class="mega-card__art"><img src="assets/job-lawn-restored.jpg" alt=""></span>
+                    <span class="mega-card__title">Homeowners <svg><use href="#i-arrow"/></svg></span>
+                    <span class="mega-card__text">Sewer and water lines under lawns, driveways, patios and mature trees.</span>
+                    <span class="aud-mini__list"><span>Sewer lateral lining &amp; bursting</span><span>Water service line pulls</span><span>Camera footage you keep</span></span>
+                  </a></li>
+                  <li><a class="mega-card aud-mini" href="who-we-serve.html#commercial">
+                    <span class="mega-card__art"><img src="assets/job-access-pit.jpg" alt=""></span>
+                    <span class="mega-card__title">Commercial properties <svg><use href="#i-arrow"/></svg></span>
+                    <span class="mega-card__text">Keep your property open and running while we fix the line.</span>
+                    <span class="aud-mini__list"><span>Lines under parking lots &amp; hardscape</span><span>Clear schedule and budget up front</span><span>Lower restoration costs</span></span>
+                  </a></li>
+                  <li><a class="mega-card aud-mini" href="who-we-serve.html#industrial">
+                    <span class="mega-card__art"><img src="assets/job-pipe-connection.jpg" alt=""></span>
+                    <span class="mega-card__title">Industrial &amp; municipal <svg><use href="#i-arrow"/></svg></span>
+                    <span class="mega-card__text">Larger lines and longer runs, documented from evaluation through final testing.</span>
+                    <span class="aud-mini__list"><span>Site and pipe condition evaluation</span><span>Lifecycle cost comparison</span><span>Code and compliance focused</span></span>
+                  </a></li>
+                </ul>
+              </div>
+              <div class="mega__aside">
+                <span class="mega__aside-ico"><svg><use href="#i-building"/></svg></span>
+                <h3>Same honest process, any property</h3>
+                <p>Every job starts with a camera inspection and a written quote, and ends with a final camera run.</p>
+                <a class="mega__phone" href="tel:5099532036"><svg><use href="#i-phone"/></svg>509-953-2036</a>
+                <a class="btn btn--primary" href="contact.html">Get a quote <svg class="arrow"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+            <div class="mega__foot">
+              <span class="mega__note"><svg><use href="#i-home"/></svg>Areas we serve</span>
+              <div class="mega__links"><a href="#">Spokane</a><a href="#">Spokane Valley</a><a href="#">Deer Park</a><a href="#">Clayton</a><a href="#">Stevens County</a><a href="#">Spokane County</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <a href="index.html#how">How It Works</a>
       <a href="about.html">About</a>
       <a href="index.html#areas">Service Areas</a>
@@ -1569,17 +1626,21 @@ h1 .serif, h2 .serif { font-size: inherit; }
 </script>
 <script>
 (function () {
-  /* Services mega menu: hover or focus on desktop, click everywhere, Esc closes */
-  var item = document.getElementById('navServices'), btn = item.querySelector('.nav__trigger'), timer;
+  /* mega menus: hover or focus on desktop, click everywhere, Esc closes; one open at a time */
+  var items = [].slice.call(document.querySelectorAll('.nav__item'));
   var desktop = function () { return window.matchMedia('(min-width: 1201px)').matches; };
-  var set = function (open) { item.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
-  btn.addEventListener('click', function () { set(!item.classList.contains('is-open')); });
-  item.addEventListener('mouseenter', function () { if (desktop()) { clearTimeout(timer); set(true); } });
-  item.addEventListener('mouseleave', function () { if (desktop()) { timer = setTimeout(function () { set(false); }, 180); } });
-  item.addEventListener('focusout', function (e) { if (desktop() && !item.contains(e.relatedTarget)) set(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && item.classList.contains('is-open')) { set(false); btn.focus(); } });
-  document.addEventListener('click', function (e) { if (desktop() && !item.contains(e.target)) set(false); });
-  if (/[?&]open/.test(location.search)) set(true);
+  var set = function (item, open) { item.classList.toggle('is-open', open); item.querySelector('.nav__trigger').setAttribute('aria-expanded', open ? 'true' : 'false'); };
+  items.forEach(function (item) {
+    var btn = item.querySelector('.nav__trigger'), timer;
+    btn.addEventListener('click', function () { var o = !item.classList.contains('is-open'); items.forEach(function (i) { set(i, false); }); set(item, o); });
+    item.addEventListener('mouseenter', function () { if (desktop()) { clearTimeout(timer); items.forEach(function (i) { if (i !== item) set(i, false); }); set(item, true); } });
+    item.addEventListener('mouseleave', function () { if (desktop()) { timer = setTimeout(function () { set(item, false); }, 180); } });
+    item.addEventListener('focusout', function (e) { if (desktop() && !item.contains(e.relatedTarget)) set(item, false); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') items.forEach(function (i) { if (i.classList.contains('is-open')) { set(i, false); i.querySelector('.nav__trigger').focus(); } }); });
+  document.addEventListener('click', function (e) { if (desktop()) items.forEach(function (i) { if (!i.contains(e.target)) set(i, false); }); });
+  if (/[?&]open/.test(location.search)) set(document.getElementById('navServices'), true);
+  if (/[?&]serve/.test(location.search)) set(document.getElementById('navServe'), true);
 })();
 </script>
 </body>

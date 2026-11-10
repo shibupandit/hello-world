@@ -61,16 +61,31 @@
   .mega__panel { background: transparent; border: 0; border-radius: 0; box-shadow: none; color: var(--text-light); max-width: none; }
   .mega__grid { grid-template-columns: minmax(0, 1fr); }
   .mega__main { padding: 0 0 var(--space-s); gap: 0; }
-  .mega__label, .mega__aside, .mega__note, .mega-card__art, .mega-card__spec { display: none; }
+  .mega__label, .mega__aside, .mega__note, .mega-card__spec, .mega-card__ico { display: none; }
   .mega__cards { grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .header.is-open .nav .mega-card { display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15rem; align-items: center; padding: .7rem 0; border: 0; border-radius: 0; color: var(--white); transform: none; background: none; font-size: 1rem; }
-  .mega-card__ico { grid-row: span 2; width: 52px; height: 52px; border-radius: var(--radius); display: grid; place-items: center; background: rgb(255 255 255 / .08); color: var(--primary-light); }
-  .mega-card__ico svg { width: 32px; height: 32px; }
+  .header.is-open .nav .mega-card { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15rem; align-items: center; padding: .7rem 0; border: 0; border-radius: 0; color: var(--white); transform: none; background: none; font-size: 1rem; }
+  .mega-card__art { grid-row: 1 / span 2; align-self: center; aspect-ratio: 16 / 10 !important; border-radius: 8px; }
   .mega-card__title { padding: 0; font-size: 1.05rem; color: var(--white); }
   .mega-card__title svg { display: none; }
   .mega-card__text { padding: 0; color: var(--text-light-muted); font-size: .85rem; }
-  .mega__foot { background: transparent; border: 0; padding: 0 0 var(--space-s) calc(52px + var(--space-s)); }
+  .mega__foot { background: transparent; border: 0; padding: var(--space-xs) 0 var(--space-s); }
   .header.is-open .nav .mega__links a { padding: .35rem 0; border: 0; font-size: .95rem; color: var(--primary-light); }
 }
 @media (min-width: 1201px) { .mega-card__ico { display: none; } }
 @media (prefers-reduced-motion: reduce) { .mega, .mega-card, .mega-card__art img, .nav__chev { transition: none; } }
+
+/* Who We Serve mega menu (design 2026-11-10): 3 audience cards with a short checklist */
+.mega__cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.aud-mini .mega-card__art { aspect-ratio: 16 / 9; }
+.aud-mini__list { display: flex; flex-direction: column; gap: .3rem; margin-top: .2rem; padding: .6rem .35rem 0; border-top: var(--border); }
+.aud-mini__list span { position: relative; padding-left: 1.35rem; font-size: .82rem; font-weight: 600; line-height: 1.35; color: var(--text-dark); }
+.aud-mini__list span::before { content: ""; position: absolute; left: 0; top: .1rem; width: .9rem; height: .9rem; border-radius: 50%; background: var(--primary-ultra-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A4B' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 65% no-repeat; }
+#megaServe .mega__note { color: var(--text-dark-muted); font-family: var(--mono-font-family); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
+#megaServe .mega__links { gap: var(--space-s) var(--space-m); }
+
+@media (max-width: 1200px) {
+  .mega__cards--3 { grid-template-columns: minmax(0, 1fr); }
+  .aud-mini__list { display: none; }
+  #megaServe .mega__note { display: inline-flex; color: var(--text-light-muted); font-size: .66rem; width: 100%; }
+  #megaServe .mega__foot { flex-direction: column; align-items: flex-start; gap: .4rem; }
+}
