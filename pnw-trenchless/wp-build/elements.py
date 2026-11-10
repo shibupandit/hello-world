@@ -206,7 +206,7 @@ def serve_menu():
     card classes as the Services menu; the 3 audiences are fixed content (no post type)."""
     hide = attrs(aria_hidden="true")
     cards = [block("", [block("mega-card aud-mini", [
-        block("mega-card__art", [img(photo, None, alt="", loading="eager")], tag="span", _attributes=hide),
+        block("mega-card__art", [img(photo, None, alt="", loading="eager", image=M(photo, size="medium_large"))], tag="span", _attributes=hide),
         block("mega-card__title", [span(title), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
         span(text, "mega-card__text"),
         block("aud-mini__list", [span(x, "aud-mini__item") for x in items], tag="span"),

@@ -737,7 +737,7 @@
    "settings": {
     "image": {
      "__media": "job-lawn-restored.jpg",
-     "size": "full"
+     "size": "medium_large"
     },
     "altText": "",
     "loading": "eager"
@@ -897,7 +897,7 @@
    "settings": {
     "image": {
      "__media": "job-access-pit.jpg",
-     "size": "full"
+     "size": "medium_large"
     },
     "altText": "",
     "loading": "eager"
@@ -1057,7 +1057,7 @@
    "settings": {
     "image": {
      "__media": "job-pipe-connection.jpg",
-     "size": "full"
+     "size": "medium_large"
     },
     "altText": "",
     "loading": "eager"
