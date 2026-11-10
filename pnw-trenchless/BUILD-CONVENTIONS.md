@@ -74,7 +74,8 @@ for what is truly specific (it then sits next to the shared class on the element
 
 - Source: the "Shared components" section at the top of `wp-build/classes.py`.
 - How the merge was done and checked: `wp-build/tools/merge_classes.py` (families in `SPEC`, mapping in
-  `tools/merge_map.json`, offline check with `--verify`). 588 classes became 509; the old classes were deleted.
+  `tools/merge_map.json`, offline check with `--verify`). 588 classes became 510; the old classes were deleted.
+- Checked on the live site with a before/after snapshot of 12 pages at desktop and phone width (8,914 element states: computed styles and positions). One cascade-order regression was found and fixed: a modifier that overrides its own block (`who__kicker--dark`) must stay a page class defined after the block, not a shared class.
 - "Merged away" classes no longer exist. "Kept" classes still exist but only hold their own extras.
 
 | Shared class | What it sets | Merged away | Kept (extras only) |
