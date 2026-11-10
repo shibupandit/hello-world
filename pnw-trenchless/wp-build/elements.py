@@ -196,7 +196,7 @@ def services_menu():
     ])
     return N("dropdown", "nav__drop", [
         N("div", "mega", [panel], tag="div", _hidden={"_cssClasses": "brx-dropdown-content"}, label="Mega menu content"),
-    ], text="Services", tag="li", megaMenu=True, megaMenuSelector=".header__inner", ariaLabel="Toggle services menu", label="Services (mega menu)")
+    ], text="Services", tag="li", megaMenu=True, megaMenuSelector=".header__inner", megaMenuSelectorVertical=".header__inner", ariaLabel="Toggle services menu", label="Services (mega menu)")
 
 
 def header():

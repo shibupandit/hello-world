@@ -298,7 +298,7 @@ c("nav__link", f"""
 # Services mega menu (design: megamenu.html). A Bricks dropdown (`nav__drop`) with megaMenu on; Bricks adds
 # `.open` to the item and positions `.brx-dropdown-content` under the header, as wide as .header__inner.
 c("nav__drop", f"""
-%root% {{ position: static; list-style: none; }}
+%root% {{ list-style: none; }}
 %root% > .brx-submenu-toggle {{ position: relative; display: inline-flex; flex-direction: row; align-items: center; gap: .4em; padding-block: var(--space-xs); color: var(--text-light-muted); font-weight: 600; font-size: var(--text-s); white-space: nowrap; cursor: pointer; transition: color .2s; }}
 %root% > .brx-submenu-toggle::after {{ content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: .15em; background: var(--primary-light); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--pnw-ease); }}
 %root% > .brx-submenu-toggle button {{ display: inline-flex; align-items: center; padding: 0; margin: 0; background: none; border: 0; color: inherit; cursor: pointer; }}
@@ -315,7 +315,7 @@ c("nav__drop", f"""
 @media (prefers-reduced-motion: reduce) {{ %root% > .brx-submenu-toggle svg {{ transition: none; }} }}
 """)
 c("mega", f"""
-%root% {{ top: 100%; padding: 0; margin: 0; background: transparent; box-shadow: none; border: 0; min-width: 0; z-index: 55; }}
+%root% {{ width: 0; padding: 0; margin: 0; background: transparent; box-shadow: none; border: 0; z-index: 55; }}
 {NAV} {{
   .nav %root% {{ position: static !important; left: auto !important; width: 100% !important; min-width: 0 !important; transform: none !important; opacity: 1; visibility: visible; display: none; }}
   .nav .nav__drop.open > %root% {{ display: block; }}

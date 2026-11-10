@@ -225,6 +225,7 @@
     "tag": "li",
     "megaMenu": true,
     "megaMenuSelector": ".header__inner",
+    "megaMenuSelectorVertical": ".header__inner",
     "ariaLabel": "Toggle services menu",
     "_cls": [
      "nav__drop"
