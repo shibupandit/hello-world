@@ -1,6 +1,6 @@
 # Iconic Finance homepage redesign — Bricks + ACSS build notes
 
-`index.html` is a static prototype of the new homepage. Open it in a browser; it needs no build step.
+`index.html` is a static prototype of the new homepage. `hero-a.html` keeps the earlier navy hero for comparison; it did not receive the latest polish pass. Open it in a browser; it needs no build step.
 Images are hot-linked from the current site, so download them into the new Media Library during the build.
 
 ## 1. ACSS settings (Automatic.css dashboard)
@@ -12,7 +12,7 @@ Images are hot-linked from the current site, so download them into the new Media
 | Base | `#1e1a45` (deep navy) |
 | Neutral / body background | `#faf8f5`, alt section `#f1ede7` |
 | Heading font | Jost 500 |
-| Text font | Inter 400/500/600 |
+| Text font | IBM Plex Sans 400/500/600 |
 | Content width | 1240px |
 | Section padding (M) | `clamp(4.5rem, 9vw, 7.5rem)` |
 | Radius | 14px (cards), 24px (large cards) |
@@ -23,32 +23,27 @@ All custom properties in the prototype's `:root` use ACSS names (`--primary`, `-
 
 | # | Section | Bricks build |
 |---|---|---|
-| 1 | Header | Header template: Logo, Nav Menu (nested, with dropdowns), phone link, Button. Sticky. |
-| 2 | Hero | Section bg Base → 2-col grid: text + Image (arched top), with a plain text row under it (stars + lender panel) |
-| 3 | Stats | 5 figures in one row, divided by rules |
-| 4 | Who we help | Split heading row → `.paths` grid of plain filled cards (6-col; cards 1–3 span 2, 4–5 span 3). Use a Bricks Component or a Query Loop over a Services CPT |
-| 5 | How it works | Bg Base → 2-col: sticky intro + CTA on the left, numbered step list with divider lines on the right |
-| 6 | Tools | Bg Light → centred intro, then calculator (inputs left, dark result panel right; Code element for the JS), then 3 text links in columns |
-| 7 | Broker | Portrait left; name, quote and a 2-col credentials list right |
-| 8 | Case studies | Bg Light → table-style rows (title / situation / challenge / outcome). Use a Query Loop over a Case Studies CPT |
-| 9 | Property report | Full-width magenta section → copy left, Bricks Form on a white panel right |
+| 1 | Header | Header template: Logo, Nav Menu (nested, with dropdowns), phone link (44px target), Button. Sticky. |
+| 2 | Hero | Light section → 2-col: headline, lead and a 2×2 "What brings you here?" link list; Nicolette portrait with name, role and a call link |
+| 3 | Proof bar | Navy strip: one line of figures and credentials (no big-number tiles) |
+| 4 | Who we help | Heading row → 5 editorial rows (title / description / link) separated by rules. Query Loop over a Services CPT |
+| 5 | How it works | Bg Base → 2-col: sticky intro + CTA left, numbered step list right |
+| 6 | Tools | Bg Light → centred intro, calculator (Code element for JS) with dark result panel, then 3 text links in columns |
+| 7 | Broker | Quote-led: large quote with attribution left, credentials list right (no second portrait) |
+| 8 | Case studies | Bg Light → table-style rows. Query Loop over a Case Studies CPT |
+| 9 | Property report | Full-width magenta → copy left, Bricks Form right with visible labels |
 | 10 | FAQ | Heading left, Accordion (nestable) right |
 | 11 | CTA band | Bg Base, centred |
-| 12 | Footer | Footer template: 5-col grid + compliance block |
+| 12 | Footer | Footer template: 5-col grid + compliance block; column titles are h2 for correct outline |
 
-## Design rules (avoid list)
+## Accessibility requirements carried into the build
 
-- No small uppercase labels above headings.
-- Icons are SVG only, never emoji or text glyphs.
-- Each section uses a different layout.
-- Only one level of container: no cards inside cards.
-- No bold phrases mid-sentence.
-- Minimum text size is 15px, and secondary text uses `#46425f`.
-- Paragraphs are capped at about 62 characters per line.
-- Headings use a line height of at least 1.1.
-- No decorative motion or floating shapes. The only movement is hover colour changes.
-- Separate things with fills or divider lines, not a border plus a shadow on every box.
-- No purple-to-blue gradients, no coloured strips on top of cards, no italic accent words, and step numbers only on real steps.
+- **Form labels:** every field has a visible label. No field relies on placeholder text alone.
+- **Tap targets:** at least 44px for the phone link, social icons, sliders and buttons.
+- **Keyboard:** the Esc key closes the mobile menu and dropdowns. Focus rings are gold.
+- **Sticky header:** anchor targets use `scroll-margin-top` so the header doesn't cover them.
+- **Form submit:** the button changes to "Sending…" and is disabled while sending, then a success message is announced to screen readers.
+- **Capitalisation:** sentence case for all navigation and labels.
 
 Class names follow BEM (`.block__element`) to suit Bricks' global class manager.
 
