@@ -511,12 +511,12 @@
  },
  {
   "name": "mega-card__spec",
-  "css": "%root% { font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--primary); padding-inline: .35em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }\n@media (max-width: 1200px) { %root% { display: none; } }",
+  "css": "%root% { font-family: var(--pnw-font-mono); font-size: calc(var(--text-xs) * .85); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); padding-inline: .35em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }\n@media (max-width: 1200px) { %root% { display: none; } }",
   "category": "PNW"
  },
  {
   "name": "mega-card__title",
-  "css": "%root% { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: .5em; width: 100%; font-family: var(--heading-font-family); font-weight: 800; font-size: var(--text-l); line-height: 1.15; padding-inline: .35em; }\n%root% svg { width: 1em; height: 1em; min-width: 0; min-height: 0; flex: none; color: var(--primary); transform: rotate(-45deg); transition: transform .3s var(--pnw-ease); }\n@media (max-width: 1200px) { %root% { padding: 0; color: var(--white); } %root% svg { display: none; } }",
+  "css": "%root% { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: .5em; width: 100%; font-family: var(--heading-font-family); font-weight: 800; font-size: var(--text-m); line-height: 1.15; padding-inline: .35em; }\n%root% svg { width: 1em; height: 1em; min-width: 0; min-height: 0; flex: none; color: var(--primary); transform: rotate(-45deg); transition: transform .3s var(--pnw-ease); }\n@media (max-width: 1200px) { %root% { padding: 0; color: var(--white); font-size: var(--text-l); } %root% svg { display: none; } }",
   "category": "PNW"
  },
  {

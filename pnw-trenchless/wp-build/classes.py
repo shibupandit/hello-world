@@ -359,11 +359,11 @@ c("mega-card__ico", f"""
 %root% {{ display: none; }}
 {NAV} {{ %root% {{ display: grid; place-items: center; grid-row: span 2; width: 52px; height: 52px; border-radius: var(--radius); background: var(--white-trans-10); color: var(--primary-light); }} %root% svg {{ width: 32px; height: 32px; min-width: 32px; }} }}
 """)
-c("mega-card__spec", f"%root% {{ font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--primary); padding-inline: .35em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }}\n{NAV} {{ %root% {{ display: none; }} }}")
+c("mega-card__spec", f"%root% {{ font-family: var(--pnw-font-mono); font-size: calc(var(--text-xs) * .85); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); padding-inline: .35em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }}\n{NAV} {{ %root% {{ display: none; }} }}")
 c("mega-card__title", f"""
-%root% {{ display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: .5em; width: 100%; font-family: var(--heading-font-family); font-weight: 800; font-size: var(--text-l); line-height: 1.15; padding-inline: .35em; }}
+%root% {{ display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: .5em; width: 100%; font-family: var(--heading-font-family); font-weight: 800; font-size: var(--text-m); line-height: 1.15; padding-inline: .35em; }}
 %root% svg {{ width: 1em; height: 1em; min-width: 0; min-height: 0; flex: none; color: var(--primary); transform: rotate(-45deg); transition: transform .3s var(--pnw-ease); }}
-{NAV} {{ %root% {{ padding: 0; color: var(--white); }} %root% svg {{ display: none; }} }}
+{NAV} {{ %root% {{ padding: 0; color: var(--white); font-size: var(--text-l); }} %root% svg {{ display: none; }} }}
 """)
 c("mega-card__text", f"%root% {{ font-size: var(--text-s); line-height: 1.5; font-weight: 400; color: var(--text-dark-muted); padding-inline: .35em; }}\n{NAV} {{ %root% {{ padding: 0; color: var(--text-light-muted); }} }}")
 c("mega__aside", f"""
