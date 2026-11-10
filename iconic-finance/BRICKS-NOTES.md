@@ -11,8 +11,8 @@ Images are hot-linked from the current site, so download them into the new Media
 | Secondary | `#a8863f` (logo gold). Use the dark shade `#7a5f24` for small gold text on light backgrounds (AA contrast) |
 | Base | `#1e1a45` (deep navy) |
 | Neutral / body background | `#faf8f5`, alt section `#f1ede7` |
-| Heading font | Manrope 600 (tracking -0.035em display, -0.03em h2, -0.015em h3) |
-| Text font | DM Sans 400/500/600, optical sizing on, tabular numerals for figures |
+| Heading font | Jost 500 (tracking -0.03em display, -0.02em h2, -0.01em h3) |
+| Text font | IBM Plex Sans 400/500/600, tabular numerals for figures |
 | Content width | 1240px |
 | Section padding (M) | `clamp(4.5rem, 9vw, 7.5rem)` |
 | Radius | 14px (cards), 24px (large cards) |
