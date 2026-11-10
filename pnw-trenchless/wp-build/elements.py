@@ -185,14 +185,51 @@ def services_menu():
                 btn("Get a quote", "/contact/", "btn--primary btn-block", icon="icon-arrow.svg"),
             ]),
         ]),
-        block("mega__foot", [
-            block("mega__note", [svg("icon-film.svg"), span("You keep the before and after footage on every job.")], tag="span"),
-            block("mega__links", [a("Who we serve", "/who-we-serve/", "mega__link"), a("Recent projects", "/projects/", "mega__link"), a("Reviews", "/reviews/", "mega__link")]),
-        ]),
     ])
     return N("dropdown", "nav__drop", [
         N("div", "mega", [panel], tag="div", _hidden={"_cssClasses": "brx-dropdown-content"}, label="Mega menu content"),
     ], text="Services", tag="li", megaMenu=True, megaMenuSelector=".header__inner", megaMenuSelectorVertical=".header__inner", ariaLabel="Toggle services menu", label="Services (mega menu)")
+
+
+SERVE_AUDIENCES = [
+    ("job-lawn-restored.jpg", "Homeowners", "/who-we-serve/#homes", "Sewer and water lines under lawns, driveways, patios and mature trees.",
+     ["Sewer lateral lining &amp; bursting", "Water service line pulls", "Camera footage you keep"]),
+    ("job-access-pit.jpg", "Commercial properties", "/who-we-serve/#commercial", "Keep your property open and running while we fix the line.",
+     ["Lines under parking lots &amp; hardscape", "Clear schedule and budget up front", "Lower restoration costs"]),
+    ("job-pipe-connection.jpg", "Industrial &amp; municipal", "/who-we-serve/#industrial", "Larger lines and longer runs, documented from evaluation through final testing.",
+     ["Site and pipe condition evaluation", "Lifecycle cost comparison", "Code and compliance focused"]),
+]
+
+
+def serve_menu():
+    """"Who We Serve" in the header: a second mega menu (design: megamenu.html?serve). Same panel and
+    card classes as the Services menu; the 3 audiences are fixed content (no post type)."""
+    hide = attrs(aria_hidden="true")
+    cards = [block("", [block("mega-card aud-mini", [
+        block("mega-card__art", [img(photo, None, alt="")], tag="span", _attributes=hide),
+        block("mega-card__title", [span(title), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
+        span(text, "mega-card__text"),
+        block("aud-mini__list", [span(x, "aud-mini__item") for x in items], tag="span"),
+    ], href=url)], tag="li") for photo, title, url, text, items in SERVE_AUDIENCES]
+    panel = block("mega__panel", [
+        block("mega__grid", [
+            block("mega__main", [
+                span("Homes, businesses and industrial sites", "mega__label"),
+                block("mega__cards", cards, tag="ul"),
+            ]),
+            block("mega__aside", [
+                block("mega__aside-ico", [svg("icon-building.svg")], tag="span", _attributes=hide),
+                span("Same honest process, any property", "mega__aside-title"),
+                t("Every job starts with a camera inspection and a written quote, and ends with a final camera run.", "mega__aside-text"),
+                block("mega__phone", [svg("icon-phone.svg"), span(PHONE)], href=TEL),
+                btn("Get a quote", "/contact/", "btn--primary btn-block", icon="icon-arrow.svg"),
+            ]),
+        ]),
+    ])
+    return N("dropdown", "nav__drop", [
+        N("div", "mega", [panel], tag="div", _hidden={"_cssClasses": "brx-dropdown-content"}, label="Mega menu content"),
+    ], text="Who We Serve", tag="li", megaMenu=True, megaMenuSelector=".header__inner", megaMenuSelectorVertical=".header__inner",
+       ariaLabel="Toggle who we serve menu", label="Who We Serve (mega menu)")
 
 
 def header():
@@ -212,7 +249,8 @@ def header():
             N("nav-nested", "nav", [
                 block("nav__items", [
                     services_menu(),
-                ] + [a(t, u, "nav__link") for t, u in NAV_LINKS[1:]] + [
+                    serve_menu(),
+                ] + [a(t, u, "nav__link") for t, u in NAV_LINKS[2:]] + [
                     block("nav__extras", [
                         block("nav__phone", [
                             block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),

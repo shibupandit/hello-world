@@ -362,6 +362,13 @@ c("mega-card__title", f"""
 {NAV} {{ %root% {{ padding: 0; color: var(--white); font-size: var(--text-l); }} %root% svg {{ display: none; }} }}
 """)
 c("mega-card__text", f"%root% {{ font-size: var(--text-s); line-height: 1.5; font-weight: 400; color: var(--text-dark-muted); padding-inline: .35em; }}\n{NAV} {{ %root% {{ padding: 0; color: var(--text-light-muted); }} }}")
+c("aud-mini", "%root% .mega-card__art { aspect-ratio: 16 / 9; }")
+c("aud-mini__list", f"""
+%root% {{ display: flex; flex-direction: column; gap: .3em; margin-top: .2em; padding: .6em .35em 0; border-top: var(--pnw-border); width: 100%; }}
+{NAV} {{ %root% {{ display: none; }} }}
+""")
+c("aud-mini__item", r"""%root% { position: relative; padding-left: 1.35em; font-size: var(--text-xs); font-weight: 600; line-height: 1.35; color: var(--text-dark); }
+%root%::before { content: ""; position: absolute; left: 0; top: .1em; width: 1em; height: 1em; border-radius: var(--radius-circle); background: var(--primary-ultra-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A4B' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 65% no-repeat; }""")
 c("mega__aside", f"""
 %root% {{ display: flex; flex-direction: column; align-items: flex-start; gap: .6em; padding: var(--space-m) var(--space-l); background: var(--base); color: var(--text-light-muted); min-width: 0; }}
 %root% .brxe-button {{ margin-top: auto; }}
@@ -371,13 +378,6 @@ c("mega__aside-ico", "%root% { display: grid; place-items: center; width: 52px; 
 c("mega__aside-title", "%root% { font-family: var(--heading-font-family); font-weight: 800; font-size: var(--text-l); line-height: 1.2; color: var(--white); }")
 c("mega__aside-text", "%root% { font-size: var(--text-s); line-height: 1.55; }")
 c("mega__phone", "%root% { display: inline-flex; flex-direction: row; align-items: center; gap: .5em; width: auto; font-family: var(--heading-font-family); font-weight: 900; font-size: var(--h4); color: var(--white); text-decoration: none; }\n%root% svg { width: 1em; height: 1em; min-width: 0; min-height: 0; color: var(--primary-light); }\n%root%:hover { color: var(--primary-light); }")
-c("mega__foot", f"""
-%root% {{ display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-s) var(--space-l); padding: var(--space-s) var(--space-l); background: var(--neutral-ultra-light); border-top: var(--pnw-border); width: 100%; }}
-{NAV} {{ %root% {{ background: transparent; border: 0; padding: var(--space-xs) 0 var(--space-s); }} }}
-""")
-c("mega__note", f"%root% {{ display: inline-flex; flex-direction: row; align-items: center; gap: .6em; width: auto; font-size: var(--text-s); font-weight: 600; color: var(--text-dark); }}\n%root% svg {{ width: 1.25em; height: 1.25em; min-width: 0; min-height: 0; color: var(--primary); flex: none; }}\n{NAV} {{ %root% {{ display: none; }} }}")
-c("mega__links", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs) var(--space-m); width: auto; }")
-c("mega__link", f"%root% {{ font-size: var(--text-s); font-weight: 700; color: var(--text-dark); text-decoration: none; transition: color .2s; }}\n%root%:hover {{ color: var(--primary); }}\n{NAV} {{ %root% {{ color: var(--primary-light); padding: .35em 0; }} }}")
 
 c("nav__extras", f"""
 %root% {{ display: none; }}
