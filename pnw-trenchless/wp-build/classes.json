@@ -491,22 +491,17 @@
  },
  {
   "name": "mega__cards",
-  "css": "%root% { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-s); align-items: stretch; width: 100%; }\n%root% > li { display: flex; flex-direction: row; flex-wrap: nowrap; min-width: 0; }\n@media (max-width: 1200px) { %root% { grid-template-columns: minmax(0, 1fr); gap: 0; } }",
+  "css": "%root% { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5em, 1fr)); gap: var(--space-s); align-items: stretch; width: 100%; }\n%root% > li { display: flex; flex-direction: row; flex-wrap: nowrap; min-width: 0; }\n@media (max-width: 1200px) { %root% { grid-template-columns: minmax(0, 1fr); gap: 0; } }",
   "category": "PNW"
  },
  {
   "name": "mega-card",
-  "css": "%root% { display: flex; flex-direction: column; gap: .6em; width: 100%; height: 100%; padding: .5em .5em var(--space-s); border-radius: var(--radius); border: var(--border-size) solid transparent; color: var(--text-dark); text-decoration: none; white-space: normal; transition: background-color .25s, border-color .25s, transform .25s var(--pnw-ease); }\n%root%:hover, %root%:focus-visible { background: var(--neutral-ultra-light); border-color: var(--neutral-light); transform: translateY(-.15em); }\n%root%:hover .mega-card__art svg { transform: scale(1.05); }\n%root%:hover .mega-card__title svg { transform: rotate(0); }\n@media (max-width: 1200px) {\n  %root% { display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15em; align-items: center; padding: .7em 0; border: 0; border-radius: 0; color: var(--white); }\n  %root%:hover, %root%:focus-visible { background: none; transform: none; }\n}\n@media (prefers-reduced-motion: reduce) { %root%, %root%:hover { transition: none; transform: none; } }",
+  "css": "%root% { display: flex; flex-direction: column; gap: .6em; width: 100%; height: 100%; padding: .5em .5em var(--space-s); border-radius: var(--radius); border: var(--border-size) solid transparent; color: var(--text-dark); text-decoration: none; white-space: normal; transition: background-color .25s, border-color .25s, transform .25s var(--pnw-ease); }\n%root%:hover, %root%:focus-visible { background: var(--neutral-ultra-light); border-color: var(--neutral-light); transform: translateY(-.15em); }\n%root%:hover .mega-card__art img { transform: scale(1.05); }\n%root%:hover .mega-card__title svg { transform: rotate(0); }\n@media (max-width: 1200px) {\n  %root% { display: grid; grid-template-columns: 5.5em minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15em; align-content: center; align-items: center; padding: .7em 0; border: 0; border-radius: 0; color: var(--white); }\n  %root%:hover, %root%:focus-visible { background: none; transform: none; }\n}\n@media (prefers-reduced-motion: reduce) { %root%, %root%:hover { transition: none; transform: none; } }",
   "category": "PNW"
  },
  {
   "name": "mega-card__art",
-  "css": "%root% { display: block; position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; background: radial-gradient(70% 90% at 30% 50%, var(--primary-trans-20), transparent 70%), var(--base); }\n%root% svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .6s var(--pnw-ease); }\n@media (max-width: 1200px) { %root% { display: none; } }",
-  "category": "PNW"
- },
- {
-  "name": "mega-card__ico",
-  "css": "%root% { display: none; }\n@media (max-width: 1200px) { %root% { display: grid; place-items: center; grid-row: span 2; width: 52px; height: 52px; border-radius: var(--radius); background: var(--white-trans-10); color: var(--primary-light); } %root% svg { width: 32px; height: 32px; min-width: 32px; } }",
+  "css": "%root% { display: block; position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; background: radial-gradient(70% 90% at 30% 50%, var(--primary-trans-20), transparent 70%), var(--base); }\n%root% img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--pnw-ease); }\n@media (max-width: 1200px) { %root% { grid-row: 1 / span 2; align-self: center; border-radius: calc(var(--radius) * .7); } }",
   "category": "PNW"
  },
  {
@@ -551,7 +546,7 @@
  },
  {
   "name": "mega__foot",
-  "css": "%root% { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-s) var(--space-l); padding: var(--space-s) var(--space-l); background: var(--neutral-ultra-light); border-top: var(--pnw-border); width: 100%; }\n@media (max-width: 1200px) { %root% { background: transparent; border: 0; padding: 0 0 var(--space-s) calc(52px + var(--space-s)); } }",
+  "css": "%root% { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-s) var(--space-l); padding: var(--space-s) var(--space-l); background: var(--neutral-ultra-light); border-top: var(--pnw-border); width: 100%; }\n@media (max-width: 1200px) { %root% { background: transparent; border: 0; padding: var(--space-xs) 0 var(--space-s); } }",
   "category": "PNW"
  },
  {

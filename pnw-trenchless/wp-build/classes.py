@@ -335,29 +335,25 @@ c("mega__main", f"""
 """)
 c("mega__label", f"%root% {{ font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); }}\n{NAV} {{ %root% {{ display: none; }} }}")
 c("mega__cards", f"""
-%root% {{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-s); align-items: stretch; width: 100%; }}
+%root% {{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5em, 1fr)); gap: var(--space-s); align-items: stretch; width: 100%; }}
 %root% > li {{ display: flex; min-width: 0; }}
 {NAV} {{ %root% {{ grid-template-columns: minmax(0, 1fr); gap: 0; }} }}
 """)
 c("mega-card", f"""
 %root% {{ display: flex; flex-direction: column; gap: .6em; width: 100%; height: 100%; padding: .5em .5em var(--space-s); border-radius: var(--radius); border: var(--border-size) solid transparent; color: var(--text-dark); text-decoration: none; white-space: normal; transition: background-color .25s, border-color .25s, transform .25s var(--pnw-ease); }}
 %root%:hover, %root%:focus-visible {{ background: var(--neutral-ultra-light); border-color: var(--neutral-light); transform: translateY(-.15em); }}
-%root%:hover .mega-card__art svg {{ transform: scale(1.05); }}
+%root%:hover .mega-card__art img {{ transform: scale(1.05); }}
 %root%:hover .mega-card__title svg {{ transform: rotate(0); }}
 {NAV} {{
-  %root% {{ display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15em; align-items: center; padding: .7em 0; border: 0; border-radius: 0; color: var(--white); }}
+  %root% {{ display: grid; grid-template-columns: 5.5em minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15em; align-content: center; align-items: center; padding: .7em 0; border: 0; border-radius: 0; color: var(--white); }}
   %root%:hover, %root%:focus-visible {{ background: none; transform: none; }}
 }}
 @media (prefers-reduced-motion: reduce) {{ %root%, %root%:hover {{ transition: none; transform: none; }} }}
 """)
 c("mega-card__art", f"""
 %root% {{ display: block; position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; background: radial-gradient(70% 90% at 30% 50%, var(--primary-trans-20), transparent 70%), var(--base); }}
-%root% svg {{ position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .6s var(--pnw-ease); }}
-{NAV} {{ %root% {{ display: none; }} }}
-""")
-c("mega-card__ico", f"""
-%root% {{ display: none; }}
-{NAV} {{ %root% {{ display: grid; place-items: center; grid-row: span 2; width: 52px; height: 52px; border-radius: var(--radius); background: var(--white-trans-10); color: var(--primary-light); }} %root% svg {{ width: 32px; height: 32px; min-width: 32px; }} }}
+%root% img {{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--pnw-ease); }}
+{NAV} {{ %root% {{ grid-row: 1 / span 2; align-self: center; border-radius: calc(var(--radius) * .7); }} }}
 """)
 c("mega-card__spec", f"%root% {{ font-family: var(--pnw-font-mono); font-size: calc(var(--text-xs) * .85); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); padding-inline: .35em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }}\n{NAV} {{ %root% {{ display: none; }} }}")
 c("mega-card__title", f"""
@@ -377,7 +373,7 @@ c("mega__aside-text", "%root% { font-size: var(--text-s); line-height: 1.55; }")
 c("mega__phone", "%root% { display: inline-flex; flex-direction: row; align-items: center; gap: .5em; width: auto; font-family: var(--heading-font-family); font-weight: 900; font-size: var(--h4); color: var(--white); text-decoration: none; }\n%root% svg { width: 1em; height: 1em; min-width: 0; min-height: 0; color: var(--primary-light); }\n%root%:hover { color: var(--primary-light); }")
 c("mega__foot", f"""
 %root% {{ display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-s) var(--space-l); padding: var(--space-s) var(--space-l); background: var(--neutral-ultra-light); border-top: var(--pnw-border); width: 100%; }}
-{NAV} {{ %root% {{ background: transparent; border: 0; padding: 0 0 var(--space-s) calc(52px + var(--space-s)); }} }}
+{NAV} {{ %root% {{ background: transparent; border: 0; padding: var(--space-xs) 0 var(--space-s); }} }}
 """)
 c("mega__note", f"%root% {{ display: inline-flex; flex-direction: row; align-items: center; gap: .6em; width: auto; font-size: var(--text-s); font-weight: 600; color: var(--text-dark); }}\n%root% svg {{ width: 1.25em; height: 1.25em; min-width: 0; min-height: 0; color: var(--primary); flex: none; }}\n{NAV} {{ %root% {{ display: none; }} }}")
 c("mega__links", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs) var(--space-m); width: auto; }")

@@ -156,25 +156,21 @@ def eyebrow(text):
 # --------------------------------------------------------------------------
 # HEADER TEMPLATE
 # --------------------------------------------------------------------------
-MEGA_SERVICES = [
-    ("art-service-lining.svg", "icon-liner.svg", "CIPP · pipe in a pipe", "Sewer pipe lining", "/services/sewer-pipe-lining/", "A new pipe inside the old one, for cracks, leaks and roots."),
-    ("art-service-burst.svg", "icon-burst.svg", "HDPE · full replacement", "Pipe bursting", "/services/pipe-bursting/", "A brand-new pipe pulled in, for collapsed or undersized lines."),
-    ("art-service-water.svg", "icon-drop.svg", "CTS poly · tested", "Water line pulling", "/services/water-line-pulling/", "A new water line, pressure and leak tested."),
-    ("art-service-spot.svg", "icon-patch.svg", "Spot repair · localized", "Point repairs", "/services/point-repairs/", "One damaged spot relined, the rest left as it is."),
-]
-
-
 def services_menu():
     """"Services" in the header: a Bricks nav dropdown with the mega menu option (design: megamenu.html).
-    Bricks handles hover, click, keyboard, Esc and the mobile menu; the panel is as wide as .header__inner."""
+    Bricks handles hover, click, keyboard, Esc and the mobile menu; the panel is as wide as .header__inner.
+    The service cards are a query loop (user, 2026-11-10): add a service post and it appears here."""
     hide = attrs(aria_hidden="true")
-    cards = [block("", [block("mega-card", [
-        block("mega-card__art", [svg(art)], tag="span", _attributes=hide),
-        block("mega-card__ico", [svg(ico)], tag="span", _attributes=hide),
-        span(spec, "mega-card__spec"),
-        block("mega-card__title", [span(title), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
-        span(text, "mega-card__text"),
-    ], href=url)], tag="li") for art, ico, spec, title, url, text in MEGA_SERVICES]
+    # One card, repeated by a query loop over the `service` post type (ordered by menu_order).
+    # Fields per service: card_image, card_label, card_text (ACF group "Service card (menu)").
+    cards = [N("block", "", [block("mega-card", [
+        block("mega-card__art", [N("image", None, image={"useDynamicData": "{acf_card_image}", "size": "medium"}, altText="")],
+              tag="span", _attributes=hide, **when("{acf_card_image}")),
+        span("{acf_card_label}", "mega-card__spec", **when("{acf_card_label}")),
+        block("mega-card__title", [span("{post_title}"), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
+        span("{acf_card_text}", "mega-card__text", **when("{acf_card_text}")),
+    ], href=link("{post_url}"))], label="Service card (loop)", tag="li", hasLoop=True,
+        query={"objectType": "post", "post_type": ["service"], "orderby": "menu_order", "order": "asc", "posts_per_page": 8, "no_found_rows": True})]
     panel = block("mega__panel", [
         block("mega__grid", [
             block("mega__main", [
