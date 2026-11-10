@@ -28,9 +28,11 @@ All custom properties in the prototype's `:root` use ACSS names (`--primary`, `-
 | 3 | Proof bar | Navy strip: one line of figures and credentials (no big-number tiles) |
 | 4 | Who we help | Heading row → 5 editorial rows (title / description / link) separated by rules. Query Loop over a Services CPT |
 | 5 | How it works | Bg Base → 2-col: sticky intro + CTA left, numbered step list right |
+| 5b | Lenders | White section → 2-col: intro + link left, 2×2 lender types right, panel note below |
 | 6 | Tools | Bg Light → centred intro, calculator (Code element for JS) with dark result panel, then 3 text links in columns |
 | 7 | Broker | Quote-led: large quote with attribution left, credentials list right (no second portrait) |
 | 8 | Case studies | Bg Light → table-style rows. Query Loop over a Case Studies CPT |
+| 8b | Reviews | White section → three client quotes in columns divided by rules |
 | 9 | Property report | Full-width magenta → copy left, Bricks Form right with visible labels |
 | 10 | FAQ | Heading left, Accordion (nestable) right |
 | 11 | CTA band | Bg Base, centred |
@@ -56,3 +58,5 @@ Class names follow BEM (`.block__element`) to suit Bricks' global class manager.
 - **Repayment estimator.** This is new. It uses the standard principal & interest formula and sits under the existing calculator disclaimer.
 - **Links still set to `#`:** social profiles, LinkedIn and compliance pages. Point them at the real URLs.
 - **Report form.** It only shows a thank-you message for now. Connect it to the Bricks form action or CRM.
+
+See `SITE-REVIEW.md` for the full-site findings and the list of sign-offs still needed.

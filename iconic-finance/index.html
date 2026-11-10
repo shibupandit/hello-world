@@ -272,6 +272,7 @@ input[type=range] { width: 100%; height: 44px; margin: 0; accent-color: var(--pr
 .faq__list summary .icon { color: var(--primary); transition: transform .2s; }
 .faq__list details[open] summary .icon { transform: rotate(45deg); }
 .faq__list details p { padding-bottom: var(--space-m); color: var(--base-medium); }
+.faq__list details p a { color: var(--primary); }
 .todo { background: #fff3c4; color: #5c4200; padding: .1rem .35rem; border-radius: 4px; }
 
 /* ==========================================================================
@@ -409,6 +410,36 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
 .calc__value { letter-spacing: -.02em; }
 .btn { letter-spacing: .005em; }
 .footer__title { font-weight: 600; }
+
+/* ==========================================================================
+   ADDITIONS FROM SITE REVIEW: lenders, reviews, contact details
+   ========================================================================== */
+.bg--white { background: var(--white); }
+.lenders { display: grid; grid-template-columns: .8fr 1.2fr; gap: var(--space-xl); align-items: start; }
+.lenders__intro h2 { margin-bottom: var(--space-m); }
+.lenders__intro .link-arrow { margin-top: var(--space-m); }
+.lenders__types { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-l); }
+.lenders__types h3 { font-size: 1.25rem; margin-bottom: var(--space-xs); }
+.lenders__types p { color: var(--base-medium); }
+.lenders__note { grid-column: 1 / -1; font-size: var(--text-s); color: var(--base-medium); }
+.reviews__head { max-width: 720px; margin-bottom: var(--space-xl); }
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); }
+.review { padding-inline: var(--space-l); border-left: 1px solid var(--divider); display: flex; flex-direction: column; gap: var(--space-m); }
+.review:first-child { padding-left: 0; border-left: 0; }
+.review blockquote { font: 400 1.25rem/1.5 var(--heading-font); flex: 1; }
+.review figcaption { font-size: var(--text-s); color: var(--base-medium); }
+.review figcaption strong { display: block; font-weight: 600; color: var(--base); }
+.process__more { margin-top: var(--space-m); display: inline-flex; color: var(--secondary-light); }
+.cta-band__alt { margin-top: var(--space-m); font-size: var(--text-s); }
+.cta-band__alt a { text-decoration: underline; }
+.footer__contact { margin-top: var(--space-m); display: grid; gap: .35rem; font-style: normal; }
+.footer__contact a:hover { color: var(--secondary-light); }
+@media (max-width: 980px) {
+  .lenders { grid-template-columns: 1fr; gap: var(--space-l); }
+  .reviews { grid-template-columns: 1fr; }
+  .review, .review:first-child { padding: var(--space-m) 0; border-left: 0; border-top: 1px solid var(--divider); }
+}
+@media (max-width: 640px) { .lenders__types { grid-template-columns: 1fr; gap: var(--space-m); } }
 </style>
 </head>
 <body>
@@ -509,7 +540,7 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
         <a href="https://iconicfinance.com.au/services/self-employed-home-loans/"><span>I'm self-employed</span><svg class="icon"><use href="#i-arrow"/></svg></a>
       </nav>
 
-      <p class="hero-b__note"><svg class="icon"><use href="#i-check"/></svg> Obligation-free borrowing power assessment · Sydney-based</p>
+      <p class="hero-b__note"><svg class="icon"><use href="#i-check"/></svg> Obligation-free borrowing power assessment · about 30 minutes · Sydney-based</p>
     </div>
 
     <figure class="hero-b__broker">
@@ -578,6 +609,7 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
       <h2>Four steps from conversation to settlement</h2>
       <p class="lead">You'll know exactly what happens next at every stage — and what we need from you.</p>
       <a href="https://iconicfinance.com.au/contact/" class="btn btn--primary">Book a borrowing power assessment</a>
+      <p><a class="link-arrow process__more" href="https://iconicfinance.com.au/our-process/">See the full process <svg class="icon"><use href="#i-arrow"/></svg></a></p>
     </div>
     <ol class="steps">
       <li class="step">
@@ -605,6 +637,24 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
         </div>
       </li>
     </ol>
+  </div>
+</section>
+
+<!-- ============================ LENDERS ============================ -->
+<section class="section bg--white" id="lenders">
+  <div class="container lenders">
+    <div class="lenders__intro">
+      <h2>Lenders we work with</h2>
+      <p class="lead">Access to a wide panel matters less than knowing which lender's policy fits your situation. That's the part we do before any application is lodged.</p>
+      <a class="link-arrow" href="https://iconicfinance.com.au/lenders-we-work-with/">How we recommend a lender <svg class="icon"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="lenders__types">
+      <div><h3>Major banks</h3><p>Broad product ranges, strong offset and package offerings, and competitive pricing at lower LVRs.</p></div>
+      <div><h3>Second-tier and regional lenders</h3><p>Often sharper on price and more flexible on income types, particularly for self-employed and variable-income borrowers.</p></div>
+      <div><h3>Non-bank lenders</h3><p>Useful where a bank's policy doesn't fit: alternative documentation, credit history nuances, or unusual security types.</p></div>
+      <div><h3>Specialist and construction funders</h3><p>Construction, bridging, and complex or short-term scenarios where mainstream lenders won't participate.</p></div>
+      <p class="lenders__note">Lender panel access is provided through our aggregator and changes over time. Not every lender on the panel will suit every borrower or scenario.</p>
+    </div>
   </div>
 </section>
 
@@ -677,7 +727,7 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
       </figcaption>
       <div class="broker__links">
         <a class="link-arrow" href="https://iconicfinance.com.au/about/nicolette/">More about Nicolette <svg class="icon"><use href="#i-arrow"/></svg></a>
-        <a class="link-arrow" href="#" rel="noopener">LinkedIn <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a class="link-arrow" href="https://www.linkedin.com/in/nicolette-aquilina-1b097b1/" rel="noopener">LinkedIn <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
     </figure>
     <div>
@@ -719,7 +769,31 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
       <dl><dt>Challenge</dt><dd>The structure limited equity access and future purchase options.</dd></dl>
       <dl class="case__outcome"><dt>Outcome</dt><dd>Loans separated across lenders; repayments reduced and equity released for the next purchase.</dd></dl>
     </article>
-    <p class="note">Outcomes depend on individual circumstances and lender policy. Past results don't guarantee future outcomes.</p>
+    <p style="margin-top:var(--space-l)"><a class="link-arrow" href="https://iconicfinance.com.au/case-studies/">Read all six case studies <svg class="icon"><use href="#i-arrow"/></svg></a></p>
+    <p class="note" style="margin-top:var(--space-m)">Outcomes depend on individual circumstances and lender policy. Past results don't guarantee future outcomes.</p>
+  </div>
+</section>
+
+<!-- ============================ REVIEWS ============================ -->
+<section class="section bg--white" id="reviews">
+  <div class="container">
+    <div class="reviews__head">
+      <h2>Trusted by professionals</h2>
+    </div>
+    <div class="reviews">
+      <figure class="review">
+        <blockquote>“Iconic helped me restructure my loans and unlock enough equity to buy two more properties without increasing my monthly repayments.”</blockquote>
+        <figcaption><strong>Dev</strong>Cloud Engineer, Sydney</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>“They mapped out a three-stage plan for us: first home, upgrade, then investment. It's like having a finance co-pilot.”</blockquote>
+        <figcaption><strong>Leah</strong>Product Manager, Melbourne</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>“They understand the tech industry and how we're paid. Bonuses, RSUs, self-employed ABNs: no one else got it.”</blockquote>
+        <figcaption><strong>Amrit</strong>Software Architect, Brisbane</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -741,7 +815,7 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
       <div class="form__field"><label for="f-last">Last name</label><input id="f-last" type="text" autocomplete="family-name" required></div>
       <div class="form__field form__full"><label for="f-email">Email address</label><input id="f-email" type="email" autocomplete="email" required></div>
       <div class="form__field form__full"><label for="f-address">Property address</label><input id="f-address" type="text" autocomplete="street-address" aria-describedby="f-address-hint" required><span id="f-address-hint" class="form__hint">Street address and suburb</span></div>
-      <label class="form__consent form__full"><input type="checkbox" required> <span>I agree to receive my report and occasional lending insights from Iconic Finance. I can unsubscribe at any time. See the <a href="#">Privacy policy</a>.</span></label>
+      <label class="form__consent form__full"><input type="checkbox" required> <span>I agree to receive my report and occasional lending insights from Iconic Finance. I can unsubscribe at any time. See the <a href="https://iconicfinance.com.au/privacy-policy/">Privacy policy</a>.</span></label>
       <button type="submit" class="btn btn--primary form__full">Request now</button>
       <p class="form__msg form__full" id="form-msg" role="status"></p>
       <p class="form__fine form__full">Your report uses automated property data and is an estimate only — not a formal valuation. <span class="todo">Data source and disclaimer wording to be confirmed with provider. [VERIFY]</span></p>
@@ -757,30 +831,30 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
       <p>Researching first? <a class="link-arrow" href="https://iconicfinance.com.au/calculators/borrowing-power-calculator/">Try our borrowing power calculator <svg class="icon"><use href="#i-arrow"/></svg></a></p>
     </div>
     <div class="faq__list">
-      <!-- TODO: every answer below must be supplied by the broker and compliance-reviewed before launch. -->
+      <!-- Answers taken from the live site's contact and process pages. Flagged items still need licensee sign-off. -->
       <details open>
         <summary>What does a mortgage broker cost? <svg class="icon"><use href="#i-plus"/></svg></summary>
-        <p><span class="todo">[Answer drafted by broker, aligned with the Credit Guide's commission disclosure, and compliance-reviewed before launch.]</span></p>
+        <p>For standard residential lending our service costs you nothing. We receive a commission from the lender you settle with, disclosed in your Credit Guide and credit proposal before you commit to anything. <span class="todo">[Confirm wording with licensee; note any fee-for-service scenarios]</span></p>
       </details>
       <details>
         <summary>Is the first conversation an obligation-free assessment? <svg class="icon"><use href="#i-plus"/></svg></summary>
-        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+        <p>Yes. There's no catch and no obligation. The first conversation is how we both work out whether we're the right fit. Booking a chat or an assessment involves no credit check. <span class="todo">[Verify the no-credit-check statement against the actual process]</span></p>
       </details>
       <details>
         <summary>How long does approval usually take? <svg class="icon"><use href="#i-plus"/></svg></summary>
-        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+        <p>Lodgement to approval commonly runs days to a few weeks, depending on the lender and complexity. You get proactive updates at every milestone: lodged, valuation done, conditionally approved, unconditional.</p>
       </details>
       <details>
         <summary>Can you help if I'm self-employed or my income is complex? <svg class="icon"><use href="#i-plus"/></svg></summary>
-        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+        <p>Complicated is the specialty: self-employed income, equity compensation, multiple entities, portfolio structures. <a href="https://iconicfinance.com.au/services/self-employed-home-loans/">See self-employed home loans</a>.</p>
       </details>
       <details>
         <summary>What documents will I need? <svg class="icon"><use href="#i-plus"/></svg></summary>
-        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+        <p>Nothing is required for the first conversation. A rough idea of your income, debts and savings makes it more useful. Document collection comes later, once, through our secure portal, with a checklist tailored to you.</p>
       </details>
       <details>
         <summary>How do you choose which lenders to recommend? <svg class="icon"><use href="#i-plus"/></svg></summary>
-        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+        <p>We are legally required to act in your best interests. In practice that means comparing options on structure, policy fit, rate and fees, and giving you a written recommendation that shows the reasoning.</p>
       </details>
     </div>
   </div>
@@ -790,11 +864,12 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
 <section class="section bg--base cta-band">
   <div class="container">
     <h2>Find out what you can borrow, and how to structure it</h2>
-    <p>Start with an obligation-free borrowing power assessment. No cost, no obligation, no credit check at this stage.</p>
+    <p>A borrowing power assessment takes about 30 minutes and costs nothing, and you'll deal with the broker, not a call centre.</p>
     <div class="cta-band__btns">
       <a href="https://iconicfinance.com.au/contact/" class="btn btn--primary">Book an assessment</a>
       <a href="tel:+61416647644" class="btn btn--outline-light">Call +61 416 647 644</a>
     </div>
+    <p class="cta-band__alt">Prefer another way? <a href="https://iconicfinance.com.au/contact/">Book a 15-minute video chat</a> or <a href="mailto:hello@iconicfinance.com.au">email hello@iconicfinance.com.au</a></p>
   </div>
 </section>
 
@@ -807,8 +882,15 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
       <div>
         <a href="/" class="footer__logo" aria-label="Iconic Finance home"><img src="https://iconicfinance.com.au/wp-content/uploads/2026/07/ICONIC-FINAL-LOGO-23.png" alt="Iconic Finance" width="177" height="40" loading="lazy"></a>
         <p class="footer__about">Iconic Finance is a Sydney mortgage broking business helping buyers, refinancers, investors and self-employed borrowers structure lending properly.</p>
+        <address class="footer__contact">
+          <a href="tel:+61416647644">+61 416 647 644</a>
+          <a href="mailto:hello@iconicfinance.com.au">hello@iconicfinance.com.au</a>
+          <span>PO Box 94, Stanhope Gardens NSW 2768</span>
+          <span>Mon–Fri 9:00am–5:30pm and by appointment</span>
+          <span>Video and phone appointments Australia-wide</span>
+        </address>
         <div class="footer__social">
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicolette-aquilina-1b097b1/" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2c-2.7 0-3 0-4.1.1C4 2.3 2.3 4 2.1 7.9 2 9 2 9.3 2 12s0 3 .1 4.1C2.3 20 4 21.7 7.9 21.9 9 22 9.3 22 12 22s3 0 4.1-.1c3.9-.2 5.6-1.9 5.8-5.8.1-1.1.1-1.4.1-4.1s0-3-.1-4.1C21.7 4 20 2.3 16.1 2.1 15 2 14.7 2 12 2z"/></svg></a>
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.5V11H7v4h3v7h4v-7h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
         </div>
@@ -838,16 +920,18 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
           <li><a href="https://iconicfinance.com.au/free-property-report/">Free property report</a></li>
           <li><a href="https://iconicfinance.com.au/how-much-can-i-borrow/">How much can I borrow?</a></li>
           <li><a href="https://iconicfinance.com.au/our-process/">Our process</a></li>
+          <li><a href="https://iconicfinance.com.au/case-studies/">Case studies</a></li>
+          <li><a href="https://iconicfinance.com.au/lenders-we-work-with/">Lenders we work with</a></li>
         </ul>
       </div>
       <div>
         <h2 class="footer__title">Compliance</h2>
         <ul>
-          <li><a href="#">Privacy policy</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Complaints</a></li>
-          <li><a href="#">Collection notice</a></li>
-          <li><a href="#">Disclaimer</a></li>
+          <li><a href="https://iconicfinance.com.au/privacy-policy/">Privacy policy</a></li>
+          <li><a href="https://iconicfinance.com.au/terms/">Terms</a></li>
+          <li><a href="https://iconicfinance.com.au/complaints/">Complaints</a></li>
+          <li><a href="https://iconicfinance.com.au/collection-notice/">Collection notice</a></li>
+          <li><a href="https://iconicfinance.com.au/disclaimer/">Disclaimer</a></li>
           <li><a href="https://iconicfinance.com.au/contact/">Contact</a></li>
         </ul>
       </div>
@@ -856,7 +940,7 @@ h3, .path-row h3, .hero-b__name, .broker__name { font-weight: 500; letter-spacin
       <p>Narrow Holdings Pty Ltd trading as Iconic Finance ABN 13 140 077 541. Credit Representative Number 500556 is authorised under Australian Credit Licence 387688. This website provides general information only and does not take your personal circumstances into account. Comparison rates and examples are illustrative and subject to lender assessment.</p>
       <div class="footer__bottom">
         <span>© <span id="year">2026</span> Iconic Finance. All rights reserved.</span>
-        <a href="#">Sitemap</a>
+        <a href="https://iconicfinance.com.au/wp-sitemap.xml">Sitemap</a>
       </div>
     </div>
   </div>
