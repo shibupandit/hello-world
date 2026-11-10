@@ -69,6 +69,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; }
 p { max-width: var(--measure); }
 h1, h2, h3, h4 { font-family: var(--heading-font); font-weight: 500; line-height: 1.15; letter-spacing: -.01em; }
+h1, h2, h3 { text-wrap: balance; }
 h2 { font-size: var(--h2); }
 h3 { font-size: var(--h3); }
 :focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px; border-radius: 4px; }
@@ -361,7 +362,7 @@ input[type=range] { width: 100%; height: 44px; margin: 0; accent-color: var(--pr
    ========================================================================== */
 .hero-b { background: var(--neutral-ultra-light); border-bottom: 1px solid var(--divider); }
 .hero-b__inner { display: grid; grid-template-columns: 1.4fr .6fr; gap: var(--space-xl); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
-.hero-b__title { font-size: clamp(2.5rem, 5.2vw, 4.5rem); line-height: 1.08; letter-spacing: -.025em; max-width: 12ch; color: var(--base); }
+.hero-b__title { font-size: clamp(2.5rem, 5.2vw, 4.5rem); line-height: 1.08; letter-spacing: -.025em; max-width: 15ch; color: var(--base); }
 .hero-b__lead { font-size: var(--text-l); color: var(--base-medium); margin-top: var(--space-m); max-width: 46ch; }
 .hero-b__paths { margin-top: var(--space-l); max-width: 600px; display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--space-l); }
 .hero-b__ask { grid-column: 1 / -1; }
