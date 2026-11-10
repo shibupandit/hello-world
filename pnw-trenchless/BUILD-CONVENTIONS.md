@@ -65,3 +65,68 @@ Source: a read-only review of the whitecrowtemplate.kinsta.cloud build (the "Har
 4. Self-host Archivo, Public Sans and JetBrains Mono, because Google Fonts are disabled on that build pattern.
 5. Build services, projects, reviews and service areas as CPTs + Query Loops, and the ticker, reviews and quote CTA as Section templates.
 6. File every PNW asset in HappyFiles folders.
+
+## Shared component classes (2026-11-10)
+
+Common layouts use **one shared class** site-wide, so a change to it applies everywhere. Before adding a
+page class, check this list: if the layout already exists, use the shared class, and add a page class only
+for what is truly specific (it then sits next to the shared class on the element, e.g. `text-block cost__text`).
+
+- Source: the "Shared components" section at the top of `wp-build/classes.py`.
+- How the merge was done and checked: `wp-build/tools/merge_classes.py` (families in `SPEC`, mapping in
+  `tools/merge_map.json`, offline check with `--verify`). 588 classes became 509; the old classes were deleted.
+- "Merged away" classes no longer exist. "Kept" classes still exist but only hold their own extras.
+
+| Shared class | What it sets | Merged away | Kept (extras only) |
+|---|---|---|---|
+| `caption` | color: var(--text-dark-muted); font-size: var(--text-s); | `sign__text`, `signature__role`, `steps-mini__text`, `pcard__text`, `docs__text`, `ws-svc__text`, `job__spec`, `mini__text`, `verify-card__fine`, `pj-inline__cap`, `who__cap`, `widget__muted` | — |
+| `caption-light` | font-size: var(--text-s); color: var(--text-light-muted); | `mike__role`, `jump__note`, `svc-hero__cap`, `bigphone__note`, `milestone__text` | — |
+| `caption-neutral` | font-size: var(--text-s); color: var(--neutral); | `mike__sig-role`, `form__hint` | — |
+| `fine-light` | color: var(--text-light-muted); font-size: var(--text-xs); | `review__meta`, `portrait__role` | — |
+| `text-muted` | color: var(--text-dark-muted); | `compare__cell--them`, `promise__text` | — |
+| `text-light-muted` | color: var(--text-light-muted); | `footer__hours`, `score__count`, `rv-steps__text` | — |
+| `text-accent-light` | color: var(--primary-light); | `project__link`, `who__kicker--dark`, `crumbs__current` | — |
+| `strong-dark` | font-weight: 700; color: var(--text-dark); | `signature__name`, `rv-card__name`, `widget__name` | — |
+| `value-light` | margin: 0; font-weight: 600; color: var(--white); | `info-card__value`, `pj-meta__value`, `pj-card__value` | — |
+| `title-light` | font-family: var(--heading-font-family); font-weight: 800; font-size: var(--text-l); color: var(--white); | `portrait__name`, `ind__fact-value` | `jump__title` |
+| `title-l` | font-size: var(--text-l); | `sign__title`, `verify-card__title`, `docs__title`, `who__h3` | — |
+| `title-card` | font-size: calc(var(--h4) * 1.3); | `aud-card__title`, `fit-card__title` | — |
+| `title-block` | font-size: calc(var(--h3) * 1.05); | `urgent__title`, `pj-block__title` | — |
+| `accent-light` | color: var(--primary-light); | `svc-hero__title`, `owner__title` | — |
+| `label` | font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase | `story__meta`, `pj-glance__label`, `spec-table__term` | `outcome__if` |
+| `label-light` | font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase | `reach__label`, `pj-meta__term`, `ind__fact-label`, `fact__label` | — |
+| `label-accent` | font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase | `score__label` | `jump__label`, `info-card__term`, `pj-card__term` |
+| `label-wide` | font-family: var(--pnw-font-mono); font-size: var(--text-xs); letter-spacing: .16em; text-transform: uppercase | `hero__seo`, `ticker__city` | — |
+| `stack-l` | display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-l); min-width: 0; | `hero__content`, `mike__content`, `svc-hero__content`, `owner__content` | — |
+| `stack-m` | display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); min-width: 0; | `pj-hero__title`, `near` | `who__text` |
+| `stack-s` | display: flex; flex-direction: column; gap: var(--space-s); min-width: 0; | `hero__aside`, `who__col` | — |
+| `stack-xl` | display: flex; flex-direction: column; gap: var(--space-xl); min-width: 0; | `pj-story__body`, `city-main` | — |
+| `figure-stack` | margin: 0; display: flex; flex-direction: column; gap: var(--space-s); min-width: 0; | `who__media`, `svc-hero__media` | — |
+| `text-block` | display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-m); min-width: 0; | `areas__text`, `local__text` | `explain__text`, `cost__text` |
+| `text-block-light` | display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-l); min-width: 0; | `rig__text` | `estimate__text`, `rv-leave__text` |
+| `id-stack` | display: flex; flex-direction: column; gap: 0; width: auto; | `portrait__id`, `signature__id`, `rv-card__id`, `review__name` | — |
+| `mini-stack` | width: auto; display: flex; flex-direction: column; gap: .35em; | `mike__sig`, `score__side` | — |
+| `chip-row` | display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs); | `materials`, `near__cities` | `who__links` |
+| `grow` | flex: 1 1 auto; min-width: 0; | `byline__text`, `related__label` | — |
+| `btn-block` | width: 100%; justify-content: center; | `nav__quote`, `form__submit` | — |
+| `section--tight` | padding-block: var(--space-xxl); | `urgent` | — |
+| `split` | display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--space-xxl); align-items: st | `specs__grid`, `ind` | — |
+| `split-even` | display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xxl); align-items: cente | `local__grid`, `rv-leave__grid` | — |
+| `split-wide` | display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--space-xxl); align-items: ce | `rig__grid`, `cost__grid` | — |
+| `grid-2` | display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-l); width: 100%; | `fit__grid`, `inside__grid` | — |
+| `grid-3` | list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: | `aud-grid`, `jobs__grid` | — |
+| `grid-3-2` | list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: | `promises__grid`, `pcards` | — |
+| `grid-4` | list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: | `docs__grid`, `ws-svc`, `verify__grid` | `timeline__list` |
+| `list-plain` | list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; width: 100%; | `widget__list`, `widget__svc` | — |
+| `list-ruled` | list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; border-top: var(--pnw- | `who__list`, `fit-card__list` | — |
+| `list-ruled-dark` | list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; border-top: var(--pnw- | `next`, `rv-steps`, `cost-card__list` | — |
+| `list-ruled-strong` | list-style: none; margin: 0; padding: 0; border-top: var(--border-size) solid var(--text-dark); display: flex; | `city-list`, `sign-list` | — |
+| `num-row` | display: grid; grid-template-columns: 2.5em minmax(0, 1fr); gap: var(--space-s); padding: var(--space-s) 0; bo | `next__item`, `cost-card__item` | — |
+| `num-row__num` | font-family: var(--pnw-font-mono); color: var(--accent); font-size: var(--text-s); padding-top: .2em; | `next__num`, `cost-card__num`, `rv-steps__num` | — |
+| `ico-tile` | width: 52px; height: 52px; flex: none; border-radius: var(--radius); display: grid; place-items: center; backg | `jump__ico`, `who__ico` | `ws-svc__ico` |
+| `ico-round` | width: 3em; height: 3em; aspect-ratio: 1; flex: none; border-radius: var(--radius-circle); display: grid; plac | `promise__ico`, `docs__ico` | — |
+| `card-num` | position: absolute; top: var(--space-l); right: var(--space-l); font-family: var(--pnw-font-mono); font-size:  | `promise__num`, `docs__num` | — |
+| `tag--after` | background: var(--primary); | `job-pair__tag--after`, `mosaic__tag--after`, `still__tag--after` | — |
+| `card-soft` | position: relative; display: flex; flex-direction: column; gap: var(--space-s); padding: var(--space-l); borde | `docs__item` | `promise` |
+| `card-dark` | display: flex; flex-direction: column; gap: var(--space-m); padding: var(--space-l); border-radius: var(--radi | `pj-card` | `cost-card` |
+| `rows-dark` | margin: 0; width: 100%; border-top: var(--pnw-border-dark); display: flex; flex-direction: column; gap: 0; | `kit`, `pj-card__list` | — |
