@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-10T19:03:58.966Z",
+        "reason": "Claude: a market price ticker is literal, domain-appropriate motion for a finance site; respects prefers-reduced-motion"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-10T19:03:58.976Z",
+        "reason": "Claude: stats cells have 36px internal padding; detector reads the section border, not the cells"
+      }
+    ]
+  }
+}
