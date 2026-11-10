@@ -1,6 +1,6 @@
 """Assemble megamenu.html: the Who We Serve design page with the Services and Who We Serve mega menus in the
 header (src/megamenu-nav.html, src/megamenu-serve-nav.html + src/megamenu.css). Design preview only;
-?open shows Services open, ?serve shows Who We Serve open.
+?open = Services, ?serve = Who We Serve, ?about = About, ?areas = Service Areas.
 Run from pnw-trenchless/: python3 src/build_megamenu.py
 """
 s = open("who-we-serve.html").read()
@@ -10,8 +10,16 @@ s = s.replace(old, open("src/megamenu-nav.html").read(), 1)
 old = '      <a href="index.html#who">Who We Serve</a>\n'
 assert old in s
 s = s.replace(old, open("src/megamenu-serve-nav.html").read(), 1)
+old = '      <a href="index.html#how">How It Works</a>\n'
+assert old in s
+s = s.replace(old, "", 1)
+old = '      <a href="index.html#mike">About</a>\n'
+assert old in s
+s = s.replace(old, open("src/megamenu-about-nav.html").read(), 1)
+old = '      <a href="index.html#areas">Service Areas</a>\n'
+assert old in s
+s = s.replace(old, open("src/megamenu-areas-nav.html").read(), 1)
 for a, b in [
-             ('<a href="index.html#mike">About</a>', '<a href="about.html">About</a>'),
              ('<a href="#estimate">Contact</a>', '<a href="contact.html">Contact</a>')]:
     assert a in s
     s = s.replace(a, b, 1)
@@ -33,6 +41,8 @@ JS = """<script>
   document.addEventListener('click', function (e) { if (desktop()) items.forEach(function (i) { if (!i.contains(e.target)) set(i, false); }); });
   if (/[?&]open/.test(location.search)) set(document.getElementById('navServices'), true);
   if (/[?&]serve/.test(location.search)) set(document.getElementById('navServe'), true);
+  if (/[?&]about/.test(location.search)) set(document.getElementById('navAbout'), true);
+  if (/[?&]areas/.test(location.search)) set(document.getElementById('navAreas'), true);
 })();
 </script>
 </body>"""
