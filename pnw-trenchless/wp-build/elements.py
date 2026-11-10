@@ -164,7 +164,7 @@ def services_menu():
     # One card, repeated by a query loop over the `service` post type (ordered by menu_order).
     # Fields per service: card_image, card_label, card_text (ACF group "Service card (menu)").
     cards = [N("block", "", [block("mega-card", [
-        block("mega-card__art", [N("image", None, image={"useDynamicData": "{acf_card_image}", "size": "medium"}, altText="")],
+        block("mega-card__art", [N("image", None, image={"useDynamicData": "{acf_card_image}", "size": "medium"}, altText="", loading="eager")],
               tag="span", _attributes=hide, **when("{acf_card_image}")),
         span("{acf_card_label}", "mega-card__spec", **when("{acf_card_label}")),
         block("mega-card__title", [span("{post_title}"), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
@@ -206,7 +206,7 @@ def serve_menu():
     card classes as the Services menu; the 3 audiences are fixed content (no post type)."""
     hide = attrs(aria_hidden="true")
     cards = [block("", [block("mega-card aud-mini", [
-        block("mega-card__art", [img(photo, None, alt="")], tag="span", _attributes=hide),
+        block("mega-card__art", [img(photo, None, alt="", loading="eager")], tag="span", _attributes=hide),
         block("mega-card__title", [span(title), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
         span(text, "mega-card__text"),
         block("aud-mini__list", [span(x, "aud-mini__item") for x in items], tag="span"),

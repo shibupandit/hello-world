@@ -381,7 +381,8 @@
      "useDynamicData": "{acf_card_image}",
      "size": "medium"
     },
-    "altText": ""
+    "altText": "",
+    "loading": "eager"
    }
   },
   {
@@ -738,7 +739,8 @@
      "__media": "job-lawn-restored.jpg",
      "size": "full"
     },
-    "altText": ""
+    "altText": "",
+    "loading": "eager"
    }
   },
   {
@@ -897,7 +899,8 @@
      "__media": "job-access-pit.jpg",
      "size": "full"
     },
-    "altText": ""
+    "altText": "",
+    "loading": "eager"
    }
   },
   {
@@ -1056,7 +1059,8 @@
      "__media": "job-pipe-connection.jpg",
      "size": "full"
     },
-    "altText": ""
+    "altText": "",
+    "loading": "eager"
    }
   },
   {
