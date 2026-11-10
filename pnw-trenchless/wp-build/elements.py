@@ -24,7 +24,7 @@ FB = "https://www.facebook.com/profile.php?id=61589495076554"
 PHONE = "{acf_site_phone}"
 QUOTE_FORM_ID = 3  # Fluent Forms "Request a quote"
 CONTACT_ID = 785  # Contact page: has its own form, so the footer quote section is hidden there
-NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/who-we-serve/"), ("How It Works", "/#how"),
+NAV_LINKS = [("Services", "/#services"), ("Who We Serve", "/who-we-serve/"),
              ("About", "/about/"), ("Service Areas", "/#areas"), ("Contact", "/contact/")]
 
 

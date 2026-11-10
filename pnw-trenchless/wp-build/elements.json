@@ -1296,22 +1296,6 @@
    "name": "text-link",
    "parent": "h00011",
    "settings": {
-    "text": "How It Works",
-    "link": {
-     "type": "external",
-     "url": "/#how"
-    },
-    "_cls": [
-     "nav__link"
-    ]
-   },
-   "label": "nav__link"
-  },
-  {
-   "id": "h00060",
-   "name": "text-link",
-   "parent": "h00011",
-   "settings": {
     "text": "About",
     "link": {
      "type": "external",
@@ -1324,7 +1308,7 @@
    "label": "nav__link"
   },
   {
-   "id": "h00061",
+   "id": "h00060",
    "name": "text-link",
    "parent": "h00011",
    "settings": {
@@ -1340,7 +1324,7 @@
    "label": "nav__link"
   },
   {
-   "id": "h00062",
+   "id": "h00061",
    "name": "text-link",
    "parent": "h00011",
    "settings": {
@@ -1356,7 +1340,7 @@
    "label": "nav__link"
   },
   {
-   "id": "h00063",
+   "id": "h00062",
    "name": "block",
    "parent": "h00011",
    "settings": {
@@ -1368,9 +1352,9 @@
    "label": "nav__extras"
   },
   {
-   "id": "h00064",
+   "id": "h00063",
    "name": "block",
-   "parent": "h00063",
+   "parent": "h00062",
    "settings": {
     "tag": "a",
     "link": {
@@ -1385,9 +1369,9 @@
    "label": "nav__phone"
   },
   {
-   "id": "h00065",
+   "id": "h00064",
    "name": "block",
-   "parent": "h00064",
+   "parent": "h00063",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -1398,9 +1382,9 @@
    "label": "header__phone-ico"
   },
   {
-   "id": "h00066",
+   "id": "h00065",
    "name": "svg",
-   "parent": "h00065",
+   "parent": "h00064",
    "settings": {
     "file": {
      "__media": "icon-phone.svg"
@@ -1408,9 +1392,9 @@
    }
   },
   {
-   "id": "h00067",
+   "id": "h00066",
    "name": "block",
-   "parent": "h00064",
+   "parent": "h00063",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -1421,9 +1405,9 @@
    "label": "header__phone-text"
   },
   {
-   "id": "h00068",
+   "id": "h00067",
    "name": "text-basic",
-   "parent": "h00067",
+   "parent": "h00066",
    "settings": {
     "text": "Call or text",
     "tag": "span",
@@ -1434,9 +1418,9 @@
    "label": "header__phone-label"
   },
   {
-   "id": "h00069",
+   "id": "h00068",
    "name": "text-basic",
-   "parent": "h00067",
+   "parent": "h00066",
    "settings": {
     "text": "{acf_site_phone}",
     "tag": "span",
@@ -1447,9 +1431,9 @@
    "label": "header__phone-num"
   },
   {
-   "id": "h0006a",
+   "id": "h00069",
    "name": "button",
-   "parent": "h00063",
+   "parent": "h00062",
    "settings": {
     "text": "Get a Quote",
     "link": {
@@ -1471,9 +1455,9 @@
    "label": "btn--primary"
   },
   {
-   "id": "h0006b",
+   "id": "h0006a",
    "name": "block",
-   "parent": "h00063",
+   "parent": "h00062",
    "settings": {
     "_cls": [
      "nav__contact"
@@ -1482,9 +1466,9 @@
    "label": "nav__contact"
   },
   {
-   "id": "h0006c",
+   "id": "h0006b",
    "name": "block",
-   "parent": "h0006b",
+   "parent": "h0006a",
    "settings": {
     "tag": "a",
     "link": {
@@ -1498,9 +1482,9 @@
    "label": "topbar__link"
   },
   {
-   "id": "h0006d",
+   "id": "h0006c",
    "name": "svg",
-   "parent": "h0006c",
+   "parent": "h0006b",
    "settings": {
     "file": {
      "__media": "icon-mail.svg"
@@ -1512,18 +1496,18 @@
    "label": "ico"
   },
   {
-   "id": "h0006e",
+   "id": "h0006d",
    "name": "text-basic",
-   "parent": "h0006c",
+   "parent": "h0006b",
    "settings": {
     "text": "{acf_site_email}",
     "tag": "span"
    }
   },
   {
-   "id": "h0006f",
+   "id": "h0006e",
    "name": "block",
-   "parent": "h0006b",
+   "parent": "h0006a",
    "settings": {
     "tag": "a",
     "link": {
@@ -1539,9 +1523,9 @@
    "label": "topbar__link"
   },
   {
-   "id": "h00070",
+   "id": "h0006f",
    "name": "svg",
-   "parent": "h0006f",
+   "parent": "h0006e",
    "settings": {
     "file": {
      "__media": "icon-fb.svg"
@@ -1553,18 +1537,18 @@
    "label": "ico"
   },
   {
-   "id": "h00071",
+   "id": "h00070",
    "name": "text-basic",
-   "parent": "h0006f",
+   "parent": "h0006e",
    "settings": {
     "text": "Facebook",
     "tag": "span"
    }
   },
   {
-   "id": "h00072",
+   "id": "h00071",
    "name": "text-basic",
-   "parent": "h00063",
+   "parent": "h00062",
    "settings": {
     "text": "Serving Spokane, Spokane Valley, Deer Park, Clayton, Stevens &amp; Spokane County",
     "tag": "span",
@@ -1575,7 +1559,7 @@
    "label": "nav__area"
   },
   {
-   "id": "h00073",
+   "id": "h00072",
    "name": "toggle",
    "parent": "h00010",
    "settings": {
@@ -1588,7 +1572,7 @@
    "label": "Toggle (Open: Mobile)"
   },
   {
-   "id": "h00074",
+   "id": "h00073",
    "name": "block",
    "parent": "h0000d",
    "settings": {
@@ -1599,9 +1583,9 @@
    "label": "header__cta"
   },
   {
-   "id": "h00075",
+   "id": "h00074",
    "name": "block",
-   "parent": "h00074",
+   "parent": "h00073",
    "settings": {
     "tag": "a",
     "link": {
@@ -1616,9 +1600,9 @@
    "label": "header__phone"
   },
   {
-   "id": "h00076",
+   "id": "h00075",
    "name": "block",
-   "parent": "h00075",
+   "parent": "h00074",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -1629,9 +1613,9 @@
    "label": "header__phone-ico"
   },
   {
-   "id": "h00077",
+   "id": "h00076",
    "name": "svg",
-   "parent": "h00076",
+   "parent": "h00075",
    "settings": {
     "file": {
      "__media": "icon-phone.svg"
@@ -1639,9 +1623,9 @@
    }
   },
   {
-   "id": "h00078",
+   "id": "h00077",
    "name": "block",
-   "parent": "h00075",
+   "parent": "h00074",
    "settings": {
     "tag": "custom",
     "customTag": "span",
@@ -1652,9 +1636,9 @@
    "label": "header__phone-text"
   },
   {
-   "id": "h00079",
+   "id": "h00078",
    "name": "text-basic",
-   "parent": "h00078",
+   "parent": "h00077",
    "settings": {
     "text": "Call or text",
     "tag": "span",
@@ -1665,9 +1649,9 @@
    "label": "header__phone-label"
   },
   {
-   "id": "h0007a",
+   "id": "h00079",
    "name": "text-basic",
-   "parent": "h00078",
+   "parent": "h00077",
    "settings": {
     "text": "{acf_site_phone}",
     "tag": "span",
@@ -1678,9 +1662,9 @@
    "label": "header__phone-num"
   },
   {
-   "id": "h0007b",
+   "id": "h0007a",
    "name": "button",
-   "parent": "h00074",
+   "parent": "h00073",
    "settings": {
     "text": "Get a Quote",
     "link": {
