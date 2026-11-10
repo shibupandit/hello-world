@@ -295,6 +295,94 @@ c("nav__link", f"""
   %root%:hover::after, %root%:focus-visible::after, %root%[aria-current]::after, %root%:active::after {{ opacity: 1; transform: none; }}
 }}
 """)
+# Services mega menu (design: megamenu.html). A Bricks dropdown (`nav__drop`) with megaMenu on; Bricks adds
+# `.open` to the item and positions `.brx-dropdown-content` under the header, as wide as .header__inner.
+c("nav__drop", f"""
+%root% {{ position: static; list-style: none; }}
+%root% > .brx-submenu-toggle {{ position: relative; display: inline-flex; flex-direction: row; align-items: center; gap: .4em; padding-block: var(--space-xs); color: var(--text-light-muted); font-weight: 600; font-size: var(--text-s); white-space: nowrap; cursor: pointer; transition: color .2s; }}
+%root% > .brx-submenu-toggle::after {{ content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: .15em; background: var(--primary-light); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--pnw-ease); }}
+%root% > .brx-submenu-toggle button {{ display: inline-flex; align-items: center; padding: 0; margin: 0; background: none; border: 0; color: inherit; cursor: pointer; }}
+%root% > .brx-submenu-toggle svg {{ width: .9em; height: .9em; min-width: 0; min-height: 0; stroke-width: 2; transition: transform .3s var(--pnw-ease); }}
+%root%:hover > .brx-submenu-toggle, %root%.open > .brx-submenu-toggle, %root% > .brx-submenu-toggle.aria-current {{ color: var(--white); }}
+%root%.open > .brx-submenu-toggle::after, %root% > .brx-submenu-toggle.aria-current::after {{ transform: scaleX(1); }}
+%root%.open > .brx-submenu-toggle svg {{ transform: rotate(180deg); }}
+{NAV} {{
+  %root% {{ width: 100%; border-bottom: var(--pnw-border-dark); }}
+  %root% > .brx-submenu-toggle {{ display: flex; justify-content: space-between; width: 100%; color: var(--text-light); font-size: var(--text-l); padding: var(--space-s) 0; }}
+  %root% > .brx-submenu-toggle::after {{ display: none; }}
+  %root% > .brx-submenu-toggle svg {{ width: 1.1em; height: 1.1em; }}
+}}
+@media (prefers-reduced-motion: reduce) {{ %root% > .brx-submenu-toggle svg {{ transition: none; }} }}
+""")
+c("mega", f"""
+%root% {{ top: 100%; padding: 0; margin: 0; background: transparent; box-shadow: none; border: 0; min-width: 0; z-index: 55; }}
+{NAV} {{
+  .nav %root% {{ position: static !important; left: auto !important; width: 100% !important; min-width: 0 !important; transform: none !important; opacity: 1; visibility: visible; display: none; }}
+  .nav .nav__drop.open > %root% {{ display: block; }}
+}}
+""")
+c("mega__panel", f"""
+%root% {{ width: 100%; display: flex; flex-direction: column; gap: 0; background: var(--white); color: var(--text-dark); border-radius: 0 0 var(--radius-l) var(--radius-l); border: var(--pnw-border); border-top: 0; box-shadow: var(--box-shadow-l); overflow: hidden; }}
+{NAV} {{ %root% {{ background: transparent; border: 0; border-radius: 0; box-shadow: none; color: var(--text-light); }} }}
+""")
+c("mega__grid", f"""
+%root% {{ display: grid; grid-template-columns: minmax(0, 1fr) 19em; gap: 0; align-items: stretch; width: 100%; }}
+{NAV} {{ %root% {{ grid-template-columns: minmax(0, 1fr); }} }}
+""")
+c("mega__main", f"""
+%root% {{ display: flex; flex-direction: column; justify-content: center; gap: var(--space-m); padding: var(--space-l); min-width: 0; }}
+{NAV} {{ %root% {{ padding: 0 0 var(--space-s); gap: 0; }} }}
+""")
+c("mega__label", f"%root% {{ font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); }}\n{NAV} {{ %root% {{ display: none; }} }}")
+c("mega__cards", f"""
+%root% {{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-s); align-items: stretch; width: 100%; }}
+%root% > li {{ display: flex; min-width: 0; }}
+{NAV} {{ %root% {{ grid-template-columns: minmax(0, 1fr); gap: 0; }} }}
+""")
+c("mega-card", f"""
+%root% {{ display: flex; flex-direction: column; gap: .6em; width: 100%; height: 100%; padding: .5em .5em var(--space-s); border-radius: var(--radius); border: var(--border-size) solid transparent; color: var(--text-dark); text-decoration: none; white-space: normal; transition: background-color .25s, border-color .25s, transform .25s var(--pnw-ease); }}
+%root%:hover, %root%:focus-visible {{ background: var(--neutral-ultra-light); border-color: var(--neutral-light); transform: translateY(-.15em); }}
+%root%:hover .mega-card__art svg {{ transform: scale(1.05); }}
+%root%:hover .mega-card__title svg {{ transform: rotate(0); }}
+{NAV} {{
+  %root% {{ display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15em; align-items: center; padding: .7em 0; border: 0; border-radius: 0; color: var(--white); }}
+  %root%:hover, %root%:focus-visible {{ background: none; transform: none; }}
+}}
+@media (prefers-reduced-motion: reduce) {{ %root%, %root%:hover {{ transition: none; transform: none; }} }}
+""")
+c("mega-card__art", f"""
+%root% {{ display: block; position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; background: radial-gradient(70% 90% at 30% 50%, var(--primary-trans-20), transparent 70%), var(--base); }}
+%root% svg {{ position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .6s var(--pnw-ease); }}
+{NAV} {{ %root% {{ display: none; }} }}
+""")
+c("mega-card__ico", f"""
+%root% {{ display: none; }}
+{NAV} {{ %root% {{ display: grid; place-items: center; grid-row: span 2; width: 52px; height: 52px; border-radius: var(--radius); background: var(--white-trans-10); color: var(--primary-light); }} %root% svg {{ width: 32px; height: 32px; min-width: 32px; }} }}
+""")
+c("mega-card__spec", f"%root% {{ font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--primary); padding-inline: .35em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }}\n{NAV} {{ %root% {{ display: none; }} }}")
+c("mega-card__title", f"""
+%root% {{ display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: .5em; width: 100%; font-family: var(--heading-font-family); font-weight: 800; font-size: var(--text-l); line-height: 1.15; padding-inline: .35em; }}
+%root% svg {{ width: 1em; height: 1em; min-width: 0; min-height: 0; flex: none; color: var(--primary); transform: rotate(-45deg); transition: transform .3s var(--pnw-ease); }}
+{NAV} {{ %root% {{ padding: 0; color: var(--white); }} %root% svg {{ display: none; }} }}
+""")
+c("mega-card__text", f"%root% {{ font-size: var(--text-s); line-height: 1.5; font-weight: 400; color: var(--text-dark-muted); padding-inline: .35em; }}\n{NAV} {{ %root% {{ padding: 0; color: var(--text-light-muted); }} }}")
+c("mega__aside", f"""
+%root% {{ display: flex; flex-direction: column; align-items: flex-start; gap: .6em; padding: var(--space-m) var(--space-l); background: var(--base); color: var(--text-light-muted); min-width: 0; }}
+%root% .brxe-button {{ margin-top: auto; }}
+{NAV} {{ %root% {{ display: none; }} }}
+""")
+c("mega__aside-ico", "%root% { display: grid; place-items: center; width: 52px; height: 52px; flex: none; border-radius: var(--radius); background: var(--white-trans-10); color: var(--primary-light); }\n%root% svg { width: 32px; height: 32px; min-width: 32px; }")
+c("mega__aside-title", "%root% { font-family: var(--heading-font-family); font-weight: 800; font-size: var(--text-l); line-height: 1.2; color: var(--white); }")
+c("mega__aside-text", "%root% { font-size: var(--text-s); line-height: 1.55; }")
+c("mega__phone", "%root% { display: inline-flex; flex-direction: row; align-items: center; gap: .5em; width: auto; font-family: var(--heading-font-family); font-weight: 900; font-size: var(--h4); color: var(--white); text-decoration: none; }\n%root% svg { width: 1em; height: 1em; min-width: 0; min-height: 0; color: var(--primary-light); }\n%root%:hover { color: var(--primary-light); }")
+c("mega__foot", f"""
+%root% {{ display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-s) var(--space-l); padding: var(--space-s) var(--space-l); background: var(--neutral-ultra-light); border-top: var(--pnw-border); width: 100%; }}
+{NAV} {{ %root% {{ background: transparent; border: 0; padding: 0 0 var(--space-s) calc(52px + var(--space-s)); }} }}
+""")
+c("mega__note", f"%root% {{ display: inline-flex; flex-direction: row; align-items: center; gap: .6em; width: auto; font-size: var(--text-s); font-weight: 600; color: var(--text-dark); }}\n%root% svg {{ width: 1.25em; height: 1.25em; min-width: 0; min-height: 0; color: var(--primary); flex: none; }}\n{NAV} {{ %root% {{ display: none; }} }}")
+c("mega__links", "%root% { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-xs) var(--space-m); width: auto; }")
+c("mega__link", f"%root% {{ font-size: var(--text-s); font-weight: 700; color: var(--text-dark); text-decoration: none; transition: color .2s; }}\n%root%:hover {{ color: var(--primary); }}\n{NAV} {{ %root% {{ color: var(--primary-light); padding: .35em 0; }} }}")
+
 c("nav__extras", f"""
 %root% {{ display: none; }}
 {NAV} {{ %root% {{ display: flex; flex-direction: column; align-items: stretch; gap: var(--space-m); margin-top: auto; padding-top: var(--space-l); }} }}

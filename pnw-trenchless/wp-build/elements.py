@@ -156,6 +156,49 @@ def eyebrow(text):
 # --------------------------------------------------------------------------
 # HEADER TEMPLATE
 # --------------------------------------------------------------------------
+MEGA_SERVICES = [
+    ("art-service-lining.svg", "icon-liner.svg", "CIPP · pipe in a pipe", "Sewer pipe lining", "/services/sewer-pipe-lining/", "A new pipe inside the old one, for cracks, leaks and roots."),
+    ("art-service-burst.svg", "icon-burst.svg", "HDPE · full replacement", "Pipe bursting", "/services/pipe-bursting/", "A brand-new pipe pulled in, for collapsed or undersized lines."),
+    ("art-service-water.svg", "icon-drop.svg", "CTS poly · tested", "Water line pulling", "/services/water-line-pulling/", "A new water line, pressure and leak tested."),
+    ("art-service-spot.svg", "icon-patch.svg", "Spot repair · localized", "Point repairs", "/services/point-repairs/", "One damaged spot relined, the rest left as it is."),
+]
+
+
+def services_menu():
+    """"Services" in the header: a Bricks nav dropdown with the mega menu option (design: megamenu.html).
+    Bricks handles hover, click, keyboard, Esc and the mobile menu; the panel is as wide as .header__inner."""
+    hide = attrs(aria_hidden="true")
+    cards = [block("", [block("mega-card", [
+        block("mega-card__art", [svg(art)], tag="span", _attributes=hide),
+        block("mega-card__ico", [svg(ico)], tag="span", _attributes=hide),
+        span(spec, "mega-card__spec"),
+        block("mega-card__title", [span(title), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
+        span(text, "mega-card__text"),
+    ], href=url)], tag="li") for art, ico, spec, title, url, text in MEGA_SERVICES]
+    panel = block("mega__panel", [
+        block("mega__grid", [
+            block("mega__main", [
+                span("Four ways we fix it, without the trench", "mega__label"),
+                block("mega__cards", cards, tag="ul"),
+            ]),
+            block("mega__aside", [
+                block("mega__aside-ico", [svg("icon-camera.svg")], tag="span", _attributes=hide),
+                span("Not sure which one you need?", "mega__aside-title"),
+                t("Every job starts with a camera inspection. You see the footage, and the camera decides the method.", "mega__aside-text"),
+                block("mega__phone", [svg("icon-phone.svg"), span(PHONE)], href=TEL),
+                btn("Get a quote", "/contact/", "btn--primary btn-block", icon="icon-arrow.svg"),
+            ]),
+        ]),
+        block("mega__foot", [
+            block("mega__note", [svg("icon-film.svg"), span("You keep the before and after footage on every job.")], tag="span"),
+            block("mega__links", [a("Who we serve", "/who-we-serve/", "mega__link"), a("Recent projects", "/projects/", "mega__link"), a("Reviews", "/reviews/", "mega__link")]),
+        ]),
+    ])
+    return N("dropdown", "nav__drop", [
+        N("div", "mega", [panel], tag="div", _hidden={"_cssClasses": "brx-dropdown-content"}, label="Mega menu content"),
+    ], text="Services", tag="li", megaMenu=True, megaMenuSelector=".header__inner", ariaLabel="Toggle services menu", label="Services (mega menu)")
+
+
 def header():
     topbar = block("topbar", [
         block("topbar__inner", [
@@ -172,7 +215,8 @@ def header():
             block("logo", [img("logo.png", alt="PNW Trenchless")], href=link("/", aria="PNW Trenchless home")),
             N("nav-nested", "nav", [
                 block("nav__items", [
-                ] + [a(t, u, "nav__link") for t, u in NAV_LINKS] + [
+                    services_menu(),
+                ] + [a(t, u, "nav__link") for t, u in NAV_LINKS[1:]] + [
                     block("nav__extras", [
                         block("nav__phone", [
                             block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),
