@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iconic Finance | Sydney Mortgage Broker (font option A: Jost + IBM Plex Sans)</title>
+<meta name="description" content="Sydney mortgage broker helping buyers, refinancers, investors and self-employed borrowers structure lending properly. Obligation-free borrowing power assessment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   TOKENS: named to mirror Automatic.css (ACSS) variables so they can be
+   mapped 1:1 in the ACSS dashboard (Colors / Spacing / Typography).
+   ========================================================================== */
+:root {
+  /* Colors */
+  --primary: #a71e5b;          /* brand magenta */
+  --primary-dark: #7e1544;
+  --primary-ultra-light: #fbe9f1;
+  --secondary: #a8863f;        /* logo gold: decorative use only */
+  --secondary-light: #d9c08a;  /* gold on dark backgrounds */
+  --secondary-dark: #7a5f24;   /* gold text on light backgrounds (AA) */
+  --base: #1e1a45;             /* deep navy */
+  --base-dark: #141130;
+  --base-medium: #46425f;      /* secondary text on light (≈9:1) */
+  --neutral-ultra-light: #faf8f5;
+  --neutral-light: #f1ede7;
+  --white: #fff;
+  --divider: rgba(30, 26, 69, .14);
+  --divider-light: rgba(255, 255, 255, .16);
+
+  /* Typography */
+  --heading-font: Jost, system-ui, sans-serif;
+  --text-font: "IBM Plex Sans", system-ui, sans-serif;
+  --text-s: .9375rem;          /* smallest size used on the page: 15px */
+  --text-m: 1.0625rem;
+  --text-l: 1.25rem;
+  --h1: clamp(2.5rem, 5.2vw, 4.25rem);
+  --h2: clamp(2rem, 3.6vw, 2.875rem);
+  --h3: 1.375rem;
+
+  /* Spacing */
+  --space-xs: .5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
+  --space-xl: 4rem;
+  --section-space-m: clamp(4.5rem, 9vw, 7.5rem);
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --content-width: 1240px;
+  --measure: 62ch;
+  --radius: 14px;
+  --radius-l: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body {
+  font-family: var(--text-font);
+  font-size: var(--text-m);
+  line-height: 1.65;
+  color: var(--base);
+  background: var(--neutral-ultra-light);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+p { max-width: var(--measure); }
+h1, h2, h3, h4 { font-family: var(--heading-font); font-weight: 500; line-height: 1.15; letter-spacing: -.01em; }
+h1, h2, h3 { text-wrap: balance; }
+h2 { font-size: var(--h2); }
+h3 { font-size: var(--h3); }
+:focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--primary); color: var(--white); }
+input, textarea { caret-color: var(--primary); }
+[id] { scroll-margin-top: 100px; }
+a { text-underline-offset: .2em; }
+.tabular { font-variant-numeric: tabular-nums; }
+.nowrap { white-space: nowrap; }
+.icon { width: 1.25em; height: 1.25em; flex: none; }
+
+.skip-link { position: absolute; left: -9999px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 100; background: var(--white); padding: .5rem 1rem; }
+
+/* Layout utilities (ACSS-style) */
+.container { width: 100%; max-width: var(--content-width); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--section-space-m); }
+.bg--light { background: var(--neutral-light); }
+.bg--base { background: var(--base); color: var(--white); }
+.lead { font-size: var(--text-l); color: var(--base-medium); }
+.bg--base .lead { color: rgba(255,255,255,.8); }
+.note { font-size: var(--text-s); color: var(--base-medium); margin-top: var(--space-l); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  padding: .95rem 1.6rem; border-radius: 999px; border: 1.5px solid transparent;
+  font: 600 .9375rem/1 var(--text-font); text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.btn--primary { background: var(--primary); color: var(--white); }
+.btn--primary:hover { background: var(--primary-dark); }
+.btn--outline { border-color: currentColor; color: var(--base); }
+.btn--outline:hover { background: var(--base); color: var(--white); border-color: var(--base); }
+.btn--light { background: var(--white); color: var(--primary); }
+.btn--light:hover { background: var(--primary-ultra-light); }
+.btn--outline-light { border-color: rgba(255,255,255,.55); color: var(--white); }
+.btn--outline-light:hover { background: var(--white); color: var(--base); }
+.link-arrow { font-weight: 600; color: var(--primary); text-decoration: none; display: inline-flex; gap: .4rem; align-items: center; }
+.link-arrow .icon { width: 1em; height: 1em; transition: transform .2s; }
+a:hover .link-arrow .icon, .link-arrow:hover .icon { transform: translateX(4px); }
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.header { position: sticky; top: 0; z-index: 50; background: var(--white); border-bottom: 1px solid var(--divider); }
+.header__inner { display: flex; align-items: center; gap: var(--space-l); height: 84px; }
+.header__logo img { height: 46px; width: auto; }
+.nav { margin-left: auto; }
+.nav__list { display: flex; gap: .25rem; list-style: none; padding: 0; }
+.nav__item { position: relative; }
+.nav__link {
+  display: flex; align-items: center; gap: .35rem; padding: .6rem .85rem; border-radius: 8px;
+  font: 500 .9375rem/1 var(--text-font); text-decoration: none; background: none; border: 0; color: var(--base); cursor: pointer; white-space: nowrap;
+}
+.nav__link:hover, .nav__item:focus-within > .nav__link { color: var(--primary); }
+.nav__link svg { width: 12px; transition: transform .2s; }
+.nav__item:hover .nav__link svg, .nav__item:focus-within .nav__link svg { transform: rotate(180deg); }
+.nav__dropdown {
+  position: absolute; top: calc(100% + 8px); left: 0; min-width: 250px; list-style: none; padding: .5rem;
+  background: var(--white); border-radius: var(--radius); box-shadow: 0 12px 32px rgba(30,26,69,.16);
+  opacity: 0; visibility: hidden; transition: opacity .15s, visibility .15s;
+}
+.nav__dropdown::before { content: ""; position: absolute; inset: -10px 0 auto; height: 10px; }
+.nav__item:hover .nav__dropdown, .nav__item:focus-within .nav__dropdown { opacity: 1; visibility: visible; }
+.nav__dropdown a { display: block; padding: .6rem .8rem; border-radius: 8px; font-size: var(--text-s); text-decoration: none; }
+.nav__dropdown a:hover { background: var(--primary-ultra-light); color: var(--primary); }
+.header__actions { display: flex; align-items: center; gap: .75rem; }
+.header__phone { display: flex; align-items: center; gap: .5rem; min-height: 44px; min-width: 44px; justify-content: center; font-weight: 600; font-size: var(--text-s); text-decoration: none; white-space: nowrap; }
+.header__phone svg { width: 16px; color: var(--primary); }
+.header__toggle { display: none; background: none; border: 0; padding: .5rem; cursor: pointer; color: var(--base); }
+.header__toggle svg { width: 28px; }
+
+/* Proof bar: credentials and figures as one scannable line */
+.proof { background: var(--base); color: var(--white); }
+.proof__list { list-style: none; padding-block: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem var(--space-l); font-size: var(--text-s); }
+.proof__list li { display: flex; align-items: baseline; gap: .45rem; color: rgba(255,255,255,.82); }
+.proof__list strong { font: 600 1.0625rem/1.2 var(--heading-font); color: var(--secondary-light); }
+
+/* ==========================================================================
+   WHO WE HELP: heading + card grid
+   ========================================================================== */
+.help__head { display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--space-l); align-items: end; margin-bottom: var(--space-xl); }
+.paths { border-top: 1px solid var(--divider); }
+.path-row {
+  display: grid; grid-template-columns: 1fr 1.4fr 15rem; gap: var(--space-l); align-items: center;
+  padding-block: var(--space-m); border-bottom: 1px solid var(--divider); text-decoration: none;
+  transition: background .2s, padding .2s;
+}
+.path-row h3 { font-size: 1.5rem; transition: color .2s; }
+.path-row p { color: var(--base-medium); }
+.path-row .link-arrow { white-space: nowrap; justify-self: end; }
+.path-row:hover { background: var(--white); padding-inline: var(--space-m); }
+.path-row:hover h3 { color: var(--primary); }
+
+/* ==========================================================================
+   PROCESS: sticky intro left, vertical step list right
+   ========================================================================== */
+.process { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--space-xl); align-items: start; }
+.process__intro { position: sticky; top: 120px; }
+.process__intro h2 { margin-bottom: var(--space-m); }
+.process__intro .btn { margin-top: var(--space-l); }
+.steps { list-style: none; padding: 0; counter-reset: step; }
+.step { counter-increment: step; display: grid; grid-template-columns: 72px 1fr; gap: var(--space-m); padding-block: var(--space-l); border-top: 1px solid var(--divider-light); }
+.step:last-child { border-bottom: 1px solid var(--divider-light); }
+.step::before { content: "0" counter(step); font: 500 2rem/1.1 var(--heading-font); color: var(--secondary-light); }
+.step h3 { margin-bottom: var(--space-xs); }
+.step p { color: rgba(255,255,255,.8); }
+
+/* ==========================================================================
+   TOOLS: centred intro, calculator band, three-column link list
+   ========================================================================== */
+.tools__head { text-align: center; max-width: 720px; margin: 0 auto var(--space-xl); }
+.tools__head h2 { margin-bottom: var(--space-s); }
+.tools__head .lead { margin-inline: auto; }
+.calc { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center; }
+.calc__title { margin-bottom: var(--space-m); }
+.field + .field { margin-top: var(--space-m); }
+.field__top { display: flex; justify-content: space-between; margin-bottom: .5rem; }
+.field__top label { font-weight: 500; }
+.field__top output { font-weight: 600; color: var(--primary); font-variant-numeric: tabular-nums; }
+input[type=range] { width: 100%; height: 44px; margin: 0; accent-color: var(--primary); cursor: pointer; }
+.calc__result { background: var(--base); color: var(--white); border-radius: var(--radius-l); padding: var(--space-l); display: grid; gap: var(--space-m); }
+.calc__label { font-size: var(--text-s); color: var(--secondary-light); font-weight: 500; }
+.calc__value { font: 500 clamp(2.4rem, 4.5vw, 3.5rem)/1.1 var(--heading-font); font-variant-numeric: tabular-nums; }
+.calc__value small { font-size: 1.125rem; color: rgba(255,255,255,.75); }
+.calc__meta { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-m); padding-top: var(--space-m); border-top: 1px solid var(--divider-light); }
+.calc__meta dt { font-size: var(--text-s); color: rgba(255,255,255,.75); }
+.calc__meta dd { margin: .15rem 0 0; font: 500 1.375rem/1.2 var(--heading-font); font-variant-numeric: tabular-nums; }
+.calc__result .btn { justify-self: start; }
+.tool-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-l); margin-top: var(--space-xl); }
+.tool { display: flex; flex-direction: column; gap: .5rem; padding-top: var(--space-m); border-top: 1px solid var(--base); text-decoration: none; }
+.tool h3 { font-size: 1.25rem; }
+.tool p { color: var(--base-medium); flex: 1; }
+
+/* ==========================================================================
+   BROKER: portrait left, profile right
+   ========================================================================== */
+.broker { display: grid; grid-template-columns: 1.2fr .8fr; gap: var(--space-xl); align-items: start; }
+.broker__quote { font: 400 clamp(1.5rem, 2.6vw, 2.125rem)/1.4 var(--heading-font); color: var(--base); max-width: 34ch; }
+.broker__by { margin-top: var(--space-m); }
+.broker__name { font: 500 1.25rem/1.3 var(--heading-font); }
+.broker__role { color: var(--base-medium); }
+.creds { list-style: none; padding: 0; }
+.creds li { display: flex; gap: .6rem; align-items: flex-start; padding-block: .75rem; border-top: 1px solid var(--divider); }
+.creds li:last-child { border-bottom: 1px solid var(--divider); }
+.creds .icon { color: var(--primary); margin-top: .2rem; width: 1.05em; height: 1.05em; }
+.broker__links { display: flex; flex-wrap: wrap; gap: var(--space-m) var(--space-l); margin-top: var(--space-l); }
+
+/* ==========================================================================
+   CASE STUDIES: table-style rows
+   ========================================================================== */
+.cases__head { max-width: 720px; margin-bottom: var(--space-l); }
+.cases__head h2 { margin-bottom: var(--space-s); }
+.case { display: grid; grid-template-columns: 1fr 1fr 1fr 1.1fr; gap: var(--space-l); padding-block: var(--space-l); border-top: 1px solid var(--divider); }
+.case:last-of-type { border-bottom: 1px solid var(--divider); }
+.case h3 { font-size: 1.5rem; }
+.case dt { font-weight: 600; margin-bottom: .3rem; }
+.case dd { margin: 0; color: var(--base-medium); }
+.case__outcome dt { color: var(--primary); }
+.case__outcome dd { color: var(--base); }
+.cases__labels { display: none; }
+
+/* ==========================================================================
+   PROPERTY REPORT: full-bleed magenta, form right
+   ========================================================================== */
+.report { background: var(--primary); color: var(--white); }
+.report__inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center; }
+.report h2 { margin-bottom: var(--space-m); }
+.report__list { list-style: none; padding: 0; margin-top: var(--space-l); display: grid; gap: .75rem; }
+.report__list li { display: flex; gap: .7rem; align-items: flex-start; }
+.report__list .icon { margin-top: .2rem; }
+.form { background: var(--white); color: var(--base); border-radius: var(--radius-l); padding: var(--space-l); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-s); }
+.form h3 { grid-column: 1 / -1; margin-bottom: var(--space-xs); }
+.form__full { grid-column: 1 / -1; }
+.form__field label { display: block; font-size: var(--text-s); font-weight: 500; margin-bottom: .35rem; }
+.form input[type=text], .form input[type=email] {
+  width: 100%; font: inherit; padding: .85rem 1rem; border: 1px solid rgba(30,26,69,.25); border-radius: 10px; background: var(--white);
+}
+.form input:focus { outline: 2px solid var(--primary); outline-offset: 0; border-color: transparent; }
+.form input:user-invalid { border-color: #b3261e; }
+.form button[disabled] { opacity: .7; cursor: progress; }
+.form__consent { display: flex; gap: .6rem; font-size: var(--text-s); color: var(--base-medium); line-height: 1.5; }
+.form__consent input { width: 20px; height: 20px; flex: none; margin-top: .1rem; accent-color: var(--primary); }
+.form__hint { display: block; margin-top: .3rem; font-size: var(--text-s); color: var(--base-medium); }
+.form__fine { font-size: var(--text-s); color: var(--base-medium); }
+.form__msg { color: var(--primary); font-weight: 500; }
+.form__msg:empty { display: none; }
+
+/* ==========================================================================
+   FAQ: heading left, accordion right
+   ========================================================================== */
+.faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: var(--space-xl); align-items: start; }
+.faq__aside h2 { margin-bottom: var(--space-m); }
+.faq__list details { border-bottom: 1px solid var(--divider); }
+.faq__list details:first-child { border-top: 1px solid var(--divider); }
+.faq__list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: var(--space-m); padding: var(--space-m) 0; font: 500 1.1875rem/1.4 var(--heading-font); }
+.faq__list summary::-webkit-details-marker { display: none; }
+.faq__list summary .icon { color: var(--primary); transition: transform .2s; }
+.faq__list details[open] summary .icon { transform: rotate(45deg); }
+.faq__list details p { padding-bottom: var(--space-m); color: var(--base-medium); }
+.todo { background: #fff3c4; color: #5c4200; padding: .1rem .35rem; border-radius: 4px; }
+
+/* ==========================================================================
+   CTA + FOOTER
+   ========================================================================== */
+.cta-band { text-align: center; }
+.cta-band h2 { max-width: 20ch; margin: 0 auto var(--space-m); }
+.cta-band p { color: rgba(255,255,255,.8); margin: 0 auto var(--space-l); max-width: 52ch; }
+.cta-band__btns { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; }
+
+.footer { background: var(--base-dark); color: rgba(255,255,255,.8); font-size: var(--text-s); padding-top: var(--space-xl); }
+.footer__grid { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: var(--space-l); padding-bottom: var(--space-xl); }
+.footer__logo { display: inline-block; background: var(--white); padding: .75rem 1rem; border-radius: 12px; }
+.footer__logo img { height: 40px; width: auto; }
+.footer__about { margin-top: var(--space-m); max-width: 34ch; }
+.footer__social { display: flex; gap: .75rem; margin-top: var(--space-m); }
+.footer__social a { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.08); display: grid; place-items: center; transition: background .2s; }
+.footer__social a:hover { background: var(--primary); }
+.footer__social svg { width: 16px; fill: currentColor; }
+.footer__title { color: var(--white); font: 600 1rem var(--heading-font); margin-bottom: var(--space-s); }
+.footer ul { list-style: none; padding: 0; display: grid; gap: .1rem; }
+.footer ul a { display: inline-block; padding-block: .35rem; }
+.footer a { text-decoration: none; }
+.footer ul a:hover { color: var(--secondary-light); }
+.footer__legal { border-top: 1px solid var(--divider-light); padding-block: var(--space-l); color: rgba(255,255,255,.75); }
+.footer__legal p { max-width: 90ch; }
+.footer__bottom { display: flex; justify-content: space-between; gap: var(--space-m); flex-wrap: wrap; margin-top: var(--space-m); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .path-row, .path-row:hover, .link-arrow .icon, .hero-b__paths a, .hero-b__paths a .icon, .nav { transition: none; }
+  .path-row:hover, .hero-b__paths a:hover { padding-inline: 0; }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .header__phone span { display: none; }
+  .nav__link { padding: .6rem .6rem; }
+}
+@media (max-width: 980px) {
+  .header__toggle { display: block; }
+  .header__inner { height: 72px; gap: var(--space-s); }
+  .header__logo img { height: 38px; }
+  .header__actions { margin-left: auto; }
+  .header__actions .btn { display: none; }
+  .nav { position: fixed; inset: 72px 0 0; background: var(--white); padding: var(--space-m) var(--gutter); overflow-y: auto; transform: translateX(100%); visibility: hidden; transition: transform .3s, visibility .3s; margin: 0; }
+  .nav.is-open { transform: none; visibility: visible; }
+  .nav__list { flex-direction: column; gap: 0; }
+  .nav__item { border-bottom: 1px solid var(--divider); }
+  .nav__link { width: 100%; justify-content: space-between; padding: 1.1rem 0; font-size: 1.0625rem; }
+  .nav__dropdown { position: static; opacity: 1; visibility: visible; box-shadow: none; padding: 0 0 .75rem; display: none; min-width: 0; }
+  .nav__item.is-open .nav__dropdown { display: block; }
+  .nav__item:hover .nav__link svg { transform: none; }
+  .nav__item.is-open .nav__link svg { transform: rotate(180deg); }
+  .nav__mobile-cta { display: grid; gap: .75rem; margin-top: var(--space-l); }
+
+  .help__head, .process, .calc, .broker, .report__inner, .faq { grid-template-columns: 1fr; }
+  .help__head { gap: var(--space-s); margin-bottom: var(--space-l); }
+  .process { gap: var(--space-l); }
+  .process__intro { position: static; }
+  .calc { gap: var(--space-l); }
+  .tool-list { grid-template-columns: 1fr; gap: var(--space-m); }
+  .case { grid-template-columns: 1fr 1fr; gap: var(--space-m); }
+  .case h3 { grid-column: 1 / -1; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__grid > :first-child { grid-column: 1 / -1; }
+  .path-row { grid-template-columns: 1fr auto; gap: .5rem var(--space-m); }
+  .path-row p { grid-column: 1 / -1; grid-row: 2; }
+  .path-row .link-arrow { grid-row: 1; grid-column: 2; }
+  .path-row .link-arrow { font-size: 0; }
+  .path-row .link-arrow .icon { width: 22px; height: 22px; }
+  .proof__list { justify-content: flex-start; }
+}
+@media (min-width: 981px) { .nav__mobile-cta { display: none; } }
+@media (max-width: 640px) {
+  .step { grid-template-columns: 1fr; gap: var(--space-xs); }
+  .calc__result, .form { padding: var(--space-m); }
+  .form { grid-template-columns: 1fr; }
+  .case { grid-template-columns: 1fr; }
+  .process__intro .btn { width: 100%; }
+  .broker__links { flex-wrap: wrap; gap: var(--space-m); }
+}
+
+/* ==========================================================================
+   HERO: light, broker-led, path chooser
+   ========================================================================== */
+.hero-b { background: var(--neutral-ultra-light); border-bottom: 1px solid var(--divider); }
+.hero-b__inner { display: grid; grid-template-columns: 1.4fr .6fr; gap: var(--space-xl); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
+.hero-b__title { font-size: clamp(2.5rem, 5.2vw, 4.5rem); line-height: 1.08; letter-spacing: -.025em; max-width: 15ch; color: var(--base); }
+.hero-b__lead { font-size: var(--text-l); color: var(--base-medium); margin-top: var(--space-m); max-width: 46ch; }
+.hero-b__paths { margin-top: var(--space-l); max-width: 600px; display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--space-l); }
+.hero-b__ask { grid-column: 1 / -1; }
+.hero-b__ask { font-weight: 600; margin-bottom: var(--space-xs); }
+.hero-b__paths a {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--space-m);
+  padding: .95rem 0; border-top: 1px solid var(--divider); text-decoration: none;
+  font: 500 1.1875rem/1.3 var(--heading-font); color: var(--base); transition: color .2s, padding .2s;
+}
+.hero-b__paths a:nth-last-child(-n+2) { border-bottom: 1px solid var(--divider); }
+.hero-b__paths a .icon { color: var(--primary); transition: transform .2s; }
+.hero-b__paths a:hover { color: var(--primary); padding-left: .5rem; }
+.hero-b__paths a:hover .icon { transform: translateX(4px); }
+.hero-b__note { display: flex; align-items: center; gap: .6rem; margin-top: var(--space-m); font-size: var(--text-s); color: var(--base-medium); }
+.hero-b__note .icon { color: var(--primary); }
+.hero-b__broker img { width: 100%; max-height: 520px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-l); }
+.hero-b__broker figcaption { display: grid; gap: .2rem; margin-top: var(--space-s); font-size: var(--text-s); color: var(--base-medium); }
+.hero-b__name { font: 500 1.25rem/1.3 var(--heading-font); color: var(--base); }
+.hero-b__call { display: inline-flex; flex-wrap: wrap; align-items: center; min-height: 44px; gap: .5rem; margin-top: var(--space-xs); font-weight: 600; color: var(--primary); text-decoration: none; }
+@media (max-width: 980px) {
+  .hero-b__inner { grid-template-columns: 1fr; gap: var(--space-l); }
+  .hero-b__broker { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-m); align-items: center; }
+  .hero-b__broker figcaption { margin-top: 0; }
+  .hero-b__broker img { aspect-ratio: 1; max-height: none; height: auto; align-self: center; border-radius: var(--radius); }
+}
+@media (max-width: 640px) {
+  .hero-b__paths { grid-template-columns: 1fr; }
+  .hero-b__paths a:nth-last-child(2) { border-bottom: 0; }
+  .hero-b__broker { grid-template-columns: 88px 1fr; gap: var(--space-s); }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Reusable SVG icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="currentColor"/></symbol>
+</svg>
+
+<!-- ============================ HEADER ============================ -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="header__logo" aria-label="Iconic Finance home">
+      <img src="https://iconicfinance.com.au/wp-content/uploads/2026/07/ICONIC-FINAL-LOGO-23.png" alt="Iconic Finance" width="204" height="46">
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <button class="nav__link" aria-expanded="false">Home loans <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1.5l5 5 5-5"/></svg></button>
+          <ul class="nav__dropdown">
+            <li><a href="https://iconicfinance.com.au/services/home-loans-sydney/">Buying a home</a></li>
+            <li><a href="https://iconicfinance.com.au/services/refinance-home-loans/">Refinance</a></li>
+            <li><a href="https://iconicfinance.com.au/services/first-home-buyers-loans-sydney/">First home buyers</a></li>
+            <li><a href="https://iconicfinance.com.au/services/investment-property-loans/">Investment property</a></li>
+            <li><a href="https://iconicfinance.com.au/services/self-employed-home-loans/">Self-Employed</a></li>
+            <li><a href="https://iconicfinance.com.au/services/lmi-waivers-by-profession/">LMI waivers by profession</a></li>
+            <li><a href="https://iconicfinance.com.au/services/professionals-high-income/">Professionals &amp; high income</a></li>
+          </ul>
+        </li>
+        <li class="nav__item">
+          <button class="nav__link" aria-expanded="false">Calculators <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1.5l5 5 5-5"/></svg></button>
+          <ul class="nav__dropdown">
+            <li><a href="https://iconicfinance.com.au/calculators/borrowing-power-calculator/">Borrowing power</a></li>
+            <li><a href="https://iconicfinance.com.au/calculators/loan-repayment-calculator/">Repayments</a></li>
+            <li><a href="https://iconicfinance.com.au/calculators/stamp-duty-calculator/">Stamp duty</a></li>
+          </ul>
+        </li>
+        <li class="nav__item">
+          <button class="nav__link" aria-expanded="false">Resources <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1.5l5 5 5-5"/></svg></button>
+          <ul class="nav__dropdown">
+            <li><a href="https://iconicfinance.com.au/free-property-report/">Free property report</a></li>
+            <li><a href="https://iconicfinance.com.au/how-much-can-i-borrow/">How much can I borrow?</a></li>
+            <li><a href="https://iconicfinance.com.au/how-to-avoid-lmi/">How to avoid LMI</a></li>
+            <li><a href="https://iconicfinance.com.au/offset-vs-redraw/">Offset vs redraw</a></li>
+            <li><a href="https://iconicfinance.com.au/refinance-strategy/">Refinance strategy</a></li>
+            <li><a href="https://iconicfinance.com.au/case-studies/">Case studies</a></li>
+          </ul>
+        </li>
+        <li class="nav__item">
+          <button class="nav__link" aria-expanded="false">About <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1.5l5 5 5-5"/></svg></button>
+          <ul class="nav__dropdown">
+            <li><a href="https://iconicfinance.com.au/about/">About Iconic Finance</a></li>
+            <li><a href="https://iconicfinance.com.au/about/nicolette/">Meet Nicolette</a></li>
+            <li><a href="https://iconicfinance.com.au/our-process/">Our process</a></li>
+            <li><a href="https://iconicfinance.com.au/lenders-we-work-with/">Lenders we work with</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="https://iconicfinance.com.au/contact/">Contact</a></li>
+      </ul>
+      <div class="nav__mobile-cta">
+        <a href="#process" class="btn btn--primary">Book an assessment</a>
+        <a href="tel:+61416647644" class="btn btn--outline">Call +61 416 647 644</a>
+      </div>
+    </nav>
+
+    <div class="header__actions">
+      <a href="tel:+61416647644" class="header__phone" aria-label="Call +61 416 647 644">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        <span>+61 416 647 644</span>
+      </a>
+      <a href="#process" class="btn btn--primary">Book an assessment</a>
+      <button class="header__toggle" aria-label="Open menu" aria-controls="nav" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero-b">
+  <div class="container hero-b__inner">
+    <div class="hero-b__content">
+      <h1 class="hero-b__title">Get approved for the right loan</h1>
+      <p class="hero-b__lead">With expert strategy, smart structuring &amp; data-driven analysis. For where you want to go, not just where you are today.</p>
+
+      <nav class="hero-b__paths" aria-label="Choose your situation">
+        <p class="hero-b__ask">What brings you here?</p>
+        <a href="https://iconicfinance.com.au/services/home-loans-sydney/"><span>I want to buy</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a href="https://iconicfinance.com.au/services/refinance-home-loans/"><span>I want to refinance</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a href="https://iconicfinance.com.au/services/first-home-buyers-loans-sydney/"><span>I'm buying my first home</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a href="https://iconicfinance.com.au/services/self-employed-home-loans/"><span>I'm self-employed</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+      </nav>
+
+      <p class="hero-b__note"><svg class="icon"><use href="#i-check"/></svg> Obligation-free borrowing power assessment · Sydney-based</p>
+    </div>
+
+    <figure class="hero-b__broker">
+      <img src="https://iconicfinance.com.au/wp-content/uploads/2026/08/nicolette-portrait.webp" alt="Nicolette Aquilina, founder and senior broker, Iconic Finance" width="800" height="800" fetchpriority="high">
+      <figcaption>
+        <span class="hero-b__name">Nicolette Aquilina</span>
+        <span>Founder &amp; Finance Broker · 22 years in banking &amp; finance</span>
+        <a href="tel:+61416647644" class="hero-b__call"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Speak with Nicolette: <span class="nowrap">+61 416 647 644</span></a>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================ PROOF ============================ -->
+<section class="proof" aria-label="Iconic Finance at a glance">
+  <ul class="container proof__list">
+    <li><strong class="tabular">$600M+</strong> loans settled</li>
+    <li><strong class="tabular">22 years</strong> banking &amp; finance experience</li>
+    <li><strong>5-star</strong> Google reviews</li>
+    <li><strong class="tabular">500+</strong> professionals served</li>
+    <li><strong class="tabular">60+</strong> lender panel</li>
+  </ul>
+</section>
+
+<!-- ============================ WHO WE HELP ============================ -->
+<section class="section" id="who-we-help">
+  <div class="container">
+    <div class="help__head">
+      <h2>Lending advice built around your situation</h2>
+      <p class="lead">Not a one-size funnel. Choose the path that sounds like you.</p>
+    </div>
+    <div class="paths">
+      <a class="path-row" href="https://iconicfinance.com.au/services/first-home-buyers-loans-sydney/">
+        <h3>First home buyers</h3>
+        <p>Deposit strategy, government schemes and getting approved with confidence — even at higher LVRs.</p>
+        <span class="link-arrow">First home buyer loans <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="path-row" href="https://iconicfinance.com.au/services/refinance-home-loans/">
+        <h3>Refinancers</h3>
+        <p>Restructure your loan to cut repayments, release equity or fix a structure that no longer fits.</p>
+        <span class="link-arrow">Refinance home loans <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="path-row" href="https://iconicfinance.com.au/services/investment-property-loans/">
+        <h3>Property investors</h3>
+        <p>Loan structuring for your next purchase and the ones after it — without cross-collateralising by default.</p>
+        <span class="link-arrow">Investment property loans <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="path-row" href="https://iconicfinance.com.au/services/lmi-waivers-by-profession/">
+        <h3>Professionals &amp; high income</h3>
+        <p>LMI waivers, bonus and RSU income, and lenders who assess your income the way it's actually paid.</p>
+        <span class="link-arrow">LMI waivers by profession <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="path-row" href="https://iconicfinance.com.au/services/self-employed-home-loans/">
+        <h3>Self-employed</h3>
+        <p>Borrowing with business income, add-backs and alternative documentation — explained before you apply.</p>
+        <span class="link-arrow">Self-employed home loans <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROCESS ============================ -->
+<section class="section bg--base" id="process">
+  <div class="container process">
+    <div class="process__intro">
+      <h2>Four steps from conversation to settlement</h2>
+      <p class="lead">You'll know exactly what happens next at every stage — and what we need from you.</p>
+      <a href="https://iconicfinance.com.au/contact/" class="btn btn--primary">Book a borrowing power assessment</a>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <div>
+          <h3>Borrowing power assessment</h3>
+          <p>A structured conversation about your goals, income, deposit and debts. No cost, no obligation, no credit check at this stage.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div>
+          <h3>Lender comparison</h3>
+          <p>We match your situation against lender policy, structure, rates and fees — and show you why we recommend what we recommend.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div>
+          <h3>Application &amp; approval</h3>
+          <p>We prepare the application, manage documents and handle lender communication. You stay informed at every step.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div>
+          <h3>Settlement &amp; beyond</h3>
+          <p>We coordinate the final stages, then enrol you in our annual review program — your rate benchmarked, your structure checked and any fixed-rate expiry monitored, every year.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ TOOLS ============================ -->
+<section class="section bg--light" id="tools">
+  <div class="container">
+    <div class="tools__head">
+      <h2>Run your own numbers first</h2>
+      <p class="lead">Quick estimates to help you plan — then we'll pressure-test them against real lender policy.</p>
+    </div>
+
+    <div class="calc">
+      <div>
+        <h3 class="calc__title">Quick repayment estimate</h3>
+        <div class="field">
+          <div class="field__top"><label for="amount">Loan amount</label><output id="o-amount" for="amount"></output></div>
+          <input type="range" id="amount" min="100000" max="3000000" step="10000" value="750000">
+        </div>
+        <div class="field">
+          <div class="field__top"><label for="rate">Interest rate</label><output id="o-rate" for="rate"></output></div>
+          <input type="range" id="rate" min="4" max="9" step="0.05" value="6">
+        </div>
+        <div class="field">
+          <div class="field__top"><label for="term">Loan term</label><output id="o-term" for="term"></output></div>
+          <input type="range" id="term" min="10" max="30" step="1" value="30">
+        </div>
+      </div>
+      <div class="calc__result" aria-live="polite">
+        <div>
+          <div class="calc__label">Estimated monthly repayment, principal &amp; interest</div>
+          <div class="calc__value"><span id="monthly">$0</span> <small>/ month</small></div>
+        </div>
+        <dl class="calc__meta">
+          <div><dt>Fortnightly, approx.</dt><dd id="fortnightly">$0</dd></div>
+          <div><dt>Total interest</dt><dd id="interest">$0</dd></div>
+        </dl>
+        <a href="https://iconicfinance.com.au/calculators/loan-repayment-calculator/" class="btn btn--light">Full repayment calculator</a>
+      </div>
+    </div>
+
+    <div class="tool-list">
+      <a class="tool" href="https://iconicfinance.com.au/calculators/borrowing-power-calculator/">
+        <h3>Borrowing power calculator</h3>
+        <p>Estimate how much you could borrow based on income, debts and living expenses.</p>
+        <span class="link-arrow">Calculate borrowing power <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="tool" href="https://iconicfinance.com.au/how-much-can-i-borrow/">
+        <h3>How much can I borrow?</h3>
+        <p>The full guide to how lenders assess income, debts and expenses — and why capacity differs between lenders.</p>
+        <span class="link-arrow">Read the guide <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="tool" href="https://iconicfinance.com.au/free-property-report/">
+        <h3>Free property report</h3>
+        <p>An estimated value range, recent local sales and an indication of your usable equity.</p>
+        <span class="link-arrow">Get my report <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+    <p class="note">Calculator results are estimates only, based on the stated assumptions. They are not a loan offer, quote or approval. Lender assessment criteria differ and change.</p>
+  </div>
+</section>
+
+<!-- ============================ BROKER ============================ -->
+<section class="section" id="broker">
+  <div class="container broker">
+    <figure>
+      <blockquote class="broker__quote">“I started Iconic Finance because most borrowers only ever see the products their own bank offers. My job is to show you the wider picture — what different lenders will actually approve for your situation, and how to structure it properly the first time.”</blockquote>
+      <figcaption class="broker__by">
+        <div class="broker__name">Nicolette Aquilina</div>
+        <div class="broker__role">Founder &amp; Finance Broker, Iconic Finance</div>
+      </figcaption>
+      <div class="broker__links">
+        <a class="link-arrow" href="https://iconicfinance.com.au/about/nicolette/">More about Nicolette <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a class="link-arrow" href="#" rel="noopener">LinkedIn <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+    </figure>
+    <div>
+      <h2 class="sr-only">Qualifications</h2>
+      <ul class="creds">
+        <li><svg class="icon"><use href="#i-check"/></svg>B.Ec (Finance), University of Sydney</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>Dip. Finance &amp; Mortgage Broking Management</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>Justice of the Peace (NSW)</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>MFAA member</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>Credit Rep No. 500556 under ACL 387688</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>22 years in banking &amp; finance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CASE STUDIES ============================ -->
+<section class="section bg--light" id="case-studies">
+  <div class="container">
+    <div class="cases__head">
+      <h2>Real situations, properly structured</h2>
+      <p class="lead">Anonymised case studies from actual client files — shared with permission.</p>
+    </div>
+    <article class="case">
+      <h3>First home with a 10% deposit</h3>
+      <dl><dt>Situation</dt><dd>Couple in their late 20s, combined PAYG income, saving toward an apartment.</dd></dl>
+      <dl><dt>Challenge</dt><dd>LMI cost at 90% LVR was eroding their deposit strategy.</dd></dl>
+      <dl class="case__outcome"><dt>Outcome</dt><dd>Profession-based LMI waiver identified with a suitable lender; purchased within budget.</dd></dl>
+    </article>
+    <article class="case">
+      <h3>Self-employed across two entities</h3>
+      <dl><dt>Situation</dt><dd>Company director with income split between two businesses and significant add-backs.</dd></dl>
+      <dl><dt>Challenge</dt><dd>Their bank assessed only the salary drawn, cutting borrowing capacity sharply.</dd></dl>
+      <dl class="case__outcome"><dt>Outcome</dt><dd>Application restructured around full financials with a lender whose policy recognised the true income position.</dd></dl>
+    </article>
+    <article class="case">
+      <h3>Refinance to fix the structure</h3>
+      <dl><dt>Situation</dt><dd>Family with an owner-occupier loan and an investment loan cross-collateralised at one bank.</dd></dl>
+      <dl><dt>Challenge</dt><dd>The structure limited equity access and future purchase options.</dd></dl>
+      <dl class="case__outcome"><dt>Outcome</dt><dd>Loans separated across lenders; repayments reduced and equity released for the next purchase.</dd></dl>
+    </article>
+    <p class="note">Outcomes depend on individual circumstances and lender policy. Past results don't guarantee future outcomes.</p>
+  </div>
+</section>
+
+<!-- ============================ PROPERTY REPORT ============================ -->
+<section class="section report" id="property-report">
+  <div class="container report__inner">
+    <div>
+      <h2>What's your property worth right now?</h2>
+      <p>Get a free, no-obligation property report for your home or investment — a smart first step before refinancing, releasing equity or planning your next purchase.</p>
+      <ul class="report__list">
+        <li><svg class="icon"><use href="#i-check"/></svg>Current estimated value range and recent local sales</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>Suburb trends and market performance</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>An indication of your usable equity position</li>
+      </ul>
+    </div>
+    <form class="form" id="report-form">
+      <h3>Get my free property report</h3>
+      <div class="form__field"><label for="f-first">First name</label><input id="f-first" type="text" autocomplete="given-name" required></div>
+      <div class="form__field"><label for="f-last">Last name</label><input id="f-last" type="text" autocomplete="family-name" required></div>
+      <div class="form__field form__full"><label for="f-email">Email address</label><input id="f-email" type="email" autocomplete="email" required></div>
+      <div class="form__field form__full"><label for="f-address">Property address</label><input id="f-address" type="text" autocomplete="street-address" aria-describedby="f-address-hint" required><span id="f-address-hint" class="form__hint">Street address and suburb</span></div>
+      <label class="form__consent form__full"><input type="checkbox" required> <span>I agree to receive my report and occasional lending insights from Iconic Finance. I can unsubscribe at any time. See the <a href="#">Privacy policy</a>.</span></label>
+      <button type="submit" class="btn btn--primary form__full">Request now</button>
+      <p class="form__msg form__full" id="form-msg" role="status"></p>
+      <p class="form__fine form__full">Your report uses automated property data and is an estimate only — not a formal valuation. <span class="todo">Data source and disclaimer wording to be confirmed with provider. [VERIFY]</span></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section" id="faq">
+  <div class="container faq">
+    <div class="faq__aside">
+      <h2>Before you get in touch</h2>
+      <p>Researching first? <a class="link-arrow" href="https://iconicfinance.com.au/calculators/borrowing-power-calculator/">Try our borrowing power calculator <svg class="icon"><use href="#i-arrow"/></svg></a></p>
+    </div>
+    <div class="faq__list">
+      <!-- TODO: every answer below must be supplied by the broker and compliance-reviewed before launch. -->
+      <details open>
+        <summary>What does a mortgage broker cost? <svg class="icon"><use href="#i-plus"/></svg></summary>
+        <p><span class="todo">[Answer drafted by broker, aligned with the Credit Guide's commission disclosure, and compliance-reviewed before launch.]</span></p>
+      </details>
+      <details>
+        <summary>Is the first conversation an obligation-free assessment? <svg class="icon"><use href="#i-plus"/></svg></summary>
+        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+      </details>
+      <details>
+        <summary>How long does approval usually take? <svg class="icon"><use href="#i-plus"/></svg></summary>
+        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+      </details>
+      <details>
+        <summary>Can you help if I'm self-employed or my income is complex? <svg class="icon"><use href="#i-plus"/></svg></summary>
+        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+      </details>
+      <details>
+        <summary>What documents will I need? <svg class="icon"><use href="#i-plus"/></svg></summary>
+        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+      </details>
+      <details>
+        <summary>How do you choose which lenders to recommend? <svg class="icon"><use href="#i-plus"/></svg></summary>
+        <p><span class="todo">[Answer to be supplied by broker and compliance-reviewed.]</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA ============================ -->
+<section class="section bg--base cta-band">
+  <div class="container">
+    <h2>Find out what you can borrow, and how to structure it</h2>
+    <p>Start with an obligation-free borrowing power assessment. No cost, no obligation, no credit check at this stage.</p>
+    <div class="cta-band__btns">
+      <a href="https://iconicfinance.com.au/contact/" class="btn btn--primary">Book an assessment</a>
+      <a href="tel:+61416647644" class="btn btn--outline-light">Call +61 416 647 644</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="/" class="footer__logo" aria-label="Iconic Finance home"><img src="https://iconicfinance.com.au/wp-content/uploads/2026/07/ICONIC-FINAL-LOGO-23.png" alt="Iconic Finance" width="177" height="40" loading="lazy"></a>
+        <p class="footer__about">Iconic Finance is a Sydney mortgage broking business helping buyers, refinancers, investors and self-employed borrowers structure lending properly.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2c-2.7 0-3 0-4.1.1C4 2.3 2.3 4 2.1 7.9 2 9 2 9.3 2 12s0 3 .1 4.1C2.3 20 4 21.7 7.9 21.9 9 22 9.3 22 12 22s3 0 4.1-.1c3.9-.2 5.6-1.9 5.8-5.8.1-1.1.1-1.4.1-4.1s0-3-.1-4.1C21.7 4 20 2.3 16.1 2.1 15 2 14.7 2 12 2z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.5V11H7v4h3v7h4v-7h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h2 class="footer__title">Services</h2>
+        <ul>
+          <li><a href="https://iconicfinance.com.au/services/home-loans-sydney/">Buying a home</a></li>
+          <li><a href="https://iconicfinance.com.au/services/refinance-home-loans/">Refinance</a></li>
+          <li><a href="https://iconicfinance.com.au/services/first-home-buyers-loans-sydney/">First home buyers</a></li>
+          <li><a href="https://iconicfinance.com.au/services/investment-property-loans/">Investment property</a></li>
+          <li><a href="https://iconicfinance.com.au/services/self-employed-home-loans/">Self-Employed</a></li>
+          <li><a href="https://iconicfinance.com.au/services/lmi-waivers-by-profession/">LMI waivers by profession</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer__title">Calculators</h2>
+        <ul>
+          <li><a href="https://iconicfinance.com.au/calculators/borrowing-power-calculator/">Borrowing power</a></li>
+          <li><a href="https://iconicfinance.com.au/calculators/loan-repayment-calculator/">Loan repayment</a></li>
+          <li><a href="https://iconicfinance.com.au/calculators/stamp-duty-calculator/">Stamp duty</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer__title">Resources</h2>
+        <ul>
+          <li><a href="https://iconicfinance.com.au/free-property-report/">Free property report</a></li>
+          <li><a href="https://iconicfinance.com.au/how-much-can-i-borrow/">How much can I borrow?</a></li>
+          <li><a href="https://iconicfinance.com.au/our-process/">Our process</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer__title">Compliance</h2>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Complaints</a></li>
+          <li><a href="#">Collection notice</a></li>
+          <li><a href="#">Disclaimer</a></li>
+          <li><a href="https://iconicfinance.com.au/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <p>Narrow Holdings Pty Ltd trading as Iconic Finance ABN 13 140 077 541. Credit Representative Number 500556 is authorised under Australian Credit Licence 387688. This website provides general information only and does not take your personal circumstances into account. Comparison rates and examples are illustrative and subject to lender assessment.</p>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Iconic Finance. All rights reserved.</span>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Mobile nav
+  const toggle = document.querySelector('.header__toggle');
+  const nav = document.getElementById('nav');
+  const closeNav = () => { nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open menu'); document.body.style.overflow = ''; };
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    if (nav.classList.contains('is-open')) { closeNav(); toggle.focus(); }
+    document.querySelectorAll('.nav__item.is-open').forEach(i => { i.classList.remove('is-open'); i.firstElementChild.setAttribute('aria-expanded', 'false'); });
+  });
+
+  // Dropdown toggles (tap on mobile, keyboard on desktop)
+  document.querySelectorAll('button.nav__link').forEach(btn => btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const open = !item.classList.contains('is-open');
+    document.querySelectorAll('.nav__item.is-open').forEach(i => { i.classList.remove('is-open'); i.firstElementChild.setAttribute('aria-expanded', 'false'); });
+    item.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', open);
+  }));
+
+  // Repayment estimate (standard P&I amortisation)
+  const $ = id => document.getElementById(id);
+  const money = n => '$' + Math.round(n).toLocaleString('en-AU');
+  function calc() {
+    const P = +$('amount').value, rate = +$('rate').value, years = +$('term').value;
+    $('o-amount').textContent = money(P);
+    $('o-rate').textContent = rate.toFixed(2) + '% p.a.';
+    $('o-term').textContent = years + ' years';
+    const r = rate / 100 / 12, n = years * 12;
+    const m = P * r / (1 - Math.pow(1 + r, -n));
+    $('monthly').textContent = money(m);
+    $('fortnightly').textContent = money(m * 12 / 26);
+    $('interest').textContent = money(m * n - P);
+  }
+  ['amount', 'rate', 'term'].forEach(id => $(id).addEventListener('input', calc));
+  calc();
+
+  // Form (prototype only: wire to Bricks form / CRM on build)
+  $('report-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    // Prototype: simulate the request. Replace with the Bricks form action / CRM call.
+    setTimeout(() => {
+      $('form-msg').textContent = 'Thanks, your request has been received. We\'ll email your report shortly.';
+      e.target.reset(); btn.disabled = false; btn.textContent = 'Request now';
+    }, 700);
+  });
+
+  $('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
