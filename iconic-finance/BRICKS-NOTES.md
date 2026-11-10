@@ -24,17 +24,31 @@ All custom properties in the prototype's `:root` use ACSS names (`--primary`, `-
 | # | Section | Bricks build |
 |---|---|---|
 | 1 | Header | Header template: Logo, Nav Menu (nested, with dropdowns), phone link, Button. Sticky. |
-| 2 | Hero | Section `.hero` (bg Base) → Container 2-col grid: text block + Image (arched top radius) with two absolutely-positioned badge Divs |
-| 3 | Stats | Section `.stats` → 5-col grid of `.stat` blocks |
-| 4 | Who we help | Section → heading block + `.paths` grid (6-col; cards 1–3 span 2, cards 4–5 span 3). Each card is a Link block. Good candidate for a **Bricks Component** or Query Loop over a "Services" CPT |
-| 5 | How it works | Section bg Base → `<ol>` `.steps` 4-col grid with CSS counters + CTA |
-| 6 | Tools | Section → 2-col: repayment estimator (Code element, the JS is in the prototype) + 3 `.tool` link cards |
-| 7 | Broker | Section bg Light → 2-col: Image + text, credentials as a list of chips |
-| 8 | Case studies | Section → 3-col `.case` cards (Query Loop over a "Case Studies" CPT recommended) |
-| 9 | Property report | Magenta `.report` card → 2-col: copy + Bricks Form (or the existing provider embed) |
-| 10 | FAQ | Section bg Light → 2-col: heading + Accordion (nestable) element |
-| 11 | CTA band | Section bg Base, centred |
+| 2 | Hero | Section bg Base → 2-col grid: text + Image (arched top), with a plain text row under it (stars + lender panel) |
+| 3 | Stats | 5 figures in one row, divided by rules |
+| 4 | Who we help | Split heading row → `.paths` grid of plain filled cards (6-col; cards 1–3 span 2, 4–5 span 3). Use a Bricks Component or a Query Loop over a Services CPT |
+| 5 | How it works | Bg Base → 2-col: sticky intro + CTA on the left, numbered step list with divider lines on the right |
+| 6 | Tools | Bg Light → centred intro, then calculator (inputs left, dark result panel right; Code element for the JS), then 3 text links in columns |
+| 7 | Broker | Portrait left; name, quote and a 2-col credentials list right |
+| 8 | Case studies | Bg Light → table-style rows (title / situation / challenge / outcome). Use a Query Loop over a Case Studies CPT |
+| 9 | Property report | Full-width magenta section → copy left, Bricks Form on a white panel right |
+| 10 | FAQ | Heading left, Accordion (nestable) right |
+| 11 | CTA band | Bg Base, centred |
 | 12 | Footer | Footer template: 5-col grid + compliance block |
+
+## Design rules (avoid list)
+
+- No small uppercase labels above headings.
+- Icons are SVG only, never emoji or text glyphs.
+- Each section uses a different layout.
+- Only one level of container: no cards inside cards.
+- No bold phrases mid-sentence.
+- Minimum text size is 15px, and secondary text uses `#46425f`.
+- Paragraphs are capped at about 62 characters per line.
+- Headings use a line height of at least 1.1.
+- No decorative motion or floating shapes. The only movement is hover colour changes.
+- Separate things with fills or divider lines, not a border plus a shadow on every box.
+- No purple-to-blue gradients, no coloured strips on top of cards, no italic accent words, and step numbers only on real steps.
 
 Class names follow BEM (`.block__element`) to suit Bricks' global class manager.
 
