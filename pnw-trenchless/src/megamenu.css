@@ -1,0 +1,76 @@
+/* ==========================================================================
+   SERVICES MEGA MENU (design 2026-11-10)
+   Desktop: a white panel under the header (hover, keyboard focus or click on "Services").
+   Mobile: "Services" becomes an expandable row inside the drop-down menu.
+   ========================================================================== */
+.header { position: sticky; }
+.nav__item { position: static; display: flex; align-items: center; }
+.nav__trigger { position: relative; display: inline-flex; align-items: center; gap: .4rem; padding: .5rem 0; background: none; border: 0; color: var(--text-light-muted); font: inherit; font-weight: 600; font-size: .95rem; white-space: nowrap; cursor: pointer; transition: color .2s; }
+.nav__trigger::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--primary-light); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
+.nav__chev { width: .9rem; height: .9rem; transition: transform .3s var(--ease); }
+.nav__item.is-open .nav__trigger, .nav__trigger:hover { color: var(--white); }
+.nav__item.is-open .nav__trigger::after { transform: scaleX(1); }
+.nav__item.is-open .nav__chev { transform: rotate(180deg); }
+
+.mega { position: absolute; left: 0; right: 0; top: 100%; z-index: 55; padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px)); opacity: 0; visibility: hidden; transform: translateY(-.5rem); transition: opacity .25s var(--ease), transform .25s var(--ease), visibility .25s; pointer-events: none; }
+.nav__item.is-open .mega { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+.mega__panel { max-width: var(--content-width); margin-inline: auto; background: var(--white); color: var(--text-dark); border-radius: 0 0 var(--radius-l) var(--radius-l); border: var(--border); border-top: 0; box-shadow: var(--box-shadow-l); overflow: hidden; }
+.mega__grid { display: grid; grid-template-columns: minmax(0, 1fr) 19rem; }
+.mega__main { padding: var(--space-l); display: flex; flex-direction: column; justify-content: center; gap: var(--space-m); }
+.mega__label { font-family: var(--mono-font-family); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); }
+.mega__cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-s); }
+.nav .mega-card { display: flex; flex-direction: column; gap: .6rem; height: 100%; padding: .5rem .5rem var(--space-s); border-radius: var(--radius); border: 1px solid transparent; color: var(--text-dark); text-decoration: none; white-space: normal; font-size: 1rem; transition: background-color .25s, border-color .25s, transform .25s var(--ease); }
+.nav .mega-card::after { display: none; }
+.nav .mega-card:hover, .nav .mega-card:focus-visible { background: var(--neutral-ultra-light); border-color: var(--neutral-light); color: var(--text-dark); transform: translateY(-2px); }
+.mega-card__art { position: relative; aspect-ratio: 16 / 10; border-radius: calc(var(--radius) - 2px); overflow: hidden; background: radial-gradient(70% 90% at 30% 50%, rgb(47 122 75 / .25), transparent 70%), var(--base); }
+.mega-card__art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.mega-card:hover .mega-card__art img { transform: scale(1.05); }
+.mega-card__spec { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: var(--mono-font-family); font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--primary); padding-inline: .35rem; }
+.mega-card__title { display: flex; align-items: center; justify-content: space-between; gap: .5rem; font-family: var(--heading-font-family); font-weight: 800; font-size: 1.15rem; line-height: 1.15; padding-inline: .35rem; }
+.mega-card__title svg { width: 1rem; height: 1rem; flex: none; color: var(--primary); transform: rotate(-45deg); transition: transform .3s var(--ease); }
+.mega-card:hover .mega-card__title svg { transform: rotate(0); }
+.mega-card__text { font-size: .875rem; line-height: 1.5; font-weight: 400; color: var(--text-dark-muted); padding-inline: .35rem; }
+
+.mega__aside { display: flex; flex-direction: column; align-items: flex-start; gap: .6rem; padding: var(--space-m) var(--space-l); background: var(--base); color: var(--text-light-muted); }
+.mega__aside-ico { width: 52px; height: 52px; border-radius: var(--radius); display: grid; place-items: center; background: rgb(255 255 255 / .08); color: var(--primary-light); }
+.mega__aside-ico svg { width: 32px; height: 32px; }
+.mega__aside h3 { color: var(--white); font-size: 1.25rem; }
+.mega__aside p { font-size: .9rem; line-height: 1.55; }
+.nav .mega__phone { display: inline-flex; align-items: center; gap: .5rem; padding: 0; font-family: var(--heading-font-family); font-weight: 900; font-size: 1.35rem; color: var(--white); text-decoration: none; }
+.nav .mega__phone::after { display: none; }
+.mega__phone svg { width: 1.25rem; height: 1.25rem; color: var(--primary-light); }
+.nav .mega__aside .btn { width: 100%; justify-content: center; margin-top: auto; color: var(--white); padding-block: .85rem; }
+.nav .mega__aside .btn::after { display: none; }
+
+.mega__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-s) var(--space-l); padding: var(--space-s) var(--space-l); background: var(--neutral-ultra-light); border-top: var(--border); }
+.mega__note { display: inline-flex; align-items: center; gap: .6rem; font-size: .9rem; font-weight: 600; color: var(--text-dark); }
+.mega__note svg { width: 1.25rem; height: 1.25rem; color: var(--primary); flex: none; }
+.mega__links { display: flex; flex-wrap: wrap; gap: var(--space-m); }
+.nav .mega__links a { padding: 0; font-size: .9rem; font-weight: 700; color: var(--text-dark); border: 0; }
+.nav .mega__links a:hover { color: var(--primary); }
+.nav .mega__links a::after { background: var(--primary); }
+
+@media (max-width: 1200px) {
+  /* inside the mobile drop-down: Services is an expandable row */
+  .header.is-open .nav__item { display: block; border-bottom: var(--border-dark); }
+  .header.is-open .nav__trigger { width: 100%; justify-content: space-between; padding-block: 1rem; font-size: 1.15rem; color: var(--white); }
+  .nav__trigger::after { display: none; }
+  .header.is-open .nav__chev { width: 1.25rem; height: 1.25rem; }
+  .mega { position: static; padding: 0; opacity: 1; visibility: visible; transform: none; pointer-events: auto; display: none; }
+  .nav__item.is-open .mega { display: block; }
+  .mega__panel { background: transparent; border: 0; border-radius: 0; box-shadow: none; color: var(--text-light); max-width: none; }
+  .mega__grid { grid-template-columns: minmax(0, 1fr); }
+  .mega__main { padding: 0 0 var(--space-s); gap: 0; }
+  .mega__label, .mega__aside, .mega__note, .mega-card__art, .mega-card__spec { display: none; }
+  .mega__cards { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .header.is-open .nav .mega-card { display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15rem; align-items: center; padding: .7rem 0; border: 0; border-radius: 0; color: var(--white); transform: none; background: none; font-size: 1rem; }
+  .mega-card__ico { grid-row: span 2; width: 52px; height: 52px; border-radius: var(--radius); display: grid; place-items: center; background: rgb(255 255 255 / .08); color: var(--primary-light); }
+  .mega-card__ico svg { width: 32px; height: 32px; }
+  .mega-card__title { padding: 0; font-size: 1.05rem; color: var(--white); }
+  .mega-card__title svg { display: none; }
+  .mega-card__text { padding: 0; color: var(--text-light-muted); font-size: .85rem; }
+  .mega__foot { background: transparent; border: 0; padding: 0 0 var(--space-s) calc(52px + var(--space-s)); }
+  .header.is-open .nav .mega__links a { padding: .35rem 0; border: 0; font-size: .95rem; color: var(--primary-light); }
+}
+@media (min-width: 1201px) { .mega-card__ico { display: none; } }
+@media (prefers-reduced-motion: reduce) { .mega, .mega-card, .mega-card__art img, .nav__chev { transition: none; } }
