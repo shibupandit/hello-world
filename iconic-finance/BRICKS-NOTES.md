@@ -43,7 +43,7 @@ Class names follow BEM (`.block__element`) to suit Bricks' global class manager.
 - **FAQ answers.** All six answers are placeholders. They need to be written by the broker and compliance-reviewed.
 - **Property report disclaimer.** It is still marked `[VERIFY]` (data source wording to be confirmed with the provider).
 - **"5★ Google reviews".** The current site shows "5" next to stars. Confirm this is the star rating, not the review count.
-- **New copy not on the current site:** the hero eyebrow "Sydney mortgage broker", the closing CTA heading "Find out what you can borrow, and how to structure it", and the "60+ Lender panel to compare" badge. Everything else is the existing wording.
+- **New copy not on the current site:** the closing CTA heading "Find out what you can borrow, and how to structure it", and the "60+ Lender panel to compare" badge. Everything else is the existing wording.
 - **Repayment estimator.** This is new. It uses the standard principal & interest formula and sits under the existing calculator disclaimer.
 - **Links still set to `#`:** social profiles, LinkedIn and compliance pages. Point them at the real URLs.
 - **Report form.** It only shows a thank-you message for now. Connect it to the Bricks form action or CRM.

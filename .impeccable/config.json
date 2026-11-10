@@ -20,6 +20,15 @@
         ],
         "createdAt": "2026-11-10T19:03:58.976Z",
         "reason": "Claude: stats cells have 36px internal padding; detector reads the section border, not the cells"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "iconic-finance/index.html"
+        ],
+        "createdAt": "2026-11-10T19:11:35.024Z",
+        "reason": "Claude: Inter is Iconic Finance's existing brand body font (computed on live iconicfinance.com.au); redesign keeps brand continuity"
       }
     ]
   }
