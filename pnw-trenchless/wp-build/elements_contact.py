@@ -19,14 +19,14 @@ def hero():
     crumbs = N("block", "crumbs", [
         block("crumbs__list", [
             block("crumbs__item", [a("Home", HOME, "crumbs__link")], tag="li"),
-            block("crumbs__item", [span("Contact", "crumbs__current", _attributes=attrs(aria_current="page"))], tag="li"),
+            block("crumbs__item", [span("Contact", "text-accent-light", _attributes=attrs(aria_current="page"))], tag="li"),
         ], tag="ol"),
     ], tag="nav", _attributes=attrs(aria_label="Breadcrumb"))
 
     def way(ic, label, value, href, primary=False, new_tab=False):
         return block("reach__item" + (" reach__item--primary" if primary else ""), [
             block("reach__ico", [svg(ic)], tag="span"),
-            block("reach__body", [span(label, "reach__label"), span(value, "reach__value")], tag="span"),
+            block("reach__body", [span(label, "label-light"), span(value, "reach__value")], tag="span"),
             svg("icon-arrow.svg", "reach__go", _attributes=attrs(aria_hidden="true")),
         ], href=link(href, new_tab))
 
@@ -34,9 +34,9 @@ def hero():
         container([
             crumbs,
             block("svc-hero__grid", [
-                block("svc-hero__content", [
+                block("stack-l", [
                     span("Contact", "eyebrow rise"),
-                    h("h1", 'Talk to Mike. <span class="serif">Get a straight answer.</span>', "svc-hero__title rise rise--2"),
+                    h("h1", 'Talk to Mike. <span class="serif">Get a straight answer.</span>', "accent-light rise rise--2"),
                     t("Call, text or send the form. You reach Mike Jeisma, the owner, not a call center. Send a photo or video of the problem and he'll tell you what he sees and what it's likely to need.", "svc-hero__lede rise rise--3"),
                     block("owner__creds rise rise--4", [
                         block("owner__cred", [svg("icon-home.svg"), span(ADDRESS)], tag="li", **when(ADDRESS)),
@@ -77,13 +77,13 @@ def connect():
                         block("steps-mini", [
                             block("steps-mini__item", [
                                 span(f"0{i + 1}", "steps-mini__num"),
-                                block("steps-mini__body", [span(ti, "steps-mini__title"), span(tx, "steps-mini__text")], tag="span"),
+                                block("steps-mini__body", [span(ti, "steps-mini__title"), span(tx, "caption")], tag="span"),
                             ], tag="li")
                             for i, (ti, tx) in enumerate(steps)
                         ], tag="ol"),
                     ]),
                     block("info-card", [
-                        block("info-card__row", [t(term, "info-card__term", tag="dt"), t(val, "info-card__value", tag="dd")], **(when(cond) if cond else {}))
+                        block("info-card__row", [t(term, "label-accent info-card__term", tag="dt"), t(val, "value-light", tag="dd")], **(when(cond) if cond else {}))
                         for term, val, cond in rows
                     ], tag="dl"),
                 ]),
@@ -93,12 +93,12 @@ def connect():
 
 
 def urgent():
-    return section("section urgent section--white", [
+    return section("section section--tight section--white", [
         container([
             block("urgent__card", [
                 block("urgent__ico", [svg("icon-alert.svg")], tag="span"),
                 block("urgent__text", [
-                    h("h2", 'Sewer backing up <span class="serif">right now?</span>', "urgent__title"),
+                    h("h2", 'Sewer backing up <span class="serif">right now?</span>', "title-block"),
                     t(f"Stop running water in the house, then call or text Mike. He'll tell you what to do next. {tbc('Confirm emergency / after-hours availability.')}"),
                 ]),
                 block("urgent__actions", [
@@ -115,11 +115,11 @@ def area():
     return section("section section--tint", [
         container([
             block("split split--center split--areas", [
-                block("areas__text", [
+                block("text-block", [
                     eyebrow("Where we work"),
                     h("h2", 'Serving Spokane &amp; <span class="serif">Stevens counties.</span>'),
                     t(f"Based in {ADDRESS}. Not on the list? Call or text anyway. If you're nearby, we'll usually come out."),
-                    block("city-list", [block("", [block("city", [span(c), span(n, "city__note")], href="/#areas")], tag="li") for c, n in cities], tag="ul"),
+                    block("list-ruled-strong", [block("", [block("city", [span(c), span(n, "city__note")], href="/#areas")], tag="li") for c, n in cities], tag="ul"),
                 ]),
                 block("map", [
                     # The Google map embed (Website Settings) replaces the illustrated map when it is filled in.

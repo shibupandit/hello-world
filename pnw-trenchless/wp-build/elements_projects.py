@@ -47,11 +47,11 @@ def project_feature(query, label="Project feature (loop)", cta=True):
         block("spec", spec, tag="dl", **any_of(*[x for _, x in rows])),
     ]
     if cta:
-        info.append(a("View project", link("{post_url}"), "link-arrow project__link"))
+        info.append(a("View project", link("{post_url}"), "link-arrow text-accent-light"))
     return N("block", "project", [
         block("job-pair", [
             block("job-pair__fig", [dimg("{acf_before_image}", None), span("DURING", "job-pair__tag")], tag="figure"),
-            block("job-pair__fig", [dimg("{acf_after_image}", None), span("AFTER", "job-pair__tag job-pair__tag--after")], tag="figure"),
+            block("job-pair__fig", [dimg("{acf_after_image}", None), span("AFTER", "job-pair__tag tag--after")], tag="figure"),
         ]),
         block("project__info", info),
     ], label=label, tag="article", hasLoop=True, query=query)
@@ -63,7 +63,7 @@ def project_card(query, label="Project card (loop)"):
         block("pcard__body", [
             span("{acf_service}", "pcard__tag"),
             h("h3", "{post_title}", "pcard__title"),
-            t("{acf_summary}", "pcard__text", **when("{acf_summary}")),
+            t("{acf_summary}", "caption", **when("{acf_summary}")),
         ]),
     ], label=label, tag="a", link=link("{post_url}"), hasLoop=True, query=query)
 
@@ -71,7 +71,7 @@ def project_card(query, label="Project card (loop)"):
 def project_mini(query, label="Project mini card (loop)"):
     return N("block", "mini", [
         dimg("{acf_cover_image}", None, "medium"),
-        block("mini__body", [span("{post_title}", "mini__title"), span("{acf_summary}", "mini__text")], tag="span"),
+        block("mini__body", [span("{post_title}", "mini__title"), span("{acf_summary}", "caption")], tag="span"),
     ], label=label, tag="a", link=link("{post_url}"), hasLoop=True, query=query)
 
 
@@ -84,20 +84,20 @@ def p_hero():
     crumbs = N("block", "crumbs", [
         block("crumbs__list", [
             block("crumbs__item", [a("Home", "/", "crumbs__link")], tag="li"),
-            block("crumbs__item", [span("Projects", "crumbs__current", _attributes=attrs(aria_current="page"))], tag="li"),
+            block("crumbs__item", [span("Projects", "text-accent-light", _attributes=attrs(aria_current="page"))], tag="li"),
         ], tag="ol"),
     ], tag="nav", _attributes=attrs(aria_label="Breadcrumb"))
 
     def tile(f, alt, tag, cls="mosaic__item", after=False):
-        return block(cls, [img(f, "cover-img", alt=alt), t(tag, "mosaic__tag" + (" mosaic__tag--after" if after else ""), tag="figcaption")], tag="figure")
+        return block(cls, [img(f, "cover-img", alt=alt), t(tag, "mosaic__tag" + (" tag--after" if after else ""), tag="figcaption")], tag="figure")
 
     return section("section svc-hero projects-hero section--dark grain", [
         container([
             crumbs,
             block("svc-hero__grid", [
-                block("svc-hero__content", [
+                block("stack-l", [
                     span("Projects", "eyebrow rise"),
-                    h("h1", 'Real jobs. <span class="serif">Real yards.</span>', "svc-hero__title rise rise--2"),
+                    h("h1", 'Real jobs. <span class="serif">Real yards.</span>', "accent-light rise rise--2"),
                     t("Every job starts with a camera and ends with one. Here's what our work actually looks like: the small pits, the pipe we pull out, what goes in its place, and the yard after we leave.", "svc-hero__lede rise rise--3"),
                     block("owner__creds rise rise--4", [
                         block("owner__cred", [svg("icon-camera.svg"), span("Camera before &amp; after")], tag="li"),
@@ -121,7 +121,7 @@ def p_list():
             head_split("Recent projects", 'Before, during <span class="serif">and after.</span>',
                        t("Photos straight from the job site. Details are added once the homeowner is happy for us to share them.", "section__intro section__intro--narrow")),
             block("project-list", [project_feature(q(posts_per_page=2, meta_query=WITH_PAIR + [REAL_ONLY]), cta=True)]),
-            block("pcards pcards--spaced", [project_card(q(posts_per_page=12, offset=2))], tag="ul"),
+            block("grid-3-2 pcards--spaced", [project_card(q(posts_per_page=12, offset=2))], tag="ul"),
         ]),
     ], sid="list", label="Projects (loops)")
 
@@ -135,8 +135,8 @@ def p_docs():
         container([
             head_split("How we document every job", 'You see it all, <span class="serif">start to finish.</span>',
                        t("The same record you see here, you get for your own line.", "section__intro section__intro--narrow")),
-            block("docs__grid", [
-                block("docs__item", [block("docs__ico", [svg(ic)], tag="span"), span(f"0{i + 1}", "docs__num"), h("h3", ti, "docs__title"), t(tx, "docs__text")], tag="li")
+            block("grid-4", [
+                block("card-soft", [block("ico-round", [svg(ic)], tag="span"), span(f"0{i + 1}", "card-num"), h("h3", ti, "title-l"), t(tx, "caption")], tag="li")
                 for i, (ic, ti, tx) in enumerate(steps)
             ], tag="ol"),
         ]),
@@ -171,7 +171,7 @@ def s_hero():
         block("crumbs__list", [
             block("crumbs__item", [a("Home", "/", "crumbs__link")], tag="li"),
             block("crumbs__item", [a("Projects", PROJECTS, "crumbs__link")], tag="li"),
-            block("crumbs__item", [span("{post_title}", "crumbs__current", _attributes=attrs(aria_current="page"))], tag="li"),
+            block("crumbs__item", [span("{post_title}", "text-accent-light", _attributes=attrs(aria_current="page"))], tag="li"),
         ], tag="ol"),
     ], tag="nav", _attributes=attrs(aria_label="Breadcrumb"))
     meta = [("Location", "{acf_location}"), ("Service", "{acf_service}"), ("Completed", "{acf_completed}"), ("Time on site", "{acf_time_on_site}")]
@@ -179,12 +179,12 @@ def s_hero():
         container([
             crumbs,
             block("pj-hero__head", [
-                block("pj-hero__title", [
+                block("stack-m", [
                     span("{acf_service} · {acf_setting}", "eyebrow rise"),
                     h("h1", title_html(), "pj-hero__h1 rise rise--2"),
                 ]),
                 block("pj-meta rise rise--3", [
-                    block("pj-meta__item", [t(term, "pj-meta__term", tag="dt"), t(tag, "pj-meta__value", tag="dd")], **when(tag))
+                    block("pj-meta__item", [t(term, "label-light", tag="dt"), t(tag, "value-light", tag="dd")], **when(tag))
                     for term, tag in meta
                 ], tag="dl"),
             ]),
@@ -198,7 +198,7 @@ def s_glance():
     return section("section pj-glance section--tint", [
         container([
             block("pj-glance__grid", [
-                block("pj-glance__item", [span(lab, "pj-glance__label"), span(tag, "pj-glance__value")], tag="li", **when(tag))
+                block("pj-glance__item", [span(lab, "label"), span(tag, "pj-glance__value")], tag="li", **when(tag))
                 for lab, tag in items
             ], tag="ul"),
         ]),
@@ -207,30 +207,30 @@ def s_glance():
 
 def s_story():
     def blk(num, title, tag, extra=()):
-        return block("pj-block", [span(num, "pj-block__num"), h("h2", title, "pj-block__title"), t(tag, "pj-block__text")] + list(extra), **when(tag))
+        return block("pj-block", [span(num, "pj-block__num"), h("h2", title, "title-block"), t(tag, "pj-block__text")] + list(extra), **when(tag))
 
-    work_photo = block("pj-inline", [dimg("{acf_work_image}", None, "medium"), t("{acf_work_caption}", "pj-inline__cap", tag="figcaption")],
+    work_photo = block("pj-inline", [dimg("{acf_work_image}", None, "medium"), t("{acf_work_caption}", "caption", tag="figcaption")],
                        tag="figure", **when("{acf_work_image}"))
     card_rows = [("Service", "{acf_service}"), ("Location", "{acf_location}"), ("Problem", "{acf_problem}"), ("Method", "{acf_method}"), ("Yard", "{acf_yard}")]
     return section("section section--white", [
         container([
             block("pj-story__grid", [
-                block("pj-story__body", [
+                block("stack-xl", [
                     # Shown until the story fields are filled in.
-                    block("pj-block", [span("01", "pj-block__num"), h("h2", "About this job", "pj-block__title"), t("{acf_summary}", "pj-block__text"), work_photo],
+                    block("pj-block", [span("01", "pj-block__num"), h("h2", "About this job", "title-block"), t("{acf_summary}", "pj-block__text"), work_photo],
                           **when("{acf_story_problem}", "==")),
                     blk("01", "The problem", "{acf_story_problem}"),
-                    blk("02", "What we did", "{acf_story_work}", [block("pj-inline", [dimg("{acf_work_image}", None, "medium"), t("{acf_work_caption}", "pj-inline__cap", tag="figcaption")], tag="figure", **when("{acf_work_image}"))]),
+                    blk("02", "What we did", "{acf_story_work}", [block("pj-inline", [dimg("{acf_work_image}", None, "medium"), t("{acf_work_caption}", "caption", tag="figcaption")], tag="figure", **when("{acf_work_image}"))]),
                     blk("03", "The result", "{acf_story_result}"),
                 ]),
                 block("pj-aside", [
-                    block("pj-card", [
+                    block("card-dark", [
                         eyebrow("This job"),
-                        block("pj-card__list", [
-                            block("pj-card__row", [t(term, "pj-card__term", tag="dt"), t(tag, "pj-card__value", tag="dd")], **when(tag))
+                        block("rows-dark", [
+                            block("pj-card__row", [t(term, "label-accent pj-card__term", tag="dt"), t(tag, "value-light", tag="dd")], **when(tag))
                             for term, tag in card_rows
                         ], tag="dl"),
-                        btn("Get a quote like this", "/contact/", "btn--primary form__submit", icon="icon-arrow.svg"),
+                        btn("Get a quote like this", "/contact/", "btn--primary btn-block", icon="icon-arrow.svg"),
                         block("pj-card__phone", [svg("icon-phone.svg"), span(f"Or call / text {PHONE}")], href=TEL),
                     ]),
                 ], tag="aside"),
@@ -246,7 +246,7 @@ def s_ba():
                        t("One small pit instead of a trench across the yard.", "section__intro section__intro--narrow")),
             block("job-pair pj-ba", [
                 block("job-pair__fig", [dimg("{acf_before_image}", None), span("DURING", "job-pair__tag")], tag="figure"),
-                block("job-pair__fig", [dimg("{acf_after_image}", None), span("AFTER", "job-pair__tag job-pair__tag--after")], tag="figure"),
+                block("job-pair__fig", [dimg("{acf_after_image}", None), span("AFTER", "job-pair__tag tag--after")], tag="figure"),
             ]),
         ]),
     ], label="Before and after", _conditions=[[{"id": "bab", "key": "dynamic_data", "compare": "!=", "value": "", "dynamic_data": "{acf_before_image}"},
@@ -275,7 +275,7 @@ def s_more():
     return section("section section--white", [
         container([
             head_split("More projects", 'Other jobs <span class="serif">like this one.</span>', a("All projects", PROJECTS, "link-arrow")),
-            block("pcards", [project_card(q(posts_per_page=3, post__not_in=["{post_id}"], excludeCurrentPost=True))], tag="ul"),
+            block("grid-3-2", [project_card(q(posts_per_page=3, post__not_in=["{post_id}"], excludeCurrentPost=True))], tag="ul"),
         ]),
     ], label="More projects")
 

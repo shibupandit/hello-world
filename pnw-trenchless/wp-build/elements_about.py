@@ -21,14 +21,14 @@ def hero():
     crumbs = N("block", "crumbs", [
         block("crumbs__list", [
             block("crumbs__item", [a("Home", HOME, "crumbs__link")], tag="li"),
-            block("crumbs__item", [span("About", "crumbs__current", _attributes=attrs(aria_current="page"))], tag="li"),
+            block("crumbs__item", [span("About", "text-accent-light", _attributes=attrs(aria_current="page"))], tag="li"),
         ], tag="ol"),
     ], tag="nav", _attributes=attrs(aria_label="Breadcrumb"))
     portrait = block("portrait rise rise--4", [
         block("portrait__frame", [
             img("trailer.jpg", "cover-img", alt="The PNW Trenchless equipment trailer"),
             block("portrait__plate", [
-                block("portrait__id", [span("Mike Jeisma", "portrait__name"), span("Owner &amp; lead technician", "portrait__role")], tag="span"),
+                block("id-stack", [span("Mike Jeisma", "title-light"), span("Owner &amp; lead technician", "fine-light")], tag="span"),
                 span(f"Est. {tbc('2025')}", "portrait__est"),
             ]),
         ]),
@@ -37,9 +37,9 @@ def hero():
         container([
             crumbs,
             block("svc-hero__grid", [
-                block("svc-hero__content", [
+                block("stack-l", [
                     span("About PNW Trenchless", "eyebrow rise"),
-                    h("h1", 'Meet Mike Jeisma, <span class="serif">the owner who shows up</span> to your job.', "svc-hero__title rise rise--2"),
+                    h("h1", 'Meet Mike Jeisma, <span class="serif">the owner who shows up</span> to your job.', "accent-light rise rise--2"),
                     t(f"PNW Trenchless is a family-owned sewer and water line company based in {ADDRESS}. Mike has spent 14+ years fixing underground pipes across the Spokane area. When you call, you talk to him. When the trailer pulls up, he's on it.", "svc-hero__lede rise rise--3"),
                     block("hero__actions rise rise--4", [
                         btn("Talk to Mike about your line", "/contact/", "btn--primary", icon="icon-arrow.svg"),
@@ -85,7 +85,7 @@ def story():
                 block("story__aside", [
                     eyebrow("The story"),
                     h("h2", 'Why I started <span class="serif">PNW Trenchless.</span>'),
-                    span("In Mike's own words", "story__meta"),
+                    span("In Mike's own words", "label"),
                 ]),
                 block("story__body", [
                     block("story__quote", [
@@ -94,7 +94,7 @@ def story():
                     ], tag="blockquote"),
                     block("signature", [
                         span("Mike Jeisma", "signature__mark", _attributes=attrs(aria_hidden="true")),
-                        block("signature__id", [span("Mike Jeisma", "signature__name"), span("Owner, PNW Trenchless", "signature__role")], tag="span"),
+                        block("id-stack", [span("Mike Jeisma", "strong-dark"), span("Owner, PNW Trenchless", "caption")], tag="span"),
                     ]),
                 ]),
             ]),
@@ -105,11 +105,11 @@ def story():
                 ]),
                 block("timeline__bar", [div(f"timeline__seg timeline__seg--{m}", tag="span") if m else div("timeline__seg", tag="span") for m in ("", "5", "7", "now")],
                       _attributes=attrs(aria_hidden="true")),
-                block("timeline__list", [
+                block("grid-4 timeline__list", [
                     block("milestone" + (" milestone--now" if now else ""), [
                         span(f"{yr} · {dur}", "milestone__when"),
                         h("h4", ti, "milestone__title"),
-                        t(tx, "milestone__text"),
+                        t(tx, "caption-light"),
                     ], tag="li")
                     for yr, (dur, ti, tx, now) in zip(years, steps)
                 ], tag="ol"),
@@ -128,12 +128,12 @@ def promises():
     return section("section section--tint", [
         container([
             head("How we work", 'What you can <span class="serif">expect from us.</span>', "Six promises Mike makes on every job, big or small."),
-            block("promises__grid", [
-                block("promise", [
-                    block("promise__ico", [svg(ic)], tag="span"),
-                    span(f"0{i + 1}", "promise__num"),
+            block("grid-3-2", [
+                block("card-soft promise", [
+                    block("ico-round", [svg(ic)], tag="span"),
+                    span(f"0{i + 1}", "card-num"),
                     h("h3", ti, "promise__title"),
-                    t(tx, "promise__text"),
+                    t(tx, "text-muted"),
                 ], tag="li")
                 for i, (ic, ti, tx) in enumerate(items)
             ], tag="ol"),
@@ -146,17 +146,17 @@ def rig():
            ("icon-burst.svg", "Bursting rig", "Brand / model"), ("icon-drop.svg", "Pipe cleaning", "Hydro jetter / descaler")]
     return section("section section--dark grain", [
         container([
-            block("rig__grid", [
+            block("split-wide", [
                 block("rig__media", [
                     block("rig__main", [img("trailer.jpg", alt="The PNW Trenchless equipment trailer"), t("The trailer", "rig__tag", tag="figcaption")], tag="figure"),
                     block("rig__shot", [img("job-access-pit.jpg", "cover-img", alt="Camera reel, jetter and shoring set up around an access pit"), t("On site", "rig__tag", tag="figcaption")], tag="figure"),
                     block("rig__shot", [img("job-pipe-connection.jpg", "cover-img", alt="A new sewer pipe connected in the access pit"), t("New connection", "rig__tag", tag="figcaption")], tag="figure"),
                 ]),
-                block("rig__text", [
+                block("text-block-light", [
                     eyebrow("Equipment"),
                     h("h2", 'Built for trenchless <span class="serif">from day one.</span>'),
                     t("PNW Trenchless runs a fully outfitted trailer for sewer lining, pipe bursting and water line replacement, so most jobs start and finish in one visit."),
-                    block("kit", [
+                    block("rows-dark", [
                         block("kit__row", [block("kit__term", [svg(ic), span(term)], tag="dt"), t(tbc(val), "kit__value", tag="dd")])
                         for ic, term, val in kit
                     ], tag="dl"),
@@ -170,28 +170,28 @@ def verify():
     return section("section section--white", [
         container([
             head("Credentials", 'Licensed, insured <span class="serif">and verifiable.</span>', "Don't take our word for it. Each one links to its public record."),
-            block("verify__grid", [
+            block("grid-4", [
                 block("verify-card verify-card--primary", [
                     block("verify-card__ico", [svg("icon-shield.svg")], tag="span"),
-                    h("h3", "WA Contractor Registration", "verify-card__title"),
+                    h("h3", "WA Contractor Registration", "title-l"),
                     t("#PNWTRT*744KQ", "verify-card__value"),
                     a("Verify on WA L&amp;I", link("https://secure.lni.wa.gov/verify/", True), "link-arrow"),
                 ], tag="li"),
                 block("verify-card", [
                     block("verify-card__ico", [svg("icon-check.svg")], tag="span"),
-                    h("h3", "Bonded &amp; insured", "verify-card__title"),
+                    h("h3", "Bonded &amp; insured", "title-l"),
                     t(f"{tbc('Bond amount')} · {tbc('General liability carrier')}", "verify-card__value"),
-                    t("Certificate available on request", "verify-card__fine"),
+                    t("Certificate available on request", "caption"),
                 ], tag="li"),
                 block("verify-card", [
                     block("verify-card__ico", [svg("icon-liner.svg")], tag="span"),
-                    h("h3", "Manufacturer certified", "verify-card__title"),
+                    h("h3", "Manufacturer certified", "title-l"),
                     t(tbc("Liner system certification"), "verify-card__value"),
                     t(tbc("Bursting system certification"), "verify-card__value"),
                 ], tag="li"),
                 block("verify-card", [
                     block("verify-card__ico", [svg("icon-building.svg")], tag="span"),
-                    h("h3", "Memberships", "verify-card__title"),
+                    h("h3", "Memberships", "title-l"),
                     t(tbc("BBB · NASSCO · local chamber, if any"), "verify-card__value"),
                 ], tag="li"),
             ], tag="ul"),
@@ -203,13 +203,13 @@ def local():
     cities = ["Spokane", "Spokane Valley", "Deer Park", "Clayton", "Stevens County", "Spokane County"]
     return section("section section--tint", [
         container([
-            block("local__grid", [
-                block("local__text", [
+            block("split-even", [
+                block("text-block", [
                     eyebrow("Local &amp; family"),
                     h("h2", 'Built for the <span class="serif">Pacific Northwest.</span>'),
                     t(f"We live here. {tbc('Family detail Mike is comfortable sharing: who&#39;s part of the business, how long in the area, community involvement.')}"),
                     t("We serve Spokane, Spokane Valley, Deer Park, Clayton and Stevens County."),
-                    block("near__cities", [a(c, "/#areas", "near__city") for c in cities]),
+                    block("chip-row", [a(c, "/#areas", "near__city") for c in cities]),
                     a("See our service areas", "/#areas", "link-arrow"),
                 ]),
                 block("local__photo", [

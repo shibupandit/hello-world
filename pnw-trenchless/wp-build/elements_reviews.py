@@ -13,16 +13,16 @@ def hero():
     crumbs = N("block", "crumbs", [
         block("crumbs__list", [
             block("crumbs__item", [a("Home", "/", "crumbs__link")], tag="li"),
-            block("crumbs__item", [span("Reviews", "crumbs__current", _attributes=attrs(aria_current="page"))], tag="li"),
+            block("crumbs__item", [span("Reviews", "text-accent-light", _attributes=attrs(aria_current="page"))], tag="li"),
         ], tag="ol"),
     ], tag="nav", _attributes=attrs(aria_label="Breadcrumb"))
     return section("section svc-hero reviews-hero section--dark grain", [
         container([
             crumbs,
             block("svc-hero__grid", [
-                block("svc-hero__content", [
+                block("stack-l", [
                     span("Reviews", "eyebrow rise"),
-                    h("h1", 'What homeowners <span class="serif">say about us.</span>', "svc-hero__title rise rise--2"),
+                    h("h1", 'What homeowners <span class="serif">say about us.</span>', "accent-light rise rise--2"),
                     t("Real reviews from real customers, in their own words. We don't edit them, and we don't pick only the good ones: every review comes straight from Google.", "svc-hero__lede rise rise--3"),
                     block("hero__actions rise rise--4", [
                         btn("Read them on Google", link(GOOGLE_URL, True), "btn--primary", icon="icon-arrow.svg", **when(GOOGLE_URL)),
@@ -30,13 +30,13 @@ def hero():
                     ]),
                 ]),
                 block("score rise rise--4", [
-                    span("Google rating", "score__label"),
+                    span("Google rating", "label-accent"),
                     block("score__main", [
                         span(RATING, "score__num"),
-                        block("score__side", [
+                        block("mini-stack", [
                             span("★★★★★", "score__stars", _attributes=attrs(role="img", aria_label=f"{RATING} out of 5 stars")),
-                            span(f"from {REVIEWS} reviews", "score__count", **when(REVIEWS)),
-                            span("on Google", "score__count", **when(REVIEWS, "==")),
+                            span(f"from {REVIEWS} reviews", "text-light-muted", **when(REVIEWS)),
+                            span("on Google", "text-light-muted", **when(REVIEWS, "==")),
                         ], tag="span"),
                     ]),
                 ], **when(RATING)),
@@ -52,7 +52,7 @@ def review_card(query, label="Review card (loop)"):
         t("{acf_review_text}", "rv-card__text", tag="blockquote"),
         block("rv-card__by", [
             block("review__av", [span("{post_title}", "review__initial")], tag="span", _attributes=attrs(aria_hidden="true")),
-            block("rv-card__id", [span("{post_title}", "rv-card__name"), span("{acf_city} · {acf_source}", "rv-card__meta")], tag="span"),
+            block("id-stack", [span("{post_title}", "strong-dark"), span("{acf_city} · {acf_source}", "rv-card__meta")], tag="span"),
         ]),
     ], label=label, tag="li", hasLoop=True, query=query)
 
@@ -73,16 +73,16 @@ def leave():
              ("Say what we did", "Mention the service and your town, so neighbors with the same problem find it.")]
     return section("section section--dark grain", [
         container([
-            block("rv-leave__grid", [
-                block("rv-leave__text", [
+            block("split-even", [
+                block("text-block-light rv-leave__text", [
                     eyebrow("Had work done by us?"),
                     h("h2", 'Tell your neighbors <span class="serif">how it went.</span>'),
                     t("A short Google review helps other Spokane homeowners find an honest contractor, and it helps a small family business more than you'd think."),
                     btn("Leave a Google review", link(GOOGLE_URL, True), "btn--primary", icon="icon-arrow.svg", **when(GOOGLE_URL)),
                 ]),
-                block("rv-steps", [
-                    block("rv-steps__item", [span(f"0{i + 1}", "rv-steps__num"),
-                                             block("rv-steps__body", [span(ti, "rv-steps__title"), span(tx, "rv-steps__text")], tag="span")], tag="li")
+                block("list-ruled-dark", [
+                    block("rv-steps__item", [span(f"0{i + 1}", "num-row__num"),
+                                             block("rv-steps__body", [span(ti, "rv-steps__title"), span(tx, "text-light-muted")], tag="span")], tag="li")
                     for i, (ti, tx) in enumerate(steps)
                 ], tag="ol"),
             ]),
@@ -94,7 +94,7 @@ def projects():
     return section("section section--tint", [
         container([
             head_split("The jobs behind the reviews", 'Real jobs. <span class="serif">Real yards.</span>', a("All projects", "/projects/", "link-arrow")),
-            block("pcards", [project_card(q(posts_per_page=3, meta_query=[REAL_ONLY]))], tag="ul"),
+            block("grid-3-2", [project_card(q(posts_per_page=3, meta_query=[REAL_ONLY]))], tag="ul"),
         ]),
     ], label="Projects (loop)")
 

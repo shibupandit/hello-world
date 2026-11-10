@@ -21,16 +21,16 @@ def hero():
         block("crumbs__list", [
             block("crumbs__item", [a("Home", HOME, "crumbs__link")], tag="li"),
             block("crumbs__item", [a("Services", "/#services", "crumbs__link")], tag="li"),
-            block("crumbs__item", [span("Pipe Bursting", "crumbs__current", _attributes=attrs(aria_current="page"))], tag="li"),
+            block("crumbs__item", [span("Pipe Bursting", "text-accent-light", _attributes=attrs(aria_current="page"))], tag="li"),
         ], tag="ol"),
     ], tag="nav", _attributes=attrs(aria_label="Breadcrumb"))
     return section("section svc-hero section--dark grain", [
         container([
             crumbs,
             block("svc-hero__grid", [
-                block("svc-hero__content", [
+                block("stack-l", [
                     span("HDPE · full replacement", "eyebrow rise"),
-                    h("h1", 'Trenchless pipe <span class="serif">bursting</span> in Spokane', "svc-hero__title rise rise--2"),
+                    h("h1", 'Trenchless pipe <span class="serif">bursting</span> in Spokane', "accent-light rise rise--2"),
                     t("Replace a collapsed, crushed or undersized sewer line without trenching your yard. A bursting head breaks the old pipe apart underground while a brand-new HDPE pipe is pulled in right behind it, through two small access pits.", "svc-hero__lede rise rise--3"),
                     block("hero__actions rise rise--4", [
                         btn("See if bursting fits your line", "/contact/", "btn--primary", icon="icon-arrow.svg"),
@@ -38,12 +38,12 @@ def hero():
                     ]),
                     block("byline rise rise--5", [
                         span("MJ", "byline__av", _attributes=attrs(aria_hidden="true")),
-                        span(f"Written &amp; reviewed by <strong>Mike Jeisma</strong>, owner, 14+ years in trenchless repair · Updated {tbc('Month YYYY')}", "byline__text"),
+                        span(f"Written &amp; reviewed by <strong>Mike Jeisma</strong>, owner, 14+ years in trenchless repair · Updated {tbc('Month YYYY')}", "grow"),
                     ]),
                 ]),
-                block("svc-hero__media rise rise--4", [
+                block("figure-stack rise rise--4", [
                     block("svc-hero__art", [img("job-access-pit.jpg", "cover-img", alt="A shored access pit in a front lawn, with the camera reel and jetter beside it")]),
-                    t("One of the small access pits: shored, with the camera and jetter on hand.", "svc-hero__cap", tag="figcaption"),
+                    t("One of the small access pits: shored, with the camera and jetter on hand.", "caption-light", tag="figcaption"),
                 ], tag="figure"),
             ]),
         ]),
@@ -61,7 +61,7 @@ def answer():
                     h("h2", 'What is <span class="serif">pipe bursting?</span>'),
                     t("Pipe bursting is a trenchless way to replace a sewer line. A cone-shaped bursting head is pulled through the old pipe from one access pit to another. It breaks the old pipe outward into the soil, and a new, seamless HDPE pipe follows behind it in the same path. You end up with a completely new pipe, and it can be a size larger than the old one."),
                 ]),
-                block("facts", [block("fact", [span(l, "fact__label"), span(v, "fact__value")]) for l, v in facts]),
+                block("facts", [block("fact", [span(l, "label-light"), span(v, "fact__value")]) for l, v in facts]),
             ]),
         ]),
     ], label="Quick answer")
@@ -76,14 +76,14 @@ def fit():
         container([
             head("Is bursting right for your pipe?", 'When bursting works, <span class="serif">and when it doesn\'t.</span>',
                  "Bursting replaces the whole run between two pits, so it shines when the old pipe is past saving. The camera shows which fix fits, and we'll show you the footage either way."),
-            block("fit__grid", [
+            block("grid-2", [
                 block("fit-card fit-card--yes", [
-                    block("fit-card__head", [block("fit-card__ico", [svg("icon-check.svg")], tag="span"), h("h3", "Good candidates", "fit-card__title")]),
-                    block("fit-card__list", [t(x, "fit-card__item", tag="li") for x in yes], tag="ul"),
+                    block("fit-card__head", [block("fit-card__ico", [svg("icon-check.svg")], tag="span"), h("h3", "Good candidates", "title-card")]),
+                    block("list-ruled", [t(x, "fit-card__item", tag="li") for x in yes], tag="ul"),
                 ]),
                 block("fit-card fit-card--no", [
-                    block("fit-card__head", [block("fit-card__ico", [svg("icon-alert.svg")], tag="span"), h("h3", "Usually a different fix", "fit-card__title")]),
-                    block("fit-card__list", [
+                    block("fit-card__head", [block("fit-card__ico", [svg("icon-alert.svg")], tag="span"), h("h3", "Usually a different fix", "title-card")]),
+                    block("list-ruled", [
                         block("fit-card__item", [span(x), a(alt, url, "fit-card__alt") if url else span(alt, "fit-card__alt fit-card__alt--static")], tag="li")
                         for x, alt, url in no
                     ], tag="ul"),
@@ -125,9 +125,9 @@ def inside():
         container([
             head("Before &amp; after", 'See it from <span class="serif">inside the pipe.</span>',
                  "Real photos from our jobs: the old pipe we find, and the new pipe that replaces it."),
-            block("inside__grid", [
+            block("grid-2", [
                 still("job-old-pipe.jpg", "Before", "", "OLD PIPE", "Before: the old line, worn out and full of buildup.", "A section of old sewer pipe cut open, with heavy buildup inside"),
-                still("job-pipe-connection.jpg", "After", "still__tag--after", "NEW PIPE", "After: the new pipe connected in the access pit.", "The new sewer pipe connected in the access pit"),
+                still("job-pipe-connection.jpg", "After", "tag--after", "NEW PIPE", "After: the new pipe connected in the access pit.", "The new sewer pipe connected in the access pit"),
             ]),
         ]),
     ], label="Before and after")
@@ -139,14 +139,14 @@ def specs():
             ("Expected life", "50+ years"), ("Warranty", f"{tbc('X')} years · {tbc('transferable?')}")]
     return section("section section--white", [
         container([
-            block("specs__grid", [
+            block("split", [
                 block("section__head", [
                     eyebrow("What you get"),
                     h("h2", 'What goes <span class="serif">into the ground.</span>'),
                     t("Real specs from the pipe we install, not a sales sheet.", "section__intro"),
                     block("note note--tint", [svg("icon-alert.svg"), t("<strong>Straight talk:</strong> the new pipe follows the old line's path. If the old line has a sag, that spot may need fixing separately, and the camera shows us before we start.")]),
                 ]),
-                block("spec-table", [block("spec-table__row", [span(k, "spec-table__term"), span(v, "spec-table__value")]) for k, v in rows]),
+                block("spec-table", [block("spec-table__row", [span(k, "label"), span(v, "spec-table__value")]) for k, v in rows]),
             ]),
         ]),
     ], label="Specs")
@@ -157,18 +157,18 @@ def cost():
                "Soil and rock conditions", "Reconnections and surface restoration"]
     return section("section section--tint", [
         container([
-            block("cost__grid", [
-                block("cost__text", [
+            block("split-wide", [
+                block("text-block cost__text", [
                     eyebrow("Cost"),
                     h("h2", 'How much does pipe bursting <span class="serif">cost in Spokane?</span>'),
                     t(f"Most residential pipe bursting jobs we do fall between {tbc('$X,XXX and $XX,XXX')}.", "cost__range"),
                     t("Your written quote comes after the camera inspection, so it's based on your actual line, not a guess. Compare it against a dig-and-replace quote plus the cost to restore your lawn, driveway or landscaping."),
                     t(f"<strong>Included:</strong> {tbc('inspection video, pits, new HDPE pipe, reconnections, permit, final video, warranty')}", "cost__incl"),
                 ]),
-                block("cost-card", [
+                block("card-dark cost-card", [
                     h("h3", "What affects the price", "cost-card__title"),
-                    block("cost-card__list", [block("cost-card__item", [span(f"0{i + 1}", "cost-card__num"), span(x)], tag="li") for i, x in enumerate(factors)], tag="ul"),
-                    btn("Get my written quote", "/contact/", "btn--primary form__submit", icon="icon-arrow.svg"),
+                    block("list-ruled-dark", [block("num-row", [span(f"0{i + 1}", "num-row__num"), span(x)], tag="li") for i, x in enumerate(factors)], tag="ul"),
+                    btn("Get my written quote", "/contact/", "btn--primary btn-block", icon="icon-arrow.svg"),
                 ]),
             ]),
         ]),
@@ -180,9 +180,9 @@ def owner():
         container([
             block("owner__grid", [
                 block("owner__photo", [img("trailer.jpg", "cover-img", alt="The PNW Trenchless equipment trailer")]),
-                block("owner__content", [
+                block("stack-l", [
                     eyebrow("Who does the work"),
-                    h("h2", f'Mike Jeisma has replaced {tbc("hundreds of")} <span class="serif">Inland Northwest</span> sewer lines.', "owner__title"),
+                    h("h2", f'Mike Jeisma has replaced {tbc("hundreds of")} <span class="serif">Inland Northwest</span> sewer lines.', "accent-light"),
                     t(tbc("Mike, 2–3 sentences: when he chooses bursting over lining, what he checks before he pulls the head, why he does the final video."), "owner__quote", tag="blockquote"),
                     block("owner__creds", [
                         block("owner__cred", [svg("icon-shield.svg"), span(tbc("Bursting system certification"))], tag="li"),
@@ -203,10 +203,10 @@ def jobs():
     return section("section section--white", [
         container([
             head_split("On the job", 'One job, <span class="serif">start to finish.</span>', a("All projects", "/projects/", "link-arrow")),
-            block("jobs__grid", [
+            block("grid-3", [
                 block("job", [
                     block("job__media", [img(f, "cover-img", alt=alt)], tag="figure"),
-                    block("job__body", [span(title, "job__title"), t(text, "job__spec")]),
+                    block("job__body", [span(title, "job__title"), t(text, "caption")]),
                 ], tag="li") for f, alt, title, text in items
             ], tag="ul"),
         ]),
@@ -266,14 +266,14 @@ def more():
                 block("", [
                     eyebrow("Related services"),
                     block("related", [
-                        block("", [block("related__link", [block("related__ico", [svg(ic)], tag="span"), span(lbl, "related__label"), svg("icon-arrow.svg", "related__go")], href=u)], tag="li")
+                        block("", [block("related__link", [block("related__ico", [svg(ic)], tag="span"), span(lbl, "grow"), svg("icon-arrow.svg", "related__go")], href=u)], tag="li")
                         for ic, lbl, u in rel
                     ], tag="ul"),
                 ], label="Related services"),
-                block("near", [
+                block("stack-m", [
                     eyebrow("Pipe bursting near you"),
                     h("h2", 'We replace sewer pipes <span class="serif">across Spokane &amp; Stevens counties.</span>', "near__title"),
-                    block("near__cities", [a(c, "/#areas", "near__city") for c in cities]),
+                    block("chip-row", [a(c, "/#areas", "near__city") for c in cities]),
                 ]),
             ]),
         ]),

@@ -22,7 +22,7 @@ def hero():
     crumbs = N("block", "crumbs", [
         block("crumbs__list", [
             block("crumbs__item", [a("Home", "/", "crumbs__link")], tag="li"),
-            block("crumbs__item", [span("Who We Serve", "crumbs__current", _attributes=attrs(aria_current="page"))], tag="li"),
+            block("crumbs__item", [span("Who We Serve", "text-accent-light", _attributes=attrs(aria_current="page"))], tag="li"),
         ], tag="ol"),
     ], tag="nav", _attributes=attrs(aria_label="Breadcrumb"))
     jumps = [("icon-home.svg", "Homeowners", "Sewer &amp; water lines under your yard", "#homes"),
@@ -32,19 +32,19 @@ def hero():
         container([
             crumbs,
             block("svc-hero__grid", [
-                block("svc-hero__content", [
+                block("stack-l", [
                     span("Who we serve", "eyebrow rise"),
-                    h("h1", 'Homes, businesses <span class="serif">and industrial sites.</span>', "svc-hero__title rise rise--2"),
+                    h("h1", 'Homes, businesses <span class="serif">and industrial sites.</span>', "accent-light rise rise--2"),
                     t("Trenchless repair and replacement for residential, commercial and industrial properties, from a home's sewer line to lines under parking lots, roadways and working facilities.", "svc-hero__lede rise rise--3"),
                     block("hero__actions rise rise--4", [
                         btn("Request a quote", "/contact/", "btn--primary", icon="icon-arrow.svg"),
                         btn(f"Call or text {PHONE}", TEL, "btn--white btn--outline", icon="icon-phone.svg", icon_left=True),
                     ]),
                 ]),
-                block("jump rise rise--4", [span("Pick your property", "jump__label")] + [
+                block("jump rise rise--4", [span("Pick your property", "label-accent jump__label")] + [
                     block("jump__item", [
-                        block("jump__ico", [svg(ic)], tag="span", _attributes=attrs(aria_hidden="true")),
-                        block("jump__text", [span(ti, "jump__title"), span(note, "jump__note")], tag="span"),
+                        block("ico-tile", [svg(ic)], tag="span", _attributes=attrs(aria_hidden="true")),
+                        block("jump__text", [span(ti, "title-light jump__title"), span(note, "caption-light")], tag="span"),
                         svg("icon-arrow.svg", "jump__go", _attributes=attrs(aria_hidden="true")),
                     ], href=u) for ic, ti, note, u in jumps
                 ], tag="nav", _attributes=attrs(aria_label="Jump to a property type")),
@@ -55,33 +55,33 @@ def hero():
 
 def cols(left_title, left, right_title, right):
     def col(title, items, check):
-        return block("who__col", [
-            h("h3", title, "who__h3"),
-            block("who__list" + (" who__list--check" if check else ""), [t(x, "who__item", tag="li") for x in items], tag="ul"),
+        return block("stack-s", [
+            h("h3", title, "title-l"),
+            block("list-ruled" + (" who__list--check" if check else ""), [t(x, "who__item", tag="li") for x in items], tag="ul"),
         ])
     return block("who__cols", [col(left_title, left, False), col(right_title, right, True)])
 
 
 def kicker(icon, text, dark=False):
-    return block("who__kicker" + (" who__kicker--dark" if dark else ""), [
-        block("who__ico", [svg(icon)], tag="span", _attributes=attrs(aria_hidden="true")), span(text)], tag="span")
+    return block("who__kicker" + (" text-accent-light" if dark else ""), [
+        block("ico-tile", [svg(icon)], tag="span", _attributes=attrs(aria_hidden="true")), span(text)], tag="span")
 
 
 def homes():
     return section("section section--white", [
         container([
             block("who", [
-                block("who__media", [
+                block("figure-stack", [
                     block("who__img", [img("job-lawn-restored.jpg", None, alt="A front lawn after the job, with the pit backfilled and the grass back in place")]),
-                    t("After a sewer repair: one small pit, backfilled, and the lawn back in place.", "who__cap", tag="figcaption"),
+                    t("After a sewer repair: one small pit, backfilled, and the lawn back in place.", "caption", tag="figcaption"),
                 ], tag="figure"),
-                block("who__text", [
+                block("stack-m who__text", [
                     kicker("icon-home.svg", "Homeowners"),
                     h("h2", 'Your line fixed. <span class="serif">Your yard left alone.</span>'),
                     t("Sewer and water lines under lawns, driveways, patios and mature trees. Small access points instead of a torn-up yard.", "who__lede"),
                     cols("What we see at homes", ["Roots in old clay sewer lines", "Cracked, offset or collapsed pipe", "Orangeburg (fiber) sewer pipe", "Old galvanized water service, low pressure"],
                          "What you get", ["Camera footage you keep", "A written quote before any work", "Water off for hours, not days", "Mike on the job, start to finish"]),
-                    block("who__links", [a(lbl, u, "who__link") for _, lbl, u, _ in SERVICES]),
+                    block("chip-row who__links", [a(lbl, u, "who__link") for _, lbl, u, _ in SERVICES]),
                 ]),
             ]),
         ]),
@@ -92,11 +92,11 @@ def commercial():
     return section("section section--tint", [
         container([
             block("who who--reverse", [
-                block("who__media", [
+                block("figure-stack", [
                     block("who__img", [img("job-access-pit.jpg", None, alt="A shored access pit, with the camera reel and jetter beside it")]),
-                    t(f"A small, shored access pit: the footprint we plan for instead of a trench. {tbc('Replace with a photo from a commercial job')}", "who__cap", tag="figcaption"),
+                    t(f"A small, shored access pit: the footprint we plan for instead of a trench. {tbc('Replace with a photo from a commercial job')}", "caption", tag="figcaption"),
                 ], tag="figure"),
-                block("who__text", [
+                block("stack-m who__text", [
                     kicker("icon-building.svg", "Commercial properties"),
                     h("h2", 'Keep the doors open <span class="serif">while we fix the line.</span>'),
                     t("We choose methods that keep your property open and running during the work, with less disruption to parking, landscaping and tenants.", "who__lede"),
@@ -118,16 +118,16 @@ def industrial():
              ("Final testing &amp; documentation", "Final camera run and the records you need for your files.")]
     return section("section section--dark grain", [
         container([
-            block("ind", [
+            block("split", [
                 block("ind__text", [
                     kicker("icon-factory.svg", "Industrial &amp; municipal", dark=True),
                     h("h2", 'Larger lines. <span class="serif">Every step documented.</span>'),
                     t("Larger lines and longer runs, with a CCTV assessment, a written recommendation, and documentation from evaluation through final testing.", "who__lede"),
-                    block("ind__facts", [block("ind__fact", [span(l, "ind__fact-label"), span(v, "ind__fact-value")], tag="li") for l, v in facts], tag="ul"),
+                    block("ind__facts", [block("ind__fact", [span(l, "label-light"), span(v, "title-light")], tag="li") for l, v in facts], tag="ul"),
                 ]),
-                block("rv-steps", [
-                    block("rv-steps__item", [span(f"0{i + 1}", "rv-steps__num"),
-                                             block("rv-steps__body", [span(ti, "rv-steps__title"), span(tx, "rv-steps__text")], tag="span")], tag="li")
+                block("list-ruled-dark", [
+                    block("rv-steps__item", [span(f"0{i + 1}", "num-row__num"),
+                                             block("rv-steps__body", [span(ti, "rv-steps__title"), span(tx, "text-light-muted")], tag="span")], tag="li")
                     for i, (ti, tx) in enumerate(steps)
                 ], tag="ol"),
             ]),
@@ -160,10 +160,10 @@ def services():
         container([
             head_split("Services", 'Four ways we fix it, <span class="serif">for any property.</span>',
                        t("The camera decides the method. Here's what each one is for.", "section__intro section__intro--narrow")),
-            block("ws-svc", [
+            block("grid-4", [
                 block("", [block("ws-svc__item", [
-                    block("ws-svc__ico", [svg(ic)], tag="span", _attributes=attrs(aria_hidden="true")),
-                    span(ti, "ws-svc__title"), span(tx, "ws-svc__text"),
+                    block("ico-tile ws-svc__ico", [svg(ic)], tag="span", _attributes=attrs(aria_hidden="true")),
+                    span(ti, "ws-svc__title"), span(tx, "caption"),
                     svg("icon-arrow.svg", "ws-svc__go", _attributes=attrs(aria_hidden="true")),
                 ], href=u)], tag="li") for ic, ti, u, tx in SERVICES
             ], tag="ul"),
@@ -175,7 +175,7 @@ def projects():
     return section("section section--white", [
         container([
             head_split("Recent work", 'Real jobs. <span class="serif">Real yards.</span>', a("All projects", "/projects/", "link-arrow")),
-            block("pcards", [project_card(q(posts_per_page=3, meta_query=[REAL_ONLY]))], tag="ul"),
+            block("grid-3-2", [project_card(q(posts_per_page=3, meta_query=[REAL_ONLY]))], tag="ul"),
         ]),
     ], label="Projects (loop)")
 

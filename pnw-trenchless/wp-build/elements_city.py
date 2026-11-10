@@ -23,7 +23,7 @@ def hero():
         block("crumbs__list", [
             block("crumbs__item", [a("Home", "/", "crumbs__link")], tag="li"),
             block("crumbs__item", [a("Service areas", "/#areas", "crumbs__link")], tag="li"),
-            block("crumbs__item", [span(CITY, "crumbs__current", _attributes=attrs(aria_current="page"))], tag="li"),
+            block("crumbs__item", [span(CITY, "text-accent-light", _attributes=attrs(aria_current="page"))], tag="li"),
         ], tag="ol"),
     ], tag="nav", _attributes=attrs(aria_label="Breadcrumb"))
     return section("section city-hero section--dark grain", [
@@ -43,7 +43,7 @@ def main_col():
            ("You see the pipe first.", "Camera footage before and after, yours to keep."),
            ("A true and honest quote.", "In writing, before any work starts."),
            ("Less digging.", "Small access points instead of a trench across your yard.")]
-    return block("city-main", [
+    return block("stack-xl", [
         block("city-cover", [N("image", None, image={"useDynamicData": "{featured_image}", "size": "large"}, altText=f"{CITY}")],
               tag="figure", **when("{featured_image}")),
         N("post-content", "prose", label="Gutenberg content"),
@@ -53,7 +53,7 @@ def main_col():
         ]),
         block("city-block", [
             block("city-block__head", [h("h2", "Recent projects", "city-block__title"), a("All projects", "/projects/", "link-arrow")]),
-            block("pcards pcards--two", [project_card(q(posts_per_page=2, meta_query=[REAL_ONLY]))], tag="ul"),
+            block("grid-3-2 pcards--two", [project_card(q(posts_per_page=2, meta_query=[REAL_ONLY]))], tag="ul"),
         ]),
     ], tag="article")
 
@@ -62,12 +62,12 @@ def aside():
     return block("city-aside", [
         block("widget", [
             h("h2", "Services", "widget__title"),
-            block("widget__svc", [block("widget__svc-row", [block("widget__svc-item", [svg(ic), span(lbl)], href=u)], tag="li")
+            block("list-plain", [block("widget__svc-row", [block("widget__svc-item", [svg(ic), span(lbl)], href=u)], tag="li")
                                   for ic, lbl, u in SERVICES], tag="ul"),
         ], tag="section"),
         block("widget", [
             h("h2", "Recent projects", "widget__title"),
-            block("widget__list", [
+            block("list-plain", [
                 N("block", "widget__list-item", [span("{post_title}", "widget__list-title"), span("{acf_service}", "widget__list-meta")],
                   label="Project (loop)", tag="a", link=link("{post_url}"), hasLoop=True, query=q(posts_per_page=4, meta_query=[REAL_ONLY])),
             ]),
@@ -82,8 +82,8 @@ def aside():
         ], tag="section"),
         block("widget", [
             h("h2", "Your local contractor", "widget__title"),
-            span("PNW Trenchless", "widget__name"),
-            span(f"{ADDRESS} · serving {CITY}", "widget__muted", **when(ADDRESS)),
+            span("PNW Trenchless", "strong-dark"),
+            span(f"{ADDRESS} · serving {CITY}", "caption", **when(ADDRESS)),
             block("widget__contact", [
                 block("widget__contact-item", [svg("icon-phone.svg"), span(PHONE)], href=TEL),
                 block("widget__contact-item", [svg("icon-mail.svg"), span(EMAIL)], href=MAIL, **when(EMAIL)),
