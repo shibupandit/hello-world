@@ -232,6 +232,60 @@ def serve_menu():
        ariaLabel="Toggle who we serve menu", label="Who We Serve (mega menu)")
 
 
+def about_menu():
+    """"About" mega menu (design: megamenu.html?about): Meet Mike, Projects, Reviews + credentials aside."""
+    hide = attrs(aria_hidden="true")
+    items = [("trailer.jpg", "Meet Mike", "/about/", "Family-owned and led by Mike Jeisma, with 14+ years in trenchless sewer and water line work.", None),
+             ("job-during.jpg", "Projects", "/projects/", "Real jobs, real yards: the small pits, the pipe we pull out, and the lawn after.", None),
+             ("job-lawn-restored.jpg", "Reviews", "/reviews/", "What homeowners say, in their own words, straight from Google.", f"★ {RATING} on Google")]
+    cards = [block("", [block("mega-card aud-mini", [
+        block("mega-card__art", [img(photo, None, alt="", loading="eager", image=M(photo, size="medium_large"))]
+              + ([span(badge, "mega-card__badge", **when(RATING))] if badge else []), tag="span"),
+        block("mega-card__title", [span(title), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
+        span(text, "mega-card__text"),
+    ], href=url)], tag="li") for photo, title, url, text, badge in items]
+    aside = block("mega__aside", [
+        block("mega__aside-ico", [svg("icon-shield.svg")], tag="span", _attributes=hide),
+        span("The owner on every job", "mega__aside-title"),
+        block("mega__checks", [t(x, "mega__check", tag="li") for x in ["Licensed, bonded &amp; insured", "WA Reg. #PNWTRT*744KQ", "14+ years in trenchless repair"]], tag="ul"),
+        block("mega__phone", [svg("icon-phone.svg"), span(PHONE)], href=TEL),
+        btn("Contact us", "/contact/", "btn--primary btn-block", icon="icon-arrow.svg"),
+    ])
+    return _mega_drop("About", "Family-owned · North Spokane County", cards, aside)
+
+
+def areas_menu():
+    """"Service Areas" mega menu (design: megamenu.html?areas). The city cards are a query loop over the
+    city pages (pages with meta pnw_city = 1, by menu order): featured image, ACF `city_note`, title."""
+    hide = attrs(aria_hidden="true")
+    card = N("block", "", [block("mega-card city-mini", [
+        block("mega-card__art", [N("image", None, image={"useDynamicData": "{featured_image}", "size": "medium"}, altText="", loading="eager")],
+              tag="span", _attributes=hide, **when("{featured_image}")),
+        span("{acf_city_note}", "mega-card__spec", **when("{acf_city_note}")),
+        block("mega-card__title", [span("{post_title}"), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
+    ], href=link("{post_url}"))], label="City page (loop)", tag="li", hasLoop=True,
+        query={"objectType": "post", "post_type": ["page"], "orderby": "menu_order", "order": "asc", "posts_per_page": 12, "no_found_rows": True,
+               "meta_query": [{"id": "city", "key": "pnw_city", "value": "1", "compare": "="}]})
+    aside = block("mega__aside mega__aside--map", [
+        block("mega__map", [svg("art-service-map-area.svg")], tag="span", _attributes=hide),
+        span("Not sure we cover you?", "mega__aside-title"),
+        t("Based in Clayton, working from there south to the Spokane metro. Call or text with your address and we'll tell you.", "mega__aside-text"),
+        block("mega__phone", [svg("icon-phone.svg"), span(PHONE)], href=TEL),
+    ])
+    return _mega_drop("Service Areas", "Spokane &amp; Stevens counties", [card], aside, cards_cls="mega__cards mega__cards--cities")
+
+
+def _mega_drop(text, label_text, cards, aside, cards_cls="mega__cards"):
+    panel = block("mega__panel", [block("mega__grid", [
+        block("mega__main", [span(label_text, "mega__label"), block(cards_cls, cards, tag="ul")]),
+        aside,
+    ])])
+    return N("dropdown", "nav__drop", [
+        N("div", "mega", [panel], tag="div", _hidden={"_cssClasses": "brx-dropdown-content"}, label="Mega menu content"),
+    ], text=text, tag="li", megaMenu=True, megaMenuSelector=".header__inner", megaMenuSelectorVertical=".header__inner",
+       ariaLabel=f"Toggle {text.lower()} menu", label=f"{text} (mega menu)")
+
+
 def header():
     topbar = block("topbar", [
         block("topbar__inner", [
@@ -250,7 +304,9 @@ def header():
                 block("nav__items", [
                     services_menu(),
                     serve_menu(),
-                ] + [a(t, u, "nav__link") for t, u in NAV_LINKS[2:]] + [
+                    about_menu(),
+                    areas_menu(),
+                ] + [a(t, u, "nav__link") for t, u in NAV_LINKS[4:]] + [
                     block("nav__extras", [
                         block("nav__phone", [
                             block("header__phone-ico", [svg("icon-phone.svg")], tag="span"),

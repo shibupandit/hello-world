@@ -369,6 +369,19 @@ c("aud-mini__list", f"""
 """)
 c("aud-mini__item", r"""%root% { position: relative; padding-left: 1.35em; font-size: var(--text-xs); font-weight: 600; line-height: 1.35; color: var(--text-dark); }
 %root%::before { content: ""; position: absolute; left: 0; top: .1em; width: 1em; height: 1em; border-radius: var(--radius-circle); background: var(--primary-ultra-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A4B' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 65% no-repeat; }""")
+c("mega-card__badge", f"%root% {{ position: absolute; left: .5em; bottom: .5em; z-index: 1; padding: .25em .6em; border-radius: var(--radius-circle); background: var(--base-trans-90); color: var(--accent); font-size: var(--text-xs); font-weight: 700; line-height: 1.3; }}\n{NAV} {{ %root% {{ display: none; }} }}")
+c("mega__cards--cities", f"%root% {{ grid-template-columns: repeat(3, minmax(0, 1fr)); }}\n{NAV} {{ %root% {{ grid-template-columns: minmax(0, 1fr); }} }}")
+c("city-mini", f"""
+%root% {{ display: grid; grid-template-columns: 5.5em minmax(0, 1fr); column-gap: .8em; row-gap: .1em; align-content: center; align-items: center; padding: .5em; }}
+%root% .mega-card__art {{ grid-row: 1 / span 2; aspect-ratio: 16 / 11; border-radius: calc(var(--radius) * .7); }}
+%root% .mega-card__spec, %root% .mega-card__title {{ padding-inline: 0; }}
+{NAV} {{ %root% {{ padding: .55em 0; }} %root% .mega-card__art {{ grid-row: auto; }} }}
+""")
+c("mega__checks", "%root% { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .4em; width: 100%; }")
+c("mega__check", r"""%root% { position: relative; padding-left: 1.5em; font-size: var(--text-s); color: var(--text-light); }
+%root%::before { content: ""; position: absolute; left: 0; top: .3em; width: 1em; height: 1em; border-radius: var(--radius-circle); background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 65% no-repeat; }""")
+c("mega__aside--map", "%root% { padding-top: var(--space-s); }")
+c("mega__map", "%root% { display: block; width: 100%; aspect-ratio: 16 / 11; border-radius: var(--radius); overflow: hidden; background: var(--base-dark); }\n%root% svg { width: 100%; height: 100%; }")
 c("mega__aside", f"""
 %root% {{ display: flex; flex-direction: column; align-items: flex-start; gap: .6em; padding: var(--space-m) var(--space-l); background: var(--base); color: var(--text-light-muted); min-width: 0; }}
 %root% .brxe-button {{ margin-top: auto; }}
