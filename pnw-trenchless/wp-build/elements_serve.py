@@ -63,7 +63,7 @@ def cols(left_title, left, right_title, right):
 
 
 def kicker(icon, text, dark=False):
-    return block("who__kicker" + (" text-accent-light" if dark else ""), [
+    return block("who__kicker" + (" who__kicker--dark" if dark else ""), [
         block("ico-tile", [svg(icon)], tag="span", _attributes=attrs(aria_hidden="true")), span(text)], tag="span")
 
 

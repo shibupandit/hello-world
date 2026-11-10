@@ -2035,6 +2035,11 @@
   "category": "PNW"
  },
  {
+  "name": "who__kicker--dark",
+  "css": "%root% { color: var(--primary-light); }",
+  "category": "PNW"
+ },
+ {
   "name": "who__lede",
   "css": "%root% { font-size: var(--text-l); color: var(--text-dark-muted); max-width: 52ch; }",
   "category": "PNW"

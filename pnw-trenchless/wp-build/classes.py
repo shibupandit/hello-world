@@ -1258,6 +1258,7 @@ c("who__img", f"""
 """)
 c("who__text", rf"%root% h2 .serif {{ color: var(--primary); }}")
 c("who__kicker", "%root% { display: inline-flex; flex-direction: row; align-items: center; gap: var(--space-s); font-family: var(--pnw-font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); width: auto; }")
+c("who__kicker--dark", "%root% { color: var(--primary-light); }")
 c("who__lede", "%root% { font-size: var(--text-l); color: var(--text-dark-muted); max-width: 52ch; }")
 c("who__cols", f"""
 %root% {{ display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-l); width: 100%; padding-top: var(--space-m); border-top: var(--pnw-border); }}

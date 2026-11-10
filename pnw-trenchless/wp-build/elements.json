@@ -36455,7 +36455,7 @@
         "customTag": "span",
         "_cls": [
          "who__kicker",
-         "text-accent-light"
+         "who__kicker--dark"
         ]
        },
        "label": "who__kicker"
