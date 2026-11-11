@@ -262,6 +262,7 @@ c("nav", f"""
 """)
 c("nav__items", f"""
 %root% {{ display: flex; flex-direction: row; align-items: center; gap: calc(var(--space-xs) / 2) clamp(var(--space-s), 2vw, var(--space-l)); list-style: none; margin: 0; padding: 0; }}
+%root%, %root% * {{ -webkit-tap-highlight-color: transparent; }}
 {NAV} {{
   .nav %root% {{
     display: flex !important; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
@@ -298,7 +299,8 @@ c("nav__link", f"""
 # Services mega menu (design: megamenu.html). A Bricks dropdown (`nav__drop`) with megaMenu on; Bricks adds
 # `.open` to the item and positions `.brx-dropdown-content` under the header, as wide as .header__inner.
 c("nav__drop", f"""
-%root% {{ list-style: none; }}
+%root% {{ list-style: none; -webkit-tap-highlight-color: transparent; }}
+%root% * {{ -webkit-tap-highlight-color: transparent; }}
 %root% > .brx-submenu-toggle {{ position: relative; display: inline-flex; flex-direction: row; align-items: center; gap: .4em; padding-block: var(--space-xs); color: var(--text-light-muted); font-weight: 600; font-size: var(--text-s); white-space: nowrap; cursor: pointer; transition: color .2s; }}
 %root% > .brx-submenu-toggle::after {{ content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: .15em; background: var(--primary-light); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--pnw-ease); }}
 %root% > .brx-submenu-toggle button {{ display: inline-flex; align-items: center; padding: 0; margin: 0; background: none; border: 0; color: inherit; cursor: pointer; }}
@@ -347,6 +349,7 @@ c("mega-card", f"""
 {NAV} {{
   %root% {{ display: grid; grid-template-columns: 5.5em minmax(0, 1fr); column-gap: var(--space-s); row-gap: .15em; align-content: center; align-items: center; padding: .7em 0; border: 0; border-radius: 0; color: var(--white); }}
   %root%:hover, %root%:focus-visible {{ background: none; transform: none; }}
+  %root%:active {{ background: var(--white-trans-10); border-radius: var(--radius); }}
 }}
 @media (prefers-reduced-motion: reduce) {{ %root%, %root%:hover {{ transition: none; transform: none; }} }}
 """)
