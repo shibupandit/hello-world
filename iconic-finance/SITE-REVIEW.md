@@ -25,9 +25,15 @@
 10. **Commercial & SMSF lending** is listed on /about/ but flagged in its own text as unconfirmed scope.
 11. **Instagram and Facebook links** on the homepage point to "#".
 
-## Homepage items still needing sign-off
+## Homepage decisions (11 Nov 2026)
 
-- Two FAQ answers carry licensee flags (commission wording; no-credit-check statement).
-- Client reviews: confirm they are genuine, consented, and acceptable to the licensee for homepage use.
-- Property report disclaimer is still marked [VERIFY].
-- Instagram and Facebook URLs are unknown.
+Per the site owner, FAQs, client reviews and the phone number are taken from the live website as published.
+
+- **Phone:** +61 416 647 644, the number in the live header and on the contact page.
+- **Client reviews:** the three reviews from /about/ and /contact/, quoted word for word.
+- **FAQ answers:** adapted from /contact/, /our-process/ and /lenders-we-work-with/. The on-page flags were removed. The live site itself marks two of these for licensee confirmation: the commission wording, and the statement that booking involves no credit check.
+
+## Still open
+
+- Property report disclaimer is still marked [VERIFY] (data provider wording).
+- Instagram and Facebook URLs are not on the live site.
