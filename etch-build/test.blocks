@@ -1,0 +1,51 @@
+<!-- wp:etch/element {"tag":"div","attributes":{"id":"t"}} -->
+<!-- wp:etch/element {"tag":"p","attributes":{"class":"amp"}} -->
+<!-- wp:etch/text {"content":"A \u0026amp; B — “quote” it’s"} /-->
+<!-- /wp:etch/element -->
+<!-- wp:etch/loop {"target":"posts($limit: 2)","itemId":"post"} -->
+<!-- wp:etch/element {"tag":"div","attributes":{"class":"p"}} -->
+<!-- wp:etch/element {"tag":"a","attributes":{"href":"{post.permalink.relative}"}} -->
+<!-- wp:etch/text {"content":"{post.title}"} /-->
+<!-- /wp:etch/element -->
+<!-- wp:etch/text {"content":"|"} /-->
+<!-- wp:etch/element {"tag":"span","attributes":{"class":"d"}} -->
+<!-- wp:etch/text {"content":"{post.date.dateFormat(\u0022M j, Y\u0022)}"} /-->
+<!-- /wp:etch/element -->
+<!-- wp:etch/text {"content":"|"} /-->
+<!-- wp:etch/element {"tag":"span","attributes":{"class":"c"}} -->
+<!-- wp:etch/text {"content":"{post.categories.at(0).name}"} /-->
+<!-- /wp:etch/element -->
+<!-- wp:etch/text {"content":"|"} /-->
+<!-- wp:etch/element {"tag":"span","attributes":{"class":"cid"}} -->
+<!-- wp:etch/text {"content":"{post.categories.at(0).id}"} /-->
+<!-- /wp:etch/element -->
+<!-- wp:etch/text {"content":"|"} /-->
+<!-- wp:etch/element {"tag":"span","attributes":{"class":"r"}} -->
+<!-- wp:etch/text {"content":"{post.readingTime}"} /-->
+<!-- /wp:etch/element -->
+<!-- wp:etch/text {"content":"|"} /-->
+<!-- wp:etch/element {"tag":"img","attributes":{"src":"{post.image.sizes.medium_large.url}","alt":"{post.image.alt}"}} -->
+
+<!-- /wp:etch/element -->
+<!-- wp:etch/text {"content":"|"} /-->
+<!-- wp:etch/element {"tag":"span","attributes":{"class":"ex"}} -->
+<!-- wp:etch/text {"content":"{post.excerpt}"} /-->
+<!-- /wp:etch/element -->
+<!-- /wp:etch/element -->
+<!-- /wp:etch/loop -->
+<!-- wp:etch/loop {"target":"featuredTestimonials($limit: 2)","itemId":"t"} -->
+<!-- wp:etch/element {"tag":"div","attributes":{"class":"t"}} -->
+<!-- wp:etch/text {"content":"{t.title}|{t.acf.highlight_line}|{t.acf.client_designation}|{t.acf.star_rating}"} /-->
+<!-- /wp:etch/element -->
+<!-- /wp:etch/loop -->
+<!-- wp:etch/loop {"target":"relatedPosts($cat: 0, $exclude: [1495], $limit: 2)","itemId":"rp"} -->
+<!-- wp:etch/element {"tag":"div","attributes":{"class":"rp"}} -->
+<!-- wp:etch/text {"content":"{rp.id}"} /-->
+<!-- /wp:etch/element -->
+<!-- /wp:etch/loop -->
+<!-- wp:etch/loop {"target":"blogCategories","itemId":"c"} -->
+<!-- wp:etch/element {"tag":"div","attributes":{"class":"cat"}} -->
+<!-- wp:etch/text {"content":"{c.name}|{c.count}|{c.permalink}|{c.slug}"} /-->
+<!-- /wp:etch/element -->
+<!-- /wp:etch/loop -->
+<!-- /wp:etch/element -->
