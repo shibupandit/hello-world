@@ -26,6 +26,21 @@ tap-highlight flash on each dropdown and hover/tap race each other.
   (`position: relative; z-index: 10001`).
 - The Toggle element is often disabled in Bricks → Settings → Elements. Nav Nested needs it, so enable it.
 
+## Frosted glass and abstract backgrounds
+
+- Abstract background: one fixed `body::before` layer of large `radial-gradient` blobs in brand colours (no image, no
+  `filter: blur`), drifting slowly with a transform animation. Add a faint SVG-noise `body::after` (about 4% opacity)
+  for grain. Turn the animation off under `prefers-reduced-motion`.
+- Glass panels: translucent backgrounds from shared variables (`--glass-bg`, `--glass-sand`, `--glass-border`,
+  `--glass-shadow`, `--glass-blur`). Use real `backdrop-filter` only on surfaces that pass over detailed content
+  (the sticky header). Blurring every card makes phones stutter.
+- Never put `backdrop-filter` (or transform or filter) on an element that contains the mobile nav. It becomes the
+  containing block for `position: fixed` and collapses the full-screen menu. Put the blur on the header's `::before`
+  (`position: absolute; inset: 0; z-index: -1`, with `isolation: isolate` on the header).
+- A blurred child inside a blurred parent cannot blur the page, so text shows through it. Mega menu panels and the
+  mobile menu panel stay solid (`var(--white)` / `var(--neutral-ultra-light)`) for readability.
+- Provide an `@supports not (backdrop-filter…)` fallback with a solid background.
+
 ## Bricks
 
 - BEM global classes only. Identical elements share one class across all pages. No styling on elements; move one-offs
