@@ -113,7 +113,8 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 - The `btn--white` button is not generated in this setup. Use shared `btn-on-dark` / `btn-on-dark--ghost` classes.
   Custom button classes must copy the ACSS button base from its variables (`--btn-radius`, `--btn-padding-block`,
   `--btn-padding-inline`, `--btn-font-size`, `--btn-font-weight`, `--btn-line-height`, `--btn-letter-spacing`,
-  `--btn-text-transform`, `--btn-border-width`). Otherwise they render square and off-size. CTA buttons are 100% width
+  `--btn-text-transform`, `--btn-border-width`). Otherwise they render square and off-size. Hero and CTA buttons
+  (`home-hero__actions`, `page-hero__actions`, `cta-band__actions`) stack and go 100% width
   at 767px and below.
 
 ## Performance and caching
