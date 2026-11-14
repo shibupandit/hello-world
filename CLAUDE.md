@@ -37,6 +37,8 @@ tap-highlight flash on each dropdown and hover/tap race each other.
   (slope 1.8, intercept -.4) with `feFuncA` 1. Tile it at 180px and set opacity about .06. Default feTurbulence noise
   is mostly transparent and nearly invisible. No `mix-blend-mode`, so it stays cheap on phones. CSS lives between
   `/* grain:start */` and `/* grain:end */`.
+- Overscan every fixed full-screen layer (grain `inset: -15vh 0 -30vh 0`, grid lines `top: -15vh; bottom: -30vh`).
+  When a mobile URL bar collapses mid-scroll, layers sized to the old viewport leave an uncovered strip at the bottom.
 - Glass panels: translucent backgrounds from shared variables (`--glass-bg`, `--glass-sand`, `--glass-border`,
   `--glass-shadow`, `--glass-blur`). Use real `backdrop-filter` only on surfaces that pass over detailed content
   (the sticky header). Blurring every card makes phones stutter.
@@ -109,6 +111,10 @@ tap-highlight flash on each dropdown and hover/tap race each other.
   instead.
 - After every save, check that `uploads/automatic-css/automatic.css` is not 0 bytes.
 - The `btn--white` button is not generated in this setup. Use shared `btn-on-dark` / `btn-on-dark--ghost` classes.
+  Custom button classes must copy the ACSS button base from its variables (`--btn-radius`, `--btn-padding-block`,
+  `--btn-padding-inline`, `--btn-font-size`, `--btn-font-weight`, `--btn-line-height`, `--btn-letter-spacing`,
+  `--btn-text-transform`, `--btn-border-width`). Otherwise they render square and off-size. CTA buttons are 100% width
+  at 767px and below.
 
 ## Performance and caching
 
