@@ -83,6 +83,12 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 - Move images with the individual `translate` / `scale` properties, not `transform`. Entrance animations with
   `fill-mode: both` keep their final `transform` and would override it. Scale the image (1.14) so parallax never
   shows the frame edge.
+- The arch reveal (`wc-arch` + `wc-settle`) lives on the shared `media-arch` class, not on one hero. Inside
+  `.home-hero`/`.page-hero` it plays on load. Elsewhere it uses `animation-timeline: view()` (inside `@supports`), so it
+  plays as the image scrolls in. A non-scaling SVG stroke on `::before` draws a thin edge, so white-background
+  portraits still read as an arch.
+- Two-column hero grids (`home-hero__grid`, `page-hero__grid`, `profile`) are vertically centred (`align-items:
+  center`), never top or end aligned.
 
 ## Automatic.css
 
