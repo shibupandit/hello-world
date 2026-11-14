@@ -60,6 +60,20 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 - Testimonial carousels use Nested Slider with `quote-slider` classes. Arrows go below the cards, dots hidden, and
   cards get equal heights.
 
+## Arch images and image motion
+
+- Never draw arch shapes with a large `border-radius` (for example 260px). On phones the browser scales the radii down
+  and the top curve flattens. Use an SVG mask on the frame class instead (`.media-arch`), with a fixed
+  `aspect-ratio: 4 / 5` and a viewBox 0 0 400 500 path drawing a semicircle top and 16-unit bottom corners
+  (`mask-size: 100% 100%`). Reveal clip-path keyframes must not carry `round` values.
+- Image motion (mouse depth plus scroll parallax): one small inline script in Bricks → Custom code (body footer, id
+  `wc-arch-motion`) that only writes CSS variables. Use rAF with lerp, IntersectionObserver so only visible images
+  update, the mouse effect only under `(hover: hover) and (pointer: fine)`, and nothing at all under
+  `prefers-reduced-motion`.
+- Move images with the individual `translate` / `scale` properties, not `transform`. Entrance animations with
+  `fill-mode: both` keep their final `transform` and would override it. Scale the image (1.14) so parallax never
+  shows the frame edge.
+
 ## Automatic.css
 
 - Save settings with `\Automatic_CSS\Model\Database_Settings::get_instance()->save_settings($vars, true)`.
