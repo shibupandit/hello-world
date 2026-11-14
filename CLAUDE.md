@@ -40,6 +40,10 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 - A blurred child inside a blurred parent cannot blur the page, so text shows through it. Mega menu panels and the
   mobile menu panel stay solid (`var(--white)` / `var(--neutral-ultra-light)`) for readability.
 - Provide an `@supports not (backdrop-filter…)` fallback with a solid background.
+- Cards have no shadows (and no hover shadows). Borders are hairlines: `.5px solid var(--card-border)` with
+  `--card-border: rgba(123, 75, 42, .1)`. This shows as 1px on standard screens and a true hairline on retina. One
+  global rule `:root :is(<card classes>)` between `/* cards:start */` and `/* cards:end */` keeps every card the same.
+  Shadows stay only on the sticky header, mega panels and form focus rings.
 - Architectural grid layer (the user's preferred look): `html::after`, fixed, `z-index: -1`, width
   `min(var(--content-width), calc(100% - 2 * var(--gutter)))`, centred. It has 1px brand-tinted `border-inline` (about 8%
   alpha) and a faint dashed centre line (`repeating-linear-gradient`). Add 1px lines between sections
