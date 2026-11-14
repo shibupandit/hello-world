@@ -29,8 +29,14 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 ## Frosted glass and abstract backgrounds
 
 - Abstract background: one fixed `body::before` layer of large `radial-gradient` blobs in brand colours (no image, no
-  `filter: blur`), drifting slowly with a transform animation. Add a faint SVG-noise `body::after` (about 4% opacity)
-  for grain. Turn the animation off under `prefers-reduced-motion`.
+  `filter: blur`), drifting slowly with a transform animation. Turn the animation off under `prefers-reduced-motion`.
+- Grain goes ON TOP, not behind. Glass sections and cards cover a grain layer placed behind them, so it looks patchy.
+  Use `body::after` (fixed, `pointer-events: none`, `z-index` 40, just below the sticky header's 50) plus a matching
+  `.site-header::after` (`z-index: -1` inside the isolated header). Mega and mobile panels stay clean above both.
+  The noise must be greyscale and fully opaque: feTurbulence, then `feColorMatrix saturate 0`, then a contrast boost
+  (slope 1.8, intercept -.4) with `feFuncA` 1. Tile it at 180px and set opacity about .06. Default feTurbulence noise
+  is mostly transparent and nearly invisible. No `mix-blend-mode`, so it stays cheap on phones. CSS lives between
+  `/* grain:start */` and `/* grain:end */`.
 - Glass panels: translucent backgrounds from shared variables (`--glass-bg`, `--glass-sand`, `--glass-border`,
   `--glass-shadow`, `--glass-blur`). Use real `backdrop-filter` only on surfaces that pass over detailed content
   (the sticky header). Blurring every card makes phones stutter.
@@ -47,7 +53,7 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 - Architectural grid layer (the user's preferred look): `html::after`, fixed, `z-index: -1`, width
   `min(var(--content-width), calc(100% - 2 * var(--gutter)))`, centred. It has 1px brand-tinted `border-inline` (about 8%
   alpha) and a faint dashed centre line (`repeating-linear-gradient`). Add 1px lines between sections
-  (`#brx-content > .brxe-section + .brxe-section`, `#brx-footer`). Raise the grain to about 7%.
+  (`#brx-content > .brxe-section + .brxe-section`, `#brx-footer`).
 - Warm glow: two injected divs, `.bg-glow--a` (about 46vmax) and `.bg-glow--b` (about 40vmax). Both are fixed, with
   `contain: strict` and `will-change: translate`, peak alpha about .15, and fade to fully transparent by 68% of the
   radius. Never make one huge glow layer: on Android it renders in tiles and shows a hard vertical edge. Move them with
