@@ -44,10 +44,12 @@ tap-highlight flash on each dropdown and hover/tap race each other.
   `min(var(--content-width), calc(100% - 2 * var(--gutter)))`, centred. It has 1px brand-tinted `border-inline` (about 8%
   alpha) and a faint dashed centre line (`repeating-linear-gradient`). Add 1px lines between sections
   (`#brx-content > .brxe-section + .brxe-section`, `#brx-footer`). Raise the grain to about 7%.
-- Warm glow: one injected `.bg-glow` div (fixed, about 64vmax radial in a brand copper tone). Move it with the
-  `translate` property only, so it runs on the compositor. It follows the pointer on fine pointers (rAF plus a 1.6s
-  ease) and drifts with a CSS keyframe on touch. Static under `prefers-reduced-motion`. Paint order of the negative
-  layers: `body::before` (aurora), then `.bg-glow`, then `body::after` (grain), then `html::after` (grid).
+- Warm glow: two injected divs, `.bg-glow--a` (about 46vmax) and `.bg-glow--b` (about 40vmax). Both are fixed, with
+  `contain: strict` and `will-change: translate`, peak alpha about .15, and fade to fully transparent by 68% of the
+  radius. Never make one huge glow layer: on Android it renders in tiles and shows a hard vertical edge. Move them with
+  the `translate` property only. On fine pointers glow A follows the cursor (rAF plus a 1.8s ease); on touch both drift
+  with CSS keyframes. Glow B always drifts. Static under `prefers-reduced-motion`. Paint order of the negative layers:
+  `body::before` (aurora), then the glows, then `body::after` (grain), then `html::after` (grid).
 - Keep the CSS in ACSS custom CSS between `/* bg2:start */` and `/* bg2:end */`, and the script in Bricks custom code
   with id `wc-bg-glow`.
 
