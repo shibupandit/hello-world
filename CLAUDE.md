@@ -74,6 +74,17 @@ tap-highlight flash on each dropdown and hover/tap race each other.
   `/kinsta-clear-cache-all/`).
 - Animations are CSS only. Fade the hero from opacity 0 only if LCP stays fast. Respect `prefers-reduced-motion`.
 - Perfmatters lazy-loads images until the first interaction. Headless checks must move the mouse or scroll first.
+- Perfmatters "critical images" preloads the first `<img>` in the HTML, which is often a header or mega menu image.
+  Add the attribute `data-perfmatters-skip-preload` and `loading: lazy` to every header and mega image so the hero
+  image gets the preload.
+- The hero (LCP) image is WebP at quality 70–75 with an accurate `sizes` attribute, for example
+  `(max-width: 479px) 92vw, (max-width: 991px) 45vw, 500px`. Aim for under 60 KB.
+- Imported photos are often badly compressed (about 0.6 bytes per pixel). Recompress any size above about 0.35 bytes
+  per pixel with GD (`imagewebp` 72 / `imagejpeg` 78). WordPress `set_quality` + `save` to the same path did not
+  shrink them.
+- Check that WordPress thumbnail (150) and medium (300) sizes are not 0. Without them, small cards load 600px files.
+- Self-host latin font subsets only. Drop latin-ext faces unless the content needs them.
+- Measure with throttled Playwright (Moto G4, 4× CPU) and Lighthouse 12. Target mobile 90+, CLS 0, TBT under 100 ms.
 
 ## Verification
 
