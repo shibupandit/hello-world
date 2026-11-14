@@ -40,6 +40,16 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 - A blurred child inside a blurred parent cannot blur the page, so text shows through it. Mega menu panels and the
   mobile menu panel stay solid (`var(--white)` / `var(--neutral-ultra-light)`) for readability.
 - Provide an `@supports not (backdrop-filter…)` fallback with a solid background.
+- Architectural grid layer (the user's preferred look): `html::after`, fixed, `z-index: -1`, width
+  `min(var(--content-width), calc(100% - 2 * var(--gutter)))`, centred. It has 1px brand-tinted `border-inline` (about 8%
+  alpha) and a faint dashed centre line (`repeating-linear-gradient`). Add 1px lines between sections
+  (`#brx-content > .brxe-section + .brxe-section`, `#brx-footer`). Raise the grain to about 7%.
+- Warm glow: one injected `.bg-glow` div (fixed, about 64vmax radial in a brand copper tone). Move it with the
+  `translate` property only, so it runs on the compositor. It follows the pointer on fine pointers (rAF plus a 1.6s
+  ease) and drifts with a CSS keyframe on touch. Static under `prefers-reduced-motion`. Paint order of the negative
+  layers: `body::before` (aurora), then `.bg-glow`, then `body::after` (grain), then `html::after` (grid).
+- Keep the CSS in ACSS custom CSS between `/* bg2:start */` and `/* bg2:end */`, and the script in Bricks custom code
+  with id `wc-bg-glow`.
 
 ## Bricks
 
