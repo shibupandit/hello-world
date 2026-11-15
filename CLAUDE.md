@@ -111,6 +111,9 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 
 ## Automatic.css
 
+- Site width: ACSS `vp-max` 1264 (content width 79rem). Side padding: `section-padding-x-min` 32 and
+  `section-padding-x-max` 40. The header, content, footer and grid lines all follow these variables.
+
 - Save settings with `\Automatic_CSS\Model\Database_Settings::get_instance()->save_settings($vars, true)`.
 - Never put a custom `clamp()` in `section-padding-block`. It empties automatic.css. Tune `space-adjust-section`
   instead.
