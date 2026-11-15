@@ -81,6 +81,9 @@ tap-highlight flash on each dropdown and hover/tap race each other.
   - A content template for "postType page" overrides pages that have their own layout. Scope it with `main: ids`.
 - After changing template conditions, re-check the H1 of every page.
 - Do not use the Breadcrumbs element (it loads Font Awesome). Build breadcrumbs from text links.
+- Repeated sections (the CTA band) live in ONE Bricks section template (`Section — CTA band`, id 738) placed with a
+  Template element, never as copies on each page. Before changing a shared class layout, find every element that
+  uses that class by class id, not by text, and check the layout (not only errors) on every page it appears on.
 - Testimonial carousels use Nested Slider with `quote-slider` classes. Arrows go below the cards, dots hidden, and
   cards get equal heights.
 
