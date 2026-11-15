@@ -55,7 +55,7 @@ tap-highlight flash on each dropdown and hover/tap race each other.
   global rule `:root :is(<card classes>)` between `/* cards:start */` and `/* cards:end */` keeps every card the same.
   Shadows stay only on the sticky header, mega panels and form focus rings.
 - Architectural grid layer (the user's preferred look): `html::after`, fixed, `z-index: -1`, width
-  `min(var(--content-width), calc(100% - 2 * var(--gutter)))`, centred. It has 1px brand-tinted `border-inline` (about 8%
+  `calc(min(var(--content-width), calc(100% - 2 * var(--gutter))) + 32px)`, centred, so the lines sit 16px outside the content. It has 1px brand-tinted `border-inline` (about 8%
   alpha) and a faint dashed centre line (`repeating-linear-gradient`). Add 1px lines between sections
   (`#brx-content > .brxe-section + .brxe-section`, `#brx-footer`).
 - Warm glow: two injected divs, `.bg-glow--a` (about 46vmax) and `.bg-glow--b` (about 40vmax). Both are fixed, with
