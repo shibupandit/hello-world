@@ -28,6 +28,8 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 
 ## Frosted glass and abstract backgrounds
 
+- The user wants a STILL page background: no aurora drift, no glow drift, no cursor-following glow. Keep the
+  layers static (`/* bgstatic:start */` block). Image motion (arch parallax and reveal) is separate and stays.
 - Abstract background: one fixed `body::before` layer of large `radial-gradient` blobs in brand colours (no image, no
   `filter: blur`), drifting slowly with a transform animation. Turn the animation off under `prefers-reduced-motion`.
 - Grain goes ON TOP, not behind. Glass sections and cards cover a grain layer placed behind them, so it looks patchy.
