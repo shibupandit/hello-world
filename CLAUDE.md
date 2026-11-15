@@ -140,6 +140,25 @@ tap-highlight flash on each dropdown and hover/tap race each other.
 - Self-host latin font subsets only. Drop latin-ext faces unless the content needs them.
 - Measure with throttled Playwright (Moto G4, 4× CPU) and Lighthouse 12. Target mobile 90+, CLS 0, TBT under 100 ms.
 
+## Lessons from mistakes (do not repeat)
+
+- Never edit Bricks elements by array position after removing or adding elements. Index into a dict keyed by element
+  id (`$byId[$id]`) and write back `array_values($byId)`. A shifted index once turned a section into a `<span>` and
+  removed its padding.
+- Never delete elements by text match ("White Crow" matched the header logo). Match by class id and element id, and
+  diff against the backup before saving.
+- Bricks Nested Slider writes `height: 50vh` inline on every slide. Override with
+  `.quote-slider .splide__slide { height: auto !important; }`.
+- After any visual change, LOOK at element screenshots (`locator.screenshot`) at 1440, 991 and 390, not only numbers.
+- ACSS custom CSS sits in a cascade layer, so it loses to unlayered ACSS rules. Change button colours in the ACSS
+  dashboard settings, not with custom CSS. Outline buttons always carry a colour class (`btn--primary btn--outline`);
+  the primary outline is base text and border at rest, with a solid primary background and white text on hover.
+- Do not publish duplicate CPT posts ("(Copy)"). Loops show every published post.
+- A sticky sidebar must stay shorter than the viewport. When it grows (link card plus form), drop the sticky.
+- Mixed styling inside an H1 (`<em>` accents, `<br>`) is not wanted. Keep H1s as one plain string.
+- The user wants a still page background (no aurora layer, no glows). Keep only the grain and grid lines. Arch images
+  use a slide-in only, with no parallax or clip reveal.
+
 ## Verification
 
 - QA every page at 1440, 991, 767 and 390. Check for horizontal overflow, console errors, failed requests, broken
