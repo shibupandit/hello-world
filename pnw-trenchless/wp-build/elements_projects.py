@@ -47,7 +47,7 @@ def project_feature(query, label="Project feature (loop)", cta=True):
         block("spec", spec, tag="dl", **any_of(*[x for _, x in rows])),
     ]
     if cta:
-        info.append(a("View project", link("{post_url}"), "link-arrow text-accent-light"))
+        info.append(a("View project", link("{post_url}", aria="View {post_title}"), "link-arrow text-accent-light"))
     return N("block", "project", [
         block("job-pair", [
             block("job-pair__fig", [dimg("{acf_before_image}", None), span("DURING", "job-pair__tag")], tag="figure"),
@@ -65,14 +65,14 @@ def project_card(query, label="Project card (loop)"):
             h("h3", "{post_title}", "pcard__title"),
             t("{acf_summary}", "caption", **when("{acf_summary}")),
         ]),
-    ], label=label, tag="a", link=link("{post_url}"), hasLoop=True, query=query)
+    ], label=label, tag="a", link=link("{post_url}", aria="{post_title}"), hasLoop=True, query=query)
 
 
 def project_mini(query, label="Project mini card (loop)"):
     return N("block", "mini", [
         dimg("{acf_cover_image}", None, "medium"),
         block("mini__body", [span("{post_title}", "mini__title"), span("{acf_summary}", "caption")], tag="span"),
-    ], label=label, tag="a", link=link("{post_url}"), hasLoop=True, query=query)
+    ], label=label, tag="a", link=link("{post_url}", aria="{post_title}"), hasLoop=True, query=query)
 
 
 REAL_ONLY = {"id": "real", "key": "is_placeholder", "value": "1", "compare": "!="}

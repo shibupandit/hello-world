@@ -69,13 +69,13 @@ def aside():
             h("h2", "Recent projects", "widget__title"),
             block("list-plain", [
                 N("block", "widget__list-item", [span("{post_title}", "widget__list-title"), span("{acf_service}", "widget__list-meta")],
-                  label="Project (loop)", tag="a", link=link("{post_url}"), hasLoop=True, query=q(posts_per_page=4, meta_query=[REAL_ONLY])),
+                  label="Project (loop)", tag="a", link=link("{post_url}", aria="{post_title}"), hasLoop=True, query=q(posts_per_page=4, meta_query=[REAL_ONLY])),
             ]),
         ], tag="section"),
         block("widget widget--tint", [
             h("h2", "Other areas we serve", "widget__title"),
             block("widget__areas", [
-                N("block", "", [a("{post_title}", link("{post_url}"), "widget__area")], label="City page (loop)", tag="li", hasLoop=True,
+                N("block", "", [a("{post_title}", link("{post_url}", aria="{post_title}"), "widget__area")], label="City page (loop)", tag="li", hasLoop=True,
                   query={"objectType": "post", "post_type": ["page"], "orderby": "menu_order", "order": "asc", "posts_per_page": 10,
                          "no_found_rows": True, "post__not_in": ["{post_id}"], "meta_query": [{"id": "city", "key": "pnw_city", "value": "1", "compare": "="}]}),
             ], tag="ul"),

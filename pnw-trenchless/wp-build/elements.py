@@ -40,13 +40,72 @@ def when(tag, compare="!="):
     return {"_conditions": [[{"id": f"c{key[:4]}{'n' if compare == '!=' else 'e'}", "key": "dynamic_data", "compare": compare, "value": "", "dynamic_data": tag}]]}
 
 
-def link(url, new_tab=False, aria=None):
+PAGE_NAMES = {
+    "/": "Home", "/about/": "About", "/contact/": "Contact", "/who-we-serve/": "Who We Serve",
+    "/projects/": "Projects", "/reviews/": "Reviews", "/privacy-policy/": "Privacy Policy",
+    "/services/sewer-pipe-lining/": "Sewer Pipe Lining", "/services/pipe-bursting/": "Pipe Bursting",
+    "/services/water-line-pulling/": "Water Line Pulling", "/services/point-repairs/": "Point Repairs",
+    "/spokane/": "Spokane", "/spokane-valley/": "Spokane Valley", "/deer-park/": "Deer Park",
+    "/clayton/": "Clayton", "/stevens-county/": "Stevens County", "/spokane-county/": "Spokane County",
+}
+SECTION_NAMES = {
+    "services": "Services", "who": "Who We Serve", "how": "How It Works", "mike": "About",
+    "areas": "Service Areas", "estimate": "Quote form", "leave": "Leave a review",
+    "homes": "Homeowners", "commercial": "Commercial properties", "industrial": "Industrial & municipal",
+}
+
+
+def _section_label(frag):
+    return SECTION_NAMES.get(frag, frag.replace("-", " ").capitalize())
+
+
+def _page_aria(url):
+    if not url or not isinstance(url, str) or url in ("#", ""):
+        return None
+    if url.startswith("tel:"):
+        return f"Call {PHONE}"
+    if url.startswith("sms:"):
+        return f"Text {PHONE}"
+    if url.startswith("mailto:"):
+        return f"Email {EMAIL}"
+    if url == FB:
+        return "PNW Trenchless on Facebook"
+    if url == GOOGLE_URL:
+        return "PNW Trenchless on Google"
+    if url.startswith("#"):
+        return f"{_section_label(url[1:])} section"
+    path, _, frag = url.partition("#")
+    page = PAGE_NAMES.get(path)
+    if frag:
+        sec = _section_label(frag)
+        return f"{sec} section on the {page} page" if page else f"{sec} section"
+    if page:
+        return "Home page" if path == "/" else f"{page} page"
+    return None
+
+
+def _rel_for(url):
+    if not url or not isinstance(url, str):
+        return "dofollow"
+    if url == GOOGLE_URL or (url.startswith("http") and "pnwtrenchless" not in url and "stackstaging" not in url):
+        return "nofollow"
+    return "dofollow"
+
+
+def link(url, new_tab=False, aria=None, rel=None):
     d = {"type": "external", "url": url}
+    rels = []
     if new_tab:
         d["newTab"] = True
-        d["rel"] = "noopener"
-    if aria:
-        d["ariaLabel"] = aria
+        rels.append("noopener")
+    computed_rel = rel if rel is not None else _rel_for(url)
+    if computed_rel:
+        rels.append(computed_rel)
+    if rels:
+        d["rel"] = " ".join(dict.fromkeys(rels))
+    label = aria if aria is not None else _page_aria(url)
+    if label:
+        d["ariaLabel"] = label
     return d
 
 
@@ -169,7 +228,7 @@ def services_menu():
         span("{acf_card_label}", "mega-card__spec", **when("{acf_card_label}")),
         block("mega-card__title", [span("{post_title}"), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
         span("{acf_card_text}", "mega-card__text", **when("{acf_card_text}")),
-    ], href=link("{post_url}"))], label="Service card (loop)", tag="li", hasLoop=True,
+    ], href=link("{post_url}", aria="{post_title}"))], label="Service card (loop)", tag="li", hasLoop=True,
         query={"objectType": "post", "post_type": ["service"], "orderby": "menu_order", "order": "asc", "posts_per_page": 8, "no_found_rows": True})]
     panel = block("mega__panel", [
         block("mega__grid", [
@@ -263,7 +322,7 @@ def areas_menu():
               tag="span", _attributes=hide, **when("{featured_image}")),
         span("{acf_city_note}", "mega-card__spec", **when("{acf_city_note}")),
         block("mega-card__title", [span("{post_title}"), svg("icon-arrow.svg", _attributes=hide)], tag="span"),
-    ], href=link("{post_url}"))], label="City page (loop)", tag="li", hasLoop=True,
+    ], href=link("{post_url}", aria="{post_title}"))], label="City page (loop)", tag="li", hasLoop=True,
         query={"objectType": "post", "post_type": ["page"], "orderby": "menu_order", "order": "asc", "posts_per_page": 12, "no_found_rows": True,
                "meta_query": [{"id": "city", "key": "pnw_city", "value": "1", "compare": "="}]})
     aside = block("mega__aside mega__aside--map", [
@@ -363,7 +422,7 @@ def footer():
             t("TRENCHLESS", "footer__word", tag="div", _attributes=attrs(aria_hidden="true")),
             block("footer__bottom", [
                 span("© 2026 PNW Trenchless · WA Contractor Reg. #PNWTRT*744KQ · Licensed, bonded &amp; insured"),
-                block("footer__legal", [a("Privacy", "/privacy-policy/"), span("·"), a("Accessibility", "#")], tag="span"),
+                block("footer__legal", [a("Privacy", "/privacy-policy/"), span("·"), a("Accessibility", link("#", aria="Accessibility page"))], tag="span"),
             ]),
         ]),
     ], tag="footer", label="Footer")

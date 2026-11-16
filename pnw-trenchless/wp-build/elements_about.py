@@ -175,7 +175,7 @@ def verify():
                     block("verify-card__ico", [svg("icon-shield.svg")], tag="span"),
                     h("h3", "WA Contractor Registration", "title-l"),
                     t("#PNWTRT*744KQ", "verify-card__value"),
-                    a("Verify on WA L&amp;I", link("https://secure.lni.wa.gov/verify/", True), "link-arrow"),
+                    a("Verify on WA L&amp;I", link("https://secure.lni.wa.gov/verify/", True, aria="WA Contractor Registration verification on the Washington L&I website"), "link-arrow"),
                 ], tag="li"),
                 block("verify-card", [
                     block("verify-card__ico", [svg("icon-check.svg")], tag="span"),

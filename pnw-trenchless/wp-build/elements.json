@@ -63,7 +63,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "mailto:{acf_site_email}"
+     "url": "mailto:{acf_site_email}",
+     "rel": "dofollow",
+     "ariaLabel": "Email {acf_site_email}"
     },
     "_cls": [
      "topbar__link"
@@ -104,7 +106,8 @@
      "type": "external",
      "url": "https://www.facebook.com/profile.php?id=61589495076554",
      "newTab": true,
-     "rel": "noopener"
+     "rel": "noopener nofollow",
+     "ariaLabel": "PNW Trenchless on Facebook"
     },
     "_cls": [
      "topbar__link"
@@ -167,6 +170,7 @@
     "link": {
      "type": "external",
      "url": "/",
+     "rel": "dofollow",
      "ariaLabel": "PNW Trenchless home"
     },
     "_cls": [
@@ -334,7 +338,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "{post_url}"
+     "url": "{post_url}",
+     "rel": "dofollow",
+     "ariaLabel": "{post_title}"
     },
     "_cls": [
      "mega-card"
@@ -545,7 +551,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "tel:{acf_site_phone}"
+     "url": "tel:{acf_site_phone}",
+     "rel": "dofollow",
+     "ariaLabel": "Call {acf_site_phone}"
     },
     "_cls": [
      "mega__phone"
@@ -580,7 +588,9 @@
     "text": "Get a quote",
     "link": {
      "type": "external",
-     "url": "/contact/"
+     "url": "/contact/",
+     "rel": "dofollow",
+     "ariaLabel": "Contact page"
     },
     "icon": {
      "library": "svg",
@@ -702,7 +712,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "/who-we-serve/#homes"
+     "url": "/who-we-serve/#homes",
+     "rel": "dofollow",
+     "ariaLabel": "Homeowners section on the Who We Serve page"
     },
     "_cls": [
      "mega-card",
@@ -862,7 +874,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "/who-we-serve/#commercial"
+     "url": "/who-we-serve/#commercial",
+     "rel": "dofollow",
+     "ariaLabel": "Commercial properties section on the Who We Serve page"
     },
     "_cls": [
      "mega-card",
@@ -1022,7 +1036,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "/who-we-serve/#industrial"
+     "url": "/who-we-serve/#industrial",
+     "rel": "dofollow",
+     "ariaLabel": "Industrial & municipal section on the Who We Serve page"
     },
     "_cls": [
      "mega-card",
@@ -1240,7 +1256,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "tel:{acf_site_phone}"
+     "url": "tel:{acf_site_phone}",
+     "rel": "dofollow",
+     "ariaLabel": "Call {acf_site_phone}"
     },
     "_cls": [
      "mega__phone"
@@ -1275,7 +1293,9 @@
     "text": "Get a quote",
     "link": {
      "type": "external",
-     "url": "/contact/"
+     "url": "/contact/",
+     "rel": "dofollow",
+     "ariaLabel": "Contact page"
     },
     "icon": {
      "library": "svg",
@@ -1397,7 +1417,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "/about/"
+     "url": "/about/",
+     "rel": "dofollow",
+     "ariaLabel": "About page"
     },
     "_cls": [
      "mega-card",
@@ -1499,7 +1521,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "/projects/"
+     "url": "/projects/",
+     "rel": "dofollow",
+     "ariaLabel": "Projects page"
     },
     "_cls": [
      "mega-card",
@@ -1601,7 +1625,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "/reviews/"
+     "url": "/reviews/",
+     "rel": "dofollow",
+     "ariaLabel": "Reviews page"
     },
     "_cls": [
      "mega-card",
@@ -1826,7 +1852,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "tel:{acf_site_phone}"
+     "url": "tel:{acf_site_phone}",
+     "rel": "dofollow",
+     "ariaLabel": "Call {acf_site_phone}"
     },
     "_cls": [
      "mega__phone"
@@ -1861,7 +1889,9 @@
     "text": "Contact us",
     "link": {
      "type": "external",
-     "url": "/contact/"
+     "url": "/contact/",
+     "rel": "dofollow",
+     "ariaLabel": "Contact page"
     },
     "icon": {
      "library": "svg",
@@ -2004,7 +2034,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "{post_url}"
+     "url": "{post_url}",
+     "rel": "dofollow",
+     "ariaLabel": "{post_title}"
     },
     "_cls": [
      "mega-card",
@@ -2193,7 +2225,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "tel:{acf_site_phone}"
+     "url": "tel:{acf_site_phone}",
+     "rel": "dofollow",
+     "ariaLabel": "Call {acf_site_phone}"
     },
     "_cls": [
      "mega__phone"
@@ -2228,7 +2262,9 @@
     "text": "Contact",
     "link": {
      "type": "external",
-     "url": "/contact/"
+     "url": "/contact/",
+     "rel": "dofollow",
+     "ariaLabel": "Contact page"
     },
     "_cls": [
      "nav__link"
@@ -2257,6 +2293,7 @@
     "link": {
      "type": "external",
      "url": "tel:{acf_site_phone}",
+     "rel": "dofollow",
      "ariaLabel": "Call or text {acf_site_phone}"
     },
     "_cls": [
@@ -2335,7 +2372,9 @@
     "text": "Get a Quote",
     "link": {
      "type": "external",
-     "url": "/contact/"
+     "url": "/contact/",
+     "rel": "dofollow",
+     "ariaLabel": "Contact page"
     },
     "icon": {
      "library": "svg",
@@ -2370,7 +2409,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "mailto:{acf_site_email}"
+     "url": "mailto:{acf_site_email}",
+     "rel": "dofollow",
+     "ariaLabel": "Email {acf_site_email}"
     },
     "_cls": [
      "topbar__link"
@@ -2411,7 +2452,8 @@
      "type": "external",
      "url": "https://www.facebook.com/profile.php?id=61589495076554",
      "newTab": true,
-     "rel": "noopener"
+     "rel": "noopener nofollow",
+     "ariaLabel": "PNW Trenchless on Facebook"
     },
     "_cls": [
      "topbar__link"
@@ -2488,6 +2530,7 @@
     "link": {
      "type": "external",
      "url": "tel:{acf_site_phone}",
+     "rel": "dofollow",
      "ariaLabel": "Call or text {acf_site_phone}"
     },
     "_cls": [
@@ -2566,7 +2609,9 @@
     "text": "Get a Quote",
     "link": {
      "type": "external",
-     "url": "/contact/"
+     "url": "/contact/",
+     "rel": "dofollow",
+     "ariaLabel": "Contact page"
     },
     "_cls": [
      "btn--primary",
@@ -2687,7 +2732,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "tel:{acf_site_phone}"
+     "url": "tel:{acf_site_phone}",
+     "rel": "dofollow",
+     "ariaLabel": "Call {acf_site_phone}"
     },
     "_cls": [
      "bigphone"
@@ -2753,7 +2800,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "tel:{acf_site_phone}"
+     "url": "tel:{acf_site_phone}",
+     "rel": "dofollow",
+     "ariaLabel": "Call {acf_site_phone}"
     },
     "_cls": [
      "contact-way"
@@ -2801,7 +2850,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "sms:{acf_site_phone}"
+     "url": "sms:{acf_site_phone}",
+     "rel": "dofollow",
+     "ariaLabel": "Text {acf_site_phone}"
     },
     "_cls": [
      "contact-way"
@@ -2849,7 +2900,9 @@
     "tag": "a",
     "link": {
      "type": "external",
-     "url": "mailto:{acf_site_email}?subject=Quote%20request"
+     "url": "mailto:{acf_site_email}?subject=Quote%20request",
+     "rel": "dofollow",
+     "ariaLabel": "Email {acf_site_email}"
     },
     "_cls": [
      "contact-way"
@@ -2899,7 +2952,8 @@
      "type": "external",
      "url": "https://www.facebook.com/profile.php?id=61589495076554",
      "newTab": true,
-     "rel": "noopener"
+     "rel": "noopener nofollow",
+     "ariaLabel": "PNW Trenchless on Facebook"
     },
     "_cls": [
      "contact-way"
@@ -3177,6 +3231,7 @@
     "link": {
      "type": "external",
      "url": "/",
+     "rel": "dofollow",
      "ariaLabel": "PNW Trenchless home"
     },
     "_cls": [
@@ -3235,7 +3290,9 @@
     "text": "{acf_site_phone}",
     "link": {
      "type": "external",
-     "url": "tel:{acf_site_phone}"
+     "url": "tel:{acf_site_phone}",
+     "rel": "dofollow",
+     "ariaLabel": "Call {acf_site_phone}"
     },
     "_cls": [
      "footer__phone"
@@ -3251,7 +3308,9 @@
     "text": "{acf_site_email}",
     "link": {
      "type": "external",
-     "url": "mailto:{acf_site_email}"
+     "url": "mailto:{acf_site_email}",
+     "rel": "dofollow",
+     "ariaLabel": "Email {acf_site_email}"
     }
    }
   },
@@ -3276,7 +3335,7 @@
      "type": "external",
      "url": "https://www.facebook.com/profile.php?id=61589495076554",
      "newTab": true,
-     "rel": "noopener",
+     "rel": "noopener nofollow",
      "ariaLabel": "PNW Trenchless on Facebook"
     },
     "_cls": [
@@ -3304,6 +3363,7 @@
     "link": {
      "type": "external",
      "url": "mailto:{acf_site_email}",
+     "rel": "dofollow",
      "ariaLabel": "Email PNW Trenchless"
     },
     "_cls": [
@@ -3331,6 +3391,7 @@
     "link": {
      "type": "external",
      "url": "sms:{acf_site_phone}",
+     "rel": "dofollow",
      "ariaLabel": "Text PNW Trenchless"
     },
     "_cls": [
@@ -3381,7 +3442,9 @@
     "text": "Sewer Pipe Lining",
     "link": {
      "type": "external",
-     "url": "/services/sewer-pipe-lining/"
+     "url": "/services/sewer-pipe-lining/",
+     "rel": "dofollow",
+     "ariaLabel": "Sewer Pipe Lining page"
     }
    }
   },
@@ -3393,7 +3456,9 @@
     "text": "Pipe Bursting",
     "link": {
      "type": "external",
-     "url": "/services/pipe-bursting/"
+     "url": "/services/pipe-bursting/",
+     "rel": "dofollow",
+     "ariaLabel": "Pipe Bursting page"
     }
    }
   },
@@ -3405,7 +3470,9 @@
     "text": "Water Line Pulling",
     "link": {
      "type": "external",
-     "url": "/services/water-line-pulling/"
+     "url": "/services/water-line-pulling/",
+     "rel": "dofollow",
+     "ariaLabel": "Water Line Pulling page"
     }
    }
   },
@@ -3417,7 +3484,9 @@
     "text": "Point Repairs",
     "link": {
      "type": "external",
-     "url": "/services/point-repairs/"
+     "url": "/services/point-repairs/",
+     "rel": "dofollow",
+     "ariaLabel": "Point Repairs page"
     }
    }
   },
@@ -3453,7 +3522,9 @@
     "text": "Spokane",
     "link": {
      "type": "external",
-     "url": "/spokane/"
+     "url": "/spokane/",
+     "rel": "dofollow",
+     "ariaLabel": "Spokane page"
     }
    }
   },
@@ -3465,7 +3536,9 @@
     "text": "Spokane Valley",
     "link": {
      "type": "external",
-     "url": "/spokane-valley/"
+     "url": "/spokane-valley/",
+     "rel": "dofollow",
+     "ariaLabel": "Spokane Valley page"
     }
    }
   },
@@ -3477,7 +3550,9 @@
     "text": "Deer Park",
     "link": {
      "type": "external",
-     "url": "/deer-park/"
+     "url": "/deer-park/",
+     "rel": "dofollow",
+     "ariaLabel": "Deer Park page"
     }
    }
   },
@@ -3489,7 +3564,9 @@
     "text": "Clayton",
     "link": {
      "type": "external",
-     "url": "/clayton/"
+     "url": "/clayton/",
+     "rel": "dofollow",
+     "ariaLabel": "Clayton page"
     }
    }
   },
@@ -3501,7 +3578,9 @@
     "text": "Stevens County",
     "link": {
      "type": "external",
-     "url": "/stevens-county/"
+     "url": "/stevens-county/",
+     "rel": "dofollow",
+     "ariaLabel": "Stevens County page"
     }
    }
   },
@@ -3513,7 +3592,9 @@
     "text": "Spokane County",
     "link": {
      "type": "external",
-     "url": "/spokane-county/"
+     "url": "/spokane-county/",
+     "rel": "dofollow",
+     "ariaLabel": "Spokane County page"
     }
    }
   },
@@ -3549,7 +3630,9 @@
     "text": "About",
     "link": {
      "type": "external",
-     "url": "/about/"
+     "url": "/about/",
+     "rel": "dofollow",
+     "ariaLabel": "About page"
     }
    }
   },
@@ -3561,7 +3644,9 @@
     "text": "Who We Serve",
     "link": {
      "type": "external",
-     "url": "/who-we-serve/"
+     "url": "/who-we-serve/",
+     "rel": "dofollow",
+     "ariaLabel": "Who We Serve page"
     }
    }
   },
@@ -3573,7 +3658,9 @@
     "text": "Projects",
     "link": {
      "type": "external",
-     "url": "/projects/"
+     "url": "/projects/",
+     "rel": "dofollow",
+     "ariaLabel": "Projects page"
     }
    }
   },
@@ -3585,7 +3672,9 @@
     "text": "Reviews",
     "link": {
      "type": "external",
-     "url": "/reviews/"
+     "url": "/reviews/",
+     "rel": "dofollow",
+     "ariaLabel": "Reviews page"
     }
    }
   },
@@ -3597,7 +3686,9 @@
     "text": "Contact",
     "link": {
      "type": "external",
-     "url": "/contact/"
+     "url": "/contact/",
+     "rel": "dofollow",
+     "ariaLabel": "Contact page"
     }
    }
   },
@@ -3685,7 +3776,9 @@
     "text": "Privacy",
     "link": {
      "type": "external",
-     "url": "/privacy-policy/"
+     "url": "/privacy-policy/",
+     "rel": "dofollow",
+     "ariaLabel": "Privacy Policy page"
     }
    }
   },
@@ -3706,7 +3799,9 @@
     "text": "Accessibility",
     "link": {
      "type": "external",
-     "url": "#"
+     "url": "#",
+     "rel": "dofollow",
+     "ariaLabel": "Accessibility page"
     }
    }
   },
@@ -3735,7 +3830,9 @@
     "text": "Call / Text",
     "link": {
      "type": "external",
-     "url": "sms:{acf_site_phone}"
+     "url": "sms:{acf_site_phone}",
+     "rel": "dofollow",
+     "ariaLabel": "Text {acf_site_phone}"
     },
     "icon": {
      "library": "svg",
@@ -3760,7 +3857,9 @@
     "text": "Free Estimate",
     "link": {
      "type": "external",
-     "url": "#estimate"
+     "url": "#estimate",
+     "rel": "dofollow",
+     "ariaLabel": "Quote form section"
     },
     "_cls": [
      "btn--primary",
@@ -3950,7 +4049,9 @@
       "text": "Get a True &amp; Honest Quote",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "icon": {
        "library": "svg",
@@ -3973,7 +4074,9 @@
       "text": "Text a Photo of the Problem",
       "link": {
        "type": "external",
-       "url": "sms:{acf_site_phone}"
+       "url": "sms:{acf_site_phone}",
+       "rel": "dofollow",
+       "ariaLabel": "Text {acf_site_phone}"
       },
       "icon": {
        "library": "svg",
@@ -4212,7 +4315,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#services"
+       "url": "#services",
+       "rel": "dofollow",
+       "ariaLabel": "Services section"
       },
       "_cls": [
        "ticker__item"
@@ -4296,7 +4401,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#services"
+       "url": "#services",
+       "rel": "dofollow",
+       "ariaLabel": "Services section"
       },
       "_cls": [
        "ticker__item",
@@ -4381,7 +4488,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#services"
+       "url": "#services",
+       "rel": "dofollow",
+       "ariaLabel": "Services section"
       },
       "_cls": [
        "ticker__item"
@@ -4465,7 +4574,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#services"
+       "url": "#services",
+       "rel": "dofollow",
+       "ariaLabel": "Services section"
       },
       "_cls": [
        "ticker__item",
@@ -4573,7 +4684,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#services"
+       "url": "#services",
+       "rel": "dofollow",
+       "ariaLabel": "Services section"
       },
       "_cls": [
        "ticker__item"
@@ -4663,7 +4776,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#services"
+       "url": "#services",
+       "rel": "dofollow",
+       "ariaLabel": "Services section"
       },
       "_cls": [
        "ticker__item",
@@ -4754,7 +4869,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#services"
+       "url": "#services",
+       "rel": "dofollow",
+       "ariaLabel": "Services section"
       },
       "_cls": [
        "ticker__item"
@@ -4844,7 +4961,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "#services"
+       "url": "#services",
+       "rel": "dofollow",
+       "ariaLabel": "Services section"
       },
       "_cls": [
        "ticker__item",
@@ -5877,7 +5996,9 @@
       "text": "Book a camera inspection",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "icon": {
        "library": "svg",
@@ -7068,7 +7189,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/sewer-pipe-lining/"
+       "url": "/services/sewer-pipe-lining/",
+       "rel": "dofollow",
+       "ariaLabel": "Sewer Pipe Lining page"
       },
       "_cls": [
        "svc-card__art"
@@ -7139,7 +7262,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/sewer-pipe-lining/"
+       "url": "/services/sewer-pipe-lining/",
+       "rel": "dofollow",
+       "ariaLabel": "Sewer Pipe Lining page"
       },
       "_cls": [
        "svc-card__go"
@@ -7166,7 +7291,9 @@
       "tag": "h3",
       "link": {
        "type": "external",
-       "url": "/services/sewer-pipe-lining/"
+       "url": "/services/sewer-pipe-lining/",
+       "rel": "dofollow",
+       "ariaLabel": "Sewer Pipe Lining page"
       },
       "_cls": [
        "svc-card__title"
@@ -7277,7 +7404,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/pipe-bursting/"
+       "url": "/services/pipe-bursting/",
+       "rel": "dofollow",
+       "ariaLabel": "Pipe Bursting page"
       },
       "_cls": [
        "svc-card__art"
@@ -7348,7 +7477,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/pipe-bursting/"
+       "url": "/services/pipe-bursting/",
+       "rel": "dofollow",
+       "ariaLabel": "Pipe Bursting page"
       },
       "_cls": [
        "svc-card__go"
@@ -7375,7 +7506,9 @@
       "tag": "h3",
       "link": {
        "type": "external",
-       "url": "/services/pipe-bursting/"
+       "url": "/services/pipe-bursting/",
+       "rel": "dofollow",
+       "ariaLabel": "Pipe Bursting page"
       },
       "_cls": [
        "svc-card__title"
@@ -7499,7 +7632,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/water-line-pulling/"
+       "url": "/services/water-line-pulling/",
+       "rel": "dofollow",
+       "ariaLabel": "Water Line Pulling page"
       },
       "_cls": [
        "svc-card__art"
@@ -7570,7 +7705,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/water-line-pulling/"
+       "url": "/services/water-line-pulling/",
+       "rel": "dofollow",
+       "ariaLabel": "Water Line Pulling page"
       },
       "_cls": [
        "svc-card__go"
@@ -7597,7 +7734,9 @@
       "tag": "h3",
       "link": {
        "type": "external",
-       "url": "/services/water-line-pulling/"
+       "url": "/services/water-line-pulling/",
+       "rel": "dofollow",
+       "ariaLabel": "Water Line Pulling page"
       },
       "_cls": [
        "svc-card__title"
@@ -7708,7 +7847,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/point-repairs/"
+       "url": "/services/point-repairs/",
+       "rel": "dofollow",
+       "ariaLabel": "Point Repairs page"
       },
       "_cls": [
        "svc-card__art"
@@ -7779,7 +7920,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/point-repairs/"
+       "url": "/services/point-repairs/",
+       "rel": "dofollow",
+       "ariaLabel": "Point Repairs page"
       },
       "_cls": [
        "svc-card__go"
@@ -7806,7 +7949,9 @@
       "tag": "h3",
       "link": {
        "type": "external",
-       "url": "/services/point-repairs/"
+       "url": "/services/point-repairs/",
+       "rel": "dofollow",
+       "ariaLabel": "Point Repairs page"
       },
       "_cls": [
        "svc-card__title"
@@ -7937,7 +8082,9 @@
       "text": "Request a quote",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "icon": {
        "library": "svg",
@@ -9671,7 +9818,9 @@
       "text": "Start with step 01",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "icon": {
        "library": "svg",
@@ -10267,7 +10416,9 @@
       "text": "Read Mike's full story",
       "link": {
        "type": "external",
-       "url": "/about/"
+       "url": "/about/",
+       "rel": "dofollow",
+       "ariaLabel": "About page"
       },
       "_cls": [
        "link-arrow"
@@ -10352,7 +10503,9 @@
       "text": "See all projects",
       "link": {
        "type": "external",
-       "url": "/projects/"
+       "url": "/projects/",
+       "rel": "dofollow",
+       "ariaLabel": "Projects page"
       },
       "_cls": [
        "link-arrow"
@@ -10789,7 +10942,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "{post_url}"
+       "url": "{post_url}",
+       "rel": "dofollow",
+       "ariaLabel": "{post_title}"
       },
       "hasLoop": true,
       "query": {
@@ -11064,7 +11219,8 @@
        "type": "external",
        "url": "{acf_site_google_url}",
        "newTab": true,
-       "rel": "noopener"
+       "rel": "noopener nofollow",
+       "ariaLabel": "PNW Trenchless on Google"
       },
       "_conditions": [
        [
@@ -11523,7 +11679,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "_cls": [
        "city"
@@ -11569,7 +11727,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "_cls": [
        "city"
@@ -11615,7 +11775,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "_cls": [
        "city"
@@ -11661,7 +11823,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "_cls": [
        "city"
@@ -11707,7 +11871,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "_cls": [
        "city"
@@ -11753,7 +11919,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "_cls": [
        "city"
@@ -11960,7 +12128,9 @@
       "text": "{acf_site_phone}",
       "link": {
        "type": "external",
-       "url": "tel:{acf_site_phone}"
+       "url": "tel:{acf_site_phone}",
+       "rel": "dofollow",
+       "ariaLabel": "Call {acf_site_phone}"
       },
       "icon": {
        "library": "svg",
@@ -12662,7 +12832,9 @@
         "text": "Home",
         "link": {
          "type": "external",
-         "url": "/"
+         "url": "/",
+         "rel": "dofollow",
+         "ariaLabel": "Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -12690,7 +12862,9 @@
         "text": "Services",
         "link": {
          "type": "external",
-         "url": "/#services"
+         "url": "/#services",
+         "rel": "dofollow",
+         "ariaLabel": "Services section on the Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -12816,7 +12990,9 @@
         "text": "See if lining works for your pipe",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -12839,7 +13015,9 @@
         "text": "Call or text {acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -13511,7 +13689,9 @@
         "text": "Pipe bursting",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "fit-card__alt"
@@ -13548,7 +13728,9 @@
         "text": "Pipe bursting",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "fit-card__alt"
@@ -13620,7 +13802,9 @@
         "text": "Bursting to upsize",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "fit-card__alt"
@@ -14878,7 +15062,9 @@
         "text": "Get my written quote",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -15121,7 +15307,9 @@
         "text": "About Mike",
         "link": {
          "type": "external",
-         "url": "/about/"
+         "url": "/about/",
+         "rel": "dofollow",
+         "ariaLabel": "About page"
         },
         "_cls": [
          "link-arrow"
@@ -15205,7 +15393,9 @@
         "text": "All projects",
         "link": {
          "type": "external",
-         "url": "/projects/"
+         "url": "/projects/",
+         "rel": "dofollow",
+         "ariaLabel": "Projects page"
         },
         "_cls": [
          "link-arrow"
@@ -15766,7 +15956,9 @@
         "text": "{acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -16341,7 +16533,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "related__link"
@@ -16415,7 +16609,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/water-line-pulling/"
+         "url": "/services/water-line-pulling/",
+         "rel": "dofollow",
+         "ariaLabel": "Water Line Pulling page"
         },
         "_cls": [
          "related__link"
@@ -16489,7 +16685,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#services"
+         "url": "/#services",
+         "rel": "dofollow",
+         "ariaLabel": "Services section on the Home page"
         },
         "_cls": [
          "related__link"
@@ -16563,7 +16761,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#how"
+         "url": "/#how",
+         "rel": "dofollow",
+         "ariaLabel": "How It Works section on the Home page"
         },
         "_cls": [
          "related__link"
@@ -16677,7 +16877,9 @@
         "text": "Spokane",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -16693,7 +16895,9 @@
         "text": "Spokane Valley",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -16709,7 +16913,9 @@
         "text": "Deer Park",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -16725,7 +16931,9 @@
         "text": "Clayton",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -16741,7 +16949,9 @@
         "text": "Stevens County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -16757,7 +16967,9 @@
         "text": "Spokane County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -16850,7 +17062,9 @@
         "text": "Home",
         "link": {
          "type": "external",
-         "url": "/"
+         "url": "/",
+         "rel": "dofollow",
+         "ariaLabel": "Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -16976,7 +17190,9 @@
         "text": "Talk to Mike about your line",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -16999,7 +17215,9 @@
         "text": "{acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -19041,7 +19259,8 @@
          "type": "external",
          "url": "https://secure.lni.wa.gov/verify/",
          "newTab": true,
-         "rel": "noopener"
+         "rel": "noopener nofollow",
+         "ariaLabel": "WA Contractor Registration verification on the Washington L&I website"
         },
         "_cls": [
          "link-arrow"
@@ -19362,7 +19581,9 @@
         "text": "Spokane",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -19378,7 +19599,9 @@
         "text": "Spokane Valley",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -19394,7 +19617,9 @@
         "text": "Deer Park",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -19410,7 +19635,9 @@
         "text": "Clayton",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -19426,7 +19653,9 @@
         "text": "Stevens County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -19442,7 +19671,9 @@
         "text": "Spokane County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -19458,7 +19689,9 @@
         "text": "See our service areas",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "link-arrow"
@@ -19571,7 +19804,9 @@
         "text": "All reviews",
         "link": {
          "type": "external",
-         "url": "/reviews/"
+         "url": "/reviews/",
+         "rel": "dofollow",
+         "ariaLabel": "Reviews page"
         },
         "_cls": [
          "link-arrow"
@@ -19824,7 +20059,9 @@
         "text": "Home",
         "link": {
          "type": "external",
-         "url": "/"
+         "url": "/",
+         "rel": "dofollow",
+         "ariaLabel": "Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -20074,7 +20311,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "_cls": [
          "reach__item",
@@ -20173,7 +20412,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "sms:{acf_site_phone}"
+         "url": "sms:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Text {acf_site_phone}"
         },
         "_cls": [
          "reach__item"
@@ -20271,7 +20512,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "mailto:{acf_site_email}?subject=Quote%20request"
+         "url": "mailto:{acf_site_email}?subject=Quote%20request",
+         "rel": "dofollow",
+         "ariaLabel": "Email {acf_site_email}"
         },
         "_cls": [
          "reach__item"
@@ -20371,7 +20614,8 @@
          "type": "external",
          "url": "https://www.facebook.com/profile.php?id=61589495076554",
          "newTab": true,
-         "rel": "noopener"
+         "rel": "noopener nofollow",
+         "ariaLabel": "PNW Trenchless on Facebook"
         },
         "_cls": [
          "reach__item"
@@ -21233,7 +21477,9 @@
         "text": "Call {acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -21256,7 +21502,9 @@
         "text": "Text a photo",
         "link": {
          "type": "external",
-         "url": "sms:{acf_site_phone}"
+         "url": "sms:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Text {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -21378,7 +21626,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "city"
@@ -21424,7 +21674,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "city"
@@ -21470,7 +21722,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "city"
@@ -21516,7 +21770,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "city"
@@ -21562,7 +21818,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "city"
@@ -21608,7 +21866,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "city"
@@ -21814,7 +22074,9 @@
         "text": "{acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -22159,7 +22421,9 @@
         "text": "Home",
         "link": {
          "type": "external",
-         "url": "/"
+         "url": "/",
+         "rel": "dofollow",
+         "ariaLabel": "Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -22187,7 +22451,9 @@
         "text": "Services",
         "link": {
          "type": "external",
-         "url": "/#services"
+         "url": "/#services",
+         "rel": "dofollow",
+         "ariaLabel": "Services section on the Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -22313,7 +22579,9 @@
         "text": "See if bursting fits your line",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -22336,7 +22604,9 @@
         "text": "Call or text {acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -23008,7 +23278,9 @@
         "text": "Pipe lining",
         "link": {
          "type": "external",
-         "url": "/services/sewer-pipe-lining/"
+         "url": "/services/sewer-pipe-lining/",
+         "rel": "dofollow",
+         "ariaLabel": "Sewer Pipe Lining page"
         },
         "_cls": [
          "fit-card__alt"
@@ -23045,7 +23317,9 @@
         "text": "Pipe lining",
         "link": {
          "type": "external",
-         "url": "/services/sewer-pipe-lining/"
+         "url": "/services/sewer-pipe-lining/",
+         "rel": "dofollow",
+         "ariaLabel": "Sewer Pipe Lining page"
         },
         "_cls": [
          "fit-card__alt"
@@ -23117,7 +23391,9 @@
         "text": "Point repair",
         "link": {
          "type": "external",
-         "url": "/services/point-repairs/"
+         "url": "/services/point-repairs/",
+         "rel": "dofollow",
+         "ariaLabel": "Point Repairs page"
         },
         "_cls": [
          "fit-card__alt"
@@ -24375,7 +24651,9 @@
         "text": "Get my written quote",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -24618,7 +24896,9 @@
         "text": "About Mike",
         "link": {
          "type": "external",
-         "url": "/about/"
+         "url": "/about/",
+         "rel": "dofollow",
+         "ariaLabel": "About page"
         },
         "_cls": [
          "link-arrow"
@@ -24702,7 +24982,9 @@
         "text": "All projects",
         "link": {
          "type": "external",
-         "url": "/projects/"
+         "url": "/projects/",
+         "rel": "dofollow",
+         "ariaLabel": "Projects page"
         },
         "_cls": [
          "link-arrow"
@@ -25263,7 +25545,9 @@
         "text": "{acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -25780,7 +26064,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/sewer-pipe-lining/"
+         "url": "/services/sewer-pipe-lining/",
+         "rel": "dofollow",
+         "ariaLabel": "Sewer Pipe Lining page"
         },
         "_cls": [
          "related__link"
@@ -25854,7 +26140,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/water-line-pulling/"
+         "url": "/services/water-line-pulling/",
+         "rel": "dofollow",
+         "ariaLabel": "Water Line Pulling page"
         },
         "_cls": [
          "related__link"
@@ -25928,7 +26216,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#services"
+         "url": "/#services",
+         "rel": "dofollow",
+         "ariaLabel": "Services section on the Home page"
         },
         "_cls": [
          "related__link"
@@ -26002,7 +26292,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#how"
+         "url": "/#how",
+         "rel": "dofollow",
+         "ariaLabel": "How It Works section on the Home page"
         },
         "_cls": [
          "related__link"
@@ -26116,7 +26408,9 @@
         "text": "Spokane",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -26132,7 +26426,9 @@
         "text": "Spokane Valley",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -26148,7 +26444,9 @@
         "text": "Deer Park",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -26164,7 +26462,9 @@
         "text": "Clayton",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -26180,7 +26480,9 @@
         "text": "Stevens County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -26196,7 +26498,9 @@
         "text": "Spokane County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -26289,7 +26593,9 @@
         "text": "Home",
         "link": {
          "type": "external",
-         "url": "/"
+         "url": "/",
+         "rel": "dofollow",
+         "ariaLabel": "Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -27162,7 +27468,9 @@
         "text": "View project",
         "link": {
          "type": "external",
-         "url": "{post_url}"
+         "url": "{post_url}",
+         "rel": "dofollow",
+         "ariaLabel": "View {post_title}"
         },
         "_cls": [
          "link-arrow",
@@ -27192,7 +27500,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "{post_url}"
+         "url": "{post_url}",
+         "rel": "dofollow",
+         "ariaLabel": "{post_title}"
         },
         "hasLoop": true,
         "query": {
@@ -27767,7 +28077,9 @@
         "text": "All reviews",
         "link": {
          "type": "external",
-         "url": "/reviews/"
+         "url": "/reviews/",
+         "rel": "dofollow",
+         "ariaLabel": "Reviews page"
         },
         "_cls": [
          "link-arrow"
@@ -28020,7 +28332,9 @@
         "text": "Home",
         "link": {
          "type": "external",
-         "url": "/"
+         "url": "/",
+         "rel": "dofollow",
+         "ariaLabel": "Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -28148,7 +28462,8 @@
          "type": "external",
          "url": "{acf_site_google_url}",
          "newTab": true,
-         "rel": "noopener"
+         "rel": "noopener nofollow",
+         "ariaLabel": "PNW Trenchless on Google"
         },
         "icon": {
          "library": "svg",
@@ -28182,7 +28497,9 @@
         "text": "Leave a review",
         "link": {
          "type": "external",
-         "url": "#leave"
+         "url": "#leave",
+         "rel": "dofollow",
+         "ariaLabel": "Leave a review section"
         },
         "icon": {
          "library": "svg",
@@ -28563,7 +28880,8 @@
          "type": "external",
          "url": "{acf_site_google_url}",
          "newTab": true,
-         "rel": "noopener"
+         "rel": "noopener nofollow",
+         "ariaLabel": "PNW Trenchless on Google"
         },
         "icon": {
          "library": "svg",
@@ -28668,7 +28986,8 @@
          "type": "external",
          "url": "{acf_site_google_url}",
          "newTab": true,
-         "rel": "noopener"
+         "rel": "noopener nofollow",
+         "ariaLabel": "PNW Trenchless on Google"
         },
         "icon": {
          "library": "svg",
@@ -28974,7 +29293,9 @@
         "text": "All projects",
         "link": {
          "type": "external",
-         "url": "/projects/"
+         "url": "/projects/",
+         "rel": "dofollow",
+         "ariaLabel": "Projects page"
         },
         "_cls": [
          "link-arrow"
@@ -29002,7 +29323,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "{post_url}"
+         "url": "{post_url}",
+         "rel": "dofollow",
+         "ariaLabel": "{post_title}"
         },
         "hasLoop": true,
         "query": {
@@ -29201,7 +29524,9 @@
         "text": "Home",
         "link": {
          "type": "external",
-         "url": "/"
+         "url": "/",
+         "rel": "dofollow",
+         "ariaLabel": "Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -29229,7 +29554,9 @@
         "text": "Services",
         "link": {
          "type": "external",
-         "url": "/#services"
+         "url": "/#services",
+         "rel": "dofollow",
+         "ariaLabel": "Services section on the Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -29355,7 +29682,9 @@
         "text": "Get a water line quote",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -29378,7 +29707,9 @@
         "text": "Call or text {acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -30120,7 +30451,9 @@
         "text": "Sewer lining",
         "link": {
          "type": "external",
-         "url": "/services/sewer-pipe-lining/"
+         "url": "/services/sewer-pipe-lining/",
+         "rel": "dofollow",
+         "ariaLabel": "Sewer Pipe Lining page"
         },
         "_cls": [
          "fit-card__alt"
@@ -30157,7 +30490,9 @@
         "text": "Pipe bursting",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "fit-card__alt"
@@ -31160,7 +31495,9 @@
         "text": "Get my written quote",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -31403,7 +31740,9 @@
         "text": "About Mike",
         "link": {
          "type": "external",
-         "url": "/about/"
+         "url": "/about/",
+         "rel": "dofollow",
+         "ariaLabel": "About page"
         },
         "_cls": [
          "link-arrow"
@@ -31487,7 +31826,9 @@
         "text": "All projects",
         "link": {
          "type": "external",
-         "url": "/projects/"
+         "url": "/projects/",
+         "rel": "dofollow",
+         "ariaLabel": "Projects page"
         },
         "_cls": [
          "link-arrow"
@@ -31515,7 +31856,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "{post_url}"
+         "url": "{post_url}",
+         "rel": "dofollow",
+         "ariaLabel": "{post_title}"
         },
         "hasLoop": true,
         "query": {
@@ -31946,7 +32289,9 @@
         "text": "{acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -32463,7 +32808,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/sewer-pipe-lining/"
+         "url": "/services/sewer-pipe-lining/",
+         "rel": "dofollow",
+         "ariaLabel": "Sewer Pipe Lining page"
         },
         "_cls": [
          "related__link"
@@ -32537,7 +32884,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "related__link"
@@ -32611,7 +32960,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/point-repairs/"
+         "url": "/services/point-repairs/",
+         "rel": "dofollow",
+         "ariaLabel": "Point Repairs page"
         },
         "_cls": [
          "related__link"
@@ -32685,7 +33036,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#how"
+         "url": "/#how",
+         "rel": "dofollow",
+         "ariaLabel": "How It Works section on the Home page"
         },
         "_cls": [
          "related__link"
@@ -32799,7 +33152,9 @@
         "text": "Spokane",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -32815,7 +33170,9 @@
         "text": "Spokane Valley",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -32831,7 +33188,9 @@
         "text": "Deer Park",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -32847,7 +33206,9 @@
         "text": "Clayton",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -32863,7 +33224,9 @@
         "text": "Stevens County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -32879,7 +33242,9 @@
         "text": "Spokane County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -32971,7 +33336,9 @@
         "text": "Home",
         "link": {
          "type": "external",
-         "url": "/"
+         "url": "/",
+         "rel": "dofollow",
+         "ariaLabel": "Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -32999,7 +33366,9 @@
         "text": "Services",
         "link": {
          "type": "external",
-         "url": "/#services"
+         "url": "/#services",
+         "rel": "dofollow",
+         "ariaLabel": "Services section on the Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -33125,7 +33494,9 @@
         "text": "See if a spot fix will do",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -33148,7 +33519,9 @@
         "text": "Call or text {acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -33820,7 +34193,9 @@
         "text": "Pipe lining",
         "link": {
          "type": "external",
-         "url": "/services/sewer-pipe-lining/"
+         "url": "/services/sewer-pipe-lining/",
+         "rel": "dofollow",
+         "ariaLabel": "Sewer Pipe Lining page"
         },
         "_cls": [
          "fit-card__alt"
@@ -33857,7 +34232,9 @@
         "text": "Pipe bursting",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "fit-card__alt"
@@ -33929,7 +34306,9 @@
         "text": "Water line pulling",
         "link": {
          "type": "external",
-         "url": "/services/water-line-pulling/"
+         "url": "/services/water-line-pulling/",
+         "rel": "dofollow",
+         "ariaLabel": "Water Line Pulling page"
         },
         "_cls": [
          "fit-card__alt"
@@ -35187,7 +35566,9 @@
         "text": "Get my written quote",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -35430,7 +35811,9 @@
         "text": "About Mike",
         "link": {
          "type": "external",
-         "url": "/about/"
+         "url": "/about/",
+         "rel": "dofollow",
+         "ariaLabel": "About page"
         },
         "_cls": [
          "link-arrow"
@@ -35514,7 +35897,9 @@
         "text": "All projects",
         "link": {
          "type": "external",
-         "url": "/projects/"
+         "url": "/projects/",
+         "rel": "dofollow",
+         "ariaLabel": "Projects page"
         },
         "_cls": [
          "link-arrow"
@@ -35542,7 +35927,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "{post_url}"
+         "url": "{post_url}",
+         "rel": "dofollow",
+         "ariaLabel": "{post_title}"
         },
         "hasLoop": true,
         "query": {
@@ -35973,7 +36360,9 @@
         "text": "{acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -36490,7 +36879,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/sewer-pipe-lining/"
+         "url": "/services/sewer-pipe-lining/",
+         "rel": "dofollow",
+         "ariaLabel": "Sewer Pipe Lining page"
         },
         "_cls": [
          "related__link"
@@ -36564,7 +36955,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "related__link"
@@ -36638,7 +37031,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/water-line-pulling/"
+         "url": "/services/water-line-pulling/",
+         "rel": "dofollow",
+         "ariaLabel": "Water Line Pulling page"
         },
         "_cls": [
          "related__link"
@@ -36712,7 +37107,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/#how"
+         "url": "/#how",
+         "rel": "dofollow",
+         "ariaLabel": "How It Works section on the Home page"
         },
         "_cls": [
          "related__link"
@@ -36826,7 +37223,9 @@
         "text": "Spokane",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -36842,7 +37241,9 @@
         "text": "Spokane Valley",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -36858,7 +37259,9 @@
         "text": "Deer Park",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -36874,7 +37277,9 @@
         "text": "Clayton",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -36890,7 +37295,9 @@
         "text": "Stevens County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -36906,7 +37313,9 @@
         "text": "Spokane County",
         "link": {
          "type": "external",
-         "url": "/#areas"
+         "url": "/#areas",
+         "rel": "dofollow",
+         "ariaLabel": "Service Areas section on the Home page"
         },
         "_cls": [
          "near__city"
@@ -36999,7 +37408,9 @@
         "text": "Home",
         "link": {
          "type": "external",
-         "url": "/"
+         "url": "/",
+         "rel": "dofollow",
+         "ariaLabel": "Home page"
         },
         "_cls": [
          "crumbs__link"
@@ -37125,7 +37536,9 @@
         "text": "Request a quote",
         "link": {
          "type": "external",
-         "url": "/contact/"
+         "url": "/contact/",
+         "rel": "dofollow",
+         "ariaLabel": "Contact page"
         },
         "icon": {
          "library": "svg",
@@ -37148,7 +37561,9 @@
         "text": "Call or text {acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -37206,7 +37621,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "#homes"
+         "url": "#homes",
+         "rel": "dofollow",
+         "ariaLabel": "Homeowners section"
         },
         "_cls": [
          "jump__item"
@@ -37311,7 +37728,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "#commercial"
+         "url": "#commercial",
+         "rel": "dofollow",
+         "ariaLabel": "Commercial properties section"
         },
         "_cls": [
          "jump__item"
@@ -37416,7 +37835,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "#industrial"
+         "url": "#industrial",
+         "rel": "dofollow",
+         "ariaLabel": "Industrial & municipal section"
         },
         "_cls": [
          "jump__item"
@@ -37897,7 +38318,9 @@
         "text": "Sewer pipe lining",
         "link": {
          "type": "external",
-         "url": "/services/sewer-pipe-lining/"
+         "url": "/services/sewer-pipe-lining/",
+         "rel": "dofollow",
+         "ariaLabel": "Sewer Pipe Lining page"
         },
         "_cls": [
          "who__link"
@@ -37913,7 +38336,9 @@
         "text": "Pipe bursting",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "who__link"
@@ -37929,7 +38354,9 @@
         "text": "Water line pulling",
         "link": {
          "type": "external",
-         "url": "/services/water-line-pulling/"
+         "url": "/services/water-line-pulling/",
+         "rel": "dofollow",
+         "ariaLabel": "Water Line Pulling page"
         },
         "_cls": [
          "who__link"
@@ -37945,7 +38372,9 @@
         "text": "Point repairs",
         "link": {
          "type": "external",
-         "url": "/services/point-repairs/"
+         "url": "/services/point-repairs/",
+         "rel": "dofollow",
+         "ariaLabel": "Point Repairs page"
         },
         "_cls": [
          "who__link"
@@ -39856,7 +40285,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/sewer-pipe-lining/"
+         "url": "/services/sewer-pipe-lining/",
+         "rel": "dofollow",
+         "ariaLabel": "Sewer Pipe Lining page"
         },
         "_cls": [
          "ws-svc__item"
@@ -39956,7 +40387,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/pipe-bursting/"
+         "url": "/services/pipe-bursting/",
+         "rel": "dofollow",
+         "ariaLabel": "Pipe Bursting page"
         },
         "_cls": [
          "ws-svc__item"
@@ -40056,7 +40489,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/water-line-pulling/"
+         "url": "/services/water-line-pulling/",
+         "rel": "dofollow",
+         "ariaLabel": "Water Line Pulling page"
         },
         "_cls": [
          "ws-svc__item"
@@ -40156,7 +40591,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "/services/point-repairs/"
+         "url": "/services/point-repairs/",
+         "rel": "dofollow",
+         "ariaLabel": "Point Repairs page"
         },
         "_cls": [
          "ws-svc__item"
@@ -40316,7 +40753,9 @@
         "text": "All projects",
         "link": {
          "type": "external",
-         "url": "/projects/"
+         "url": "/projects/",
+         "rel": "dofollow",
+         "ariaLabel": "Projects page"
         },
         "_cls": [
          "link-arrow"
@@ -40344,7 +40783,9 @@
         "tag": "a",
         "link": {
          "type": "external",
-         "url": "{post_url}"
+         "url": "{post_url}",
+         "rel": "dofollow",
+         "ariaLabel": "{post_title}"
         },
         "hasLoop": true,
         "query": {
@@ -40545,7 +40986,9 @@
         "text": "{acf_site_phone}",
         "link": {
          "type": "external",
-         "url": "tel:{acf_site_phone}"
+         "url": "tel:{acf_site_phone}",
+         "rel": "dofollow",
+         "ariaLabel": "Call {acf_site_phone}"
         },
         "icon": {
          "library": "svg",
@@ -41002,7 +41445,9 @@
       "text": "Home",
       "link": {
        "type": "external",
-       "url": "/"
+       "url": "/",
+       "rel": "dofollow",
+       "ariaLabel": "Home page"
       },
       "_cls": [
        "crumbs__link"
@@ -41030,7 +41475,9 @@
       "text": "Projects",
       "link": {
        "type": "external",
-       "url": "/projects/"
+       "url": "/projects/",
+       "rel": "dofollow",
+       "ariaLabel": "Projects page"
       },
       "_cls": [
        "crumbs__link"
@@ -42332,7 +42779,9 @@
       "text": "Get a quote like this",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "icon": {
        "library": "svg",
@@ -42356,7 +42805,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "tel:{acf_site_phone}"
+       "url": "tel:{acf_site_phone}",
+       "rel": "dofollow",
+       "ariaLabel": "Call {acf_site_phone}"
       },
       "_cls": [
        "pj-card__phone"
@@ -42716,7 +43167,9 @@
       "text": "All reviews",
       "link": {
        "type": "external",
-       "url": "/reviews/"
+       "url": "/reviews/",
+       "rel": "dofollow",
+       "ariaLabel": "Reviews page"
       },
       "_cls": [
        "link-arrow"
@@ -42955,7 +43408,9 @@
       "text": "All projects",
       "link": {
        "type": "external",
-       "url": "/projects/"
+       "url": "/projects/",
+       "rel": "dofollow",
+       "ariaLabel": "Projects page"
       },
       "_cls": [
        "link-arrow"
@@ -42983,7 +43438,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "{post_url}"
+       "url": "{post_url}",
+       "rel": "dofollow",
+       "ariaLabel": "{post_title}"
       },
       "hasLoop": true,
       "query": {
@@ -43170,7 +43627,9 @@
       "text": "Home",
       "link": {
        "type": "external",
-       "url": "/"
+       "url": "/",
+       "rel": "dofollow",
+       "ariaLabel": "Home page"
       },
       "_cls": [
        "crumbs__link"
@@ -43198,7 +43657,9 @@
       "text": "Service areas",
       "link": {
        "type": "external",
-       "url": "/#areas"
+       "url": "/#areas",
+       "rel": "dofollow",
+       "ariaLabel": "Service Areas section on the Home page"
       },
       "_cls": [
        "crumbs__link"
@@ -43269,7 +43730,9 @@
       "text": "Get a quote",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "icon": {
        "library": "svg",
@@ -43292,7 +43755,9 @@
       "text": "{acf_site_phone}",
       "link": {
        "type": "external",
-       "url": "tel:{acf_site_phone}"
+       "url": "tel:{acf_site_phone}",
+       "rel": "dofollow",
+       "ariaLabel": "Call {acf_site_phone}"
       },
       "icon": {
        "library": "svg",
@@ -43530,7 +43995,9 @@
       "text": "All projects",
       "link": {
        "type": "external",
-       "url": "/projects/"
+       "url": "/projects/",
+       "rel": "dofollow",
+       "ariaLabel": "Projects page"
       },
       "_cls": [
        "link-arrow"
@@ -43559,7 +44026,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "{post_url}"
+       "url": "{post_url}",
+       "rel": "dofollow",
+       "ariaLabel": "{post_title}"
       },
       "hasLoop": true,
       "query": {
@@ -43743,7 +44212,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/sewer-pipe-lining/"
+       "url": "/services/sewer-pipe-lining/",
+       "rel": "dofollow",
+       "ariaLabel": "Sewer Pipe Lining page"
       },
       "_cls": [
        "widget__svc-item"
@@ -43790,7 +44261,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/pipe-bursting/"
+       "url": "/services/pipe-bursting/",
+       "rel": "dofollow",
+       "ariaLabel": "Pipe Bursting page"
       },
       "_cls": [
        "widget__svc-item"
@@ -43837,7 +44310,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/water-line-pulling/"
+       "url": "/services/water-line-pulling/",
+       "rel": "dofollow",
+       "ariaLabel": "Water Line Pulling page"
       },
       "_cls": [
        "widget__svc-item"
@@ -43884,7 +44359,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "/services/point-repairs/"
+       "url": "/services/point-repairs/",
+       "rel": "dofollow",
+       "ariaLabel": "Point Repairs page"
       },
       "_cls": [
        "widget__svc-item"
@@ -43955,7 +44432,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "{post_url}"
+       "url": "{post_url}",
+       "rel": "dofollow",
+       "ariaLabel": "{post_title}"
       },
       "hasLoop": true,
       "query": {
@@ -44085,7 +44564,9 @@
       "text": "{post_title}",
       "link": {
        "type": "external",
-       "url": "{post_url}"
+       "url": "{post_url}",
+       "rel": "dofollow",
+       "ariaLabel": "{post_title}"
       },
       "_cls": [
        "widget__area"
@@ -44174,7 +44655,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "tel:{acf_site_phone}"
+       "url": "tel:{acf_site_phone}",
+       "rel": "dofollow",
+       "ariaLabel": "Call {acf_site_phone}"
       },
       "_cls": [
        "widget__contact-item"
@@ -44220,7 +44703,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "mailto:{acf_site_email}"
+       "url": "mailto:{acf_site_email}",
+       "rel": "dofollow",
+       "ariaLabel": "Email {acf_site_email}"
       },
       "_cls": [
        "widget__contact-item"
@@ -44279,7 +44764,9 @@
       "text": "Contact us",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "_cls": [
        "link-arrow"
@@ -44330,7 +44817,9 @@
       "tag": "a",
       "link": {
        "type": "external",
-       "url": "tel:{acf_site_phone}"
+       "url": "tel:{acf_site_phone}",
+       "rel": "dofollow",
+       "ariaLabel": "Call {acf_site_phone}"
       },
       "_cls": [
        "widget__phone"
@@ -44365,7 +44854,9 @@
       "text": "Get a quote",
       "link": {
        "type": "external",
-       "url": "/contact/"
+       "url": "/contact/",
+       "rel": "dofollow",
+       "ariaLabel": "Contact page"
       },
       "icon": {
        "library": "svg",
