@@ -1,5 +1,6 @@
 package com.horizon.launcher.ui
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -34,6 +35,7 @@ import com.horizon.launcher.AccentColors
 import com.horizon.launcher.LauncherViewModel
 import com.horizon.launcher.openDefaultHomeSettings
 import com.horizon.launcher.openWallpaperPicker
+import com.horizon.launcher.wallpaper.VideoWallpaperActivity
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -95,6 +97,12 @@ fun SettingsSheet(vm: LauncherViewModel, onDismiss: () -> Unit) {
             }
 
             Spacer(Modifier.height(4.dp))
+            FilledTonalButton(
+                onClick = { context.startActivity(Intent(context, VideoWallpaperActivity::class.java)) },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text("Video wallpaper")
+            }
             FilledTonalButton(onClick = { context.openWallpaperPicker() }, modifier = Modifier.fillMaxWidth()) {
                 Text("Change wallpaper")
             }

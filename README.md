@@ -12,6 +12,27 @@ You don't need root, nothing gets wiped, and you can switch back to your old lau
 - Hold an empty spot on the home screen for settings: accent colour (6 choices), 24-hour clock, drawer columns (3–6), wallpaper, default home app
 - Pressing Home always brings you back to the home page; Back closes the drawer
 
+## Video wallpaper
+
+Use your own videos as a moving wallpaper on the home screen and lock screen.
+Open it from Horizon's settings (hold the home screen, then tap **Video wallpaper**). Then:
+
+1. Tap **Add videos** and pick one or more videos. MP4 loops under a minute are best for battery.
+2. Adjust the settings (listed below). Changes apply straight away.
+3. Tap **Set as wallpaper**, then choose **Home screen and lock screen**.
+
+Settings:
+
+- **Playback:** speed from 0.25× to 2×, start and stop points, mute
+- **Order and timing:** loop one video, play all in order, or switch every 1–60 minutes; shuffle
+- **Transitions:** fade between videos, 0.2–3 s
+- **Look:** fill the screen (crop) or fit the whole video; dim up to 80 %
+- **When to play:** on the lock screen, pause while the app drawer is open, pause in battery saver, or freeze 5/10/30 s after unlocking
+- **Idle screen:** the same videos as Android's screen saver while the phone charges (Settings › Display › Screen saver › Horizon Video)
+
+The video always pauses while an app is open or the screen is off, so it doesn't drain the battery in the background.
+Android doesn't let apps change the boot animation or the unlock animation without root.
+
 ## Install on your phone
 
 1. On your phone, open this repository's **Releases** page on GitHub and pick the newest *Horizon Launcher (build N)*.
@@ -50,3 +71,8 @@ The APK is written to `app/build/outputs/apk/release/app-release.apk`.
 | `ui/AppDrawer.kt` | Searchable app grid and the app long-press menu |
 | `ui/SettingsSheet.kt` | Settings panel |
 | `ui/Theme.kt` | Colours and the text style used over the wallpaper |
+| `wallpaper/VideoWallpaperService.kt` | The live wallpaper Android runs |
+| `wallpaper/VideoRenderer.kt` | Video playback (Media3 ExoPlayer) and OpenGL drawing: fit/fill, dim, fades |
+| `wallpaper/VideoDreamService.kt` | The screen saver |
+| `wallpaper/VideoWallpaperActivity.kt` | Video wallpaper settings screen |
+| `wallpaper/VideoSettings.kt` | Saved video wallpaper settings |
